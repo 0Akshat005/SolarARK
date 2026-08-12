@@ -5,7 +5,8 @@
 
 import React from 'react';
 import { CITIES_LIST } from '../data/solarData';
-import { Sun, Phone, Mail, MapPin, ShieldCheck, Star } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Star } from 'lucide-react';
+import { SolarArkLogo } from './SolarArkLogo';
 
 export const Footer: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   return (
@@ -43,13 +44,8 @@ export const Footer: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => 
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <a href="#" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#1D5FE0] flex items-center justify-center text-white">
-                <Sun className="w-5 h-5 text-[#FFB020]" />
-              </div>
-              <span className="font-heading font-bold text-xl text-white">
-                Solar<span className="text-[#1D5FE0]">ARK</span>
-              </span>
+            <a href="#" className="inline-block" aria-label="SolarARK Home">
+              <SolarArkLogo variant="dark" size="md" />
             </a>
 
             <p className="text-slate-400 leading-relaxed max-w-sm">

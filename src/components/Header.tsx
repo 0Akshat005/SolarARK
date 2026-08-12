@@ -4,7 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Sun, Phone, Menu, X, ArrowRight, EyeOff, Eye } from 'lucide-react';
+import { Phone, Menu, X, ArrowRight, EyeOff, Eye } from 'lucide-react';
+import { SolarArkLogo } from './SolarArkLogo';
 
 interface HeaderProps {
   onCtaClick: () => void;
@@ -73,14 +74,10 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Brand Logo */}
         <button
           onClick={() => onNavigate('/')}
-          className="flex items-center gap-2.5 group focus:outline-none text-left"
+          className="group focus:outline-none text-left"
+          aria-label="SolarARK Home"
         >
-          <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-[#1D5FE0] flex items-center justify-center text-white shadow-md shadow-[#1D5FE0]/20">
-            <Sun className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-heading font-bold text-xl lg:text-2xl tracking-tight text-slate-900 leading-none">
-            SolarARK
-          </span>
+          <SolarArkLogo variant="light" size="md" />
         </button>
 
         {/* Desktop Navigation Links */}
