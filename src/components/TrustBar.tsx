@@ -91,23 +91,29 @@ export const TrustBar: React.FC = () => {
 
   return (
     <>
-      {/* ── Atmospheric Transition Bridge ── */}
-      {/* Gradient zone that continues from Hero's bottom dissolve (#F8FAFC) into the cinematic scene */}
-      <div
-        className="relative w-full pointer-events-none"
-        style={{
-          height: 'clamp(40px, 8vh, 90px)',
-          background: 'linear-gradient(to bottom, rgba(248,250,252,1) 0%, rgba(248,250,252,0.6) 35%, rgba(248,250,252,0.15) 70%, transparent 100%)',
-          marginBottom: '-1px',
-          zIndex: 2,
-        }}
-      />
+      {/* ── Independent Off-White Section Handoff ──
+           Provides a clean, solid, architectural section foundation directly following the Hero.
+           Prevents full-bleed photographic image collision between Hero and scroll story. ── */}
+      <section className="bg-[#F8FAFC] py-10 sm:py-12 px-6 sm:px-12 border-b border-slate-200/60 relative z-10">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span className="text-[11px] font-bold tracking-[0.2em] text-[#1D5FE0] uppercase font-heading">
+              Rooftop Transformation
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 font-heading">
+              See How SolarARK Turns Sunlight Into Monthly Savings
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-600 max-w-md font-medium">
+            Scroll down to explore how unused residential terrace space is transformed into a clean, long-term power generation system.
+          </p>
+        </div>
+      </section>
 
       {/* ── Cinematic Scroll Story Section ── */}
       <section
         ref={containerRef}
         className={`relative ${isReducedMotion ? '' : 'h-[320vh]'}`}
-        style={{ marginTop: '-1px' }}
       >
         {/* ── Sticky Cinematic Viewport ── */}
         <div
@@ -143,18 +149,6 @@ export const TrustBar: React.FC = () => {
               loading="eager"
             />
           </div>
-
-          {/* ── Top Atmospheric Fade (Hero → Story continuity) ── */}
-          {/* Fades from white at the top, dissolves away as user scrolls deeper */}
-          <div
-            className="absolute top-0 left-0 right-0 pointer-events-none z-[3]"
-            style={{
-              height: '35%',
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.12) 70%, transparent 100%)',
-              opacity: topFadeOpacity,
-              transition: isReducedMotion ? 'none' : 'opacity 0.15s linear',
-            }}
-          />
 
           {/* ── Localized Text Readability Gradient (bottom-left only) ── */}
           {/* Restrained — only behind text area, preserving image vividness elsewhere */}

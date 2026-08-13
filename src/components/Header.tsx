@@ -34,14 +34,14 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navItems = [
-    { name: 'How It Works', path: '/', hash: '#how-it-works' },
-    { name: 'Solar Solutions', path: '/', hash: '#calculator' },
-    { name: 'Cities', path: '/', hash: '#cities' },
-    { name: 'Technology', path: '/technology' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Reviews', path: '/reviews' },
-    { name: 'About', path: '/', hash: '#about' },
-    { name: 'Blog', path: '/', hash: '#blog' },
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/', hash: '#about' },
+    { name: 'Services', path: '/', hash: '#calculator' },
+    { name: 'Earn with us', path: '/', hash: '#contact-form' },
+    { name: 'Our Projects', path: '/projects' },
+    { name: 'Careers', path: '/', hash: '#contact-form' },
+    { name: 'Gallery', path: '/projects' },
+    { name: 'Contact Us', path: '/', hash: '#contact-form' },
   ];
 
   const handleNavClick = (item: { name: string; path: string; hash?: string }) => {
@@ -66,8 +66,8 @@ export const Header: React.FC<HeaderProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-sm py-3.5 border-b border-slate-100'
-          : 'bg-white lg:bg-transparent py-4 lg:py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3 border-b border-slate-100/80'
+          : 'bg-white lg:bg-white/[0.35] lg:backdrop-blur-[6px] py-3.5 lg:py-4'
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
           {navItems.map((item) => {
             const isActive = currentPath === item.path && !item.hash;
             return (
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
                 className={`text-[13px] xl:text-[14px] font-medium transition-colors ${
                   isActive
                     ? 'text-[#1D5FE0] font-semibold'
-                    : 'text-slate-700 hover:text-[#1D5FE0]'
+                    : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#1D5FE0]`
                 }`}
               >
                 {item.name}
@@ -106,26 +106,27 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={toggleReducedMotion}
             title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-            className="text-slate-400 hover:text-slate-700 transition-colors p-1"
+            className="text-slate-300 hover:text-slate-600 transition-colors p-1"
           >
-            {isReducedMotion ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            {isReducedMotion ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
           </button>
 
           {/* Phone */}
           <a
             href="tel:18001028777"
-            className="flex items-center gap-1.5 text-[13px] xl:text-[14px] font-semibold text-slate-800 hover:text-[#1D5FE0] transition-colors"
+            className="flex items-center gap-1.5 text-[12px] xl:text-[13px] font-medium text-slate-500 hover:text-[#1D5FE0] transition-colors"
           >
-            <Phone className="w-3.5 h-3.5" fill="currentColor" />
+            <Phone className="w-3 h-3" fill="currentColor" />
             <span>1800 102 8777</span>
           </a>
 
           {/* Primary CTA Button */}
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-[#174AB8] text-white text-[13px] xl:text-[14px] font-semibold px-4 py-2 rounded-full transition-all duration-150 flex items-center gap-1.5 shadow-sm shadow-[#1D5FE0]/20 active:scale-[0.97]"
+            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-[13px] xl:text-[13.5px] font-semibold px-5 py-2 rounded-full transition-all duration-200 flex items-center gap-1.5 active:scale-[0.97]"
+            style={{ boxShadow: '0 2px 8px -1px rgba(29,95,224,0.3)' }}
           >
-            <span>Get My Free Savings Estimate</span>
+            <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -173,7 +174,7 @@ export const Header: React.FC<HeaderProps> = ({
               }}
               className="bg-[#1D5FE0] hover:bg-[#174AB8] text-white text-sm font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md shadow-[#1D5FE0]/20"
             >
-              <span>Get My Free Savings Estimate</span>
+              <span>Get A Quote</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

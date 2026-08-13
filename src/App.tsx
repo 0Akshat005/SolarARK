@@ -10,10 +10,6 @@ import { TrustBar } from './components/TrustBar';
 import { ProblemSection } from './components/ProblemSection';
 import { SavingsCalculator } from './components/SavingsCalculator';
 import { HowItWorks } from './components/HowItWorks';
-import { TrustPillars } from './components/TrustPillars';
-import { SubsidyExplainer } from './components/SubsidyExplainer';
-import { HomeRoofVisualizer } from './components/HomeRoofVisualizer';
-import { GuaranteeSpotlight } from './components/GuaranteeSpotlight';
 import { ProjectsGrid } from './components/ProjectsGrid';
 import { Testimonials } from './components/Testimonials';
 import { TechnologySection } from './components/TechnologySection';
@@ -186,16 +182,10 @@ export default function App() {
               <HowItWorks onCtaClick={scrollToContactForm} />
             </div>
 
-            {/* 6. Core Trust & Guarantee Content */}
-            <TrustPillars />
-            <SubsidyExplainer onCtaClick={scrollToContactForm} />
-            <HomeRoofVisualizer onCtaClick={scrollToContactForm} />
-            <GuaranteeSpotlight onCtaClick={scrollToContactForm} />
-
-            {/* 7. Concise Teaser strip pointing to dedicated deep-dive hubs */}
+            {/* 6. Concise Teaser strip pointing to dedicated deep-dive hubs */}
             <DeepDiveTeaser onNavigate={navigateTo} />
 
-            {/* 8. Final Lead Form */}
+            {/* 7. Final Lead Form */}
             <div id="contact-form">
               <FinalCTAForm
                 prefilledPincode={calculatorState.pincode}
@@ -209,7 +199,7 @@ export default function App() {
         {currentPath === '/technology' &&
           renderDedicatedPage(
             'SolarARK Technology Standards',
-            'Explore our Tier-[#1D5FE0] monocrystalline panels, smart inverters, and 25-year performance warranties.',
+            'Explore our Tier-1 monocrystalline panels, smart inverters, and 25-year performance warranties.',
             <TechnologySection onCtaClick={scrollToContactForm} />
           )}
 

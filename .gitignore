@@ -6,3 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# QA Screenshots in root
+/*.png

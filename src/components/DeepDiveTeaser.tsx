@@ -4,128 +4,265 @@
  */
 
 import React from 'react';
-import { Cpu, Smartphone, Building2, Star, HelpCircle, ArrowRight } from 'lucide-react';
+import { 
+  ArrowRight, 
+  HelpCircle, 
+  Info, 
+  Layers, 
+  Building2, 
+  Star, 
+  Smartphone 
+} from 'lucide-react';
 
 interface DeepDiveTeaserProps {
   onNavigate: (path: string) => void;
 }
 
 export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) => {
-  const hubs = [
-    {
-      icon: Cpu,
-      title: 'Technology & Hardware',
-      desc: 'Tier-1 monocrystalline panels, micro-inverters, and 25-year performance warranties.',
-      linkText: 'Explore Technology',
-      path: '/technology',
-      badge: 'Hardware Tier-1',
-    },
-    {
-      icon: Building2,
-      title: 'Completed Projects',
-      desc: 'Explore real residential rooftop solar installations across 15+ Indian cities.',
-      linkText: 'View Projects',
-      path: '/projects',
-      badge: '15+ Cities',
-    },
-    {
-      icon: Star,
-      title: 'Homeowner Reviews',
-      desc: 'Read verified testimonials and electricity bill savings stories from Indian homeowners.',
-      linkText: 'Read Reviews',
-      path: '/reviews',
-      badge: '4.9★ Rating',
-    },
-    {
-      icon: Smartphone,
-      title: 'App Experience',
-      desc: 'Track daily power generation, grid net-metering, and battery metrics in real time.',
-      linkText: 'Explore App',
-      path: '/app',
-      badge: 'Live Analytics',
-    },
-  ];
-
   return (
-    <section className="py-16 sm:py-20 bg-slate-900 text-white relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#1D5FE0]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 space-y-12">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <span className="text-xs font-bold text-[#1D5FE0] tracking-widest uppercase font-heading block mb-2">
-              Deep-Dive Exploration
-            </span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-              Explore SolarARK Engineering &amp; Experience
-            </h2>
+    <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-slate-200/60 relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 space-y-10 sm:space-y-12">
+        
+        {/* ── SECTION HEADER ── */}
+        <div className="max-w-2xl space-y-3">
+          {/* Eyebrow Pill */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0]">
+            <Info className="w-3.5 h-3.5" />
+            <span>Discover SolarARK</span>
           </div>
-          <p className="text-sm sm:text-base text-slate-400 max-w-md">
-            Dive deeper into our technology standards, verified customer case studies, smart app monitoring, and detailed FAQs.
+
+          {/* Headline */}
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            See what powers <span className="text-[#1D5FE0]">SolarARK.</span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
+            Explore our technology, real installations, homeowner experiences, and smart monitoring — all in one place.
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {hubs.map((hub, idx) => {
-            const Icon = hub.icon;
-            return (
-              <div
-                key={idx}
-                onClick={() => onNavigate(hub.path)}
-                className="group bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-[#1D5FE0]/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer shadow-lg hover:shadow-[#1D5FE0]/10 hover:-translate-y-1"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#1D5FE0]/20 border border-[#1D5FE0]/30 flex items-center justify-center text-[#1D5FE0]">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[11px] font-semibold text-slate-400 bg-slate-700/50 px-2.5 py-1 rounded-full border border-slate-600/40">
-                      {hub.badge}
-                    </span>
-                  </div>
+        {/* ── ASYMMETRIC BENTO EDITORIAL COMPOSITION ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+          
+          {/* ── TILE 01: TECHNOLOGY & HARDWARE (Left Dominant Block - lg:col-span-5) ── */}
+          {/* TECHNOLOGY_IMAGE */}
+          <div
+            onClick={() => onNavigate('/technology')}
+            className="lg:col-span-5 relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10"
+          >
+            {/* Asset Slot: TECHNOLOGY_IMAGE */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <img
+                src="/images/story-solar-rooftop.jpg"
+                alt="Technology & Hardware - Tier-1 Monocrystalline Solar Modules"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+              {/* Localized Bottom Readability Gradient (Bottom 60% only) */}
+              <div className="absolute bottom-0 inset-x-0 h-[60%] bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent pointer-events-none" />
+            </div>
 
-                  <h3 className="font-heading text-lg font-bold text-white group-hover:text-[#1D5FE0] transition-colors">
-                    {hub.title}
-                  </h3>
+            {/* Top-Left Badge Pill: 01 */}
+            <div className="relative z-10 p-5 sm:p-6 flex justify-start">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D5FE0] text-white text-xs font-bold shadow-md">
+                <Layers className="w-3.5 h-3.5" />
+                <span>01</span>
+              </div>
+            </div>
 
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    {hub.desc}
-                  </p>
-                </div>
+            {/* Bottom Overlay Content */}
+            <div className="relative z-10 p-6 sm:p-8 space-y-2">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                Technology <br />
+                &amp; Hardware
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed max-w-sm">
+                Tier-1 modules, advanced inverters, and durable structures built for 25+ years of reliable performance.
+              </p>
+              <div className="pt-2">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 group-hover:text-blue-300 group-hover:translate-x-1 transition-all">
+                  <span>Explore Technology</span>
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </div>
+          </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-700/50 flex items-center justify-between text-xs font-semibold text-[#1D5FE0] group-hover:text-white transition-colors">
-                  <span>{hub.linkText}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          {/* ── RIGHT COLUMN CONTAINER (lg:col-span-7) ── */}
+          <div className="lg:col-span-7 flex flex-col gap-5 lg:gap-6 justify-between">
+            
+            {/* ── TILE 02: COMPLETED PROJECTS (Right Top / Large Horizontal Block) ── */}
+            {/* PROJECTS_IMAGE */}
+            <div
+              onClick={() => onNavigate('/projects')}
+              className="relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[220px] sm:min-h-[240px] lg:min-h-[255px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10"
+            >
+              {/* Asset Slot: PROJECTS_IMAGE */}
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img
+                  src="/calculator-solar-home.jpg"
+                  alt="Completed SolarARK Residential Rooftop Projects"
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                  onError={(e) => {
+                    (e.target as HTMLElement).style.display = 'none';
+                  }}
+                />
+                {/* Localized Bottom Readability Gradient */}
+                <div className="absolute bottom-0 inset-x-0 h-[65%] bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent pointer-events-none" />
+              </div>
+
+              {/* Top-Left Badge Pill: 02 */}
+              <div className="relative z-10 p-5 sm:p-6 flex justify-start">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#059669] text-white text-xs font-bold shadow-md">
+                  <Building2 className="w-3.5 h-3.5" />
+                  <span>02</span>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Bottom Overlay Content */}
+              <div className="relative z-10 p-5 sm:p-6 space-y-1">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  Completed Projects
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-200 font-normal leading-snug max-w-md">
+                  15+ cities. Hundreds of rooftop installations. Verified bill savings.
+                </p>
+                <div className="pt-1.5">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 group-hover:text-emerald-300 group-hover:translate-x-1 transition-all">
+                    <span>View Case Studies</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* ── RIGHT BOTTOM ROW: TILES 03 & 04 (2 Side-by-Side Small Blocks) ── */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">
+              
+              {/* ── TILE 03: HOMEOWNER STORIES (Bottom Left) ── */}
+              {/* HOMEOWNER_IMAGE */}
+              <div
+                onClick={() => onNavigate('/reviews')}
+                className="relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[220px] sm:min-h-[240px] lg:min-h-[255px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10"
+              >
+                {/* Asset Slot: HOMEOWNER_IMAGE */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <img
+                    src="/images/story-rooftop-solar.jpg"
+                    alt="Verified Indian Homeowner Solar Stories"
+                    className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  {/* Localized Bottom Readability Gradient */}
+                  <div className="absolute bottom-0 inset-x-0 h-[65%] bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent pointer-events-none" />
+                </div>
+
+                {/* Top-Left Badge Pill: 03 */}
+                <div className="relative z-10 p-5 flex justify-start">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D97706] text-white text-xs font-bold shadow-md">
+                    <Star className="w-3.5 h-3.5" />
+                    <span>03</span>
+                  </div>
+                </div>
+
+                {/* Bottom Overlay Content */}
+                <div className="relative z-10 p-5 space-y-1">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight">
+                    Homeowner Stories
+                  </h3>
+                  <p className="text-xs text-slate-200 font-normal leading-snug">
+                    Real families. Real savings. Real experiences.
+                  </p>
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
+                      <span>Read Reviews</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── TILE 04: APP EXPERIENCE (Bottom Right) ── */}
+              {/* APP_IMAGE */}
+              <div
+                onClick={() => onNavigate('/app')}
+                className="relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[220px] sm:min-h-[240px] lg:min-h-[255px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10"
+              >
+                {/* Asset Slot: APP_IMAGE */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <img
+                    src="/hero-solar-home.png"
+                    alt="SolarARK Real-Time Monitoring Mobile App"
+                    className="w-full h-full object-cover object-[70%_20%] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  {/* Localized Bottom Readability Gradient */}
+                  <div className="absolute bottom-0 inset-x-0 h-[65%] bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent pointer-events-none" />
+                </div>
+
+                {/* Top-Left Badge Pill: 04 */}
+                <div className="relative z-10 p-5 flex justify-start">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7C3AED] text-white text-xs font-bold shadow-md">
+                    <Smartphone className="w-3.5 h-3.5" />
+                    <span>04</span>
+                  </div>
+                </div>
+
+                {/* Bottom Overlay Content */}
+                <div className="relative z-10 p-5 space-y-1">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight">
+                    App Experience
+                  </h3>
+                  <p className="text-xs text-slate-200 font-normal leading-snug">
+                    Track generation, savings, and system health in real time.
+                  </p>
+                  <div className="pt-1">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-400 group-hover:text-purple-300 group-hover:translate-x-1 transition-all">
+                      <span>Explore Monitoring</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        {/* FAQ Link Bar */}
-        <div className="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-              <HelpCircle className="w-5 h-5" />
+        {/* ── UNDERSTATED FAQ STRIP ── */}
+        <div className="bg-[#FAF9F5] border border-amber-200/50 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+          <div className="flex items-center gap-3.5">
+            <div className="w-9 h-9 rounded-full bg-amber-100/80 text-amber-800 flex items-center justify-center shrink-0">
+              <HelpCircle className="w-4 h-4" />
             </div>
             <div>
-              <div className="text-sm font-bold text-white">Have questions about subsidies, net-metering, or setup?</div>
-              <div className="text-xs text-slate-400">Read our full categorized Knowledge Base &amp; FAQ section.</div>
+              <div className="text-sm sm:text-base font-bold text-slate-900">
+                Have questions about subsidies, net-metering, or installation?
+              </div>
+              <div className="text-xs sm:text-sm text-slate-600 font-normal">
+                Get clear answers in our Knowledge Base &amp; FAQ section.
+              </div>
             </div>
           </div>
 
           <button
             onClick={() => onNavigate('/faq')}
-            className="text-xs sm:text-sm font-bold text-white bg-slate-700 hover:bg-slate-600 px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 shrink-0"
+            className="w-full sm:w-auto text-xs sm:text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200/80 px-5 py-2.5 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shrink-0 shadow-xs active:scale-[0.98]"
           >
-            <span>View Full FAQ</span>
+            <span>View Knowledge Base &amp; FAQ</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
+
       </div>
     </section>
   );
