@@ -170,10 +170,7 @@ export default function App() {
             {/* 2. Rooftop visual storytelling section (01–04) */}
             <TrustBar />
 
-            {/* 3. Dedicated About Us Section */}
-            <AboutSection onCtaClick={scrollToContactForm} />
-
-            {/* 4. Why Now / rising electricity cost section */}
+            {/* 3. Why Now / rising electricity cost section */}
             <ProblemSection onCtaClick={scrollToContactForm} />
 
             {/* 5. Savings Calculator */}

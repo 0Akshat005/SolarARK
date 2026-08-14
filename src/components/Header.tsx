@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/', hash: '#about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/', hash: '#calculator' },
     { name: 'Earn with us', path: '/', hash: '#contact-form' },
     { name: 'Our Projects', path: '/projects' },
