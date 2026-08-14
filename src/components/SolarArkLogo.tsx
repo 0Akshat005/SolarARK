@@ -94,7 +94,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
             isDark ? 'text-white' : 'text-slate-900'
           }`}
         >
-          Solar<span className="text-[#1D5FE0]">ARK</span>
+          Solar<span className="text-[#1D5FE0]">Ark</span>
         </span>
       )}
     </div>

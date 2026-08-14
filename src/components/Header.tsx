@@ -113,11 +113,11 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Phone */}
           <a
-            href="tel:18001028777"
+            href="tel:+917080909590"
             className="flex items-center gap-1.5 text-[12px] xl:text-[13px] font-medium text-slate-500 hover:text-[#1D5FE0] transition-colors"
           >
             <Phone className="w-3 h-3" fill="currentColor" />
-            <span>1800 102 8777</span>
+            <span>7080909590</span>
           </a>
 
           {/* Primary CTA Button */}
@@ -160,11 +160,11 @@ export const Header: React.FC<HeaderProps> = ({
 
           <div className="pt-3 flex flex-col gap-3">
             <a
-              href="tel:18001028777"
+              href="tel:+917080909590"
               className="flex items-center gap-2.5 text-base font-bold text-slate-900 py-1"
             >
               <Phone className="w-4 h-4" fill="currentColor" />
-              <span>1800 102 8777</span>
+              <span>7080909590</span>
             </a>
 
             <button

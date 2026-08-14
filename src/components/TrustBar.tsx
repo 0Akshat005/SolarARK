@@ -94,7 +94,7 @@ export const TrustBar: React.FC = () => {
       {/* ── Independent Off-White Section Handoff ──
            Provides a clean, solid, architectural section foundation directly following the Hero.
            Prevents full-bleed photographic image collision between Hero and scroll story. ── */}
-      <section className="bg-[#F8FAFC] py-10 sm:py-12 px-6 sm:px-12 border-b border-slate-200/60 relative z-10">
+      <section id="about" className="bg-[#F8FAFC] py-10 sm:py-12 px-6 sm:px-12 border-b border-slate-200/60 relative z-10">
         <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <span className="text-[11px] font-bold tracking-[0.2em] text-[#1D5FE0] uppercase font-heading">
