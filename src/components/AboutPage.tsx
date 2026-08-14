@@ -4,7 +4,15 @@
  */
 
 import React from 'react';
-import { ArrowLeft, ArrowRight, Home as HomeIcon, CheckCircle2, Shield, Sparkles, Building2, Users, Award, MapPin } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Home as HomeIcon,
+  CheckCircle2,
+  Sun,
+  Globe,
+  SunMedium
+} from 'lucide-react';
 import { FinalCTAForm } from './FinalCTAForm';
 
 interface AboutPageProps {
@@ -134,42 +142,113 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         </section>
 
-        {/* ── SECTION 2: EXCEPTIONAL QUALITY HEADLINE ── */}
-        <section className="text-center max-w-4xl mx-auto space-y-3 pt-4">
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight">
-            Exceptional quality. End-to-end service. Delighted customers
-          </h2>
-          <p className="text-sm sm:text-base text-stone-600 font-normal">
-            Proven residential, commercial, and industrial rooftop solar solutions across Maharashtra.
-          </p>
-        </section>
+        {/* ── REVAMPED SECTION: OUR COMMITMENT / EXCEPTIONAL QUALITY (EDITORIAL BENCHMARK) ── */}
+        <section className="space-y-16 sm:space-y-24 pt-4 pb-4 relative">
+          
+          {/* Centered Intro Statement */}
+          <div className="text-center max-w-4xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-[11px] font-bold text-[#8B1E1E] tracking-widest uppercase font-heading">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+              <span>Our Commitment</span>
+            </div>
 
-        {/* ── SECTION 3: ENVIRONMENTAL RESPONSIBILITY BANNER ── */}
-        <section className="bg-[#8B1E1E] text-white rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 items-stretch">
-          {/* Left Sunset Rooftop Photo */}
-          <div className="lg:col-span-5 relative min-h-[260px] sm:min-h-[300px]">
-            <img
-              src="/images/official-env-sunset-roof.png"
-              alt="Environmental Responsibility Solar Sunset"
-              className="w-full h-full object-cover object-center"
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+              Exceptional quality. End-to-end service.<br className="hidden sm:inline" />{' '}
+              <span className="text-[#8B1E1E]">Delighted</span> customers.
+            </h2>
+
+            {/* Subtle Sun Ornament Divider */}
+            <div className="flex items-center justify-center gap-3 pt-1 text-[#8B1E1E]/40">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#8B1E1E]/30" />
+              <Sun className="w-4 h-4 text-[#8B1E1E]/70" />
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#8B1E1E]/30" />
+            </div>
           </div>
 
-          {/* Right Content */}
-          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-4">
-            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Environmental Responsibility
-            </h3>
-            <p className="text-sm sm:text-base text-stone-100 font-normal leading-relaxed">
-              At SolarArk, we are pioneers in the solar energy revolution, dedicated to providing innovative, cost-effective and sustainable solar solutions to homes, businesses and industries across the globe. We believe that renewable energy is the key to building a brighter, more sustainable future, and we are committed to delivering clean, reliable energy solutions that reduce carbon footprints and promote environmental stewardship.
-            </p>
+          {/* Block 01: Environmental Responsibility (Image Left, Content Right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative">
+            
+            {/* Left Image with curved top-left arch and round badge */}
+            <div className="lg:col-span-5 relative group">
+              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-tr-2xl rounded-br-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+                <img
+                  src="/images/target-env-sunset-roof.jpg"
+                  alt="Environmental Responsibility Solar Sunset Installation"
+                  className="w-full h-[280px] sm:h-[360px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/official-env-sunset-roof.png';
+                  }}
+                />
+              </div>
+
+              {/* Overlapping Maroon Globe Badge */}
+              <div className="hidden sm:flex absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#8B1E1E] text-white rounded-full border-4 border-[#FCFAF7] shadow-xl items-center justify-center z-10">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="lg:col-span-7 space-y-4 sm:pl-4 relative">
+              {/* 01 Line */}
+              <div className="flex items-center gap-3 text-stone-400 font-heading text-base font-semibold">
+                <span className="text-stone-500 font-bold">01</span>
+                <div className="w-14 h-[1px] bg-stone-300" />
+              </div>
+
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Environmental <span className="text-[#8B1E1E]">Responsibility</span>
+              </h3>
+
+              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+                At SolarArk, we are pioneers in the solar energy revolution, dedicated to providing innovative, cost-effective and sustainable solar solutions to homes, businesses and industries across the globe. We believe that renewable energy is the key to building a brighter, more sustainable future, and we are committed to delivering clean, reliable energy solutions that reduce carbon footprints and promote environmental responsibility.
+              </p>
+            </div>
           </div>
+
+          {/* Block 02: Solar Systems (Content Left, Image Right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative pt-4">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-4 sm:pr-4 order-2 lg:order-1 relative">
+              {/* 02 Line */}
+              <div className="flex items-center gap-3 text-stone-400 font-heading text-base font-semibold">
+                <span className="text-stone-500 font-bold">02</span>
+                <div className="w-14 h-[1px] bg-stone-300" />
+              </div>
+
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Solar <span className="text-[#8B1E1E]">Systems</span>
+              </h3>
+
+              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+                With a focus on quality, efficiency, and customer satisfaction, we ensure that each solar solution is tailored to the unique needs of our clients. Whether you're looking to reduce your home's energy costs, transition your business to renewable power or implement large-scale solar systems in industrial facilities, SolarArk is here to guide you every step of the way. With cutting-edge technology and a commitment to sustainability.
+              </p>
+            </div>
+
+            {/* Right Image with curved top-left arch and round badge */}
+            <div className="lg:col-span-5 relative group order-1 lg:order-2">
+              {/* Overlapping Maroon Solar Badge */}
+              <div className="hidden sm:flex absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#8B1E1E] text-white rounded-full border-4 border-[#FCFAF7] shadow-xl items-center justify-center z-10">
+                <SunMedium className="w-6 h-6 text-white" />
+              </div>
+
+              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-tr-2xl rounded-br-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+                <img
+                  src="/images/target-solar-systems-roof.jpg"
+                  alt="Solar Systems Commercial Rooftop Installation"
+                  className="w-full h-[280px] sm:h-[360px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/official-solar-systems-roof.png';
+                  }}
+                />
+              </div>
+            </div>
+
+          </div>
+
         </section>
 
-        {/* ── SECTION 4: POWERING A SUSTAINABLE FUTURE (FOUNDER PORTRAIT + MISSION/VISION) ── */}
+        {/* ── SECTION 3: POWERING A SUSTAINABLE FUTURE (FOUNDER PORTRAIT + MISSION/VISION) ── */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/80 rounded-3xl p-8 sm:p-12 shadow-xs">
           
           {/* Left Founder Portrait (Blue Blazer + Certificate) */}
@@ -218,32 +297,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         </section>
 
-        {/* ── SECTION 5: SOLAR SYSTEMS BANNER ── */}
-        <section className="bg-[#8B1E1E] text-white rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 lg:grid-cols-12 items-stretch">
-          {/* Left Solar Systems Rooftop Photo */}
-          <div className="lg:col-span-5 relative min-h-[260px] sm:min-h-[300px]">
-            <img
-              src="/images/official-solar-systems-roof.png"
-              alt="SolarArk Solar Systems Commercial Rooftop"
-              className="w-full h-full object-cover object-center"
-              onError={(e) => {
-                (e.target as HTMLElement).style.display = 'none';
-              }}
-            />
-          </div>
-
-          {/* Right Content */}
-          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 flex flex-col justify-center space-y-4">
-            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Solar Systems
-            </h3>
-            <p className="text-sm sm:text-base text-stone-100 font-normal leading-relaxed">
-              With a focus on quality, efficiency, and customer satisfaction, we ensure that each solar solution is tailored to the unique needs of our clients. Whether you're looking to reduce your home's energy costs, transition your business to renewable power or implement large-scale solar systems in industrial facilities, SolarArk is here to guide you every step of the way. With cutting-edge technology and a commitment to sustainability.
-            </p>
-          </div>
-        </section>
-
-        {/* ── SECTION 6: OUR JOURNEY (OFFICIAL MILESTONES) ── */}
+        {/* ── SECTION 4: OUR JOURNEY (OFFICIAL MILESTONES) ── */}
         <section className="space-y-12 pt-4">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -305,7 +359,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       </div>
 
-      {/* ── SECTION 7: LEAD ESTIMATE FORM ── */}
+      {/* ── SECTION 5: LEAD ESTIMATE FORM ── */}
       <div className="mt-20">
         <FinalCTAForm
           prefilledPincode={prefilledPincode}
