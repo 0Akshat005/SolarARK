@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Info,
   Target,
@@ -16,10 +16,12 @@ import {
   Leaf,
   ArrowRight,
   CheckCircle2,
-  Calendar,
-  Building,
-  Award,
-  Users
+  Sparkles,
+  Rocket,
+  Home,
+  Users,
+  Heart,
+  MapPin
 } from 'lucide-react';
 
 interface AboutSectionProps {
@@ -27,6 +29,44 @@ interface AboutSectionProps {
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isReduced, setIsReduced] = useState(false);
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkReduced = () => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const classReduced = document.documentElement.classList.contains('reduced-motion');
+      return prefersReduced || classReduced;
+    };
+
+    const isReducedPref = checkReduced();
+    setIsReduced(isReducedPref);
+
+    if (isReducedPref) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (timelineRef.current) {
+      observer.observe(timelineRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const capabilities = [
     {
       icon: Zap,
@@ -58,36 +98,36 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
     },
   ];
 
-  const officialJourney = [
+  const journeyMilestones = [
     {
       year: '2020',
-      badge: 'Inception',
       title: 'SolarARK Projects',
-      description: 'Inception of SolarARK with initial rooftop solar project execution and engineering setup.',
+      desc: 'Projects began and Nagpur operations kicked off with initial designs.',
+      icon: Rocket,
     },
     {
       year: '2021',
-      badge: '575 Roofs',
-      title: '575 Home Solarised',
-      description: 'Expanded residential footprint, empowering 575 Indian homes with clean rooftop solar power.',
+      title: '575 Homes',
+      desc: 'Residences successfully solarised across cities in Maharashtra.',
+      icon: Home,
     },
     {
       year: '2022',
-      badge: 'Rapid Scale',
-      title: '2230 Homes & 100+ Businesses',
-      description: '2,230 Homes Solarised, 100+ Commercial Businesses, and 50+ Housing Societies transformed.',
+      title: '2230+ Solarised',
+      desc: '100+ Commercial units and 50+ Housing Societies joined.',
+      icon: Users,
     },
     {
       year: '2023',
-      badge: '5,000+ Milestone',
-      title: '5000+ Happy Customers',
-      description: 'Crossed 5,000+ satisfied homeowners with verified monthly electricity bill savings.',
+      title: '5000+ Customers',
+      desc: 'Happy clients transitioned with reliable MNRE setups.',
+      icon: Heart,
     },
     {
       year: '2024',
-      badge: 'Regional Expansion',
-      title: 'Branch Network Expansion',
-      description: 'Established dedicated regional branches at Akola, Chhatrapati Sambhaji Nagar & Wardha.',
+      title: 'New Branches',
+      desc: 'Branch offices established at Akola, Chh. Sambhaji Nagar & Wardha.',
+      icon: MapPin,
     },
   ];
 
@@ -156,7 +196,186 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
 
         </div>
 
-        {/* ── CHAPTER 2: POWERING A SUSTAINABLE FUTURE & MISSION/VISION ── */}
+        {/* ── CHAPTER 2: OUR JOURNEY (DELIBERATE DARK BRAND SECTION) ── */}
+        <div 
+          ref={timelineRef}
+          className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-[#10142B] p-6 sm:p-10 lg:p-14"
+        >
+          {/* Authentic dusk/golden hour rooftop installation background image */}
+          <img
+            src="/images/story-solar-rooftop.jpg"
+            alt=""
+            role="presentation"
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-20 mix-blend-luminosity scale-105"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
+
+          {/* Deep Ink Gradient Overlay ensuring >=4.5:1 text contrast */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-b from-[#10142B]/95 via-[#10142B]/90 to-[#0B1730]/98 pointer-events-none" 
+            aria-hidden="true"
+          />
+
+          {/* Atmospheric Brand Blue Ambient Glow */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2F5DFA]/10 blur-[100px] pointer-events-none rounded-full" 
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 space-y-10 lg:space-y-14">
+            {/* Header: Eyebrow + Split-color Heading + Subtext */}
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.12] border border-white/20 text-xs font-bold text-white/90 font-heading tracking-wider uppercase backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5 text-[#5B85FF]" />
+                <span>OUR JOURNEY</span>
+              </div>
+
+              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.15]">
+                Our <span className="text-[#2F5DFA]">Journey</span>
+              </h3>
+
+              <p className="text-sm sm:text-base text-slate-300/85 max-w-2xl mx-auto font-normal leading-relaxed">
+                Tracing our growth from inception to establishing branches across Maharashtra.
+              </p>
+            </div>
+
+            {/* Desktop Horizontal Timeline (md and up) */}
+            <div className="hidden md:block relative pt-4 pb-2">
+              {/* Continuous Track Line (Base + Animated Fill) */}
+              <div 
+                className="absolute top-[82px] left-[8%] right-[8%] h-[3px] bg-white/15 rounded-full overflow-hidden" 
+                aria-hidden="true"
+              >
+                <div 
+                  className="h-full bg-gradient-to-r from-[#2F5DFA] to-[#5B85FF] shadow-[0_0_12px_rgba(91,133,255,0.8)] rounded-full transition-all ease-out"
+                  style={{
+                    width: isVisible ? '100%' : '0%',
+                    transitionDuration: isReduced ? '0.01ms' : '1800ms',
+                  }}
+                />
+              </div>
+
+              {/* 5 Milestone Columns */}
+              <ol className="grid grid-cols-5 gap-3 lg:gap-6 relative z-10 list-none m-0 p-0">
+                {journeyMilestones.map((milestone, idx) => {
+                  const IconComponent = milestone.icon;
+                  const delayMs = isReduced ? 0 : 150 + idx * 280;
+                  return (
+                    <li
+                      key={milestone.year}
+                      className="group flex flex-col items-center text-center transition-all duration-700 ease-out"
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
+                        transitionDelay: `${delayMs}ms`,
+                      }}
+                    >
+                      {/* Year Label */}
+                      <div className="h-10 flex items-center justify-center mb-2">
+                        <span className="font-heading font-extrabold text-2xl lg:text-3xl text-white tracking-tight">
+                          {milestone.year}
+                        </span>
+                      </div>
+
+                      {/* Icon Chip on Track Line */}
+                      <div className="relative my-1">
+                        <div 
+                          aria-hidden="true"
+                          className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#2F5DFA] shadow-[0_0_16px_rgba(47,93,250,0.35)] flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-[1.04] group-hover:border-[#5B85FF]"
+                        >
+                          <IconComponent className="w-6 h-6 stroke-[1.8]" />
+                        </div>
+                      </div>
+
+                      {/* Milestone Title + Underline + Description */}
+                      <div className="mt-4 flex flex-col items-center px-1">
+                        <h4 className="font-heading font-bold text-base lg:text-lg text-white leading-snug">
+                          {milestone.title}
+                        </h4>
+                        
+                        {/* Blue accent underline */}
+                        <div 
+                          aria-hidden="true"
+                          className="w-8 h-0.5 bg-[#2F5DFA] rounded-full my-2.5 transition-all duration-300 group-hover:w-12 group-hover:bg-[#5B85FF]"
+                        />
+
+                        <p className="text-xs lg:text-sm text-slate-300/85 font-normal leading-relaxed">
+                          {milestone.desc}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            {/* Mobile Vertical Timeline (<md) */}
+            <div className="block md:hidden relative pt-2">
+              {/* Left-Aligned Vertical Track Line */}
+              <div 
+                className="absolute top-4 bottom-8 left-[27px] w-[3px] bg-white/15 rounded-full overflow-hidden" 
+                aria-hidden="true"
+              >
+                <div 
+                  className="w-full bg-gradient-to-b from-[#2F5DFA] to-[#5B85FF] shadow-[0_0_12px_rgba(91,133,255,0.8)] rounded-full transition-all ease-out"
+                  style={{
+                    height: isVisible ? '100%' : '0%',
+                    transitionDuration: isReduced ? '0.01ms' : '1800ms',
+                  }}
+                />
+              </div>
+
+              {/* Vertical Milestones */}
+              <ol className="space-y-8 relative z-10 list-none m-0 p-0">
+                {journeyMilestones.map((milestone, idx) => {
+                  const IconComponent = milestone.icon;
+                  const delayMs = isReduced ? 0 : 150 + idx * 240;
+                  return (
+                    <li
+                      key={milestone.year}
+                      className="relative flex items-start gap-4 pl-2 transition-all duration-700 ease-out"
+                      style={{
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? 'translateY(0)' : 'translateY(12px)',
+                        transitionDelay: `${delayMs}ms`,
+                      }}
+                    >
+                      {/* Icon Chip Anchored to Track */}
+                      <div 
+                        aria-hidden="true"
+                        className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#2F5DFA] shadow-[0_0_16px_rgba(47,93,250,0.35)] flex items-center justify-center text-white shrink-0 z-10"
+                      >
+                        <IconComponent className="w-6 h-6 stroke-[1.8]" />
+                      </div>
+
+                      {/* Content to the right */}
+                      <div className="pt-0.5 flex-1">
+                        <span className="font-heading font-extrabold text-2xl text-white block">
+                          {milestone.year}
+                        </span>
+                        <h4 className="font-heading font-bold text-base text-white mt-0.5 leading-snug">
+                          {milestone.title}
+                        </h4>
+                        <div 
+                          aria-hidden="true"
+                          className="w-8 h-0.5 bg-[#2F5DFA] rounded-full my-2" 
+                        />
+                        <p className="text-xs sm:text-sm text-slate-300/85 font-normal leading-relaxed">
+                          {milestone.desc}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        {/* ── CHAPTER 3: POWERING A SUSTAINABLE FUTURE & MISSION/VISION ── */}
         <div className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-xs space-y-10">
           <div className="max-w-3xl space-y-3">
             <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading">
@@ -212,7 +431,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
           </div>
         </div>
 
-        {/* ── CHAPTER 3: EXCEPTIONAL QUALITY, ENVIRONMENTAL RESPONSIBILITY & SOLAR SYSTEMS ── */}
+        {/* ── CHAPTER 4: EXCEPTIONAL QUALITY, ENVIRONMENTAL RESPONSIBILITY & SOLAR SYSTEMS ── */}
         <div className="space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -250,78 +469,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* ── CHAPTER 4: OUR JOURNEY (OFFICIAL MILESTONES TIMELINE) ── */}
-        <div className="space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-100 text-xs font-bold text-amber-700 font-heading">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Official Company History</span>
-            </div>
-            <h3 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Our Journey
-            </h3>
-            <p className="text-sm text-slate-600 font-normal">
-              Official milestones and track record of growth across India.
-            </p>
-          </div>
-
-          {/* Desktop Responsive Modern Timeline (5 Cards Grid) */}
-          <div className="hidden lg:grid grid-cols-5 gap-4 relative">
-            {/* Timeline Connecting Line */}
-            <div className="absolute top-6 left-8 right-8 h-0.5 bg-slate-200 z-0" />
-
-            {officialJourney.map((m, idx) => (
-              <div
-                key={idx}
-                className="relative z-10 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-2.5 hover:border-[#1D5FE0]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-9 h-9 rounded-full bg-[#1D5FE0] text-white font-heading font-extrabold text-xs flex items-center justify-center shadow-md mb-2">
-                    {m.year}
-                  </div>
-                  <div className="text-[11px] font-bold text-[#1D5FE0] font-heading uppercase tracking-wider">
-                    {m.badge}
-                  </div>
-                  <h4 className="font-heading text-sm font-bold text-slate-900 leading-snug mt-1">
-                    {m.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 font-normal leading-relaxed mt-1.5">
-                    {m.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Tablet/Mobile Vertical Stack Timeline */}
-          <div className="flex lg:hidden flex-col space-y-4 relative border-l-2 border-slate-200 pl-6 ml-4">
-            {officialJourney.map((m, idx) => (
-              <div key={idx} className="relative bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xs space-y-1.5">
-                <div className="absolute -left-[35px] top-5 w-5 h-5 rounded-full bg-[#1D5FE0] border-4 border-[#FAF9F6]" />
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-extrabold text-[#1D5FE0] font-heading">{m.year}</span>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase bg-slate-100 px-2 py-0.5 rounded-md">
-                    {m.badge}
-                  </span>
-                </div>
-                <h4 className="font-heading text-base font-bold text-slate-900">
-                  {m.title}
-                </h4>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed">
-                  {m.description}
-                </p>
-              </div>
-            ))}
-          </div>
 
           {/* CTA Trigger */}
           {onCtaClick && (
-            <div className="pt-4 text-center">
+            <div className="pt-6 text-center">
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-sm font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-[#1D5FE0]/25 transition-all inline-flex items-center gap-2 active:scale-[0.98]"
+                className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-sm font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-[#1D5FE0]/25 transition-all inline-flex items-center gap-2 active:scale-[0.98] cursor-pointer"
               >
                 <span>Get Your Free Solar Estimate</span>
                 <ArrowRight className="w-4 h-4" />
@@ -334,3 +488,4 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
     </section>
   );
 };
+

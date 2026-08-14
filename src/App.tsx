@@ -19,7 +19,7 @@ import { FinalCTAForm } from './components/FinalCTAForm';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
 import { DeepDiveTeaser } from './components/DeepDiveTeaser';
-import { AboutSection } from './components/AboutSection';
+import { AboutPage } from './components/AboutPage';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
 
 export default function App() {
@@ -194,12 +194,14 @@ export default function App() {
         )}
 
         {/* DEDICATED PAGE: About Us */}
-        {currentPath === '/about' &&
-          renderDedicatedPage(
-            'About SolarArk',
-            'Powering a Sustainable Future with India\'s Premier Residential Rooftop Solar Platform',
-            <AboutSection onCtaClick={scrollToContactForm} />
-          )}
+        {currentPath === '/about' && (
+          <AboutPage
+            onNavigate={navigateTo}
+            onCtaClick={scrollToContactForm}
+            prefilledPincode={calculatorState.pincode}
+            prefilledBill={calculatorState.monthlyBill}
+          />
+        )}
 
         {/* DEDICATED PAGE: Technology */}
         {currentPath === '/technology' &&
