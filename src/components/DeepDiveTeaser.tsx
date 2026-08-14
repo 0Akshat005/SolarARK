@@ -151,9 +151,9 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                 {/* Asset Slot: HOMEOWNER_IMAGE */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img
-                    src="/images/story-rooftop-solar.jpg"
+                    src="/images/homeowner-family-stories.jpg"
                     alt="Verified Indian Homeowner Solar Stories"
-                    className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-[50%_25%] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
@@ -196,9 +196,9 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                 {/* Asset Slot: APP_IMAGE */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img
-                    src="/hero-solar-home.png"
+                    src="/images/app-experience-phone.jpg"
                     alt="SolarARK Real-Time Monitoring Mobile App"
-                    className="w-full h-full object-cover object-[70%_20%] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-[60%_35%] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
