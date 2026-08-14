@@ -19,6 +19,7 @@ import { FinalCTAForm } from './components/FinalCTAForm';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
 import { DeepDiveTeaser } from './components/DeepDiveTeaser';
+import { AboutSection } from './components/AboutSection';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
 
 export default function App() {
@@ -169,23 +170,26 @@ export default function App() {
             {/* 2. Rooftop visual storytelling section (01–04) */}
             <TrustBar />
 
-            {/* 3. Why Now / rising electricity cost section */}
+            {/* 3. Dedicated About Us Section */}
+            <AboutSection onCtaClick={scrollToContactForm} />
+
+            {/* 4. Why Now / rising electricity cost section */}
             <ProblemSection onCtaClick={scrollToContactForm} />
 
-            {/* 4. Savings Calculator */}
+            {/* 5. Savings Calculator */}
             <div id="calculator">
               <SavingsCalculator onClaimEstimate={handleClaimEstimate} />
             </div>
 
-            {/* 5. How It Works */}
+            {/* 6. How It Works */}
             <div id="how-it-works">
               <HowItWorks onCtaClick={scrollToContactForm} />
             </div>
 
-            {/* 6. Concise Teaser strip pointing to dedicated deep-dive hubs */}
+            {/* 7. Concise Teaser strip pointing to dedicated deep-dive hubs */}
             <DeepDiveTeaser onNavigate={navigateTo} />
 
-            {/* 7. Final Lead Form */}
+            {/* 8. Final Lead Form */}
             <div id="contact-form">
               <FinalCTAForm
                 prefilledPincode={calculatorState.pincode}
@@ -194,6 +198,14 @@ export default function App() {
             </div>
           </>
         )}
+
+        {/* DEDICATED PAGE: About Us */}
+        {currentPath === '/about' &&
+          renderDedicatedPage(
+            'About SolarArk',
+            'Powering a Sustainable Future with India\'s Premier Residential Rooftop Solar Platform',
+            <AboutSection onCtaClick={scrollToContactForm} />
+          )}
 
         {/* DEDICATED PAGE: Technology */}
         {currentPath === '/technology' &&
