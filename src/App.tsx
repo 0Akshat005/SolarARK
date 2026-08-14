@@ -167,10 +167,7 @@ export default function App() {
               onCalculatorClick={scrollToCalculator}
             />
 
-            {/* 2. Rooftop visual storytelling section (01–04) */}
-            <TrustBar />
-
-            {/* 3. Why Now / rising electricity cost section */}
+            {/* 2. Why Now / rising electricity cost section */}
             <ProblemSection onCtaClick={scrollToContactForm} />
 
             {/* 5. Savings Calculator */}
