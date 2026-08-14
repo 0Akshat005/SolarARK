@@ -103,9 +103,9 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
               {/* Asset Slot: PROJECTS_IMAGE */}
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img
-                  src="/calculator-solar-home.jpg"
+                  src="/images/completed-projects-home.jpg"
                   alt="Completed SolarARK Residential Rooftop Projects"
-                  className="w-full h-full object-cover object-center group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-[65%_45%] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                   onError={(e) => {
                     (e.target as HTMLElement).style.display = 'none';
                   }}
