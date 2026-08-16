@@ -11,30 +11,30 @@ import { formatINR } from '../utils/calculator';
 export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   const [selectedCity, setSelectedCity] = useState<string>('All');
 
-  const filterCities = ['All', 'Bengaluru', 'Pune', 'Ahmedabad', 'Chennai'];
+  const filterCities = ['All', 'Amravati', 'Pune', 'Chh. Sambhajinagar', 'Wardha'];
 
   const filteredProjects = selectedCity === 'All'
     ? PROJECT_CASE_STUDIES
     : PROJECT_CASE_STUDIES.filter(p => p.city === selectedCity);
 
   return (
-    <section id="projects" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="projects" className="py-16 bg-[#FCFAF7] border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
             <MapPin className="w-4 h-4" />
-            <span>Real Homes across 30+ Indian Cities</span>
+            <span>Powering 5,000+ Happy Customers Across Maharashtra</span>
           </div>
 
           <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Explore Verified SolarARK Rooftop Case Studies
+            Explore Verified SolarArk Rooftop Projects
           </h2>
 
-          <p className="text-base text-slate-600">
-            See actual installation results, net monthly bill reduction, and structural choices 
-            from homeowners near your neighborhood.
+          <p className="text-base text-stone-600">
+            See actual installation results, net monthly bill reduction, and structural engineering choices 
+            from homeowners, housing societies, and businesses.
           </p>
         </div>
 
@@ -44,10 +44,10 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
             <button
               key={city}
               onClick={() => setSelectedCity(city)}
-              className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+              className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedCity === city
                   ? 'bg-[#1D5FE0] text-white shadow-md shadow-[#1D5FE0]/25'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                  : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
               }`}
             >
               {city}
@@ -60,77 +60,86 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
           {filteredProjects.map((proj) => (
             <div
               key={proj.id}
-              className="bg-white rounded-3xl border border-slate-200 shadow-elevation-1 hover:shadow-elevation-2 transition-all p-6 sm:p-8 space-y-6 flex flex-col justify-between"
+              className="bg-white rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all p-6 sm:p-8 space-y-6 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Header Strip */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div className="flex items-center justify-between border-b border-stone-100 pb-4">
                   <div>
                     <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5" /> {proj.city}, {proj.state}
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 font-heading mt-0.5">
-                      {proj.homeownerName}’s Residence
+                      {proj.homeownerName}
                     </h3>
                   </div>
 
-                  <span className="text-xs font-extrabold text-[#FFB020] bg-amber-50 px-3 py-1.5 rounded-xl border border-amber-200">
+                  <span className="text-xs font-extrabold text-[#1D5FE0] bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-100">
                     {proj.systemSizeKw} kW Array
                   </span>
                 </div>
 
                 {/* Before vs After Bill Impact */}
-                <div className="grid grid-cols-2 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div className="grid grid-cols-2 gap-3 bg-stone-50 p-4 rounded-2xl border border-stone-100">
                   <div>
-                    <span className="text-[11px] text-slate-500 font-medium">Monthly Bill Before</span>
-                    <div className="text-base font-bold text-slate-500 line-through">
+                    <span className="text-[11px] text-stone-500 font-medium">Monthly Bill Before</span>
+                    <div className="text-base font-bold text-stone-400 line-through">
                       {formatINR(proj.monthlyBillBefore)}
                     </div>
                   </div>
 
                   <div>
-                    <span className="text-[11px] text-slate-500 font-medium">Monthly Bill After Solar</span>
-                    <div className="text-xl font-extrabold text-[#10B981] font-heading">
+                    <span className="text-[11px] text-stone-500 font-medium">Monthly Bill After Solar</span>
+                    <div className="text-xl font-extrabold text-emerald-600 font-heading">
                       {formatINR(proj.monthlyBillAfter)}
                     </div>
                   </div>
                 </div>
 
                 {/* Technical Meta Bullets */}
-                <div className="grid grid-cols-2 gap-2 text-xs text-slate-600">
-                  <div>
-                    <span className="text-slate-400">Roof Type:</span> <br />
-                    <strong className="text-slate-800">{proj.roofType}</strong>
+                <div className="grid grid-cols-2 gap-2 text-xs text-stone-600">
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>{proj.roofType}</span>
                   </div>
-
-                  <div>
-                    <span className="text-slate-400">Install Time:</span> <br />
-                    <strong className="text-slate-800">{proj.installationDays} Days</strong>
+                  <div className="flex items-center gap-1.5">
+                    <Zap className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                    <span>Setup in {proj.installationDays} Days</span>
                   </div>
                 </div>
 
-                {/* Verdict Quote */}
-                <blockquote className="text-xs text-slate-700 italic bg-blue-50/60 p-3.5 rounded-xl border-l-4 border-[#1D5FE0]">
+                {/* Homeowner Verdict */}
+                <p className="text-xs text-stone-600 italic bg-blue-50/50 p-3 rounded-xl border border-blue-100/60 leading-relaxed">
                   "{proj.verdict}"
-                </blockquote>
+                </p>
               </div>
 
-              {/* Action */}
-              <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-                <span className="text-[11px] font-semibold text-emerald-700 flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981]" /> Verified Installation
-                </span>
-
-                <button
-                  onClick={onCtaClick}
-                  className="text-xs font-bold text-[#1D5FE0] hover:text-[#0F2E6E] flex items-center gap-1 transition-colors"
-                >
-                  <span>Build Similar System</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+              <button
+                onClick={onCtaClick}
+                className="w-full mt-2 py-3 bg-stone-100 hover:bg-[#1D5FE0] text-stone-800 hover:text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span>Get Similar Proposal for My Roof</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA Banner */}
+        <div className="bg-white border border-stone-200/90 rounded-3xl p-8 text-center space-y-4 shadow-sm">
+          <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900">
+            Want to see solar installations near your locality?
+          </h3>
+          <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto">
+            Our local field engineers can arrange a neighbor site visit or share a localized generation report for your exact pincode.
+          </p>
+          <button
+            onClick={onCtaClick}
+            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold px-8 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+          >
+            <span>Request Local Installation Report</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
       </div>

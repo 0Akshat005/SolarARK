@@ -4,11 +4,24 @@
  */
 
 import React from 'react';
-import { CITIES_LIST } from '../data/solarData';
-import { Phone, Mail, MapPin, ShieldCheck, Star } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Star, ArrowRight } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
 
-export const Footer: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
+interface FooterProps {
+  onCtaClick: () => void;
+  onNavigate?: (path: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
+  const handleLinkClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(path);
+    } else {
+      window.location.href = path;
+    }
+  };
+
   return (
     <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
       
@@ -18,114 +31,188 @@ export const Footer: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => 
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <div className="flex items-center gap-1.5 text-amber-400 font-bold">
               <Star className="w-4 h-4 fill-current" />
-              <span>4.8 / 5.0 Google Rating</span>
+              <span>5,000+ Happy Customers across Maharashtra</span>
             </div>
 
             <span className="text-slate-600 hidden sm:inline">•</span>
 
             <div className="flex items-center gap-1.5 text-slate-300 font-medium">
               <ShieldCheck className="w-4 h-4 text-[#1D5FE0]" />
-              <span>Back by 25-Year SunSure Promise™</span>
+              <span>Assured Renewable Komfort</span>
             </div>
           </div>
 
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-white hover:text-slate-950 text-white font-bold px-5 py-2 rounded-xl transition-all"
+            className="bg-[#1D5FE0] hover:bg-white hover:text-slate-950 text-white font-bold px-5 py-2.5 rounded-xl transition-all inline-flex items-center gap-2"
           >
-            Get My Free Savings Estimate
+            <span>Get Free Solar Consultation</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      {/* Main Footer Links */}
+      {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
-          {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
-            <a href="#" className="inline-block" aria-label="SolarARK Home">
+          {/* Brand Info & Head Office */}
+          <div className="lg:col-span-4 space-y-4">
+            <a
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/')}
+              className="inline-block"
+              aria-label="SolarARK Home"
+            >
               <SolarArkLogo variant="dark" size="md" />
             </a>
 
-            <p className="text-slate-400 leading-relaxed max-w-sm">
-              SolarARK is India’s premier residential rooftop solar platform. We design, install, and maintain 
-              high-performance solar systems with transparent government subsidy claims and guaranteed generation.
+            <p className="text-slate-400 leading-relaxed text-xs sm:text-sm max-w-sm">
+              SolarArk is India's dedicated solar EPC company empowering homes, housing societies, and businesses with high-efficiency rooftop solar systems, PM Surya Ghar subsidy claims, and zero-headache DISCOM net-metering.
             </p>
 
-            <div className="space-y-2 pt-2 text-slate-300">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#1D5FE0]" />
-                <a href="tel:18001028777" className="hover:text-white transition-colors">Toll-Free: 1800 102 8777</a>
+            <div className="space-y-2.5 pt-2 text-slate-300">
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                <a href="tel:+917080909590" className="hover:text-white transition-colors font-medium">
+                  +91 7080909590
+                </a>
               </div>
 
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#1D5FE0]" />
-                <a href="mailto:support@solarark.in" className="hover:text-white transition-colors">support@solarark.in</a>
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                <a href="mailto:info@thesolarark.com" className="hover:text-white transition-colors font-medium">
+                  info@thesolarark.com
+                </a>
               </div>
 
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#1D5FE0]" />
-                <span>HQ: Indiranagar, Bengaluru, KA 560038</span>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#1D5FE0] shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  <strong>Head Office:</strong> Mira Sadan, House No. 27 A, Krushnarpan Colony, Amravati, Maharashtra 444605
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Quick Nav */}
-          <div className="space-y-3">
+          {/* Quick Navigation Links */}
+          <div className="lg:col-span-2 space-y-3">
             <span className="text-xs font-bold text-white uppercase tracking-wider font-heading">
               Quick Links
             </span>
             <ul className="space-y-2 text-slate-400">
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#calculator" className="hover:text-white transition-colors">Savings Calculator</a></li>
-              <li><a href="#technology" className="hover:text-white transition-colors">Technology Specs</a></li>
-              <li><a href="#guarantee" className="hover:text-white transition-colors">SunSure™ Guarantee</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">Case Studies</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li>
+                <a href="/" onClick={(e) => handleLinkClick(e, '/')} className="hover:text-white transition-colors">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-white transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Solar Services
+                </a>
+              </li>
+              <li>
+                <a href="/earn-with-us" onClick={(e) => handleLinkClick(e, '/earn-with-us')} className="hover:text-white transition-colors">
+                  Surya Mitra (Earn With Us)
+                </a>
+              </li>
+              <li>
+                <a href="/projects" onClick={(e) => handleLinkClick(e, '/projects')} className="hover:text-white transition-colors">
+                  Our Projects
+                </a>
+              </li>
+              <li>
+                <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-white transition-colors">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="/contact" onClick={(e) => handleLinkClick(e, '/contact')} className="hover:text-white transition-colors">
+                  Contact Us
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Major Cities Served */}
-          <div className="space-y-3">
+          {/* Solar Offerings */}
+          <div className="lg:col-span-3 space-y-3">
             <span className="text-xs font-bold text-white uppercase tracking-wider font-heading">
-              Cities Served
+              Solar Solutions
             </span>
             <ul className="space-y-2 text-slate-400">
-              {CITIES_LIST.slice(0, 6).map((c) => (
-                <li key={c.name}>
-                  <a href="#projects" className="hover:text-white transition-colors">
-                    Solar in {c.name}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Residential Rooftop Solar (Homes)
+                </a>
+              </li>
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Housing Societies &amp; Apartments
+                </a>
+              </li>
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Commercial &amp; Industrial Solar
+                </a>
+              </li>
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Solar Inverter &amp; Battery Storage
+                </a>
+              </li>
+              <li>
+                <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
+                  Panel Cleaning &amp; Annual Maintenance
+                </a>
+              </li>
+              <li>
+                <a href="/faq" onClick={(e) => handleLinkClick(e, '/faq')} className="hover:text-white transition-colors">
+                  PM Surya Ghar Subsidy Guide (₹78,000)
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Legal & Compliance */}
-          <div className="space-y-3">
+          {/* Regional Branches */}
+          <div className="lg:col-span-3 space-y-3">
             <span className="text-xs font-bold text-white uppercase tracking-wider font-heading">
-              Governance & Policies
+              Regional Offices
             </span>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-white transition-colors">PM Surya Ghar Guidelines</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">SunSure™ T&C Document</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">DISCOM Empanelment List</a></li>
-            </ul>
+            <div className="space-y-3 text-slate-400 text-[11px] leading-relaxed">
+              <div>
+                <strong className="text-slate-200 block">Chh. Sambhajinagar (Aurangabad):</strong>
+                <span>Near Saptapadi Mangal Karyalaya Rd, Baliram Patil School Rd</span>
+              </div>
+              <div>
+                <strong className="text-slate-200 block">Wardha Branch:</strong>
+                <span>Infront Of Amit Tailors, Near Dr. Mehre Clinic, Arvi Naka</span>
+              </div>
+              <div>
+                <strong className="text-slate-200 block">Akola Hub:</strong>
+                <span>Regional Operations &amp; Installation Service Center</span>
+              </div>
+              <div>
+                <strong className="text-slate-200 block">Key Service Areas:</strong>
+                <span>Amravati, Chh. Sambhajinagar, Wardha, Akola, Pune, Nagpur</span>
+              </div>
+            </div>
           </div>
 
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & Compliance */}
         <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
           <div>
-            © 2026 SolarARK Technologies India Pvt. Ltd. All rights reserved.
+            © {new Date().getFullYear()} SolarArk Projects Pvt. Ltd. All rights reserved.
           </div>
 
           <div className="text-center sm:text-right text-slate-600">
-            All numerical figures, subsidy examples, and ROI estimations are illustrative projections based on standard Indian solar radiation models.
+            Channel partner for national solar schemes. All subsidy calculations based on official PM Surya Ghar guidelines.
           </div>
         </div>
 

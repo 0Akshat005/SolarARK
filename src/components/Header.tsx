@@ -33,15 +33,15 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: Array<{ name: string; path: string; hash?: string }> = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/', hash: '#calculator' },
-    { name: 'Earn with us', path: '/', hash: '#contact-form' },
+    { name: 'Services', path: '/services' },
+    { name: 'Earn with us', path: '/earn-with-us' },
     { name: 'Our Projects', path: '/projects' },
-    { name: 'Careers', path: '/', hash: '#contact-form' },
+    { name: 'Careers', path: '/careers' },
     { name: 'Gallery', path: '/projects' },
-    { name: 'Contact Us', path: '/', hash: '#contact-form' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const handleNavClick = (item: { name: string; path: string; hash?: string }) => {
@@ -74,7 +74,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Brand Logo */}
         <button
           onClick={() => onNavigate('/')}
-          className="group focus:outline-none text-left"
+          className="group focus:outline-none text-left cursor-pointer"
           aria-label="SolarARK Home"
         >
           <SolarArkLogo variant="light" size="md" />
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`text-[13px] xl:text-[14px] font-medium transition-colors ${
+                className={`text-[13px] xl:text-[14px] font-medium transition-colors cursor-pointer ${
                   isActive
                     ? 'text-[#1D5FE0] font-semibold'
                     : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#1D5FE0]`
@@ -106,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={toggleReducedMotion}
             title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-            className="text-slate-300 hover:text-slate-600 transition-colors p-1"
+            className="text-slate-300 hover:text-slate-600 transition-colors p-1 cursor-pointer"
           >
             {isReducedMotion ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
           </button>
@@ -114,28 +114,35 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Phone */}
           <a
             href="tel:+917080909590"
-            className="flex items-center gap-1.5 text-[12px] xl:text-[13px] font-medium text-slate-500 hover:text-[#1D5FE0] transition-colors"
+            className="flex items-center gap-1.5 text-[12px] xl:text-[13px] font-medium text-slate-600 hover:text-[#1D5FE0] transition-colors"
           >
-            <Phone className="w-3 h-3" fill="currentColor" />
+            <Phone className="w-3.5 h-3.5 text-[#1D5FE0]" />
             <span>7080909590</span>
           </a>
 
-          {/* Primary CTA Button */}
+          {/* Primary CTA */}
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-[13px] xl:text-[13.5px] font-semibold px-5 py-2 rounded-full transition-all duration-200 flex items-center gap-1.5 active:scale-[0.97]"
-            style={{ boxShadow: '0 2px 8px -1px rgba(29,95,224,0.3)' }}
+            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-[13px] xl:text-[14px] font-semibold px-4 xl:px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md flex items-center gap-1.5 active:scale-[0.98] cursor-pointer"
           >
             <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Menu Button */}
         <div className="flex items-center gap-3 lg:hidden">
+          <a
+            href="tel:+917080909590"
+            className="flex items-center gap-1 text-xs font-semibold text-[#1D5FE0] bg-blue-50 px-2.5 py-1.5 rounded-full"
+          >
+            <Phone className="w-3 h-3" />
+            <span>Call</span>
+          </a>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-slate-900 p-1"
+            className="p-2 text-slate-800 focus:outline-none cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -143,28 +150,35 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Slide-in Menu */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-5 shadow-xl absolute top-full left-0 right-0 max-h-[85vh] overflow-y-auto">
-          <div className="flex flex-col space-y-3">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item)}
-                className="text-base font-medium text-slate-800 hover:text-[#1D5FE0] text-left py-1.5 border-b border-slate-100"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
+        <div className="lg:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col space-y-1">
+            {navItems.map((item) => {
+              const isActive = currentPath === item.path && !item.hash;
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item)}
+                  className={`text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-blue-50 text-[#1D5FE0] font-semibold'
+                      : 'text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              );
+            })}
+          </nav>
 
-          <div className="pt-3 flex flex-col gap-3">
+          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
             <a
               href="tel:+917080909590"
-              className="flex items-center gap-2.5 text-base font-bold text-slate-900 py-1"
+              className="flex items-center justify-center gap-2 text-xs font-bold text-slate-700 bg-stone-100 py-2.5 rounded-xl"
             >
-              <Phone className="w-4 h-4" fill="currentColor" />
-              <span>7080909590</span>
+              <Phone className="w-3.5 h-3.5 text-[#1D5FE0]" />
+              <span>Customer Care: +91 7080909590</span>
             </a>
 
             <button
@@ -172,9 +186,9 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onCtaClick();
               }}
-              className="bg-[#1D5FE0] hover:bg-[#174AB8] text-white text-sm font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md shadow-[#1D5FE0]/20"
+              className="w-full bg-[#1D5FE0] text-white text-xs font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2"
             >
-              <span>Get A Quote</span>
+              <span>Get Free Solar Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
