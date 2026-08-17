@@ -94,17 +94,45 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
   return (
     <section
       id="contact-form"
-      className={`relative w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 ${className}`}
+      className={`relative w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 overflow-hidden ${className}`}
     >
-      {/* ── TWO-COLUMN SPLIT CONTAINER ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+      {/* ── ATMOSPHERIC SOLAR-HOME VISUAL LAYER (EMERGING FROM BACKGROUND & DISSOLVING TOWARD FORM) ── */}
+      <div
+        aria-hidden="true"
+        className="absolute left-0 bottom-[130px] lg:bottom-[90px] w-full lg:w-[65%] h-[380px] sm:h-[440px] lg:h-[500px] pointer-events-none z-0 select-none overflow-visible"
+      >
+        {/* Soft Ambient Golden Atmospheric Glow */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-amber-200/8 to-transparent rounded-full blur-3xl" />
+
+        {/* Real Seamless Multi-Gradient Masked Photographic Scene */}
+        <div
+          className="relative w-full h-full"
+          style={{
+            WebkitMaskImage:
+              'radial-gradient(ellipse 95% 85% at 38% 50%, black 35%, rgba(0,0,0,0.85) 58%, rgba(0,0,0,0.3) 78%, transparent 98%), linear-gradient(to right, black 0%, black 36%, rgba(0,0,0,0.75) 62%, rgba(0,0,0,0.2) 82%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 12%, black 76%, transparent 100%)',
+            maskImage:
+              'radial-gradient(ellipse 95% 85% at 38% 50%, black 35%, rgba(0,0,0,0.85) 58%, rgba(0,0,0,0.3) 78%, transparent 98%), linear-gradient(to right, black 0%, black 36%, rgba(0,0,0,0.75) 62%, rgba(0,0,0,0.2) 82%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 12%, black 76%, transparent 100%)',
+            WebkitMaskComposite: 'source-in',
+            maskComposite: 'intersect',
+          }}
+        >
+          <img
+            src="/images/solar-villa-sunset.jpg"
+            alt=""
+            className="w-full h-full object-cover object-left-center"
+          />
+        </div>
+      </div>
+
+      {/* ── TWO-COLUMN FOREGROUND CONTAINER ── */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
         {/* ── LEFT COLUMN: VISUAL & TRUST PANEL (~48%) ── */}
         <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
           
           <div className="space-y-4">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-700 text-xs font-bold font-heading shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/95 border border-amber-200/80 text-amber-700 text-xs font-bold font-heading shadow-2xs backdrop-blur-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#E27D16]" />
               <span>Zero Upfront Obligation</span>
             </div>
@@ -125,7 +153,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             </h2>
 
             {/* Subhead with maroon bold highlights */}
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-lg m-0">
+            <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed max-w-lg m-0">
               Our certified engineers will prepare an exact{' '}
               <strong className="text-[#8B1E1E] font-semibold">3D solar proposal</strong>{' '}
               and{' '}
@@ -139,7 +167,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
               {/* 100% Free */}
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E]">
+                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div className="text-xs font-bold text-slate-800 leading-tight">
@@ -150,7 +178,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
               {/* Secure */}
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 shadow-2xs backdrop-blur-xs">
                   <Lock className="w-4 h-4" />
                 </div>
                 <div className="text-xs font-bold text-slate-800 leading-tight">
@@ -161,7 +189,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
               {/* Certified Engineers */}
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E]">
+                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
                   <Users className="w-4 h-4" />
                 </div>
                 <div className="text-xs font-bold text-slate-800 leading-tight">
@@ -173,34 +201,10 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           </div>
 
-          {/* Seamless Editorial Solar-Home Scene with Organic Fading Mask */}
-          <div className="relative mt-2 pt-2 group">
-            
-            {/* Subtle Atmospheric Warm Underglow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/8 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-
-            {/* Seamless Fading Masked Image Container (No Hard Border, No Card, No Box Shadow) */}
-            <div
-              className="relative w-full h-[280px] sm:h-[340px] overflow-visible"
-              style={{
-                WebkitMaskImage:
-                  'radial-gradient(ellipse 98% 88% at 50% 40%, black 48%, rgba(0,0,0,0.85) 68%, rgba(0,0,0,0.35) 85%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
-                maskImage:
-                  'radial-gradient(ellipse 98% 88% at 50% 40%, black 48%, rgba(0,0,0,0.85) 68%, rgba(0,0,0,0.35) 85%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
-                WebkitMaskComposite: 'source-in',
-                maskComposite: 'intersect',
-              }}
-            >
-              <img
-                src="/calculator-solar-home.jpg"
-                alt="Rooftop solar home emerging into the landscape"
-                className="w-full h-full object-cover object-center group-hover:scale-[1.015] transition-transform duration-700 ease-out"
-              />
-            </div>
-
-            {/* Sharp Unfaded Overlaid Caption Card (Positioned Crisp on Top of the Fading Scene) */}
-            <div className="absolute bottom-2 left-2 right-2 sm:right-auto sm:max-w-md bg-slate-950/85 backdrop-blur-md text-white border border-white/20 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 shadow-2xl z-20">
-              <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/20 p-1 shrink-0 overflow-hidden">
+          {/* Spacer & Overlaid 3D Estimate Caption Card with Curved Arrow */}
+          <div className="pt-20 sm:pt-28 lg:pt-32 relative">
+            <div className="relative inline-flex items-center gap-3.5 bg-[#111827]/90 backdrop-blur-md text-white border border-white/20 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
+              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 p-1 shrink-0 overflow-hidden flex items-center justify-center">
                 <img
                   src="/images/thumb-3d-solar-house.png"
                   alt="3D Solar house model"
@@ -208,17 +212,31 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 />
               </div>
 
-              <div className="text-xs leading-snug flex-1">
+              <div className="text-xs sm:text-[13px] leading-snug flex-1">
                 <span>Get a 3D model, savings estimate &amp; subsidy report in </span>
                 <strong className="text-amber-400 font-extrabold">24–48 hours</strong>
               </div>
-
-              {/* Direction arrow pointing to form */}
-              <div className="hidden sm:block text-amber-400 text-base font-bold pr-1 animate-pulse">
-                ➔
-              </div>
             </div>
 
+            {/* Elegant Curved Golden Arrow (Pointing gracefully toward the form) */}
+            <div className="hidden lg:block absolute left-[380px] bottom-3 pointer-events-none z-10 text-amber-500">
+              <svg width="70" height="35" viewBox="0 0 70 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2 28C22 28 42 22 58 6"
+                  stroke="#E27D16"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeDasharray="4 2"
+                />
+                <path
+                  d="M48 6H59V17"
+                  stroke="#E27D16"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
 
         </div>
@@ -635,7 +653,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       </div>
 
       {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH) ── */}
-      <div className="mt-10 bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xs">
+      <div className="relative z-20 mt-10 bg-white/95 backdrop-blur-md border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Benefit 1: Accurate 3D Roof Design */}
