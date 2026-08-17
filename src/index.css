@@ -41,6 +41,17 @@
   h1, h2, h3, .font-heading {
     font-family: var(--font-heading);
   }
+
+  /* ── Sitewide Proper Paragraph Justification ── */
+  p:not(.text-center):not(.text-left):not(.text-right):not(.whitespace-nowrap) {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .text-justify {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
 }
 
 /* Glassmorphism helpers */
@@ -98,8 +109,3 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
