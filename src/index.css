@@ -10,6 +10,14 @@
     --color-solar-navy: #0B1730;
     --color-solar-gold: #FFB020;
     --color-savings-green: #10B981;
+
+    /* Brand Maroon & Gold Tokens */
+    --brand-maroon: #8B1E1E;
+    --brand-maroon-deep: #5E1212;
+    --brand-gold: #E27D16;
+
+    --gradient-hero-text: linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%);
+    --gradient-cta: linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #E27D16 100%);
     
     --radius-sm: 8px;
     --radius-md: 16px;
