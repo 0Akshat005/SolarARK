@@ -173,18 +173,33 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           </div>
 
-          {/* Photographic Rooftop Card with Overlay Caption */}
-          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200/90 bg-stone-100 mt-4 group">
-            <img
-              src="/calculator-solar-home.jpg"
-              alt="Rooftop solar home in golden hour"
-              className="w-full h-[260px] sm:h-[300px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-            />
+          {/* Seamless Editorial Solar-Home Scene with Organic Fading Mask */}
+          <div className="relative mt-2 pt-2 group">
+            
+            {/* Subtle Atmospheric Warm Underglow */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/8 via-amber-200/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            {/* Seamless Fading Masked Image Container (No Hard Border, No Card, No Box Shadow) */}
+            <div
+              className="relative w-full h-[280px] sm:h-[340px] overflow-visible"
+              style={{
+                WebkitMaskImage:
+                  'radial-gradient(ellipse 98% 88% at 50% 40%, black 48%, rgba(0,0,0,0.85) 68%, rgba(0,0,0,0.35) 85%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
+                maskImage:
+                  'radial-gradient(ellipse 98% 88% at 50% 40%, black 48%, rgba(0,0,0,0.85) 68%, rgba(0,0,0,0.35) 85%, transparent 100%), linear-gradient(to bottom, black 0%, black 72%, transparent 100%)',
+                WebkitMaskComposite: 'source-in',
+                maskComposite: 'intersect',
+              }}
+            >
+              <img
+                src="/calculator-solar-home.jpg"
+                alt="Rooftop solar home emerging into the landscape"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.015] transition-transform duration-700 ease-out"
+              />
+            </div>
 
-            {/* Overlaid Caption Card (Bottom-Left) */}
-            <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-md bg-black/80 backdrop-blur-md text-white border border-white/20 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 shadow-2xl">
+            {/* Sharp Unfaded Overlaid Caption Card (Positioned Crisp on Top of the Fading Scene) */}
+            <div className="absolute bottom-2 left-2 right-2 sm:right-auto sm:max-w-md bg-slate-950/85 backdrop-blur-md text-white border border-white/20 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 shadow-2xl z-20">
               <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/20 p-1 shrink-0 overflow-hidden">
                 <img
                   src="/images/thumb-3d-solar-house.png"
@@ -198,7 +213,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 <strong className="text-amber-400 font-extrabold">24–48 hours</strong>
               </div>
 
-              {/* Curved golden arrow pointing to form */}
+              {/* Direction arrow pointing to form */}
               <div className="hidden sm:block text-amber-400 text-base font-bold pr-1 animate-pulse">
                 ➔
               </div>
