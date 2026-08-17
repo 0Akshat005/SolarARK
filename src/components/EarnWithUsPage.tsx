@@ -280,7 +280,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
           
           <div className="max-w-2xl xl:max-w-3xl space-y-6 pt-2 lg:pt-4">
             
-            {/* Program Credibility Badge Pill (Matching Visual Reference) */}
+            {/* Program Credibility Badge Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7D1818] shadow-xs text-[11px] font-bold text-white tracking-wider uppercase font-heading">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>OFFICIAL SOLARARK SURYA MITRA PROGRAM</span>
@@ -289,7 +289,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
             {/* Editorial Headline Hierarchy */}
             <div className="space-y-1.5">
               <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
-                Welcome to <span className="text-[#F28500]">SolarArk</span>
+                Welcome to <span className="text-[#8B1E1E]">SolarArk</span>
               </h1>
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#0B1730] font-heading leading-tight tracking-tight">
                 Empowering Communities <br className="hidden sm:inline" />
@@ -334,7 +334,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── 3. FLOATING CONNECTED PROOF & STATS STRIP CARD (MATCHING REFERENCE) ── */}
+      {/* ── 3. FLOATING CONNECTED PROOF & STATS STRIP CARD ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 relative z-20">
         <div className="bg-white rounded-[26px] sm:rounded-3xl border border-stone-100 shadow-[0_12px_36px_rgba(0,0,0,0.06)] p-6 sm:p-7">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-stone-100 items-center">
@@ -388,7 +388,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── 4. SECONDARY VALUE STRIP (4 CIRCULAR ICONS MATCHING REFERENCE) ── */}
+      {/* ── 4. SECONDARY VALUE STRIP (4 CIRCULAR ICONS) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
           
@@ -704,7 +704,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* Left 2 Native Video Cards */}
+            {/* Left 2 Native Video Cards (Playing Local High-Speed Videos) */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Video Player 1 */}

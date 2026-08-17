@@ -9,3 +9,5 @@ coverage/
 
 # QA Screenshots in root
 /*.png
+
+public/videos/
