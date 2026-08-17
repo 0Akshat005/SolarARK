@@ -100,14 +100,38 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
         }}
       />
 
-      {/* ── Clean architectural section boundary ──
-           Crisp natural photographic crop with subtle 1px tonal separation. Zero bottom white haze. ── */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-[2] border-b border-slate-200/60" />
+      {/* ── Multi-Layered Organic Wave Section Divider ──
+           Seamless, modern architectural wave curve dividing Hero from the ProblemSection below. ── */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-[15] overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 140"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="relative block w-full h-[50px] sm:h-[80px] lg:h-[120px]"
+          preserveAspectRatio="none"
+        >
+          {/* Top Translucent Wave Layer (Subtle Depth) */}
+          <path
+            d="M0,25 C320,95 620,15 940,70 C1200,110 1360,45 1440,30 L1440,140 L0,140 Z"
+            fill="rgba(255, 255, 255, 0.35)"
+          />
+          {/* Middle Semi-Opaque Wave Layer (Organic Depth) */}
+          <path
+            d="M0,45 C280,110 580,30 900,85 C1180,120 1370,55 1440,45 L1440,140 L0,140 Z"
+            fill="rgba(255, 255, 255, 0.65)"
+          />
+          {/* Foreground Solid White Wave Layer (Seamless Section Transition) */}
+          <path
+            d="M0,65 C240,125 540,48 860,98 C1160,135 1360,75 1440,65 L1440,140 L0,140 Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </div>
 
       {/* ── Content Container ── */}
       <div
         className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex items-center"
-        style={{ minHeight: 'clamp(740px, 94vh, 920px)' }}
+        style={{ minHeight: 'clamp(760px, 95vh, 940px)' }}
       >
         <div
           className="max-w-xl lg:max-w-[540px] pt-28 sm:pt-32 lg:pt-0 pb-16 sm:pb-12 lg:pb-0"
