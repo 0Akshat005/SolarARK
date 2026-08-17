@@ -45,13 +45,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'society' | 'commercial' | 'maintenance'>('all');
 
-  const proofMetrics = [
-    { value: '5,000+', label: 'Happy Customers Solarised', subtext: 'Across Maharashtra & Central India' },
-    { value: '₹78,000', label: 'Max Govt. Subsidy Claimed', subtext: 'Direct PM Surya Ghar Bank Credit' },
-    { value: '25 Years', label: 'Linear Performance Warranty', subtext: 'Tier-1 N-Type TOPCon Cell Architecture' },
-    { value: 'Up to 90%', label: 'Electricity Bill Reduction', subtext: 'Verified on MSEDCL & State DISCOM Bills' },
-  ];
-
   return (
     <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
       
@@ -558,65 +551,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       {/* ── SECTION 04: TURNKEY EXECUTION JOURNEY (5-STAGE INSTALLATION PROCESS) ── */}
       <TurnkeyExecutionJourney />
 
-      {/* ── SECTION 05: VERIFIED PROOF & REGIONAL CREDIBILITY ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-20 lg:mt-28">
-        <div className="bg-[#0B1730] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-2xl space-y-10 relative overflow-hidden">
-          
-          {/* Subtle Ambient Glow */}
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#1D5FE0]/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="text-center max-w-3xl mx-auto space-y-3 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-400 text-xs font-bold font-heading">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Verified Maharashtra Track Record</span>
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
-              Backed by Experience, Loved by Homeowners
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
-              Headquartered in Amravati with regional offices in Chh. Sambhajinagar, Wardha, and Akola, SolarArk is committed to empowering communities with Assured Renewable Komfort.
-            </p>
-          </div>
-
-          {/* 4 Proof Metric Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {proofMetrics.map((metric, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-2 backdrop-blur-xs">
-                <div className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">
-                  {metric.value}
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-slate-200">
-                  {metric.label}
-                </div>
-                <div className="text-[11px] text-slate-400">
-                  {metric.subtext}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Action Strip */}
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left relative z-10">
-            <div className="flex items-center gap-2 text-xs text-slate-300">
-              <MapPin className="w-4 h-4 text-[#1D5FE0]" />
-              <span>Head Office: Mira Sadan, Krushnarpan Colony, Amravati, Maharashtra 444605</span>
-            </div>
-
-            <button
-              onClick={onCtaClick}
-              className="bg-[#1D5FE0] hover:bg-white hover:text-slate-950 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
-            >
-              <span>Get Free Solar Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── SECTION 06: FINAL CONVERSION LEAD FORM ── */}
-      <div className="mt-20 lg:mt-28">
+      {/* ── SECTION 05: FINAL CONVERSION LEAD FORM ── */}
+      <div className="mt-16 lg:mt-24">
         <FinalCTAForm
           prefilledPincode={prefilledPincode}
           prefilledBill={prefilledBill}
