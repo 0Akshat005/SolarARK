@@ -100,33 +100,9 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
         }}
       />
 
-      {/* ── Multi-Layered Organic Wave Section Divider ──
-           Seamless, modern architectural wave curve dividing Hero from the ProblemSection below. ── */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-[15] overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 140"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="relative block w-full h-[50px] sm:h-[80px] lg:h-[120px]"
-          preserveAspectRatio="none"
-        >
-          {/* Top Translucent Wave Layer (Subtle Depth) */}
-          <path
-            d="M0,25 C320,95 620,15 940,70 C1200,110 1360,45 1440,30 L1440,140 L0,140 Z"
-            fill="rgba(250, 249, 246, 0.4)"
-          />
-          {/* Middle Semi-Opaque Wave Layer (Organic Depth) */}
-          <path
-            d="M0,45 C280,110 580,30 900,85 C1180,120 1370,55 1440,45 L1440,140 L0,140 Z"
-            fill="rgba(250, 249, 246, 0.7)"
-          />
-          {/* Foreground Solid Cream Wave Layer (Seamless Section Transition into #FAF9F6) */}
-          <path
-            d="M0,65 C240,125 540,48 860,98 C1160,135 1360,75 1440,65 L1440,140 L0,140 Z"
-            fill="#FAF9F6"
-          />
-        </svg>
-      </div>
+      {/* ── Seamless Atmospheric Bottom Transition into #FAF9F6 ──
+           Natural, high-end photographic dissolve with zero artificial cut-off lines ── */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-40 pointer-events-none z-[3] bg-gradient-to-t from-[#FAF9F6] via-[#FAF9F6]/75 to-transparent" />
 
       {/* ── Content Container ── */}
       <div
