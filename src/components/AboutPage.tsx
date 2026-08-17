@@ -6,13 +6,13 @@
 import React from 'react';
 import {
   ArrowLeft,
-  ArrowRight,
   Home as HomeIcon,
   CheckCircle2,
   Sun,
   Globe,
   SunMedium
 } from 'lucide-react';
+import { OurJourney } from './OurJourney';
 import { FinalCTAForm } from './FinalCTAForm';
 
 interface AboutPageProps {
@@ -35,49 +35,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({
     '24 X 7 Call & Chat Support',
   ];
 
-  const journeyMilestones = [
-    {
-      year: '2020',
-      badge: 'SolarARK',
-      title: 'SolarARK Projects',
-      description: 'Inception of SolarARK with initial rooftop solar project execution and engineering setup.',
-    },
-    {
-      year: '2021',
-      badge: '575 Roofs',
-      title: '575 Home Solarised',
-      description: 'Expanded residential footprint, empowering 575 Indian homes with clean rooftop solar power.',
-    },
-    {
-      year: '2022',
-      badge: '2230+ Homes',
-      title: '2230 Home Solarised, 100+ Commercial Businesses, 50+ Housing Societies',
-      description: 'Major scale-up across residential clusters, commercial establishments, and housing societies.',
-    },
-    {
-      year: '2023',
-      badge: '5000+ Happy',
-      title: '5000+ Happy Customers',
-      description: 'Reached the milestone of 5,000+ delighted customers with verified electricity bill reduction.',
-    },
-    {
-      year: '2024',
-      badge: 'Expansion',
-      title: 'Established Branches at Akola, Chh. Sambhaji Nagar & Wardha',
-      description: 'Opened dedicated regional offices across Maharashtra to deliver local support and rapid installation.',
-    },
-  ];
-
   return (
     <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
       {/* ── TOP BREADCRUMB & CONCISE HEADER ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-8">
-        <div className="flex items-center justify-between gap-4 pb-4 border-b border-stone-200 mb-6">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-4">
+        <div className="flex items-center justify-between gap-4 pb-4 border-b border-stone-200 mb-4">
           <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
             <button
               onClick={() => onNavigate('/')}
-              className="flex items-center gap-1 hover:text-[#8B1E1E] transition-colors"
+              className="flex items-center gap-1 hover:text-[#8B1E1E] transition-colors cursor-pointer"
             >
               <HomeIcon className="w-3.5 h-3.5" />
               <span>Home</span>
@@ -88,7 +55,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
           <button
             onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Home</span>
@@ -98,14 +65,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-20 sm:space-y-28">
 
-        {/* ── SECTION 1: WHO ARE WE? ── */}
+        {/* ── SECTION 1 (TOP): OUR JOURNEY (LIGHT GRADIENT TIMELINE) ── */}
+        <OurJourney />
+
+        {/* ── SECTION 2: WHO ARE WE? ── */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Text Column */}
           <div className="lg:col-span-6 space-y-6">
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-[11px] font-bold text-[#8B1E1E] tracking-widest uppercase font-heading">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+              <span>Company Background</span>
+            </div>
+
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
               Who Are <span className="text-[#8B1E1E]">We?</span>
-            </h1>
+            </h2>
 
             <p className="text-base sm:text-lg text-stone-700 font-normal leading-relaxed">
               We believe in building strong, lasting relationships with our clients, providing them with tailored solutions that align with their specific energy needs. Whether you're a homeowner, a business, or part of an industrial facility, Solar Ark is here to help you make the smart, eco-friendly choice for your energy needs.
@@ -142,7 +117,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         </section>
 
-        {/* ── REVAMPED SECTION: OUR COMMITMENT / EXCEPTIONAL QUALITY (EDITORIAL BENCHMARK) ── */}
+        {/* ── SECTION 3: OUR COMMITMENT / EXCEPTIONAL QUALITY ── */}
         <section className="space-y-16 sm:space-y-24 pt-4 pb-4 relative">
           
           {/* Centered Intro Statement */}
@@ -189,7 +164,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             {/* Right Content */}
             <div className="lg:col-span-7 space-y-4 sm:pl-4 relative">
-              {/* 01 Line */}
               <div className="flex items-center gap-3 text-stone-400 font-heading text-base font-semibold">
                 <span className="text-stone-500 font-bold">01</span>
                 <div className="w-14 h-[1px] bg-stone-300" />
@@ -210,7 +184,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-4 sm:pr-4 order-2 lg:order-1 relative">
-              {/* 02 Line */}
               <div className="flex items-center gap-3 text-stone-400 font-heading text-base font-semibold">
                 <span className="text-stone-500 font-bold">02</span>
                 <div className="w-14 h-[1px] bg-stone-300" />
@@ -221,13 +194,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </h3>
 
               <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-                With a focus on quality, efficiency, and customer satisfaction, we ensure that each solar solution is tailored to the unique needs of our clients. Whether you're looking to reduce your home's energy costs, transition your business to renewable power or implement large-scale solar systems in industrial facilities, SolarArk is here to guide you every step of the way. With cutting-edge technology and a commitment to sustainability.
+                With a focus on quality, efficiency, and customer satisfaction, we ensure that each solar solution is tailored to the unique needs of our clients. Whether you're looking to reduce your home's energy costs, transition your business to renewable power or implement large-scale solar systems in industrial facilities, SolarArk is here to guide you every step of the way.
               </p>
             </div>
 
             {/* Right Image with curved top-left arch and round badge */}
             <div className="lg:col-span-5 relative group order-1 lg:order-2">
-              {/* Overlapping Maroon Solar Badge */}
               <div className="hidden sm:flex absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-[#8B1E1E] text-white rounded-full border-4 border-[#FCFAF7] shadow-xl items-center justify-center z-10">
                 <SunMedium className="w-6 h-6 text-white" />
               </div>
@@ -248,10 +220,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         </section>
 
-        {/* ── SECTION 3: POWERING A SUSTAINABLE FUTURE (FOUNDER PORTRAIT + MISSION/VISION) ── */}
+        {/* ── SECTION 4: POWERING A SUSTAINABLE FUTURE (FOUNDER PORTRAIT + MISSION/VISION) ── */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/80 rounded-3xl p-8 sm:p-12 shadow-xs">
           
-          {/* Left Founder Portrait (Blue Blazer + Certificate) */}
+          {/* Left Founder Portrait */}
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200 bg-stone-100">
               <img
@@ -290,71 +262,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 "Empowering Communities, Illuminating Futures: Solar Ark's Vision for a Sustainable India"
               </p>
               <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed">
-                At Solar Ark, we envision a future where every corner of India is bathed in the glow of sustainable energy, where communities thrive in harmony with nature, and where innovation and tradition converge to create a brighter tomorrow. Our vision is to lead the charge towards a renewable energy revolution, empowering communities across India to harness the abundant power of the sun and other sustainable resources. We see a nation where clean energy is not just a choice, but a way of life ingrained in the fabric of society.
+                At Solar Ark, we envision a future where every corner of India is bathed in the glow of sustainable energy, where communities thrive in harmony with nature, and where innovation and tradition converge to create a brighter tomorrow. Our vision is to lead the charge towards a renewable energy revolution.
               </p>
             </div>
           </div>
 
-        </section>
-
-        {/* ── SECTION 4: OUR JOURNEY (OFFICIAL MILESTONES) ── */}
-        <section className="space-y-12 pt-4">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Our Journey
-            </h2>
-            <p className="text-sm text-stone-600 font-normal">
-              Continuous track record of growth, happy homeowners, and regional branch expansion.
-            </p>
-          </div>
-
-          {/* Desktop Curved Track / Grid */}
-          <div className="hidden lg:grid grid-cols-5 gap-5 relative">
-            <div className="absolute top-7 left-10 right-10 h-0.5 border-t-2 border-dashed border-stone-300 z-0" />
-
-            {journeyMilestones.map((m, idx) => (
-              <div
-                key={idx}
-                className="relative z-10 bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs flex flex-col justify-between space-y-3 hover:border-[#8B1E1E] transition-all group"
-              >
-                <div>
-                  <div className="w-11 h-11 rounded-full bg-[#FCFAF7] border-2 border-stone-200 group-hover:border-[#8B1E1E] text-[#8B1E1E] font-heading font-extrabold text-xs flex items-center justify-center shadow-xs mb-3 transition-colors">
-                    {m.year}
-                  </div>
-                  <div className="text-[11px] font-bold text-[#8B1E1E] font-heading uppercase tracking-wider">
-                    {m.badge}
-                  </div>
-                  <h4 className="font-heading text-sm font-bold text-slate-900 leading-snug mt-1">
-                    {m.title}
-                  </h4>
-                  <p className="text-xs text-stone-600 font-normal leading-relaxed mt-2">
-                    {m.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile Vertical Timeline */}
-          <div className="flex lg:hidden flex-col space-y-6 relative border-l-2 border-dashed border-stone-300 pl-6 ml-4">
-            {journeyMilestones.map((m, idx) => (
-              <div key={idx} className="relative bg-white border border-stone-200 rounded-2xl p-5 shadow-xs space-y-1.5">
-                <div className="absolute -left-[35px] top-5 w-4 h-4 rounded-full bg-[#8B1E1E] border-4 border-[#FCFAF7]" />
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-extrabold text-[#8B1E1E] font-heading">{m.year}</span>
-                  <span className="text-[10px] font-bold text-stone-500 uppercase bg-stone-100 px-2 py-0.5 rounded-md">
-                    {m.badge}
-                  </span>
-                </div>
-                <h4 className="font-heading text-sm font-bold text-slate-900">
-                  {m.title}
-                </h4>
-                <p className="text-xs text-stone-600 font-normal leading-relaxed">
-                  {m.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </section>
 
       </div>
