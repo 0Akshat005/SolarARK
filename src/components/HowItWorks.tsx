@@ -14,7 +14,9 @@ import {
   Wrench,
   BarChart3,
   Sparkles,
-  Zap
+  Zap,
+  Layers,
+  Award
 } from 'lucide-react';
 
 interface HowItWorksProps {
@@ -40,7 +42,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       icon: Compass,
       image: '/images/story-empty-rooftop.jpg',
       alt: 'Certified engineer conducting 3D shadow and roof survey',
-      badge: 'Precision 3D Scan',
+      badgeTop: '📐 3D LiDAR Laser Shade Scan',
+      badgeBottom: '✓ Feeder Capacity Checked • DISCOM Approved',
     },
     {
       id: '02',
@@ -50,7 +53,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       icon: Grid,
       image: '/images/process/stage-02-cad-design.jpg',
       alt: 'Custom 3D CAD solar layout and string architecture',
-      badge: 'Custom CAD Model',
+      badgeTop: '☀️ Optimized Tilt & Shadow Simulation',
+      badgeBottom: '🏢 100% Terrace Usability Preserved',
     },
     {
       id: '03',
@@ -58,9 +62,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       tagline: 'Our team handles the work.',
       description: 'Our in-house master installers mount the WindPro galvanized structure, run concealed conduits, and coordinate DISCOM net-metering and PM Surya Ghar subsidy filings end to end.',
       icon: Wrench,
-      image: '/images/process/stage-03-install-crop.jpg',
+      image: '/images/process/stage-03-install-wide.jpg',
       alt: 'Certified SolarArk technicians installing solar panels on residential rooftop',
-      badge: 'Turnkey Execution',
+      badgeTop: '⚡ Monocrystalline Tier-1 Solar Panels',
+      badgeBottom: '🛡️ WindPro 170 km/h Elevated GI Structure',
     },
     {
       id: '04',
@@ -70,9 +75,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       icon: BarChart3,
       image: '/images/earnwithus/earnwithus-hero-rooftop.jpg',
       alt: 'Operational residential rooftop solar array generating clean electricity',
-      badge: 'Net Metering Active',
+      badgeTop: '📊 Real-Time IoT Telemetry Active',
+      badgeBottom: '💰 PM Surya Ghar ₹78,000 Subsidy Credited',
     },
   ];
+
+  const currentStage = stages[activeStep];
 
   return (
     <section
@@ -80,8 +88,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       className="relative bg-gradient-to-b from-[#FAF8F5] via-[#F9F6F1] to-[#F5F2EC] py-16 sm:py-20 lg:py-24 border-b border-stone-200/80 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
     >
       
-      {/* ── AMBIENT ATMOSPHERIC STAGE HERO IMAGE (RIGHT SIDE BLEND) ── */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] pointer-events-none z-0 overflow-hidden">
+      {/* ── IMMERSIVE ATMOSPHERIC STAGE HERO IMAGE (SEAMLESS EXPANDED BLEED) ── */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[78%] xl:w-[75%] pointer-events-none z-0 overflow-hidden">
         {stages.map((stage, idx) => (
           <img
             key={stage.id}
@@ -91,24 +99,26 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
               activeStep === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
             style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 14%, rgba(0,0,0,0.7) 38%, black 68%), linear-gradient(to bottom, black 78%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 14%, rgba(0,0,0,0.7) 38%, black 68%), linear-gradient(to bottom, black 78%, transparent 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 8%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0.85) 42%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 8%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0.85) 42%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
               maskComposite: 'intersect',
               WebkitMaskComposite: 'source-in'
             }}
           />
         ))}
-        {/* Soft Linear Overlays for Flawless Bleed */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/85 to-transparent lg:via-[#FAF8F5]/30 pointer-events-none z-20" />
+
+        {/* Atmospheric Sunlight Bleed */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent lg:via-[#FAF8F5]/25 pointer-events-none z-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#F5F2EC] via-transparent to-transparent pointer-events-none z-20" />
       </div>
 
       <div className="relative z-10 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12 lg:space-y-16">
         
         {/* ── TOP SECTION: EDITORIAL HEADLINE & TRUST BADGE ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[360px] sm:min-h-[400px] lg:min-h-[440px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[380px] sm:min-h-[420px] lg:min-h-[460px]">
           
-          <div className="lg:col-span-6 xl:col-span-5 space-y-6 pt-2">
+          {/* Left Editorial Copy */}
+          <div className="lg:col-span-5 xl:col-span-5 space-y-6 pt-2">
             
             {/* Small Eyebrow Pill */}
             <div className="inline-flex items-center gap-2 text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
@@ -126,12 +136,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             </div>
 
             {/* Supporting Paragraph (Plus Jakarta Sans) */}
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-lg">
+            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-md">
               From roof assessment to installation and approvals, SolarARK manages the journey end to end.
             </p>
 
             {/* Soft Rounded Trust Badge Card */}
-            <div className="bg-white rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
               <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
               </div>
@@ -147,13 +157,27 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
 
           </div>
 
-          {/* Right Spacer on Desktop to let the photorealistic background breathe */}
-          <div className="lg:col-span-6 xl:col-span-7 hidden lg:block" />
+          {/* Right Immersive Stage Overlay Floating Cards */}
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-between items-end h-full py-4 pointer-events-none min-h-[280px]">
+            
+            {/* Top Right Context Badge */}
+            <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl border border-stone-200/90 shadow-sm text-xs font-semibold text-slate-800 hidden sm:inline-flex items-center gap-2 animate-in fade-in duration-300">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span>{currentStage.badgeTop}</span>
+            </div>
+
+            {/* Bottom Right Guarantee Badge */}
+            <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl border border-stone-200/90 shadow-sm text-xs font-semibold text-[#8B1E1E] hidden sm:inline-flex items-center gap-2 animate-in fade-in duration-300">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>{currentStage.badgeBottom}</span>
+            </div>
+
+          </div>
 
         </div>
 
         {/* ── BOTTOM HORIZONTAL INTERACTIVE JOURNEY BAR & CTA ── */}
-        <div className="bg-white/90 backdrop-blur-md rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_12px_36px_rgba(0,0,0,0.04)]">
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_12px_36px_rgba(0,0,0,0.04)]">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8">
             
             {/* 4 Interactive Connected Steps */}
