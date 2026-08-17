@@ -12,7 +12,7 @@ export interface JourneyMilestone {
   badgeColor: string;
   inkColor: string;
   glowColor: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   title: string;
   description: string;
 }
@@ -210,7 +210,7 @@ export const OurJourney: React.FC = () => {
         {/* DESKTOP TIMELINE (≥ 1024px) */}
         <div className="hidden lg:block">
           
-          {/* Row 1: Years + Circle Badges + Stems + Dots */}
+          {/* Row 1: Years + Transparent Glowing Rings + Stems + Dots */}
           <div className="grid grid-cols-5 gap-3 relative pb-6">
             
             {MILESTONES.map((m, idx) => {
@@ -229,15 +229,22 @@ export const OurJourney: React.FC = () => {
                     {m.year}
                   </span>
 
-                  {/* Solid Icon Circle Badge with soft matching drop-shadow */}
+                  {/* Transparent Circle with Thin Colored Neon Ring & Soft Diffused Glow */}
                   <div
-                    className="w-[76px] h-[76px] rounded-full flex items-center justify-center text-white transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
+                    className="w-[76px] h-[76px] rounded-full flex items-center justify-center bg-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
                     style={{
-                      backgroundColor: m.badgeColor,
-                      boxShadow: `0 8px 24px -4px ${m.glowColor}`,
+                      border: `2px solid ${m.badgeColor}`,
+                      boxShadow: `0 0 14px 1px ${m.glowColor}, inset 0 0 8px ${m.glowColor}`,
                     }}
                   >
-                    <Icon className="w-8 h-8 text-white drop-shadow-xs" />
+                    {/* White line icon with crisp subtle drop shadow */}
+                    <Icon
+                      className="w-7 h-7 text-white"
+                      strokeWidth={1.8}
+                      style={{
+                        filter: 'drop-shadow(0 1px 3px rgba(15, 23, 42, 0.45)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6))',
+                      }}
+                    />
                   </div>
 
                   {/* Vertical stem */}
@@ -321,15 +328,21 @@ export const OurJourney: React.FC = () => {
                 className="journey-node-top bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-2xl p-5 shadow-xs flex items-start gap-4 transition-all duration-300"
                 style={{ transitionDelay: `${0.1 + idx * 0.12}s` }}
               >
-                {/* Icon Circle */}
+                {/* Transparent Circle with Thin Colored Neon Ring & Soft Diffused Glow */}
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white shrink-0 shadow-md"
+                  className="w-12 h-12 rounded-full flex items-center justify-center bg-transparent shrink-0"
                   style={{
-                    backgroundColor: m.badgeColor,
-                    boxShadow: `0 6px 16px -2px ${m.glowColor}`,
+                    border: `2px solid ${m.badgeColor}`,
+                    boxShadow: `0 0 10px 1px ${m.glowColor}, inset 0 0 6px ${m.glowColor}`,
                   }}
                 >
-                  <Icon className="w-5 h-5 text-white" />
+                  <Icon
+                    className="w-5 h-5 text-white"
+                    strokeWidth={1.8}
+                    style={{
+                      filter: 'drop-shadow(0 1px 2px rgba(15, 23, 42, 0.45)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))',
+                    }}
+                  />
                 </div>
 
                 {/* Content */}
