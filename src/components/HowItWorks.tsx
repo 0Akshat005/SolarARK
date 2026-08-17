@@ -15,8 +15,7 @@ import {
   BarChart3,
   Sparkles,
   Zap,
-  Layers,
-  Award
+  Check
 } from 'lucide-react';
 
 interface HowItWorksProps {
@@ -38,6 +37,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       id: '01',
       label: 'SURVEY',
       tagline: 'We understand your roof first.',
+      headline: '3D LiDAR Laser Shade & Slab Analysis',
       description: 'Our certified engineers conduct a 3D LiDAR laser scan of your rooftop to evaluate tilt angle, structural strength, and shadow profiles from nearby trees or parapet walls.',
       icon: Compass,
       image: '/images/story-empty-rooftop.jpg',
@@ -49,6 +49,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       id: '02',
       label: 'DESIGN',
       tagline: 'A system designed around your home.',
+      headline: 'Custom 3D CAD Blueprint & Shadow Simulation',
       description: 'We generate an exact 3D CAD layout simulation showing module placement, wind-load calculations, and guaranteed generation estimates before you invest.',
       icon: Grid,
       image: '/images/process/stage-02-cad-design.jpg',
@@ -60,6 +61,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       id: '03',
       label: 'INSTALL',
       tagline: 'Our team handles the work.',
+      headline: 'Turnkey 48-Hour Installation by Certified Master Installers',
       description: 'Our in-house master installers mount the WindPro galvanized structure, run concealed conduits, and coordinate DISCOM net-metering and PM Surya Ghar subsidy filings end to end.',
       icon: Wrench,
       image: '/images/process/stage-03-install-wide.jpg',
@@ -71,6 +73,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       id: '04',
       label: 'LIVE',
       tagline: 'You start generating. You start saving.',
+      headline: 'Grid Synchronization, Zero Bills & Live IoT Telemetry',
       description: 'DISCOM net-meter is synchronized. Switch on clean solar power, watch your electric meter spin backward, and track real-time savings live on the SolarArk companion app.',
       icon: BarChart3,
       image: '/images/earnwithus/earnwithus-hero-rooftop.jpg',
@@ -85,98 +88,103 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
   return (
     <section
       id="how-it-works"
-      className="relative bg-gradient-to-b from-[#FAF8F5] via-[#F9F6F1] to-[#F5F2EC] py-16 sm:py-20 lg:py-24 border-b border-stone-200/80 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="relative bg-gradient-to-b from-[#FAF8F5] via-[#F9F6F1] to-[#F5F2EC] py-16 sm:py-20 border-b border-stone-200/80 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
     >
-      
-      {/* ── IMMERSIVE ATMOSPHERIC STAGE HERO IMAGE (SEAMLESS EXPANDED BLEED) ── */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[78%] xl:w-[75%] pointer-events-none z-0 overflow-hidden">
-        {stages.map((stage, idx) => (
-          <img
-            key={stage.id}
-            src={stage.image}
-            alt={stage.alt}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-out ${
-              activeStep === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-            style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 8%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0.85) 42%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 8%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0.85) 42%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
-              maskComposite: 'intersect',
-              WebkitMaskComposite: 'source-in'
-            }}
-          />
-        ))}
-
-        {/* Atmospheric Sunlight Bleed */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/80 to-transparent lg:via-[#FAF8F5]/25 pointer-events-none z-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F5F2EC] via-transparent to-transparent pointer-events-none z-20" />
-      </div>
-
-      <div className="relative z-10 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12 lg:space-y-16">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 space-y-8 lg:space-y-10">
         
-        {/* ── TOP SECTION: EDITORIAL HEADLINE & TRUST BADGE ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[380px] sm:min-h-[420px] lg:min-h-[460px]">
+        {/* ── 1. COMPREHENSIVE FULL-WIDTH EDITORIAL HEADER (NO AWKWARD CUTOFFS) ── */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
           
-          {/* Left Editorial Copy */}
-          <div className="lg:col-span-5 xl:col-span-5 space-y-6 pt-2">
-            
-            {/* Small Eyebrow Pill */}
+          <div className="space-y-3 max-w-3xl">
+            {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
               <CheckCircle2 className="w-4 h-4 text-[#8B1E1E]" />
               <span>FRICTIONLESS END-TO-END</span>
             </div>
 
-            {/* Large Display Headline (Space Grotesk) */}
-            <div className="space-y-1">
-              <h2 className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold tracking-tight leading-[1.10] text-[#0F172A] font-heading m-0">
-                We handle the <br />
-                hard part. <br />
-                <span className="text-[#8B1E1E]">You just save.</span>
-              </h2>
-            </div>
+            {/* Complete One-Line Headline */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold tracking-tight leading-[1.12] text-[#0F172A] font-heading m-0">
+              We handle the hard part. <span className="text-[#8B1E1E]">You just save.</span>
+            </h2>
 
-            {/* Supporting Paragraph (Plus Jakarta Sans) */}
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-md">
+            {/* Expansive One-Line Subtitle */}
+            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
               From roof assessment to installation and approvals, SolarARK manages the journey end to end.
             </p>
-
-            {/* Soft Rounded Trust Badge Card */}
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
-              </div>
-              <div className="space-y-0.5">
-                <h3 className="font-heading font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
-                  Certified Installation Team
-                </h3>
-                <p className="text-xs text-stone-500 font-medium">
-                  Safety. Quality. On-time.
-                </p>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Immersive Stage Overlay Floating Cards */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-between items-end h-full py-4 pointer-events-none min-h-[280px]">
-            
-            {/* Top Right Context Badge */}
-            <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl border border-stone-200/90 shadow-sm text-xs font-semibold text-slate-800 hidden sm:inline-flex items-center gap-2 animate-in fade-in duration-300">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>{currentStage.badgeTop}</span>
+          {/* Certified Team Trust Badge */}
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5 shrink-0 self-start lg:self-auto">
+            <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
+            </div>
+            <div className="space-y-0.5">
+              <h3 className="font-heading font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
+                Certified Installation Team
+              </h3>
+              <p className="text-xs text-stone-500 font-medium">
+                Safety. Quality. On-time.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ── 2. CINEMATIC INTERACTIVE STAGE SHOWCASE CANVAS ── */}
+        <div className="relative rounded-3xl overflow-hidden border border-stone-200/90 shadow-xl bg-slate-900 min-h-[360px] sm:min-h-[440px] lg:min-h-[480px] flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+          
+          {/* Background Cross-Fading Stage Visuals */}
+          {stages.map((stage, idx) => (
+            <img
+              key={stage.id}
+              src={stage.image}
+              alt={stage.alt}
+              className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-out ${
+                activeStep === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
+            />
+          ))}
+
+          {/* Cinematic Lighting & Contrast Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40 pointer-events-none z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none z-10 hidden sm:block" />
+
+          {/* ── Stage Top Micro-Bar ── */}
+          <div className="relative z-20 flex flex-wrap items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold font-heading tracking-wide uppercase shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>STAGE {currentStage.id}: {currentStage.label}</span>
             </div>
 
-            {/* Bottom Right Guarantee Badge */}
-            <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl border border-stone-200/90 shadow-sm text-xs font-semibold text-[#8B1E1E] hidden sm:inline-flex items-center gap-2 animate-in fade-in duration-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>{currentStage.badgeBottom}</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white text-xs font-medium shadow-sm">
+              <span>{currentStage.badgeTop}</span>
+            </div>
+          </div>
+
+          {/* ── Stage Bottom Overlaid Narrative Card ── */}
+          <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+            
+            <div className="lg:col-span-8 space-y-2 max-w-2xl">
+              <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight drop-shadow-md">
+                {currentStage.headline}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed max-w-xl font-normal drop-shadow-sm">
+                {currentStage.description}
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <div className="bg-white/15 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/25 text-xs font-semibold text-white inline-flex items-center gap-2 shadow-sm">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>{currentStage.badgeBottom}</span>
+              </div>
             </div>
 
           </div>
 
         </div>
 
-        {/* ── BOTTOM HORIZONTAL INTERACTIVE JOURNEY BAR & CTA ── */}
+        {/* ── 3. BOTTOM HORIZONTAL INTERACTIVE JOURNEY CONTROLLER BAR & CTA ── */}
         <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_12px_36px_rgba(0,0,0,0.04)]">
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8">
             
