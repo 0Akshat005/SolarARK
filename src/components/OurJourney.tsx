@@ -237,12 +237,13 @@ export const OurJourney: React.FC = () => {
                       boxShadow: `0 0 14px 1px ${m.glowColor}, inset 0 0 8px ${m.glowColor}`,
                     }}
                   >
-                    {/* White line icon with crisp subtle drop shadow */}
+                    {/* Matching colored neon icon with subtle diffused glow */}
                     <Icon
-                      className="w-7 h-7 text-white"
-                      strokeWidth={1.8}
+                      className="w-7 h-7 transition-transform duration-300 group-hover:scale-110"
+                      strokeWidth={2}
                       style={{
-                        filter: 'drop-shadow(0 1px 3px rgba(15, 23, 42, 0.45)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6))',
+                        color: m.badgeColor,
+                        filter: `drop-shadow(0 0 5px ${m.glowColor})`,
                       }}
                     />
                   </div>
@@ -337,10 +338,11 @@ export const OurJourney: React.FC = () => {
                   }}
                 >
                   <Icon
-                    className="w-5 h-5 text-white"
-                    strokeWidth={1.8}
+                    className="w-5 h-5"
+                    strokeWidth={2}
                     style={{
-                      filter: 'drop-shadow(0 1px 2px rgba(15, 23, 42, 0.45)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))',
+                      color: m.badgeColor,
+                      filter: `drop-shadow(0 0 4px ${m.glowColor})`,
                     }}
                   />
                 </div>
