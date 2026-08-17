@@ -201,10 +201,11 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           </div>
 
-          {/* Spacer & Overlaid 3D Estimate Caption Card with Curved Arrow */}
+          {/* Spacer & Overlaid 3D Estimate Caption Card with Independent Floating Curved Arrow */}
           <div className="pt-20 sm:pt-28 lg:pt-32 relative">
-            <div className="relative inline-flex items-center gap-3.5 bg-[#111827]/90 backdrop-blur-md text-white border border-white/20 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
-              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 p-1 shrink-0 overflow-hidden flex items-center justify-center">
+            <div className="relative inline-flex items-center gap-3.5 bg-slate-950/85 backdrop-blur-md text-white border border-white/15 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
+              {/* Clean borderless 3D Model Thumbnail Blend */}
+              <div className="w-11 h-11 shrink-0 overflow-hidden flex items-center justify-center filter drop-shadow-md">
                 <img
                   src="/images/thumb-3d-solar-house.png"
                   alt="3D Solar house model"
@@ -218,20 +219,22 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               </div>
             </div>
 
-            {/* Elegant Curved Golden Arrow (Pointing gracefully toward the form) */}
-            <div className="hidden lg:block absolute left-[380px] bottom-3 pointer-events-none z-10 text-amber-500">
-              <svg width="70" height="35" viewBox="0 0 70 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Creative Independent Floating Curved Arrow (Pointing dynamically toward the form) */}
+            <div className="hidden lg:block absolute left-[370px] -bottom-2 pointer-events-none z-20">
+              <svg width="110" height="60" viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="filter drop-shadow-xs">
+                {/* Dynamic Arcing Path */}
                 <path
-                  d="M2 28C22 28 42 22 58 6"
+                  d="M4 46C35 46 65 38 96 10"
                   stroke="#E27D16"
-                  strokeWidth="2.2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
-                  strokeDasharray="4 2"
+                  strokeDasharray="5 3"
                 />
+                {/* Arrowhead Pointing Up-Right into the Form */}
                 <path
-                  d="M48 6H59V17"
+                  d="M80 8L98 9L95 27"
                   stroke="#E27D16"
-                  strokeWidth="2.2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
@@ -652,20 +655,20 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
       </div>
 
-      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH) ── */}
-      <div className="relative z-20 mt-10 bg-white/95 backdrop-blur-md border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xs">
+      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH - PREMIUM GLASSMORPHISM) ── */}
+      <div className="relative z-20 mt-10 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(15,23,42,0.05)] rounded-3xl p-6 sm:p-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Benefit 1: Accurate 3D Roof Design */}
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
               <FileText className="w-6 h-6" />
             </div>
             <div className="text-left">
               <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
                 Accurate 3D Roof Design
               </h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
                 High precision proposal for your roof
               </p>
             </div>
@@ -673,14 +676,14 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           {/* Benefit 2: Max Subsidy Benefit */}
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-emerald-600 shrink-0">
               <IndianRupee className="w-6 h-6" />
             </div>
             <div className="text-left">
               <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
                 Max Subsidy Benefit
               </h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
                 We help you get maximum DISCOM subsidy
               </p>
             </div>
@@ -688,14 +691,14 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           {/* Benefit 3: Save Up to 90% */}
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
               <TrendingUp className="w-6 h-6" />
             </div>
             <div className="text-left">
               <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
                 Save Up to 90%
               </h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
                 Slash your electricity bills for 25+ years
               </p>
             </div>
@@ -703,14 +706,14 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
           {/* Benefit 4: End-to-End Support */}
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-amber-600 shrink-0">
               <Wrench className="w-6 h-6" />
             </div>
             <div className="text-left">
               <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
                 End-to-End Support
               </h4>
-              <p className="text-xs text-slate-500 mt-0.5 leading-snug">
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
                 From paperwork to installation &amp; beyond
               </p>
             </div>
