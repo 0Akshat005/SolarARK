@@ -12,6 +12,7 @@ import {
   Globe,
   SunMedium
 } from 'lucide-react';
+import { PageContextBar } from './PageContextBar';
 import { OurJourney } from './OurJourney';
 import { FinalCTAForm } from './FinalCTAForm';
 
@@ -36,34 +37,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   ];
 
   return (
-    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
-      {/* ── TOP BREADCRUMB & CONCISE HEADER ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-4">
-        <div className="flex items-center justify-between gap-4 pb-4 border-b border-stone-200 mb-4">
-          <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
-            <button
-              onClick={() => onNavigate('/')}
-              className="flex items-center gap-1 hover:text-[#8B1E1E] transition-colors cursor-pointer"
-            >
-              <HomeIcon className="w-3.5 h-3.5" />
-              <span>Home</span>
-            </button>
-            <span>/</span>
-            <span className="text-stone-900 font-semibold">About Us</span>
-          </div>
+      {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR (NO CARD, NO BOX, INLINE ACTION) ── */}
+      <PageContextBar
+        currentPage="About Us"
+        onNavigate={onNavigate}
+      />
 
-          <button
-            onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Home</span>
-          </button>
-        </div>
-      </div>
-
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-20 sm:space-y-28">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-16 sm:space-y-24">
 
         {/* ── SECTION 1 (TOP): OUR JOURNEY (LIGHT GRADIENT TIMELINE) ── */}
         <OurJourney />

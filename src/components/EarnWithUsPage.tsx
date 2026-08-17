@@ -30,6 +30,8 @@ import {
   HelpCircle
 } from 'lucide-react';
 
+import { PageContextBar } from './PageContextBar';
+
 interface EarnWithUsPageProps {
   onNavigate: (path: string) => void;
   onCtaClick: () => void;
@@ -123,7 +125,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   ];
 
   const kitItems = [
-    'Official SolarArk Surya Mitra ID Card & Certificate',
+    'Official Surya Mitra ID Card & Certificate',
     'Personalized Branded Visiting Cards',
     'High-Quality Printed PM Surya Ghar Subsidy Flyers',
     'SolarArk Executive Diary, Pen & Presentation Folder',
@@ -135,32 +137,13 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   const estimatedEarnings = selectedKw * 1500;
 
   return (
-    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
       
-      {/* ── TOP BREADCRUMB & QUICK NAV ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-6">
-        <div className="flex items-center justify-between gap-4 pb-4 border-b border-stone-200 mb-6">
-          <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
-            <button
-              onClick={() => onNavigate('/')}
-              className="flex items-center gap-1 hover:text-[#1D5FE0] transition-colors cursor-pointer"
-            >
-              <HomeIcon className="w-3.5 h-3.5" />
-              <span>Home</span>
-            </button>
-            <span>/</span>
-            <span className="text-stone-900 font-semibold">Surya Mitra (Earn With Us)</span>
-          </div>
-
-          <button
-            onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#1D5FE0] transition-colors cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Home</span>
-          </button>
-        </div>
-      </div>
+      {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
+      <PageContextBar
+        currentPage="Surya Mitra (Earn With Us)"
+        onNavigate={onNavigate}
+      />
 
       {/* ── SECTION 01: EDITORIAL SURYA MITRA HERO ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
