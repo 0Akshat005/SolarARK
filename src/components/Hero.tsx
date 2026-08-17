@@ -113,17 +113,17 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
           {/* Top Translucent Wave Layer (Subtle Depth) */}
           <path
             d="M0,25 C320,95 620,15 940,70 C1200,110 1360,45 1440,30 L1440,140 L0,140 Z"
-            fill="rgba(255, 255, 255, 0.35)"
+            fill="rgba(250, 249, 246, 0.4)"
           />
           {/* Middle Semi-Opaque Wave Layer (Organic Depth) */}
           <path
             d="M0,45 C280,110 580,30 900,85 C1180,120 1370,55 1440,45 L1440,140 L0,140 Z"
-            fill="rgba(255, 255, 255, 0.65)"
+            fill="rgba(250, 249, 246, 0.7)"
           />
-          {/* Foreground Solid White Wave Layer (Seamless Section Transition) */}
+          {/* Foreground Solid Cream Wave Layer (Seamless Section Transition into #FAF9F6) */}
           <path
             d="M0,65 C240,125 540,48 860,98 C1160,135 1360,75 1440,65 L1440,140 L0,140 Z"
-            fill="#FFFFFF"
+            fill="#FAF9F6"
           />
         </svg>
       </div>
