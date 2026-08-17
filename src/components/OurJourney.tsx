@@ -8,7 +8,6 @@ import { Rocket, Home as HomeIcon, Users, Heart, MapPin } from 'lucide-react';
 
 export interface JourneyMilestone {
   year: string;
-  accent: 'amber' | 'blue' | 'green' | 'violet';
   badgeColor: string;
   inkColor: string;
   glowColor: string;
@@ -17,56 +16,51 @@ export interface JourneyMilestone {
   description: string;
 }
 
-// Verified SolarARK milestone data mapping 2020–2024
+// Exact milestone copy & color mapping matching the reference design
 const MILESTONES: JourneyMilestone[] = [
   {
     year: '2020',
-    accent: 'amber',
-    badgeColor: '#f2a340',
-    inkColor: '#b5650e',
-    glowColor: 'rgba(242, 163, 64, 0.45)',
+    badgeColor: '#E27D16',
+    inkColor: '#C8680A',
+    glowColor: 'rgba(226, 125, 22, 0.45)',
     icon: Rocket,
-    title: 'SolarARK projects',
-    description: 'Inception of SolarARK with initial rooftop solar engineering setup & project designs.',
+    title: 'SolarARK Projects',
+    description: 'The beginning of our solar journey in Nagpur with initial rooftop designs.',
   },
   {
     year: '2021',
-    accent: 'blue',
-    badgeColor: '#4f8ef7',
-    inkColor: '#1d4ed8',
-    glowColor: 'rgba(79, 142, 247, 0.45)',
+    badgeColor: '#1D5FE0',
+    inkColor: '#1D5FE0',
+    glowColor: 'rgba(29, 95, 224, 0.45)',
     icon: HomeIcon,
-    title: '575 homes',
-    description: 'Expanded residential footprint, empowering 575 Indian homes with clean rooftop solar power.',
+    title: '575 Homes',
+    description: 'Our residential footprint expanded across cities in Maharashtra.',
   },
   {
     year: '2022',
-    accent: 'amber',
-    badgeColor: '#f2a340',
-    inkColor: '#b5650e',
-    glowColor: 'rgba(242, 163, 64, 0.45)',
+    badgeColor: '#E27D16',
+    inkColor: '#C8680A',
+    glowColor: 'rgba(226, 125, 22, 0.45)',
     icon: Users,
-    title: '2230+ solarised',
-    description: 'Major scale-up across residential clusters, 100+ commercial businesses, and 50+ housing societies.',
+    title: '2230+ Solarised',
+    description: 'Major scale-up across residential clusters, commercial businesses, and 50+ housing societies.',
   },
   {
     year: '2023',
-    accent: 'green',
-    badgeColor: '#22c39c',
-    inkColor: '#0e8f6f',
-    glowColor: 'rgba(34, 195, 156, 0.45)',
+    badgeColor: '#10B981',
+    inkColor: '#059669',
+    glowColor: 'rgba(16, 185, 129, 0.45)',
     icon: Heart,
-    title: '5000+ customers',
-    description: 'Reached milestone of 5,000+ happy homeowners on reliable, long-term generation setups.',
+    title: '5000+ Customers',
+    description: 'Reached milestone of 5,000+ happy homeowners on reliable, long-term solar solutions.',
   },
   {
     year: '2024',
-    accent: 'violet',
-    badgeColor: '#8f7cf6',
-    inkColor: '#6b4cd6',
-    glowColor: 'rgba(143, 124, 246, 0.45)',
+    badgeColor: '#8B5CF6',
+    inkColor: '#7C3AED',
+    glowColor: 'rgba(139, 92, 246, 0.45)',
     icon: MapPin,
-    title: 'New branches',
+    title: 'New Branches',
     description: 'Established dedicated regional branch offices in Akola, Chh. Sambhaji Nagar & Wardha.',
   },
 ];
@@ -79,7 +73,6 @@ export const OurJourney: React.FC = () => {
     const el = sectionRef.current;
     if (!el) return;
 
-    // Trigger one-time entrance animation
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -98,32 +91,55 @@ export const OurJourney: React.FC = () => {
     <section
       ref={sectionRef}
       aria-label="Our journey timeline"
-      className={`journey-section relative overflow-hidden rounded-3xl border border-stone-200/90 shadow-sm py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 my-6 ${
+      className={`journey-section relative overflow-hidden rounded-3xl border border-stone-200/80 shadow-xs py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 my-6 ${
         isVisible ? 'is-visible' : ''
       }`}
       style={{
         background: `
-          radial-gradient(ellipse 900px 480px at 16% -12%, rgba(242,163,64,.18), transparent 60%),
-          radial-gradient(ellipse 800px 460px at 104% 8%, rgba(79,142,247,.12), transparent 60%),
-          linear-gradient(180deg, #fffbf6 0%, #fdf1e3 32%, #f3f7fb 68%, #eef3f8 100%)
+          radial-gradient(ellipse 900px 480px at 15% -10%, rgba(226,125,22, 0.14), transparent 60%),
+          radial-gradient(ellipse 800px 460px at 100% 10%, rgba(29,95,224, 0.10), transparent 60%),
+          linear-gradient(180deg, #fffbf6 0%, #fdf5ec 28%, #f4f8fb 68%, #eef4f9 100%)
         `,
       }}
     >
-      {/* CSS Grid Pattern Overlay for clean solar-grid texture */}
+      {/* Delicate Curved Ambient Wave Lines in Corners (Visual Accent) */}
+      <svg
+        className="absolute -bottom-24 -left-24 w-[500px] h-[500px] text-amber-500/10 pointer-events-none z-0"
+        viewBox="0 0 500 500"
+        fill="none"
+      >
+        <circle cx="100" cy="400" r="160" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="100" cy="400" r="240" stroke="currentColor" strokeWidth="1" />
+        <circle cx="100" cy="400" r="320" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+        <circle cx="100" cy="400" r="400" stroke="currentColor" strokeWidth="1" />
+      </svg>
+
+      <svg
+        className="absolute -top-24 -right-24 w-[500px] h-[500px] text-blue-500/10 pointer-events-none z-0"
+        viewBox="0 0 500 500"
+        fill="none"
+      >
+        <circle cx="400" cy="100" r="160" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+        <circle cx="400" cy="100" r="240" stroke="currentColor" strokeWidth="1" />
+        <circle cx="400" cy="100" r="320" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+        <circle cx="400" cy="100" r="400" stroke="currentColor" strokeWidth="1" />
+      </svg>
+
+      {/* CSS Diagonal Grid Pattern Overlay */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.045] pointer-events-none"
+        className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: `
             repeating-linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0 1px, transparent 1px 44px),
             repeating-linear-gradient(45deg, rgba(15, 23, 42, 0.8) 0 1px, transparent 1px 44px)
           `,
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
-          maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+          maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
         }}
       />
 
       <style>{`
-        /* Header animation */
+        /* Header entrance */
         .journey-header {
           opacity: 0;
           transform: translateY(18px);
@@ -134,7 +150,7 @@ export const OurJourney: React.FC = () => {
           transform: translateY(0);
         }
 
-        /* Node Top animation */
+        /* Node Top entrance */
         .journey-node-top {
           opacity: 0;
           transform: translateY(22px);
@@ -145,7 +161,7 @@ export const OurJourney: React.FC = () => {
           transform: translateY(0);
         }
 
-        /* Connecting line animation */
+        /* Connecting line draw */
         .journey-timeline-line {
           transform: scaleX(0);
           transform-origin: left center;
@@ -155,7 +171,7 @@ export const OurJourney: React.FC = () => {
           transform: scaleX(1);
         }
 
-        /* Arrowhead animation */
+        /* Arrowhead entrance */
         .journey-timeline-arrow {
           opacity: 0;
           transition: opacity 0.5s ease 1.5s;
@@ -164,7 +180,7 @@ export const OurJourney: React.FC = () => {
           opacity: 1;
         }
 
-        /* Node Bottom animation */
+        /* Node Bottom entrance */
         .journey-node-bottom {
           opacity: 0;
           transform: translateY(16px);
@@ -173,15 +189,6 @@ export const OurJourney: React.FC = () => {
         .journey-section.is-visible .journey-node-bottom {
           opacity: 1;
           transform: translateY(0);
-        }
-
-        /* Subtitle animation */
-        .journey-subtitle {
-          opacity: 0;
-          transition: opacity 0.8s ease 1.8s;
-        }
-        .journey-section.is-visible .journey-subtitle {
-          opacity: 1;
         }
 
         /* Reduced motion accessibility */
@@ -194,23 +201,43 @@ export const OurJourney: React.FC = () => {
         }
       `}</style>
 
-      {/* ── SECTION HEADER ── */}
-      <div className="journey-header relative z-10 text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
-        <p className="text-xs sm:text-sm font-extrabold text-[#b5650e] uppercase tracking-[0.18em] font-heading m-0">
-          About Us
-        </p>
-        <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#16233a] font-heading tracking-tight m-0">
-          Our Journey
+      {/* ── SECTION HEADER (EXACT REFERENCE DESIGN) ── */}
+      <div className="journey-header relative z-10 text-center max-w-3xl mx-auto mb-14 sm:mb-18 space-y-3">
+        {/* Eyebrow: — OUR STORY — */}
+        <div className="flex items-center justify-center gap-2">
+          <span className="w-4 h-[1.5px] bg-[#E27D16]" />
+          <p className="text-xs sm:text-[13px] font-extrabold text-[#E27D16] uppercase tracking-[0.2em] font-heading m-0">
+            Our Story
+          </p>
+          <span className="w-4 h-[1.5px] bg-[#E27D16]" />
+        </div>
+
+        {/* Display Headline */}
+        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+          How SolarARK grew, year by year
         </h2>
+
+        {/* Multi-Color Gradient Accent Line Under Headline */}
+        <div
+          className="w-44 h-[2.5px] rounded-full mx-auto my-2.5"
+          style={{
+            background: 'linear-gradient(90deg, transparent, #E27D16 20%, #1D5FE0 45%, #10B981 70%, #8B5CF6 90%, transparent)',
+          }}
+        />
+
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1">
+          From a small beginning in Nagpur to thousands of happy customers and new horizons across Maharashtra.
+        </p>
       </div>
 
       {/* ── TIMELINE CONTAINER ── */}
-      <div className="relative z-10 max-w-[1180px] mx-auto">
+      <div className="relative z-10 max-w-[1200px] mx-auto">
         
         {/* DESKTOP TIMELINE (≥ 1024px) */}
         <div className="hidden lg:block">
           
-          {/* Row 1: Years + Transparent Glowing Rings + Stems + Dots */}
+          {/* Row 1: Years + Transparent Glowing Rings + Stems + Anchor Dots */}
           <div className="grid grid-cols-5 gap-3 relative pb-6">
             
             {MILESTONES.map((m, idx) => {
@@ -221,9 +248,9 @@ export const OurJourney: React.FC = () => {
                   className="journey-node-top flex flex-col items-center group cursor-default"
                   style={{ transitionDelay: `${0.10 + idx * 0.16}s` }}
                 >
-                  {/* Year Number with darker WCAG AA ink color */}
+                  {/* Year Number in exact era color */}
                   <span
-                    className="text-2xl xl:text-[28px] font-extrabold font-heading mb-4 select-none"
+                    className="text-2xl xl:text-[28px] font-extrabold font-heading mb-4 select-none tracking-tight"
                     style={{ color: m.inkColor }}
                   >
                     {m.year}
@@ -231,30 +258,30 @@ export const OurJourney: React.FC = () => {
 
                   {/* Transparent Circle with Thin Colored Neon Ring & Soft Diffused Glow */}
                   <div
-                    className="w-[76px] h-[76px] rounded-full flex items-center justify-center bg-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
+                    className="w-[78px] h-[78px] rounded-full flex items-center justify-center bg-transparent transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105"
                     style={{
                       border: `2px solid ${m.badgeColor}`,
-                      boxShadow: `0 0 14px 1px ${m.glowColor}, inset 0 0 8px ${m.glowColor}`,
+                      boxShadow: `0 0 16px 2px ${m.glowColor}, inset 0 0 8px ${m.glowColor}`,
                     }}
                   >
-                    {/* Matching colored neon icon with subtle diffused glow */}
+                    {/* Matching Colored Icon with Matching Glow */}
                     <Icon
                       className="w-7 h-7 transition-transform duration-300 group-hover:scale-110"
                       strokeWidth={2}
                       style={{
                         color: m.badgeColor,
-                        filter: `drop-shadow(0 0 5px ${m.glowColor})`,
+                        filter: `drop-shadow(0 0 6px ${m.glowColor})`,
                       }}
                     />
                   </div>
 
-                  {/* Vertical stem */}
+                  {/* Vertical stem connecting to timeline line */}
                   <div
-                    className="w-[2px] h-6 mt-3 transition-opacity duration-300"
-                    style={{ backgroundColor: m.badgeColor, opacity: 0.6 }}
+                    className="w-[2px] h-6 mt-3.5 transition-opacity duration-300"
+                    style={{ backgroundColor: m.badgeColor, opacity: 0.65 }}
                   />
 
-                  {/* Small Anchor Dot on the timeline */}
+                  {/* Small Anchor Dot sitting on the timeline line */}
                   <div
                     className="w-2.5 h-2.5 rounded-full z-10 mt-[-1px] transition-transform duration-300 group-hover:scale-125"
                     style={{
@@ -270,13 +297,13 @@ export const OurJourney: React.FC = () => {
             <div
               className="journey-timeline-line absolute left-6 right-8 bottom-[28px] h-[2px] z-0"
               style={{
-                background: 'linear-gradient(90deg, #f2a340, #4f8ef7, #f2a340, #22c39c, #8f7cf6)',
+                background: 'linear-gradient(90deg, #E27D16, #1D5FE0, #E27D16, #10B981, #8B5CF6)',
               }}
             />
 
-            {/* Trailing Arrowhead */}
+            {/* Trailing Arrowhead at the right end */}
             <svg
-              className="journey-timeline-arrow absolute right-0 bottom-[22px] text-[#8f7cf6] z-10"
+              className="journey-timeline-arrow absolute right-0 bottom-[22px] text-[#8B5CF6] z-10"
               width="26"
               height="14"
               viewBox="0 0 26 14"
@@ -292,7 +319,7 @@ export const OurJourney: React.FC = () => {
             </svg>
           </div>
 
-          {/* Row 2: Titles + Color Dividers + Descriptions */}
+          {/* Row 2: Titles + Descriptions */}
           <div className="grid grid-cols-5 gap-4 pt-4">
             {MILESTONES.map((m, idx) => (
               <div
@@ -300,17 +327,11 @@ export const OurJourney: React.FC = () => {
                 className="journey-node-bottom text-center px-2"
                 style={{ transitionDelay: `${0.20 + idx * 0.16}s` }}
               >
-                <h3 className="font-heading text-[#16233a] font-bold text-[15px] sm:text-base m-0 mb-2 leading-snug">
+                <h3 className="font-heading text-[#0B1730] font-bold text-base sm:text-[17px] m-0 mb-2 leading-snug tracking-tight">
                   {m.title}
                 </h3>
-                
-                {/* Short Era Color Divider Bar */}
-                <div
-                  className="w-7 h-[2px] rounded-full mx-auto mb-2.5"
-                  style={{ backgroundColor: m.badgeColor }}
-                />
 
-                <p className="text-[#4a5567] text-xs sm:text-[13px] leading-relaxed m-0 font-normal">
+                <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed m-0 font-normal">
                   {m.description}
                 </p>
               </div>
@@ -320,13 +341,13 @@ export const OurJourney: React.FC = () => {
         </div>
 
         {/* MOBILE / TABLET TIMELINE (< 1024px) */}
-        <div className="block lg:hidden space-y-6">
+        <div className="block lg:hidden space-y-4">
           {MILESTONES.map((m, idx) => {
             const Icon = m.icon;
             return (
               <div
                 key={m.year}
-                className="journey-node-top bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-2xl p-5 shadow-xs flex items-start gap-4 transition-all duration-300"
+                className="journey-node-top bg-white/85 backdrop-blur-xs border border-stone-200/80 rounded-2xl p-5 shadow-xs flex items-start gap-4 transition-all duration-300"
                 style={{ transitionDelay: `${0.1 + idx * 0.12}s` }}
               >
                 {/* Transparent Circle with Thin Colored Neon Ring & Soft Diffused Glow */}
@@ -348,7 +369,7 @@ export const OurJourney: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="space-y-1.5 flex-1">
+                <div className="space-y-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
                     <span
                       className="text-base sm:text-lg font-extrabold font-heading"
@@ -362,11 +383,11 @@ export const OurJourney: React.FC = () => {
                     />
                   </div>
 
-                  <h3 className="font-heading text-[#16233a] font-bold text-sm sm:text-base leading-snug">
+                  <h3 className="font-heading text-[#0B1730] font-bold text-sm sm:text-base leading-snug">
                     {m.title}
                   </h3>
 
-                  <p className="text-[#4a5567] text-xs sm:text-sm leading-relaxed font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
                     {m.description}
                   </p>
                 </div>
@@ -376,11 +397,6 @@ export const OurJourney: React.FC = () => {
         </div>
 
       </div>
-
-      {/* ── CLOSING SUBTITLE ── */}
-      <p className="journey-subtitle relative z-10 text-center text-[#4a5567] font-medium text-xs sm:text-sm max-w-xl mx-auto mt-12 sm:mt-16 leading-relaxed">
-        Tracing our growth from inception in 2020 to empowering thousands of homes and multi-city operations across Maharashtra.
-      </p>
 
     </section>
   );

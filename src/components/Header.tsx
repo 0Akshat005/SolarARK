@@ -88,20 +88,23 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`text-[13px] xl:text-[14px] font-medium transition-colors cursor-pointer ${
+                className={`relative py-1 text-[13px] xl:text-[14px] font-medium transition-colors cursor-pointer ${
                   isActive
                     ? 'text-[#1D5FE0] font-semibold'
                     : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#1D5FE0]`
                 }`}
               >
-                {item.name}
+                <span>{item.name}</span>
+                {isActive && (
+                  <span className="block h-[2.5px] w-5 bg-[#1D5FE0] rounded-full mx-auto mt-0.5" />
+                )}
               </button>
             );
           })}
         </nav>
 
         {/* Header Right Actions */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-5">
+        <div className="hidden lg:flex items-center gap-3.5 xl:gap-4">
           {/* Reduced Motion Toggle */}
           <button
             onClick={toggleReducedMotion}
@@ -111,13 +114,18 @@ export const Header: React.FC<HeaderProps> = ({
             {isReducedMotion ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
           </button>
 
-          {/* Phone */}
+          {/* Phone Pill CTA */}
           <a
             href="tel:+917080909590"
-            className="flex items-center gap-1.5 text-[12px] xl:text-[13px] font-medium text-slate-600 hover:text-[#1D5FE0] transition-colors"
+            className="flex items-center gap-2.5 bg-white border border-stone-200/90 hover:border-amber-400 pl-3.5 pr-1.5 py-1 rounded-full transition-all shadow-2xs hover:shadow-xs group cursor-pointer"
           >
-            <Phone className="w-3.5 h-3.5 text-[#1D5FE0]" />
-            <span>7080909590</span>
+            <div className="text-right leading-tight">
+              <span className="block text-[9px] uppercase tracking-wider font-bold text-stone-500 leading-none">Call us now</span>
+              <span className="block text-xs xl:text-[13px] font-extrabold text-[#E27D16] group-hover:text-[#C8680A] mt-0.5">7080909590</span>
+            </div>
+            <div className="w-7 h-7 rounded-full bg-[#E27D16] group-hover:bg-[#C8680A] text-white flex items-center justify-center transition-colors shadow-2xs">
+              <Phone className="w-3.5 h-3.5 text-white" />
+            </div>
           </a>
 
           {/* Primary CTA */}
