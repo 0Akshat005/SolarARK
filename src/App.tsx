@@ -21,6 +21,7 @@ import { DeepDiveTeaser } from './components/DeepDiveTeaser';
 import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
 import { EarnWithUsPage } from './components/EarnWithUsPage';
+import { OurProjectsPage } from './components/OurProjectsPage';
 import { CareersPage } from './components/CareersPage';
 import { ContactPage } from './components/ContactPage';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
@@ -216,13 +217,13 @@ export default function App() {
           />
         )}
 
-        {/* DEDICATED PAGE: Our Projects / Case Studies */}
-        {currentPath === '/projects' &&
-          renderDedicatedPage(
-            'Verified Customer Installations',
-            'Browse real rooftop solar projects across Maharashtra with verified bill reduction metrics.',
-            <ProjectsGrid onCtaClick={scrollToContactForm} />
-          )}
+        {/* DEDICATED PAGE: Our Projects, Video Reels & Gallery */}
+        {(currentPath === '/projects' || currentPath === '/our-projects' || currentPath === '/gallery') && (
+          <OurProjectsPage
+            onNavigate={navigateTo}
+            onCtaClick={scrollToContactForm}
+          />
+        )}
 
         {/* DEDICATED PAGE: Careers */}
         {currentPath === '/careers' && (

@@ -60,24 +60,46 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
           {filteredProjects.map((proj) => (
             <div
               key={proj.id}
-              className="bg-white rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all p-6 sm:p-8 space-y-6 flex flex-col justify-between"
+              className="bg-white rounded-3xl border border-stone-200/90 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col justify-between group"
             >
-              <div className="space-y-4">
-                {/* Header Strip */}
-                <div className="flex items-center justify-between border-b border-stone-100 pb-4">
-                  <div>
-                    <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5" /> {proj.city}, {proj.state}
+              {proj.image && (
+                <div className="relative aspect-[16/9] bg-stone-100 overflow-hidden">
+                  <img
+                    src={proj.image}
+                    alt={proj.imageAlt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 text-white flex items-center justify-between">
+                    <span className="text-xs font-bold font-heading flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-amber-300" />
+                      <span>{proj.city}, {proj.state}</span>
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 font-heading mt-0.5">
-                      {proj.homeownerName}
-                    </h3>
+                    <span className="text-[10px] font-bold bg-[#8B1E1E] px-2.5 py-0.5 rounded-md text-white">
+                      {proj.systemSizeKw} kW Array
+                    </span>
                   </div>
-
-                  <span className="text-xs font-extrabold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
-                    {proj.systemSizeKw} kW Array
-                  </span>
                 </div>
+              )}
+
+              <div className="p-6 sm:p-8 space-y-6">
+                <div className="space-y-4">
+                  {/* Header Strip */}
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-4">
+                    <div>
+                      <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5" /> {proj.city}, {proj.state}
+                      </span>
+                      <h3 className="text-lg font-bold text-slate-900 font-heading mt-0.5">
+                        {proj.homeownerName}
+                      </h3>
+                    </div>
+
+                    <span className="text-xs font-extrabold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
+                      {proj.category || 'Solar Rooftop'}
+                    </span>
+                  </div>
 
                 {/* Before vs After Bill Impact */}
                 <div className="grid grid-cols-2 gap-3 bg-stone-50 p-4 rounded-2xl border border-stone-100">

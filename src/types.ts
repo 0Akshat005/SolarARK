@@ -42,6 +42,33 @@ export interface ProjectCaseStudy {
   installationDays: number;
   imageAlt: string;
   verdict: string;
+  image?: string;
+  category?: 'Residential' | 'Housing Society' | 'Commercial & Industrial';
+  annualSavings?: number;
+  subsidyReceived?: number;
+  generationUnitsPerMonth?: number;
+}
+
+export interface InstallationVideoReel {
+  id: string;
+  title: string;
+  category: string;
+  location: string;
+  videoUrl: string;
+  description: string;
+  duration?: string;
+  tags: string[];
+}
+
+export interface GalleryAlbum {
+  id: number | string;
+  name: string;
+  category: string;
+  location: string;
+  date?: string;
+  coverImage: string;
+  images: string[];
+  description: string;
 }
 
 export interface Testimonial {
