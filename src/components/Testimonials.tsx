@@ -40,7 +40,7 @@ export const Testimonials: React.FC = () => {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className="min-w-[85%] sm:min-w-0 snap-center bg-slate-50 hover:bg-white p-6 rounded-3xl border border-slate-200 hover:border-[#1D5FE0]/40 shadow-sm hover:shadow-elevation-2 transition-all flex flex-col justify-between space-y-6"
+              className="min-w-[85%] sm:min-w-0 snap-center bg-slate-50 hover:bg-white p-6 rounded-3xl border border-slate-200 hover:border-[#8B1E1E]/40 shadow-sm hover:shadow-elevation-2 transition-all flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
                 {/* Quantified Outcome Highlight Banner */}
@@ -78,7 +78,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {t.verifiedBadge && (
-                  <span className="w-7 h-7 rounded-full bg-blue-50 text-[#1D5FE0] flex items-center justify-center" title="Verified SolarARK Customer">
+                  <span className="w-7 h-7 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] flex items-center justify-center" title="Verified SolarARK Customer">
                     <CheckCircle2 className="w-4 h-4" />
                   </span>
                 )}

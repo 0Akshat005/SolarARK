@@ -5,17 +5,23 @@
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
     
-    --color-solar-blue: #1D5FE0;
-    --color-solar-blue-dark: #0F2E6E;
-    --color-solar-navy: #0B1730;
-    --color-solar-gold: #FFB020;
-    --color-savings-green: #10B981;
-
-    /* Brand Maroon & Gold Tokens */
+    /* Canonical Brand Maroon Tokens */
+    --brand-primary: #8B1E1E;
+    --brand-primary-deep: #5E1212;
+    --brand-primary-light: #A82424;
+    --brand-primary-tint: rgba(139, 30, 30, 0.08);
     --brand-maroon: #8B1E1E;
     --brand-maroon-deep: #5E1212;
-    --brand-gold: #E27D16;
 
+    /* Brand Gold/Amber Tokens */
+    --brand-gold: #E27D16;
+    --brand-gold-light: #FFB020;
+    --color-solar-gold: #FFB020;
+    --color-savings-green: #10B981;
+    --color-solar-navy: #0B1730;
+
+    /* Canonical Brand Gradients */
+    --gradient-primary: linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #E27D16 100%);
     --gradient-hero-text: linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%);
     --gradient-cta: linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #E27D16 100%);
     
@@ -67,7 +73,7 @@
 
 /* Focus Ring Accessibility */
 *:focus-visible {
-  outline: 2px solid #1D5FE0;
+  outline: 2px solid #8B1E1E;
   outline-offset: 3px;
 }
 

@@ -8,10 +8,10 @@ import { ShieldCheck, Zap, Award, Clock, ArrowRight, DollarSign } from 'lucide-r
 
 export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   return (
-    <section id="guarantee" className="py-20 bg-gradient-to-br from-[#0B1730] via-[#0F2E6E] to-[#0B1730] text-white relative overflow-hidden">
+    <section id="guarantee" className="py-20 bg-gradient-to-br from-[#120808] via-[#2A0E0E] to-[#120808] text-white relative overflow-hidden">
       {/* Background Accent Shapes */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFB020]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#1D5FE0]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#8B1E1E]/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
@@ -56,13 +56,13 @@ export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCta
           </div>
 
           {/* Feature 2: 25-Year Linear Output */}
-          <div className="bg-slate-900/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 hover:border-blue-500/60 transition-all space-y-4 shadow-xl">
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
+          <div className="bg-slate-900/80 p-6 sm:p-8 rounded-3xl border border-slate-700/80 hover:border-amber-500/60 transition-all space-y-4 shadow-xl">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
               <Zap className="w-6 h-6" />
             </div>
 
             <div>
-              <span className="text-xs font-bold text-blue-400 uppercase tracking-wider font-heading">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider font-heading">
                 02. Cell Warranty
               </span>
               <h3 className="text-xl font-bold font-heading text-white mt-1">
@@ -130,7 +130,7 @@ export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCta
 
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-white hover:text-slate-900 text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 whitespace-nowrap"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 whitespace-nowrap"
           >
             <span>Get My Free Savings Estimate</span>
             <ArrowRight className="w-4 h-4" />

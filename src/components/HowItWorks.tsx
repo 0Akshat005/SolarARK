@@ -54,7 +54,7 @@ export const HowItWorks: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <CheckCircle className="w-4 h-4" />
             <span>Frictionless 4-Step Journey</span>
           </div>
@@ -83,20 +83,20 @@ export const HowItWorks: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
                   onClick={() => setActiveStep(idx)}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-200 flex items-start gap-4 ${
                     isActive
-                      ? 'bg-white border-[#1D5FE0] shadow-elevation-2 scale-[1.02]'
+                      ? 'bg-white border-[#8B1E1E] shadow-elevation-2 scale-[1.02]'
                       : 'bg-slate-100/80 border-slate-200 hover:bg-white hover:border-slate-300'
                   }`}
                 >
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors ${
-                      isActive ? 'bg-[#1D5FE0] text-white shadow-md' : 'bg-slate-200 text-slate-600'
+                      isActive ? 'bg-[#8B1E1E] text-white shadow-md' : 'bg-slate-200 text-slate-600'
                     }`}
                   >
                     {step.number}
                   </div>
 
                   <div>
-                    <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading">
+                    <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
                       {step.highlight}
                     </span>
                     <h3 className="text-base font-bold text-slate-900 font-heading">{step.title}</h3>
@@ -109,16 +109,16 @@ export const HowItWorks: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
 
           {/* Step Detail Display Card (Right 7 Cols) */}
           <div className="col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-elevation-2 flex flex-col justify-between space-y-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50 rounded-bl-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-red-50/50 rounded-bl-full pointer-events-none" />
 
             <div className="space-y-6 relative z-10">
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#1D5FE0] flex items-center justify-center font-bold">
+                  <div className="w-12 h-12 rounded-2xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-bold">
                     {React.createElement(steps[activeStep].icon, { className: 'w-6 h-6' })}
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading">
+                    <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
                       Step {steps[activeStep].number} of 04
                     </span>
                     <h3 className="text-2xl font-extrabold text-slate-900 font-heading">
@@ -148,7 +148,7 @@ export const HowItWorks: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
 
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-[#0F2E6E] text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2"
               >
                 <span>Book Free Site Survey</span>
                 <ArrowRight className="w-4 h-4" />
@@ -165,12 +165,12 @@ export const HowItWorks: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
             return (
               <div key={step.number} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#1D5FE0] text-white flex items-center justify-center font-bold text-xs">
+                  <div className="w-9 h-9 rounded-xl bg-[#8B1E1E] text-white flex items-center justify-center font-bold text-xs">
                     {step.number}
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-slate-900 font-heading">{step.title}</h3>
-                    <p className="text-xs text-[#1D5FE0] font-medium">{step.subtitle}</p>
+                    <p className="text-xs text-[#8B1E1E] font-medium">{step.subtitle}</p>
                   </div>
                 </div>
 

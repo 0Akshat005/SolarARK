@@ -97,7 +97,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.16]">
                 Your electricity bill <br className="hidden sm:inline" />
                 keeps going up. <br />
-                <span className="text-[#1D5FE0] relative inline-block">
+                <span className="text-[#8B1E1E] relative inline-block">
                   Your rooftop doesn’t have to.
                 </span>
               </h2>
@@ -149,15 +149,15 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                     {/* Timeline Headers Across Top */}
                     <div className="grid grid-cols-3 text-center mb-6 relative z-10">
                       <div>
-                        <div className="text-xs sm:text-sm font-bold text-[#1D5FE0]">Today</div>
+                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E]">Today</div>
                         <div className="text-[11px] text-slate-500 font-medium mt-0.5">You pay</div>
                       </div>
                       <div>
-                        <div className="text-xs sm:text-sm font-bold text-[#1D5FE0]">5 Years</div>
+                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E]">5 Years</div>
                         <div className="text-[11px] text-slate-500 font-medium mt-0.5">You pay more</div>
                       </div>
                       <div>
-                        <div className="text-xs sm:text-sm font-bold text-[#1D5FE0]">10 Years</div>
+                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E]">10 Years</div>
                         <div className="text-[11px] text-slate-500 font-medium mt-0.5">You pay even more</div>
                       </div>
                     </div>
@@ -273,7 +273,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                     <div>
                       <p className="text-sm sm:text-base font-semibold text-slate-900 leading-snug">
                         The longer you stay on the grid,{' '}
-                        <span className="text-[#1D5FE0]">the more you keep paying.</span>
+                        <span className="text-[#8B1E1E]">the more you keep paying.</span>
                       </p>
                     </div>
                   </div>
@@ -281,7 +281,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                   <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
                     <button
                       onClick={onCtaClick}
-                      className="w-full sm:w-auto bg-[#1D5FE0] hover:bg-[#174AB8] active:scale-[0.97] text-white text-sm font-semibold px-6 py-3 rounded-xl shadow-md shadow-[#1D5FE0]/20 transition-all flex items-center justify-center gap-2 group"
+                      className="w-full sm:w-auto bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.97] text-white text-sm font-semibold px-6 py-3 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                     >
                       <span>See My Savings</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -295,7 +295,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                 {/* 4. Bottom 4 Key Benefits Strip */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4 border-t border-slate-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-[#1D5FE0] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center text-[#8B1E1E] shrink-0">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                     <div>

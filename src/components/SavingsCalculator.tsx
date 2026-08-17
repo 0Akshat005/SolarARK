@@ -73,7 +73,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
         <div className="text-left max-w-2xl space-y-2">
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-[1.18]">
             Calculate Your Solar Savings <br className="hidden sm:inline" />
-            &amp; Govt. Subsidy in <span className="text-[#1D5FE0]">Real Time</span>
+            &amp; Govt. Subsidy in <span className="text-[#8B1E1E]">Real Time</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
             See how much you can save with rooftop solar, PM Surya Ghar subsidy, and 25-year returns.
@@ -89,7 +89,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
               
               {/* Step 1 Header */}
               <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100">
-                <span className="w-5 h-5 rounded-full bg-[#1D5FE0] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
+                <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
                   1
                 </span>
                 <span className="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight uppercase">Your Details</span>
@@ -108,7 +108,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
                     placeholder="e.g. 560034"
-                    className="w-full bg-slate-50 border border-slate-200 focus:border-[#1D5FE0] text-slate-900 text-sm font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20 transition-all placeholder:text-slate-400"
+                    className="w-full bg-slate-50 border border-slate-200 focus:border-[#8B1E1E] text-slate-900 text-sm font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all placeholder:text-slate-400"
                   />
                   {isValidPincode ? (
                     <span className="absolute right-2.5 top-2 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 flex items-center gap-1">
@@ -151,7 +151,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                     step={500}
                     value={monthlyBill}
                     onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1D5FE0] focus:outline-none"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#8B1E1E] focus:outline-none"
                     aria-label="Monthly electricity bill range slider"
                   />
 
@@ -172,9 +172,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                         key={preset}
                         type="button"
                         onClick={() => setMonthlyBill(preset)}
-                        className={`text-xs px-3 py-1.5 rounded-xl font-bold border transition-all duration-150 active:scale-95 ${
+                        className={`text-xs px-3 py-1.5 rounded-xl font-bold border transition-all duration-150 active:scale-95 cursor-pointer ${
                           monthlyBill === preset
-                            ? 'bg-[#1D5FE0] text-white border-[#1D5FE0] shadow-xs'
+                            ? 'bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-xs'
                             : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-100'
                         }`}
                       >
@@ -188,8 +188,8 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
             </div>
 
             {/* Privacy & Reassurance Box */}
-            <div className="p-3.5 rounded-2xl bg-blue-50/50 border border-blue-100/80 flex items-start gap-2.5 text-xs text-slate-600">
-              <ShieldCheck className="w-4 h-4 text-[#1D5FE0] shrink-0 mt-0.5" />
+            <div className="p-3.5 rounded-2xl bg-amber-50/50 border border-amber-100/80 flex items-start gap-2.5 text-xs text-slate-600">
+              <ShieldCheck className="w-4 h-4 text-[#8B1E1E] shrink-0 mt-0.5" />
               <div>
                 <span className="font-bold text-slate-900 block">We never share your details.</span>
                 <span className="text-slate-500 font-medium">Your information is 100% secure and used only for calculation.</span>
@@ -204,10 +204,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
               
               {/* Step 2 Header */}
               <div className="flex items-center gap-2 pb-2.5 border-b border-slate-200/80">
-                <span className="w-5 h-5 rounded-full bg-[#1D5FE0] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
+                <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
                   2
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-[#1D5FE0] tracking-tight uppercase">Your Solar Savings Estimate</span>
+                <span className="text-xs sm:text-sm font-extrabold text-[#8B1E1E] tracking-tight uppercase">Your Solar Savings Estimate</span>
               </div>
 
               {/* PRIORITY 1: Primary Savings Hero Callout */}
@@ -275,7 +275,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                 <button
                   type="button"
                   onClick={() => onClaimEstimate({ pincode, monthlyBill })}
-                  className="w-full sm:flex-1 bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-sm sm:text-base font-bold py-3.5 px-5 rounded-2xl shadow-md shadow-[#1D5FE0]/20 hover:shadow-lg hover:shadow-[#1D5FE0]/25 transition-all duration-200 flex items-center justify-center gap-2 group active:scale-[0.99]"
+                  className="w-full sm:flex-1 bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-sm sm:text-base font-bold py-3.5 px-5 rounded-2xl shadow-md shadow-[#8B1E1E]/20 hover:shadow-lg hover:shadow-[#8B1E1E]/25 transition-all duration-200 flex items-center justify-center gap-2 group active:scale-[0.99] cursor-pointer"
                 >
                   <span>Get My Free Savings Estimate</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -292,8 +292,8 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                 
                 {/* 1. Recommended System */}
                 <div className="bg-white p-3 rounded-xl border border-slate-200/80 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1D5FE0] flex items-center justify-center shrink-0">
-                    <Sun className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
+                    <Sun className="w-4 h-4 text-[#E27D16]" />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider">Recommended System</span>
@@ -319,7 +319,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
                 <button
                   type="button"
                   onClick={() => setShowFullBreakdown(!showFullBreakdown)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#1D5FE0] hover:text-[#1753C8] transition-colors focus:outline-none py-0.5 group"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] transition-colors focus:outline-none py-0.5 group cursor-pointer"
                 >
                   <span>See full savings breakdown</span>
                   {showFullBreakdown ? (
@@ -349,7 +349,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ onClaimEst
 
                     <div className="flex justify-between py-1 border-b border-slate-100">
                       <span className="font-medium flex items-center gap-1.5">
-                        <PiggyBank className="w-3.5 h-3.5 text-[#1D5FE0]" /> 25-Year Cumulative Savings
+                        <PiggyBank className="w-3.5 h-3.5 text-[#8B1E1E]" /> 25-Year Cumulative Savings
                       </span>
                       <span className="font-bold text-emerald-600">{formatINR(results.twentyFiveYearSavings)}</span>
                     </div>

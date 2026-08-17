@@ -15,7 +15,7 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <Eye className="w-4 h-4" />
             <span>Visual Roof Architecture Preview</span>
           </div>
@@ -50,7 +50,7 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
               onClick={() => setViewMode('after')}
               className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 ${
                 viewMode === 'after'
-                  ? 'bg-[#1D5FE0] text-white shadow-md shadow-[#1D5FE0]/40 ring-2 ring-blue-400'
+                  ? 'bg-[#8B1E1E] text-white shadow-md shadow-[#8B1E1E]/40 ring-2 ring-red-400'
                   : 'bg-slate-800 text-slate-400 hover:text-white'
               }`}
             >
@@ -70,12 +70,12 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
             >
               <defs>
                 <linearGradient id="visSky" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor={viewMode === 'after' ? '#0F2E6E' : '#1E293B'} />
+                  <stop offset="0%" stopColor={viewMode === 'after' ? '#2A0E0E' : '#1E293B'} />
                   <stop offset="100%" stopColor="#0F172A" />
                 </linearGradient>
                 <linearGradient id="visSolarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2563EB" />
-                  <stop offset="100%" stopColor="#1E3A8A" />
+                  <stop offset="0%" stopColor="#8B1E1E" />
+                  <stop offset="100%" stopColor="#5E1212" />
                 </linearGradient>
               </defs>
 
@@ -118,11 +118,11 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
                   <line x1="480" y1="200" x2="480" y2="140" stroke="#94A3B8" strokeWidth="4" />
 
                   {/* Solar Array Grid */}
-                  <polygon points="200,140 350,200 500,140 350,80" fill="url(#visSolarGrad)" stroke="#60A5FA" strokeWidth="2" />
+                  <polygon points="200,140 350,200 500,140 350,80" fill="url(#visSolarGrad)" stroke="#E27D16" strokeWidth="2" />
 
                   {/* Individual Solar Panel Grids */}
-                  <line x1="275" y1="110" x2="425" y2="170" stroke="#3B82F6" strokeWidth="1.5" />
-                  <line x1="250" y1="160" x2="400" y2="100" stroke="#3B82F6" strokeWidth="1.5" />
+                  <line x1="275" y1="110" x2="425" y2="170" stroke="#A82424" strokeWidth="1.5" />
+                  <line x1="250" y1="160" x2="400" y2="100" stroke="#A82424" strokeWidth="1.5" />
 
                   {/* Energy Flow Glow */}
                   <circle cx="350" cy="140" r="6" fill="#FFB020" className="animate-ping" />
@@ -149,7 +149,7 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
 
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-[#0F2E6E] text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
               >
                 <span>Request 3D Design</span>
                 <ArrowRight className="w-3.5 h-3.5" />

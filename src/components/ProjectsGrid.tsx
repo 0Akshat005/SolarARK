@@ -23,7 +23,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <MapPin className="w-4 h-4" />
             <span>Powering 5,000+ Happy Customers Across Maharashtra</span>
           </div>
@@ -46,7 +46,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
               onClick={() => setSelectedCity(city)}
               className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 selectedCity === city
-                  ? 'bg-[#1D5FE0] text-white shadow-md shadow-[#1D5FE0]/25'
+                  ? 'bg-[#8B1E1E] text-white shadow-md shadow-[#8B1E1E]/25'
                   : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
               }`}
             >
@@ -66,7 +66,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
                 {/* Header Strip */}
                 <div className="flex items-center justify-between border-b border-stone-100 pb-4">
                   <div>
-                    <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading flex items-center gap-1">
+                    <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5" /> {proj.city}, {proj.state}
                     </span>
                     <h3 className="text-lg font-bold text-slate-900 font-heading mt-0.5">
@@ -74,7 +74,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
                     </h3>
                   </div>
 
-                  <span className="text-xs font-extrabold text-[#1D5FE0] bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-100">
+                  <span className="text-xs font-extrabold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
                     {proj.systemSizeKw} kW Array
                   </span>
                 </div>
@@ -103,20 +103,20 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
                     <span>{proj.roofType}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Zap className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                    <Zap className="w-4 h-4 text-[#8B1E1E] shrink-0" />
                     <span>Setup in {proj.installationDays} Days</span>
                   </div>
                 </div>
 
                 {/* Homeowner Verdict */}
-                <p className="text-xs text-stone-600 italic bg-blue-50/50 p-3 rounded-xl border border-blue-100/60 leading-relaxed">
+                <p className="text-xs text-stone-600 italic bg-amber-50/50 p-3 rounded-xl border border-amber-100/60 leading-relaxed">
                   "{proj.verdict}"
                 </p>
               </div>
 
               <button
                 onClick={onCtaClick}
-                className="w-full mt-2 py-3 bg-stone-100 hover:bg-[#1D5FE0] text-stone-800 hover:text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full mt-2 py-3 bg-stone-100 hover:bg-[#8B1E1E] text-stone-800 hover:text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>Get Similar Proposal for My Roof</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -135,7 +135,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
           </p>
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold px-8 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-8 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
           >
             <span>Request Local Installation Report</span>
             <ArrowRight className="w-4 h-4" />

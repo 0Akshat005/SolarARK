@@ -46,7 +46,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'society' | 'commercial' | 'maintenance'>('all');
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
       {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
       <PageContextBar
@@ -67,7 +67,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
               Engineered for Maximum Solar Yield.<br />
-              <span className="text-[#1D5FE0]">Tailored for Every Rooftop.</span>
+              <span className="text-[#8B1E1E]">Tailored for Every Rooftop.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
@@ -78,7 +78,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
               >
                 <span>Book Free Site Survey</span>
                 <ArrowRight className="w-4 h-4" />
@@ -86,9 +86,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
               <a
                 href="tel:+917080909590"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#1D5FE0] bg-white border border-stone-200 px-5 py-3.5 rounded-xl transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#8B1E1E] bg-white border border-stone-200 px-5 py-3.5 rounded-xl transition-colors shadow-xs"
               >
-                <PhoneCall className="w-4 h-4 text-[#1D5FE0]" />
+                <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
                 <span>Call Solar Advisor (7080909590)</span>
               </a>
             </div>
@@ -96,7 +96,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Quick Reassurance Pill Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-stone-200/80">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-[#1D5FE0] block font-heading">⚡ Up to 90%</span>
+                <span className="text-[11px] font-bold text-[#8B1E1E] block font-heading">⚡ Up to 90%</span>
                 <span className="text-[11px] text-stone-500">Bill Reduction</span>
               </div>
               <div className="space-y-0.5">
@@ -146,11 +146,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 02: EDITORIAL SERVICE DISCOVERY NAVIGATOR ── */}
+      {/* ── SECTION 02: CATEGORY SELECTOR TABS ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-200">
           <div>
-            <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading block">
+            <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
               Explore By Sector
             </span>
             <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">
@@ -175,7 +175,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   onClick={() => setActiveCategory(tab.id as any)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                     isActive
-                      ? 'bg-[#1D5FE0] text-white shadow-md shadow-[#1D5FE0]/20'
+                      ? 'bg-[#8B1E1E] text-white shadow-md shadow-[#8B1E1E]/20'
                       : 'bg-white text-stone-700 hover:text-slate-900 border border-stone-200 hover:border-stone-300'
                   }`}
                 >
@@ -218,7 +218,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right Service Content */}
             <div className="lg:col-span-7 space-y-5 lg:pl-4">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#1D5FE0] font-bold">01 — RESIDENTIAL EPC</span>
+                <span className="text-[#8B1E1E] font-bold">01 — RESIDENTIAL EPC</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -262,7 +262,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={onCtaClick}
-                  className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Get Home Solar Proposal</span>
                   <ArrowRight className="w-4 h-4" />
@@ -270,7 +270,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 <button
                   onClick={() => onNavigate('/contact')}
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#1D5FE0] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors cursor-pointer"
+                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors cursor-pointer"
                 >
                   Request Terrace Inspection
                 </button>
@@ -287,7 +287,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#1D5FE0] font-bold">02 — COMMUNITY SOLAR</span>
+                <span className="text-[#8B1E1E] font-bold">02 — COMMUNITY SOLAR</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -331,7 +331,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={onCtaClick}
-                  className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Book Society Presentation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -339,9 +339,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 <a
                   href="tel:+917080909590"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#1D5FE0] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
+                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
                 >
-                  <PhoneCall className="w-4 h-4 text-[#1D5FE0]" />
+                  <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
                   <span>Call Society Specialist</span>
                 </a>
               </div>
@@ -358,7 +358,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
 
               <div className="absolute -bottom-4 left-4 sm:-left-4 bg-[#0B1730] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-                <Building className="w-4 h-4 text-blue-400 shrink-0" />
+                <Building className="w-4 h-4 text-amber-400 shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-300">50+ Societies Solarised</span>
                   <span className="text-xs sm:text-sm font-extrabold font-heading">Pune &amp; Chh. Sambhajinagar</span>
@@ -395,7 +395,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right Service Content */}
             <div className="lg:col-span-7 space-y-5 lg:pl-4">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#1D5FE0] font-bold">03 — COMMERCIAL &amp; INDUSTRIAL</span>
+                <span className="text-[#8B1E1E] font-bold">03 — COMMERCIAL &amp; INDUSTRIAL</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -439,7 +439,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={onCtaClick}
-                  className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Industrial Feasibility Audit</span>
                   <ArrowRight className="w-4 h-4" />
@@ -447,7 +447,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 <a
                   href="mailto:info@thesolarark.com"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#1D5FE0] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors"
+                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors"
                 >
                   Email RFP / Tender Docs
                 </a>
@@ -464,7 +464,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#1D5FE0] font-bold">04 — OPERATIONS &amp; MAINTENANCE</span>
+                <span className="text-[#8B1E1E] font-bold">04 — OPERATIONS &amp; MAINTENANCE</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -508,7 +508,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={onCtaClick}
-                  className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Inquire About Solar AMC</span>
                   <ArrowRight className="w-4 h-4" />
@@ -516,9 +516,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
                 <a
                   href="tel:+917080909590"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#1D5FE0] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
+                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
                 >
-                  <PhoneCall className="w-4 h-4 text-[#1D5FE0]" />
+                  <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
                   <span>Helpline (7080909590)</span>
                 </a>
               </div>

@@ -15,7 +15,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <Smartphone className="w-4 h-4" />
             <span>24/7 Mobile Companion App</span>
           </div>
@@ -50,7 +50,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                 onClick={() => setActiveTab('generation')}
                 className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
                   activeTab === 'generation'
-                    ? 'bg-[#1D5FE0] border-[#1D5FE0] text-white shadow-lg'
+                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
@@ -68,7 +68,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                 onClick={() => setActiveTab('savings')}
                 className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
                   activeTab === 'savings'
-                    ? 'bg-[#1D5FE0] border-[#1D5FE0] text-white shadow-lg'
+                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
@@ -86,7 +86,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                 onClick={() => setActiveTab('maintenance')}
                 className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
                   activeTab === 'maintenance'
-                    ? 'bg-[#1D5FE0] border-[#1D5FE0] text-white shadow-lg'
+                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
@@ -177,10 +177,10 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                     <div className="bg-slate-800/90 p-3.5 rounded-2xl border border-slate-700 text-center">
                       <span className="text-[10px] text-slate-400">Panel Cleaning Status</span>
                       <div className="text-xl font-bold text-white font-heading mt-0.5">98% Cleanliness</div>
-                      <span className="text-[10px] text-blue-400 font-medium">Next Wash: In 8 Days</span>
+                      <span className="text-[10px] text-amber-400 font-medium">Next Wash: In 8 Days</span>
                     </div>
 
-                    <button className="w-full bg-[#1D5FE0] hover:bg-[#0F2E6E] text-white text-xs font-bold py-2.5 rounded-xl">
+                    <button className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs font-bold py-2.5 rounded-xl">
                       Book Free AMC Wash
                     </button>
                   </div>

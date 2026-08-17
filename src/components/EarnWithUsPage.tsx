@@ -67,7 +67,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
     },
     {
       icon: Award,
-      color: 'bg-blue-50 text-[#1D5FE0]',
+      color: 'bg-red-50 text-[#8B1E1E]',
       title: 'Official Welcome Kit & Partner ID',
       description:
         'Receive your official SolarArk Surya Mitra ID Card, personalized branded visiting cards, printed marketing brochures, and presentation flyers.',
@@ -137,7 +137,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   const estimatedEarnings = selectedKw * 1500;
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
       {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
       <PageContextBar
@@ -158,7 +158,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
               Become a SolarArk Surya Mitra.<br />
-              <span className="text-[#1D5FE0]">Earn with Clean Energy.</span>
+              <span className="text-[#8B1E1E]">Earn with Clean Energy.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
@@ -169,7 +169,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#partner-form"
-                className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
               >
                 <span>Join Surya Mitra Network</span>
                 <ArrowRight className="w-4 h-4" />
@@ -177,9 +177,9 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
               <a
                 href="tel:+917080909590"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#1D5FE0] bg-white border border-stone-200 px-5 py-3.5 rounded-xl transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#8B1E1E] bg-white border border-stone-200 px-5 py-3.5 rounded-xl transition-colors shadow-xs"
               >
-                <PhoneCall className="w-4 h-4 text-[#1D5FE0]" />
+                <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
                 <span>Partner Helpline (7080909590)</span>
               </a>
             </div>
@@ -191,7 +191,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 <span className="text-[11px] text-stone-500">100% Free Signup</span>
               </div>
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-[#1D5FE0] block font-heading">Commission / kW</span>
+                <span className="text-[11px] font-bold text-[#8B1E1E] block font-heading">Commission / kW</span>
                 <span className="text-[11px] text-stone-500">Lucrative Payouts</span>
               </div>
               <div className="space-y-0.5">
@@ -240,7 +240,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
       {/* ── SECTION 02: 4 CORE PARTNER PERKS ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading block">
+          <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
             Why Partner With SolarArk
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -254,7 +254,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
             return (
               <div
                 key={idx}
-                className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs flex flex-col justify-between space-y-4 hover:border-[#1D5FE0] transition-all group"
+                className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs flex flex-col justify-between space-y-4 hover:border-[#8B1E1E] transition-all group"
               >
                 <div className="space-y-3">
                   <div className={`w-12 h-12 rounded-xl ${perk.color} flex items-center justify-center`}>
@@ -283,7 +283,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
         <div className="bg-[#0B1730] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
           
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#1D5FE0]/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#8B1E1E]/20 rounded-full blur-3xl pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
@@ -320,7 +320,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                       onClick={() => setSelectedKw(item.kw)}
                       className={`text-xs px-3.5 py-2 rounded-xl font-bold border transition-all cursor-pointer ${
                         selectedKw === item.kw
-                          ? 'bg-[#1D5FE0] text-white border-[#1D5FE0] shadow-md'
+                          ? 'bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-md'
                           : 'bg-white/10 text-slate-200 border-white/15 hover:bg-white/20'
                       }`}
                     >
@@ -363,7 +363,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
       {/* ── SECTION 04: WHO CAN JOIN (SECTOR MATRIX) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading block">
+          <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
             Who Can Join
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -382,7 +382,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 key={idx}
                 className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs flex items-start gap-4 hover:border-stone-400 transition-colors"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#FCFAF7] border border-stone-200 text-[#1D5FE0] flex items-center justify-center shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-[#FCFAF7] border border-stone-200 text-[#8B1E1E] flex items-center justify-center shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
@@ -457,7 +457,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
       {/* ── SECTION 06: SIMPLE 3-STEP EARNING ROADMAP ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
-          <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading block">
+          <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
             How It Works
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -467,7 +467,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white border border-stone-200/90 rounded-2xl p-7 shadow-xs space-y-4 relative">
-            <div className="w-10 h-10 rounded-full bg-[#1D5FE0] text-white font-heading font-extrabold text-sm flex items-center justify-center shadow-xs">
+            <div className="w-10 h-10 rounded-full bg-[#8B1E1E] text-white font-heading font-extrabold text-sm flex items-center justify-center shadow-xs">
               01
             </div>
             <h3 className="font-heading text-lg font-bold text-slate-900">
@@ -479,7 +479,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
           </div>
 
           <div className="bg-white border border-stone-200/90 rounded-2xl p-7 shadow-xs space-y-4 relative">
-            <div className="w-10 h-10 rounded-full bg-[#1D5FE0] text-white font-heading font-extrabold text-sm flex items-center justify-center shadow-xs">
+            <div className="w-10 h-10 rounded-full bg-[#8B1E1E] text-white font-heading font-extrabold text-sm flex items-center justify-center shadow-xs">
               02
             </div>
             <h3 className="font-heading text-lg font-bold text-slate-900">
@@ -524,11 +524,11 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
             <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-xs text-slate-700">
-                <FileText className="w-4 h-4 text-[#1D5FE0]" />
+                <FileText className="w-4 h-4 text-[#8B1E1E]" />
                 <span>Documents Needed Later: Aadhaar / PAN + Bank Details</span>
               </div>
               <div className="flex items-center gap-3 text-xs text-slate-700">
-                <PhoneCall className="w-4 h-4 text-[#1D5FE0]" />
+                <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
                 <span>Direct Partner Helpline: <strong>+91 7080909590</strong></span>
               </div>
               <div className="flex items-center gap-3 text-xs text-slate-700">
@@ -573,7 +573,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                       placeholder="e.g. Ramesh Patil"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20"
+                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20"
                     />
                   </div>
 
@@ -585,7 +585,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                       placeholder="e.g. 9876543210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20"
+                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20"
                     />
                   </div>
                 </div>
@@ -599,7 +599,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                       placeholder="e.g. Amravati / Sambhajinagar"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20"
+                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20"
                     />
                   </div>
 
@@ -608,7 +608,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                     <select
                       value={formData.occupation}
                       onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
-                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20"
+                      className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20"
                     >
                       <option value="Electrician / Electrical Contractor">Electrician / Electrical Contractor</option>
                       <option value="Plumber / AC Technician">Plumber / AC Technician</option>
@@ -628,13 +628,13 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                     placeholder="Tell us about your reach in your locality or any upcoming solar inquiries..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/20"
+                    className="w-full bg-white border border-stone-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                  className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                 >
                   <Send className="w-4 h-4" />
                   <span>Submit Surya Mitra Registration</span>

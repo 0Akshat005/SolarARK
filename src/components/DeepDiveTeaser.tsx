@@ -26,14 +26,14 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
         {/* ── SECTION HEADER ── */}
         <div className="max-w-2xl space-y-3">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0]">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E]">
             <Info className="w-3.5 h-3.5" />
             <span>Discover SolarARK</span>
           </div>
 
           {/* Headline */}
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-            See what powers <span className="text-[#1D5FE0]">SolarARK.</span>
+            See what powers <span className="text-[#8B1E1E]">SolarARK.</span>
           </h2>
 
           {/* Subtitle */}
@@ -67,7 +67,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
             {/* Top-Left Badge Pill: 01 */}
             <div className="relative z-10 p-5 sm:p-6 flex justify-start">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1D5FE0] text-white text-xs font-bold shadow-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
                 <Layers className="w-3.5 h-3.5" />
                 <span>01</span>
               </div>
@@ -83,7 +83,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                 Tier-1 modules, advanced inverters, and durable structures built for 25+ years of reliable performance.
               </p>
               <div className="pt-2">
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 group-hover:text-blue-300 group-hover:translate-x-1 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
                   <span>Explore Technology</span>
                   <ArrowRight className="w-4 h-4" />
                 </span>

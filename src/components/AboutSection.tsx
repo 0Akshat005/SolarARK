@@ -140,13 +140,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
           
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0]">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E]">
               <Info className="w-3.5 h-3.5" />
               <span>Official About SolarArk</span>
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.14]">
-              Who Are <span className="text-[#1D5FE0]">We?</span>
+              Who Are <span className="text-[#8B1E1E]">We?</span>
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
@@ -157,7 +157,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {capabilities.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 bg-white border border-slate-200/80 rounded-2xl p-3.5 shadow-xs">
-                  <div className="w-7 h-7 rounded-full bg-blue-50 text-[#1D5FE0] flex items-center justify-center shrink-0 font-bold">
+                  <div className="w-7 h-7 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] flex items-center justify-center shrink-0 font-bold">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span className="text-xs sm:text-sm font-bold text-slate-900 font-heading">
@@ -219,9 +219,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             aria-hidden="true"
           />
 
-          {/* Atmospheric Brand Blue Ambient Glow */}
+          {/* Atmospheric Brand Maroon Ambient Glow */}
           <div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2F5DFA]/10 blur-[100px] pointer-events-none rounded-full" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#8B1E1E]/15 blur-[100px] pointer-events-none rounded-full" 
             aria-hidden="true"
           />
 
@@ -229,12 +229,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             {/* Header: Eyebrow + Split-color Heading + Subtext */}
             <div className="text-center max-w-3xl mx-auto space-y-3">
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.12] border border-white/20 text-xs font-bold text-white/90 font-heading tracking-wider uppercase backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-[#5B85FF]" />
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>OUR JOURNEY</span>
               </div>
 
               <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.15]">
-                Our <span className="text-[#2F5DFA]">Journey</span>
+                Our <span className="text-[#E27D16]">Journey</span>
               </h3>
 
               <p className="text-sm sm:text-base text-slate-300/85 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -250,7 +250,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                 aria-hidden="true"
               >
                 <div 
-                  className="h-full bg-gradient-to-r from-[#2F5DFA] to-[#5B85FF] shadow-[0_0_12px_rgba(91,133,255,0.8)] rounded-full transition-all ease-out"
+                  className="h-full bg-gradient-to-r from-[#8B1E1E] via-[#E27D16] to-[#FFB020] shadow-[0_0_12px_rgba(226,125,22,0.8)] rounded-full transition-all ease-out"
                   style={{
                     width: isVisible ? '100%' : '0%',
                     transitionDuration: isReduced ? '0.01ms' : '1800ms',
@@ -284,7 +284,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                       <div className="relative my-1">
                         <div 
                           aria-hidden="true"
-                          className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#2F5DFA] shadow-[0_0_16px_rgba(47,93,250,0.35)] flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-[1.04] group-hover:border-[#5B85FF]"
+                          className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#E27D16] shadow-[0_0_16px_rgba(226,125,22,0.35)] flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-[1.04] group-hover:border-[#FFB020]"
                         >
                           <IconComponent className="w-6 h-6 stroke-[1.8]" />
                         </div>
@@ -296,10 +296,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                           {milestone.title}
                         </h4>
                         
-                        {/* Blue accent underline */}
+                        {/* Accent underline */}
                         <div 
                           aria-hidden="true"
-                          className="w-8 h-0.5 bg-[#2F5DFA] rounded-full my-2.5 transition-all duration-300 group-hover:w-12 group-hover:bg-[#5B85FF]"
+                          className="w-8 h-0.5 bg-[#E27D16] rounded-full my-2.5 transition-all duration-300 group-hover:w-12 group-hover:bg-[#FFB020]"
                         />
 
                         <p className="text-xs lg:text-sm text-slate-300/85 font-normal leading-relaxed">
@@ -320,7 +320,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                 aria-hidden="true"
               >
                 <div 
-                  className="w-full bg-gradient-to-b from-[#2F5DFA] to-[#5B85FF] shadow-[0_0_12px_rgba(91,133,255,0.8)] rounded-full transition-all ease-out"
+                  className="w-full bg-gradient-to-b from-[#8B1E1E] via-[#E27D16] to-[#FFB020] shadow-[0_0_12px_rgba(226,125,22,0.8)] rounded-full transition-all ease-out"
                   style={{
                     height: isVisible ? '100%' : '0%',
                     transitionDuration: isReduced ? '0.01ms' : '1800ms',
@@ -346,7 +346,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                       {/* Icon Chip Anchored to Track */}
                       <div 
                         aria-hidden="true"
-                        className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#2F5DFA] shadow-[0_0_16px_rgba(47,93,250,0.35)] flex items-center justify-center text-white shrink-0 z-10"
+                        className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#E27D16] shadow-[0_0_16px_rgba(226,125,22,0.35)] flex items-center justify-center text-white shrink-0 z-10"
                       >
                         <IconComponent className="w-6 h-6 stroke-[1.8]" />
                       </div>
@@ -361,7 +361,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                         </h4>
                         <div 
                           aria-hidden="true"
-                          className="w-8 h-0.5 bg-[#2F5DFA] rounded-full my-2" 
+                          className="w-8 h-0.5 bg-[#E27D16] rounded-full my-2" 
                         />
                         <p className="text-xs sm:text-sm text-slate-300/85 font-normal leading-relaxed">
                           {milestone.desc}
@@ -378,11 +378,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
         {/* ── CHAPTER 3: POWERING A SUSTAINABLE FUTURE & MISSION/VISION ── */}
         <div className="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-xs space-y-10">
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-bold text-[#1D5FE0] uppercase tracking-wider font-heading">
+            <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
               Our Core Philosophy
             </span>
             <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-              Powering a <span className="text-[#1D5FE0]">Sustainable Future</span> with <span className="text-[#1D5FE0]">Solar Ark India</span>
+              Powering a <span className="text-[#8B1E1E]">Sustainable Future</span> with <span className="text-[#8B1E1E]">Solar Ark India</span>
             </h3>
           </div>
 
@@ -390,9 +390,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             {/* Mission & Vision Column */}
             <div className="lg:col-span-7 space-y-8">
               {/* Mission */}
-              <div className="space-y-2 border-l-4 border-[#1D5FE0] pl-5 py-1">
+              <div className="space-y-2 border-l-4 border-[#8B1E1E] pl-5 py-1">
                 <div className="flex items-center gap-2">
-                  <Target className="w-5 h-5 text-[#1D5FE0]" />
+                  <Target className="w-5 h-5 text-[#8B1E1E]" />
                   <h4 className="font-heading text-xl font-bold text-slate-900">Mission</h4>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
@@ -457,8 +457,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             </div>
 
             {/* Solar Systems */}
-            <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-4 border border-blue-900/40 relative overflow-hidden">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 border border-blue-400/30 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-[#3D0C0C] via-slate-900 to-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-4 border border-red-900/40 relative overflow-hidden">
+              <div className="w-10 h-10 rounded-xl bg-[#8B1E1E]/30 text-amber-300 border border-[#8B1E1E]/50 flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h4 className="font-heading text-2xl font-bold">
@@ -475,7 +475,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             <div className="pt-6 text-center">
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-sm font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-[#1D5FE0]/25 transition-all inline-flex items-center gap-2 active:scale-[0.98] cursor-pointer"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-sm font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-[#8B1E1E]/25 transition-all inline-flex items-center gap-2 active:scale-[0.98] cursor-pointer"
               >
                 <span>Get Your Free Solar Estimate</span>
                 <ArrowRight className="w-4 h-4" />

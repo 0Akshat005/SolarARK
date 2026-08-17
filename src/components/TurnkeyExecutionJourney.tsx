@@ -47,10 +47,10 @@ const PROCESS_STAGES: ProcessStage[] = [
   },
   {
     number: '02',
-    accent: 'blue',
-    accentColor: '#1D5FE0',
-    iconBg: 'bg-blue-50 border-blue-200/60',
-    iconColor: 'text-[#1D5FE0]',
+    accent: 'maroon',
+    accentColor: '#8B1E1E',
+    iconBg: 'bg-[#8B1E1E]/10 border-[#8B1E1E]/20',
+    iconColor: 'text-[#8B1E1E]',
     icon: Cpu,
     title: 'Custom Engineering & CAD Design',
     description:
@@ -174,22 +174,17 @@ export const TurnkeyExecutionJourney: React.FC = () => {
           />
         </div>
 
-        {/* Center Content Zone (Guaranteed clear background, dark typography) */}
         <div className="relative z-10 text-center max-w-2xl mx-auto space-y-3.5 py-4">
-          
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/90 border border-blue-200/80 shadow-2xs text-[11px] font-bold text-[#1D5FE0] tracking-widest uppercase font-heading">
-            <Sparkles className="w-3.5 h-3.5 text-[#1D5FE0]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 shadow-2xs text-[11px] font-bold text-[#8B1E1E] tracking-widest uppercase font-heading">
+            <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
             <span>Turnkey Execution Journey</span>
           </div>
 
-          {/* Display Headline */}
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
             How SolarArk Delivers <br className="hidden sm:inline" />
             Your Solar System
           </h2>
 
-          {/* Subhead */}
           <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1">
             A transparent, engineered 5-stage installation process designed to ensure zero hassle, full subsidy release, and rapid commissioning.
           </p>
@@ -351,7 +346,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
                   key={idx}
                   className="flex items-center justify-center gap-2 text-xs sm:text-[13px] font-semibold text-slate-700"
                 >
-                  <Icon className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                  <Icon className="w-4 h-4 text-[#8B1E1E] shrink-0" />
                   <span>{item.label}</span>
                 </div>
               );

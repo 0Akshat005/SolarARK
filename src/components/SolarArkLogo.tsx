@@ -34,8 +34,8 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   const isDark = variant === 'dark';
 
   // Dynamic colors based on background variant
-  const primaryStroke = isDark ? '#60A5FA' : '#1D5FE0';
-  const secondaryStroke = isDark ? '#93C5FD' : '#3B82F6';
+  const primaryStroke = isDark ? '#E27D16' : '#8B1E1E';
+  const secondaryStroke = isDark ? '#FFB020' : '#5E1212';
   const sunGold = '#FFB020';
 
   return (
@@ -94,7 +94,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
             isDark ? 'text-white' : 'text-slate-900'
           }`}
         >
-          Solar<span className="text-[#1D5FE0]">Ark</span>
+          Solar<span className={isDark ? 'text-amber-400' : 'text-[#8B1E1E]'}>Ark</span>
         </span>
       )}
     </div>

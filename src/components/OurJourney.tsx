@@ -29,9 +29,9 @@ const MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2021',
-    badgeColor: '#1D5FE0',
-    inkColor: '#1D5FE0',
-    glowColor: 'rgba(29, 95, 224, 0.45)',
+    badgeColor: '#8B1E1E',
+    inkColor: '#8B1E1E',
+    glowColor: 'rgba(139, 30, 30, 0.45)',
     icon: HomeIcon,
     title: '575 Homes',
     description: 'Our residential footprint expanded across cities in Maharashtra.',
@@ -97,8 +97,8 @@ export const OurJourney: React.FC = () => {
       style={{
         background: `
           radial-gradient(ellipse 900px 480px at 15% -10%, rgba(226,125,22, 0.14), transparent 60%),
-          radial-gradient(ellipse 800px 460px at 100% 10%, rgba(29,95,224, 0.10), transparent 60%),
-          linear-gradient(180deg, #fffbf6 0%, #fdf5ec 28%, #f4f8fb 68%, #eef4f9 100%)
+          radial-gradient(ellipse 800px 460px at 100% 10%, rgba(139,30,30, 0.08), transparent 60%),
+          linear-gradient(180deg, #fffbf6 0%, #fdf5ec 28%, #fbf4f4 68%, #f8efef 100%)
         `,
       }}
     >
@@ -115,7 +115,7 @@ export const OurJourney: React.FC = () => {
       </svg>
 
       <svg
-        className="absolute -top-24 -right-24 w-[500px] h-[500px] text-blue-500/10 pointer-events-none z-0"
+        className="absolute -top-24 -right-24 w-[500px] h-[500px] text-[#8B1E1E]/10 pointer-events-none z-0"
         viewBox="0 0 500 500"
         fill="none"
       >
@@ -221,7 +221,7 @@ export const OurJourney: React.FC = () => {
         <div
           className="w-44 h-[2.5px] rounded-full mx-auto my-2.5"
           style={{
-            background: 'linear-gradient(90deg, transparent, #E27D16 20%, #1D5FE0 45%, #10B981 70%, #8B5CF6 90%, transparent)',
+            background: 'linear-gradient(90deg, transparent, #E27D16 20%, #8B1E1E 45%, #10B981 70%, #8B5CF6 90%, transparent)',
           }}
         />
 
@@ -297,7 +297,7 @@ export const OurJourney: React.FC = () => {
             <div
               className="journey-timeline-line absolute left-6 right-8 bottom-[28px] h-[2px] z-0"
               style={{
-                background: 'linear-gradient(90deg, #E27D16, #1D5FE0, #E27D16, #10B981, #8B5CF6)',
+                background: 'linear-gradient(90deg, #E27D16, #8B1E1E, #E27D16, #10B981, #8B5CF6)',
               }}
             />
 

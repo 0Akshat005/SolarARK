@@ -78,7 +78,7 @@ export const SubsidyExplainer: React.FC<{ onCtaClick: () => void }> = ({ onCtaCl
 
           <div className="bg-slate-100/80 p-4 sm:p-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
             <div className="flex items-center gap-2">
-              <Info className="w-4 h-4 text-[#1D5FE0] flex-shrink-0" />
+              <Info className="w-4 h-4 text-[#8B1E1E] flex-shrink-0" />
               <span>
                 Subsidy applies directly to individual residential houses with valid DISCOM electricity meters.
               </span>
@@ -86,7 +86,7 @@ export const SubsidyExplainer: React.FC<{ onCtaClick: () => void }> = ({ onCtaCl
 
             <button
               onClick={onCtaClick}
-              className="bg-[#1D5FE0] hover:bg-[#0F2E6E] text-white font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap"
+              className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer shadow-sm hover:shadow-md"
             >
               <span>Check My Subsidy Eligibility</span>
               <ArrowRight className="w-4 h-4" />

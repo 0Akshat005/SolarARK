@@ -37,14 +37,14 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
             <span className="text-slate-600 hidden sm:inline">•</span>
 
             <div className="flex items-center gap-1.5 text-slate-300 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#1D5FE0]" />
+              <ShieldCheck className="w-4 h-4 text-amber-400" />
               <span>Assured Renewable Komfort</span>
             </div>
           </div>
 
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-white hover:text-slate-950 text-white font-bold px-5 py-2.5 rounded-xl transition-all inline-flex items-center gap-2"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-5 py-2.5 rounded-xl transition-all inline-flex items-center gap-2"
           >
             <span>Get Free Solar Consultation</span>
             <ArrowRight className="w-4 h-4" />
@@ -73,21 +73,21 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
 
             <div className="space-y-2.5 pt-2 text-slate-300">
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                <Phone className="w-4 h-4 text-[#E27D16] shrink-0" />
                 <a href="tel:+917080909590" className="hover:text-white transition-colors font-medium">
                   +91 7080909590
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#1D5FE0] shrink-0" />
+                <Mail className="w-4 h-4 text-[#E27D16] shrink-0" />
                 <a href="mailto:info@thesolarark.com" className="hover:text-white transition-colors font-medium">
                   info@thesolarark.com
                 </a>
               </div>
 
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#1D5FE0] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#E27D16] shrink-0 mt-0.5" />
                 <span className="leading-snug">
                   <strong>Head Office:</strong> Mira Sadan, House No. 27 A, Krushnarpan Colony, Amravati, Maharashtra 444605
                 </span>

@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
           >
             Power your home.{' '}
             <br />
-            <span className="text-[#1D5FE0]">Pay less every month.</span>
+            <span className="text-[#8B1E1E]">Pay less every month.</span>
           </h1>
 
           {/* ── Supporting copy ──
@@ -169,9 +169,9 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                 <button
                   onClick={onCtaClick}
-                  className="w-full sm:w-auto bg-[#1D5FE0] hover:bg-[#1753C8] active:scale-[0.97] text-white text-[15px] font-semibold px-8 py-[14px] rounded-full transition-all duration-200 flex items-center justify-center gap-2.5 group"
+                  className="w-full sm:w-auto bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.97] text-white text-[15px] font-semibold px-8 py-[14px] rounded-full transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer"
                   style={{
-                    boxShadow: '0 4px 14px -2px rgba(29, 95, 224, 0.35), 0 2px 6px -1px rgba(29, 95, 224, 0.15)',
+                    boxShadow: '0 4px 14px -2px rgba(139, 30, 30, 0.35), 0 2px 6px -1px rgba(139, 30, 30, 0.15)',
                   }}
                 >
                   <span>Get My Free Savings Estimate</span>
@@ -180,7 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
 
                 <button
                   onClick={onCalculatorClick}
-                  className="text-slate-600 hover:text-[#1D5FE0] text-[14px] font-semibold px-2 py-2 transition-colors duration-200 flex items-center gap-1.5 group"
+                  className="text-slate-600 hover:text-[#8B1E1E] text-[14px] font-semibold px-2 py-2 transition-colors duration-200 flex items-center gap-1.5 group cursor-pointer"
                 >
                   <span>See How It Works</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -202,7 +202,7 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
                 }}
               >
                 <ShieldCheck
-                  className="w-[15px] h-[15px] text-[#1D5FE0]/80 shrink-0"
+                  className="w-[15px] h-[15px] text-[#8B1E1E]/80 shrink-0"
                   strokeWidth={2.2}
                 />
                 <p className="text-[12px] sm:text-[12.5px] text-slate-600 leading-snug whitespace-nowrap">

@@ -81,7 +81,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   ];
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
       {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
       <PageContextBar
@@ -93,7 +93,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
         {/* Page Hero Headline */}
         <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0] font-heading">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E] font-heading">
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Get in Touch with SolarArk</span>
           </div>
@@ -112,9 +112,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <a
             href="tel:+917080909590"
-            className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs hover:border-[#1D5FE0] transition-all space-y-3 group"
+            className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs hover:border-[#8B1E1E] transition-all space-y-3 group"
           >
-            <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#1D5FE0] flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
+            <div className="w-12 h-12 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
               <Phone className="w-6 h-6" />
             </div>
             <div>
@@ -132,7 +132,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
           <a
             href="mailto:info@thesolarark.com"
-            className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs hover:border-[#1D5FE0] transition-all space-y-3 group"
+            className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs hover:border-[#8B1E1E] transition-all space-y-3 group"
           >
             <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6" />
@@ -175,7 +175,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="lg:col-span-6">
             <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0] font-heading mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E] font-heading mb-2">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Free &amp; Zero Obligation</span>
                 </div>
@@ -218,7 +218,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         placeholder="e.g. Rahul Sharma"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                       />
                     </div>
 
@@ -232,7 +232,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         placeholder="e.g. 9876543210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                       />
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         placeholder="e.g. Amravati"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                       />
                     </div>
 
@@ -259,7 +259,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       <select
                         value={formData.propertyType}
                         onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0] bg-white"
+                        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E] bg-white"
                       >
                         <option>Individual Home / Villa</option>
                         <option>Housing Society / Apartment</option>
@@ -276,7 +276,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <select
                       value={formData.monthlyBill}
                       onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0] bg-white"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E] bg-white"
                     >
                       <option>Under ₹3,000 / month</option>
                       <option>₹3,000 - ₹5,000 / month</option>
@@ -295,13 +295,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Specify your terrace type, shadow conditions, or preferred appointment time..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                    className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   >
                     <span>Confirm Free Site Survey Request</span>
                     <Send className="w-4 h-4" />
@@ -325,33 +325,33 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               {offices.map((off, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs space-y-2 hover:border-[#1D5FE0] transition-colors"
+                  className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs space-y-2 hover:border-[#8B1E1E] transition-colors"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-xs font-bold text-slate-900 font-heading">
                       {off.city}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-[#1D5FE0] px-2.5 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-[#8B1E1E] px-2.5 py-0.5 rounded-full">
                       {off.badge}
                     </span>
                   </div>
 
                   <div className="flex items-start gap-2 text-xs text-stone-600 pt-1">
-                    <MapPin className="w-4 h-4 text-[#1D5FE0] shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 text-[#8B1E1E] shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{off.address}</span>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-stone-600 pt-2 border-t border-stone-100">
                     <div className="flex items-center gap-1.5">
                       <Phone className="w-3.5 h-3.5 text-stone-400" />
-                      <a href={`tel:${off.phone}`} className="hover:text-[#1D5FE0] font-medium">
+                      <a href={`tel:${off.phone}`} className="hover:text-[#8B1E1E] font-medium">
                         {off.phone}
                       </a>
                     </div>
 
                     <div className="flex items-center gap-1.5">
                       <Mail className="w-3.5 h-3.5 text-stone-400" />
-                      <a href={`mailto:${off.email}`} className="hover:text-[#1D5FE0] font-medium">
+                      <a href={`mailto:${off.email}`} className="hover:text-[#8B1E1E] font-medium">
                         {off.email}
                       </a>
                     </div>

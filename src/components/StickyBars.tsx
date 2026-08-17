@@ -26,7 +26,7 @@ export const StickyBars: React.FC<StickyBarsProps> = ({ onCtaClick, onCalculator
 
         <button
           onClick={onCtaClick}
-          className="flex-1 bg-[#1D5FE0] hover:bg-[#174AB8] text-white font-semibold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-colors"
+          className="flex-1 bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-sm transition-colors"
         >
           <span>Get Free Estimate</span>
           <ArrowRight className="w-3.5 h-3.5" />

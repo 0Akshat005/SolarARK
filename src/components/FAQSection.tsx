@@ -32,7 +32,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
         
         {/* Section Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <HelpCircle className="w-4 h-4" />
             <span>Got Questions? We Have Transparent Answers.</span>
           </div>
@@ -55,7 +55,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search questions (e.g. subsidy, space, monsoon, EMI)..."
-              className="w-full bg-white border border-slate-300 focus:border-[#1D5FE0] text-slate-900 text-sm font-medium pl-11 pr-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1D5FE0]/40 shadow-sm transition-all"
+              className="w-full bg-white border border-slate-300 focus:border-[#8B1E1E] text-slate-900 text-sm font-medium pl-11 pr-4 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/40 shadow-sm transition-all"
             />
           </div>
 
@@ -69,7 +69,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
                 }}
                 className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   activeCategory === cat
-                    ? 'bg-[#1D5FE0] text-white shadow-sm'
+                    ? 'bg-[#8B1E1E] text-white shadow-sm'
                     : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
@@ -95,11 +95,11 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
                 >
                   <button
                     onClick={() => toggleFaq(faq.id)}
-                    className="w-full text-left p-5 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-[#1D5FE0] rounded-2xl"
+                    className="w-full text-left p-5 flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E] rounded-2xl"
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-[#1D5FE0] border border-blue-100 uppercase">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-50 text-[#8B1E1E] border border-red-100 uppercase">
                         {faq.category}
                       </span>
                       <span className="text-sm sm:text-base font-bold text-slate-900 font-heading">
@@ -109,7 +109,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
 
                     <ChevronDown
                       className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-[#1D5FE0]' : ''
+                        isOpen ? 'rotate-180 text-[#8B1E1E]' : ''
                       }`}
                     />
                   </button>
@@ -138,7 +138,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
 
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-[#0F2E6E] text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap"
           >
             <span>Ask an Expert</span>
             <ArrowRight className="w-4 h-4" />

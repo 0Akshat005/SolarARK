@@ -52,7 +52,7 @@ export const TrustPillars: React.FC = () => {
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
             <Shield className="w-4 h-4" />
             <span>Built on Four Core Pillars of Excellence</span>
           </div>
@@ -74,7 +74,7 @@ export const TrustPillars: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-slate-50 hover:bg-white p-6 rounded-3xl border border-slate-200 hover:border-[#1D5FE0]/40 shadow-sm hover:shadow-elevation-2 transition-all duration-300 flex flex-col justify-between space-y-6 group"
+                className="bg-slate-50 hover:bg-white p-6 rounded-3xl border border-slate-200 hover:border-[#8B1E1E]/40 shadow-sm hover:shadow-elevation-2 transition-all duration-300 flex flex-col justify-between space-y-6 group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -87,7 +87,7 @@ export const TrustPillars: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 font-heading group-hover:text-[#1D5FE0] transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 font-heading group-hover:text-[#8B1E1E] transition-colors">
                       {p.title}
                     </h3>
                     <p className="text-xs font-semibold text-slate-500 mt-0.5">{p.subtitle}</p>

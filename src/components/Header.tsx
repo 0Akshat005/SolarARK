@@ -90,13 +90,13 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleNavClick(item)}
                 className={`relative py-1 text-[13px] xl:text-[14px] font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? 'text-[#1D5FE0] font-semibold'
-                    : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#1D5FE0]`
+                    ? 'text-[#8B1E1E] font-semibold'
+                    : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#8B1E1E]`
                 }`}
               >
                 <span>{item.name}</span>
                 {isActive && (
-                  <span className="block h-[2.5px] w-5 bg-[#1D5FE0] rounded-full mx-auto mt-0.5" />
+                  <span className="block h-[2.5px] w-5 bg-[#8B1E1E] rounded-full mx-auto mt-0.5" />
                 )}
               </button>
             );
@@ -136,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* PRIMARY ACTION: Dominant Get A Quote CTA */}
           <button
             onClick={onCtaClick}
-            className="bg-[#1D5FE0] hover:bg-[#1753C8] text-white text-[13px] xl:text-[14px] font-semibold px-4 xl:px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md flex items-center gap-1.5 active:scale-[0.98] cursor-pointer"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-[13px] xl:text-[14px] font-semibold px-4 xl:px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md flex items-center gap-1.5 active:scale-[0.98] cursor-pointer"
           >
             <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -175,7 +175,7 @@ export const Header: React.FC<HeaderProps> = ({
                   onClick={() => handleNavClick(item)}
                   className={`text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-blue-50 text-[#1D5FE0] font-semibold'
+                      ? 'bg-[#8B1E1E]/10 text-[#8B1E1E] font-semibold'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -199,7 +199,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onCtaClick();
               }}
-              className="w-full bg-[#1D5FE0] text-white text-xs font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2"
+              className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2"
             >
               <span>Get Free Solar Consultation</span>
               <ArrowRight className="w-4 h-4" />

@@ -42,9 +42,9 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
               <button
                 key={spec.category}
                 onClick={() => setActiveTechIndex(idx)}
-                className={`w-full text-left p-5 rounded-2xl border transition-all text-xs font-medium flex items-center justify-between ${
+                className={`w-full text-left p-5 rounded-2xl border transition-all text-xs font-medium flex items-center justify-between cursor-pointer ${
                   activeTechIndex === idx
-                    ? 'bg-slate-800 border-[#1D5FE0] text-white shadow-lg ring-1 ring-[#1D5FE0]'
+                    ? 'bg-slate-800 border-[#8B1E1E] text-white shadow-lg ring-1 ring-[#8B1E1E]'
                     : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800/80'
                 }`}
               >
@@ -53,7 +53,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                   <div className="text-sm font-bold font-heading text-white mt-0.5">{spec.title}</div>
                 </div>
 
-                <span className="text-[10px] font-bold px-2 py-1 rounded bg-[#1D5FE0]/20 text-blue-400 border border-blue-500/30">
+                <span className="text-[10px] font-bold px-2 py-1 rounded bg-[#8B1E1E]/20 text-amber-300 border border-[#8B1E1E]/40">
                   {spec.badge}
                 </span>
               </button>
@@ -106,7 +106,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
 
               <button
                 onClick={onCtaClick}
-                className="bg-[#1D5FE0] hover:bg-white hover:text-slate-900 text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center gap-2"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 cursor-pointer shadow-md"
               >
                 <span>Request Tech Datasheet</span>
                 <ArrowRight className="w-4 h-4" />

@@ -107,7 +107,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
   };
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#1D5FE0] selection:text-white">
+    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
       {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
       <PageContextBar
@@ -119,7 +119,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
         {/* Page Hero Headline */}
         <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0] font-heading">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E] font-heading">
             <Briefcase className="w-3.5 h-3.5" />
             <span>Careers at SolarArk Projects Pvt. Ltd.</span>
           </div>
@@ -137,7 +137,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
         {/* ── WHY WORK AT SOLARARK ── */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="bg-white border border-stone-200/80 rounded-2xl p-6 shadow-xs space-y-2.5">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1D5FE0] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-bold">
               <TrendingUp className="w-5 h-5" />
             </div>
             <h3 className="font-heading text-base font-bold text-slate-900">
@@ -189,12 +189,12 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                   onClick={() => setSelectedRole(role.title)}
                   className={`p-6 rounded-2xl border transition-all cursor-pointer ${
                     selectedRole === role.title
-                      ? 'bg-white border-[#1D5FE0] shadow-md ring-2 ring-[#1D5FE0]/10'
+                      ? 'bg-white border-[#8B1E1E] shadow-md ring-2 ring-[#8B1E1E]/10'
                       : 'bg-white border-stone-200/80 hover:border-stone-300'
                   }`}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="text-[11px] font-bold text-[#1D5FE0] font-heading uppercase tracking-wider bg-blue-50 px-2.5 py-0.5 rounded-full">
+                    <span className="text-[11px] font-bold text-[#8B1E1E] font-heading uppercase tracking-wider bg-red-50 px-2.5 py-0.5 rounded-full">
                       {role.department}
                     </span>
                     <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
@@ -219,7 +219,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                     <div className="text-[11px] font-bold text-stone-800">Requirements:</div>
                     {role.requirements.map((req, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-stone-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#1D5FE0] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
                         <span>{req}</span>
                       </div>
                     ))}
@@ -233,7 +233,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
           <div className="lg:col-span-5">
             <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-lg space-y-6 sticky top-28">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-bold text-[#1D5FE0] font-heading mb-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E] font-heading mb-2">
                   <Briefcase className="w-3.5 h-3.5" />
                   <span>Direct Application</span>
                 </div>
@@ -287,7 +287,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                       placeholder="e.g. Anand Kulkarni"
                       value={applicantData.name}
                       onChange={(e) => setApplicantData({ ...applicantData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                     />
                   </div>
 
@@ -301,7 +301,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                       placeholder="e.g. 9876543210"
                       value={applicantData.phone}
                       onChange={(e) => setApplicantData({ ...applicantData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                     />
                   </div>
 
@@ -315,7 +315,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                       placeholder="e.g. anand@gmail.com"
                       value={applicantData.email}
                       onChange={(e) => setApplicantData({ ...applicantData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                     />
                   </div>
 
@@ -326,7 +326,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                     <select
                       value={applicantData.experience}
                       onChange={(e) => setApplicantData({ ...applicantData, experience: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0] bg-white"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E] bg-white"
                     >
                       <option>Fresher / Under 1 Year</option>
                       <option>1-3 Years</option>
@@ -344,13 +344,13 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                       placeholder="Briefly tell us about your background..."
                       value={applicantData.message}
                       onChange={(e) => setApplicantData({ ...applicantData, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#1D5FE0]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-xs sm:text-sm focus:outline-none focus:border-[#8B1E1E]"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-[#1D5FE0] hover:bg-[#1753C8] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                    className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   >
                     <span>Submit Application</span>
                     <Send className="w-4 h-4" />
@@ -358,7 +358,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
                   <div className="pt-2 text-center text-xs text-stone-500">
                     Or email your CV directly to{' '}
-                    <a href="mailto:info@thesolarark.com" className="font-bold text-[#1D5FE0] hover:underline">
+                    <a href="mailto:info@thesolarark.com" className="font-bold text-[#8B1E1E] hover:underline">
                       info@thesolarark.com
                     </a>
                   </div>

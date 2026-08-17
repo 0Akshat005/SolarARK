@@ -103,7 +103,7 @@ export default function App() {
           <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
             <button
               onClick={() => navigateTo('/')}
-              className="flex items-center gap-1 hover:text-[#1D5FE0] transition-colors"
+              className="flex items-center gap-1 hover:text-[#8B1E1E] transition-colors"
             >
               <HomeIcon className="w-3.5 h-3.5" />
               <span>Home</span>
@@ -114,7 +114,7 @@ export default function App() {
 
           <button
             onClick={() => navigateTo('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#1D5FE0] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Home</span>
@@ -138,7 +138,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#1D5FE0] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#8B1E1E] selection:text-white">
       {/* Universal Header */}
       <Header
         onCtaClick={scrollToContactForm}
