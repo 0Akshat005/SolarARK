@@ -10,6 +10,7 @@ interface SolarArkLogoProps {
   size?: 'sm' | 'md' | 'lg';
   showText?: boolean;
   className?: string;
+  useImage?: boolean;
 }
 
 export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
@@ -17,8 +18,9 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   size = 'md',
   showText = true,
   className = '',
+  useImage = false,
 }) => {
-  // Size mappings for standalone SVG icon
+  // Size mappings
   const iconSizes = {
     sm: 'w-7 h-7',
     md: 'w-9 h-9',
@@ -33,68 +35,72 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
 
   const isDark = variant === 'dark';
 
-  // Dynamic colors based on background variant
-  const primaryStroke = isDark ? '#E27D16' : '#8B1E1E';
-  const secondaryStroke = isDark ? '#FFB020' : '#5E1212';
-  const sunGold = '#FFB020';
+  // Official Brand Sun & Roof Colors
+  const sunColor = '#FFA500'; // Official Warm Sun Gold / Amber
+  const roofColor = isDark ? '#FFA500' : '#E27D16'; // Golden Amber Roof Structure
 
   return (
     <div className={`inline-flex items-center gap-2.5 group select-none ${className}`}>
-      {/* Pure Adaptive SVG Mark — No box/background container */}
-      <svg
-        viewBox="0 0 32 32"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className={`${iconSizes[size]} shrink-0 transition-transform duration-300 group-hover:scale-105`}
-      >
-        {/* Glowing Sun Core */}
-        <circle cx="16" cy="10" r="3.5" fill={sunGold} />
-
-        {/* Sun Rays */}
-        <path
-          d="M16 3.5V5M16 15V16.5M9.5 10H11M21 10H22.5M11.4 5.4L12.45 6.45M19.55 13.55L20.6 14.6M20.6 5.4L19.55 6.45M12.45 13.55L11.4 14.6"
-          stroke={sunGold}
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          opacity="0.9"
+      {useImage ? (
+        <img
+          src="/images/solarlogo.png"
+          alt="SolarArk Logo"
+          className={`${iconSizes[size]} object-contain shrink-0 transition-transform duration-300 group-hover:scale-105`}
         />
+      ) : (
+        /* Official SVG Brand Mark: Sun rising over rooftop truss structure */
+        <svg
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={`${iconSizes[size]} shrink-0 transition-transform duration-300 group-hover:scale-105`}
+        >
+          {/* Radiant Sun Core */}
+          <circle cx="16" cy="9.5" r="3.2" fill={sunColor} />
 
-        {/* Sleek Rooftop Ark (Angled Roof Canopy) */}
-        <path
-          d="M4 22L16 13L28 22"
-          stroke={primaryStroke}
-          strokeWidth="2.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+          {/* Radiating Sun Rays */}
+          <path
+            d="M16 3.5V5M10 5.8L11.2 7M22 5.8L20.8 7M7.5 10H9M24.5 10H23"
+            stroke={sunColor}
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
 
-        {/* Roof Baseline Base */}
-        <path
-          d="M7.5 25.5H24.5"
-          stroke={secondaryStroke}
-          strokeWidth="2"
-          strokeLinecap="round"
-          opacity="0.85"
-        />
+          {/* Official Triangular Rooftop Truss Structure */}
+          <path
+            d="M4.5 23L16 11.5L27.5 23"
+            stroke={roofColor}
+            strokeWidth="2.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
 
-        {/* Solar Panel Grid Accents */}
-        <path
-          d="M11.5 18.5L9.5 25.5M16 15.5V25.5M20.5 18.5L22.5 25.5"
-          stroke={primaryStroke}
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          opacity="0.5"
-        />
-      </svg>
+          {/* Roof Baseline / Foundation Beam */}
+          <path
+            d="M3 26H29"
+            stroke={roofColor}
+            strokeWidth="2.2"
+            strokeLinecap="round"
+          />
 
-      {/* Brand Name Typography */}
+          {/* Internal Structural Struts */}
+          <path
+            d="M16 12V26M10.5 17.5L8 26M21.5 17.5L24 26"
+            stroke={roofColor}
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      )}
+
+      {/* Official Wordmark: "Solar" + "Ark" in Gold/Amber */}
       {showText && (
         <span
           className={`font-heading font-extrabold ${textSizes[size]} tracking-tight leading-none transition-colors ${
-            isDark ? 'text-white' : 'text-slate-900'
+            isDark ? 'text-white' : 'text-[#0B1730]'
           }`}
         >
-          Solar<span className={isDark ? 'text-amber-400' : 'text-[#8B1E1E]'}>Ark</span>
+          Solar<span className="text-[#FFA500]">Ark</span>
         </span>
       )}
     </div>
