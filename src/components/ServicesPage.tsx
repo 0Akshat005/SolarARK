@@ -27,6 +27,7 @@ import {
   Sun
 } from 'lucide-react';
 import { PageContextBar } from './PageContextBar';
+import { TurnkeyExecutionJourney } from './TurnkeyExecutionJourney';
 import { FinalCTAForm } from './FinalCTAForm';
 
 interface ServicesPageProps {
@@ -43,39 +44,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   prefilledBill = 8500,
 }) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'society' | 'commercial' | 'maintenance'>('all');
-
-  const processSteps = [
-    {
-      step: '01',
-      title: 'Consultation & Site Survey',
-      description: 'Our certified engineers conduct a physical rooftop inspection, measuring usable shadow-free area and analyzing historical DISCOM electricity consumption.',
-      highlight: 'Free 3D Shadow Analysis',
-    },
-    {
-      step: '02',
-      title: 'Custom Engineering & CAD Design',
-      description: 'We prepare an optimized 3D layout specifying exact panel tilt angles, elevated structural mounts, and string inverter sizing for maximum yearly kWh yield.',
-      highlight: 'Zero Slab Penetration',
-    },
-    {
-      step: '03',
-      title: 'Paperless DISCOM & Subsidy Filing',
-      description: 'SolarArk handles 100% of the documentation for PM Surya Ghar national portal subsidy (up to ₹78,000) and state DISCOM net-metering approvals.',
-      highlight: 'Direct Bank Subsidy Credit',
-    },
-    {
-      step: '04',
-      title: 'Certified Master Installation',
-      description: 'In-house certified electrical teams execute mounting structure erection, Tier-1 module placement, chemical earthing pits, and AC/DC wiring in 48 hours.',
-      highlight: 'Cyclone-Tested 160 km/h Mounts',
-    },
-    {
-      step: '05',
-      title: 'Net-Metering & 24/7 Telemetry',
-      description: 'We coordinate bi-directional meter testing with DISCOM officials, commission your plant, and connect real-time IoT cloud monitoring to your smartphone.',
-      highlight: 'Instant Power Tracking',
-    },
-  ];
 
   const proofMetrics = [
     { value: '5,000+', label: 'Happy Customers Solarised', subtext: 'Across Maharashtra & Central India' },
@@ -587,51 +555,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
       </div>
 
-      {/* ── SECTION 04: THE SOLARARK CUSTOMER JOURNEY (5-STEP PROCESS) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-24 lg:mt-32 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#1D5FE0] text-xs font-bold font-heading">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Turnkey Execution Journey</span>
-          </div>
-
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-[40px] font-extrabold text-slate-900 tracking-tight">
-            How SolarArk Delivers Your Solar System
-          </h2>
-
-          <p className="text-sm sm:text-base text-stone-600 max-w-2xl mx-auto">
-            A transparent, engineered 5-stage installation process designed to ensure zero hassle, full subsidy release, and rapid commissioning.
-          </p>
-        </div>
-
-        {/* 5-Step Process Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
-          {processSteps.map((step, idx) => (
-            <div
-              key={idx}
-              className="bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs flex flex-col justify-between space-y-4 hover:border-[#1D5FE0] transition-all group"
-            >
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-full bg-[#FCFAF7] border-2 border-stone-200 group-hover:border-[#1D5FE0] text-[#1D5FE0] font-heading font-extrabold text-sm flex items-center justify-center shadow-xs transition-colors">
-                  {step.step}
-                </div>
-                <h3 className="font-heading text-base font-bold text-slate-900 leading-snug">
-                  {step.title}
-                </h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {step.description}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-stone-100">
-                <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md block text-center">
-                  ✓ {step.highlight}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── SECTION 04: TURNKEY EXECUTION JOURNEY (5-STAGE INSTALLATION PROCESS) ── */}
+      <TurnkeyExecutionJourney />
 
       {/* ── SECTION 05: VERIFIED PROOF & REGIONAL CREDIBILITY ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-20 lg:mt-28">
