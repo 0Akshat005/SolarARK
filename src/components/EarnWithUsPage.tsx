@@ -29,18 +29,14 @@ import {
   MessageCircle,
   HelpCircle,
   Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  ChevronDown,
-  ChevronUp,
-  Gift,
   Quote,
-  Flame,
-  Check
+  Gift,
+  Check,
+  Sun,
+  Layers,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
-
-import { PageContextBar } from './PageContextBar';
 
 interface EarnWithUsPageProps {
   onNavigate: (path: string) => void;
@@ -70,7 +66,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Video Ref for Video 1
+  // Video Refs
   const videoRef1 = useRef<HTMLVideoElement | null>(null);
   const videoRef2 = useRef<HTMLVideoElement | null>(null);
 
@@ -123,7 +119,6 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
   // Calculator calculations
   const calculateEstimatedEarnings = (kw: number) => {
-    // Average ₹3,500 - ₹5,000 commission per kW installed
     const basePerKw = 4000;
     const milestoneBonus = kw >= 25 ? 25000 : kw >= 10 ? 10000 : 0;
     return kw * basePerKw + milestoneBonus;
@@ -228,93 +223,91 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-20">
+    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-20">
       
-      {/* ── BREADCRUMB & BACK HEADER ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6">
-        <div className="flex items-center justify-between py-2 border-b border-stone-200/80">
+      {/* ── 1. COMPACT PAGE CONTEXT / BREADCRUMB ROW ── */}
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-3">
+        <div className="flex items-center justify-between py-2 border-b border-stone-200/60">
           <button
             onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-stone-500 hover:text-[#8B1E1E] transition-colors group cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to Home</span>
           </button>
 
-          <div className="flex items-center gap-2 text-xs text-stone-500">
+          <div className="flex items-center gap-1.5 text-[11px] text-stone-400 font-medium">
             <span
               onClick={() => onNavigate('/')}
-              className="hover:text-stone-900 cursor-pointer flex items-center gap-1"
+              className="hover:text-stone-700 cursor-pointer flex items-center gap-1"
             >
-              <HomeIcon className="w-3.5 h-3.5" />
+              <HomeIcon className="w-3 h-3" />
               <span>Home</span>
             </span>
             <span>/</span>
-            <span className="text-[#8B1E1E] font-bold">Earn With Us (Surya Mitra)</span>
+            <span className="text-[#8B1E1E] font-semibold">Earn With Us (Surya Mitra)</span>
           </div>
         </div>
       </div>
 
-      <PageContextBar
-        title="Earn With Us — Surya Mitra Partner Program"
-        badge="Partner Ecosystem"
-        description="Partner with Maharashtra's leading rooftop solar provider. Turn your local relationships into recurring income with ₹15,000 to ₹1,00,000+ per month in milestone payouts."
-        onPrimaryClick={scrollToForm}
-        primaryCtaText="Register as Surya Mitra"
-      />
+      {/* ── 2. EDITORIAL OPEN HERO SECTION (LIGHT, SEAMLESS BLEND) ── */}
+      <section className="relative overflow-hidden pt-4 sm:pt-6 pb-12 sm:pb-16 lg:pb-20">
+        
+        {/* Continuous Atmospheric Solar Rooftop Background (Right Side Blend) */}
+        <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] pointer-events-none z-0 overflow-hidden">
+          <img
+            src="/images/solar-villa-sunset.jpg"
+            alt="SolarArk Residential Rooftop Solar Environment"
+            className="w-full h-full object-cover object-right-top"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 15%, rgba(0,0,0,0.85) 45%, black 75%), linear-gradient(to bottom, black 75%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 15%, rgba(0,0,0,0.85) 45%, black 75%), linear-gradient(to bottom, black 75%, transparent 100%)',
+              maskComposite: 'intersect',
+              WebkitMaskComposite: 'source-in'
+            }}
+          />
+          {/* Subtle Warm Gradient Wash to seamlessly integrate with light cream background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent lg:via-[#FAF9F6]/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent pointer-events-none" />
+        </div>
 
-      {/* ── SECTION 01: HERO BANNER ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/90 bg-[#120808]">
+        {/* Hero Foreground Content Zone */}
+        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
           
-          {/* Hero Slide Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/images/earnwithus/earnwithus-hero-slide.png"
-              alt="SolarArk Surya Mitra Partner Program"
-              className="w-full h-full object-cover opacity-35 object-center"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/images/homeowner-family-stories.jpg';
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#120808] via-[#120808]/90 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-radial-at-t from-[#8B1E1E]/30 via-transparent to-transparent pointer-events-none" />
-          </div>
-
-          <div className="relative z-10 p-8 sm:p-12 lg:p-16 max-w-3xl space-y-6 text-white">
+          <div className="max-w-2xl xl:max-w-3xl space-y-6 pt-2 lg:pt-4">
             
-            {/* Top Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/70 backdrop-blur-md border border-red-300/30 text-xs font-bold text-amber-200 uppercase tracking-wider font-heading">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              <span>Official SolarArk Surya Mitra Program</span>
+            {/* Program Credibility Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/8 border border-[#8B1E1E]/15 text-[11px] font-bold text-[#8B1E1E] tracking-wider uppercase font-heading shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#E27D16]" />
+              <span>OFFICIAL SOLARARK SURYA MITRA PROGRAM</span>
             </div>
 
-            {/* Display Headline */}
+            {/* Editorial Headline Hierarchy */}
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.14] font-heading">
-                Welcome to <span className="text-amber-400">SolarArk</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+                Welcome to <span className="text-[#8B1E1E]">SolarArk</span>
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 font-heading">
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-800 font-heading leading-tight tracking-tight">
                 Empowering Communities with Solar Energy
               </h2>
             </div>
 
-            {/* Exact Extract Copy Paragraphs */}
-            <div className="space-y-3 text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+            {/* Exact Factual Body Copy */}
+            <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-xl">
               <p>
                 The <strong>Surya Mitra program</strong>, an initiative by SolarARK, aims to bring solar rooftops to every home and empower individuals to contribute to a greener planet.
               </p>
-              <p className="text-slate-300 text-sm">
+              <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
                 This campaign creates a network of enthusiastic individuals, business owners, and entrepreneurs to promote solar energy solutions while fostering self-reliance and entrepreneurship.
               </p>
             </div>
 
-            {/* Action Buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            {/* Primary & Secondary Action CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-3.5">
               <a
                 href="#earnwith"
                 onClick={scrollToForm}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-[#8B1E1E]/40 transition-all inline-flex items-center gap-2.5 text-sm cursor-pointer"
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold px-7 py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/25 hover:shadow-lg transition-all inline-flex items-center gap-2 text-sm cursor-pointer"
               >
                 <span>Earn With Us</span>
                 <ArrowRight className="w-4 h-4" />
@@ -324,29 +317,114 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 href="https://wa.me/917080909590?text=Hi%20SolarArk%20Team%2C%20I%20want%20to%20know%20more%20about%20the%20Surya%20Mitra%20program."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold px-6 py-3.5 rounded-xl transition-all inline-flex items-center gap-2 text-sm cursor-pointer"
+                className="bg-white hover:bg-stone-50 border border-stone-300/90 text-slate-700 font-semibold px-5 py-3.5 rounded-xl shadow-2xs hover:border-stone-400 transition-all inline-flex items-center gap-2 text-sm cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp Partner Desk</span>
               </a>
             </div>
 
-            {/* Trust Micro-Metrics */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
-              <div>
-                <div className="text-lg sm:text-2xl font-extrabold text-amber-400 font-heading">₹15,000+</div>
-                <div className="text-[11px] text-slate-400 font-medium">Avg. Payout per Residential Referral</div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 3. CONNECTED PROOF & VERIFIED STATS STRIP ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 -mt-4 relative z-20">
+        <div className="bg-white border border-stone-200/90 rounded-2xl shadow-sm p-5 sm:p-7">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-stone-200/80 items-center">
+            
+            {/* Stat 1 */}
+            <div className="flex items-center gap-4 md:px-6">
+              <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center text-[#8B1E1E] shrink-0">
+                <Wallet className="w-6 h-6" />
               </div>
-              <div>
-                <div className="text-lg sm:text-2xl font-extrabold text-white font-heading">100%</div>
-                <div className="text-[11px] text-slate-400 font-medium">Technical &amp; DISCOM Support</div>
-              </div>
-              <div>
-                <div className="text-lg sm:text-2xl font-extrabold text-emerald-400 font-heading">₹0</div>
-                <div className="text-[11px] text-slate-400 font-medium">Registration Fee / Zero Risk</div>
+              <div className="space-y-0.5">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
+                  ₹15,000+
+                </div>
+                <div className="text-xs text-stone-500 font-medium">
+                  Avg. Payout per Residential Referral
+                </div>
               </div>
             </div>
 
+            {/* Stat 2 */}
+            <div className="flex items-center gap-4 md:px-6">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-[#E27D16] shrink-0">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
+                  100%
+                </div>
+                <div className="text-xs text-stone-500 font-medium">
+                  Technical &amp; DISCOM Net-Metering Support
+                </div>
+              </div>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="flex items-center gap-4 md:px-6">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                <BadgeCheck className="w-6 h-6" />
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
+                  ₹0
+                </div>
+                <div className="text-xs text-stone-500 font-medium">
+                  Registration Fee / Zero Upfront Risk
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. SECONDARY VALUE SCANNING STRIP ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div className="bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+            <div className="flex items-center gap-2 text-[#8B1E1E]">
+              <TrendingUp className="w-4 h-4 shrink-0" />
+              <span className="text-xs font-bold font-heading text-slate-900">High Earning Potential</span>
+            </div>
+            <p className="text-[11px] text-stone-500 leading-relaxed">
+              Earn ₹3,500 to ₹5,000 / kW on every residential and commercial lead.
+            </p>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+            <div className="flex items-center gap-2 text-[#E27D16]">
+              <Layers className="w-4 h-4 shrink-0" />
+              <span className="text-xs font-bold font-heading text-slate-900">100% EPC Execution</span>
+            </div>
+            <p className="text-[11px] text-stone-500 leading-relaxed">
+              SolarArk engineers handle 3D CAD design, installation &amp; grid sync.
+            </p>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+            <div className="flex items-center gap-2 text-[#8B1E1E]">
+              <Gift className="w-4 h-4 shrink-0" />
+              <span className="text-xs font-bold font-heading text-slate-900">Official Welcome Kit</span>
+            </div>
+            <p className="text-[11px] text-stone-500 leading-relaxed">
+              Personalized ID card, visiting cards, brochures &amp; digital flyers.
+            </p>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-xs border border-stone-200/80 rounded-xl p-4 space-y-1.5 shadow-2xs">
+            <div className="flex items-center gap-2 text-emerald-600">
+              <CreditCard className="w-4 h-4 shrink-0" />
+              <span className="text-xs font-bold font-heading text-slate-900">Direct Bank Payouts</span>
+            </div>
+            <p className="text-[11px] text-stone-500 leading-relaxed">
+              Fast milestone transfers via direct NEFT/UPI upon commissioning.
+            </p>
           </div>
 
         </div>
@@ -581,7 +659,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 05: BENEFITS OF JOINING THE SURYAMITRA NETWORK ── */}
+      {/* ── SECTION 05: BENEFITS OF JOINING THE SURYAMITRA NETWORK (WITH VIDEOS) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
         <div className="space-y-12">
           
