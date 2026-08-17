@@ -22,6 +22,7 @@ import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
 import { EarnWithUsPage } from './components/EarnWithUsPage';
 import { OurProjectsPage } from './components/OurProjectsPage';
+import { GalleryPage } from './components/GalleryPage';
 import { CareersPage } from './components/CareersPage';
 import { ContactPage } from './components/ContactPage';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
@@ -217,9 +218,17 @@ export default function App() {
           />
         )}
 
-        {/* DEDICATED PAGE: Our Projects, Video Reels & Gallery */}
-        {(currentPath === '/projects' || currentPath === '/our-projects' || currentPath === '/gallery') && (
+        {/* DEDICATED PAGE: Our Projects & Case Studies */}
+        {(currentPath === '/projects' || currentPath === '/our-projects') && (
           <OurProjectsPage
+            onNavigate={navigateTo}
+            onCtaClick={scrollToContactForm}
+          />
+        )}
+
+        {/* DEDICATED PAGE: Community & Expos Gallery */}
+        {currentPath === '/gallery' && (
+          <GalleryPage
             onNavigate={navigateTo}
             onCtaClick={scrollToContactForm}
           />

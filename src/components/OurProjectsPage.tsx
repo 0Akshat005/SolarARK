@@ -29,9 +29,9 @@ import {
   Layers,
   Search
 } from 'lucide-react';
-import { PROJECT_CASE_STUDIES, INSTALLATION_VIDEO_REELS, GALLERY_ALBUMS } from '../data/solarData';
+import { PROJECT_CASE_STUDIES, INSTALLATION_VIDEO_REELS } from '../data/solarData';
 import { formatINR } from '../utils/calculator';
-import { ProjectCaseStudy, InstallationVideoReel, GalleryAlbum } from '../types';
+import { ProjectCaseStudy, InstallationVideoReel } from '../types';
 
 interface OurProjectsPageProps {
   onNavigate: (path: string) => void;
@@ -42,10 +42,8 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   onNavigate,
   onCtaClick,
 }) => {
-  const [activeTab, setActiveTab] = useState<'all' | 'residential' | 'society' | 'commercial' | 'videos' | 'gallery'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'residential' | 'society' | 'commercial' | 'videos'>('all');
   const [selectedCity, setSelectedCity] = useState<string>('All');
-  const [activeAlbum, setActiveAlbum] = useState<GalleryAlbum | null>(null);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const filterCities = ['All', 'Nagpur', 'Pune', 'Amravati', 'Chh. Sambhajinagar', 'Wardha', 'Akola'];
 
@@ -211,22 +209,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               <Film className="w-3.5 h-3.5" />
               <span>On-Site Video Reels ({INSTALLATION_VIDEO_REELS.length})</span>
             </button>
-
-            <button
-              onClick={() => setActiveTab('gallery')}
-              className={`px-4 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                activeTab === 'gallery'
-                  ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/25'
-                  : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
-              }`}
-            >
-              <ImageIcon className="w-3.5 h-3.5" />
-              <span>Expos &amp; Events ({GALLERY_ALBUMS.length})</span>
-            </button>
           </div>
 
           {/* City Filter Pills (When viewing projects) */}
-          {activeTab !== 'videos' && activeTab !== 'gallery' && (
+          {activeTab !== 'videos' && (
             <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-1 md:pb-0">
               <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider font-heading mr-1 shrink-0">
                 City:
@@ -251,7 +237,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       </section>
 
       {/* ── 4. PROJECTS CARDS GRID VIEW ── */}
-      {(activeTab === 'all' || activeTab === 'residential' || activeTab === 'society' || activeTab === 'commercial') && (
+      {activeTab !== 'videos' && (
         <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
           
           {filteredProjects.length === 0 ? (
@@ -469,175 +455,33 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
         </section>
       )}
 
-      {/* ── 6. COMMUNITY & EXPOS GALLERY SECTION ── */}
-      {(activeTab === 'all' || activeTab === 'gallery') && (
-        <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
-          
-          <div className="bg-white rounded-3xl border border-stone-200/90 p-6 sm:p-10 lg:p-12 shadow-sm space-y-8">
-            
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-stone-200 pb-6">
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-xs font-bold text-[#8B1E1E] font-heading">
-                  <ImageIcon className="w-3.5 h-3.5" />
-                  <span>Expos &amp; Community Outreach</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-slate-900 tracking-tight">
-                  SolarArk in Action: Exhibitions, Events &amp; Partner Meets
-                </h2>
-                <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
-                  Take a look behind the scenes at CREDAI property expos, Bharatcon exhibitions, annual Surya Mitra partner ceremonies, and customer felicitation events across Maharashtra.
-                </p>
-              </div>
-
-              <div className="text-xs font-bold text-stone-500 font-heading">
-                Click any album to view full resolution photos
-              </div>
+      {/* ── 6. SEPARATE GALLERY BANNER INVITATION ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
+        <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-xs font-bold text-[#8B1E1E] font-heading">
+              <ImageIcon className="w-3.5 h-3.5" />
+              <span>Dedicated Photo Gallery</span>
             </div>
-
-            {/* Albums Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {GALLERY_ALBUMS.map((album) => (
-                <div
-                  key={album.id}
-                  onClick={() => setActiveAlbum(album)}
-                  className="bg-[#FCFAF7] border border-stone-200/90 rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#8B1E1E]/40 transition-all duration-300 cursor-pointer group flex flex-col justify-between"
-                >
-                  <div>
-                    {/* Album Cover Photo */}
-                    <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
-                      <img
-                        src={album.coverImage}
-                        alt={album.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      
-                      <div className="absolute bottom-2.5 left-3 right-3 text-white flex items-center justify-between">
-                        <span className="text-[10px] font-bold uppercase tracking-wider bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded text-amber-300 font-heading">
-                          {album.category}
-                        </span>
-                        <span className="text-[10px] font-medium bg-black/40 px-2 py-0.5 rounded text-slate-200">
-                          {album.images.length} Photos
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-4 space-y-1.5">
-                      <h3 className="font-heading text-sm font-bold text-slate-900 group-hover:text-[#8B1E1E] transition-colors leading-snug">
-                        {album.name}
-                      </h3>
-                      <p className="text-[11px] text-stone-500 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#E27D16]" /> {album.location}
-                      </p>
-                      <p className="text-xs text-stone-600 leading-relaxed line-clamp-2 pt-1 font-normal">
-                        {album.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="p-4 pt-0">
-                    <span className="text-xs font-bold text-[#8B1E1E] flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                      <span>View Gallery</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900">
+              Want to see our Exhibitions, CREDAI Expos &amp; Community Events?
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-600 max-w-xl">
+              Explore 8 dedicated photo albums and event reels in our separate Community Gallery.
+            </p>
           </div>
 
-        </section>
-      )}
-
-      {/* ── 7. INTERACTIVE MODAL / LIGHTBOX FOR ALBUM ── */}
-      {activeAlbum && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-8 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col">
-            
-            {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-stone-200 flex items-center justify-between bg-stone-50">
-              <div>
-                <span className="text-[10px] font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
-                  {activeAlbum.category} • {activeAlbum.location}
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900">
-                  {activeAlbum.name}
-                </h3>
-              </div>
-              <button
-                onClick={() => {
-                  setActiveAlbum(null);
-                  setSelectedImage(null);
-                }}
-                className="w-8 h-8 rounded-full bg-stone-200 hover:bg-stone-300 text-stone-700 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Body with Images Grid */}
-            <div className="p-6 overflow-y-auto space-y-6">
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                {activeAlbum.description}
-              </p>
-
-              {/* Large Image Preview if selected */}
-              {selectedImage && (
-                <div className="relative rounded-2xl overflow-hidden bg-stone-950 aspect-[16/10] shadow-inner">
-                  <img
-                    src={selectedImage}
-                    alt="Expanded gallery view"
-                    className="w-full h-full object-contain"
-                  />
-                  <button
-                    onClick={() => setSelectedImage(null)}
-                    className="absolute top-3 right-3 bg-black/60 hover:bg-black text-white p-1.5 rounded-full"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
-
-              {/* Thumbnail Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {activeAlbum.images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => setSelectedImage(img)}
-                    className="relative aspect-[4/3] rounded-xl overflow-hidden bg-stone-100 border border-stone-200 cursor-pointer group hover:scale-105 transition-transform"
-                  >
-                    <img
-                      src={img}
-                      alt={`${activeAlbum.name} photo ${idx + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-stone-200 bg-stone-50 flex items-center justify-between">
-              <span className="text-xs text-stone-500">
-                {activeAlbum.images.length} High-Resolution Photographs
-              </span>
-              <button
-                onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all inline-flex items-center gap-1.5"
-              >
-                <span>Request Solar Proposal</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-          </div>
+          <button
+            onClick={() => onNavigate('/gallery')}
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md transition-all inline-flex items-center gap-2 shrink-0 cursor-pointer"
+          >
+            <span>Explore Community Gallery</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
-      )}
+      </section>
 
-      {/* ── 8. BOTTOM LOCAL REPORT & PINCODE CONSULTATION BANNER ── */}
+      {/* ── 7. BOTTOM LOCAL REPORT & PINCODE CONSULTATION BANNER ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="bg-gradient-to-br from-[#8B1E1E] via-[#741616] to-[#5E1212] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-xl relative overflow-hidden">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />

@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
     { name: 'Earn with us', path: '/earn-with-us' },
     { name: 'Our Projects', path: '/projects' },
     { name: 'Careers', path: '/careers' },
-    { name: 'Gallery', path: '/projects' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' },
   ];
 

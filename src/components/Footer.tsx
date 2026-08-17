@@ -127,6 +127,11 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
                 </a>
               </li>
               <li>
+                <a href="/gallery" onClick={(e) => handleLinkClick(e, '/gallery')} className="hover:text-white transition-colors">
+                  Gallery &amp; Events
+                </a>
+              </li>
+              <li>
                 <a href="/careers" onClick={(e) => handleLinkClick(e, '/careers')} className="hover:text-white transition-colors">
                   Careers
                 </a>
