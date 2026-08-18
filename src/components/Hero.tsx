@@ -16,8 +16,7 @@ import {
   Cpu,
   Layers,
   Headphones,
-  Check,
-  Sparkles
+  Check
 } from 'lucide-react';
 
 interface HeroProps {
@@ -100,8 +99,8 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden bg-[#0A0F1D] text-white selection:bg-[#8B1E1E] selection:text-white"
-      style={{ minHeight: 'clamp(740px, 94vh, 920px)' }}
+      className="relative w-full overflow-hidden bg-[#0A0F1D] text-white selection:bg-[#8B1E1E] selection:text-white flex flex-col justify-between"
+      style={{ minHeight: 'clamp(720px, 92vh, 890px)' }}
     >
       {/* ── 1. FULL-BLEED REAL PROJECT HERO VIDEO (OFFICIAL CLIENT FOOTAGE) ── */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
@@ -136,15 +135,15 @@ export const Hero: React.FC<HeroProps> = ({
         />
       </div>
 
-      {/* ── 2. LIGHTER, IMMERSIVE EDITORIAL OVERLAY ──
-           Significantly reduced dark opacity on left so the solar installation shines through immersively. ── */}
+      {/* ── 2. BALANCED IMMERSIVE EDITORIAL OVERLAY ──
+           Carefully tuned left scrim: rich enough for 100% text clarity, yet translucent enough for full footage immersion. ── */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        {/* Desktop Softer Left Scrim */}
+        {/* Desktop Left Scrim */}
         <div
           className="hidden lg:block absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, rgba(10, 15, 29, 0.72) 0%, rgba(10, 15, 29, 0.50) 34%, rgba(10, 15, 29, 0.16) 54%, transparent 72%)',
+              'linear-gradient(90deg, rgba(10, 15, 29, 0.84) 0%, rgba(10, 15, 29, 0.68) 30%, rgba(10, 15, 29, 0.32) 50%, rgba(10, 15, 29, 0.08) 65%, transparent 78%)',
           }}
         />
 
@@ -153,65 +152,60 @@ export const Hero: React.FC<HeroProps> = ({
           className="lg:hidden absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(10, 15, 29, 0.76) 0%, rgba(10, 15, 29, 0.55) 45%, rgba(10, 15, 29, 0.85) 100%)',
+              'linear-gradient(180deg, rgba(10, 15, 29, 0.84) 0%, rgba(10, 15, 29, 0.65) 45%, rgba(10, 15, 29, 0.90) 100%)',
           }}
         />
 
-        {/* Subtle Top Scrim for Navbar */}
-        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#0A0F1D]/65 to-transparent" />
+        {/* Top Scrim for Navbar Contrast */}
+        <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#0A0F1D]/75 to-transparent" />
 
-        {/* Subtle Bottom Transition */}
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0A0F1D]/80 to-transparent" />
+        {/* Bottom Scrim Behind Proof Rail */}
+        <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/80 to-transparent" />
       </div>
 
-      {/* ── 3. MAIN HERO CONTENT CONTAINER ── */}
-      <div
-        className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex flex-col justify-between pt-32 sm:pt-36 lg:pt-32 pb-6 sm:pb-8"
-        style={{ minHeight: 'clamp(740px, 94vh, 920px)' }}
-      >
-        {/* Main Headline & Action Zone */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-1">
+      {/* ── 3. MAIN HERO CONTENT AREA (TOP & MIDDLE) ── */}
+      <div className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 pt-32 sm:pt-36 lg:pt-34 flex-1 flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           
-          {/* ── LEFT COLUMN: Headline & CTAs (Completely open right view) ── */}
+          {/* Left Headline & Action Column */}
           <div className="lg:col-span-8 xl:col-span-7 space-y-6">
             
-            {/* Eyebrow Accreditation Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs font-bold font-heading tracking-wider uppercase">
+            {/* Accreditation Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs font-bold font-heading tracking-wider uppercase">
               <BadgeCheck className="w-4 h-4 text-amber-400" />
               <span>PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
             </div>
 
-            {/* Dominant Headline with subtle shadow for 100% crisp legibility */}
+            {/* Clear Commanding Headline */}
             <div className="space-y-1">
               <h1 
                 className="font-heading text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-tight leading-[1.08] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.65)' }}
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Power your home.
               </h1>
               <h2 
                 className="font-heading text-[34px] sm:text-[46px] lg:text-[54px] font-extrabold text-[#FF9E2C] tracking-tight leading-[1.08] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.65)' }}
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Pay less every month.
               </h2>
             </div>
 
-            {/* Supporting Factual Narrative */}
+            {/* Supporting Factual Copy */}
             <p 
-              className="text-base sm:text-lg text-slate-100 font-normal leading-relaxed max-w-xl"
-              style={{ textShadow: '0 1px 10px rgba(0, 0, 0, 0.7)' }}
+              className="text-base sm:text-lg text-slate-100 font-normal leading-relaxed max-w-xl text-left"
+              style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.75)' }}
             >
               Harness clean rooftop solar energy for your home. Slash your monthly electricity bills by up to 90% with turnkey installation and seamless government subsidies.
             </p>
 
-            {/* CTA Group with Elevated Luxury Maroon Button */}
+            {/* Primary & Secondary Action CTAs */}
             <div className="pt-2 space-y-3.5">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-                {/* Elevated Jewel-Tone Maroon Primary CTA */}
                 <button
                   onClick={onCtaClick}
-                  className="relative group overflow-hidden bg-gradient-to-r from-[#8B1E1E] via-[#A82424] to-[#7A1515] hover:from-[#A82424] hover:to-[#5E1212] text-white font-heading font-bold text-[15px] px-8 py-4 rounded-xl shadow-[0_8px_24px_-4px_rgba(139,30,30,0.5),0_2px_8px_-2px_rgba(139,30,30,0.3)] ring-1 ring-white/25 active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="relative group overflow-hidden bg-gradient-to-r from-[#8B1E1E] via-[#A82424] to-[#7A1515] hover:from-[#A82424] hover:to-[#5E1212] text-white font-heading font-bold text-[15px] px-8 py-4 rounded-xl shadow-[0_8px_24px_-4px_rgba(139,30,30,0.55),0_2px_8px_-2px_rgba(139,30,30,0.3)] ring-1 ring-white/25 active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                   <span className="relative z-10">Get Free Solar Estimate</span>
                   <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -220,7 +214,7 @@ export const Hero: React.FC<HeroProps> = ({
 
                 <button
                   onClick={handleScrollToCalc}
-                  className="bg-black/35 hover:bg-black/50 backdrop-blur-md border border-white/25 text-white font-heading font-semibold text-[14px] px-6 py-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="bg-black/40 hover:bg-black/55 backdrop-blur-md border border-white/25 text-white font-heading font-semibold text-[14px] px-6 py-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>See How Much You Can Save</span>
                   <ArrowUpRight className="w-4 h-4 text-amber-300" />
@@ -230,7 +224,7 @@ export const Hero: React.FC<HeroProps> = ({
               {/* Reassurance Microcopy */}
               <div 
                 className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium pl-0.5"
-                style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.6)' }}
+                style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)' }}
               >
                 <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>60-second estimate</span>
@@ -243,17 +237,20 @@ export const Hero: React.FC<HeroProps> = ({
 
           </div>
 
-          {/* Right column intentionally left completely open for 100% unobstructed view of rooftop solar installation */}
+          {/* Right column completely open to preserve full view of solar rooftop footage */}
           <div className="hidden lg:block lg:col-span-4 xl:col-span-5" />
 
         </div>
+      </div>
 
-        {/* ── 4. CINEMATIC ENGINEERING PROOF RAIL + SLEEK EMBEDDED CONTROLS ── */}
-        <div className="w-full pt-6 sm:pt-8">
-          <div className="bg-[#0A0F1D]/75 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-3.5 sm:p-4">
+      {/* ── 4. FLUSH-DOCKED CINEMATIC PROOF RAIL & CLEAN SECTION DIVISION ──
+           Anchored perfectly at the bottom edge of Hero to eliminate awkward video slivers and bridge cleanly into the next section. ── */}
+      <div className="w-full relative z-20 pt-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#0A0F1D]/85 backdrop-blur-xl rounded-t-2xl sm:rounded-t-3xl border-t border-x border-white/15 shadow-[0_-10px_30px_rgba(0,0,0,0.35)] p-4 sm:p-5">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               
-              {/* 4 Proof Items */}
+              {/* 4 Proof Items (Explicitly text-left to prevent awkward stretching) */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 divide-y sm:divide-y-0 sm:divide-x divide-white/10 w-full xl:w-auto flex-1">
                 {proofRailItems.map((item, idx) => {
                   const Icon = item.icon;
@@ -268,10 +265,10 @@ export const Hero: React.FC<HeroProps> = ({
                         <Icon className="w-4 h-4" />
                       </div>
                       <div className="space-y-0.5 text-left">
-                        <h4 className="font-heading text-xs sm:text-sm font-bold text-white tracking-wide">
+                        <h4 className="font-heading text-xs sm:text-sm font-bold text-white tracking-wide text-left">
                           {item.label}
                         </h4>
-                        <p className="text-[11px] text-slate-300">
+                        <p className="text-[11px] text-slate-300 text-left leading-snug">
                           {item.sub}
                         </p>
                       </div>
@@ -280,7 +277,7 @@ export const Hero: React.FC<HeroProps> = ({
                 })}
               </div>
 
-              {/* Minimalist Sleek Video Controller Dock (Seamlessly Integrated at Bottom Edge) */}
+              {/* Minimalist Live Video Controls Dock */}
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 shrink-0 self-end xl:self-center">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-300">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -322,10 +319,10 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
+        {/* Solid Architectural Base Transition into Calculator (#FAF9F6) */}
+        <div className="w-full h-3 bg-[#FAF9F6] border-t border-stone-200/60" />
       </div>
 
-      {/* Clean Bottom Boundary */}
-      <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#8B1E1E]/40 to-transparent" />
     </section>
   );
 };
