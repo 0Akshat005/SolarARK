@@ -21,9 +21,9 @@
     --color-solar-navy: #0B1730;
 
     /* Canonical Brand Gradients */
-    --gradient-primary: linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #E27D16 100%);
+    --gradient-primary: linear-gradient(135deg, #741616 0%, #8B1E1E 45%, #A82424 100%);
     --gradient-hero-text: linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%);
-    --gradient-cta: linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #E27D16 100%);
+    --gradient-cta: linear-gradient(135deg, #8B1E1E 0%, #A82424 50%, #741616 100%);
     
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -69,7 +69,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Elevation shadows */
+/* Elevation shadows with refined jewel-tone radiance */
 .shadow-elevation-1 {
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
 }
@@ -80,6 +80,10 @@
 
 .shadow-elevation-3 {
   box-shadow: 0 24px 48px -8px rgba(15, 23, 42, 0.12), 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+}
+
+.shadow-maroon-glow {
+  box-shadow: 0 8px 28px -4px rgba(139, 30, 30, 0.42), 0 3px 10px -2px rgba(139, 30, 30, 0.22);
 }
 
 /* Focus Ring Accessibility */
