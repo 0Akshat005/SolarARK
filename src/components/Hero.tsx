@@ -4,14 +4,27 @@
  */
 
 import React, { useRef, useState, useEffect } from 'react';
-import { ArrowRight, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { 
+  ArrowRight, 
+  ArrowUpRight, 
+  ShieldCheck, 
+  Sun, 
+  Zap, 
+  BadgeCheck, 
+  TrendingUp 
+} from 'lucide-react';
 
 interface HeroProps {
   onCtaClick: () => void;
-  onCalculatorClick: () => void;
+  onCalculatorClick?: () => void;
+  onClaimEstimate?: (data: { pincode: string; monthlyBill: number }) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => {
+export const Hero: React.FC<HeroProps> = ({ 
+  onCtaClick, 
+  onCalculatorClick,
+  onClaimEstimate 
+}) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [scrollY, setScrollY] = useState(0);
   const [isReducedMotion, setIsReducedMotion] = useState(false);
@@ -28,31 +41,61 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Subtle parallax — restrained to feel cinematic, not gimmicky
-  const parallaxY = isReducedMotion ? 0 : scrollY * 0.1;
-  const parallaxScale = isReducedMotion ? 1 : 1 + scrollY * 0.00006;
+  // Subtle parallax — restrained to feel cinematic
+  const parallaxY = isReducedMotion ? 0 : scrollY * 0.08;
+  const parallaxScale = isReducedMotion ? 1 : 1 + scrollY * 0.00004;
 
-  // Content entrance animation
   const contentOpacity = imageLoaded ? 1 : 0;
   const contentTranslateY = imageLoaded ? 0 : 12;
+
+  const handleScrollToCalc = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onCalculatorClick) {
+      onCalculatorClick();
+    } else {
+      const el = document.getElementById('calculator');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const featurePillars = [
+    {
+      icon: Zap,
+      title: 'PM Surya Ghar Subsidy',
+      desc: 'Up to ₹78,000 Direct DBT',
+    },
+    {
+      icon: Sun,
+      title: 'Tier-1 TOPCon Panels',
+      desc: '22.8% High-Efficiency Cells',
+    },
+    {
+      icon: ShieldCheck,
+      title: '25-Yr Performance Guarantee',
+      desc: 'Certified Linear Power Warranty',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Turnkey Net-Metering',
+      desc: '100% DISCOM Approval Handled',
+    },
+  ];
 
   return (
     <section
       ref={heroRef}
       id="hero"
-      className="relative overflow-hidden w-full"
-      style={{ minHeight: 'clamp(740px, 94vh, 920px)' }}
+      className="relative w-full bg-[#0B1730]"
+      style={{ minHeight: 'clamp(720px, 92vh, 880px)' }}
     >
-      {/* ── Full-bleed background photograph ──
-           Clean HD image — Indian residential home with rooftop solar
-           panels at golden hour. Background extends fully with parent container. ── */}
-      <div className="absolute inset-0 z-0 w-full h-full">
+      {/* ── 1. FULL-BLEED CRISP BACKGROUND PHOTOGRAPH (ZERO BLURRY FOG / ZERO WHITE FADE) ── */}
+      <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
         <img
           src="/hero-solar-home.png"
           alt="Premium Indian residential home with rooftop solar panels at golden hour, Maharashtra cityscape"
           className="w-full h-full object-cover will-change-transform"
           style={{
-            objectPosition: '68% 40%',
+            objectPosition: '65% 35%',
             transform: `scale(${parallaxScale}) translateY(${-parallaxY}px)`,
             transition: isReducedMotion ? 'none' : 'transform 0.1s linear',
           }}
@@ -60,57 +103,19 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
           fetchPriority="high"
           onLoad={() => setImageLoaded(true)}
         />
+
+        {/* Soft, targeted readability scrim strictly on left content column (keeps rooftop & cityscape 100% clear) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent w-full md:w-[65%] lg:w-[50%] pointer-events-none" />
       </div>
 
-      {/* ── Desktop: Localized left-side readability gradient ──
-           Art-directed backdrop focused specifically around headline & CTA column.
-           Keeps headline 100% readable while leaving the bottom-left cityscape & right solar home sharp, vivid, and unwashed. ── */}
+      {/* ── 2. HERO CONTENT CONTAINER ── */}
       <div
-        className="absolute inset-0 z-[1] hidden lg:block pointer-events-none"
-        style={{
-          background: `
-            radial-gradient(
-              ellipse 65% 75% at 18% 42%,
-              rgba(248, 250, 252, 0.92) 0%,
-              rgba(248, 250, 252, 0.78) 35%,
-              rgba(248, 250, 252, 0.45) 60%,
-              transparent 85%
-            )
-          `,
-        }}
-      />
-
-      {/* ── Mobile / Tablet: Top-to-bottom readability gradient ──
-           Covers the headline and supporting text area. The CTA and
-           trust elements below get their own frosted backdrop. ── */}
-      <div
-        className="absolute inset-0 z-[1] lg:hidden pointer-events-none"
-        style={{
-          background: `
-            linear-gradient(
-              to bottom,
-              rgba(248, 250, 252, 0.94) 0%,
-              rgba(248, 250, 252, 0.88) 18%,
-              rgba(248, 250, 252, 0.72) 32%,
-              rgba(255, 255, 255, 0.48) 46%,
-              rgba(255, 255, 255, 0.18) 60%,
-              transparent 72%
-            )
-          `,
-        }}
-      />
-
-      {/* ── Seamless Atmospheric Bottom Transition into #FAF9F6 ──
-           Natural, high-end photographic dissolve with zero artificial cut-off lines ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 sm:h-40 pointer-events-none z-[3] bg-gradient-to-t from-[#FAF9F6] via-[#FAF9F6]/75 to-transparent" />
-
-      {/* ── Content Container ── */}
-      <div
-        className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex items-center"
-        style={{ minHeight: 'clamp(760px, 95vh, 940px)' }}
+        className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 flex flex-col justify-between pt-32 sm:pt-36 lg:pt-32 pb-8 sm:pb-12"
+        style={{ minHeight: 'clamp(720px, 92vh, 880px)' }}
       >
+        {/* Main Left Text Zone */}
         <div
-          className="max-w-xl lg:max-w-[540px] pt-28 sm:pt-32 lg:pt-0 pb-16 sm:pb-12 lg:pb-0"
+          className="max-w-xl lg:max-w-[560px] space-y-6"
           style={{
             opacity: contentOpacity,
             transform: `translateY(${contentTranslateY}px)`,
@@ -119,107 +124,84 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onCalculatorClick }) => 
               : 'opacity 0.7s ease-out, transform 0.7s ease-out',
           }}
         >
-          {/* ── Headline ──
-               Primary visual anchor. Controlled width so line breaks feel
-               intentional. Blue emphasis is visually balanced. ── */}
-          <h1
-            className="font-heading text-[30px] sm:text-[38px] lg:text-[46px] xl:text-[50px] font-extrabold text-slate-900 tracking-tight leading-[1.08]"
-            style={{ textShadow: '0 1px 12px rgba(248,250,252,0.6)' }}
-          >
+          {/* Official Accreditation Pill */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E] text-white shadow-sm text-xs font-bold font-heading tracking-wider uppercase">
+            <BadgeCheck className="w-4 h-4 text-amber-300" />
+            <span>PM Surya Ghar Authorized EPC Partner</span>
+          </div>
+
+          {/* Bold Editorial Headline */}
+          <h1 className="font-heading text-[32px] sm:text-[42px] lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-[1.08]">
             Power your home.{' '}
             <br />
             <span className="text-[#8B1E1E]">Pay less every month.</span>
           </h1>
 
-          {/* ── Supporting copy ──
-               Intentional breathing room from headline (mt-5).
-               Doesn't sit too close, doesn't float disconnected. ── */}
-          <p
-            className="mt-5 text-[15px] sm:text-base text-slate-600 max-w-[380px] leading-relaxed font-medium"
-            style={{ textShadow: '0 1px 8px rgba(248,250,252,0.5)' }}
-          >
-            Clean energy. Lower bills.{' '}
-            <br className="hidden sm:inline" />
-            A smarter choice for your family.
+          {/* Supporting Narrative */}
+          <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-lg">
+            Harness clean rooftop solar energy for your home. Slash your monthly electricity bills by up to 90% with turnkey installation and seamless government subsidies.
           </p>
 
-          {/* ── CTA Group ──
-               Connected to headline through intentional spacing (mt-7).
-               Primary CTA clearly wins hierarchy. Secondary is visually
-               subdued but still accessible.
-               On mobile/tablet, the bottom portion gets a frosted container
-               for readability against the vivid image. ── */}
-          <div
-            className="mt-7 rounded-2xl lg:rounded-none lg:bg-transparent lg:backdrop-blur-0 lg:shadow-none px-4 py-4 -mx-4 sm:px-5 sm:-mx-5 lg:mx-0 lg:px-0 lg:py-0"
-            style={{
-              /* Mobile frosted backdrop */
-            }}
-          >
-            <style>{`
-              @media (max-width: 1023px) {
-                .hero-cta-backdrop {
-                  background: rgba(248, 250, 252, 0.72) !important;
-                  backdrop-filter: blur(12px) !important;
-                  -webkit-backdrop-filter: blur(12px) !important;
-                  box-shadow: 0 2px 20px rgba(0,0,0,0.06) !important;
-                }
-              }
-            `}</style>
-            <div className="hero-cta-backdrop rounded-2xl lg:rounded-none lg:bg-transparent lg:backdrop-blur-0 lg:shadow-none px-4 py-4 -mx-4 sm:px-5 sm:-mx-5 lg:mx-0 lg:px-0 lg:py-0">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <button
-                  onClick={onCtaClick}
-                  className="w-full sm:w-auto bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.97] text-white text-[15px] font-semibold px-8 py-[14px] rounded-full transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer"
-                  style={{
-                    boxShadow: '0 4px 14px -2px rgba(139, 30, 30, 0.35), 0 2px 6px -1px rgba(139, 30, 30, 0.15)',
-                  }}
-                >
-                  <span>Get My Free Savings Estimate</span>
-                  <ArrowRight className="w-[16px] h-[16px] group-hover:translate-x-0.5 transition-transform duration-200" />
-                </button>
-
-                <button
-                  onClick={onCalculatorClick}
-                  className="text-slate-600 hover:text-[#8B1E1E] text-[14px] font-semibold px-2 py-2 transition-colors duration-200 flex items-center gap-1.5 group cursor-pointer"
-                >
-                  <span>See How It Works</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-                </button>
-              </div>
-
-              {/* ── Reassurance micro-copy ── */}
-              <p className="mt-2.5 text-[12px] sm:text-[12.5px] text-slate-500 tracking-wide font-semibold pl-0.5">
-                Takes about 60 seconds&ensp;•&ensp;No obligation
-              </p>
-
-              {/* ── Trust element ── */}
-              <div
-                className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-md"
-                style={{
-                  background: 'rgba(248, 250, 252, 0.5)',
-                  backdropFilter: 'blur(6px)',
-                  WebkitBackdropFilter: 'blur(6px)',
-                }}
+          {/* Primary Action Buttons */}
+          <div className="pt-2 space-y-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+              <button
+                onClick={onCtaClick}
+                className="w-full sm:w-auto bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.97] text-white text-[15px] font-bold font-heading px-8 py-4 rounded-xl shadow-lg shadow-[#8B1E1E]/30 transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer"
               >
-                <ShieldCheck
-                  className="w-[15px] h-[15px] text-[#8B1E1E]/80 shrink-0"
-                  strokeWidth={2.2}
-                />
-                <p className="text-[12px] sm:text-[12.5px] text-slate-600 leading-snug whitespace-nowrap">
-                  <span className="font-semibold text-slate-700">
-                    Trusted by homeowners across Maharashtra.
-                  </span>
-                  {' '}
-                  <span className="hidden sm:inline text-slate-500">
-                    Quality installation · Govt. subsidy support.
-                  </span>
-                </p>
-              </div>
+                <span>Get Free Savings Estimate</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={handleScrollToCalc}
+                className="w-full sm:w-auto bg-white/90 hover:bg-white border border-stone-300 text-slate-800 font-semibold px-6 py-4 rounded-xl shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Instant Solar Calculator</span>
+                <ArrowUpRight className="w-4 h-4 text-[#8B1E1E]" />
+              </button>
+            </div>
+
+            {/* Microcopy Trust Line */}
+            <p className="text-xs text-slate-600 font-medium pl-1">
+              ✓ Takes 60 seconds&ensp;•&ensp;Zero obligation&ensp;•&ensp;Trusted across Maharashtra
+            </p>
+          </div>
+        </div>
+
+        {/* ── 3. CREATIVE SECTION DIVISION: FLOATING 4-PILLAR GLASS BRIDGE DOCK ── */}
+        <div className="w-full pt-8 relative z-20">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-stone-200/90 shadow-[0_16px_40px_rgba(0,0,0,0.08)] p-4 sm:p-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-stone-100">
+              {featurePillars.map((pillar, idx) => {
+                const Icon = pillar.icon;
+                return (
+                  <div 
+                    key={idx} 
+                    className={`flex items-center gap-3.5 ${idx > 0 ? 'pt-3 sm:pt-0 sm:pl-4 lg:pl-6' : ''}`}
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="space-y-0.5 text-left">
+                      <h4 className="font-heading text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        {pillar.title}
+                      </h4>
+                      <p className="text-[11px] sm:text-xs text-stone-500 font-medium">
+                        {pillar.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-
         </div>
+
       </div>
+
+      {/* ── 4. CRISP ARCHITECTURAL BOTTOM SEPARATOR (SOLID #FAF9F6, ZERO BLURRY FOG) ── */}
+      <div className="w-full h-4 bg-[#FAF9F6] border-t border-stone-200/60" />
     </section>
   );
 };
