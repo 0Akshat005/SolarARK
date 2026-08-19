@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -38,7 +38,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   const [monthlyBill, setMonthlyBill] = useState<number>(initialBill);
   const [showFullBreakdown, setShowFullBreakdown] = useState<boolean>(false);
 
-  // â”€â”€ Scroll-triggered entrance animation state â”€â”€
+  // ── Scroll-triggered entrance animation state ──
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -82,79 +82,96 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     <section 
       ref={sectionRef}
       id="calculator" 
-      className="relative overflow-hidden py-10 sm:py-12 lg:py-14 bg-[#0B1730] border-b border-stone-800/50"
+      className="relative overflow-hidden py-10 sm:py-12 lg:py-14 bg-[#0A0F1D] border-b border-stone-800/50"
     >
-      {/* â”€â”€ 1. WARM ROOFTOP BACKGROUND WITH SUBTLE DARK CINEMATIC SCRIM â”€â”€ */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
-        <div className="absolute inset-0">
+      {/* ── 1. PHOTOREALISTIC SOLAR ROOFTOP BACKDROP WITH SUBTLE LEFT SCRIM ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        {/* Full, natural residential solar rooftop image (clearly visible without being removed or blacked out) */}
+        <div className="absolute inset-0 w-full h-full">
           <img
             src="/calculator-solar-home.jpg"
-            alt="Warm Atmospheric Residential Solar Roof"
-            className="w-full h-full object-cover object-[75%_35%] opacity-40 transition-opacity duration-700"
+            alt="Real Residential Rooftop Solar Installation"
+            className="w-full h-full object-cover object-[75%_35%] opacity-90 transition-opacity duration-700"
           />
-          
-          {/* Cinematic dark vignette â€” eliminates eye-strain washout */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1730]/90 via-[#0B1730]/50 to-[#0B1730]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1730]/85 via-[#0B1730]/40 to-[#0B1730]/60" />
-          
-          {/* Soft warm ambient glow on right where solar panels are */}
-          <div className="absolute top-[10%] right-[8%] w-[40%] h-[300px] bg-amber-500/[0.08] blur-[100px] rounded-full" />
-          <div className="absolute bottom-[10%] left-[15%] w-[30%] h-[200px] bg-[#8B1E1E]/[0.06] blur-[80px] rounded-full" />
+
+          {/* Subtle top & right edge vignette for natural cinematic polish */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent" />
         </div>
+
+        {/* ── Calibrated Subtle Left Dark Scrim (Provides 100% crisp text readability without washing out or blacking out the image) ── */}
+        <div
+          className="hidden lg:block absolute inset-0 z-1"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(10, 15, 29, 0.90) 0%, rgba(10, 15, 29, 0.76) 34%, rgba(10, 15, 29, 0.38) 52%, rgba(10, 15, 29, 0.10) 68%, transparent 82%)',
+          }}
+        />
+        <div
+          className="lg:hidden absolute inset-0 z-1"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(10, 15, 29, 0.92) 0%, rgba(10, 15, 29, 0.72) 50%, rgba(10, 15, 29, 0.88) 100%)',
+          }}
+        />
+
+        {/* Soft Warm Solar Horizon Glow */}
+        <div className="absolute top-[8%] right-[10%] w-[38%] h-[280px] bg-amber-500/10 blur-[90px] rounded-full" />
       </div>
 
-      {/* â”€â”€ 2. MAIN SECTION GRID: BALANCED & SCREEN-FITTED â”€â”€ */}
+      {/* ── 2. MAIN SECTION GRID: BALANCED & SCREEN-FITTED ── */}
       <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 space-y-6 lg:space-y-7">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
-          {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          {/* ═══════════════════════════════════════════════════════════════
               LEFT SIDE: PROBLEM + UNDERSTANDING + ESCALATION TIMELINE
-             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+             ═══════════════════════════════════════════════════════════════ */}
           <div className={`lg:col-span-4 xl:col-span-4 space-y-4 pt-1 transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             
-            {/* Eyebrow Pill */}
-            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-[10.5px]">
+            {/* Eyebrow Pill — Glassmorphic High-Contrast Badge */}
+            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-xs text-[10.5px]">
               <TrendingUp className="w-3 h-3 text-[#FF6B6B]" />
               <span>GRID TARIFF ESCALATION VS SOLAR STABILITY</span>
             </div>
 
-            {/* Headline Hierarchy */}
+            {/* Headline Hierarchy: Consequence first, then SolarARK solution */}
             <div className="space-y-0.5">
               <h2 
                 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.15] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0,0,0,0.6)' }}
+                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
               >
                 Your electricity bill keeps going up.
               </h2>
               <h3 
                 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#FF6B6B] tracking-tight leading-[1.15] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0,0,0,0.6)' }}
+                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
               >
-                Your rooftop doesn't have to.
+                Your rooftop doesn’t have to.
               </h3>
             </div>
 
-            {/* Supporting Copy */}
-            <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed text-left m-0"
-               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
+            {/* Supporting Concise Human Copy */}
+            <p 
+              className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed text-left m-0 max-w-lg"
+              style={{ textShadow: '0 1px 10px rgba(0, 0, 0, 0.7)' }}
             >
-              Grid tariffs rise 5â€“8% every year. A SolarARK installation locks your power cost at zero inflation for 25+ years.
+              Grid tariffs rise 5–8% every year in Maharashtra. A SolarARK installation locks your power generation cost at zero inflation for 25+ years.
             </p>
 
-            {/* 3 Compact Proof Points */}
+            {/* 3 Compact Proof Points in a Sleek Glassmorphic Badge Row */}
             <div className={`flex flex-wrap gap-1.5 pt-0.5 transition-all duration-700 delay-200 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-[11px] font-bold text-white shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B6B]" /> Lock costs 25+ yrs
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-[11px] font-bold text-white shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
                 <TrendingDown className="w-3.5 h-3.5 text-emerald-400" /> Slash bills up to 90%
               </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 text-[11px] font-bold text-white shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
                 <Sun className="w-3.5 h-3.5 text-amber-400" /> Clean energy for life
               </span>
             </div>
