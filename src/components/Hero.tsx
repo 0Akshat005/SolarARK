@@ -99,8 +99,7 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden bg-[#0A0F1D] text-white selection:bg-[#8B1E1E] selection:text-white flex flex-col justify-between"
-      style={{ minHeight: 'clamp(720px, 92vh, 890px)' }}
+      className="relative w-full overflow-hidden bg-[#0A0F1D] text-white selection:bg-[#8B1E1E] selection:text-white min-h-screen lg:min-h-[100dvh] flex flex-col justify-between"
     >
       {/* ── 1. FULL-BLEED REAL PROJECT HERO VIDEO (OFFICIAL CLIENT FOOTAGE) ── */}
       <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
@@ -164,7 +163,7 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* ── 3. MAIN HERO CONTENT AREA (TOP & MIDDLE) ── */}
-      <div className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 pt-32 sm:pt-36 lg:pt-34 flex-1 flex items-center">
+      <div className="max-w-[1400px] w-full mx-auto px-5 sm:px-8 lg:px-12 relative z-10 pt-28 sm:pt-32 lg:pt-36 pb-6 flex-1 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
           
           {/* Left Headline & Action Column */}
@@ -236,16 +235,15 @@ export const Hero: React.FC<HeroProps> = ({
 
           </div>
 
-          {/* Right column completely open to preserve full view of solar rooftop footage */}
+          {/* Right Spacer Column (Preserves Clean Video Showcase on Right Side) */}
           <div className="hidden lg:block lg:col-span-4 xl:col-span-5" />
 
         </div>
       </div>
 
-      {/* ── 4. FLOATING PROOF RAIL STRADDLING THE HERO DIVISION SEAM ──
-           Optimally positioned right in the middle where Hero divides with the next section.
-           Full 4-sided rounded pill architecture with glassmorphic depth and soft elevation. ── */}
-      <div className="w-full relative z-30 -mb-10 sm:-mb-12 lg:-mb-14">
+      {/* ── 4. ELEGANT PROOF RAIL BAR DOCKED INSIDE FULL-HEIGHT HERO ──
+           Fully visible, unclipped floating pill architecture framed seamlessly above the bottom viewport edge. ── */}
+      <div className="w-full relative z-20 pb-6 sm:pb-8 lg:pb-10 pt-2">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#0A0F1D]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.45)] ring-1 ring-white/10 p-4 sm:p-5">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
