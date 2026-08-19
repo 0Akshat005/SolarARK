@@ -202,8 +202,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-amber-300 font-bold uppercase tracking-wider font-heading flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#E27D16]" /> {vid.location}
+                    <span className="text-[10px] text-red-300 font-bold uppercase tracking-wider font-heading flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#E53E3E]" /> {vid.location}
                     </span>
                     <h4 className="font-heading text-sm font-bold text-white mt-1 leading-snug">
                       {vid.title}

@@ -117,14 +117,14 @@ export const Header: React.FC<HeaderProps> = ({
           {/* SECONDARY ACTION: Compact, High-Intent "Call Now" Group */}
           <a
             href="tel:7080909590"
-            className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-stone-200/80 bg-white/70 hover:bg-amber-50/70 hover:border-amber-300 transition-all duration-200 group cursor-pointer shadow-2xs hover:shadow-xs"
+            className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-stone-200/80 bg-white/70 hover:bg-red-50/70 hover:border-red-200 transition-all duration-200 group cursor-pointer shadow-2xs hover:shadow-xs"
             title="Call SolarARK Direct Helpline: 7080909590"
           >
-            <div className="w-6 h-6 rounded-full bg-amber-500/15 group-hover:bg-[#E27D16] text-[#E27D16] group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
+            <div className="w-6 h-6 rounded-full bg-red-500/10 group-hover:bg-[#8B1E1E] text-[#8B1E1E] group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
               <Phone className="w-3 h-3 group-hover:rotate-12 transition-transform duration-200" />
             </div>
             <div className="flex flex-col leading-tight text-left">
-              <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#E27D16] tracking-tight transition-colors">
+              <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#8B1E1E] tracking-tight transition-colors">
                 Call now
               </span>
               <span className="text-[10px] font-semibold text-slate-500 group-hover:text-slate-700 tracking-tight font-mono">
@@ -147,9 +147,9 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2.5 lg:hidden">
           <a
             href="tel:7080909590"
-            className="flex items-center gap-1.5 text-xs font-bold text-[#E27D16] bg-amber-50 border border-amber-200/70 px-3 py-1.5 rounded-full shadow-2xs active:scale-95 transition-transform"
+            className="flex items-center gap-1.5 text-xs font-bold text-[#8B1E1E] bg-red-50 border border-red-200/70 px-3 py-1.5 rounded-full shadow-2xs active:scale-95 transition-transform"
           >
-            <Phone className="w-3 h-3 text-[#E27D16]" />
+            <Phone className="w-3 h-3 text-[#8B1E1E]" />
             <span>Call now</span>
           </a>
 
@@ -188,9 +188,9 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
             <a
               href="tel:7080909590"
-              className="flex items-center justify-center gap-2 text-xs font-bold text-slate-800 bg-amber-50/70 border border-amber-200/80 py-2.5 rounded-xl"
+              className="flex items-center justify-center gap-2 text-xs font-bold text-slate-800 bg-red-50/70 border border-red-200/80 py-2.5 rounded-xl"
             >
-              <Phone className="w-3.5 h-3.5 text-[#E27D16]" />
+              <Phone className="w-3.5 h-3.5 text-[#8B1E1E]" />
               <span>Direct Helpline: 7080909590</span>
             </a>
 

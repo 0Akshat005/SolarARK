@@ -118,7 +118,7 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
                   <line x1="480" y1="200" x2="480" y2="140" stroke="#94A3B8" strokeWidth="4" />
 
                   {/* Solar Array Grid */}
-                  <polygon points="200,140 350,200 500,140 350,80" fill="url(#visSolarGrad)" stroke="#E27D16" strokeWidth="2" />
+                  <polygon points="200,140 350,200 500,140 350,80" fill="url(#visSolarGrad)" stroke="#8B1E1E" strokeWidth="2" />
 
                   {/* Individual Solar Panel Grids */}
                   <line x1="275" y1="110" x2="425" y2="170" stroke="#A82424" strokeWidth="1.5" />

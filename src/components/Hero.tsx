@@ -185,7 +185,7 @@ export const Hero: React.FC<HeroProps> = ({
                 Power your home.
               </h1>
               <h2 
-                className="hero-display text-[34px] sm:text-[46px] lg:text-[54px] text-[#FF9E2C] m-0"
+                className="hero-display text-[34px] sm:text-[46px] lg:text-[54px] text-[#E53E3E] m-0"
                 style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Pay less every month.

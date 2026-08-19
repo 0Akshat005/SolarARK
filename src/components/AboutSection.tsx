@@ -234,7 +234,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
               </div>
 
               <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.15]">
-                Our <span className="text-[#E27D16]">Journey</span>
+                Our <span className="text-[#C53030]">Journey</span>
               </h3>
 
               <p className="text-sm sm:text-base text-slate-300/85 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -250,7 +250,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                 aria-hidden="true"
               >
                 <div 
-                  className="h-full bg-gradient-to-r from-[#8B1E1E] via-[#E27D16] to-[#FFB020] shadow-[0_0_12px_rgba(226,125,22,0.8)] rounded-full transition-all ease-out"
+                  className="h-full bg-gradient-to-r from-[#8B1E1E] via-[#A82424] to-[#C53030] shadow-[0_0_12px_rgba(197,48,48,0.8)] rounded-full transition-all ease-out"
                   style={{
                     width: isVisible ? '100%' : '0%',
                     transitionDuration: isReduced ? '0.01ms' : '1800ms',
@@ -284,7 +284,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                       <div className="relative my-1">
                         <div 
                           aria-hidden="true"
-                          className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#E27D16] shadow-[0_0_16px_rgba(226,125,22,0.35)] flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-[1.04] group-hover:border-[#FFB020]"
+                          className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#A82424] shadow-[0_0_16px_rgba(168,36,36,0.35)] flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-[1.04] group-hover:border-[#C53030]"
                         >
                           <IconComponent className="w-6 h-6 stroke-[1.8]" />
                         </div>
@@ -299,7 +299,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                         {/* Accent underline */}
                         <div 
                           aria-hidden="true"
-                          className="w-8 h-0.5 bg-[#E27D16] rounded-full my-2.5 transition-all duration-300 group-hover:w-12 group-hover:bg-[#FFB020]"
+                          className="w-8 h-0.5 bg-[#A82424] rounded-full my-2.5 transition-all duration-300 group-hover:w-12 group-hover:bg-[#C53030]"
                         />
 
                         <p className="text-xs lg:text-sm text-slate-300/85 font-normal leading-relaxed">
@@ -320,7 +320,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                 aria-hidden="true"
               >
                 <div 
-                  className="w-full bg-gradient-to-b from-[#8B1E1E] via-[#E27D16] to-[#FFB020] shadow-[0_0_12px_rgba(226,125,22,0.8)] rounded-full transition-all ease-out"
+                  className="w-full bg-gradient-to-b from-[#8B1E1E] via-[#A82424] to-[#C53030] shadow-[0_0_12px_rgba(168,36,36,0.8)] rounded-full transition-all ease-out"
                   style={{
                     height: isVisible ? '100%' : '0%',
                     transitionDuration: isReduced ? '0.01ms' : '1800ms',
@@ -346,7 +346,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                       {/* Icon Chip Anchored to Track */}
                       <div 
                         aria-hidden="true"
-                        className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#E27D16] shadow-[0_0_16px_rgba(226,125,22,0.35)] flex items-center justify-center text-white shrink-0 z-10"
+                        className="w-14 h-14 rounded-full bg-[#10142B]/95 backdrop-blur-md border-[1.5px] border-[#A82424] shadow-[0_0_16px_rgba(168,36,36,0.35)] flex items-center justify-center text-white shrink-0 z-10"
                       >
                         <IconComponent className="w-6 h-6 stroke-[1.8]" />
                       </div>
@@ -361,7 +361,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                         </h4>
                         <div 
                           aria-hidden="true"
-                          className="w-8 h-0.5 bg-[#E27D16] rounded-full my-2" 
+                          className="w-8 h-0.5 bg-[#A82424] rounded-full my-2" 
                         />
                         <p className="text-xs sm:text-sm text-slate-300/85 font-normal leading-relaxed">
                           {milestone.desc}

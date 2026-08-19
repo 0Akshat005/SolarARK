@@ -421,7 +421,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                           {reel.category}
                         </span>
                         <span className="text-[10px] text-slate-400 flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-[#E27D16]" /> {reel.location}
+                          <MapPin className="w-3 h-3 text-[#C53030]" /> {reel.location}
                         </span>
                       </div>
 

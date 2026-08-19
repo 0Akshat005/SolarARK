@@ -20,9 +20,9 @@ export interface JourneyMilestone {
 const MILESTONES: JourneyMilestone[] = [
   {
     year: '2020',
-    badgeColor: '#E27D16',
-    inkColor: '#C8680A',
-    glowColor: 'rgba(226, 125, 22, 0.45)',
+    badgeColor: '#A82424',
+    inkColor: '#8B1E1E',
+    glowColor: 'rgba(168, 36, 36, 0.45)',
     icon: Rocket,
     title: 'SolarARK Projects',
     description: 'The beginning of our solar journey in Nagpur with initial rooftop designs.',
@@ -38,9 +38,9 @@ const MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2022',
-    badgeColor: '#E27D16',
-    inkColor: '#C8680A',
-    glowColor: 'rgba(226, 125, 22, 0.45)',
+    badgeColor: '#C53030',
+    inkColor: '#A82424',
+    glowColor: 'rgba(197, 48, 48, 0.45)',
     icon: Users,
     title: '2230+ Solarised',
     description: 'Major scale-up across residential clusters, commercial businesses, and 50+ housing societies.',
@@ -205,11 +205,11 @@ export const OurJourney: React.FC = () => {
       <div className="journey-header relative z-10 text-center max-w-3xl mx-auto mb-14 sm:mb-18 space-y-3">
         {/* Eyebrow: — OUR STORY — */}
         <div className="flex items-center justify-center gap-2">
-          <span className="w-4 h-[1.5px] bg-[#E27D16]" />
-          <p className="text-xs sm:text-[13px] font-extrabold text-[#E27D16] uppercase tracking-[0.2em] font-heading m-0">
+          <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
+          <p className="text-xs sm:text-[13px] font-extrabold text-[#8B1E1E] uppercase tracking-[0.2em] font-heading m-0">
             Our Story
           </p>
-          <span className="w-4 h-[1.5px] bg-[#E27D16]" />
+          <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
         </div>
 
         {/* Display Headline */}
@@ -221,7 +221,7 @@ export const OurJourney: React.FC = () => {
         <div
           className="w-44 h-[2.5px] rounded-full mx-auto my-2.5"
           style={{
-            background: 'linear-gradient(90deg, transparent, #E27D16 20%, #8B1E1E 45%, #10B981 70%, #8B5CF6 90%, transparent)',
+            background: 'linear-gradient(90deg, transparent, #8B1E1E 30%, #A82424 50%, #10B981 75%, transparent)',
           }}
         />
 
@@ -297,7 +297,7 @@ export const OurJourney: React.FC = () => {
             <div
               className="journey-timeline-line absolute left-6 right-8 bottom-[28px] h-[2px] z-0"
               style={{
-                background: 'linear-gradient(90deg, #E27D16, #8B1E1E, #E27D16, #10B981, #8B5CF6)',
+                background: 'linear-gradient(90deg, #A82424, #8B1E1E, #C53030, #10B981, #8B5CF6)',
               }}
             />
 

@@ -132,8 +132,8 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
           
           <div className="space-y-4">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/95 border border-amber-200/80 text-amber-700 text-xs font-bold font-heading shadow-2xs backdrop-blur-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#E27D16]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50/95 border border-red-200/80 text-[#8B1E1E] text-xs font-bold font-heading shadow-2xs backdrop-blur-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
               <span>Zero Upfront Obligation</span>
             </div>
 
@@ -144,7 +144,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    'linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%)',
+                    'linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #A82424 100%)',
                 }}
               >
                 Solar Savings Estimate
@@ -225,7 +225,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 {/* Dynamic Arcing Path */}
                 <path
                   d="M4 46C35 46 65 38 96 10"
-                  stroke="#E27D16"
+                  stroke="#8B1E1E"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeDasharray="5 3"
@@ -233,7 +233,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 {/* Arrowhead Pointing Up-Right into the Form */}
                 <path
                   d="M80 8L98 9L95 27"
-                  stroke="#E27D16"
+                  stroke="#8B1E1E"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"

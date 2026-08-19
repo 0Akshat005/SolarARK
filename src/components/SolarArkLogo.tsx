@@ -54,9 +54,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
         <img
           src="/images/solarark-brand-logo.png"
           alt="SolarARK - assured renewable komfort"
-          className={`${currentSize.imgHeight} w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02] ${
-            isDark ? 'brightness-0 invert' : ''
-          }`}
+          className={`${currentSize.imgHeight} w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]`}
         />
       </div>
     );
@@ -64,7 +62,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
 
   return (
     <div className={`inline-flex flex-col select-none leading-none group ${className}`}>
-      {/* ── Exact Official Brand Typography: Solar + ARK ── */}
+      {/* ── Exact Official Brand Typography: Solar + ARK in Pure Brand Maroon ── */}
       <div className={`font-heading font-medium ${currentSize.brand} leading-none flex items-baseline`}>
         <span
           className={`transition-colors duration-200 ${
@@ -76,7 +74,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
         </span>
         <span
           className={`font-black uppercase tracking-tight transition-colors duration-200 ${
-            isDark ? 'text-[#E27D16]' : 'text-[#A8422B]'
+            isDark ? 'text-[#C53030]' : 'text-[#8B1E1E]'
           }`}
           style={{ fontWeight: 800 }}
         >

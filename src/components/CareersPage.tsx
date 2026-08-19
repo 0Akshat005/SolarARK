@@ -593,7 +593,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                       <div className="flex items-center justify-between md:justify-end gap-3 shrink-0">
                         <div className="flex flex-wrap items-center gap-2 text-xs text-stone-500">
                           <span className="flex items-center gap-1 font-medium bg-stone-100 px-2.5 py-1 rounded-lg">
-                            <MapPin className="w-3 h-3 text-[#E27D16]" /> {role.location.split('/')[0]}
+                            <MapPin className="w-3 h-3 text-[#8B1E1E]" /> {role.location.split('/')[0]}
                           </span>
                           <span className="font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg">
                             {role.salary.split('+')[0]}

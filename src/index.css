@@ -51,7 +51,7 @@
 
     /* Canonical Brand Gradients with Rich Crimson Specular Sheen */
     --gradient-primary: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
-    --gradient-hero-text: linear-gradient(100deg, #540D0D 0%, #8B1E1E 45%, #E27D16 100%);
+    --gradient-hero-text: linear-gradient(100deg, #540D0D 0%, #8B1E1E 50%, #A82424 100%);
     --gradient-cta: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
     
     --radius-sm: 8px;

@@ -33,10 +33,10 @@ export interface ProcessStage {
 const PROCESS_STAGES: ProcessStage[] = [
   {
     number: '01',
-    accent: 'orange',
-    accentColor: '#E27D16',
-    iconBg: 'bg-amber-50 border-amber-200/60',
-    iconColor: 'text-[#E27D16]',
+    accent: 'maroon',
+    accentColor: '#A82424',
+    iconBg: 'bg-red-50 border-red-200/60',
+    iconColor: 'text-[#A82424]',
     icon: ClipboardList,
     title: 'Consultation & Site Survey',
     description:
@@ -61,10 +61,10 @@ const PROCESS_STAGES: ProcessStage[] = [
   },
   {
     number: '03',
-    accent: 'orange',
-    accentColor: '#E27D16',
-    iconBg: 'bg-amber-50 border-amber-200/60',
-    iconColor: 'text-[#E27D16]',
+    accent: 'maroon',
+    accentColor: '#8B1E1E',
+    iconBg: 'bg-red-50 border-red-200/60',
+    iconColor: 'text-[#8B1E1E]',
     icon: FileCheck2,
     title: 'Paperless DISCOM & Subsidy Filing',
     description:
