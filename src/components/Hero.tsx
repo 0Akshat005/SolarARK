@@ -205,11 +205,10 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <button
                   onClick={onCtaClick}
-                  className="relative group overflow-hidden bg-gradient-to-r from-[#8B1E1E] via-[#A82424] to-[#7A1515] hover:from-[#A82424] hover:to-[#5E1212] text-white font-heading font-bold text-[15px] px-8 py-4 rounded-xl shadow-[0_8px_24px_-4px_rgba(139,30,30,0.55),0_2px_8px_-2px_rgba(139,30,30,0.3)] ring-1 ring-white/25 active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                  className="btn-primary-maroon font-heading font-bold text-[15px] px-8 py-4 rounded-xl flex items-center justify-center gap-2.5 cursor-pointer group"
                 >
-                  <span className="relative z-10">Get Free Solar Estimate</span>
-                  <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-                  <div className="absolute inset-0 bg-white/15 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span>Get Free Solar Estimate</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 <button

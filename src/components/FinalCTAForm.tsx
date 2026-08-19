@@ -24,8 +24,7 @@ import {
   Wrench,
   Star,
   PhoneCall,
-  Calendar,
-  Check
+  Calendar
 } from 'lucide-react';
 
 export interface FinalCTAFormProps {
@@ -74,7 +73,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
     e.preventDefault();
     let hasError = false;
 
-    if (!fullName.trim() || fullName.trim().length < 3) {
+    if (!fullName.trim()) {
       setNameError('Please enter your full name');
       hasError = true;
     } else {
@@ -95,102 +94,162 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
   return (
     <section
       id="contact-form"
-      className={`relative w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-16 lg:py-20 overflow-hidden ${className}`}
+      className={`relative w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 overflow-hidden ${className}`}
     >
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* ── ATMOSPHERIC SOLAR-HOME VISUAL LAYER (EMERGING FROM BACKGROUND & DISSOLVING TOWARD FORM) ── */}
+      <div
+        aria-hidden="true"
+        className="absolute left-0 bottom-[130px] lg:bottom-[90px] w-full lg:w-[65%] h-[380px] sm:h-[440px] lg:h-[500px] pointer-events-none z-0 select-none overflow-visible"
+      >
+        {/* Soft Ambient Golden Atmospheric Glow */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-amber-200/8 to-transparent rounded-full blur-3xl" />
+
+        {/* Real Seamless Multi-Gradient Masked Photographic Scene */}
+        <div
+          className="relative w-full h-full"
+          style={{
+            WebkitMaskImage:
+              'radial-gradient(ellipse 95% 85% at 38% 50%, black 35%, rgba(0,0,0,0.85) 58%, rgba(0,0,0,0.3) 78%, transparent 98%), linear-gradient(to right, black 0%, black 36%, rgba(0,0,0,0.75) 62%, rgba(0,0,0,0.2) 82%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 12%, black 76%, transparent 100%)',
+            maskImage:
+              'radial-gradient(ellipse 95% 85% at 38% 50%, black 35%, rgba(0,0,0,0.85) 58%, rgba(0,0,0,0.3) 78%, transparent 98%), linear-gradient(to right, black 0%, black 36%, rgba(0,0,0,0.75) 62%, rgba(0,0,0,0.2) 82%, transparent 96%), linear-gradient(to bottom, transparent 0%, black 12%, black 76%, transparent 100%)',
+            WebkitMaskComposite: 'source-in',
+            maskComposite: 'intersect',
+          }}
+        >
+          <img
+            src="/images/solar-villa-sunset.jpg"
+            alt=""
+            className="w-full h-full object-cover object-left-center"
+          />
+        </div>
+      </div>
+
+      {/* ── TWO-COLUMN FOREGROUND CONTAINER ── */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
-        {/* ── LEFT COLUMN: REFINED EDITORIAL VALUE PROPOSITION ── */}
-        <div className="lg:col-span-6 space-y-7">
+        {/* ── LEFT COLUMN: VISUAL & TRUST PANEL (~48%) ── */}
+        <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
           
           <div className="space-y-4">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E] tracking-wider uppercase font-heading">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/95 border border-amber-200/80 text-amber-700 text-xs font-bold font-heading shadow-2xs backdrop-blur-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#E27D16]" />
               <span>Zero Upfront Obligation</span>
             </div>
 
             {/* Display Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.15] m-0">
               Claim Your Free <br />
-              <span className="text-[#8B1E1E]">Solar Savings Estimate</span> <br />
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%)',
+                }}
+              >
+                Solar Savings Estimate
+              </span> <br />
               &amp; 3D Roof Design
             </h2>
 
-            {/* Clean, Readable Supporting Copy */}
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-lg m-0">
-              Our certified solar engineers will prepare a customized 3D solar layout proposal and official DISCOM subsidy eligibility report for your roof.
+            {/* Subhead with maroon bold highlights */}
+            <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed max-w-lg m-0">
+              Our certified engineers will prepare an exact{' '}
+              <strong className="text-[#8B1E1E] font-semibold">3D solar proposal</strong>{' '}
+              and{' '}
+              <strong className="text-[#8B1E1E] font-semibold">
+                DISCOM subsidy eligibility report
+              </strong>{' '}
+              for your roof.
             </p>
+
+            {/* Trust Row (3 Items Horizontal) */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
+              {/* 100% Free */}
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-800 leading-tight">
+                  100% Free <br />
+                  <span className="text-[11px] font-normal text-slate-500">&amp; No Obligation</span>
+                </div>
+              </div>
+
+              {/* Secure */}
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 shadow-2xs backdrop-blur-xs">
+                  <Lock className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-800 leading-tight">
+                  Your Data <br />
+                  <span className="text-[11px] font-normal text-slate-500">is Secure</span>
+                </div>
+              </div>
+
+              {/* Certified Engineers */}
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-bold text-slate-800 leading-tight">
+                  Certified <br />
+                  <span className="text-[11px] font-normal text-slate-500">Engineers</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* Clean Unified Trust Highlights */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3.5 pt-1">
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 shadow-2xs flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5" />
+          {/* Spacer & Overlaid 3D Estimate Caption Card with Independent Floating Curved Arrow */}
+          <div className="pt-20 sm:pt-28 lg:pt-32 relative">
+            <div className="relative inline-flex items-center gap-3.5 bg-slate-950/85 backdrop-blur-md text-white border border-white/15 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
+              {/* Clean borderless 3D Model Thumbnail Blend */}
+              <div className="w-11 h-11 shrink-0 overflow-hidden flex items-center justify-center filter drop-shadow-md">
+                <img
+                  src="/images/thumb-3d-solar-house.png"
+                  alt="3D Solar house model"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="leading-tight">
-                <div className="text-xs font-bold text-slate-900 font-heading">100% Free</div>
-                <div className="text-[11px] text-stone-500 font-medium">No obligation</div>
+
+              <div className="text-xs sm:text-[13px] leading-snug flex-1">
+                <span>Get a 3D model, savings estimate &amp; subsidy report in </span>
+                <strong className="text-amber-400 font-extrabold">24–48 hours</strong>
               </div>
             </div>
 
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 shadow-2xs flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <Lock className="w-4 h-4" />
-              </div>
-              <div className="leading-tight">
-                <div className="text-xs font-bold text-slate-900 font-heading">Data Privacy</div>
-                <div className="text-[11px] text-stone-500 font-medium">100% confidential</div>
-              </div>
-            </div>
-
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 shadow-2xs flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                <Calendar className="w-4 h-4" />
-              </div>
-              <div className="leading-tight">
-                <div className="text-xs font-bold text-slate-900 font-heading">24–48 Hours</div>
-                <div className="text-[11px] text-stone-500 font-medium">Report delivery</div>
-              </div>
-            </div>
-
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 shadow-2xs flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                <Users className="w-4 h-4" />
-              </div>
-              <div className="leading-tight">
-                <div className="text-xs font-bold text-slate-900 font-heading">Certified Team</div>
-                <div className="text-[11px] text-stone-500 font-medium">SolarArk engineers</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Clean 3D Proposal Deliverable Card */}
-          <div className="bg-gradient-to-r from-stone-900 via-slate-900 to-slate-950 text-white rounded-2xl p-4 sm:p-5 shadow-lg border border-white/10 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
-              <img
-                src="/images/thumb-3d-solar-house.png"
-                alt="3D Solar house model"
-                className="w-9 h-9 object-contain filter drop-shadow-md"
-              />
-            </div>
-            <div className="space-y-0.5">
-              <div className="text-xs font-bold text-amber-400 font-heading uppercase tracking-wide">
-                Includes PM Surya Ghar Subsidy Filing
-              </div>
-              <p className="text-xs sm:text-[13px] text-slate-200 leading-snug">
-                Receive your 3D CAD design, payback ROI calculations, and ₹78,000 subsidy claim assistance.
-              </p>
+            {/* Creative Independent Floating Curved Arrow (Pointing dynamically toward the form) */}
+            <div className="hidden lg:block absolute left-[370px] -bottom-2 pointer-events-none z-20">
+              <svg width="110" height="60" viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="filter drop-shadow-xs">
+                {/* Dynamic Arcing Path */}
+                <path
+                  d="M4 46C35 46 65 38 96 10"
+                  stroke="#E27D16"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeDasharray="5 3"
+                />
+                {/* Arrowhead Pointing Up-Right into the Form */}
+                <path
+                  d="M80 8L98 9L95 27"
+                  stroke="#E27D16"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
           </div>
 
         </div>
 
-        {/* ── RIGHT COLUMN: HIGH-CONVERTING STEPPER FORM ── */}
+        {/* ── RIGHT COLUMN: FORM PANEL (~52%) ── */}
         <div className="lg:col-span-6 bg-white rounded-3xl border border-stone-200/90 shadow-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
           
           {/* STEPPER HEADER */}
           <div className="relative mb-8 pb-6 border-b border-stone-100">
+            {/* Connecting Track */}
             <div className="absolute top-4 left-[15%] right-[15%] h-[2px] bg-stone-200 z-0" />
             <div
               className="absolute top-4 left-[15%] h-[2px] bg-[#8B1E1E] transition-all duration-500 z-0"
@@ -212,7 +271,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   1
                 </div>
-                <span className={`text-[11px] font-bold font-heading ${step >= 1 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-bold ${step >= 1 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
                   Roof Location
                 </span>
               </div>
@@ -229,7 +288,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   2
                 </div>
-                <span className={`text-[11px] font-bold font-heading ${step >= 2 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-bold ${step >= 2 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
                   Contact Details
                 </span>
               </div>
@@ -246,8 +305,8 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   3
                 </div>
-                <span className={`text-[11px] font-bold font-heading ${step === 3 ? 'text-emerald-700' : 'text-stone-400'}`}>
-                  Confirmation
+                <span className={`text-[11px] font-bold ${step === 3 ? 'text-emerald-700' : 'text-stone-400'}`}>
+                  Confirm &amp; Submit
                 </span>
               </div>
             </div>
@@ -258,15 +317,19 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             <form onSubmit={handleStep1Continue} className="space-y-6 flex-1 flex flex-col justify-between">
               
               <div className="space-y-5">
+                
+                {/* Section Title */}
                 <div className="flex items-center gap-2 text-slate-900 font-heading font-bold text-base">
                   <MapPin className="w-4 h-4 text-[#8B1E1E]" />
-                  <span>Tell us about your rooftop</span>
+                  <span>Tell us about your roof</span>
                 </div>
 
+                {/* 2-Column Fields */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  
                   {/* Field 1: 6-Digit Pincode */}
                   <div className="space-y-1.5">
-                    <label htmlFor="pincode-input" className="block text-xs font-bold text-slate-800 font-heading">
+                    <label htmlFor="pincode-input" className="block text-xs font-bold text-slate-800">
                       6-Digit Pincode <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -283,7 +346,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                           setPincode(val);
                           if (val.length === 6) setPincodeError('');
                         }}
-                        placeholder="e.g. 444605"
+                        placeholder="e.g. 560034"
                         className="w-full pl-10 pr-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all font-mono"
                       />
                     </div>
@@ -292,9 +355,12 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                   {/* Field 2: Average Monthly Power Bill */}
                   <div className="space-y-1.5">
-                    <label htmlFor="bill-select" className="block text-xs font-bold text-slate-800 font-heading">
-                      Average Monthly Electricity Bill (₹)
-                    </label>
+                    <div className="flex items-center justify-between">
+                      <label htmlFor="bill-select" className="block text-xs font-bold text-slate-800">
+                        Average Monthly Power Bill (₹)
+                      </label>
+                      <Info className="w-3.5 h-3.5 text-slate-400 cursor-help" title="Used to calculate required solar kW capacity" />
+                    </div>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <ReceiptText className="w-4 h-4 text-[#8B1E1E]" />
@@ -309,101 +375,140 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                         <option value="₹5,000 / month (2–3 BHK)">₹5,000 / month (2–3 BHK)</option>
                         <option value="₹8,500 / month (3–4 BHK)">₹8,500 / month (3–4 BHK)</option>
                         <option value="₹12,000 / month (4+ BHK / Villa)">₹12,000 / month (4+ BHK / Villa)</option>
-                        <option value="₹20,000+ / month (Commercial / Society)">₹20,000+ / month (Commercial / Society)</option>
+                        <option value="₹20,000+ / month (Commercial / Estate)">₹20,000+ / month (Commercial / Estate)</option>
                       </select>
+                      <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+                        ▼
+                      </div>
                     </div>
                   </div>
+
                 </div>
 
                 {/* Section: Rooftop Structure Type */}
                 <div className="space-y-2 pt-1">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 font-heading">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
                     <span>Rooftop Structure Type</span>
                     <span className="text-red-500">*</span>
+                    <Info className="w-3 h-3 text-slate-400" />
                   </div>
 
-                  <div role="radiogroup" aria-label="Rooftop Structure Type" className="grid grid-cols-3 gap-3">
+                  {/* 3 Selectable Radio Cards */}
+                  <div
+                    role="radiogroup"
+                    aria-label="Rooftop Structure Type"
+                    className="grid grid-cols-3 gap-3"
+                  >
+                    {/* 1. Concrete Slab */}
                     <button
                       type="button"
                       role="radio"
                       aria-checked={roofType === 'concrete'}
                       onClick={() => setRoofType('concrete')}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1.5 ${
+                      className={`relative flex flex-col items-center text-center p-3.5 rounded-2xl border-2 transition-all cursor-pointer ${
                         roofType === 'concrete'
-                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs font-bold'
-                          : 'border-stone-200 bg-stone-50/50 hover:bg-stone-50 text-slate-700 font-medium'
+                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs'
+                          : 'border-stone-200/90 bg-white hover:border-stone-300 text-slate-700'
                       }`}
                     >
-                      <Building2 className="w-5 h-5" />
-                      <span className="text-xs font-heading">Flat RCC Roof</span>
+                      <Building2 className="w-6 h-6 mb-2 stroke-[1.8]" />
+                      <span className="text-xs font-bold leading-tight">
+                        Concrete Slab <br />
+                        <span className="text-[10px] font-medium text-slate-500">(RCC)</span>
+                      </span>
+                      {roofType === 'concrete' && (
+                        <div className="w-4 h-4 rounded-full bg-[#8B1E1E] text-white flex items-center justify-center text-[10px] mt-1.5 shadow-xs">
+                          ✓
+                        </div>
+                      )}
                     </button>
 
+                    {/* 2. Tin / Metal Sheet */}
                     <button
                       type="button"
                       role="radio"
                       aria-checked={roofType === 'tin'}
                       onClick={() => setRoofType('tin')}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1.5 ${
+                      className={`relative flex flex-col items-center text-center p-3.5 rounded-2xl border-2 transition-all cursor-pointer ${
                         roofType === 'tin'
-                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs font-bold'
-                          : 'border-stone-200 bg-stone-50/50 hover:bg-stone-50 text-slate-700 font-medium'
+                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs'
+                          : 'border-stone-200/90 bg-white hover:border-stone-300 text-slate-700'
                       }`}
                     >
-                      <Warehouse className="w-5 h-5" />
-                      <span className="text-xs font-heading">Metal Shed</span>
+                      <Warehouse className="w-6 h-6 mb-2 stroke-[1.8]" />
+                      <span className="text-xs font-bold leading-tight">
+                        Tin / <br />
+                        <span className="text-[10px] font-medium text-slate-500">Metal Sheet</span>
+                      </span>
+                      {roofType === 'tin' && (
+                        <div className="w-4 h-4 rounded-full bg-[#8B1E1E] text-white flex items-center justify-center text-[10px] mt-1.5 shadow-xs">
+                          ✓
+                        </div>
+                      )}
                     </button>
 
+                    {/* 3. Tiled / Slanted Roof */}
                     <button
                       type="button"
                       role="radio"
                       aria-checked={roofType === 'tiled'}
                       onClick={() => setRoofType('tiled')}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1.5 ${
+                      className={`relative flex flex-col items-center text-center p-3.5 rounded-2xl border-2 transition-all cursor-pointer ${
                         roofType === 'tiled'
-                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs font-bold'
-                          : 'border-stone-200 bg-stone-50/50 hover:bg-stone-50 text-slate-700 font-medium'
+                          ? 'border-[#8B1E1E] bg-[#8B1E1E]/5 text-[#8B1E1E] shadow-2xs'
+                          : 'border-stone-200/90 bg-white hover:border-stone-300 text-slate-700'
                       }`}
                     >
-                      <Grid3X3 className="w-5 h-5" />
-                      <span className="text-xs font-heading">Tiled Slope</span>
+                      <Grid3X3 className="w-6 h-6 mb-2 stroke-[1.8]" />
+                      <span className="text-xs font-bold leading-tight">
+                        Tiled / <br />
+                        <span className="text-[10px] font-medium text-slate-500">Slanted Roof</span>
+                      </span>
+                      {roofType === 'tiled' && (
+                        <div className="w-4 h-4 rounded-full bg-[#8B1E1E] text-white flex items-center justify-center text-[10px] mt-1.5 shadow-xs">
+                          ✓
+                        </div>
+                      )}
                     </button>
                   </div>
                 </div>
 
               </div>
 
-              <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-xs text-stone-500">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>PM Surya Ghar Eligible</span>
-                </div>
-
+              {/* Bottom CTA & Micro-Trust */}
+              <div className="space-y-3 pt-4">
                 <button
                   type="submit"
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="w-full btn-primary-maroon font-bold py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>Continue to Step 2</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
+
+                <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 text-center">
+                  <Lock className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>We never share your information with anyone.</span>
+                </div>
               </div>
 
             </form>
           )}
 
-          {/* ── STEP 2: CONTACT DETAILS ── */}
+          {/* ── STEP 2: CONTACT DETAILS & APPOINTMENT ── */}
           {step === 2 && (
-            <form onSubmit={handleStep2Submit} className="space-y-6 flex-1 flex flex-col justify-between">
+            <form onSubmit={handleStep2Submit} className="space-y-5 flex-1 flex flex-col justify-between animate-fadeIn">
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-slate-900 font-heading font-bold text-base">
-                    <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
-                    <span>Where should we send your report?</span>
+                    <Users className="w-4 h-4 text-[#8B1E1E]" />
+                    <span>Your Contact Details</span>
                   </div>
+
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="text-xs font-bold text-stone-500 hover:text-[#8B1E1E] inline-flex items-center gap-1 cursor-pointer"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-stone-500 hover:text-[#8B1E1E] transition-colors cursor-pointer"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Back</span>
@@ -412,125 +517,220 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                 {/* Full Name */}
                 <div className="space-y-1">
-                  <label htmlFor="fullname-input" className="block text-xs font-bold text-slate-800 font-heading">
-                    Full Name *
+                  <label htmlFor="fullname-input" className="block text-xs font-bold text-slate-800">
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="fullname-input"
                     type="text"
-                    placeholder="e.g. Anand Kulkarni"
                     value={fullName}
                     onChange={(e) => {
                       setFullName(e.target.value);
-                      if (nameError) setNameError('');
+                      if (e.target.value.trim()) setNameError('');
                     }}
+                    placeholder="e.g. Rajesh Patil"
                     className="w-full px-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all"
                   />
-                  {nameError && <p className="text-xs text-red-600 font-medium">{nameError}</p>}
+                  {nameError && <p className="text-[11px] text-red-600">{nameError}</p>}
                 </div>
 
                 {/* WhatsApp Number */}
                 <div className="space-y-1">
-                  <label htmlFor="phone-input" className="block text-xs font-bold text-slate-800 font-heading">
-                    WhatsApp Number *
+                  <label htmlFor="whatsapp-input" className="block text-xs font-bold text-slate-800">
+                    WhatsApp Number (for 3D Layout PDF) <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-500">
+                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-bold text-slate-500">
                       +91
                     </span>
                     <input
-                      id="phone-input"
+                      id="whatsapp-input"
                       type="tel"
                       maxLength={10}
-                      placeholder="9876543210"
                       value={whatsappNumber}
                       onChange={(e) => {
                         const val = e.target.value.replace(/\D/g, '');
                         setWhatsappNumber(val);
-                        if (phoneError) setPhoneError('');
+                        if (val.length === 10) setPhoneError('');
                       }}
-                      className="w-full pl-12 pr-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all"
+                      placeholder="9876543210"
+                      className="w-full pl-12 pr-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all font-mono"
                     />
                   </div>
-                  {phoneError && <p className="text-xs text-red-600 font-medium">{phoneError}</p>}
+                  {phoneError && <p className="text-[11px] text-red-600">{phoneError}</p>}
                 </div>
 
-                {/* Preferred Consultation Time */}
+                {/* Preferred Survey Slot */}
                 <div className="space-y-1">
-                  <label htmlFor="time-select" className="block text-xs font-bold text-slate-800 font-heading">
-                    Preferred Callback Window
+                  <label htmlFor="time-select" className="block text-xs font-bold text-slate-800">
+                    Preferred Site Survey Time Window
                   </label>
-                  <select
-                    id="time-select"
-                    value={preferredTime}
-                    onChange={(e) => setPreferredTime(e.target.value)}
-                    className="w-full px-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all cursor-pointer"
-                  >
-                    <option>Morning (10 AM – 1 PM)</option>
-                    <option>Afternoon (1 PM – 5 PM)</option>
-                    <option>Evening (5 PM – 8 PM)</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="time-select"
+                      value={preferredTime}
+                      onChange={(e) => setPreferredTime(e.target.value)}
+                      className="w-full px-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all cursor-pointer"
+                    >
+                      <option value="Morning (10 AM - 1 PM)">Morning (10 AM - 1 PM)</option>
+                      <option value="Afternoon (1 PM - 4 PM)">Afternoon (1 PM - 4 PM)</option>
+                      <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
+                      <option value="Weekend Special Slot">Weekend Special Slot</option>
+                    </select>
+                  </div>
                 </div>
 
               </div>
 
-              <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setStep(1)}
-                  className="text-xs font-bold text-stone-600 hover:text-slate-900"
-                >
-                  ← Edit Rooftop Details
-                </button>
-
+              {/* Submit CTA */}
+              <div className="space-y-3 pt-3">
                 <button
                   type="submit"
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm px-7 py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all inline-flex items-center gap-2 cursor-pointer"
+                  className="w-full btn-primary-maroon font-bold py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Submit &amp; Get 3D Design</span>
+                  <span>Submit &amp; Generate 3D Proposal</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
+
+                <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 text-center">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Free DISCOM Subsidy Eligibility Check Included</span>
+                </div>
               </div>
 
             </form>
           )}
 
-          {/* ── STEP 3: INSTANT CONFIRMATION ── */}
+          {/* ── STEP 3: CONFIRMATION & SUCCESS ── */}
           {step === 3 && (
-            <div className="py-6 text-center space-y-5">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+            <div className="text-center py-8 space-y-6 flex-1 flex flex-col items-center justify-center animate-fadeIn">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
 
-              <div className="space-y-1.5 max-w-md mx-auto">
-                <h3 className="font-heading text-2xl font-bold text-slate-900">
-                  Solar Proposal Request Received!
+              <div className="space-y-2 max-w-sm">
+                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900">
+                  Request Confirmed!
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Thank you <strong>{fullName}</strong>. Our certified solar engineering desk for pincode <strong>{pincode}</strong> will generate your custom 3D rooftop CAD layout and send it to <strong>+91 {whatsappNumber}</strong> within 24–48 hours.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Thank you, <strong className="text-slate-900">{fullName || 'Valued Customer'}</strong>! Our certified solar engineer is preparing your personalized 3D proposal for pincode{' '}
+                  <strong className="text-[#8B1E1E] font-mono">{pincode}</strong>.
                 </p>
               </div>
 
-              <div className="bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-xs text-stone-600 space-y-1 max-w-sm mx-auto">
-                <div className="font-bold text-slate-800">Your Booking Reference:</div>
-                <div className="font-mono text-sm font-bold text-[#8B1E1E]">
-                  SLR-ARK-{Math.floor(100000 + Math.random() * 900000)}
+              <div className="bg-stone-50 border border-stone-200/80 rounded-2xl p-4 text-left w-full max-w-sm space-y-2 text-xs text-slate-700">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Structure:</span>
+                  <span className="font-bold capitalize">{roofType} Slab</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Bill Tier:</span>
+                  <span className="font-bold">{monthlyBill}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">WhatsApp Delivery:</span>
+                  <span className="font-bold font-mono">+91 {whatsappNumber}</span>
                 </div>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="text-xs font-bold text-[#8B1E1E] hover:underline pt-2 cursor-pointer"
+              <a
+                href="tel:+917080909590"
+                className="inline-flex items-center gap-2 text-xs font-bold text-white btn-primary-maroon px-5 py-3 rounded-xl cursor-pointer"
               >
-                Submit another request
-              </button>
+                <PhoneCall className="w-4 h-4" />
+                <span>Call SolarArk Desk (7080909590)</span>
+              </a>
             </div>
           )}
 
         </div>
 
       </div>
+
+      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH - PREMIUM GLASSMORPHISM) ── */}
+      <div className="relative z-20 mt-10 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(15,23,42,0.05)] rounded-3xl p-6 sm:p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Benefit 1: Accurate 3D Roof Design */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
+              <FileText className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
+                Accurate 3D Roof Design
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                High precision proposal for your roof
+              </p>
+            </div>
+          </div>
+
+          {/* Benefit 2: Max Subsidy Benefit */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-emerald-600 shrink-0">
+              <IndianRupee className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
+                Max Subsidy Benefit
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                We help you get maximum DISCOM subsidy
+              </p>
+            </div>
+          </div>
+
+          {/* Benefit 3: Save Up to 90% */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
+              <TrendingUp className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
+                Save Up to 90%
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                Slash your electricity bills for 25+ years
+              </p>
+            </div>
+          </div>
+
+          {/* Benefit 4: End-to-End Support */}
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-amber-600 shrink-0">
+              <Wrench className="w-6 h-6" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-heading text-sm font-bold text-slate-900 leading-tight">
+                End-to-End Support
+              </h4>
+              <p className="text-xs text-slate-600 mt-0.5 leading-snug">
+                From paperwork to installation &amp; beyond
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* ── 4. BOTTOM SOCIAL-PROOF LINE ── */}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-slate-700 text-center">
+        <span className="text-amber-500 text-base">🌿</span>
+        <span className="text-slate-900 font-extrabold">5000+ Happy Customers</span>
+        
+        <div className="flex items-center gap-0.5 text-amber-400 px-1">
+          <Star className="w-4 h-4 fill-amber-400" />
+          <Star className="w-4 h-4 fill-amber-400" />
+          <Star className="w-4 h-4 fill-amber-400" />
+          <Star className="w-4 h-4 fill-amber-400" />
+          <Star className="w-4 h-4 fill-amber-400" />
+        </div>
+
+        <span className="text-slate-900 font-extrabold">4.8/5 (Google Reviews)</span>
+        <span className="text-amber-500 text-base">🌿</span>
+      </div>
+
     </section>
   );
 };

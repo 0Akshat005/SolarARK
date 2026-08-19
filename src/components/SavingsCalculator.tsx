@@ -184,7 +184,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         onClick={() => setMonthlyBill(preset)}
                         className={`text-xs px-3 py-1.5 rounded-xl font-bold border transition-all duration-150 active:scale-95 cursor-pointer ${
                           monthlyBill === preset
-                            ? 'bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-xs'
+                            ? 'btn-primary-maroon text-white border-transparent shadow-xs'
                             : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-100'
                         }`}
                       >
@@ -290,7 +290,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <button
                   type="button"
                   onClick={() => onClaimEstimate({ pincode, monthlyBill })}
-                  className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-sm sm:text-base py-4 rounded-2xl shadow-lg shadow-[#8B1E1E]/25 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                  className="w-full btn-primary-maroon font-heading font-bold text-sm sm:text-base py-4 rounded-2xl flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>Get My Free Savings Estimate</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -33,13 +33,14 @@
     --measure-body: 70ch;
     --measure-hero: 40ch;
 
-    /* Canonical Brand Maroon Tokens */
+    /* ── Canonical Premium Brand Maroon & Crimson Palette ── */
     --brand-primary: #8B1E1E;
-    --brand-primary-deep: #5E1212;
+    --brand-primary-deep: #540D0D;
+    --brand-primary-dark: #450A0A;
     --brand-primary-light: #A82424;
     --brand-primary-tint: rgba(139, 30, 30, 0.08);
     --brand-maroon: #8B1E1E;
-    --brand-maroon-deep: #5E1212;
+    --brand-maroon-deep: #540D0D;
 
     /* Brand Gold/Amber Tokens */
     --brand-gold: #E27D16;
@@ -48,10 +49,10 @@
     --color-savings-green: #10B981;
     --color-solar-navy: #0B1730;
 
-    /* Canonical Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, #741616 0%, #8B1E1E 45%, #A82424 100%);
-    --gradient-hero-text: linear-gradient(100deg, #5E1212 0%, #8B1E1E 45%, #E27D16 100%);
-    --gradient-cta: linear-gradient(135deg, #8B1E1E 0%, #A82424 50%, #741616 100%);
+    /* Canonical Brand Gradients with Rich Crimson Specular Sheen */
+    --gradient-primary: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
+    --gradient-hero-text: linear-gradient(100deg, #540D0D 0%, #8B1E1E 45%, #E27D16 100%);
+    --gradient-cta: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
     
     --radius-sm: 8px;
     --radius-md: 16px;
@@ -128,6 +129,34 @@
   }
 }
 
+/* ── Premium Brand Crimson/Maroon Button System (Image Reference Specification) ── */
+button.bg-\[\#8B1E1E\],
+a.bg-\[\#8B1E1E\],
+.btn-primary-maroon {
+  background: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.28), 0 8px 24px -4px rgba(120, 18, 18, 0.55), 0 2px 6px -1px rgba(120, 18, 18, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.bg-\[\#8B1E1E\]:hover,
+a.bg-\[\#8B1E1E\]:hover,
+.btn-primary-maroon:hover {
+  background: linear-gradient(180deg, #B52B2B 0%, #982222 48%, #621010 100%) !important;
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.38), 0 12px 28px -4px rgba(139, 30, 30, 0.65), 0 4px 10px -2px rgba(139, 30, 30, 0.4);
+  transform: translateY(-1px);
+}
+
+button.bg-\[\#8B1E1E\]:active,
+a.bg-\[\#8B1E1E\]:active,
+.btn-primary-maroon:active {
+  background: linear-gradient(180deg, #8B1E1E 0%, #751717 48%, #420808 100%) !important;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 12px -2px rgba(139, 30, 30, 0.4);
+  transform: translateY(0px) scale(0.985);
+}
+
 /* Glassmorphism helpers */
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
@@ -157,7 +186,7 @@
 }
 
 .shadow-maroon-glow {
-  box-shadow: 0 8px 28px -4px rgba(139, 30, 30, 0.42), 0 3px 10px -2px rgba(139, 30, 30, 0.22);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.28), 0 8px 24px -4px rgba(120, 18, 18, 0.55), 0 2px 6px -1px rgba(120, 18, 18, 0.35);
 }
 
 /* Focus Ring Accessibility */

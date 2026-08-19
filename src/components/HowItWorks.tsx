@@ -269,7 +269,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             <div className="lg:w-72 xl:w-80 flex flex-col items-stretch sm:items-center lg:items-end justify-center pt-4 lg:pt-0 lg:pl-6 border-t lg:border-t-0 lg:border-l border-stone-200/80 gap-2 shrink-0">
               <button
                 onClick={onCtaClick}
-                className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-sm sm:text-base py-3.5 px-6 rounded-xl shadow-md shadow-[#8B1E1E]/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full btn-primary-maroon font-heading font-bold text-sm sm:text-base py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Book Free Site Survey</span>
                 <ArrowRight className="w-4 h-4" />

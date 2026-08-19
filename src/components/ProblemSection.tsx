@@ -314,7 +314,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                   <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
                     <button
                       onClick={onCtaClick}
-                      className="w-full sm:w-auto bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white text-xs sm:text-sm font-bold font-heading px-6 py-3 rounded-xl shadow-md shadow-[#8B1E1E]/25 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                      className="w-full sm:w-auto btn-primary-maroon text-xs sm:text-sm font-bold font-heading px-6 py-3 rounded-xl flex items-center justify-center gap-2 group cursor-pointer"
                     >
                       <span>See My Savings</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
