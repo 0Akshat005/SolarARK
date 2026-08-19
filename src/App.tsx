@@ -160,7 +160,7 @@ export default function App() {
               onClaimEstimate={handleClaimEstimate}
             />
 
-            {/* 2. Comprehensive Solar Savings Calculator */}
+            {/* 2. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
             <div id="calculator">
               <SavingsCalculator
                 onClaimEstimate={handleClaimEstimate}
@@ -169,10 +169,7 @@ export default function App() {
               />
             </div>
 
-            {/* 3. Interactive Problem / Grid Tariffs vs Solar cost */}
-            <ProblemSection onCtaClick={scrollToContactForm} />
-
-            {/* 4. 4-Step Transparent Installation Process */}
+            {/* 3. 4-Step Transparent Installation Process */}
             <div id="how-it-works">
               <HowItWorks onCtaClick={scrollToContactForm} />
             </div>
