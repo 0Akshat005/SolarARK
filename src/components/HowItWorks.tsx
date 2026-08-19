@@ -26,14 +26,42 @@ interface HowItWorksProps {
 }
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
-  // Step 3 (03 INSTALL) is the default active state as specified in prompt & reference
-  const [activeStep, setActiveStep] = useState<number>(2);
+  // Step 1 (01 SURVEY) starts the auto-advancing journey
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [progress, setProgress] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
+
+  const STEP_DURATION_MS = 5000;
+  const TICK_INTERVAL_MS = 50;
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setIsReducedMotion(mq.matches);
   }, []);
+
+  // Automatic Smooth Flowing Timer
+  useEffect(() => {
+    if (isPaused || isReducedMotion) return;
+
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + (TICK_INTERVAL_MS / STEP_DURATION_MS) * 100;
+        if (next >= 100) {
+          setActiveStep((current) => (current + 1) % 4);
+          return 0;
+        }
+        return next;
+      });
+    }, TICK_INTERVAL_MS);
+
+    return () => clearInterval(timer);
+  }, [isPaused, isReducedMotion]);
+
+  const handleStepClick = (idx: number) => {
+    setActiveStep(idx);
+    setProgress(0);
+  };
 
   const stages = [
     {
@@ -110,8 +138,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
         {stages.map((stage, idx) => (
           <div
             key={stage.id}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-out ${
-              activeStep === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out ${
+              activeStep === idx
+                ? 'opacity-100 scale-100 z-10'
+                : 'opacity-0 scale-[1.03] z-0'
             }`}
           >
             <img
@@ -129,7 +159,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
               {stage.hotspots.map((spot, sIdx) => (
                 <div
                   key={sIdx}
-                  className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-500`}
+                  className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-700`}
                 >
                   <div className="bg-black/55 backdrop-blur-md border border-white/20 text-white rounded-2xl px-3.5 py-2 shadow-lg shadow-black/30 inline-flex items-center gap-2.5">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
@@ -229,14 +259,18 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
         </div>
 
         {/* ── 4. SEAMLESS FLOATING INTERACTIVE JOURNEY BAR & CONTROLLER ── */}
-        <div className="bg-white/95 backdrop-blur-xl rounded-[26px] sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_16px_48px_rgba(0,0,0,0.05)] relative overflow-hidden">
+        <div 
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="bg-white/95 backdrop-blur-xl rounded-[26px] sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_16px_48px_rgba(0,0,0,0.05)] relative overflow-hidden group/container"
+        >
           
           {/* Subtle Top Ambient Glow Accent */}
           <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#8B1E1E]/40 to-transparent" />
 
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8">
             
-            {/* 4 Connected Interactive Steps */}
+            {/* 4 Connected Interactive Steps with Flowing Progress Tracks */}
             <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 relative">
               
               {stages.map((stage, idx) => {
@@ -245,13 +279,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                 return (
                   <button
                     key={stage.id}
-                    onClick={() => setActiveStep(idx)}
+                    onClick={() => handleStepClick(idx)}
                     role="tab"
                     aria-selected={isActive}
                     aria-label={`Step ${stage.id}: ${stage.label} - ${stage.tagline}`}
-                    className={`text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E] ${
+                    className={`text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E] overflow-hidden ${
                       isActive
-                        ? 'bg-[#FAF8F5] border border-stone-200/90 shadow-xs'
+                        ? 'bg-[#FAF8F5] border border-stone-200/90 shadow-sm ring-1 ring-[#8B1E1E]/10'
                         : 'hover:bg-stone-50/70 border border-transparent'
                     }`}
                   >
@@ -259,9 +293,9 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     <div className="flex items-center gap-3 mb-2.5">
                       {isActive ? (
                         /* Elevated Glowing Active Orb */
-                        <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#8B1E1E] to-[#6A1414] text-white flex flex-col items-center justify-center shadow-lg shadow-[#8B1E1E]/30 ring-4 ring-[#8B1E1E]/15 shrink-0 transform scale-105 transition-all">
-                          <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                          <span className="text-[10px] font-extrabold font-heading -mt-0.5">{stage.id}</span>
+                        <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-[#8B1E1E] to-[#6A1414] text-white flex flex-col items-center justify-center shadow-lg shadow-[#8B1E1E]/30 ring-4 ring-[#8B1E1E]/15 shrink-0 transform scale-105 transition-all">
+                          <Icon className="w-5 h-5" />
+                          <span className="text-[9.5px] font-extrabold font-heading -mt-0.5">{stage.id}</span>
                         </div>
                       ) : (
                         /* Inactive Soft Circle Badge */
@@ -281,9 +315,25 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     </div>
 
                     {/* Concise One-Line Description */}
-                    <p className={`text-xs leading-relaxed font-normal ${isActive ? 'text-slate-700 font-medium' : 'text-stone-500'}`}>
+                    <p className={`text-xs leading-relaxed font-normal mb-2 ${isActive ? 'text-slate-700 font-medium' : 'text-stone-500'}`}>
                       {stage.tagline}
                     </p>
+
+                    {/* ── Flowing Animated Progress Bar (Apple / Tesla Carousel Style) ── */}
+                    <div className="w-full h-1 bg-stone-100 rounded-full overflow-hidden mt-auto">
+                      {isActive ? (
+                        <div
+                          className="h-full bg-gradient-to-r from-[#8B1E1E] to-[#E53E3E] rounded-full transition-all duration-75 ease-linear shadow-xs"
+                          style={{ width: `${progress}%` }}
+                        />
+                      ) : (
+                        <div
+                          className={`h-full rounded-full transition-all duration-300 ${
+                            idx < activeStep ? 'bg-[#8B1E1E]/25 w-full' : 'w-0'
+                          }`}
+                        />
+                      )}
+                    </div>
                   </button>
                 );
               })}
