@@ -106,7 +106,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-500/4 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP (ORGANIC BORDERLESS BLEED) ── */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[76%] xl:w-[72%] pointer-events-none z-0 overflow-hidden">
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[72%] xl:w-[68%] pointer-events-none z-0 overflow-hidden">
         {stages.map((stage, idx) => (
           <div
             key={stage.id}
@@ -119,27 +119,35 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
               alt={stage.alt}
               className="w-full h-full object-cover object-center"
               style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.65) 28%, black 50%), linear-gradient(to bottom, black 80%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.65) 28%, black 50%), linear-gradient(to bottom, black 80%, transparent 100%)',
+                maskImage: 'linear-gradient(to right, transparent 0%, transparent 26%, rgba(0,0,0,0.12) 38%, rgba(0,0,0,0.7) 54%, black 72%), linear-gradient(to bottom, black 75%, rgba(0,0,0,0.6) 88%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 26%, rgba(0,0,0,0.12) 38%, rgba(0,0,0,0.7) 54%, black 72%), linear-gradient(to bottom, black 75%, rgba(0,0,0,0.6) 88%, transparent 100%)',
                 maskComposite: 'intersect',
                 WebkitMaskComposite: 'source-in'
               }}
             />
 
+            {/* Subtle Restrained Photographic Vignette Layer */}
+            <div 
+              className="absolute inset-0 pointer-events-none z-10"
+              style={{
+                background: 'radial-gradient(ellipse at 78% 48%, transparent 48%, rgba(15, 23, 42, 0.16) 100%)',
+              }}
+            />
+
             {/* Stage Hotspot Tooltip Badges (Floating on image) */}
-            <div className="absolute inset-0 pointer-events-none hidden xl:block">
+            <div className="absolute inset-0 pointer-events-none hidden xl:block z-20">
               {stage.hotspots.map((spot, sIdx) => (
                 <div
                   key={sIdx}
                   className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-500`}
                 >
-                  <div className="bg-white/85 backdrop-blur-md border border-stone-200/80 rounded-2xl px-3.5 py-2 shadow-lg shadow-black/5 inline-flex items-center gap-2.5">
+                  <div className="bg-white/95 backdrop-blur-md border border-stone-200/90 rounded-2xl px-3.5 py-2 shadow-[0_4px_16px_rgba(0,0,0,0.08)] inline-flex items-center gap-2.5">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                     <div>
                       <div className="text-[11px] font-bold text-slate-900 font-heading leading-tight">
                         {spot.label}
                       </div>
-                      <div className="text-[9.5px] text-stone-500 font-medium leading-none mt-0.5">
+                      <div className="text-[9.5px] text-stone-600 font-medium leading-none mt-0.5">
                         {spot.desc}
                       </div>
                     </div>
@@ -150,9 +158,9 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           </div>
         ))}
 
-        {/* Soft Organic Atmospheric Dissolves */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent lg:via-[#FAF9F6]/20 pointer-events-none z-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent pointer-events-none z-20" />
+        {/* Soft Organic Atmospheric Dissolves & Clean Reading Zone */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/95 28% via-[#FAF9F6]/40 48% to-transparent pointer-events-none z-20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent 40% to-transparent pointer-events-none z-20" />
       </div>
 
       {/* ── 3. MAIN CONTENT LAYER ── */}
@@ -164,7 +172,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           <div className="lg:col-span-6 xl:col-span-6 space-y-5 pt-2">
             
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[11px] font-extrabold text-[#8B1E1E] tracking-wider uppercase font-heading">
+            <div className="eyebrow inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[11px] text-[#8B1E1E]">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E]" />
               <span>FRICTIONLESS END-TO-END</span>
             </div>
@@ -176,17 +184,17 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                 <span className="text-[#8B1E1E]">You just save.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed max-w-xl text-left">
                 From precision roof assessment to certified installation and DISCOM net-metering approvals, SolarARK manages the entire journey end to end.
               </p>
             </div>
 
             {/* Floating Glassmorphic Trust Badge */}
-            <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl border border-stone-200/90 p-3.5 sm:p-4 shadow-[0_4px_16px_rgba(0,0,0,0.04)] inline-flex items-center gap-3.5">
               <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
               </div>
-              <div className="space-y-0.5">
+              <div className="space-y-0.5 text-left">
                 <h3 className="font-heading font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
                   Certified Installation Team
                 </h3>
