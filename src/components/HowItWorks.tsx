@@ -3,22 +3,16 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import {
-  CheckCircle2,
-  ShieldCheck,
-  ArrowRight,
-  Clock,
-  Compass,
-  Grid,
-  Wrench,
-  BarChart3,
-  Sparkles,
-  Zap,
-  Check,
-  Layers,
-  Activity,
-  Award
+import React, { useState } from 'react';
+import { 
+  ClipboardList, 
+  Cpu, 
+  Wrench, 
+  Zap, 
+  ArrowRight, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Clock 
 } from 'lucide-react';
 
 interface HowItWorksProps {
@@ -26,70 +20,52 @@ interface HowItWorksProps {
 }
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
-  // Step 3 (03 INSTALL) is the default active state as specified in prompt & reference
-  const [activeStep, setActiveStep] = useState<number>(2);
-  const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setIsReducedMotion(mq.matches);
-  }, []);
+  const [activeStep, setActiveStep] = useState<number>(2); // Default to Step 3: Installation
 
   const stages = [
     {
       id: '01',
-      label: 'SURVEY',
-      tagline: 'We understand your roof first.',
-      headline: '3D LiDAR Laser Shade & Structural Scan',
-      description: 'Our certified engineers conduct a 3D LiDAR laser scan of your rooftop to evaluate tilt angle, structural strength, and shadow profiles from nearby trees or parapet walls.',
-      icon: Compass,
-      image: '/images/story-empty-rooftop.jpg',
-      alt: 'Certified engineer conducting 3D shadow and roof survey',
+      label: 'Survey & Audit',
+      tagline: 'Precision 3D shadow analysis and roof load testing.',
+      icon: ClipboardList,
+      image: '/images/hero-roof-solar-ark.jpg',
+      alt: 'SolarARK engineer surveying residential rooftop with precision instruments',
       hotspots: [
-        { label: '3D LiDAR Scan Active', desc: '±1mm rooftop topography precision', pos: 'top-16 left-12' },
-        { label: 'DISCOM Feeder Checked', desc: '100% capacity pre-approved', pos: 'bottom-20 right-16' },
+        { label: '3D Drone Roof Scan', desc: 'Accurate shadow & angle map', pos: 'top-[28%] right-[22%]' },
       ],
     },
     {
       id: '02',
-      label: 'DESIGN',
-      tagline: 'A system designed around your home.',
-      headline: 'Custom 3D CAD Blueprint & Shadow Simulation',
-      description: 'We generate an exact 3D CAD layout simulation showing module placement, wind-load calculations, and guaranteed generation estimates before you invest.',
-      icon: Grid,
-      image: '/images/process/stage-02-cad-design.jpg',
-      alt: 'Custom 3D CAD solar layout and string architecture',
+      label: 'CAD Engineering',
+      tagline: 'Bespoke layout with zero slab penetration mounting.',
+      icon: Cpu,
+      image: '/calculator-solar-home.jpg',
+      alt: 'SolarARK high-yield engineering and string inverter design layout',
       hotspots: [
-        { label: 'Optimized Azimuth & Tilt', desc: 'Maximizes winter & summer kWh yield', pos: 'top-20 right-20' },
-        { label: 'Full Terrace Usability', desc: 'Elevated pergola structure clearance', pos: 'bottom-16 left-16' },
+        { label: 'Tier-1 Mono PERC', desc: '540W+ high-yield panels', pos: 'top-[35%] right-[18%]' },
       ],
     },
     {
       id: '03',
-      label: 'INSTALL',
-      tagline: 'Our team handles the work.',
-      headline: 'Turnkey Execution by Certified Master Installers',
-      description: 'Our in-house master installers mount the WindPro galvanized structure, run concealed conduits, and coordinate DISCOM net-metering and PM Surya Ghar subsidy filings end to end.',
+      label: 'Certified Install',
+      tagline: 'MNRE-trained technicians complete installation in 48 hours.',
       icon: Wrench,
-      image: '/images/process/stage-03-install-wide.jpg',
-      alt: 'Certified SolarArk technicians installing solar panels on residential rooftop',
+      image: '/images/how-it-works-rooftop-crew.jpg',
+      alt: 'SolarARK certified installation team installing solar panels on residential roof',
       hotspots: [
-        { label: 'Tier-1 Monocrystalline Cells', desc: '22.8% high-efficiency modules', pos: 'top-14 right-24' },
-        { label: 'WindPro 170 km/h Structure', desc: 'Galvanized zero slab penetration', pos: 'bottom-16 right-36' },
+        { label: 'Tier-1 Monocrystalline Cells', desc: '22.8% high-efficiency modules', pos: 'top-[18%] right-[12%]' },
+        { label: 'WindPro 170 km/h Structure', desc: 'Galvanized zero-slab penetration', pos: 'bottom-[22%] right-[20%]' },
       ],
     },
     {
       id: '04',
-      label: 'LIVE',
-      tagline: 'You start generating. You start saving.',
-      headline: 'Grid Synchronization & Live IoT Telemetry',
-      description: 'DISCOM net-meter is synchronized. Switch on clean solar power, watch your electric meter spin backward, and track real-time savings live on the SolarArk companion app.',
-      icon: BarChart3,
-      image: '/images/earnwithus/earnwithus-hero-rooftop.jpg',
-      alt: 'Operational residential rooftop solar array generating clean electricity',
+      label: 'Net-Meter & Live',
+      tagline: 'DISCOM bidirectional meter activated for instant zero bills.',
+      icon: Zap,
+      image: '/images/gallery-grid-1.jpg',
+      alt: 'SolarARK smart telemetry app showing zero electricity bills',
       hotspots: [
-        { label: 'Live IoT Telemetry Active', desc: 'Daily generation & savings telemetry', pos: 'top-16 right-16' },
-        { label: '₹78,000 Subsidy Credited', desc: 'Direct to client bank account', pos: 'bottom-20 left-20' },
+        { label: 'Smart Telemetry Hub', desc: 'Real-time generation tracking', pos: 'top-[32%] right-[15%]' },
       ],
     },
   ];
@@ -99,14 +75,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
   return (
     <section
       id="how-it-works"
-      className="relative bg-[#FAF9F6] py-16 sm:py-20 lg:py-24 border-b border-stone-200/60 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="relative bg-[#0A1020] py-16 sm:py-20 lg:py-24 border-b border-slate-800 overflow-hidden text-white selection:bg-[#8B1E1E] selection:text-white"
     >
-      {/* ── 1. AMBIENT RADIAL WARMTH & GOLDEN SUNSET ILLUMINATION ── */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-amber-400/8 via-[#8B1E1E]/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-500/4 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* ── 1. AMBIENT RADIAL WARMTH & SOLAR GLOW ILLUMINATION ── */}
+      <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-gradient-to-br from-amber-500/10 via-[#8B1E1E]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-[#8B1E1E]/8 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP WITH SUBTLE CINEMATIC VIGNETTE ── */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[68%] xl:w-[65%] pointer-events-none z-0 overflow-hidden">
+      {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP WITH CINEMATIC DARK SCRIM ── */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[72%] xl:w-[68%] pointer-events-none z-0 overflow-hidden select-none">
         {stages.map((stage, idx) => (
           <div
             key={stage.id}
@@ -114,33 +90,22 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
               activeStep === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
+            {/* Crisp, Vibrant, Unwashed Photographic Image */}
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-center"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.04) 15%, rgba(0,0,0,0.45) 35%, black 60%), linear-gradient(to bottom, black 85%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.04) 15%, rgba(0,0,0,0.45) 35%, black 60%), linear-gradient(to bottom, black 85%, transparent 100%)',
-                maskComposite: 'intersect',
-                WebkitMaskComposite: 'source-in'
-              }}
+              className="w-full h-full object-cover object-[center_35%] filter brightness-[0.98] contrast-[1.06] saturate-[1.12]"
             />
 
-            {/* Subtle Immersive Cinematic Vignette (top/bottom/right soft dark fade for photographic richness) */}
+            {/* Subtle Cinematic Dark Scrim on the Left (Dissolves naturally into #0A1020 behind the text) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-black/18 pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 35%)'
-              }}
+              className="absolute inset-0 bg-gradient-to-r from-[#0A1020] via-[#0A1020]/80 via-30% sm:via-40% to-transparent pointer-events-none" 
             />
-            <div 
-              className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent pointer-events-none"
-              style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 35%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 35%)'
-              }}
-            />
+
+            {/* Subtle Top & Bottom Cinematic Edge Vignette to Frame the Scene */}
+            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0A1020] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A1020] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0A1020]/50 to-transparent pointer-events-none" />
 
             {/* Stage Hotspot Tooltip Badges (Floating on image) */}
             <div className="absolute inset-0 pointer-events-none hidden xl:block">
@@ -149,13 +114,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                   key={sIdx}
                   className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-500`}
                 >
-                  <div className="bg-white/90 backdrop-blur-md border border-stone-200/80 rounded-2xl px-3.5 py-2 shadow-lg shadow-black/10 inline-flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <div className="bg-slate-900/85 backdrop-blur-md border border-white/20 rounded-2xl px-3.5 py-2 shadow-2xl inline-flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                     <div>
-                      <div className="text-[11px] font-bold text-slate-900 font-heading leading-tight">
+                      <div className="text-[11px] font-bold text-white font-heading leading-tight">
                         {spot.label}
                       </div>
-                      <div className="text-[9.5px] text-stone-600 font-medium leading-none mt-0.5">
+                      <div className="text-[9.5px] text-slate-300 font-medium leading-none mt-0.5">
                         {spot.desc}
                       </div>
                     </div>
@@ -165,11 +130,6 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             </div>
           </div>
         ))}
-
-        {/* Soft Organic Ivory/Champagne Dissolves Blending into Left Section */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/90 via-20% to-transparent pointer-events-none z-20" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#FAF9F6] to-transparent pointer-events-none z-20" />
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FAF9F6] to-transparent pointer-events-none z-20" />
       </div>
 
       {/* ── 3. MAIN CONTENT LAYER ── */}
@@ -181,33 +141,39 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           <div className="lg:col-span-6 xl:col-span-6 space-y-5 pt-2">
             
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[11px] font-extrabold text-[#8B1E1E] tracking-wider uppercase font-heading">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E]" />
+            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
               <span>FRICTIONLESS END-TO-END</span>
             </div>
 
             {/* Complete, Expansive Display Headline */}
             <div className="space-y-2">
-              <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight leading-[1.10] text-[#0F172A] font-heading m-0">
+              <h2 
+                className="hero-display text-3xl sm:text-4xl lg:text-[48px] text-white m-0"
+                style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.7)' }}
+              >
                 We handle the hard part.{' '}
-                <span className="text-[#8B1E1E]">You just save.</span>
+                <span className="text-[#FF4D4D]">You just save.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-xl">
+              <p 
+                className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-xl text-left"
+                style={{ textShadow: '0 1px 10px rgba(0, 0, 0, 0.6)' }}
+              >
                 From precision roof assessment to certified installation and DISCOM net-metering approvals, SolarARK manages the entire journey end to end.
               </p>
             </div>
 
             {/* Floating Glassmorphic Trust Badge */}
-            <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-stone-200/80 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
+            <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-3.5 sm:p-4 shadow-xl inline-flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-xl bg-white/15 text-emerald-400 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
               </div>
-              <div className="space-y-0.5">
-                <h3 className="font-heading font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
+              <div className="space-y-0.5 text-left">
+                <h3 className="font-heading font-bold text-sm sm:text-base text-white leading-snug">
                   Certified Installation Team
                 </h3>
-                <p className="text-xs text-stone-500 font-medium">
+                <p className="text-xs text-slate-300 font-medium">
                   Safety. Quality. On-time.
                 </p>
               </div>
@@ -221,7 +187,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
         </div>
 
         {/* ── 4. SEAMLESS FLOATING INTERACTIVE JOURNEY BAR & CONTROLLER ── */}
-        <div className="bg-white/95 backdrop-blur-xl rounded-[26px] sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_16px_48px_rgba(0,0,0,0.05)] relative overflow-hidden">
+        <div className="bg-white/95 backdrop-blur-2xl rounded-[26px] sm:rounded-3xl border border-white/30 p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.25)] relative overflow-hidden text-slate-900">
           
           {/* Subtle Top Ambient Glow Accent */}
           <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#8B1E1E]/40 to-transparent" />
@@ -250,8 +216,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     {/* Top Circle & Step ID */}
                     <div className="flex items-center gap-3 mb-2.5">
                       {isActive ? (
-                        /* Elevated Glowing Active Orb */
-                        <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#8B1E1E] to-[#6A1414] text-white flex flex-col items-center justify-center shadow-lg shadow-[#8B1E1E]/30 ring-4 ring-[#8B1E1E]/15 shrink-0 transform scale-105 transition-all">
+                        /* Elevated Glowing Active Orb in Brand Maroon */
+                        <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full btn-primary-maroon text-white flex flex-col items-center justify-center shrink-0 transform scale-105 transition-all">
                           <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                           <span className="text-[10px] font-extrabold font-heading -mt-0.5">{stage.id}</span>
                         </div>
