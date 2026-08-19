@@ -75,14 +75,14 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
   return (
     <section
       id="how-it-works"
-      className="relative bg-[#0A1020] py-16 sm:py-20 lg:py-24 border-b border-slate-800 overflow-hidden text-white selection:bg-[#8B1E1E] selection:text-white"
+      className="relative bg-[#FAF9F6] py-16 sm:py-20 lg:py-24 border-b border-stone-200/60 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
     >
-      {/* ── 1. AMBIENT RADIAL WARMTH & SOLAR GLOW ILLUMINATION ── */}
-      <div className="absolute top-0 right-1/4 w-[650px] h-[650px] bg-gradient-to-br from-amber-500/10 via-[#8B1E1E]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-[#8B1E1E]/8 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* ── 1. AMBIENT RADIAL WARMTH ILLUMINATION ── */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-amber-400/8 via-[#8B1E1E]/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-500/4 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP WITH CINEMATIC DARK SCRIM ── */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[72%] xl:w-[68%] pointer-events-none z-0 overflow-hidden select-none">
+      {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP WITH SUBTLE CINEMATIC VIGNETTE ── */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[78%] xl:w-[75%] pointer-events-none z-0 overflow-hidden select-none">
         {stages.map((stage, idx) => (
           <div
             key={stage.id}
@@ -90,22 +90,27 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
               activeStep === idx ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            {/* Crisp, Vibrant, Unwashed Photographic Image */}
+            {/* Crisp, Full-Vibrancy Photographic Image (No milky washout) */}
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-[center_35%] filter brightness-[0.98] contrast-[1.06] saturate-[1.12]"
+              className="w-full h-full object-cover object-[center_35%] filter brightness-[0.98] contrast-[1.06] saturate-[1.10]"
             />
 
-            {/* Subtle Cinematic Dark Scrim on the Left (Dissolves naturally into #0A1020 behind the text) */}
+            {/* Subtle Immersive Cinematic Dark Fade on the Left Side (Enhances text contrast without washing out the photo) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-r from-[#0A1020] via-[#0A1020]/80 via-30% sm:via-40% to-transparent pointer-events-none" 
+              className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/18 via-35% to-transparent pointer-events-none" 
             />
 
-            {/* Subtle Top & Bottom Cinematic Edge Vignette to Frame the Scene */}
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0A1020] to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A1020] to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0A1020]/50 to-transparent pointer-events-none" />
+            {/* Subtle Top & Bottom Edge Vignettes for Photographic Depth */}
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/20 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black/15 to-transparent pointer-events-none" />
+
+            {/* Organic Transition from Left Cream Base into the Image */}
+            <div 
+              className="absolute inset-y-0 left-0 w-28 sm:w-40 bg-gradient-to-r from-[#FAF9F6] to-transparent pointer-events-none" 
+            />
 
             {/* Stage Hotspot Tooltip Badges (Floating on image) */}
             <div className="absolute inset-0 pointer-events-none hidden xl:block">
@@ -114,13 +119,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                   key={sIdx}
                   className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-500`}
                 >
-                  <div className="bg-slate-900/85 backdrop-blur-md border border-white/20 rounded-2xl px-3.5 py-2 shadow-2xl inline-flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <div className="bg-white/92 backdrop-blur-md border border-stone-200/90 rounded-2xl px-3.5 py-2 shadow-lg shadow-black/10 inline-flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                     <div>
-                      <div className="text-[11px] font-bold text-white font-heading leading-tight">
+                      <div className="text-[11px] font-bold text-slate-900 font-heading leading-tight">
                         {spot.label}
                       </div>
-                      <div className="text-[9.5px] text-slate-300 font-medium leading-none mt-0.5">
+                      <div className="text-[9.5px] text-stone-600 font-medium leading-none mt-0.5">
                         {spot.desc}
                       </div>
                     </div>
@@ -141,39 +146,39 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           <div className="lg:col-span-6 xl:col-span-6 space-y-5 pt-2">
             
             {/* Eyebrow Pill */}
-            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[11px] font-extrabold text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E]" />
               <span>FRICTIONLESS END-TO-END</span>
             </div>
 
             {/* Complete, Expansive Display Headline */}
             <div className="space-y-2">
               <h2 
-                className="hero-display text-3xl sm:text-4xl lg:text-[48px] text-white m-0"
-                style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.7)' }}
+                className="hero-display text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight leading-[1.10] text-[#0F172A] m-0"
+                style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 12px rgba(0, 0, 0, 0.05)' }}
               >
                 We handle the hard part.{' '}
-                <span className="text-[#FF4D4D]">You just save.</span>
+                <span className="text-[#8B1E1E]">You just save.</span>
               </h2>
 
               <p 
-                className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-xl text-left"
-                style={{ textShadow: '0 1px 10px rgba(0, 0, 0, 0.6)' }}
+                className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed max-w-xl text-left"
+                style={{ textShadow: '0 1px 1px rgba(255, 255, 255, 0.8)' }}
               >
                 From precision roof assessment to certified installation and DISCOM net-metering approvals, SolarARK manages the entire journey end to end.
               </p>
             </div>
 
             {/* Floating Glassmorphic Trust Badge */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-3.5 sm:p-4 shadow-xl inline-flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-xl bg-white/15 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="bg-white/92 backdrop-blur-md rounded-2xl border border-stone-200/90 p-3.5 sm:p-4 shadow-sm inline-flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
               </div>
               <div className="space-y-0.5 text-left">
-                <h3 className="font-heading font-bold text-sm sm:text-base text-white leading-snug">
+                <h3 className="font-heading font-bold text-sm sm:text-base text-[#0F172A] leading-snug">
                   Certified Installation Team
                 </h3>
-                <p className="text-xs text-slate-300 font-medium">
+                <p className="text-xs text-stone-500 font-medium">
                   Safety. Quality. On-time.
                 </p>
               </div>
@@ -187,7 +192,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
         </div>
 
         {/* ── 4. SEAMLESS FLOATING INTERACTIVE JOURNEY BAR & CONTROLLER ── */}
-        <div className="bg-white/95 backdrop-blur-2xl rounded-[26px] sm:rounded-3xl border border-white/30 p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.25)] relative overflow-hidden text-slate-900">
+        <div className="bg-white/95 backdrop-blur-2xl rounded-[26px] sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_16px_48px_rgba(0,0,0,0.06)] relative overflow-hidden text-slate-900">
           
           {/* Subtle Top Ambient Glow Accent */}
           <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#8B1E1E]/40 to-transparent" />
