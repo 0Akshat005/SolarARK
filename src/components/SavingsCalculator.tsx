@@ -50,7 +50,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   return (
     <section 
       id="calculator" 
-      className="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-24 bg-[#FAF9F6] border-b border-slate-200/70"
+      className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-24 bg-[#FAF9F6] border-b border-slate-200/70"
     >
       {/* ── 1. IMMERSIVE ATMOSPHERIC BACKGROUND WITH CINEMATIC DISSOLVE ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">

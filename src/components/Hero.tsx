@@ -242,11 +242,12 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* ── 4. FLUSH-DOCKED CINEMATIC PROOF RAIL & CLEAN SECTION DIVISION ──
-           Anchored perfectly at the bottom edge of Hero to eliminate awkward video slivers and bridge cleanly into the next section. ── */}
-      <div className="w-full relative z-20 pt-8">
+      {/* ── 4. FLOATING PROOF RAIL STRADDLING THE HERO DIVISION SEAM ──
+           Optimally positioned right in the middle where Hero divides with the next section.
+           Full 4-sided rounded pill architecture with glassmorphic depth and soft elevation. ── */}
+      <div className="w-full relative z-30 -mb-10 sm:-mb-12 lg:-mb-14">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0A0F1D]/85 backdrop-blur-xl rounded-t-2xl sm:rounded-t-3xl border-t border-x border-white/15 shadow-[0_-10px_30px_rgba(0,0,0,0.35)] p-4 sm:p-5">
+          <div className="bg-[#0A0F1D]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.45)] ring-1 ring-white/10 p-4 sm:p-5">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               
               {/* 4 Proof Items (Explicitly text-left to prevent awkward stretching) */}
@@ -317,9 +318,6 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
         </div>
-
-        {/* Solid Architectural Base Transition into Calculator (#FAF9F6) */}
-        <div className="w-full h-3 bg-[#FAF9F6] border-t border-stone-200/60" />
       </div>
 
     </section>
