@@ -176,72 +176,94 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               </span>
             </div>
 
-            {/* â”€â”€ Cost Trajectory: TODAY â†’ 5 YEARS â†’ 10 YEARS â”€â”€ */}
-            <div className={`p-3.5 sm:p-4 rounded-2xl bg-white/[0.07] backdrop-blur-md border border-white/15 shadow-lg space-y-2.5 transition-all duration-700 delay-[400ms] ease-out ${
+            {/* ── Cost Trajectory Comparison: Ultra-Clear, Intuitive & Engaging ── */}
+            <div className={`p-3.5 sm:p-4 rounded-2xl bg-black/45 backdrop-blur-md border border-white/20 shadow-xl space-y-2.5 transition-all duration-700 delay-[400ms] ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
               <div className="flex items-center justify-between border-b border-white/10 pb-1.5">
-                <span className="eyebrow text-[10px] text-white/90">
-                  Cost Trajectory Comparison
+                <div>
+                  <span className="text-xs font-bold text-white font-heading block">
+                    Grid Hike vs Solar Stability
+                  </span>
+                  <span className="text-[10px] text-slate-300 font-medium">
+                    Based on your {formatINR(monthlyBill)}/mo bill
+                  </span>
+                </div>
+                <span className="text-[9.5px] font-extrabold text-[#FF6B6B] bg-red-500/20 border border-red-500/30 px-2 py-0.5 rounded-full">
+                  +6% / Yr Inflation
                 </span>
-                <span className="text-[9.5px] text-slate-400 font-medium">
-                  {formatINR(monthlyBill)}/mo bill
-                </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-1.5 text-center">
-                <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 space-y-1">
-                  <span className="text-[9px] font-extrabold font-heading text-slate-400 uppercase tracking-wider block">Today</span>
-                  <div className="text-[10.5px] font-bold text-rose-400 bg-rose-500/15 px-1 py-0.5 rounded border border-rose-500/20">
-                    {formatINR(monthlyBill)}
+              {/* 2 Dedicated Comparison Rows */}
+              <div className="space-y-2">
+                {/* ROW 1: GRID ELECTRICITY (RISING) */}
+                <div className="p-2 rounded-xl bg-red-500/10 border border-red-500/20 space-y-1">
+                  <div className="flex items-center justify-between text-[10.5px]">
+                    <div className="flex items-center gap-1 font-bold text-rose-300 font-heading">
+                      <TrendingUp className="w-3.5 h-3.5 text-rose-400" />
+                      <span>Grid Electricity (Without Solar)</span>
+                    </div>
+                    <span className="text-[9.5px] text-rose-300/80 font-medium">Climbs +79% in 10 yrs</span>
                   </div>
-                  <div className="text-[10.5px] font-bold text-emerald-400 bg-emerald-500/15 px-1 py-0.5 rounded border border-emerald-500/20">
-                    ~{formatINR(billWithSolar)}
+
+                  {/* 3 Step Trajectory */}
+                  <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-white/10">
+                      <span className="text-[8.5px] text-slate-400 uppercase block font-semibold">Today</span>
+                      <span className="text-[11px] font-extrabold text-white font-heading">{formatINR(monthlyBill)}</span>
+                    </div>
+                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-red-500/30">
+                      <span className="text-[8.5px] text-rose-300 uppercase block font-semibold">In 5 Yrs</span>
+                      <span className="text-[11px] font-extrabold text-rose-300 font-heading">{formatINR(grid5Y)}</span>
+                    </div>
+                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-red-500/40">
+                      <span className="text-[8.5px] text-rose-400 uppercase block font-semibold">In 10 Yrs</span>
+                      <span className="text-[11px] font-extrabold text-rose-400 font-heading">{formatINR(grid10Y)}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 space-y-1">
-                  <span className="text-[9px] font-extrabold font-heading text-slate-400 uppercase tracking-wider block">5 Years</span>
-                  <div className="text-[10.5px] font-bold text-rose-400 bg-rose-500/15 px-1 py-0.5 rounded border border-rose-500/20">
-                    {formatINR(grid5Y)}
+                {/* ROW 2: WITH SOLARARK (LOCKED & FIXED) */}
+                <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 space-y-1">
+                  <div className="flex items-center justify-between text-[10.5px]">
+                    <div className="flex items-center gap-1 font-bold text-emerald-300 font-heading">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>With SolarARK Rooftop</span>
+                    </div>
+                    <span className="text-[9.5px] font-extrabold text-emerald-300 bg-emerald-500/20 px-1.5 py-0.5 rounded">
+                      🔒 0% Inflation Locked
+                    </span>
                   </div>
-                  <div className="text-[10.5px] font-bold text-emerald-400 bg-emerald-500/15 px-1 py-0.5 rounded border border-emerald-500/20">
-                    ~{formatINR(billWithSolar)}
-                  </div>
-                </div>
 
-                <div className="p-2 rounded-xl bg-white/[0.06] border border-white/10 space-y-1">
-                  <span className="text-[9px] font-extrabold font-heading text-slate-400 uppercase tracking-wider block">10 Years</span>
-                  <div className="text-[10.5px] font-bold text-rose-400 bg-rose-500/15 px-1 py-0.5 rounded border border-rose-500/20">
-                    {formatINR(grid10Y)}
-                  </div>
-                  <div className="text-[10.5px] font-bold text-emerald-400 bg-emerald-500/15 px-1 py-0.5 rounded border border-emerald-500/20">
-                    ~{formatINR(billWithSolar)}
+                  {/* 3 Step Trajectory (All Fixed & Stable) */}
+                  <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
+                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">Today</span>
+                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    </div>
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
+                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">In 5 Yrs</span>
+                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    </div>
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
+                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">In 10 Yrs</span>
+                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] px-0.5 text-slate-400">
-                <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-rose-500 shrink-0" />
-                  <span>Grid (Rising)</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                  <span className="font-bold text-emerald-400">SolarARK (Fixed)</span>
-                </div>
-              </div>
-
-              <p className="text-[10.5px] text-slate-500 font-medium italic text-center pt-1 border-t border-white/10 m-0">
+              {/* Concluding Psychological Note */}
+              <p className="text-[10px] text-slate-300 font-medium italic text-center pt-1 border-t border-white/10 m-0">
                 The longer you stay on the grid, the more you keep paying.
               </p>
             </div>
 
           </div>
 
-          {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          {/* ═══════════════════════════════════════════════════════════════
               RIGHT SIDE: STREAMLINED 2-COLUMN CALCULATOR CARD
-             â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+             ═══════════════════════════════════════════════════════════════ */}
           <div className={`lg:col-span-8 xl:col-span-8 transition-all duration-700 delay-150 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
@@ -249,7 +271,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                 
-                {/* â”€â”€ LEFT HALF: STEP 1 INPUTS (md:col-span-5) â”€â”€ */}
+                {/* ── LEFT HALF: STEP 1 INPUTS (md:col-span-5) ── */}
                 <div className="md:col-span-5 space-y-4">
                   
                   <div className="flex items-center gap-2 pb-2 border-b border-stone-100">
@@ -315,10 +337,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         aria-label="Monthly electricity bill range slider"
                       />
                       <div className="flex justify-between text-[9.5px] font-semibold text-stone-400 font-heading">
-                        <span>â‚¹1k</span>
-                        <span>â‚¹7.5k</span>
-                        <span>â‚¹15k</span>
-                        <span>â‚¹25k+</span>
+                        <span>₹1k</span>
+                        <span>₹7.5k</span>
+                        <span>₹15k</span>
+                        <span>₹25k+</span>
                       </div>
                     </div>
 
