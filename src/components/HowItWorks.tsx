@@ -26,7 +26,6 @@ interface HowItWorksProps {
 }
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
-  // Step 1 (01 SURVEY) starts the auto-advancing journey
   const [activeStep, setActiveStep] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -123,15 +122,16 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
   ];
 
   const currentStage = stages[activeStep];
+  const CurrentIcon = currentStage.icon;
 
   return (
     <section
       id="how-it-works"
-      className="relative bg-[#FAF9F6] py-16 sm:py-20 lg:py-24 border-b border-stone-200/60 overflow-hidden text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="relative bg-[#0A0F1D] py-14 sm:py-18 lg:py-20 border-b border-stone-800/60 overflow-hidden text-white selection:bg-[#8B1E1E] selection:text-white"
     >
       {/* ── 1. AMBIENT RADIAL WARMTH & GOLDEN SUNSET ILLUMINATION ── */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-amber-400/8 via-[#8B1E1E]/5 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-500/4 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-amber-400/10 via-[#8B1E1E]/8 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-10 w-[450px] h-[450px] bg-red-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* ── 2. SEAMLESS PHOTOREALISTIC STAGE BACKDROP WITH IMMERSIVE EDITORIAL SCRIM ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -147,12 +147,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center opacity-85"
             />
 
             {/* Subtle Right & Top Edge Cinematic Vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/20 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-l from-black/25 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-l from-black/35 via-transparent to-transparent pointer-events-none" />
 
             {/* Stage Hotspot Tooltip Badges (Floating on image) */}
             <div className="absolute inset-0 pointer-events-none hidden xl:block">
@@ -161,7 +161,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                   key={sIdx}
                   className={`absolute ${spot.pos} animate-in fade-in zoom-in-95 duration-700`}
                 >
-                  <div className="bg-black/55 backdrop-blur-md border border-white/20 text-white rounded-2xl px-3.5 py-2 shadow-lg shadow-black/30 inline-flex items-center gap-2.5">
+                  <div className="bg-black/60 backdrop-blur-md border border-white/20 text-white rounded-2xl px-3.5 py-2 shadow-lg shadow-black/30 inline-flex items-center gap-2.5">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                     <div>
                       <div className="text-[11px] font-bold text-white font-heading leading-tight">
@@ -178,104 +178,112 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           </div>
         ))}
 
-        {/* ── Immersive Subtle Dark Scrim on Left Side (Eliminates washout white fade, provides 100% text clarity) ── */}
+        {/* ── Immersive Subtle Dark Scrim on Left Side (High contrast text clarity) ── */}
         <div
           className="hidden lg:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(10, 15, 29, 0.88) 0%, rgba(10, 15, 29, 0.74) 34%, rgba(10, 15, 29, 0.38) 54%, rgba(10, 15, 29, 0.10) 68%, transparent 82%)',
+              'linear-gradient(90deg, rgba(10, 15, 29, 0.92) 0%, rgba(10, 15, 29, 0.78) 36%, rgba(10, 15, 29, 0.42) 54%, rgba(10, 15, 29, 0.12) 68%, transparent 84%)',
           }}
         />
         <div
           className="lg:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(10, 15, 29, 0.88) 0%, rgba(10, 15, 29, 0.70) 50%, rgba(10, 15, 29, 0.90) 100%)',
+              'linear-gradient(180deg, rgba(10, 15, 29, 0.92) 0%, rgba(10, 15, 29, 0.75) 50%, rgba(10, 15, 29, 0.92) 100%)',
           }}
         />
 
         {/* Subtle Top & Bottom Blends */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#FAF9F6]/40 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FAF9F6]/40 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0A0F1D]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0A0F1D]/80 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* ── 3. MAIN CONTENT LAYER ── */}
-      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 space-y-12 lg:space-y-16">
+      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 space-y-8 lg:space-y-10">
         
         {/* ── TOP EDITORIAL ROW ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[320px] sm:min-h-[360px] lg:min-h-[400px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          <div className="lg:col-span-6 xl:col-span-6 space-y-5 pt-2">
+          <div className="lg:col-span-7 xl:col-span-6 space-y-4 pt-1">
             
             {/* Eyebrow Pill — High Contrast Glassmorphic Badge */}
-            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs">
+            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>FRICTIONLESS END-TO-END</span>
+              <span>FRICTIONLESS END-TO-END · STEP {currentStage.id} OF 04</span>
             </div>
 
-            {/* Complete, Expansive Display Headline with Text Shadows */}
+            {/* Display Headline */}
             <div className="space-y-1">
               <h2 
-                className="hero-display text-3xl sm:text-4xl lg:text-[48px] text-white tracking-tight leading-[1.10] m-0"
-                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.75)' }}
+                className="hero-display text-3xl sm:text-4xl lg:text-[44px] text-white tracking-tight leading-[1.10] m-0"
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.8)' }}
               >
                 We handle the hard part.
               </h2>
               <h3 
-                className="hero-display text-3xl sm:text-4xl lg:text-[48px] text-[#FF6B6B] tracking-tight leading-[1.10] m-0"
-                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.75)' }}
+                className="hero-display text-3xl sm:text-4xl lg:text-[44px] text-[#FF6B6B] tracking-tight leading-[1.10] m-0"
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.8)' }}
               >
                 You just save.
               </h3>
             </div>
 
-            <p 
-              className="text-base sm:text-lg text-slate-100 font-normal leading-relaxed max-w-xl text-left"
-              style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.8)' }}
-            >
-              From precision roof assessment to certified installation and DISCOM net-metering approvals, SolarARK manages the entire journey end to end.
-            </p>
+            {/* Dynamic Active Stage Feature Spotlight Card */}
+            <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-white/20 p-4 sm:p-5 shadow-xl space-y-2">
+              <div className="flex items-center gap-2.5 text-[#FF6B6B] text-xs font-extrabold font-heading tracking-wider uppercase">
+                <CurrentIcon className="w-4 h-4 text-[#FF6B6B]" />
+                <span>Stage {currentStage.id}: {currentStage.headline}</span>
+              </div>
+              <p 
+                className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed m-0"
+                style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)' }}
+              >
+                {currentStage.description}
+              </p>
+            </div>
 
             {/* Floating Glassmorphic Trust Badge */}
-            <div className="bg-black/45 backdrop-blur-md rounded-2xl border border-white/20 p-3.5 sm:p-4 shadow-lg inline-flex items-center gap-3.5 text-white">
-              <div className="w-11 h-11 rounded-xl bg-red-500/20 border border-red-500/30 text-[#FF6B6B] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
+            <div className="inline-flex items-center gap-3 bg-black/45 backdrop-blur-md rounded-xl border border-white/15 px-3.5 py-2 text-white">
+              <div className="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/30 text-[#FF6B6B] flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-4 h-4 stroke-[2.2]" />
               </div>
-              <div className="space-y-0.5 text-left">
-                <h4 className="font-heading font-bold text-sm sm:text-base text-white leading-snug">
+              <div className="text-left">
+                <span className="font-heading font-bold text-xs text-white block">
                   Certified Installation Team
-                </h4>
-                <p className="text-xs text-slate-300 font-medium">
+                </span>
+                <span className="text-[11px] text-slate-300 font-medium block">
                   Safety. Quality. On-time.
-                </p>
+                </span>
               </div>
             </div>
 
           </div>
 
           {/* Right Spacer for Clean Atmospheric Breathing Room */}
-          <div className="lg:col-span-6 xl:col-span-6 hidden lg:block" />
+          <div className="lg:col-span-5 xl:col-span-6 hidden lg:block" />
 
         </div>
 
-        {/* ── 4. SEAMLESS FLOATING INTERACTIVE JOURNEY BAR & CONTROLLER ── */}
+        {/* ── 4. INTEGRATED LUXURIOUS DARK-FROSTED JOURNEY DOCK ── */}
         <div 
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="bg-white/95 backdrop-blur-xl rounded-[26px] sm:rounded-3xl border border-stone-200/80 p-5 sm:p-7 shadow-[0_16px_48px_rgba(0,0,0,0.05)] relative overflow-hidden group/container"
+          className="bg-black/65 backdrop-blur-2xl rounded-3xl border border-white/20 p-4 sm:p-5 lg:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.5)] relative overflow-hidden group/container"
         >
-          
-          {/* Subtle Top Ambient Glow Accent */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#8B1E1E]/40 to-transparent" />
+          {/* Subtle Top Accent Horizon Line */}
+          <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF6B6B]/40 to-transparent" />
 
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-8">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
             
-            {/* 4 Connected Interactive Steps with Flowing Progress Tracks */}
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 relative">
+            {/* 4 Connected Interactive Stage Cards */}
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 relative">
               
               {stages.map((stage, idx) => {
                 const Icon = stage.icon;
                 const isActive = activeStep === idx;
+                const isCompleted = idx < activeStep;
+
                 return (
                   <button
                     key={stage.id}
@@ -283,53 +291,52 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     role="tab"
                     aria-selected={isActive}
                     aria-label={`Step ${stage.id}: ${stage.label} - ${stage.tagline}`}
-                    className={`text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E] overflow-hidden ${
+                    className={`text-left p-3 sm:p-3.5 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B6B] overflow-hidden ${
                       isActive
-                        ? 'bg-[#FAF8F5] border border-stone-200/90 shadow-sm ring-1 ring-[#8B1E1E]/10'
-                        : 'hover:bg-stone-50/70 border border-transparent'
+                        ? 'bg-white/[0.14] border border-white/35 shadow-lg ring-1 ring-[#FF6B6B]/40'
+                        : 'bg-white/[0.04] hover:bg-white/[0.08] border border-white/10'
                     }`}
                   >
                     {/* Top Circle & Step ID */}
-                    <div className="flex items-center gap-3 mb-2.5">
-                      {isActive ? (
-                        /* Elevated Glowing Active Orb */
-                        <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-[#8B1E1E] to-[#6A1414] text-white flex flex-col items-center justify-center shadow-lg shadow-[#8B1E1E]/30 ring-4 ring-[#8B1E1E]/15 shrink-0 transform scale-105 transition-all">
-                          <Icon className="w-5 h-5" />
-                          <span className="text-[9.5px] font-extrabold font-heading -mt-0.5">{stage.id}</span>
-                        </div>
-                      ) : (
-                        /* Inactive Soft Circle Badge */
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center shrink-0 group-hover:bg-stone-200 group-hover:text-slate-800 transition-colors">
-                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </div>
-                      )}
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all ${
+                        isActive
+                          ? 'bg-gradient-to-br from-[#8B1E1E] to-[#C53030] text-white shadow-md shadow-[#8B1E1E]/50'
+                          : 'bg-white/10 text-slate-300 group-hover:bg-white/15 group-hover:text-white'
+                      }`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
 
                       <div>
-                        <span className={`text-[10.5px] font-extrabold font-heading block uppercase tracking-wider ${isActive ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                        <span className={`text-[9.5px] font-extrabold font-heading block uppercase tracking-widest ${
+                          isActive ? 'text-[#FF6B6B]' : 'text-slate-400'
+                        }`}>
                           Step {stage.id}
                         </span>
-                        <span className={`font-heading font-extrabold text-xs sm:text-sm tracking-tight block ${isActive ? 'text-[#8B1E1E]' : 'text-slate-800'}`}>
+                        <span className="font-heading font-extrabold text-xs sm:text-sm tracking-tight text-white block">
                           {stage.label}
                         </span>
                       </div>
                     </div>
 
-                    {/* Concise One-Line Description */}
-                    <p className={`text-xs leading-relaxed font-normal mb-2 ${isActive ? 'text-slate-700 font-medium' : 'text-stone-500'}`}>
+                    {/* Concise Tagline */}
+                    <p className={`text-[11px] leading-snug font-normal mb-2.5 ${
+                      isActive ? 'text-slate-100 font-medium' : 'text-slate-300'
+                    }`}>
                       {stage.tagline}
                     </p>
 
-                    {/* ── Flowing Animated Progress Bar (Apple / Tesla Carousel Style) ── */}
-                    <div className="w-full h-1 bg-stone-100 rounded-full overflow-hidden mt-auto">
+                    {/* ── Progress Bar Track ── */}
+                    <div className="w-full h-1 bg-white/15 rounded-full overflow-hidden mt-auto">
                       {isActive ? (
                         <div
-                          className="h-full bg-gradient-to-r from-[#8B1E1E] to-[#E53E3E] rounded-full transition-all duration-75 ease-linear shadow-xs"
+                          className="h-full bg-gradient-to-r from-[#FF6B6B] to-[#C53030] rounded-full transition-all duration-75 ease-linear shadow-xs"
                           style={{ width: `${progress}%` }}
                         />
                       ) : (
                         <div
                           className={`h-full rounded-full transition-all duration-300 ${
-                            idx < activeStep ? 'bg-[#8B1E1E]/25 w-full' : 'w-0'
+                            isCompleted ? 'bg-[#FF6B6B]/50 w-full' : 'w-0'
                           }`}
                         />
                       )}
@@ -340,19 +347,19 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
 
             </div>
 
-            {/* Right Primary Action CTA */}
-            <div className="lg:w-72 xl:w-80 flex flex-col items-stretch sm:items-center lg:items-end justify-center pt-4 lg:pt-0 lg:pl-6 border-t lg:border-t-0 lg:border-l border-stone-200/80 gap-2 shrink-0">
+            {/* Right Action CTA */}
+            <div className="lg:w-64 xl:w-72 flex flex-col items-stretch justify-center pt-3 lg:pt-0 lg:pl-5 border-t lg:border-t-0 lg:border-l border-white/15 gap-2 shrink-0">
               <button
                 onClick={onCtaClick}
-                className="w-full btn-primary-maroon font-heading font-bold text-sm sm:text-base py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full btn-primary-maroon font-heading font-bold text-sm sm:text-base py-3 px-5 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.99]"
               >
                 <span>Book Free Site Survey</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center justify-center gap-1.5 text-xs text-stone-500 font-medium">
-                <Clock className="w-3.5 h-3.5 text-stone-400" />
-                <span>Takes 60 seconds • No obligation</span>
+              <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-300 font-medium">
+                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                <span>Takes 60 seconds • 100% Free</span>
               </div>
             </div>
 
@@ -364,3 +371,4 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
     </section>
   );
 };
+
