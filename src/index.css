@@ -2,9 +2,37 @@
 
 @layer base {
   :root {
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
-    
+    /* ── Aktiv Grotesk Typography System (Dalton Maag, via Adobe Fonts) ──
+       Reference: SolarARK-Typography-Decision.md, Section 6 & 8           */
+    --font-primary: 'aktiv-grotesk', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-extended: 'aktiv-grotesk-extended', var(--font-primary);
+    --font-condensed: 'aktiv-grotesk-condensed', var(--font-primary);
+
+    /* Tailwind compatibility aliases — so font-sans / font-heading just work */
+    --font-sans: var(--font-primary);
+    --font-heading: var(--font-primary);
+
+    /* Weight tokens — only Regular/Medium/Bold/Black per decision doc */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    --weight-black: 900;
+
+    /* Tracking tokens */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.01em;
+    --tracking-label: 0.10em;
+
+    /* Line-height tokens */
+    --lh-display: 1.08;
+    --lh-heading: 1.2;
+    --lh-body: 1.6;
+
+    /* Measure / max-width tokens */
+    --measure-body: 70ch;
+    --measure-hero: 40ch;
+
     /* Canonical Brand Maroon Tokens */
     --brand-primary: #8B1E1E;
     --brand-primary-deep: #5E1212;
@@ -31,15 +59,61 @@
     --radius-full: 9999px;
   }
 
+  /* ── Base Typography ── */
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    line-height: var(--lh-body);
     color: #0F172A;
     background-color: #F8FAFC;
     overflow-x: hidden;
   }
 
+  /* Headings: Aktiv Grotesk Standard Bold with tight tracking */
   h1, h2, h3, .font-heading {
-    font-family: var(--font-heading);
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--lh-heading);
+  }
+
+  /* ── Specialised Typographic Roles (Decision doc Section 6) ── */
+
+  /* Hero Display — Extended Black, display line-height, tight tracking */
+  .hero-display {
+    font-family: var(--font-extended);
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--lh-display);
+  }
+
+  /* Stat/Data Figures — Condensed Black, tabular numerals */
+  .stat-figure {
+    font-family: var(--font-condensed);
+    font-weight: var(--weight-black);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Eyebrow/Label — Condensed Bold, wide tracking, uppercase */
+  .eyebrow, .label-text {
+    font-family: var(--font-condensed);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  /* Navigation — Standard Medium, slightly loosened tracking */
+  .nav-link {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  /* Buttons — Standard Bold */
+  .btn-label {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
   }
 
   /* ── Sitewide Proper Paragraph Justification ── */
@@ -69,7 +143,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Elevation shadows with refined jewel-tone radiance */
+/* Elevation shadows */
 .shadow-elevation-1 {
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
 }

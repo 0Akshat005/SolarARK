@@ -105,8 +105,8 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              {/* Eyebrow Pill Badge (Matching Reference: Soft Red Pill with Trending Icon) */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF1EC] border border-[#8B1E1E]/20 text-[#8B1E1E] text-[11px] font-bold tracking-wider uppercase font-heading">
+              {/* Eyebrow Pill Badge — Condensed Bold, wide tracking */}
+              <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF1EC] border border-[#8B1E1E]/20 text-[#8B1E1E] text-[11px]">
                 <TrendingUp className="w-3.5 h-3.5 text-[#8B1E1E]" />
                 <span>GRID TARIFF ESCALATION VS SOLAR STABILITY</span>
               </div>

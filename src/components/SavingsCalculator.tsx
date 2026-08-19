@@ -102,7 +102,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
                   1
                 </span>
-                <span className="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight uppercase">Your Details</span>
+                <span className="eyebrow text-xs sm:text-sm text-slate-900">Your Details</span>
               </div>
 
               {/* Pincode Field */}
@@ -217,18 +217,18 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">
                     2
                   </span>
-                  <span className="text-xs sm:text-sm font-extrabold text-slate-900 tracking-tight uppercase">Your Solar Savings Estimate</span>
+                  <span className="eyebrow text-xs sm:text-sm text-slate-900">Your Solar Savings Estimate</span>
                 </div>
               </div>
 
               {/* High-Impact Hero Savings Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-emerald-50/70 via-emerald-50/30 to-white border border-emerald-100 relative overflow-hidden flex items-center justify-between shadow-xs">
                 <div className="space-y-1 z-10">
-                  <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider font-heading">
+                  <span className="eyebrow text-[11px] text-emerald-800">
                     You Save
                   </span>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl sm:text-4xl font-extrabold font-heading text-emerald-700 tracking-tight">
+                    <span className="stat-figure text-3xl sm:text-4xl text-emerald-700">
                       {formatINR(results.monthlySavings)}
                     </span>
                     <span className="text-sm font-bold text-emerald-600">/ month</span>

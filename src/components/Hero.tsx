@@ -170,22 +170,22 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Headline & Action Column */}
           <div className="lg:col-span-8 xl:col-span-7 space-y-6">
             
-            {/* Accreditation Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs font-bold font-heading tracking-wider uppercase">
+            {/* Accreditation Badge — Condensed Bold, wide tracking */}
+            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-sm text-xs">
               <BadgeCheck className="w-4 h-4 text-amber-400" />
               <span>PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
             </div>
 
-            {/* Clear Commanding Headline */}
+            {/* Hero Display — Extended Black per typography decision */}
             <div className="space-y-1">
               <h1 
-                className="font-heading text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white tracking-tight leading-[1.08] m-0"
+                className="hero-display text-[36px] sm:text-[48px] lg:text-[56px] text-white m-0"
                 style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Power your home.
               </h1>
               <h2 
-                className="font-heading text-[34px] sm:text-[46px] lg:text-[54px] font-extrabold text-[#FF9E2C] tracking-tight leading-[1.08] m-0"
+                className="hero-display text-[34px] sm:text-[46px] lg:text-[54px] text-[#FF9E2C] m-0"
                 style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Pay less every month.
