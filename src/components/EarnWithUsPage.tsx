@@ -59,9 +59,6 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Calculator State
-  const [monthlyCapacityKw, setMonthlyCapacityKw] = useState<number>(10);
-
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -114,13 +111,6 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  // Calculator calculations: ₹4,000/kW + Milestone Bonus
-  const calculateEstimatedEarnings = (kw: number) => {
-    const basePerKw = 4000;
-    const milestoneBonus = kw >= 25 ? 25000 : kw >= 10 ? 10000 : 0;
-    return kw * basePerKw + milestoneBonus;
   };
 
   const whoCanJoinList = [
@@ -351,82 +341,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── 5. PROJECTED EARNINGS ESTIMATOR CALCULATOR ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
-        <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
-          
-          <div className="max-w-2xl mx-auto text-center space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-red-50 text-xs font-bold text-[#8B1E1E] font-heading border border-red-100">
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span>Earnings Calculator</span>
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Estimate Your Monthly Income
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-500 text-center">
-              Drag the slider to project earnings based on your monthly referred solar capacity.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto bg-[#FCFAF7] border border-stone-200 rounded-2xl p-6 sm:p-8 space-y-6">
-            
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-700 font-heading uppercase tracking-wider">
-                  Referred Solar Capacity
-                </span>
-                <span className="text-sm sm:text-base font-extrabold text-[#8B1E1E] font-heading bg-white px-3 py-1 rounded-lg border border-red-100 shadow-2xs">
-                  {monthlyCapacityKw} kW / month
-                </span>
-              </div>
-
-              <input
-                type="range"
-                min="3"
-                max="50"
-                step="1"
-                value={monthlyCapacityKw}
-                onChange={(e) => setMonthlyCapacityKw(Number(e.target.value))}
-                className="w-full h-2.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#8B1E1E]"
-              />
-
-              <div className="flex justify-between text-[11px] text-stone-400 font-medium">
-                <span>3 kW (1 Home)</span>
-                <span>10 kW (3 Homes)</span>
-                <span>25 kW (Society)</span>
-                <span>50 kW (Commercial)</span>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50/70 border border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="text-center sm:text-left">
-                <span className="text-xs font-bold text-amber-900 uppercase tracking-wider font-heading block">
-                  Projected Monthly Payout
-                </span>
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#8B1E1E] font-heading tracking-tight mt-0.5">
-                  ₹{calculateEstimatedEarnings(monthlyCapacityKw).toLocaleString('en-IN')}
-                  <span className="text-xs font-normal text-stone-600 ml-1">/ month</span>
-                </div>
-                <span className="text-[11px] text-stone-500 mt-1 block">
-                  Includes base commission (₹4,000/kW) + milestone bonuses.
-                </span>
-              </div>
-
-              <a
-                href="#earnwith"
-                onClick={scrollToForm}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow-md transition-all shrink-0 cursor-pointer"
-              >
-                Start Earning Now →
-              </a>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 6. WHO CAN JOIN (SCANNABLE MICRO-GRID) ── */}
+      {/* ── 4. WHO CAN JOIN (SCANNABLE MICRO-GRID) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
         <div className="space-y-6">
           
