@@ -125,136 +125,117 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* ═══════════════════════════════════════════════════════════════
-              LEFT SIDE: PROBLEM + UNDERSTANDING + ESCALATION TIMELINE
+              LEFT SIDE: RESTRAINED, EDITORIAL GRID VS SOLAR PRESENTATION
              ═══════════════════════════════════════════════════════════════ */}
-          <div className={`lg:col-span-4 xl:col-span-4 space-y-4 pt-1 transition-all duration-700 ease-out ${
+          <div className={`lg:col-span-4 xl:col-span-4 space-y-5 lg:space-y-6 pt-1 transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             
-            {/* Eyebrow Pill — Glassmorphic High-Contrast Badge */}
-            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-white shadow-xs text-[10.5px]">
-              <TrendingUp className="w-3 h-3 text-[#FF6B6B]" />
-              <span>GRID TARIFF ESCALATION VS SOLAR STABILITY</span>
+            {/* Eyebrow Pill — Soft-white, subtle neutral border, dark translucent bg */}
+            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.07] backdrop-blur-md border border-white/15 text-slate-200 shadow-xs text-[10px] sm:text-[10.5px] tracking-wide">
+              <TrendingUp className="w-3 h-3 text-slate-300" />
+              <span>GRID PRICES RISE. SOLAR STAYS STEADY.</span>
             </div>
 
-            {/* Headline Hierarchy: Consequence first, then SolarARK solution */}
-            <div className="space-y-0.5">
+            {/* Headline Hierarchy — Clean Warm-White / Near-White Typography Only (No Red/Maroon) */}
+            <div className="space-y-1">
               <h2 
+                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-100 tracking-tight leading-[1.15] m-0"
+                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
+              >
+                Your electricity bill keeps rising.
+              </h2>
+              <h3 
                 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.15] m-0"
                 style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
               >
-                Your electricity bill keeps going up.
-              </h2>
-              <h3 
-                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#FF6B6B] tracking-tight leading-[1.15] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
-              >
-                Your rooftop doesn’t have to.
+                Your solar cost doesn’t.
               </h3>
             </div>
 
-            {/* Supporting Concise Human Copy */}
+            {/* Supporting Concise Sentence (Max 2 lines on desktop, muted soft-white, no bold words) */}
             <p 
-              className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed text-left m-0 max-w-lg"
+              className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed text-left m-0 max-w-lg"
               style={{ textShadow: '0 1px 10px rgba(0, 0, 0, 0.7)' }}
             >
-              Grid tariffs rise 5–8% every year in Maharashtra. A SolarARK installation locks your power generation cost at zero inflation for 25+ years.
+              Lock in predictable power costs for 25+ years instead of paying rising grid tariffs.
             </p>
 
-            {/* 3 Compact Proof Points in a Sleek Glassmorphic Badge Row */}
-            <div className={`flex flex-wrap gap-1.5 pt-0.5 transition-all duration-700 delay-200 ease-out ${
+            {/* ── Simplified Comparison Card: Premium Energy-Finance Presentation ── */}
+            <div className={`p-3.5 sm:p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/15 shadow-xl space-y-2.5 transition-all duration-700 delay-[200ms] ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B6B]" /> Lock costs 25+ yrs
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
-                <TrendingDown className="w-3.5 h-3.5 text-emerald-400" /> Slash bills up to 90%
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-bold text-white shadow-2xs">
-                <Sun className="w-3.5 h-3.5 text-amber-400" /> Clean energy for life
-              </span>
-            </div>
-
-            {/* ── Cost Trajectory Comparison: Ultra-Clear, Intuitive & Engaging ── */}
-            <div className={`p-3.5 sm:p-4 rounded-2xl bg-black/45 backdrop-blur-md border border-white/20 shadow-xl space-y-2.5 transition-all duration-700 delay-[400ms] ease-out ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}>
-              <div className="flex items-center justify-between border-b border-white/10 pb-1.5">
-                <div>
-                  <span className="text-xs font-bold text-white font-heading block">
-                    Grid Hike vs Solar Stability
-                  </span>
-                  <span className="text-[10px] text-slate-300 font-medium">
-                    Based on your {formatINR(monthlyBill)}/mo bill
-                  </span>
-                </div>
-                <span className="text-[9.5px] font-extrabold text-[#FF6B6B] bg-red-500/20 border border-red-500/30 px-2 py-0.5 rounded-full">
-                  +6% / Yr Inflation
+              <div className="flex items-baseline justify-between border-b border-white/10 pb-1.5">
+                <span className="text-xs font-bold text-white font-heading block">
+                  Grid vs Solar
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium">
+                  Based on your {formatINR(monthlyBill)}/mo bill
                 </span>
               </div>
 
-              {/* 2 Dedicated Comparison Rows */}
+              {/* 2 Clean Comparison Rows */}
               <div className="space-y-2">
-                {/* ROW 1: GRID ELECTRICITY (RISING) */}
-                <div className="p-2 rounded-xl bg-red-500/10 border border-red-500/20 space-y-1">
+                {/* ROW 1: GRID ELECTRICITY (Subtle dark neutral tint, crisp light typography) */}
+                <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.04] border border-white/10 space-y-1">
                   <div className="flex items-center justify-between text-[10.5px]">
-                    <div className="flex items-center gap-1 font-bold text-rose-300 font-heading">
-                      <TrendingUp className="w-3.5 h-3.5 text-rose-400" />
-                      <span>Grid Electricity (Without Solar)</span>
-                    </div>
-                    <span className="text-[9.5px] text-rose-300/80 font-medium">Climbs +79% in 10 yrs</span>
+                    <span className="font-bold text-slate-200 font-heading">
+                      Grid Electricity
+                    </span>
+                    <span className="text-[9.5px] text-slate-400 font-medium">
+                      Rising cost
+                    </span>
                   </div>
 
                   {/* 3 Step Trajectory */}
                   <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-white/10">
+                    <div className="bg-black/25 rounded-lg py-1 px-1 border border-white/10">
                       <span className="text-[8.5px] text-slate-400 uppercase block font-semibold">Today</span>
-                      <span className="text-[11px] font-extrabold text-white font-heading">{formatINR(monthlyBill)}</span>
+                      <span className="text-[11px] font-bold text-white font-heading">{formatINR(monthlyBill)}</span>
                     </div>
-                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-red-500/30">
-                      <span className="text-[8.5px] text-rose-300 uppercase block font-semibold">In 5 Yrs</span>
-                      <span className="text-[11px] font-extrabold text-rose-300 font-heading">{formatINR(grid5Y)}</span>
+                    <div className="bg-black/25 rounded-lg py-1 px-1 border border-white/10">
+                      <span className="text-[8.5px] text-slate-400 uppercase block font-semibold">In 5 Yrs</span>
+                      <span className="text-[11px] font-bold text-white font-heading">{formatINR(grid5Y)}</span>
                     </div>
-                    <div className="bg-black/30 rounded-lg py-1 px-1 border border-red-500/40">
-                      <span className="text-[8.5px] text-rose-400 uppercase block font-semibold">In 10 Yrs</span>
-                      <span className="text-[11px] font-extrabold text-rose-400 font-heading">{formatINR(grid10Y)}</span>
+                    <div className="bg-black/25 rounded-lg py-1 px-1 border border-white/10">
+                      <span className="text-[8.5px] text-slate-400 uppercase block font-semibold">In 10 Yrs</span>
+                      <span className="text-[11px] font-bold text-white font-heading">{formatINR(grid10Y)}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* ROW 2: WITH SOLARARK (LOCKED & FIXED) */}
-                <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 space-y-1">
+                {/* ROW 2: SOLARARK ROOFTOP (Subtle dark green tint, restrained green accent) */}
+                <div className="p-2 sm:p-2.5 rounded-xl bg-emerald-950/25 border border-emerald-500/20 space-y-1">
                   <div className="flex items-center justify-between text-[10.5px]">
-                    <div className="flex items-center gap-1 font-bold text-emerald-300 font-heading">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>With SolarARK Rooftop</span>
+                    <div className="flex items-center gap-1.5 font-bold text-emerald-300 font-heading">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>SolarARK Rooftop</span>
                     </div>
-                    <span className="text-[9.5px] font-extrabold text-emerald-300 bg-emerald-500/20 px-1.5 py-0.5 rounded">
-                      🔒 0% Inflation Locked
+                    <span className="text-[9.5px] font-semibold text-emerald-400">
+                      Predictable cost
                     </span>
                   </div>
 
                   {/* 3 Step Trajectory (All Fixed & Stable) */}
                   <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
-                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">Today</span>
-                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/25">
+                      <span className="text-[8.5px] text-emerald-400/80 uppercase block font-semibold">Today</span>
+                      <span className="text-[11px] font-bold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
                     </div>
-                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
-                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">In 5 Yrs</span>
-                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/25">
+                      <span className="text-[8.5px] text-emerald-400/80 uppercase block font-semibold">In 5 Yrs</span>
+                      <span className="text-[11px] font-bold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
                     </div>
-                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/30">
-                      <span className="text-[8.5px] text-emerald-300/80 uppercase block font-semibold">In 10 Yrs</span>
-                      <span className="text-[11px] font-extrabold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
+                    <div className="bg-emerald-950/40 rounded-lg py-1 px-1 border border-emerald-500/25">
+                      <span className="text-[8.5px] text-emerald-400/80 uppercase block font-semibold">In 10 Yrs</span>
+                      <span className="text-[11px] font-bold text-emerald-300 font-heading">~{formatINR(billWithSolar)}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Concluding Psychological Note */}
-              <p className="text-[10px] text-slate-300 font-medium italic text-center pt-1 border-t border-white/10 m-0">
+              <p className="text-[10px] text-slate-400 font-medium italic text-center pt-1 border-t border-white/10 m-0">
                 The longer you stay on the grid, the more you keep paying.
               </p>
             </div>
