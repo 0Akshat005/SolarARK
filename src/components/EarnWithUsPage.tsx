@@ -309,58 +309,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── 3. PROOF STRIP: 3 KEY METRICS ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12 relative z-20">
-        <div className="bg-white rounded-3xl border border-stone-200/80 shadow-[0_12px_36px_rgba(0,0,0,0.05)] p-6 sm:p-7">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-stone-100 items-center">
-            
-            <div className="flex items-center gap-4 md:px-6">
-              <div className="w-12 h-12 rounded-2xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
-                <Coins className="w-6 h-6" />
-              </div>
-              <div className="space-y-0.5">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
-                  ₹15,000+
-                </div>
-                <div className="text-xs text-stone-500 font-medium">
-                  Avg. Payout per Residential Referral
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 md:px-6">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div className="space-y-0.5">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
-                  100%
-                </div>
-                <div className="text-xs text-stone-500 font-medium">
-                  Technical, DISCOM &amp; Subsidy Handled
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 md:px-6">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
-                <Award className="w-6 h-6" />
-              </div>
-              <div className="space-y-0.5">
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading tracking-tight">
-                  ₹0 Cost
-                </div>
-                <div className="text-xs text-stone-500 font-medium">
-                  Zero Registration Fee / Free Welcome Kit
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. 3-STEP INSTANT REVENUE WORKFLOW ── */}
+      {/* ── 3. 3-STEP INSTANT REVENUE WORKFLOW ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
         <div className="bg-[#FCFAF7] border border-stone-200/90 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
           
