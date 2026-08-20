@@ -137,7 +137,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <span>GRID PRICES RISE. SOLAR STAYS STEADY.</span>
             </div>
 
-            {/* Headline Hierarchy — Clean Warm-White / Near-White Typography Only (No Red/Maroon) */}
+            {/* Headline Hierarchy — Line 1: Warm White / Line 2: Subtle Ivory/Champagne Gradient */}
             <div className="space-y-1">
               <h2 
                 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-slate-100 tracking-tight leading-[1.15] m-0"
@@ -146,8 +146,12 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 Your electricity bill keeps rising.
               </h2>
               <h3 
-                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight leading-[1.15] m-0"
-                style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.8)' }}
+                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-tight leading-[1.15] m-0 bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #F8F8F5 0%, #E7D8B9 50%, #FFFDF7 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
               >
                 Your solar cost doesn’t.
               </h3>
@@ -430,7 +434,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     </button>
                     <div className="flex items-center justify-center gap-1.5 text-[10.5px] text-stone-500 font-medium text-center">
                       <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                      <span>No Obligation Â· 100% Free Â· 3D Site Survey</span>
+                      <span>No Obligation · 100% Free · 3D Site Survey</span>
                     </div>
                   </div>
 
