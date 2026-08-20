@@ -113,10 +113,10 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
 
               {/* Dominant Headline */}
               <div className="space-y-1">
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B1730] tracking-tight leading-[1.12] m-0">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0B1730] tracking-tight leading-[1.12] m-0">
                   Your electricity bill keeps going up.
                 </h2>
-                <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#8B1E1E] tracking-tight leading-[1.12] m-0">
+                <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#8B1E1E] tracking-tight leading-[1.12] m-0">
                   Your rooftop doesn’t have to.
                 </h3>
               </div>

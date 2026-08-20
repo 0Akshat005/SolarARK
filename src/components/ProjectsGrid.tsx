@@ -28,7 +28,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
             <span>Powering 5,000+ Happy Customers Across Maharashtra</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Explore Verified SolarArk Rooftop Projects
           </h2>
 
@@ -96,7 +96,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
                       </h3>
                     </div>
 
-                    <span className="text-xs font-extrabold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
+                    <span className="text-xs font-bold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
                       {proj.category || 'Solar Rooftop'}
                     </span>
                   </div>
@@ -112,7 +112,7 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
 
                   <div>
                     <span className="text-[11px] text-stone-500 font-medium">Monthly Bill After Solar</span>
-                    <div className="text-xl font-extrabold text-emerald-600 font-heading">
+                    <div className="text-xl font-bold text-emerald-600 font-heading">
                       {formatINR(proj.monthlyBillAfter)}
                     </div>
                   </div>

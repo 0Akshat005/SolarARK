@@ -57,7 +57,7 @@ export const TrustPillars: React.FC = () => {
             <span>Built on Four Core Pillars of Excellence</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Why Indian Homeowners Trust SolarARK Over Generic Installers
           </h2>
 

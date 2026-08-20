@@ -206,14 +206,14 @@ export const OurJourney: React.FC = () => {
         {/* Eyebrow: — OUR STORY — */}
         <div className="flex items-center justify-center gap-2">
           <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
-          <p className="text-xs sm:text-[13px] font-extrabold text-[#8B1E1E] uppercase tracking-[0.2em] font-heading m-0">
+          <p className="text-xs sm:text-[13px] font-bold text-[#8B1E1E] uppercase tracking-[0.2em] font-heading m-0">
             Our Story
           </p>
           <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
         </div>
 
         {/* Display Headline */}
-        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
           How SolarARK grew, year by year
         </h2>
 
@@ -250,7 +250,7 @@ export const OurJourney: React.FC = () => {
                 >
                   {/* Year Number in exact era color */}
                   <span
-                    className="text-2xl xl:text-[28px] font-extrabold font-heading mb-4 select-none tracking-tight"
+                    className="text-2xl xl:text-[28px] font-bold font-heading mb-4 select-none tracking-tight"
                     style={{ color: m.inkColor }}
                   >
                     {m.year}
@@ -372,7 +372,7 @@ export const OurJourney: React.FC = () => {
                 <div className="space-y-1 flex-1">
                   <div className="flex items-center justify-between gap-2">
                     <span
-                      className="text-base sm:text-lg font-extrabold font-heading"
+                      className="text-base sm:text-lg font-bold font-heading"
                       style={{ color: m.inkColor }}
                     >
                       {m.year}

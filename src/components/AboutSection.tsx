@@ -145,7 +145,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
               <span>Official About SolarArk</span>
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.14]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.14]">
               Who Are <span className="text-[#8B1E1E]">We?</span>
             </h2>
 
@@ -233,7 +233,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                 <span>OUR JOURNEY</span>
               </div>
 
-              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-white tracking-tight leading-[1.15]">
+              <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-white tracking-tight leading-[1.15]">
                 Our <span className="text-[#C53030]">Journey</span>
               </h3>
 
@@ -275,7 +275,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
                     >
                       {/* Year Label */}
                       <div className="h-10 flex items-center justify-center mb-2">
-                        <span className="font-heading font-extrabold text-2xl lg:text-3xl text-white tracking-tight">
+                        <span className="font-heading font-bold text-2xl lg:text-3xl text-white tracking-tight">
                           {milestone.year}
                         </span>
                       </div>
@@ -353,7 +353,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
 
                       {/* Content to the right */}
                       <div className="pt-0.5 flex-1">
-                        <span className="font-heading font-extrabold text-2xl text-white block">
+                        <span className="font-heading font-bold text-2xl text-white block">
                           {milestone.year}
                         </span>
                         <h4 className="font-heading font-bold text-base text-white mt-0.5 leading-snug">
@@ -381,7 +381,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
               Our Core Philosophy
             </span>
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
               Powering a <span className="text-[#8B1E1E]">Sustainable Future</span> with <span className="text-[#8B1E1E]">Solar Ark India</span>
             </h3>
           </div>
@@ -434,7 +434,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
         {/* ── CHAPTER 4: EXCEPTIONAL QUALITY, ENVIRONMENTAL RESPONSIBILITY & SOLAR SYSTEMS ── */}
         <div className="space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-2">
-            <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Exceptional quality. End-to-end service. Delighted customers
             </h3>
             <p className="text-sm text-slate-600 font-normal">

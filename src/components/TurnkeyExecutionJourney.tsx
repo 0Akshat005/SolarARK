@@ -180,7 +180,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
             <span>Turnkey Execution Journey</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
             How SolarArk Delivers <br className="hidden sm:inline" />
             Your Solar System
           </h2>
@@ -231,7 +231,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
                 {/* 2. Numbered Ring Badge (Straddling boundary) */}
                 <div className="relative flex justify-center -mt-5 z-20">
                   <div
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-heading font-extrabold text-xs shadow-xs transition-transform duration-300 group-hover:scale-110"
+                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-heading font-bold text-xs shadow-xs transition-transform duration-300 group-hover:scale-110"
                     style={{
                       border: `2px solid ${stage.accentColor}`,
                       color: stage.accentColor,
@@ -295,7 +295,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center font-heading font-extrabold text-xs shadow-md"
+                  <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center font-heading font-bold text-xs shadow-md"
                     style={{
                       border: `2px solid ${stage.accentColor}`,
                       color: stage.accentColor,

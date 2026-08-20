@@ -32,7 +32,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
           </div>
 
           {/* Headline */}
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
             See what powers <span className="text-[#8B1E1E]">SolarARK.</span>
           </h2>
 

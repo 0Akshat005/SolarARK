@@ -6,10 +6,8 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { ProblemSection } from './components/ProblemSection';
 import { SavingsCalculator } from './components/SavingsCalculator';
 import { HowItWorks } from './components/HowItWorks';
-import { ProjectsGrid } from './components/ProjectsGrid';
 import { Testimonials } from './components/Testimonials';
 import { TechnologySection } from './components/TechnologySection';
 import { AppExperience } from './components/AppExperience';
@@ -125,7 +123,7 @@ export default function App() {
 
         {/* Page Title & Subtitle */}
         <div className="max-w-3xl mb-12 space-y-2">
-          <h1 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             {title}
           </h1>
           <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">

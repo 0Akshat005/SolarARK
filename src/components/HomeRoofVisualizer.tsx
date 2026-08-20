@@ -20,7 +20,7 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
             <span>Visual Roof Architecture Preview</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             See How Rooftop Solar Transforms Your Home
           </h2>
 

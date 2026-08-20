@@ -97,7 +97,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8 space-y-3">
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
                 Explore SolarArk’s <br className="hidden sm:inline" />
                 <span className="text-[#8B1E1E]">Verified Completed Projects</span>
               </h1>
@@ -124,19 +124,19 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-stone-200/80">
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1730] font-heading">5,000+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[#0B1730] font-heading">5,000+</div>
               <div className="text-xs text-stone-500 font-medium mt-0.5">Rooftops Commissioned</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#8B1E1E] font-heading">35+ MW</div>
+              <div className="text-2xl sm:text-3xl font-bold text-[#8B1E1E] font-heading">35+ MW</div>
               <div className="text-xs text-stone-500 font-medium mt-0.5">Total Capacity Installed</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-heading">90%+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-emerald-600 font-heading">90%+</div>
               <div className="text-xs text-stone-500 font-medium mt-0.5">Avg. Bill Reduction</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-heading">₹78,000</div>
+              <div className="text-2xl sm:text-3xl font-bold text-amber-600 font-heading">₹78,000</div>
               <div className="text-xs text-stone-500 font-medium mt-0.5">Max Central Subsidy Claimed</div>
             </div>
           </div>
@@ -270,7 +270,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
                       {/* Top Badges */}
                       <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider font-heading px-2.5 py-1 rounded-md bg-[#8B1E1E] text-white shadow-sm">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider font-heading px-2.5 py-1 rounded-md bg-[#8B1E1E] text-white shadow-sm">
                           <Zap className="w-3 h-3" />
                           <span>{proj.systemSizeKw} kW Array</span>
                         </span>
@@ -320,7 +320,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block font-heading">
                             Bill After Solar
                           </span>
-                          <span className="text-base font-extrabold text-emerald-600 font-heading">
+                          <span className="text-base font-bold text-emerald-600 font-heading">
                             {formatINR(proj.monthlyBillAfter)}/mo
                           </span>
                         </div>
@@ -380,7 +380,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   <Film className="w-3.5 h-3.5" />
                   <span>On-Site Video Proof</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading tracking-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight">
                   Watch SolarArk Installations Across Maharashtra
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
@@ -492,7 +492,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                 <MapPin className="w-3.5 h-3.5" />
                 <span>Local Installation Network</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading tracking-tight text-white">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-white">
                 Want to see solar installations near your locality?
               </h2>
               <p className="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed">

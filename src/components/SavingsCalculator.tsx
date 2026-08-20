@@ -146,7 +146,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 Your electricity bill keeps rising.
               </h2>
               <h3 
-                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-tight leading-[1.15] m-0 bg-clip-text text-transparent"
+                className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold tracking-tight leading-[1.15] m-0 bg-clip-text text-transparent"
                 style={{
                   backgroundImage: 'linear-gradient(90deg, #F8F8F5 0%, #E7D8B9 50%, #FFFDF7 100%)',
                   WebkitBackgroundClip: 'text',
@@ -260,7 +260,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <div className="md:col-span-5 space-y-4">
                   
                   <div className="flex items-center gap-2 pb-2 border-b border-stone-100">
-                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-extrabold flex items-center justify-center shrink-0">1</span>
+                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">1</span>
                     <span className="eyebrow text-xs text-slate-900">Your Details</span>
                   </div>
 
@@ -363,7 +363,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <div className="md:col-span-7 space-y-3.5 md:border-l md:border-stone-100 md:pl-6">
                   
                   <div className="flex items-center gap-2 pb-2 border-b border-stone-100">
-                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-extrabold flex items-center justify-center shrink-0">2</span>
+                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">2</span>
                     <span className="eyebrow text-xs text-slate-900">Your Solar Savings Estimate</span>
                   </div>
 
@@ -392,7 +392,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <div className="grid grid-cols-2 gap-2 items-center">
                       <div className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-2xs">
                         <span className="text-[9px] font-bold text-stone-400 uppercase tracking-wider block">Current Bill</span>
-                        <span className="text-xs sm:text-sm font-extrabold text-rose-700 font-heading block">
+                        <span className="text-xs sm:text-sm font-bold text-rose-700 font-heading block">
                           {formatINR(monthlyBill)}
                         </span>
                         <div className="w-full h-1.5 bg-stone-100 rounded-full mt-1 overflow-hidden">
@@ -402,7 +402,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                       <div className="p-2 rounded-lg bg-emerald-50/60 border border-emerald-200/80 shadow-2xs">
                         <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-wider block">With Solar</span>
-                        <span className="text-xs sm:text-sm font-extrabold text-emerald-800 font-heading block">
+                        <span className="text-xs sm:text-sm font-bold text-emerald-800 font-heading block">
                           ~{formatINR(billWithSolar)}
                         </span>
                         <div className="w-full h-1.5 bg-emerald-100 rounded-full mt-1 overflow-hidden">
@@ -416,7 +416,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                     <div className="flex items-center justify-between text-[11px] text-slate-700 font-medium px-0.5">
                       <span>Net Monthly Benefit:</span>
-                      <span className="font-extrabold text-emerald-700 font-heading">
+                      <span className="font-bold text-emerald-700 font-heading">
                         +{formatINR(results.monthlySavings)} / Month
                       </span>
                     </div>
@@ -487,7 +487,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                         <div className="pt-0.5 flex items-center justify-between text-slate-700">
                           <span className="font-semibold">25-Yr Savings:</span>
-                          <span className="font-extrabold text-[#8B1E1E] text-xs font-heading">{formatINR(results.twentyFiveYearSavings)}</span>
+                          <span className="font-bold text-[#8B1E1E] text-xs font-heading">{formatINR(results.twentyFiveYearSavings)}</span>
                         </div>
                       </div>
                     )}
@@ -508,7 +508,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         }`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
             <div className="flex items-center justify-center gap-1.5 text-slate-400 text-[11px] font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B6B]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
               <span>Trusted by families & businesses</span>
             </div>
             <div className="flex items-center justify-center gap-1.5 text-slate-400 text-[11px] font-semibold">
@@ -520,7 +520,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <span>Expert In-House Installation</span>
             </div>
             <div className="flex items-center justify-center gap-1.5 text-slate-400 text-[11px] font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#FF6B6B]" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
               <span>25-Year Performance Guarantee</span>
             </div>
           </div>

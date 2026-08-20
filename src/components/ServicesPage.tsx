@@ -64,7 +64,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <span>Complete Solar EPC Services</span>
             </div>
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-slate-900 tracking-tight leading-[1.12]">
               Engineered for Maximum Solar Yield.<br />
               <span className="text-[#8B1E1E]">Tailored for Every Rooftop.</span>
             </h1>
@@ -152,7 +152,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
               Explore By Sector
             </span>
-            <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">
+            <h2 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
               Select Your Energy Requirement
             </h2>
           </div>
@@ -209,7 +209,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <BadgePercent className="w-4 h-4 text-amber-300 shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Govt. Subsidy</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-heading">Up to ₹78,000 Direct Credit</span>
+                  <span className="text-xs sm:text-sm font-bold font-heading">Up to ₹78,000 Direct Credit</span>
                 </div>
               </div>
             </div>
@@ -221,7 +221,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
                 Residential Rooftop Solar for Indian Homes
               </h2>
 
@@ -290,7 +290,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
                 Solar Solutions for Housing Societies &amp; Apartments
               </h2>
 
@@ -360,7 +360,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <Building className="w-4 h-4 text-amber-400 shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-300">50+ Societies Solarised</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-heading">Pune &amp; Chh. Sambhajinagar</span>
+                  <span className="text-xs sm:text-sm font-bold font-heading">Pune &amp; Chh. Sambhajinagar</span>
                 </div>
               </div>
             </div>
@@ -386,7 +386,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <TrendingDown className="w-4 h-4 text-emerald-300 shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-emerald-200">High ROI</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-heading">40% Accelerated Tax Depreciation</span>
+                  <span className="text-xs sm:text-sm font-bold font-heading">40% Accelerated Tax Depreciation</span>
                 </div>
               </div>
             </div>
@@ -398,7 +398,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
                 Commercial &amp; Industrial Solar Plants
               </h2>
 
@@ -467,7 +467,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
                 Proactive Solar Cleaning &amp; Annual Maintenance (AMC)
               </h2>
 
@@ -537,7 +537,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <Activity className="w-4 h-4 text-amber-300 shrink-0" />
                 <div className="text-left leading-tight">
                   <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Peak Performance</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-heading">24/7 Remote Diagnostics</span>
+                  <span className="text-xs sm:text-sm font-bold font-heading">24/7 Remote Diagnostics</span>
                 </div>
               </div>
             </div>

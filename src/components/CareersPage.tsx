@@ -339,7 +339,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
             {/* Editorial Headline */}
             <div className="space-y-1.5">
-              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Empower Your Career with <br />
                 <span className="text-[#8B1E1E]">SolarArk Projects</span>
               </h1>
@@ -391,7 +391,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-[#0B1730] font-heading">#1 Solar EPC</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">#1 Solar EPC</div>
                 <div className="text-xs text-stone-500 font-medium">Central India Leader</div>
               </div>
             </div>
@@ -401,7 +401,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <TrendingUp className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-[#0B1730] font-heading">35+ MW</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">35+ MW</div>
                 <div className="text-xs text-stone-500 font-medium">Capacity Commissioned</div>
               </div>
             </div>
@@ -411,7 +411,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Zap className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-[#0B1730] font-heading">100% Growth</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">100% Growth</div>
                 <div className="text-xs text-stone-500 font-medium">Year-on-Year Expansion</div>
               </div>
             </div>
@@ -421,7 +421,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-extrabold text-[#0B1730] font-heading">4.8 / 5.0</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">4.8 / 5.0</div>
                 <div className="text-xs text-stone-500 font-medium">Team Culture Rating</div>
               </div>
             </div>
@@ -508,7 +508,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Briefcase className="w-3.5 h-3.5" />
                 <span>Job Openings ({openRoles.length})</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Current Career Opportunities
               </h2>
             </div>
@@ -577,7 +577,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                     >
                       <div className="space-y-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider font-heading px-2 py-0.5 rounded bg-red-50 text-[#8B1E1E] border border-red-100">
+                          <span className="text-[10px] font-bold uppercase tracking-wider font-heading px-2 py-0.5 rounded bg-red-50 text-[#8B1E1E] border border-red-100">
                             {role.department}
                           </span>
                           <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
@@ -690,7 +690,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               </div>
 
               <div className="space-y-2">
-                <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
                   Submit Your Application
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
@@ -962,7 +962,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <Compass className="w-3.5 h-3.5" />
               <span>Hiring Process</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Our Simple &amp; Transparent Hiring Journey
             </h2>
             <p className="text-xs sm:text-sm text-stone-500">
@@ -973,7 +973,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
             
             <div className="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-extrabold flex items-center justify-center text-xs">
+              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-bold flex items-center justify-center text-xs">
                 01
               </div>
               <h3 className="font-heading text-sm font-bold text-slate-900">Application Review</h3>
@@ -981,7 +981,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             <div className="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-extrabold flex items-center justify-center text-xs">
+              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-bold flex items-center justify-center text-xs">
                 02
               </div>
               <h3 className="font-heading text-sm font-bold text-slate-900">Technical Discussion</h3>
@@ -989,7 +989,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             <div className="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-extrabold flex items-center justify-center text-xs">
+              <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] font-heading font-bold flex items-center justify-center text-xs">
                 03
               </div>
               <h3 className="font-heading text-sm font-bold text-slate-900">Leadership Meeting</h3>
@@ -997,7 +997,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             <div className="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
-              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-heading font-extrabold flex items-center justify-center text-xs">
+              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-heading font-bold flex items-center justify-center text-xs">
                 04
               </div>
               <h3 className="font-heading text-sm font-bold text-slate-900">Offer &amp; Induction</h3>
@@ -1018,7 +1018,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Questions About Working Here?</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Careers Frequently Asked Questions
             </h2>
           </div>

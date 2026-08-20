@@ -37,7 +37,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
             <span>Got Questions? We Have Transparent Answers.</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Frequently Asked Questions
           </h2>
 

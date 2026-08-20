@@ -22,7 +22,7 @@ export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCta
             <span>Brand-Owned Performance Protection</span>
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-5xl font-bold text-white tracking-tight">
             The SunSure Promise™ Guarantee
           </h2>
 

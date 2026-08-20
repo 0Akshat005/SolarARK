@@ -97,7 +97,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Get in Touch with SolarArk</span>
           </div>
-          <h1 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.14]">
+          <h1 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.14]">
             Connect with Our Solar Energy Experts
           </h1>
           <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed">
@@ -179,7 +179,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Free &amp; Zero Obligation</span>
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900">
                   Request a Free Solar Site Survey
                 </h3>
                 <p className="text-xs text-stone-600 mt-0.5">
@@ -317,7 +317,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
           {/* Right Office Directory */}
           <div className="lg:col-span-6 space-y-6">
-            <h3 className="font-heading text-2xl font-extrabold text-slate-900 tracking-tight">
+            <h3 className="font-heading text-2xl font-bold text-slate-900 tracking-tight">
               Our Registered Offices
             </h3>
 

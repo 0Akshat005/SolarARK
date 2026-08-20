@@ -186,7 +186,7 @@ export const TrustBar: React.FC = () => {
                     className="text-[13px] lg:text-[14px] font-bold tabular-nums"
                     style={{
                       color: 'rgba(255,255,255,0.40)',
-                      fontFamily: 'var(--font-heading, "Space Grotesk", sans-serif)',
+                      fontFamily: 'var(--font-heading)',
                     }}
                   >
                     {String(activeStage + 1).padStart(2, '0')}
@@ -195,7 +195,7 @@ export const TrustBar: React.FC = () => {
                     className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase"
                     style={{
                       color: 'rgba(255,255,255,0.50)',
-                      fontFamily: 'var(--font-heading, "Space Grotesk", sans-serif)',
+                      fontFamily: 'var(--font-heading)',
                     }}
                   >
                     {stage.tag}
@@ -205,7 +205,7 @@ export const TrustBar: React.FC = () => {
                 {/* Headline */}
                 <h2
                   className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold text-white leading-[1.15] tracking-tight mb-3"
-                  style={{ fontFamily: 'var(--font-heading, "Space Grotesk", sans-serif)' }}
+                  style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   {stage.title}
                 </h2>
@@ -249,7 +249,7 @@ export const TrustBar: React.FC = () => {
                     <span
                       className="text-[10px] sm:text-[11px] font-bold tabular-nums transition-colors duration-300"
                       style={{
-                        fontFamily: 'var(--font-heading, "Space Grotesk", sans-serif)',
+                        fontFamily: 'var(--font-heading)',
                         color: isActive || isPast
                           ? 'rgba(255,255,255,0.70)'
                           : 'rgba(255,255,255,0.25)',

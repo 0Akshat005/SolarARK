@@ -26,7 +26,7 @@ export const Testimonials: React.FC = () => {
             <span>4.8★ Google Verified Customer Reviews</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Real Indian Homeowners. Real Monthly Power Savings.
           </h2>
 
@@ -47,7 +47,7 @@ export const Testimonials: React.FC = () => {
                 <div className="bg-emerald-950/90 text-white p-3.5 rounded-2xl border border-emerald-800 flex items-center justify-between">
                   <div>
                     <div className="text-[10px] text-emerald-400 uppercase font-semibold">Bill Impact</div>
-                    <div className="text-sm font-extrabold text-emerald-300 font-heading">
+                    <div className="text-sm font-bold text-emerald-300 font-heading">
                       {formatINR(t.beforeBill)} → {formatINR(t.afterBill)} / mo
                     </div>
                   </div>

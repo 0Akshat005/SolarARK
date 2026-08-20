@@ -23,7 +23,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
             <span>Industrial-Grade Hardware & Software</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Tier-1 German & Japanese Solar Engineering
           </h2>
 
@@ -73,7 +73,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                 </span>
               </div>
 
-              <h3 className="text-2xl font-extrabold font-heading text-white">
+              <h3 className="text-2xl font-bold font-heading text-white">
                 {selectedTech.title}
               </h3>
 

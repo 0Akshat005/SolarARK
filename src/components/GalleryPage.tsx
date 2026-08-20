@@ -131,7 +131,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8 space-y-3">
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
                 SolarArk Gallery &amp; <br className="hidden sm:inline" />
                 <span className="text-[#8B1E1E]">Community Moments</span>
               </h1>
@@ -415,7 +415,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 <Users className="w-3.5 h-3.5" />
                 <span>Meet Us in Person</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading tracking-tight text-white">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-white">
                 Want to meet SolarArk at the next expo or event?
               </h2>
               <p className="text-xs sm:text-sm text-slate-200 max-w-2xl leading-relaxed">

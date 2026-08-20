@@ -19,7 +19,7 @@ export const SubsidyExplainer: React.FC<{ onCtaClick: () => void }> = ({ onCtaCl
             <span>PM Surya Ghar Muft Bijli Yojana Official Subsidy</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Government Subsidy Tiers & Direct Bank Credit
           </h2>
 

@@ -222,8 +222,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                 We handle the hard part.
               </h2>
               <h3 
-                className="hero-display text-3xl sm:text-4xl lg:text-[44px] text-[#FF6B6B] tracking-tight leading-[1.10] m-0"
-                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.8)' }}
+                className="hero-display text-3xl sm:text-4xl lg:text-[44px] tracking-tight leading-[1.10] m-0 bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: 'linear-gradient(90deg, #F8F8F5 0%, #E7D8B9 50%, #FFFDF7 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: '#F5EDE0',
+                }}
               >
                 You just save.
               </h3>
@@ -231,8 +236,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
 
             {/* Dynamic Active Stage Feature Spotlight Card */}
             <div className="bg-black/50 backdrop-blur-xl rounded-2xl border border-white/20 p-4 sm:p-5 shadow-xl space-y-2">
-              <div className="flex items-center gap-2.5 text-[#FF6B6B] text-xs font-extrabold font-heading tracking-wider uppercase">
-                <CurrentIcon className="w-4 h-4 text-[#FF6B6B]" />
+              <div className="flex items-center gap-2.5 text-[#E7D8B9] text-xs font-bold font-heading tracking-wider uppercase">
+                <CurrentIcon className="w-4 h-4 text-[#E7D8B9]" />
                 <span>Stage {currentStage.id}: {currentStage.headline}</span>
               </div>
               <p 
@@ -245,7 +250,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
 
             {/* Floating Glassmorphic Trust Badge */}
             <div className="inline-flex items-center gap-3 bg-black/45 backdrop-blur-md rounded-xl border border-white/15 px-3.5 py-2 text-white">
-              <div className="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/30 text-[#FF6B6B] flex items-center justify-center shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-amber-100/20 border border-amber-200/30 text-[#E7D8B9] flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-4 h-4 stroke-[2.2]" />
               </div>
               <div className="text-left">
@@ -272,7 +277,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           className="bg-black/65 backdrop-blur-2xl rounded-3xl border border-white/20 p-4 sm:p-5 lg:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.5)] relative overflow-hidden group/container"
         >
           {/* Subtle Top Accent Horizon Line */}
-          <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF6B6B]/40 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#E7D8B9]/40 to-transparent" />
 
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
             
@@ -291,9 +296,9 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     role="tab"
                     aria-selected={isActive}
                     aria-label={`Step ${stage.id}: ${stage.label} - ${stage.tagline}`}
-                    className={`text-left p-3 sm:p-3.5 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B6B] overflow-hidden ${
+                    className={`text-left p-3 sm:p-3.5 rounded-2xl transition-all duration-300 relative flex flex-col justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E7D8B9] overflow-hidden ${
                       isActive
-                        ? 'bg-white/[0.14] border border-white/35 shadow-lg ring-1 ring-[#FF6B6B]/40'
+                        ? 'bg-white/[0.14] border border-white/35 shadow-lg ring-1 ring-[#E7D8B9]/40'
                         : 'bg-white/[0.04] hover:bg-white/[0.08] border border-white/10'
                     }`}
                   >
@@ -308,12 +313,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                       </div>
 
                       <div>
-                        <span className={`text-[9.5px] font-extrabold font-heading block uppercase tracking-widest ${
-                          isActive ? 'text-[#FF6B6B]' : 'text-slate-400'
+                        <span className={`text-[9.5px] font-bold font-heading block uppercase tracking-widest ${
+                          isActive ? 'text-[#E7D8B9]' : 'text-slate-400'
                         }`}>
                           Step {stage.id}
                         </span>
-                        <span className="font-heading font-extrabold text-xs sm:text-sm tracking-tight text-white block">
+                        <span className="font-heading font-bold text-xs sm:text-sm tracking-tight text-white block">
                           {stage.label}
                         </span>
                       </div>
@@ -330,13 +335,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
                     <div className="w-full h-1 bg-white/15 rounded-full overflow-hidden mt-auto">
                       {isActive ? (
                         <div
-                          className="h-full bg-gradient-to-r from-[#FF6B6B] to-[#C53030] rounded-full transition-all duration-75 ease-linear shadow-xs"
+                          className="h-full bg-gradient-to-r from-[#E7D8B9] to-[#C53030] rounded-full transition-all duration-75 ease-linear shadow-xs"
                           style={{ width: `${progress}%` }}
                         />
                       ) : (
                         <div
                           className={`h-full rounded-full transition-all duration-300 ${
-                            isCompleted ? 'bg-[#FF6B6B]/50 w-full' : 'w-0'
+                            isCompleted ? 'bg-[#E7D8B9]/50 w-full' : 'w-0'
                           }`}
                         />
                       )}

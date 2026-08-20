@@ -60,7 +60,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <span>Company Background</span>
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
               Who Are <span className="text-[#8B1E1E]">We?</span>
             </h2>
 
@@ -109,7 +109,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <span>Our Commitment</span>
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.18]">
               Exceptional quality. End-to-end service.<br className="hidden sm:inline" />{' '}
               <span className="text-[#8B1E1E]">Delighted</span> customers.
             </h2>
@@ -151,7 +151,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <div className="w-14 h-[1px] bg-stone-300" />
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Environmental <span className="text-[#8B1E1E]">Responsibility</span>
               </h3>
 
@@ -171,7 +171,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 <div className="w-14 h-[1px] bg-stone-300" />
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Solar <span className="text-[#8B1E1E]">Systems</span>
               </h3>
 
@@ -221,7 +221,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
           {/* Right Mission & Vision Content */}
           <div className="lg:col-span-7 space-y-8">
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
               Powering a <span className="text-[#8B1E1E]">Sustainable Future</span> with <span className="text-[#8B1E1E]">Solar Ark</span> India
             </h2>
 

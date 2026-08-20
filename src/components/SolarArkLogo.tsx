@@ -73,7 +73,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
           Solar
         </span>
         <span
-          className={`font-black uppercase tracking-tight transition-colors duration-200 ${
+          className={`font-bold uppercase tracking-tight transition-colors duration-200 ${
             isDark ? 'text-[#C53030]' : 'text-[#8B1E1E]'
           }`}
           style={{ fontWeight: 800 }}

@@ -138,13 +138,15 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             </div>
 
             {/* Display Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.15] m-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.15] m-0">
               Claim Your Free <br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{
-                  backgroundImage:
-                    'linear-gradient(100deg, #5E1212 0%, #8B1E1E 55%, #A82424 100%)',
+                  backgroundImage: 'linear-gradient(100deg, #2A2118 0%, #6B5842 55%, #8B7355 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: '#4A3C2B',
                 }}
               >
                 Solar Savings Estimate
@@ -215,7 +217,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
               <div className="text-xs sm:text-[13px] leading-snug flex-1">
                 <span>Get a 3D model, savings estimate &amp; subsidy report in </span>
-                <strong className="text-amber-400 font-extrabold">24–48 hours</strong>
+                <strong className="text-amber-400 font-bold">24–48 hours</strong>
               </div>
             </div>
 
@@ -262,7 +264,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               {/* Step 1 */}
               <div className="flex flex-col items-center gap-1.5">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-extrabold text-xs transition-colors ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-xs transition-colors ${
                     step >= 1
                       ? 'bg-[#8B1E1E] text-white shadow-xs ring-4 ring-[#8B1E1E]/15'
                       : 'bg-stone-100 text-stone-400'
@@ -279,7 +281,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               {/* Step 2 */}
               <div className="flex flex-col items-center gap-1.5">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-extrabold text-xs transition-colors ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-xs transition-colors ${
                     step >= 2
                       ? 'bg-[#8B1E1E] text-white shadow-xs ring-4 ring-[#8B1E1E]/15'
                       : 'bg-stone-100 text-stone-400'
@@ -296,7 +298,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               {/* Step 3 */}
               <div className="flex flex-col items-center gap-1.5">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-extrabold text-xs transition-colors ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-xs transition-colors ${
                     step === 3
                       ? 'bg-emerald-600 text-white shadow-xs ring-4 ring-emerald-500/15'
                       : 'bg-stone-100 text-stone-400'
@@ -609,7 +611,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               </div>
 
               <div className="space-y-2 max-w-sm">
-                <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900">
                   Request Confirmed!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -717,7 +719,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       {/* ── 4. BOTTOM SOCIAL-PROOF LINE ── */}
       <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-slate-700 text-center">
         <span className="text-amber-500 text-base">🌿</span>
-        <span className="text-slate-900 font-extrabold">5000+ Happy Customers</span>
+        <span className="text-slate-900 font-bold">5000+ Happy Customers</span>
         
         <div className="flex items-center gap-0.5 text-amber-400 px-1">
           <Star className="w-4 h-4 fill-amber-400" />
@@ -727,7 +729,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
           <Star className="w-4 h-4 fill-amber-400" />
         </div>
 
-        <span className="text-slate-900 font-extrabold">4.8/5 (Google Reviews)</span>
+        <span className="text-slate-900 font-bold">4.8/5 (Google Reviews)</span>
         <span className="text-amber-500 text-base">🌿</span>
       </div>
 

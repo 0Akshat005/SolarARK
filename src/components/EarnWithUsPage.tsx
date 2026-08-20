@@ -264,7 +264,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
             {/* High-Intent Headline */}
             <div className="space-y-1.5">
-              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Earn ₹15,000+ Per Referral. <br />
                 <span className="text-[#8B1E1E]">Zero Hassle. Zero Investment.</span>
               </h1>
@@ -308,7 +308,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <CheckCheck className="w-3.5 h-3.5" />
               <span>Simple 3-Step Process</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               How You Earn in 3 Simple Steps
             </h2>
           </div>
@@ -322,7 +322,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                   className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-3"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-heading font-extrabold text-sm">
+                    <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-heading font-bold text-sm">
                       {item.step}
                     </div>
                     <Icon className="w-5 h-5 text-stone-400" />
@@ -350,7 +350,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <Users className="w-3.5 h-3.5" />
               <span>Partner Profiles</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Who Can Become a <span className="text-[#8B1E1E]">Surya Mitra?</span>
             </h2>
             <p className="text-xs sm:text-sm text-stone-500 text-center">
@@ -395,7 +395,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 <Gift className="w-3.5 h-3.5" />
                 <span>Free Onboarding Kit</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
                 Everything You Need to Succeed from Day One
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
@@ -491,7 +491,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Instant Digital Registration</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Register as a SolarArk Partner
               </h2>
               <p className="text-slate-100 text-xs sm:text-sm leading-relaxed text-left">
@@ -676,7 +676,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Questions?</span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               Surya Mitra Partner FAQs
             </h2>
           </div>

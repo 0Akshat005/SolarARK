@@ -20,7 +20,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
             <span>24/7 Mobile Companion App</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
             Track Every Watt & Rupee Saved in Real Time
           </h2>
 
@@ -39,7 +39,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
               <span className="text-xs font-bold text-[#FFB020] uppercase tracking-wider font-heading">
                 Smart Solar Telemetry
               </span>
-              <h3 className="text-2xl font-extrabold font-heading text-white">
+              <h3 className="text-2xl font-bold font-heading text-white">
                 Total Control from Your Pocket
               </h3>
             </div>
@@ -134,7 +134,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                   <div className="space-y-4">
                     <div className="bg-slate-800/90 p-3.5 rounded-2xl border border-slate-700 text-center">
                       <span className="text-[10px] text-slate-400">Current Power Yield</span>
-                      <div className="text-3xl font-extrabold text-[#FFB020] font-heading mt-0.5">4.85 kW</div>
+                      <div className="text-3xl font-bold text-[#FFB020] font-heading mt-0.5">4.85 kW</div>
                       <span className="text-[10px] text-emerald-400 font-medium">Peak Solar Sun Hours</span>
                     </div>
 
@@ -155,7 +155,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                   <div className="space-y-4">
                     <div className="bg-slate-800/90 p-3.5 rounded-2xl border border-slate-700 text-center">
                       <span className="text-[10px] text-slate-400">Est. Bill Deduction</span>
-                      <div className="text-3xl font-extrabold text-[#10B981] font-heading mt-0.5">₹5,270</div>
+                      <div className="text-3xl font-bold text-[#10B981] font-heading mt-0.5">₹5,270</div>
                       <span className="text-[10px] text-slate-300 font-medium">Net Meter Credits Active</span>
                     </div>
 
