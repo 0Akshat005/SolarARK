@@ -119,19 +119,19 @@ export const Hero: React.FC<HeroProps> = () => {
           />
         </div>
 
-        {/* ── Subtle Cinematic Depth Gradients ── */}
+        {/* ── Subtle Feather Gradients (Light touch: keeps footage vibrant while providing smooth edges) ── */}
         <div className="absolute inset-0 z-[1] pointer-events-none select-none">
           {/* Top Scrim for Navbar Contrast */}
-          <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#0A0F1D]/60 via-[#0A0F1D]/20 to-transparent" />
+          <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0A0F1D]/45 to-transparent" />
 
-          {/* Bottom Scrim for Smooth Section Transition */}
-          <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/50 to-transparent" />
+          {/* Bottom Scrim — Light & Short Feather (Preserves clear solar panel visibility) */}
+          <div className="absolute bottom-0 inset-x-0 h-10 sm:h-12 bg-gradient-to-t from-[#0A0F1D]/50 via-transparent to-transparent" />
         </div>
       </section>
 
       {/* ── 2. BELOW-HERO TRANSITION & PROOF RAIL SECTION (NATURAL PAGE FLOW) ── */}
-      <section className="w-full bg-[#0A0F1D] py-6 sm:py-8 border-b border-stone-800/50 relative z-10 space-y-4">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <section className="w-full bg-[#0A0F1D] py-3.5 sm:py-4.5 border-b border-stone-800/50 relative z-10 space-y-3 sm:space-y-3.5">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-3.5">
           
           {/* PM Surya Ghar Authorized EPC Partner Pill */}
           <div className="flex items-center justify-center">
