@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useRef } from 'react';
+import { LeadershipQuote } from './LeadershipQuote';
 import {
   ArrowLeft,
   ArrowRight,
@@ -447,44 +448,8 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
         </div>
       </section>
 
-      {/* ── 8. DIRECTOR'S DESK: CLEAN REFINED QUOTE LOCKUP (FIXED ALIGNMENT) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
-        <div className="bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 shadow-sm text-center space-y-6">
-          
-          <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center mx-auto shadow-2xs">
-            <Quote className="w-5 h-5" />
-          </div>
-
-          <blockquote className="font-heading text-lg sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug max-w-2xl mx-auto text-center">
-            “Join us in illuminating Maharashtra with clean solar energy. Together, we empower homes and create lasting entrepreneurial livelihoods.”
-          </blockquote>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#8B1E1E] shadow-sm shrink-0 bg-stone-100">
-              <img
-                src="/images/earnwithus/director-shrikant-tikhile.jpg"
-                alt="Shrikant Tikhile, Director, SolarARK"
-                className="w-full h-full object-cover object-top"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/official-founder-desk-clean.png';
-                }}
-              />
-            </div>
-            <div className="text-center sm:text-left">
-              <h3 className="font-heading text-base font-bold text-slate-900">
-                Shrikant Tikhile
-              </h3>
-              <p className="text-xs font-bold text-slate-700 font-heading">
-                Director, SolarARK Projects Pvt. Ltd.
-              </p>
-              <p className="text-xs text-stone-500 text-center sm:text-left">
-                Amravati &amp; Nagpur Regional Solar Operations
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      {/* ── 8. DIRECTOR'S EDITORIAL LEADERSHIP STATEMENT (FULL-WIDTH COMPOSITION) ── */}
+      <LeadershipQuote className="mb-16 lg:mb-24" />
 
       {/* ── 9. ONBOARDING REGISTRATION FORM (ID="EARNWITH") ── */}
       <section id="earnwith" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24 scroll-mt-24">
