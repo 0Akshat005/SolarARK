@@ -27,7 +27,6 @@ export const Hero: React.FC<HeroProps> = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
-  const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -36,6 +35,10 @@ export const Hero: React.FC<HeroProps> = () => {
     if (mq.matches && videoRef.current) {
       videoRef.current.pause();
       setIsPlaying(false);
+    } else if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Browser autoplay fallback
+      });
     }
   }, []);
 
@@ -87,16 +90,14 @@ export const Hero: React.FC<HeroProps> = () => {
         className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
       >
         {/* Full-bleed real project hero video */}
-        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D]">
           <video
             ref={videoRef}
             autoPlay={!isReducedMotion}
             muted={isMuted}
             loop
             playsInline
-            preload="metadata"
-            poster="/hero-solar-home.png"
-            onLoadedData={() => setVideoLoaded(true)}
+            preload="auto"
             className="w-full h-full object-cover object-center"
           >
             <source
@@ -108,15 +109,6 @@ export const Hero: React.FC<HeroProps> = () => {
               type="video/mp4"
             />
           </video>
-
-          {/* Fallback poster image behind video for fast loading */}
-          <img
-            src="/hero-solar-home.png"
-            alt="SolarARK Real Installation Footage"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 pointer-events-none ${
-              videoLoaded ? 'opacity-0' : 'opacity-100'
-            }`}
-          />
         </div>
 
         {/* ── Subtle Cinematic Depth Gradients (Very gentle & soft so video remains full-fledge visible) ── */}
