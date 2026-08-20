@@ -81,7 +81,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               <span>Home</span>
             </span>
             <span className="text-stone-300">/</span>
-            <span className="text-[#8B1E1E] font-bold">Our Projects &amp; Field Installations</span>
+            <span className="text-slate-800 font-bold">Our Projects &amp; Field Installations</span>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
             <div className="lg:col-span-8 space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
                 Explore SolarArk’s <br className="hidden sm:inline" />
-                <span className="text-[#8B1E1E]">Verified Completed Projects</span>
+                <span>Verified Completed Projects</span>
               </h1>
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl">
                 Powering over <strong>5,000+ rooftops across Maharashtra</strong>. Explore real residential villas, housing societies, industrial factories, and on-site field installation walkthroughs with verified electricity bill reductions.
@@ -128,7 +128,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               <div className="text-xs text-stone-500 font-medium mt-0.5">Rooftops Commissioned</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-bold text-[#8B1E1E] font-heading">35+ MW</div>
+              <div className="text-2xl sm:text-3xl font-bold text-slate-900 font-heading">35+ MW</div>
               <div className="text-xs text-stone-500 font-medium mt-0.5">Total Capacity Installed</div>
             </div>
             <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">

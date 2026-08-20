@@ -303,23 +303,23 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <span>Home</span>
             </span>
             <span className="text-stone-300">/</span>
-            <span className="text-[#8B1E1E] font-bold">Careers &amp; Opportunities</span>
+            <span className="text-slate-800 font-bold">Careers &amp; Opportunities</span>
           </div>
         </div>
       </div>
 
-      {/* ── 2. HERO COMPOSITION (LIGHT EDITORIAL WITH ATMOSPHERIC BLEND) ── */}
-      <section className="relative overflow-hidden pt-4 pb-10 sm:pb-14">
+      {/* ── 2. HERO: PARETO-FOCUSED HIGH-CONVERTING HEADER ── */}
+      <section className="relative overflow-hidden pt-2 pb-12 sm:pb-16">
         
-        {/* Continuous Atmospheric Team Inset */}
-        <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[48%] pointer-events-none z-0 overflow-hidden opacity-90">
+        {/* Modern Engineering Team Collaboration Photo (Right Blend) */}
+        <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] pointer-events-none z-0 overflow-hidden">
           <img
-            src="/images/gallery/office.jpg"
-            alt="SolarArk Team & Culture"
-            className="w-full h-full object-cover object-center"
+            src="/images/careers/careers-hero-team.jpg"
+            alt="SolarArk Engineering Team Collaboration"
+            className="w-full h-full object-cover object-right-top"
             style={{
-              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 15%, rgba(0,0,0,0.8) 45%, black 80%), linear-gradient(to bottom, black 80%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 15%, rgba(0,0,0,0.8) 45%, black 80%), linear-gradient(to bottom, black 80%, transparent 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 12%, rgba(0,0,0,0.65) 35%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 12%, rgba(0,0,0,0.65) 35%, black 65%), linear-gradient(to bottom, black 80%, transparent 100%)',
               maskComposite: 'intersect',
               WebkitMaskComposite: 'source-in'
             }}
@@ -341,7 +341,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             <div className="space-y-1.5">
               <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Empower Your Career with <br />
-                <span className="text-[#8B1E1E]">SolarArk Projects</span>
+                <span>SolarArk Projects</span>
               </h1>
               <h2 className="text-lg sm:text-xl lg:text-[24px] font-bold text-slate-800 font-heading leading-tight tracking-tight">
                 Shaping the Future of Renewable Energy with Innovation &amp; Excellence

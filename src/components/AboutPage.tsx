@@ -61,7 +61,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-              Who Are <span className="text-[#8B1E1E]">We?</span>
+              Who Are We?
             </h2>
 
             <p className="text-base sm:text-lg text-stone-700 font-normal leading-relaxed">
@@ -111,7 +111,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.18]">
               Exceptional quality. End-to-end service.<br className="hidden sm:inline" />{' '}
-              <span className="text-[#8B1E1E]">Delighted</span> customers.
+              Delighted customers.
             </h2>
 
             {/* Subtle Sun Ornament Divider */}
@@ -152,7 +152,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Environmental <span className="text-[#8B1E1E]">Responsibility</span>
+                Environmental Responsibility
               </h3>
 
               <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
@@ -172,7 +172,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Solar <span className="text-[#8B1E1E]">Systems</span>
+                Solar Systems
               </h3>
 
               <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
@@ -222,7 +222,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           {/* Right Mission & Vision Content */}
           <div className="lg:col-span-7 space-y-8">
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-              Powering a <span className="text-[#8B1E1E]">Sustainable Future</span> with <span className="text-[#8B1E1E]">Solar Ark</span> India
+              Powering a Sustainable Future with SolarArk India
             </h2>
 
             {/* Mission */}

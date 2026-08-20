@@ -116,7 +116,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0B1730] tracking-tight leading-[1.12] m-0">
                   Your electricity bill keeps going up.
                 </h2>
-                <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#8B1E1E] tracking-tight leading-[1.12] m-0">
+                <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#0B1730] tracking-tight leading-[1.12] m-0">
                   Your rooftop doesn’t have to.
                 </h3>
               </div>
@@ -302,8 +302,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                     </div>
                     <div className="text-left space-y-0.5">
                       <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug font-heading">
-                        The longer you stay on the grid,{' '}
-                        <span className="text-[#8B1E1E]">the more you keep paying.</span>
+                        Every month you delay installing rooftop solar, you keep paying more.
                       </p>
                       <p className="text-[11px] sm:text-xs text-slate-500 font-normal">
                         Lock in zero-tariff solar electricity today with PM Surya Ghar DBT subsidies.

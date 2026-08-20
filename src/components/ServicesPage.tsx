@@ -66,7 +66,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-slate-900 tracking-tight leading-[1.12]">
               Engineered for Maximum Solar Yield.<br />
-              <span className="text-[#8B1E1E]">Tailored for Every Rooftop.</span>
+              <span>Tailored for Every Rooftop.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
@@ -95,11 +95,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Quick Reassurance Pill Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-stone-200/80">
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-[#8B1E1E] block font-heading">⚡ Up to 90%</span>
+                <span className="text-[11px] font-bold text-slate-900 block font-heading">⚡ Up to 90%</span>
                 <span className="text-[11px] text-stone-500">Bill Reduction</span>
               </div>
               <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-[#8B1E1E] block font-heading">₹78,000 Subsidy</span>
+                <span className="text-[11px] font-bold text-slate-900 block font-heading">₹78,000 Subsidy</span>
                 <span className="text-[11px] text-stone-500">PM Surya Ghar</span>
               </div>
               <div className="space-y-0.5">
@@ -217,7 +217,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right Service Content */}
             <div className="lg:col-span-7 space-y-5 lg:pl-4">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#8B1E1E] font-bold">01 — RESIDENTIAL EPC</span>
+                <span className="text-slate-800 font-bold">01 — RESIDENTIAL EPC</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -286,7 +286,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#8B1E1E] font-bold">02 — COMMUNITY SOLAR</span>
+                <span className="text-slate-800 font-bold">02 — COMMUNITY SOLAR</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -394,7 +394,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right Service Content */}
             <div className="lg:col-span-7 space-y-5 lg:pl-4">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#8B1E1E] font-bold">03 — COMMERCIAL &amp; INDUSTRIAL</span>
+                <span className="text-slate-800 font-bold">03 — COMMERCIAL &amp; INDUSTRIAL</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 
@@ -463,7 +463,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
               <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-[#8B1E1E] font-bold">04 — OPERATIONS &amp; MAINTENANCE</span>
+                <span className="text-slate-800 font-bold">04 — OPERATIONS &amp; MAINTENANCE</span>
                 <div className="w-12 h-[1px] bg-stone-300" />
               </div>
 

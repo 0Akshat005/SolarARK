@@ -228,7 +228,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <span>Home</span>
             </span>
             <span className="text-stone-300">/</span>
-            <span className="text-[#8B1E1E] font-bold">Earn With Us (Surya Mitra)</span>
+            <span className="text-slate-800 font-bold">Earn With Us (Surya Mitra)</span>
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
             <div className="space-y-1.5">
               <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Earn ₹15,000+ Per Referral. <br />
-                <span className="text-[#8B1E1E]">Zero Hassle. Zero Investment.</span>
+                <span>Zero Hassle. Zero Investment.</span>
               </h1>
               <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl pt-1">
                 Connect homeowners and housing societies with SolarArk. Our certified engineering team manages 100% of surveys, 3D designs, DISCOM net-metering, and subsidy claims — you receive direct bank payouts.
@@ -351,7 +351,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <span>Partner Profiles</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Who Can Become a <span className="text-[#8B1E1E]">Surya Mitra?</span>
+              Who Can Become a Surya Mitra?
             </h2>
             <p className="text-xs sm:text-sm text-stone-500 text-center">
               No technical solar background required. Open to any motivated individual or professional.
@@ -469,7 +469,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <h3 className="font-heading text-base font-bold text-slate-900">
                 Shrikant Tikhile
               </h3>
-              <p className="text-xs font-bold text-[#8B1E1E] font-heading">
+              <p className="text-xs font-bold text-slate-700 font-heading">
                 Director, SolarARK Projects Pvt. Ltd.
               </p>
               <p className="text-xs text-stone-500 text-center sm:text-left">
