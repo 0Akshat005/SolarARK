@@ -25,24 +25,24 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   // Typography scale configurations
   const sizeStyles = {
     sm: {
-      brand: 'text-xl tracking-tight',
-      tagline: 'text-[9px] tracking-[0.06em] mt-0.5',
-      imgHeight: 'h-6',
+      brand: 'text-xl sm:text-2xl tracking-tight',
+      tagline: 'text-[9px] sm:text-[10px] tracking-[0.06em] mt-0.5',
+      imgHeight: 'h-7',
     },
     md: {
-      brand: 'text-2xl sm:text-[26px] tracking-tight',
-      tagline: 'text-[10px] sm:text-[11px] tracking-[0.07em] mt-0.5',
-      imgHeight: 'h-8 sm:h-9',
+      brand: 'text-[26px] sm:text-[30px] lg:text-[34px] tracking-tight',
+      tagline: 'text-[10px] sm:text-[11px] lg:text-[12px] tracking-[0.07em] mt-0.5 sm:mt-1',
+      imgHeight: 'h-9 sm:h-10 lg:h-11',
     },
     lg: {
-      brand: 'text-3xl sm:text-4xl tracking-tight',
+      brand: 'text-3xl sm:text-4xl lg:text-[42px] tracking-tight',
       tagline: 'text-xs sm:text-sm tracking-[0.08em] mt-1',
-      imgHeight: 'h-11 sm:h-12',
+      imgHeight: 'h-12 sm:h-14',
     },
     xl: {
-      brand: 'text-4xl sm:text-5xl tracking-tight',
+      brand: 'text-4xl sm:text-5xl lg:text-[54px] tracking-tight',
       tagline: 'text-sm sm:text-base tracking-[0.08em] mt-1.5',
-      imgHeight: 'h-14 sm:h-16',
+      imgHeight: 'h-16 sm:h-20',
     },
   };
 
