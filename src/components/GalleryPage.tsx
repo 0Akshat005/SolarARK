@@ -133,7 +133,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             <div className="lg:col-span-8 space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
                 SolarArk Gallery &amp; <br className="hidden sm:inline" />
-                <span>Community Moments</span>
+                <span className="text-accent-light">Community Moments</span>
               </h1>
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl">
                 Explore highlights from our presence at CREDAI property expos, Bharatcon exhibitions, annual Surya Mitra partner meets, festive celebrations, and customer appreciation events across Maharashtra.

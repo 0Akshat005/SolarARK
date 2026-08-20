@@ -66,7 +66,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-slate-900 tracking-tight leading-[1.12]">
               Engineered for Maximum Solar Yield.<br />
-              <span>Tailored for Every Rooftop.</span>
+              <span className="text-accent-light">Tailored for Every Rooftop.</span>
             </h1>
 
             <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">

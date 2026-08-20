@@ -146,7 +146,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.14]">
-              Who Are We?
+              Who Are <span className="text-accent-light">We?</span>
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
@@ -234,7 +234,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
               </div>
 
               <h3 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-white tracking-tight leading-[1.15]">
-                Our Journey
+                Our <span className="text-accent-dark">Journey</span>
               </h3>
 
               <p className="text-sm sm:text-base text-slate-300/85 max-w-2xl mx-auto font-normal leading-relaxed">
@@ -382,7 +382,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
               Our Core Philosophy
             </span>
             <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-snug">
-              Powering a Sustainable Future with Solar Ark India
+              Powering a <span className="text-accent-light">Sustainable Future</span> with Solar Ark India
             </h3>
           </div>
 

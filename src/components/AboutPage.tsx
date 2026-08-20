@@ -61,7 +61,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-              Who Are We?
+              Who Are <span className="text-accent-light">We?</span>
             </h2>
 
             <p className="text-base sm:text-lg text-stone-700 font-normal leading-relaxed">
@@ -111,7 +111,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.18]">
               Exceptional quality. End-to-end service.<br className="hidden sm:inline" />{' '}
-              Delighted customers.
+              <span className="text-accent-light">Delighted customers.</span>
             </h2>
 
             {/* Subtle Sun Ornament Divider */}
@@ -222,7 +222,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           {/* Right Mission & Vision Content */}
           <div className="lg:col-span-7 space-y-8">
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-              Powering a Sustainable Future with SolarArk India
+              Powering a <span className="text-accent-light">Sustainable Future</span> with SolarArk India
             </h2>
 
             {/* Mission */}

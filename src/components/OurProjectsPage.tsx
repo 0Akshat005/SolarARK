@@ -99,7 +99,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
             <div className="lg:col-span-8 space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
                 Explore SolarArk’s <br className="hidden sm:inline" />
-                <span>Verified Completed Projects</span>
+                <span className="text-accent-light">Verified Completed Projects</span>
               </h1>
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl">
                 Powering over <strong>5,000+ rooftops across Maharashtra</strong>. Explore real residential villas, housing societies, industrial factories, and on-site field installation walkthroughs with verified electricity bill reductions.

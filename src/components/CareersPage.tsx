@@ -341,7 +341,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             <div className="space-y-1.5">
               <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Empower Your Career with <br />
-                <span>SolarArk Projects</span>
+                <span className="text-accent-light">SolarArk Projects</span>
               </h1>
               <h2 className="text-lg sm:text-xl lg:text-[24px] font-bold text-slate-800 font-heading leading-tight tracking-tight">
                 Shaping the Future of Renewable Energy with Innovation &amp; Excellence

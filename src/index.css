@@ -115,6 +115,25 @@
   /* Measure utility — apply explicitly to long-form paragraph containers */
   .measure-body { max-width: var(--measure-body); }
   .measure-hero { max-width: var(--measure-hero); }
+
+  /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
+  /* On dark/photographic backgrounds (Ivory / Champagne Gradient) */
+  .text-accent-dark {
+    background: linear-gradient(90deg, #F8F8F5 0%, #E7D8B9 50%, #FFFDF7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #F5EDE0;
+  }
+
+  /* On light/neutral backgrounds (Warm Charcoal to Taupe Gradient) */
+  .text-accent-light {
+    background: linear-gradient(100deg, #2A2118 0%, #6B5842 55%, #8B7355 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #4A3C2B;
+  }
 }
 
 /* ── Premium Brand Crimson/Maroon Button System (Image Reference Specification) ── */

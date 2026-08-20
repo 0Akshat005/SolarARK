@@ -266,7 +266,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
             <div className="space-y-1.5">
               <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
                 Earn ₹15,000+ Per Referral. <br />
-                <span>Zero Hassle. Zero Investment.</span>
+                <span className="text-accent-light">Zero Hassle. Zero Investment.</span>
               </h1>
               <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-xl pt-1">
                 Connect homeowners and housing societies with SolarArk. Our certified engineering team manages 100% of surveys, 3D designs, DISCOM net-metering, and subsidy claims — you receive direct bank payouts.
@@ -309,23 +309,28 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <span>Simple 3-Step Process</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              How You Earn in 3 Simple Steps
+              Start Earning in 3 Simple Steps
             </h2>
+            <p className="text-xs sm:text-sm text-stone-500 text-center">
+              We handle the engineering, paperwork, and customer service. You earn the commission.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {threeStepWorkflow.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-2xs space-y-3"
+                  className="bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-6 shadow-2xs space-y-3 relative group hover:border-[#8B1E1E]/30 hover:shadow-xs transition-all"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-heading font-bold text-sm">
-                      {item.step}
+                    <span className="font-heading text-xs font-bold text-stone-400 uppercase tracking-wider">
+                      Step {item.step}
+                    </span>
+                    <div className="w-8 h-8 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center">
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <Icon className="w-5 h-5 text-stone-400" />
                   </div>
                   <h3 className="font-heading text-base font-bold text-slate-900">
                     {item.title}
@@ -351,7 +356,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               <span>Partner Profiles</span>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Who Can Become a Surya Mitra?
+              Who Can Become a <span className="text-accent-light">Surya Mitra?</span>
             </h2>
             <p className="text-xs sm:text-sm text-stone-500 text-center">
               No technical solar background required. Open to any motivated individual or professional.

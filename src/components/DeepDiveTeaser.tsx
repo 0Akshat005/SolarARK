@@ -33,7 +33,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
           {/* Headline */}
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-            See what powers SolarARK.
+            See what powers <span className="text-accent-light">SolarARK.</span>
           </h2>
 
           {/* Subtitle */}
