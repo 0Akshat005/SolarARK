@@ -98,8 +98,8 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   const commercialCount = useMemo(() => PROJECT_CASE_STUDIES.filter(p => p.category === 'Commercial & Industrial').length, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
-      
+    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-24">
+
       {/* ── 1. COMPACT PAGE CONTEXT / BREADCRUMB ROW ── */}
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6">
         <div className="flex items-center justify-between py-2.5 border-b border-stone-200/80">
@@ -133,7 +133,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 space-y-8">
-            
+
             {/* Top Eyebrow Tag & Trust Badges */}
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E] shadow-sm text-[11px] font-bold text-white tracking-wider uppercase font-heading border border-red-500/30">
@@ -233,19 +233,18 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       {/* ── 3. FILTER & SEARCH CONTROL BAR (NO OVERFLOW WRAP ISSUES) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-8 sticky top-[72px] z-30 bg-[#FAF9F6]/95 backdrop-blur-md py-3.5">
         <div className="bg-white rounded-2xl border border-stone-200/90 shadow-sm p-3.5 sm:p-4 space-y-3.5">
-          
+
           {/* Top Row: Category Tabs & Search Bar */}
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
-            
+
             {/* Category Segmented Pills */}
             <div className="flex flex-wrap items-center gap-1.5">
               <button
                 onClick={() => setActiveTab('all')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'all'
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'all'
                     ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30'
                     : 'bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80'
-                }`}
+                  }`}
               >
                 <Layers className="w-3.5 h-3.5" />
                 <span>All Projects</span>
@@ -256,11 +255,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <button
                 onClick={() => setActiveTab('residential')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'residential'
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'residential'
                     ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30'
                     : 'bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80'
-                }`}
+                  }`}
               >
                 <Home className="w-3.5 h-3.5" />
                 <span>Residential</span>
@@ -271,11 +269,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <button
                 onClick={() => setActiveTab('society')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'society'
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'society'
                     ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30'
                     : 'bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80'
-                }`}
+                  }`}
               >
                 <Building className="w-3.5 h-3.5" />
                 <span>Societies</span>
@@ -286,11 +283,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <button
                 onClick={() => setActiveTab('commercial')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'commercial'
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'commercial'
                     ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30'
                     : 'bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80'
-                }`}
+                  }`}
               >
                 <Factory className="w-3.5 h-3.5" />
                 <span>Commercial</span>
@@ -309,11 +305,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                     }
                   }, 50);
                 }}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeTab === 'videos'
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer flex items-center gap-1.5 ${activeTab === 'videos'
                     ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30'
                     : 'bg-stone-50 text-stone-700 hover:bg-stone-100 border border-stone-200/80'
-                }`}
+                  }`}
               >
                 <Film className="w-3.5 h-3.5 text-amber-500" />
                 <span>Video Proof Reels</span>
@@ -356,11 +351,10 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   <button
                     key={city}
                     onClick={() => setSelectedCity(city)}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
-                      selectedCity === city
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${selectedCity === city
                         ? 'bg-slate-900 text-white shadow-xs'
                         : 'bg-stone-100/90 text-stone-600 hover:bg-stone-200/90 hover:text-stone-900'
-                    }`}
+                      }`}
                   >
                     {city}
                   </button>
@@ -387,7 +381,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       {/* ── 4. PROJECTS CARDS GRID VIEW ── */}
       {activeTab !== 'videos' && (
         <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
-          
+
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-3xl border border-stone-200 p-8 shadow-sm space-y-4 max-w-md mx-auto">
               <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto">
@@ -458,7 +452,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
                       {/* Card Content Details */}
                       <div className="p-6 space-y-4">
-                        
+
                         {/* Homeowner & Roof Type */}
                         <div>
                           <div className="flex items-start justify-between gap-2">
@@ -469,7 +463,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                               <Check className="w-3 h-3 stroke-[3]" />
                             </span>
                           </div>
-                          
+
                           <p className="text-xs text-stone-500 mt-1 flex items-center gap-1.5">
                             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span className="truncate">{proj.roofType}</span>
@@ -568,115 +562,115 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
       {/* ── 5. DEDICATED ON-SITE VIDEO REELS VIEW (CINEMATIC LUXURY) ── */}
       <section id="video-proof-reels" className="scroll-mt-28 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
-          
-          <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-slate-900 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-md border border-stone-200/90 relative overflow-hidden space-y-8">
-            <div className="absolute -top-32 -right-32 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-stone-200/80 pb-6">
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-bold font-heading border border-[#8B1E1E]/20">
-                  <Film className="w-3.5 h-3.5" />
-                  <span>On-Site Video Proof</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-[#0B1730]">
-                  Watch SolarArk Installations Across Maharashtra
-                </h2>
-                <p className="text-xs sm:text-sm text-stone-600 max-w-2xl font-normal">
-                  Actual site walkthroughs, aerial drone inspections, structural mounting tests, and net-metering commissioning recordings with zero audio clutter.
-                </p>
-              </div>
+        <div className="bg-gradient-to-br from-[#0F0808] via-[#170B0B] to-[#200E0E] text-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-2xl border border-[#8B1E1E]/40 relative overflow-hidden space-y-8">
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#8B1E1E]/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="text-xs text-[#8B1E1E] font-bold font-heading bg-white border border-stone-200 px-3.5 py-1.5 rounded-xl shadow-2xs">
-                6 Verified Video Walkthroughs
+          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold font-heading border border-amber-400/30">
+                <Film className="w-3.5 h-3.5" />
+                <span>On-Site Video Proof</span>
               </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight">
+                Watch SolarArk Installations Across Maharashtra
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
+                Actual site walkthroughs, aerial drone inspections, structural mounting tests, and net-metering commissioning recordings with zero audio clutter.
+              </p>
             </div>
 
-            {/* Video Reels Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
-              {INSTALLATION_VIDEO_REELS.map((reel) => (
-                <div
-                  key={reel.id}
-                  className="bg-white border border-stone-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all group space-y-3"
-                >
-                  <div className="space-y-3">
-                    {/* Embedded Native Video Player with Seamless Autoplay & Controls */}
-                    <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900 border border-stone-200 shadow-inner flex items-center justify-center group-hover:shadow-lg transition-shadow">
-                      <video
-                        controls
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="auto"
-                        onLoadedMetadata={(e) => {
-                          e.currentTarget.muted = true;
-                          e.currentTarget.play().catch(() => {});
-                        }}
-                        className="w-full h-full object-cover"
-                      >
-                        <source src={reel.videoUrl} type="video/mp4" />
-                        <source src={reel.videoUrl} type="video/quicktime" />
-                        Your browser does not support video playback.
-                      </video>
-
-                      {/* Video Category Badge Tag */}
-                      <div className="absolute top-2.5 left-2.5 pointer-events-none">
-                        <span className="text-[10px] font-bold bg-[#8B1E1E] text-white px-2 py-0.5 rounded shadow-xs">
-                          {reel.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#8B1E1E] font-heading">
-                          Field Record #{reel.id.replace('reel-', '')}
-                        </span>
-                        <span className="text-[10px] text-stone-500 font-medium flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-[#8B1E1E]" /> {reel.location}
-                        </span>
-                      </div>
-
-                      <h3 className="font-heading text-sm font-bold text-slate-900 leading-snug">
-                        {reel.title}
-                      </h3>
-
-                      <p className="text-xs text-stone-600 leading-relaxed line-clamp-2">
-                        {reel.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Tags Pill Row & Quick Action */}
-                  <div className="pt-2.5 border-t border-stone-100 space-y-2.5">
-                    <div className="flex flex-wrap gap-1.5">
-                      {reel.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="text-[10px] font-medium bg-stone-100 border border-stone-200 px-2 py-0.5 rounded text-stone-600"
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={onCtaClick}
-                      className="w-full py-2.5 bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-[11px] font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      <span>Request Site Visit For This System</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </button>
-                  </div>
-
-                </div>
-              ))}
+            <div className="text-xs text-amber-300 font-bold font-heading bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl">
+              6 Verified Video Walkthroughs
             </div>
-
           </div>
 
-        </section>
+          {/* Video Reels Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {INSTALLATION_VIDEO_REELS.map((reel) => (
+              <div
+                key={reel.id}
+                className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between backdrop-blur-sm space-y-3 hover:border-[#8B1E1E]/60 transition-all group"
+              >
+                <div className="space-y-3">
+                  {/* Embedded Native Video Player with Seamless Autoplay & Controls */}
+                  <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black shadow-inner flex items-center justify-center group-hover:shadow-lg transition-shadow">
+                    <video
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                      onLoadedMetadata={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.play().catch(() => { });
+                      }}
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={reel.videoUrl} type="video/mp4" />
+                      <source src={reel.videoUrl} type="video/quicktime" />
+                      Your browser does not support video playback.
+                    </video>
+
+                    {/* Video Category Badge Tag */}
+                    <div className="absolute top-2.5 left-2.5 pointer-events-none">
+                      <span className="text-[10px] font-bold bg-[#8B1E1E]/90 text-white px-2 py-0.5 rounded shadow-sm backdrop-blur-sm">
+                        {reel.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 font-heading">
+                        Field Record #{reel.id.replace('reel-', '')}
+                      </span>
+                      <span className="text-[10px] text-slate-300 flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-[#E53E3E]" /> {reel.location}
+                      </span>
+                    </div>
+
+                    <h3 className="font-heading text-sm font-bold text-white leading-snug">
+                      {reel.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                      {reel.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tags Pill Row & Quick Action */}
+                <div className="pt-2.5 border-t border-white/10 space-y-2.5">
+                  <div className="flex flex-wrap gap-1.5">
+                    {reel.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-[10px] font-medium bg-white/10 px-2 py-0.5 rounded text-slate-300"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={onCtaClick}
+                    className="w-full py-2 bg-white/10 hover:bg-[#8B1E1E] text-white text-[11px] font-bold rounded-lg transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                  >
+                    <span>Request Site Visit For This System</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+      </section>
 
       {/* ── 6. SEPARATE GALLERY BANNER INVITATION ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20">
@@ -721,7 +715,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               <p className="text-xs sm:text-sm text-slate-100 max-w-2xl leading-relaxed">
                 Our local field engineers can arrange a neighbor site visit in your exact pin code or share an engineered generation report customized for your rooftop area.
               </p>
-              
+
               <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-1">
                 <span className="flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Free 3D Shadow Analysis
@@ -760,7 +754,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       {selectedProjectModal && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-stone-200 animate-in fade-in zoom-in duration-200">
-            
+
             {/* Modal Header with Image */}
             <div className="relative aspect-[16/9] bg-stone-900">
               <img
@@ -769,7 +763,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-              
+
               <button
                 onClick={() => setSelectedProjectModal(null)}
                 className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center cursor-pointer transition-colors"
@@ -794,7 +788,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
             {/* Modal Body */}
             <div className="p-6 space-y-4">
-              
+
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-stone-50 p-4 rounded-2xl border border-stone-200/80">
                 <div>
                   <div className="text-[10px] text-stone-500 font-medium">Monthly Generation</div>
