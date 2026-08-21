@@ -26,7 +26,7 @@ import {
   BarChart3,
   Sun
 } from 'lucide-react';
-import { PageContextBar } from './PageContextBar';
+
 import { FinalCTAForm } from './FinalCTAForm';
 
 interface ServicesPageProps {
@@ -47,11 +47,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   return (
     <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
       
-      {/* ── REUSABLE INNER-PAGE TOP CONTEXT BAR ── */}
-      <PageContextBar
-        currentPage="Solar Services"
-        onNavigate={onNavigate}
-      />
+
 
       {/* ── SECTION 01: EDITORIAL SERVICES HERO ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">

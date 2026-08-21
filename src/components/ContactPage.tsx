@@ -22,7 +22,7 @@ import {
   FileCheck
 } from 'lucide-react';
 
-import { PageContextBar } from './PageContextBar';
+
 
 interface ContactPageProps {
   onNavigate: (path: string) => void;
@@ -49,10 +49,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const message = `Hello SolarArk Team! ☀️\n\nI would like to request a Free 3D Solar Site Assessment.\n\n📌 *Assessment Details:*\n• *Name:* ${formData.name}\n• *Mobile:* ${formData.phone}\n• *Email:* ${formData.email || 'N/A'}\n• *City / District:* ${formData.city}\n• *Property Type:* ${formData.propertyType}\n• *Monthly Bill:* ${formData.monthlyBill}\n• *Notes / Requirements:* ${formData.message || 'None'}`;
+    const whatsappUrl = `https://wa.me/917080909590?text=${encodeURIComponent(message)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+      window.open(whatsappUrl, '_blank');
+    }, 500);
   };
 
   const offices = [
@@ -115,11 +120,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         <span itemProp="addressCountry">IN</span>
       </div>
 
-      {/* ── 1. REUSABLE TOP BREADCRUMB / CONTEXT BAR ── */}
-      <PageContextBar
-        currentPage="Contact Us"
-        onNavigate={onNavigate}
-      />
+
 
       {/* ── 2. EXECUTIVE HERO SHOWCASE BANNER ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10">
@@ -304,12 +305,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <p className="text-xs sm:text-sm text-emerald-800 leading-relaxed">
                     Thank you <strong>{formData.name}</strong>. A dedicated SolarArk field engineer will contact you at <strong>{formData.phone}</strong> to confirm your appointment time in <strong>{formData.city}</strong>.
                   </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-xs font-bold text-emerald-700 underline mt-2 cursor-pointer hover:text-emerald-900"
-                  >
-                    Submit another site assessment request
-                  </button>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk Team! ☀️\n\nI would like to request a Free 3D Solar Site Assessment.\n\n📌 *Assessment Details:*\n• *Name:* ${formData.name}\n• *Mobile:* ${formData.phone}\n• *Email:* ${formData.email || 'N/A'}\n• *City / District:* ${formData.city}\n• *Property Type:* ${formData.propertyType}\n• *Monthly Bill:* ${formData.monthlyBill}\n• *Notes / Requirements:* ${formData.message || 'None'}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-xl cursor-pointer transition-colors shadow-xs"
+                    >
+                      <span>Open in WhatsApp</span>
+                    </a>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="text-xs font-bold text-emerald-700 underline cursor-pointer hover:text-emerald-900"
+                    >
+                      Submit another request
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

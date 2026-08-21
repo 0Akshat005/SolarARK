@@ -97,10 +97,15 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
+    const message = `Hello SolarArk Team! 🤝\n\nI want to register for the Surya Mitra Partner Program.\n\n📌 *Partner Registration Details:*\n• *Full Name:* ${formData.fullName}\n• *Mobile:* ${formData.phoneNumber}\n• *Email:* ${formData.email}\n• *Locality / City:* ${formData.address}\n• *Current Occupation:* ${formData.occupation}\n• *Prior Solar / Sales Experience:* ${formData.experience}`;
+    const whatsappUrl = `https://wa.me/917080909590?text=${encodeURIComponent(message)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 700);
+      window.open(whatsappUrl, '_blank');
+    }, 500);
   };
 
   const scrollToForm = (e: React.MouseEvent) => {
@@ -187,30 +192,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
       
-      {/* ── 1. BREADCRUMB ROW ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-3">
-        <div className="flex items-center justify-between py-2 border-b border-stone-200/60">
-          <button
-            onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors group cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-            <span>Back to Home</span>
-          </button>
 
-          <div className="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
-            <span
-              onClick={() => onNavigate('/')}
-              className="hover:text-stone-800 cursor-pointer flex items-center gap-1"
-            >
-              <HomeIcon className="w-3.5 h-3.5" />
-              <span>Home</span>
-            </span>
-            <span className="text-stone-300">/</span>
-            <span className="text-slate-800 font-bold">Earn With Us (Surya Mitra)</span>
-          </div>
-        </div>
-      </div>
 
       {/* ── 2. HERO: PARETO-FOCUSED HIGH-CONVERTING HEADER ── */}
       <section className="relative overflow-hidden pt-2 pb-10 sm:pb-14">
@@ -477,12 +459,22 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                     <p className="text-xs sm:text-sm text-stone-600 max-w-md mx-auto text-center">
                       Thank you <strong>{formData.fullName}</strong>. Our partner onboarding manager for <strong>{formData.city}</strong> will contact you on <strong>{formData.phoneNumber}</strong> to verify your portal access and dispatch your welcome kit.
                     </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="text-xs font-bold text-[#8B1E1E] hover:underline pt-2 cursor-pointer"
-                    >
-                      Register another partner
-                    </button>
+                    <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk Team! 🤝\n\nI want to register for the Surya Mitra Partner Program.\n\n📌 *Partner Registration Details:*\n• *Full Name:* ${formData.fullName}\n• *Mobile:* ${formData.phoneNumber}\n• *Email:* ${formData.email}\n• *Locality / City:* ${formData.address}\n• *Current Occupation:* ${formData.occupation}\n• *Prior Solar / Sales Experience:* ${formData.experience}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-xl cursor-pointer transition-colors shadow-xs"
+                      >
+                        <span>Open in WhatsApp</span>
+                      </a>
+                      <button
+                        onClick={() => setSubmitted(false)}
+                        className="text-xs font-bold text-[#8B1E1E] hover:underline cursor-pointer"
+                      >
+                        Register another partner
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">

@@ -100,30 +100,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-24">
 
-      {/* ── 1. COMPACT PAGE CONTEXT / BREADCRUMB ROW ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6">
-        <div className="flex items-center justify-between py-2.5 border-b border-stone-200/80">
-          <button
-            onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors group cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform text-[#8B1E1E]" />
-            <span>Back to Home</span>
-          </button>
 
-          <div className="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
-            <button
-              onClick={() => onNavigate('/')}
-              className="hover:text-stone-800 cursor-pointer flex items-center gap-1"
-            >
-              <HomeIcon className="w-3.5 h-3.5 text-stone-400" />
-              <span>Home</span>
-            </button>
-            <span className="text-stone-300">/</span>
-            <span className="text-slate-900 font-bold">Our Verified Projects</span>
-          </div>
-        </div>
-      </div>
 
       {/* ── 2. HERO SHOWCASE HEADER ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10">

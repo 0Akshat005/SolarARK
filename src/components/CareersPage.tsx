@@ -107,39 +107,21 @@ export const CareersPage: React.FC<CareersPageProps> = ({
     if (!validateForm()) return;
 
     setIsSubmitting(true);
+
+    const message = `Hello SolarArk HR Team! 💼\n\nI am applying for a job position at SolarArk Projects.\n\n📌 *Applicant Details:*\n• *Role:* ${selectedRoleForForm}\n• *Full Name:* ${formData.fullName}\n• *Mobile:* ${formData.phoneNumber}\n• *Email:* ${formData.email}\n• *Experience:* ${formData.experience}\n• *City:* ${formData.city}\n• *LinkedIn / Portfolio:* ${formData.linkedin || 'N/A'}\n• *Cover Note:* ${formData.notes || 'N/A'}`;
+    const whatsappUrl = `https://wa.me/917080909590?text=${encodeURIComponent(message)}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 750);
+      window.open(whatsappUrl, '_blank');
+    }, 500);
   };
 
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
       
-      {/* ── 1. COMPACT BREADCRUMB ROW ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6">
-        <div className="flex items-center justify-between py-2.5 border-b border-stone-200/80">
-          <button
-            onClick={() => onNavigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors group cursor-pointer"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform text-[#8B1E1E]" />
-            <span>Back to Home</span>
-          </button>
 
-          <div className="flex items-center gap-1.5 text-xs text-stone-500 font-medium">
-            <button
-              onClick={() => onNavigate('/')}
-              className="hover:text-stone-800 cursor-pointer flex items-center gap-1"
-            >
-              <HomeIcon className="w-3.5 h-3.5 text-stone-400" />
-              <span>Home</span>
-            </button>
-            <span className="text-stone-300">/</span>
-            <span className="text-slate-900 font-bold">Careers &amp; Opportunities</span>
-          </div>
-        </div>
-      </div>
 
       {/* ── 2. HERO SHOWCASE: TWO-COLUMN LUXURY STUDIO LAYOUT ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
@@ -468,12 +450,22 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                         Thank you <strong>{formData.fullName}</strong>. We have received your application for <strong>{selectedRoleForForm}</strong>. Our HR team for <strong>{formData.city}</strong> will contact you via <strong>{formData.phoneNumber}</strong> / <strong>{formData.email}</strong>.
                       </p>
                     </div>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="text-xs font-bold text-[#8B1E1E] hover:underline pt-2 cursor-pointer"
-                    >
-                      Submit another application
-                    </button>
+                    <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk HR Team! 💼\n\nI am applying for a job position at SolarArk Projects.\n\n📌 *Applicant Details:*\n• *Role:* ${selectedRoleForForm}\n• *Full Name:* ${formData.fullName}\n• *Mobile:* ${formData.phoneNumber}\n• *Email:* ${formData.email}\n• *Experience:* ${formData.experience}\n• *City:* ${formData.city}\n• *LinkedIn / Portfolio:* ${formData.linkedin || 'N/A'}\n• *Cover Note:* ${formData.notes || 'N/A'}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-xl cursor-pointer transition-colors shadow-xs"
+                      >
+                        <span>Open in WhatsApp</span>
+                      </a>
+                      <button
+                        onClick={() => setSubmitted(false)}
+                        className="text-xs font-bold text-[#8B1E1E] hover:underline cursor-pointer"
+                      >
+                        Submit another application
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="space-y-4">

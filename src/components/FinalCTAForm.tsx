@@ -89,6 +89,11 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
     if (hasError) return;
     setStep(3);
+
+    // Redirect to WhatsApp with filled info
+    const message = `Hello SolarArk Team! ☀️\n\nI would like to request a Free 3D Solar Proposal.\n\n📌 *My Details:*\n• *Name:* ${fullName}\n• *WhatsApp Number:* +91 ${whatsappNumber}\n• *Pincode:* ${pincode}\n• *Monthly Bill:* ${monthlyBill}\n• *Roof Type:* ${roofType}\n• *Preferred Callback Time:* ${preferredTime}`;
+    const whatsappUrl = `https://wa.me/917080909590?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -635,13 +640,23 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 </div>
               </div>
 
-              <a
-                href="tel:+917080909590"
-                className="inline-flex items-center gap-2 text-xs font-bold text-white btn-primary-maroon px-5 py-3 rounded-xl cursor-pointer"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Call SolarArk Desk (7080909590)</span>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk Team! ☀️\n\nI would like to request a Free 3D Solar Proposal.\n\n📌 *My Details:*\n• *Name:* ${fullName}\n• *WhatsApp Number:* +91 ${whatsappNumber}\n• *Pincode:* ${pincode}\n• *Monthly Bill:* ${monthlyBill}\n• *Roof Type:* ${roofType}\n• *Preferred Callback Time:* ${preferredTime}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-3 rounded-xl cursor-pointer transition-colors shadow-sm"
+                >
+                  <span>Open in WhatsApp</span>
+                </a>
+                <a
+                  href="tel:+917080909590"
+                  className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white btn-primary-maroon px-5 py-3 rounded-xl cursor-pointer"
+                >
+                  <PhoneCall className="w-4 h-4" />
+                  <span>Call (7080909590)</span>
+                </a>
+              </div>
             </div>
           )}
 
