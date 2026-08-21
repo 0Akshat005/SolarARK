@@ -66,8 +66,8 @@ export const Header: React.FC<HeaderProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/70 backdrop-blur-xl shadow-xs py-3 border-b border-stone-200/50'
-          : 'bg-transparent backdrop-blur-md py-3.5 lg:py-4 border-b border-transparent'
+          ? 'bg-white/85 backdrop-blur-xl shadow-xs py-2.5 lg:py-3 border-b border-stone-200/80'
+          : 'bg-white/60 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/40'
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -81,23 +81,20 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map((item) => {
             const isActive = currentPath === item.path && !item.hash;
             return (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`relative py-1 text-[13px] xl:text-[14px] font-medium transition-colors cursor-pointer ${
+                className={`relative px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-heading font-semibold transition-all cursor-pointer ${
                   isActive
-                    ? 'text-[#8B1E1E] font-semibold'
-                    : `${isScrolled ? 'text-slate-700' : 'text-slate-800'} hover:text-[#8B1E1E]`
+                    ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/20 font-bold'
+                    : 'text-slate-700 hover:text-[#8B1E1E] hover:bg-stone-100/70'
                 }`}
               >
                 <span>{item.name}</span>
-                {isActive && (
-                  <span className="block h-[2.5px] w-5 bg-[#8B1E1E] rounded-full mx-auto mt-0.5" />
-                )}
               </button>
             );
           })}
@@ -109,7 +106,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={toggleReducedMotion}
             title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-            className="text-slate-300 hover:text-slate-600 transition-colors p-1 cursor-pointer"
+            className="text-slate-400 hover:text-slate-700 transition-colors p-1.5 rounded-full hover:bg-stone-100 cursor-pointer"
           >
             {isReducedMotion ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
           </button>
@@ -117,17 +114,17 @@ export const Header: React.FC<HeaderProps> = ({
           {/* SECONDARY ACTION: Compact, High-Intent "Call Now" Group */}
           <a
             href="tel:7080909590"
-            className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full border border-stone-200/80 bg-white/70 hover:bg-red-50/70 hover:border-red-200 transition-all duration-200 group cursor-pointer shadow-2xs hover:shadow-xs"
+            className="flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-stone-200 bg-white/90 hover:bg-red-50/70 hover:border-red-200 transition-all duration-200 group cursor-pointer shadow-2xs hover:shadow-xs"
             title="Call SolarARK Direct Helpline: 7080909590"
           >
             <div className="w-6 h-6 rounded-full bg-red-500/10 group-hover:bg-[#8B1E1E] text-[#8B1E1E] group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
               <Phone className="w-3 h-3 group-hover:rotate-12 transition-transform duration-200" />
             </div>
             <div className="flex flex-col leading-tight text-left">
-              <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#8B1E1E] tracking-tight transition-colors">
+              <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#8B1E1E] tracking-tight transition-colors font-heading">
                 Call now
               </span>
-              <span className="text-[10px] font-semibold text-slate-500 group-hover:text-slate-700 tracking-tight font-mono">
+              <span className="text-[10px] font-bold text-stone-500 group-hover:text-slate-700 tracking-tight font-mono">
                 7080909590
               </span>
             </div>
@@ -136,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* PRIMARY ACTION: Dominant Get A Quote CTA */}
           <button
             onClick={onCtaClick}
-            className="btn-primary-maroon text-[13px] xl:text-[14px] font-semibold px-4 xl:px-5 py-2 rounded-full flex items-center gap-1.5 cursor-pointer"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs xl:text-[13px] px-4 xl:px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/20 transition-all"
           >
             <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -155,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-800 focus:outline-none cursor-pointer"
+            className="p-2 text-slate-800 focus:outline-none cursor-pointer rounded-lg hover:bg-stone-100"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
