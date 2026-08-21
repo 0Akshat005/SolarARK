@@ -1,0 +1,6 @@
+{
+  "name": "SolarARK - Premium Residential Rooftop Solar",
+  "description": "SolarARK is India's premier residential rooftop solar platform. Cut electricity bills by up to 90% with government subsidy support, transparent pricing, and the SunSure Promise guarantee.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

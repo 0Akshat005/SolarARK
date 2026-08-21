@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ── Typography — Space Grotesk (display) + Instrument Sans (body/UI) ──
+       Self-hosted via Google Fonts (SIL OFL). Both cap at weight 700 —
+       neither family ships 800/900, so do not use font-extrabold/font-black. */
+    --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Tailwind v4 auto-generates the font-sans / font-heading utilities from these —
+       do not rename without updating the ~313 existing font-heading usages */
+    --font-sans: var(--font-body);
+    --font-heading: var(--font-display);
+
+    /* Weight tokens — 4 levels only, both families support all four */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Tracking tokens */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.01em;
+    --tracking-label: 0.08em;   /* nudged down from 0.10em; Space Grotesk's wider letterforms need less added tracking */
+
+    /* Line-height tokens */
+    --lh-display: 1.08;
+    --lh-heading: 1.2;
+    --lh-body: 1.6;
+
+    /* Measure / max-width tokens — now actually applied via utilities below */
+    --measure-body: 65ch;   /* was 70ch — 65 sits centrally in the 45–75ch recommended range */
+    --measure-hero: 38ch;
+
+    /* ── Canonical Premium Brand Maroon & Crimson Palette ── */
+    --brand-primary: #8B1E1E;
+    --brand-primary-deep: #540D0D;
+    --brand-primary-dark: #450A0A;
+    --brand-primary-light: #A82424;
+    --brand-primary-tint: rgba(139, 30, 30, 0.08);
+    --brand-maroon: #8B1E1E;
+    --brand-maroon-deep: #540D0D;
+
+    /* Brand Gold/Amber Tokens */
+    --brand-gold: #E27D16;
+    --brand-gold-light: #FFB020;
+    --color-solar-gold: #FFB020;
+    --color-savings-green: #10B981;
+    --color-solar-navy: #0B1730;
+
+    /* Canonical Brand Gradients with Rich Crimson Specular Sheen */
+    --gradient-primary: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
+    --gradient-hero-text: linear-gradient(100deg, #540D0D 0%, #8B1E1E 50%, #A82424 100%);
+    --gradient-cta: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
+    
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+  }
+
+  /* ── Base Typography ── */
+  body {
+    font-family: var(--font-body);
+    font-weight: var(--weight-regular);
+    line-height: var(--lh-body);
+    color: #0F172A;
+    background-color: #F8FAFC;
+    overflow-x: hidden;
+  }
+
+  /* Headings: H1/H2 use Display family (Space Grotesk), Bold, tight tracking */
+  h1, h2, .font-heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--lh-heading);
+  }
+
+  /* H3/H4 stay on Body family (Instrument Sans) at semibold —
+     display family reserved for H1/H2/hero per "don't overuse Space Grotesk" */
+  h3, h4 {
+    font-family: var(--font-body);
+    font-weight: var(--weight-semibold);
+    line-height: var(--lh-heading);
+  }
+
+  /* ── Specialised Typographic Roles ── */
+
+  /* Hero Display — Display family Bold, display line-height, tight tracking */
+  .hero-display {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--lh-display);
+  }
+
+  /* Stat/Data Figures — Display family Bold, tabular numerals */
+  .stat-figure {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Eyebrow/Label — Display family Semibold, wide tracking, uppercase */
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  /* Measure utility — apply explicitly to long-form paragraph containers */
+  .measure-body { max-width: var(--measure-body); }
+  .measure-hero { max-width: var(--measure-hero); }
+
+  /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
+  /* On dark/photographic backgrounds (Ivory / Champagne Gradient) */
+  .text-accent-dark {
+    background: linear-gradient(90deg, #F8F8F5 0%, #E7D8B9 50%, #FFFDF7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #F5EDE0;
+  }
+
+  /* On light/neutral backgrounds (Warm Charcoal to Taupe Gradient) */
+  .text-accent-light {
+    background: linear-gradient(100deg, #2A2118 0%, #6B5842 55%, #8B7355 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #4A3C2B;
+  }
+}
+
+/* ── Premium Brand Crimson/Maroon Button System (Image Reference Specification) ── */
+button.bg-\[\#8B1E1E\],
+a.bg-\[\#8B1E1E\],
+.btn-primary-maroon {
+  background: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.28), 0 8px 24px -4px rgba(120, 18, 18, 0.55), 0 2px 6px -1px rgba(120, 18, 18, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.bg-\[\#8B1E1E\]:hover,
+a.bg-\[\#8B1E1E\]:hover,
+.btn-primary-maroon:hover {
+  background: linear-gradient(180deg, #B52B2B 0%, #982222 48%, #621010 100%) !important;
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.38), 0 12px 28px -4px rgba(139, 30, 30, 0.65), 0 4px 10px -2px rgba(139, 30, 30, 0.4);
+  transform: translateY(-1px);
+}
+
+button.bg-\[\#8B1E1E\]:active,
+a.bg-\[\#8B1E1E\]:active,
+.btn-primary-maroon:active {
+  background: linear-gradient(180deg, #8B1E1E 0%, #751717 48%, #420808 100%) !important;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3), 0 4px 12px -2px rgba(139, 30, 30, 0.4);
+  transform: translateY(0px) scale(0.985);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Elevation shadows */
+.shadow-elevation-1 {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.shadow-elevation-2 {
+  box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+.shadow-elevation-3 {
+  box-shadow: 0 24px 48px -8px rgba(15, 23, 42, 0.12), 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+}
+
+.shadow-maroon-glow {
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.28), 0 8px 24px -4px rgba(120, 18, 18, 0.55), 0 2px 6px -1px rgba(120, 18, 18, 0.35);
+}
+
+/* Focus Ring Accessibility */
+*:focus-visible {
+  outline: 2px solid #8B1E1E;
+  outline-offset: 3px;
+}
+
+/* Reduced Motion Mode Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduced-motion *, .reduced-motion ::before, .reduced-motion ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
