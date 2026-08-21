@@ -40,6 +40,65 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Dynamic SEO Title & Meta Description Manager
+  useEffect(() => {
+    const seoMap: Record<string, { title: string; description: string }> = {
+      '/': {
+        title: "SolarArk Projects | Premium Rooftop Solar India & PM Surya Ghar Subsidy",
+        description: "Cut electricity bills by up to 90% with SolarArk. India's trusted residential rooftop solar EPC partner. Get ₹78,000 PM Surya Ghar subsidy & 25-year SunSure promise."
+      },
+      '/contact': {
+        title: "Contact SolarArk Projects | Rooftop Solar EPC & Free Site Survey",
+        description: "Connect with SolarArk Projects. Contact our Headquarters in Amravati or regional hubs in Chh. Sambhajinagar, Wardha & Akola. Call +91 7080909590 for a free 3D site survey."
+      },
+      '/about': {
+        title: "About SolarArk Projects | Central India's Leading Rooftop Solar EPC",
+        description: "Discover SolarArk Projects Pvt. Ltd. Founded by Shrikant Tikhile, powering 5,000+ rooftops across Amravati, Nagpur, Sambhajinagar, Wardha & Akola."
+      },
+      '/services': {
+        title: "Rooftop Solar Solutions & Turnkey Engineering | SolarArk Projects",
+        description: "Explore custom solar EPC services for residential homes, housing societies, commercial complexes & industrial factories. Tier-1 solar modules & zero-down EMI."
+      },
+      '/projects': {
+        title: "Verified Solar Rooftop Installations & Video Walkthroughs | SolarArk",
+        description: "View 5,000+ completed solar rooftop projects across Maharashtra. Customer video proof reels, before-and-after bill comparisons & system performance data."
+      },
+      '/earn-with-us': {
+        title: "Surya Mitra Referral Partner Program - Earn ₹15,000+ | SolarArk",
+        description: "Join SolarArk's Surya Mitra Partner Program. Earn high referral payouts for every rooftop solar installation in Maharashtra. Free onboarding kit included."
+      },
+      '/careers': {
+        title: "Careers & Job Openings | SolarArk Projects Pvt. Ltd.",
+        description: "Build your career in renewable energy with SolarArk. Explore jobs in solar engineering, CAD design, DISCOM liaison, project management & sales."
+      },
+      '/gallery': {
+        title: "SolarArk Gallery - CREDAI Expos, Exhibitions & Milestone Events",
+        description: "Browse SolarArk event gallery featuring CREDAI property expos, solar awareness workshops, team celebrations & partner meets."
+      }
+    };
+
+    const currentSeo = seoMap[currentPath] || seoMap['/'];
+    document.title = currentSeo.title;
+
+    // Meta Description update
+    let metaDesc = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = currentSeo.description;
+
+    // Canonical Link update
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = `https://www.thesolarark.com${currentPath === '/' ? '' : currentPath}`;
+  }, [currentPath]);
+
   useEffect(() => {
     if (isReducedMotion) {
       document.documentElement.classList.add('reduced-motion');

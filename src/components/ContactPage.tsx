@@ -95,8 +95,26 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   ];
 
   return (
-    <div className="pt-20 lg:pt-24 pb-8 min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
-      
+    <div 
+      className="pt-20 lg:pt-24 pb-8 min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      itemScope 
+      itemType="https://schema.org/SolarEnergyContractor"
+    >
+      {/* Hidden Structured Data Micro-Metadata for Search Crawlers */}
+      <meta itemProp="name" content="SolarArk Projects Pvt. Ltd." />
+      <meta itemProp="url" content="https://www.thesolarark.com/contact" />
+      <meta itemProp="logo" content="https://www.thesolarark.com/images/solarlogo.png" />
+      <meta itemProp="priceRange" content="₹₹" />
+      <meta itemProp="telephone" content="+917080909590" />
+      <meta itemProp="email" content="info@thesolarark.com" />
+      <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
+        <span itemProp="streetAddress">Mira Sadan, House No. 27 A, Krushnarpan Colony</span>
+        <span itemProp="addressLocality">Amravati</span>
+        <span itemProp="addressRegion">Maharashtra</span>
+        <span itemProp="postalCode">444605</span>
+        <span itemProp="addressCountry">IN</span>
+      </div>
+
       {/* ── 1. REUSABLE TOP BREADCRUMB / CONTEXT BAR ── */}
       <PageContextBar
         currentPage="Contact Us"
@@ -121,24 +139,24 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
                 Connect with Our Certified <br />
-                <span className="text-[#8B1E1E]">Solar Energy Engineering Experts</span>
+                <span className="text-[#8B1E1E]">Solar Rooftop EPC Experts in Maharashtra</span>
               </h1>
 
               <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
-                Have questions about rooftop solar sizing, ₹78,000 PM Surya Ghar subsidy claims, or DISCOM net-metering approvals? Visit our regional offices or request a free 3D shadow site survey.
+                Have questions about 3kW–25kW rooftop solar sizing, ₹78,000 PM Surya Ghar government subsidy claims, or MSEDCL DISCOM net-metering approvals? Visit our registered offices in Amravati, Nagpur, Sambhajinagar, Wardha &amp; Akola or book a free 3D site survey.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-stone-600 border-t border-stone-200">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> 100% Free Site Survey
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> 100% Free 3D Laser Site Survey
                 </span>
                 <span className="hidden sm:inline text-stone-300">•</span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Award className="w-4 h-4 text-amber-600" /> PM Surya Ghar Authorized
+                  <Award className="w-4 h-4 text-amber-600" /> PM Surya Ghar Authorized Partner
                 </span>
                 <span className="hidden sm:inline text-stone-300">•</span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Clock className="w-4 h-4 text-blue-600" /> Fast 4-Hour Response
+                  <Clock className="w-4 h-4 text-blue-600" /> 4-Hour Engineer Response
                 </span>
               </div>
             </div>
@@ -150,8 +168,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <Headphones className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs text-stone-500 font-medium">Direct Field Helpline</div>
-                  <div className="text-lg font-bold text-slate-900 font-heading">+91 7080909590</div>
+                  <div className="text-xs text-stone-500 font-medium">Direct Customer &amp; Field Desk</div>
+                  <a href="tel:+917080909590" itemProp="telephone" className="text-lg font-bold text-slate-900 font-heading hover:text-[#8B1E1E] transition-colors">
+                    +91 7080909590
+                  </a>
                 </div>
               </div>
 
@@ -159,6 +179,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 href="https://wa.me/917080909590?text=Hi%20SolarArk%20Team%2C%20I%20would%20like%20to%20get%20a%20free%20solar%20rooftop%20estimate."
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Chat with SolarArk engineer on WhatsApp"
                 className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Chat on WhatsApp Instantly</span>
