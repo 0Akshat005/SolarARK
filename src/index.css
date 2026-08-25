@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Space Grotesk', 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
 
 @layer base {
   :root {
@@ -7,9 +15,6 @@
        neither family ships 800/900, so do not use font-extrabold/font-black. */
     --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
-    /* Tailwind v4 auto-generates the font-sans / font-heading utilities from these —
-       do not rename without updating the ~313 existing font-heading usages */
     --font-sans: var(--font-body);
     --font-heading: var(--font-display);
 
@@ -128,6 +133,23 @@
     font-family: var(--font-body);
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-wide);
+  }
+
+  /* Explicit font utilities ensuring 100% cascade reliability */
+  .font-heading {
+    font-family: var(--font-display);
+  }
+
+  .font-sans {
+    font-family: var(--font-body);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
   }
 
   /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
