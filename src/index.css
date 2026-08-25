@@ -1,3 +1,106 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* ── 1. SELF-HOSTED FONT-FACE DEFINITIONS (Space Grotesk + Instrument Sans) ──
+   Direct local WOFF2 font files served from /fonts/ — zero external CDN requests, zero FOUT flash. */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-700.woff2') format('woff2');
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -10,8 +113,7 @@
 @layer base {
   :root {
     /* ── Typography — Space Grotesk (display) + Instrument Sans (body/UI) ──
-       Self-hosted via Google Fonts (SIL OFL). Both cap at weight 700 —
-       neither family ships 800/900, so do not use font-extrabold/font-black. */
+       Self-hosted via local WOFF2 files. Weights: 400/500/600/700. */
     --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-sans: var(--font-body);
@@ -89,7 +191,7 @@
     overflow-x: hidden;
   }
 
-  /* Headings: H1/H2 use Display family (Space Grotesk), Bold, tight tracking */
+  /* Headings: H1, H2, and .font-heading use Display family (Space Grotesk) */
   h1, h2, .font-heading {
     font-family: var(--font-display);
     font-weight: var(--weight-bold);

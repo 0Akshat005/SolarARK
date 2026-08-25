@@ -183,19 +183,17 @@ export const TrustBar: React.FC = () => {
                 {/* Stage number + eyebrow */}
                 <div className="flex items-center gap-3 mb-4">
                   <span
-                    className="text-[13px] lg:text-[14px] font-bold tabular-nums"
+                    className="text-[13px] lg:text-[14px] font-bold tabular-nums font-heading"
                     style={{
                       color: 'rgba(255,255,255,0.40)',
-                      fontFamily: 'var(--font-heading)',
                     }}
                   >
                     {String(activeStage + 1).padStart(2, '0')}
                   </span>
                   <span
-                    className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase"
+                    className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase font-heading"
                     style={{
                       color: 'rgba(255,255,255,0.50)',
-                      fontFamily: 'var(--font-heading)',
                     }}
                   >
                     {stage.tag}
@@ -204,8 +202,7 @@ export const TrustBar: React.FC = () => {
 
                 {/* Headline */}
                 <h2
-                  className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold text-white leading-[1.15] tracking-tight mb-3"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold text-white leading-[1.15] tracking-tight mb-3 font-heading"
                 >
                   {stage.title}
                 </h2>
@@ -247,9 +244,8 @@ export const TrustBar: React.FC = () => {
                   <React.Fragment key={idx}>
                     {/* Chapter number */}
                     <span
-                      className="text-[10px] sm:text-[11px] font-bold tabular-nums transition-colors duration-300"
+                      className="text-[10px] sm:text-[11px] font-bold tabular-nums transition-colors duration-300 font-heading"
                       style={{
-                        fontFamily: 'var(--font-heading)',
                         color: isActive || isPast
                           ? 'rgba(255,255,255,0.70)'
                           : 'rgba(255,255,255,0.25)',
