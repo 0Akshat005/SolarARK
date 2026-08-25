@@ -189,85 +189,70 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         </div>
       </section>
 
-      {/* ── 3. THREE DIRECT CONTACT CARDS DOCK ── */}
+      {/* ── 3. EDITORIAL CONTACT UTILITY RAIL (NO LARGE BOX CARDS) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 sm:mb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-          
-          {/* Phone Card */}
-          <a
-            href="tel:+917080909590"
-            className="bg-white border border-[#EBE6DF] rounded-2xl p-5 sm:p-6 shadow-[0_2px_8px_rgba(26,31,44,0.04)] hover:border-[#8B1E1E]/40 hover:shadow-sm transition-all duration-300 space-y-3 group cursor-pointer"
-          >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center font-bold group-hover:scale-105 transition-transform">
-                <Phone className="w-5 h-5" />
+        <div className="border-y border-[#EBE6DF]/90 py-5 sm:py-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#EBE6DF]/90">
+            
+            {/* 1. Direct Helpline (Call SolarArk) ~36% */}
+            <div className="w-full md:w-[36%] md:pr-8 space-y-1 pt-2 md:pt-0">
+              <div className="flex items-center gap-1.5 text-stone-500">
+                <Phone className="w-3.5 h-3.5 text-[#8B1E1E]" />
+                <span className="text-[11px] font-semibold tracking-wider uppercase font-heading text-stone-500">
+                  Call SolarArk
+                </span>
               </div>
-              <span className="text-[10px] font-semibold uppercase tracking-wider bg-red-50 text-[#8B1E1E] px-2.5 py-0.5 rounded-full font-heading border border-red-100">
-                Instant Call
-              </span>
+              <div>
+                <a
+                  href="tel:+917080909590"
+                  className="font-heading text-xl sm:text-[22px] font-bold text-[#8B1E1E] hover:text-[#5E1212] transition-colors tabular-nums focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none rounded inline-block"
+                >
+                  +91 7080909590
+                </a>
+              </div>
+              <p className="text-xs text-stone-500 font-normal m-0">
+                Speak directly with our team.
+              </p>
             </div>
-            <div>
-              <div className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider font-heading">
-                Direct Call / Helpline
-              </div>
-              <div className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                +91 7080909590
-              </div>
-            </div>
-            <p className="text-xs text-stone-500 font-normal m-0">
-              Monday to Saturday, 9:30 AM to 7:00 PM IST
-            </p>
-          </a>
 
-          {/* Email Card */}
-          <a
-            href="mailto:info@thesolarark.com"
-            className="bg-white border border-[#EBE6DF] rounded-2xl p-5 sm:p-6 shadow-[0_2px_8px_rgba(26,31,44,0.04)] hover:border-[#8B1E1E]/40 hover:shadow-sm transition-all duration-300 space-y-3 group cursor-pointer"
-          >
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold group-hover:scale-105 transition-transform">
-                <Mail className="w-5 h-5" />
+            {/* 2. Written Inquiries (Email Us) ~36% */}
+            <div className="w-full md:w-[36%] md:px-8 space-y-1 pt-4 md:pt-0">
+              <div className="flex items-center gap-1.5 text-stone-500">
+                <Mail className="w-3.5 h-3.5 text-stone-400" />
+                <span className="text-[11px] font-semibold tracking-wider uppercase font-heading text-stone-500">
+                  Email Us
+                </span>
               </div>
-              <span className="text-[10px] font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-heading border border-emerald-100">
-                Official Email
-              </span>
+              <div>
+                <a
+                  href="mailto:info@thesolarark.com"
+                  className="font-heading text-lg sm:text-[20px] font-bold text-slate-900 hover:text-[#8B1E1E] transition-colors focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none rounded inline-block"
+                >
+                  info@thesolarark.com
+                </a>
+              </div>
+              <p className="text-xs text-stone-500 font-normal m-0">
+                For enquiries, proposals &amp; documents.
+              </p>
             </div>
-            <div>
-              <div className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider font-heading">
-                Written Inquiries &amp; Proposals
-              </div>
-              <div className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                info@thesolarark.com
-              </div>
-            </div>
-            <p className="text-xs text-stone-500 font-normal m-0">
-              Guaranteed response within 4 business hours
-            </p>
-          </a>
 
-          {/* Working Hours Card */}
-          <div className="bg-white border border-[#EBE6DF] rounded-2xl p-5 sm:p-6 shadow-[0_2px_8px_rgba(26,31,44,0.04)] hover:border-[#8B1E1E]/40 hover:shadow-sm transition-all duration-300 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
-                <Clock className="w-5 h-5" />
+            {/* 3. Engineering Desk Hours ~28% */}
+            <div className="w-full md:w-[28%] md:pl-8 space-y-1 pt-4 md:pt-0">
+              <div className="flex items-center gap-1.5 text-stone-500">
+                <Clock className="w-3.5 h-3.5 text-stone-400" />
+                <span className="text-[11px] font-semibold tracking-wider uppercase font-heading text-stone-500">
+                  Desk Hours
+                </span>
               </div>
-              <span className="text-[10px] font-semibold uppercase tracking-wider bg-amber-50 text-amber-800 px-2.5 py-0.5 rounded-full font-heading border border-amber-100">
-                Open 6 Days
-              </span>
+              <div className="font-heading text-base sm:text-[17px] font-bold text-slate-900">
+                Mon – Sat · 9:30 AM – 7:00 PM
+              </div>
+              <p className="text-xs text-stone-500 font-normal m-0">
+                Sunday: emergency net-metering support
+              </p>
             </div>
-            <div>
-              <div className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider font-heading">
-                Engineering Desk Hours
-              </div>
-              <div className="font-heading text-lg sm:text-xl font-bold text-slate-900 mt-0.5">
-                Mon – Sat: 9:30 AM – 7:00 PM
-              </div>
-            </div>
-            <p className="text-xs text-stone-500 font-normal m-0">
-              Sunday emergency net-metering on-call support
-            </p>
+
           </div>
-
         </div>
       </section>
 
