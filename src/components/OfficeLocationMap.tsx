@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 import React, { useState } from "react";
-import { MapPin, Phone, Mail, ExternalLink, Building2, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, ExternalLink, Building2, Navigation, Sparkles } from "lucide-react";
 
 export interface OfficeLocation {
   city: string;
@@ -23,7 +23,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const active = offices[activeIndex];
 
-  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-5 sm:p-7 xl:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-4 sm:space-y-5 h-full flex flex-col justify-between">
@@ -65,8 +65,9 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
         })}
       </div>
 
-      {/* Interactive Map & Glassmorphism Details Overlay */}
+      {/* Interactive Map with Premium Custom SolarARK Maroon Pin Marker */}
       <div className="relative rounded-2xl overflow-hidden border border-[#EBE6DF] shadow-[0_2px_8px_rgba(26,31,44,0.04)] flex-1 min-h-[380px]">
+        {/* Google Map Frame */}
         <div key={activeIndex} className="animate-in fade-in duration-300 h-full">
           <iframe
             title={`Map showing ${active.city}`}
@@ -81,6 +82,49 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
           />
         </div>
 
+        {/* ── Premium SolarARK Maroon Location Pin with Pulsing Radar Beacon ── */}
+        <div className="absolute top-[48%] left-[62%] sm:left-[60%] -translate-x-1/2 -translate-y-full pointer-events-none z-10 flex flex-col items-center animate-in zoom-in duration-300">
+          {/* Location Badge Pill */}
+          <div className="bg-slate-900/90 text-white text-[10px] font-bold font-heading px-2.5 py-1 rounded-full shadow-lg border border-white/20 whitespace-nowrap mb-1.5 backdrop-blur-xs flex items-center gap-1.5 animate-bounce">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB020] animate-ping" />
+            <span>SolarArk {active.city.split(' ')[0]}</span>
+          </div>
+
+          {/* Premium 3D Maroon Marker Icon */}
+          <div className="relative flex items-center justify-center">
+            {/* Ground Radar Pulse */}
+            <span className="absolute -bottom-1 w-7 h-7 rounded-full bg-[#8B1E1E]/40 animate-ping" />
+            <span className="absolute -bottom-0.5 w-4 h-2 rounded-full bg-[#540D0D]/70 blur-[1px]" />
+            
+            {/* Custom SVG Maroon Teardrop Marker */}
+            <svg
+              className="w-9 h-11 drop-shadow-[0_8px_16px_rgba(139,30,30,0.65)]"
+              viewBox="0 0 36 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="solararkMaroonPin" x1="18" y1="0" x2="18" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#A82424" />
+                  <stop offset="50%" stopColor="#8B1E1E" />
+                  <stop offset="100%" stopColor="#540D0D" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M18 0C8.05887 0 0 8.05887 0 18C0 28.5 15.75 42.4 17.2 43.66C17.66 44.06 18.34 44.06 18.8 43.66C20.25 42.4 36 28.5 36 18C36 8.05887 27.9411 0 18 0Z"
+                fill="url(#solararkMaroonPin)"
+                stroke="#FFFFFF"
+                strokeWidth="1.75"
+              />
+              {/* Inner Solar Shield Rings */}
+              <circle cx="18" cy="18" r="7.5" fill="#FFFFFF" />
+              <circle cx="18" cy="18" r="5.5" fill="#8B1E1E" />
+              <circle cx="18" cy="18" r="2.75" fill="#FFB020" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Floating Glassmorphic Office Details Card */}
         <div className="absolute top-3 left-3 right-3 sm:right-auto sm:max-w-[320px] bg-white/95 backdrop-blur-sm border border-[#EBE6DF] rounded-2xl p-4 shadow-[0_10px_28px_rgba(28,35,46,0.12)] space-y-2">
           <div className="flex items-center justify-between gap-2">
             <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-heading m-0">{active.city}</h3>
