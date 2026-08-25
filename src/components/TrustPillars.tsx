@@ -81,13 +81,13 @@ export const TrustPillars: React.FC = () => {
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold ${p.accentColor}`}>
                       <IconComp className="w-6 h-6" />
                     </div>
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-heading">
+                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-heading">
                       {p.badge}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 font-heading group-hover:text-[#8B1E1E] transition-colors">
+                    <h3 className="text-lg font-semibold text-slate-900 font-heading group-hover:text-[#8B1E1E] transition-colors">
                       {p.title}
                     </h3>
                     <p className="text-xs font-semibold text-slate-500 mt-0.5">{p.subtitle}</p>

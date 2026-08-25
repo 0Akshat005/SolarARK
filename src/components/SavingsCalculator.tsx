@@ -297,14 +297,14 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                     {/* Quick Select */}
                     <div className="space-y-1 pt-1">
-                      <span className="text-[9.5px] font-bold text-stone-400 uppercase tracking-wider block">Quick select</span>
+                      <span className="text-[9.5px] font-semibold text-stone-400 uppercase tracking-wider block">Quick select</span>
                       <div className="flex flex-wrap gap-1.5">
                         {quickPresets.map((preset) => (
                           <button
                             key={preset}
                             type="button"
                             onClick={() => setMonthlyBill(preset)}
-                            className={`text-[11px] px-2.5 py-1 rounded-lg font-bold border transition-all duration-200 active:scale-95 cursor-pointer ${
+                            className={`text-[11px] px-2.5 py-1 rounded-lg font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
                               monthlyBill === preset
                                 ? 'btn-primary-maroon text-white border-transparent shadow-sm scale-[1.02]'
                                 : 'bg-stone-50 text-slate-700 border-stone-200 hover:border-stone-300 hover:bg-stone-100 hover:scale-[1.02]'
@@ -336,7 +336,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   {/* Hero System Sizing & Subsidy Card */}
                   <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-stone-900 via-[#1C1F2E] to-stone-900 text-white border border-stone-800 relative overflow-hidden flex items-center justify-between shadow-md">
                     <div className="space-y-1 z-10">
-                      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 text-[10px] font-bold tracking-wide uppercase font-heading">
+                      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 text-[10px] font-semibold tracking-wide uppercase font-heading">
                         <Zap className="w-3 h-3 text-amber-400" />
                         <span>Recommended Sizing</span>
                       </div>
@@ -360,7 +360,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1.5">
                     <div className="grid grid-cols-2 gap-2 items-center">
                       <div className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-2xs">
-                        <span className="text-[9px] font-bold text-stone-400 uppercase tracking-wider block">Current Bill</span>
+                        <span className="text-[9px] font-semibold text-stone-400 uppercase tracking-wider block">Current Bill</span>
                         <span className="text-xs sm:text-sm font-bold text-rose-700 font-heading block">
                           {formatINR(monthlyBill)}
                         </span>
@@ -370,7 +370,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       </div>
 
                       <div className="p-2 rounded-lg bg-emerald-50/60 border border-emerald-200/80 shadow-2xs">
-                        <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-wider block">With Solar</span>
+                        <span className="text-[9px] font-semibold text-emerald-700 uppercase tracking-wider block">With Solar</span>
                         <span className="text-xs sm:text-sm font-bold text-emerald-800 font-heading block">
                           ~{formatINR(billWithSolar)}
                         </span>
@@ -410,11 +410,11 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   {/* Secondary Specs */}
                   <div className="grid grid-cols-2 gap-2 pt-0.5">
                     <div className="p-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px]">
-                      <span className="text-stone-400 text-[9px] uppercase font-bold block">Recommended System</span>
+                      <span className="text-stone-400 text-[9px] uppercase font-semibold block">Recommended System</span>
                       <span className="font-bold text-slate-800 font-heading">{results.systemSizeKw} kW Rooftop</span>
                     </div>
                     <div className="p-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px]">
-                      <span className="text-stone-400 text-[9px] uppercase font-bold block">Effective Investment</span>
+                      <span className="text-stone-400 text-[9px] uppercase font-semibold block">Effective Investment</span>
                       <span className="font-bold text-slate-800 font-heading">{formatINR(results.effectiveNetCost)} Net</span>
                     </div>
                   </div>
@@ -424,7 +424,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowFullBreakdown(!showFullBreakdown)}
-                      className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-700 hover:text-stone-900 hover:underline cursor-pointer transition-colors"
+                      className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-700 hover:text-stone-900 hover:underline cursor-pointer transition-colors"
                     >
                       <span>{showFullBreakdown ? 'Hide financial breakdown' : 'See full breakdown'}</span>
                       {showFullBreakdown ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}

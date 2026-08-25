@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Space Grotesk', 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 @layer base {
   :root {
     /* ── Typography — Space Grotesk (display) + Instrument Sans (body/UI) ──
@@ -7,9 +14,6 @@
        neither family ships 800/900, so do not use font-extrabold/font-black. */
     --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
-    /* Tailwind v4 auto-generates the font-sans / font-heading utilities from these —
-       do not rename without updating the ~313 existing font-heading usages */
     --font-sans: var(--font-body);
     --font-heading: var(--font-display);
 
@@ -19,19 +23,33 @@
     --weight-semibold: 600;
     --weight-bold: 700;
 
+    /* Weight-usage guardrails (Implementation Plan Section C) */
+    --weight-nav: var(--weight-medium);          /* 500 — nav, secondary UI */
+    --weight-card-title: var(--weight-semibold); /* 600 — card titles, badges, labels */
+    --weight-heading: var(--weight-bold);        /* 700 — h1/h2/hero only */
+
+    /* Type scale tokens (Implementation Plan Section C) */
+    --type-display-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.375rem);
+    --type-h1-size: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+    --type-h2-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+    --type-h3-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.375rem);
+    --type-body-size: 1rem;
+    --type-label-size: 0.75rem;
+    --type-caption-size: 0.6875rem;
+
     /* Tracking tokens */
     --tracking-tight: -0.02em;
     --tracking-normal: 0;
     --tracking-wide: 0.01em;
-    --tracking-label: 0.08em;   /* nudged down from 0.10em; Space Grotesk's wider letterforms need less added tracking */
+    --tracking-label: 0.08em;
 
     /* Line-height tokens */
     --lh-display: 1.08;
     --lh-heading: 1.2;
     --lh-body: 1.6;
 
-    /* Measure / max-width tokens — now actually applied via utilities below */
-    --measure-body: 65ch;   /* was 70ch — 65 sits centrally in the 45–75ch recommended range */
+    /* Measure / max-width tokens */
+    --measure-body: 65ch;
     --measure-hero: 38ch;
 
     /* ── Canonical Premium Brand Maroon & Crimson Palette ── */
@@ -62,7 +80,7 @@
   }
 
   /* ── Base Typography ── */
-  body {
+  html, body {
     font-family: var(--font-body);
     font-weight: var(--weight-regular);
     line-height: var(--lh-body);
@@ -79,8 +97,7 @@
     line-height: var(--lh-heading);
   }
 
-  /* H3/H4 stay on Body family (Instrument Sans) at semibold —
-     display family reserved for H1/H2/hero per "don't overuse Space Grotesk" */
+  /* H3/H4 stay on Body family (Instrument Sans) at semibold */
   h3, h4 {
     font-family: var(--font-body);
     font-weight: var(--weight-semibold);
@@ -115,6 +132,37 @@
   /* Measure utility — apply explicitly to long-form paragraph containers */
   .measure-body { max-width: var(--measure-body); }
   .measure-hero { max-width: var(--measure-hero); }
+
+  /* Nav Link — Body family Medium, wide tracking */
+  .nav-link {
+    font-family: var(--font-body);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  /* Button Label — Body family Semibold, wide tracking */
+  .btn-label {
+    font-family: var(--font-body);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  /* Explicit font utilities ensuring 100% cascade reliability */
+  .font-heading {
+    font-family: var(--font-display);
+  }
+
+  .font-sans {
+    font-family: var(--font-body);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
 
   /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
   /* On dark/photographic backgrounds (Ivory / Champagne Gradient) */

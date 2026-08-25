@@ -175,7 +175,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
         </div>
 
         <div className="relative z-10 text-center max-w-2xl mx-auto space-y-3.5 py-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 shadow-2xs text-[11px] font-bold text-[#8B1E1E] tracking-widest uppercase font-heading">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 shadow-2xs text-[11px] font-semibold text-[#8B1E1E] tracking-widest uppercase font-heading">
             <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
             <span>Turnkey Execution Journey</span>
           </div>
@@ -264,7 +264,7 @@ export const TurnkeyExecutionJourney: React.FC = () => {
 
                   {/* 4. Verified Micro-Badge at Bottom */}
                   <div className="pt-2">
-                    <div className="inline-flex items-center justify-center gap-1.5 w-full bg-emerald-50/90 border border-emerald-200/70 text-emerald-700 font-bold text-[11px] py-1.5 px-2 rounded-xl text-center">
+                    <div className="inline-flex items-center justify-center gap-1.5 w-full bg-emerald-50/90 border border-emerald-200/70 text-emerald-700 font-semibold text-[11px] py-1.5 px-2 rounded-xl text-center">
                       <span className="text-emerald-600">✓</span>
                       <span>{stage.badge}</span>
                     </div>

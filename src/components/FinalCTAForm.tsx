@@ -137,7 +137,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
           
           <div className="space-y-4">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50/95 border border-red-200/80 text-[#8B1E1E] text-xs font-bold font-heading shadow-2xs backdrop-blur-xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50/95 border border-red-200/80 text-[#8B1E1E] text-xs font-semibold font-heading shadow-2xs backdrop-blur-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
               <span>Zero Upfront Obligation</span>
             </div>
@@ -159,12 +159,12 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               &amp; 3D Roof Design
             </h2>
 
-            {/* Subhead with maroon bold highlights */}
+            {/* Subhead with clean neutral highlights */}
             <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed max-w-lg m-0">
               Our certified engineers will prepare an exact{' '}
-              <strong className="text-[#8B1E1E] font-semibold">3D solar proposal</strong>{' '}
+              <strong className="text-slate-900 font-semibold">3D solar proposal</strong>{' '}
               and{' '}
-              <strong className="text-[#8B1E1E] font-semibold">
+              <strong className="text-slate-900 font-semibold">
                 DISCOM subsidy eligibility report
               </strong>{' '}
               for your roof.
@@ -177,7 +177,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <div className="text-xs font-bold text-slate-800 leading-tight">
+                <div className="text-xs font-semibold text-slate-800 leading-tight">
                   100% Free <br />
                   <span className="text-[11px] font-normal text-slate-500">&amp; No Obligation</span>
                 </div>
@@ -188,7 +188,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 shadow-2xs backdrop-blur-xs">
                   <Lock className="w-4 h-4" />
                 </div>
-                <div className="text-xs font-bold text-slate-800 leading-tight">
+                <div className="text-xs font-semibold text-slate-800 leading-tight">
                   Your Data <br />
                   <span className="text-[11px] font-normal text-slate-500">is Secure</span>
                 </div>
@@ -199,7 +199,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
                   <Users className="w-4 h-4" />
                 </div>
-                <div className="text-xs font-bold text-slate-800 leading-tight">
+                <div className="text-xs font-semibold text-slate-800 leading-tight">
                   Certified <br />
                   <span className="text-[11px] font-normal text-slate-500">Engineers</span>
                 </div>
@@ -278,7 +278,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   1
                 </div>
-                <span className={`text-[11px] font-bold ${step >= 1 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-semibold ${step >= 1 ? 'text-slate-900' : 'text-stone-400'}`}>
                   Roof Location
                 </span>
               </div>
@@ -295,7 +295,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   2
                 </div>
-                <span className={`text-[11px] font-bold ${step >= 2 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-semibold ${step >= 2 ? 'text-slate-900' : 'text-stone-400'}`}>
                   Contact Details
                 </span>
               </div>
@@ -304,7 +304,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               <div className="flex flex-col items-center gap-1.5">
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center font-heading font-bold text-xs transition-colors ${
-                    step === 3
+                    step >= 3
                       ? 'bg-emerald-600 text-white shadow-xs ring-4 ring-emerald-500/15'
                       : 'bg-stone-100 text-stone-400'
                   }`}
@@ -312,7 +312,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   3
                 </div>
-                <span className={`text-[11px] font-bold ${step === 3 ? 'text-emerald-700' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-semibold ${step === 3 ? 'text-emerald-700' : 'text-stone-400'}`}>
                   Confirm &amp; Submit
                 </span>
               </div>
@@ -326,7 +326,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               <div className="space-y-5">
                 
                 {/* Section Title */}
-                <div className="flex items-center gap-2 text-slate-900 font-heading font-bold text-base">
+                <div className="flex items-center gap-2 text-slate-900 font-heading font-semibold text-base">
                   <MapPin className="w-4 h-4 text-[#8B1E1E]" />
                   <span>Tell us about your roof</span>
                 </div>
@@ -336,7 +336,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                   
                   {/* Field 1: 6-Digit Pincode */}
                   <div className="space-y-1.5">
-                    <label htmlFor="pincode-input" className="block text-xs font-bold text-slate-800">
+                    <label htmlFor="pincode-input" className="block text-xs font-semibold text-slate-800">
                       6-Digit Pincode <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
@@ -363,7 +363,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                   {/* Field 2: Average Monthly Power Bill */}
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <label htmlFor="bill-select" className="block text-xs font-bold text-slate-800">
+                      <label htmlFor="bill-select" className="block text-xs font-semibold text-slate-800">
                         Average Monthly Power Bill (₹)
                       </label>
                       <Info className="w-3.5 h-3.5 text-slate-400 cursor-help" title="Used to calculate required solar kW capacity" />
@@ -394,7 +394,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                 {/* Section: Rooftop Structure Type */}
                 <div className="space-y-2 pt-1">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-800">
                     <span>Rooftop Structure Type</span>
                     <span className="text-red-500">*</span>
                     <Info className="w-3 h-3 text-slate-400" />
@@ -419,7 +419,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                       }`}
                     >
                       <Building2 className="w-6 h-6 mb-2 stroke-[1.8]" />
-                      <span className="text-xs font-bold leading-tight">
+                      <span className="text-xs font-semibold leading-tight">
                         Concrete Slab <br />
                         <span className="text-[10px] font-medium text-slate-500">(RCC)</span>
                       </span>
@@ -443,7 +443,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                       }`}
                     >
                       <Warehouse className="w-6 h-6 mb-2 stroke-[1.8]" />
-                      <span className="text-xs font-bold leading-tight">
+                      <span className="text-xs font-semibold leading-tight">
                         Tin / <br />
                         <span className="text-[10px] font-medium text-slate-500">Metal Sheet</span>
                       </span>
@@ -467,7 +467,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                       }`}
                     >
                       <Grid3X3 className="w-6 h-6 mb-2 stroke-[1.8]" />
-                      <span className="text-xs font-bold leading-tight">
+                      <span className="text-xs font-semibold leading-tight">
                         Tiled / <br />
                         <span className="text-[10px] font-medium text-slate-500">Slanted Roof</span>
                       </span>
@@ -524,7 +524,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                 {/* Full Name */}
                 <div className="space-y-1">
-                  <label htmlFor="fullname-input" className="block text-xs font-bold text-slate-800">
+                  <label htmlFor="fullname-input" className="block text-xs font-semibold text-slate-800">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -543,11 +543,11 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                 {/* WhatsApp Number */}
                 <div className="space-y-1">
-                  <label htmlFor="whatsapp-input" className="block text-xs font-bold text-slate-800">
+                  <label htmlFor="whatsapp-input" className="block text-xs font-semibold text-slate-800">
                     WhatsApp Number (for 3D Layout PDF) <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-bold text-slate-500">
+                    <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-semibold text-slate-500">
                       +91
                     </span>
                     <input
@@ -569,7 +569,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
                 {/* Preferred Survey Slot */}
                 <div className="space-y-1">
-                  <label htmlFor="time-select" className="block text-xs font-bold text-slate-800">
+                  <label htmlFor="time-select" className="block text-xs font-semibold text-slate-800">
                     Preferred Site Survey Time Window
                   </label>
                   <div className="relative">
@@ -621,7 +621,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Thank you, <strong className="text-slate-900">{fullName || 'Valued Customer'}</strong>! Our certified solar engineer is preparing your personalized 3D proposal for pincode{' '}
-                  <strong className="text-[#8B1E1E] font-mono">{pincode}</strong>.
+                  <strong className="text-slate-900 font-mono">{pincode}</strong>.
                 </p>
               </div>
 

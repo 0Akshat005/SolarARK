@@ -35,10 +35,10 @@ export const SubsidyExplainer: React.FC<{ onCtaClick: () => void }> = ({ onCtaCl
             <table className="w-full text-left border-collapse min-w-[640px]">
               <thead>
                 <tr className="bg-slate-900 text-white font-heading text-xs uppercase tracking-wider">
-                  <th scope="col" className="p-4 sm:p-5 font-bold">System Capacity</th>
-                  <th scope="col" className="p-4 sm:p-5 font-bold text-[#FFB020]">Central Govt Subsidy</th>
-                  <th scope="col" className="p-4 sm:p-5 font-bold">Typical Net Investment</th>
-                  <th scope="col" className="p-4 sm:p-5 font-bold">Ideal Home Usage</th>
+                  <th scope="col" className="p-4 sm:p-5 font-semibold">System Capacity</th>
+                  <th scope="col" className="p-4 sm:p-5 font-semibold text-[#FFB020]">Central Govt Subsidy</th>
+                  <th scope="col" className="p-4 sm:p-5 font-semibold">Typical Net Investment</th>
+                  <th scope="col" className="p-4 sm:p-5 font-semibold">Ideal Home Usage</th>
                 </tr>
               </thead>
 
@@ -50,10 +50,10 @@ export const SubsidyExplainer: React.FC<{ onCtaClick: () => void }> = ({ onCtaCl
                       idx === 2 ? 'bg-amber-50/40 font-semibold' : ''
                     }`}
                   >
-                    <td className="p-4 sm:p-5 font-bold text-slate-900 flex items-center gap-2">
+                    <td className="p-4 sm:p-5 font-semibold text-slate-900 flex items-center gap-2">
                       <span>{tier.systemSize}</span>
                       {idx === 2 && (
-                        <span className="text-[10px] font-bold text-amber-800 bg-amber-200 px-2 py-0.5 rounded-full">
+                        <span className="text-[10px] font-semibold text-amber-900 bg-amber-200 px-2 py-0.5 rounded-full">
                           Most Popular
                         </span>
                       )}

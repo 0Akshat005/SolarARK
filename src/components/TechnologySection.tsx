@@ -18,7 +18,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-bold font-heading border border-[#8B1E1E]/20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold font-heading border border-[#8B1E1E]/20">
             <Cpu className="w-4 h-4 text-[#8B1E1E]" />
             <span>Industrial-Grade Hardware &amp; Software</span>
           </div>
@@ -51,15 +51,15 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                   }`}
                 >
                   <div>
-                    <span className={`text-[10px] uppercase font-bold ${isActive ? 'text-amber-200' : 'text-stone-400'}`}>
+                    <span className={`text-[10px] uppercase font-semibold ${isActive ? 'text-amber-200' : 'text-stone-400'}`}>
                       {spec.category}
                     </span>
-                    <div className={`text-sm font-bold font-heading mt-0.5 ${isActive ? 'text-white' : 'text-slate-900'}`}>
+                    <div className={`text-sm font-semibold font-heading mt-0.5 ${isActive ? 'text-white' : 'text-slate-900'}`}>
                       {spec.title}
                     </div>
                   </div>
 
-                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border ${
+                  <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-lg border ${
                     isActive
                       ? 'bg-white/20 text-white border-white/30'
                       : 'bg-stone-100 text-slate-700 border-stone-200'
@@ -75,16 +75,16 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
           <div className="lg:col-span-8 bg-white p-8 sm:p-10 rounded-3xl border border-stone-200/90 shadow-sm space-y-8">
             <div className="space-y-4 border-b border-stone-100 pb-6">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading">
+                <span className="text-xs font-semibold text-[#8B1E1E] uppercase tracking-wider font-heading">
                   {selectedTech.category} Architecture
                 </span>
 
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
                   {selectedTech.badge}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-bold font-heading text-[#0B1730]">
+              <h3 className="text-2xl font-semibold font-heading text-[#0B1730]">
                 {selectedTech.title}
               </h3>
 

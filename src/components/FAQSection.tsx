@@ -99,10 +99,10 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-red-50 text-[#8B1E1E] border border-red-100 uppercase">
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-red-50 text-[#8B1E1E] border border-red-100 uppercase">
                         {faq.category}
                       </span>
-                      <span className="text-sm sm:text-base font-bold text-slate-900 font-heading">
+                      <span className="text-sm sm:text-base font-semibold text-slate-900 font-heading">
                         {faq.question}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
         {/* Still Have Questions Box */}
         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <div className="text-sm font-bold text-slate-900 font-heading">
+            <div className="text-sm font-semibold text-slate-900 font-heading">
               Have a specific question about your roof or DISCOM board?
             </div>
             <div className="text-xs text-slate-500">
