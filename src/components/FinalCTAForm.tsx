@@ -154,12 +154,12 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               &amp; 3D Roof Design
             </h2>
 
-            {/* Subhead with maroon bold highlights */}
+            {/* Subhead without maroon text highlights */}
             <p className="text-sm sm:text-base text-slate-700 font-normal leading-relaxed max-w-lg m-0">
               Our certified engineers will prepare an exact{' '}
-              <strong className="text-[#8B1E1E] font-semibold">3D solar proposal</strong>{' '}
+              <strong className="text-slate-900 font-semibold">3D solar proposal</strong>{' '}
               and{' '}
-              <strong className="text-[#8B1E1E] font-semibold">
+              <strong className="text-slate-900 font-semibold">
                 DISCOM subsidy eligibility report
               </strong>{' '}
               for your roof.
@@ -273,7 +273,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   1
                 </div>
-                <span className={`text-[11px] font-bold ${step >= 1 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-bold ${step >= 1 ? 'text-slate-900' : 'text-stone-400'}`}>
                   Roof Location
                 </span>
               </div>
@@ -290,7 +290,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   2
                 </div>
-                <span className={`text-[11px] font-bold ${step >= 2 ? 'text-[#8B1E1E]' : 'text-stone-400'}`}>
+                <span className={`text-[11px] font-bold ${step >= 2 ? 'text-slate-900' : 'text-stone-400'}`}>
                   Contact Details
                 </span>
               </div>
@@ -616,7 +616,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Thank you, <strong className="text-slate-900">{fullName || 'Valued Customer'}</strong>! Our certified solar engineer is preparing your personalized 3D proposal for pincode{' '}
-                  <strong className="text-[#8B1E1E] font-mono">{pincode}</strong>.
+                  <strong className="text-slate-900 font-mono font-bold">{pincode}</strong>.
                 </p>
               </div>
 
