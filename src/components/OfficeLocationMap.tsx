@@ -26,14 +26,14 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-4 sm:p-6 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-5">
+    <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-6 sm:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-6 h-full flex flex-col justify-between">
       <div className="space-y-1.5">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-xs font-semibold text-[#8B1E1E] border border-red-100 font-heading">
           <Navigation className="w-3.5 h-3.5 text-[#8B1E1E]" />
-          <span>Find Us on the Map</span>
+          <span>Regional Footprint &amp; Map</span>
         </div>
-        <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-[#0B1730] tracking-tight leading-[1.18] m-0">Visit Our Nearest Office</h2>
-        <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">Select a location to view its exact address and directions on the map.</p>
+        <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-[#0B1730] tracking-tight leading-[1.18] m-0">SolarArk Registered Offices</h2>
+        <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">Select a regional center to view its address, engineering service desk &amp; live map.</p>
       </div>
 
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Choose office location">
@@ -46,7 +46,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveIndex(idx)}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold font-heading border transition-all cursor-pointer ${isActive ? "bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-sm" : "bg-white text-slate-700 border-stone-300 hover:border-[#8B1E1E40] hover:text-[#8B1E1E]"}`}
+              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold font-heading border transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none ${isActive ? "bg-[#8B1E1E] text-white border-[#8B1E1E] shadow-sm" : "bg-white text-slate-700 border-stone-300 hover:border-[#8B1E1E40] hover:text-[#8B1E1E]"}`}
             >
               <Building2 className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-stone-400"}`} />
               {office.city}
@@ -55,18 +55,18 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
         })}
       </div>
 
-      <div className="relative rounded-2xl overflow-hidden border border-[#EBE6DF] shadow-[0_2px_8px_rgba(26,31,44,0.04)]">
-        <div key={activeIndex} className="animate-in fade-in duration-300">
+      <div className="relative rounded-2xl overflow-hidden border border-[#EBE6DF] shadow-[0_2px_8px_rgba(26,31,44,0.04)] flex-1 min-h-[360px]">
+        <div key={activeIndex} className="animate-in fade-in duration-300 h-full">
           <iframe
             title={`Map showing ${active.city}`}
             src={embedSrc}
             width="100%"
-            height="380"
-            style={{ border: 0 }}
+            height="100%"
+            style={{ border: 0, minHeight: '360px' }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             aria-label={`Google Map location for ${active.city}`}
-            className="w-full block"
+            className="w-full h-full block"
           />
         </div>
 
@@ -80,30 +80,30 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
             <span>{active.address}</span>
           </div>
           <div className="flex flex-wrap items-center gap-3 text-xs text-stone-600 pt-1 border-t border-stone-100">
-            <a href={`tel:${active.phone.replace(/\s+/g, "")}`} className="hover:text-[#8B1E1E] font-medium flex items-center gap-1 transition-colors tabular-nums">
+            <a href={`tel:${active.phone.replace(/\s+/g, "")}`} className="hover:text-[#8B1E1E] font-medium flex items-center gap-1 transition-colors tabular-nums focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none rounded">
               <Phone className="w-3 h-3 text-stone-400" />
               <span>{active.phone}</span>
             </a>
-            <a href={`mailto:${active.email}`} className="hover:text-[#8B1E1E] font-medium flex items-center gap-1 transition-colors">
+            <a href={`mailto:${active.email}`} className="hover:text-[#8B1E1E] font-medium flex items-center gap-1 transition-colors focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none rounded">
               <Mail className="w-3 h-3 text-stone-400" />
               <span>{active.email}</span>
             </a>
           </div>
-          <a href={active.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#8B1E1E] hover:underline cursor-pointer">
+          <a href={active.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#8B1E1E] hover:underline cursor-pointer focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none rounded">
             <span>Get Directions</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 pt-1">
         {offices.map((office, idx) =>
           idx === activeIndex ? null : (
             <button
               key={office.city}
               type="button"
               onClick={() => setActiveIndex(idx)}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-stone-50 border border-stone-200 text-[11px] font-medium text-stone-600 hover:border-[#8B1E1E40] hover:text-[#8B1E1E] transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-stone-50 border border-stone-200 text-[11px] font-medium text-stone-600 hover:border-[#8B1E1E40] hover:text-[#8B1E1E] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none"
             >
               <MapPin className="w-3 h-3 text-stone-400" />
               {office.city}
