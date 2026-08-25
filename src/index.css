@@ -1,4 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* ── 1. SELF-HOSTED FONT-FACE DEFINITIONS (Space Grotesk + Instrument Sans) ── */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-normal-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-normal-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/instrument-sans-italic-700.woff2') format('woff2');
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -11,8 +112,7 @@
 @layer base {
   :root {
     /* ── Typography — Space Grotesk (display) + Instrument Sans (body/UI) ──
-       Self-hosted via Google Fonts (SIL OFL). Both cap at weight 700 —
-       neither family ships 800/900, so do not use font-extrabold/font-black. */
+       Self-hosted via local WOFF2 files. Weights: 400/500/600/700. */
     --font-display: 'Space Grotesk', 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-body: 'Instrument Sans', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-sans: var(--font-body);
@@ -28,15 +128,15 @@
     --tracking-tight: -0.02em;
     --tracking-normal: 0;
     --tracking-wide: 0.01em;
-    --tracking-label: 0.08em;   /* nudged down from 0.10em; Space Grotesk's wider letterforms need less added tracking */
+    --tracking-label: 0.08em;
 
     /* Line-height tokens */
     --lh-display: 1.08;
     --lh-heading: 1.2;
     --lh-body: 1.6;
 
-    /* Measure / max-width tokens — now actually applied via utilities below */
-    --measure-body: 65ch;   /* was 70ch — 65 sits centrally in the 45–75ch recommended range */
+    /* Measure / max-width tokens */
+    --measure-body: 65ch;
     --measure-hero: 38ch;
 
     /* ── Canonical Premium Brand Maroon & Crimson Palette ── */
@@ -67,7 +167,7 @@
   }
 
   /* ── Base Typography ── */
-  body {
+  html, body {
     font-family: var(--font-body);
     font-weight: var(--weight-regular);
     line-height: var(--lh-body);
@@ -76,19 +176,11 @@
     overflow-x: hidden;
   }
 
-  /* Headings: H1/H2 use Display family (Space Grotesk), Bold, tight tracking */
-  h1, h2, .font-heading {
-    font-family: var(--font-display);
+  /* Headings: H1, H2, H3, H4, H5, H6, and .font-heading use Display family (Space Grotesk) */
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-display) !important;
     font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
-    line-height: var(--lh-heading);
-  }
-
-  /* H3/H4 stay on Body family (Instrument Sans) at semibold —
-     display family reserved for H1/H2/hero per "don't overuse Space Grotesk" */
-  h3, h4 {
-    font-family: var(--font-body);
-    font-weight: var(--weight-semibold);
     line-height: var(--lh-heading);
   }
 
@@ -96,7 +188,7 @@
 
   /* Hero Display — Display family Bold, display line-height, tight tracking */
   .hero-display {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
     font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
     line-height: var(--lh-display);
@@ -104,14 +196,14 @@
 
   /* Stat/Data Figures — Display family Bold, tabular numerals */
   .stat-figure {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
     font-weight: var(--weight-bold);
     font-variant-numeric: tabular-nums;
   }
 
   /* Eyebrow/Label — Display family Semibold, wide tracking, uppercase */
   .eyebrow {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
@@ -123,33 +215,33 @@
 
   /* Nav Link — Body family Medium, wide tracking */
   .nav-link {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-wide);
   }
 
   /* Button Label — Body family Semibold, wide tracking */
   .btn-label {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-wide);
   }
 
   /* Explicit font utilities ensuring 100% cascade reliability */
   .font-heading {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
   }
 
   .font-sans {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
   }
 
   .font-display {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
   }
 
   .font-body {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
   }
 
   /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
