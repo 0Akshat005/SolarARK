@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 import React, { useState } from "react";
-import { MapPin, Phone, Mail, ExternalLink, Building2, Navigation, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, ExternalLink, Building2, Navigation } from "lucide-react";
 
 export interface OfficeLocation {
   city: string;
@@ -23,7 +23,25 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const active = offices[activeIndex];
 
-  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+  // Clean, high-accuracy query strings for Google Maps embed centered at (50%, 50%)
+  const getSearchQuery = (office: OfficeLocation) => {
+    if (office.city.includes("Amravati")) {
+      return "Mira Sadan, Krushnarpan Colony, Amravati, Maharashtra 444605";
+    }
+    if (office.city.includes("Sambhajinagar")) {
+      return "Baliram Patil School Road, Chhatrapati Sambhajinagar, Maharashtra 431005";
+    }
+    if (office.city.includes("Wardha")) {
+      return "Arvi Naka, Arts College Road, Wardha, Maharashtra 442001";
+    }
+    if (office.city.includes("Akola")) {
+      return "Akola, Maharashtra 444001";
+    }
+    return office.address;
+  };
+
+  const searchQuery = getSearchQuery(active);
+  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(searchQuery)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-5 sm:p-7 xl:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-4 sm:space-y-5 h-full flex flex-col justify-between">
@@ -37,7 +55,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
         <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">Select a regional center to view its address, engineering service desk &amp; live map.</p>
       </div>
 
-      {/* Resilient Office Selector Row — Fitted single line on desktop, scroll rail on mobile */}
+      {/* Resilient Office Selector Row — Single line on desktop, scroll rail on mobile */}
       <div 
         className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar pb-0.5 pt-0.5" 
         role="tablist" 
@@ -65,7 +83,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
         })}
       </div>
 
-      {/* Interactive Map with Premium Custom SolarARK Maroon Pin Marker */}
+      {/* Interactive Map with High-Precision SolarARK Maroon Marker Pin */}
       <div className="relative rounded-2xl overflow-hidden border border-[#EBE6DF] shadow-[0_2px_8px_rgba(26,31,44,0.04)] flex-1 min-h-[380px]">
         {/* Google Map Frame */}
         <div key={activeIndex} className="animate-in fade-in duration-300 h-full">
@@ -82,10 +100,10 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
           />
         </div>
 
-        {/* ── Premium SolarARK Maroon Location Pin with Pulsing Radar Beacon ── */}
-        <div className="absolute top-[48%] left-[62%] sm:left-[60%] -translate-x-1/2 -translate-y-full pointer-events-none z-10 flex flex-col items-center animate-in zoom-in duration-300">
+        {/* ── Exact Geolocation Maroon Pin Anchor at (50%, 50%) dead center of the Map ── */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10 flex flex-col items-center animate-in zoom-in duration-300">
           {/* Location Badge Pill */}
-          <div className="bg-slate-900/90 text-white text-[10px] font-bold font-heading px-2.5 py-1 rounded-full shadow-lg border border-white/20 whitespace-nowrap mb-1.5 backdrop-blur-xs flex items-center gap-1.5 animate-bounce">
+          <div className="bg-slate-900/90 text-white text-[10px] font-bold font-heading px-2.5 py-1 rounded-full shadow-lg border border-white/20 whitespace-nowrap mb-1.5 backdrop-blur-xs flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB020] animate-ping" />
             <span>SolarArk {active.city.split(' ')[0]}</span>
           </div>
@@ -125,7 +143,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
         </div>
 
         {/* Floating Glassmorphic Office Details Card */}
-        <div className="absolute top-3 left-3 right-3 sm:right-auto sm:max-w-[320px] bg-white/95 backdrop-blur-sm border border-[#EBE6DF] rounded-2xl p-4 shadow-[0_10px_28px_rgba(28,35,46,0.12)] space-y-2">
+        <div className="absolute top-3 left-3 right-3 sm:right-auto sm:max-w-[300px] bg-white/95 backdrop-blur-sm border border-[#EBE6DF] rounded-2xl p-4 shadow-[0_10px_28px_rgba(28,35,46,0.12)] space-y-2">
           <div className="flex items-center justify-between gap-2">
             <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-heading m-0">{active.city}</h3>
             <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider bg-red-50 text-[#8B1E1E] px-2.5 py-0.5 rounded-full font-heading border border-[#8B1E1E20] shrink-0">{active.badge}</span>
