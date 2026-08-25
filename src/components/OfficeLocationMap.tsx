@@ -26,8 +26,10 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const active = offices[activeIndex];
 
-  // Official address is the single source of truth for map centering and marker
-  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+  // Geocoded Coordinate Query for Google Maps Embed centering exactly on the office
+  const embedSrc = active.latitude && active.longitude
+    ? `https://maps.google.com/maps?q=${active.latitude},${active.longitude}&hl=en&z=16&output=embed`
+    : `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&hl=en&z=16&output=embed`;
 
   return (
     <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-5 sm:p-7 xl:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-4 sm:space-y-5 h-full flex flex-col justify-between">
