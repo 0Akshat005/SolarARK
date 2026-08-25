@@ -116,6 +116,20 @@
   .measure-body { max-width: var(--measure-body); }
   .measure-hero { max-width: var(--measure-hero); }
 
+  /* Nav Link — Body family Medium, wide tracking */
+  .nav-link {
+    font-family: var(--font-body);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  /* Button Label — Body family Semibold, wide tracking */
+  .btn-label {
+    font-family: var(--font-body);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+  }
+
   /* ── Canonical Text Accent Gradient Utility Classes (Blueprint Section E) ── */
   /* On dark/photographic backgrounds (Ivory / Champagne Gradient) */
   .text-accent-dark {
