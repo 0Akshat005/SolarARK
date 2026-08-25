@@ -66,32 +66,38 @@ export const Header: React.FC<HeaderProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-xl shadow-xs py-2.5 lg:py-3 border-b border-stone-200/80'
-          : 'bg-white/60 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/40'
+          ? 'bg-white/90 backdrop-blur-xl shadow-xs py-2.5 lg:py-3 border-b border-stone-200/80'
+          : 'bg-white/70 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/50'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <button
-          onClick={() => onNavigate('/')}
-          className="group focus:outline-none text-left cursor-pointer shrink-0"
-          aria-label="SolarARK Home"
-        >
-          <SolarArkLogo variant="light" size="md" />
-        </button>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        
+        {/* 1. LEFT: Brand Identity */}
+        <div className="flex items-center shrink-0">
+          <button
+            onClick={() => onNavigate('/')}
+            className="group focus:outline-none text-left cursor-pointer"
+            aria-label="SolarARK Home"
+          >
+            <SolarArkLogo variant="light" size="md" />
+          </button>
+        </div>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+        {/* 2. CENTER: Symmetrical, Prominent Navigation Hub */}
+        <nav 
+          className="hidden lg:flex items-center justify-center gap-1 xl:gap-1.5 flex-1 px-2" 
+          aria-label="Main Navigation"
+        >
           {navItems.map((item) => {
             const isActive = currentPath === item.path && !item.hash;
             return (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item)}
-                className={`relative px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-heading font-semibold transition-all cursor-pointer ${
+                className={`relative px-3.5 py-1.5 rounded-full text-[13.5px] xl:text-[14.5px] font-heading font-medium tracking-tight transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/20 font-bold'
-                    : 'text-slate-700 hover:text-[#8B1E1E] hover:bg-stone-100/70'
+                    ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/20 font-semibold'
+                    : 'text-slate-700 hover:text-[#8B1E1E] hover:bg-stone-100/80'
                 }`}
               >
                 <span>{item.name}</span>
@@ -100,54 +106,57 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* Header Right Actions (Space Optimized & Structured Hierarchy) */}
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
-          {/* Reduced Motion Toggle */}
+        {/* 3. RIGHT: Symmetrical Action Area (Urgency Call Icon + High-Conversion CTA) */}
+        <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-3.5 shrink-0">
+          {/* Accessibility Toggle */}
           <button
             onClick={toggleReducedMotion}
             title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-            className="text-slate-400 hover:text-slate-700 transition-colors p-1.5 rounded-full hover:bg-stone-100 cursor-pointer"
+            className="text-slate-400 hover:text-slate-700 transition-colors p-2 rounded-full hover:bg-stone-100 cursor-pointer"
+            aria-label={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion'}
           >
-            {isReducedMotion ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+            {isReducedMotion ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
           </button>
 
-          {/* SECONDARY ACTION: Compact, High-Intent "Call Now" Group */}
+          {/* High-Urgency Call Icon with Live Status Beacon */}
           <a
             href="tel:7080909590"
-            className="flex items-center gap-2 pl-2 pr-3.5 py-1.5 rounded-full border border-stone-200 bg-white/90 hover:bg-red-50/70 hover:border-red-200 transition-all duration-200 group cursor-pointer shadow-2xs hover:shadow-xs"
-            title="Call SolarARK Direct Helpline: 7080909590"
+            className="relative flex items-center justify-center w-10 h-10 rounded-full bg-red-50/90 hover:bg-[#8B1E1E] border border-red-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white transition-all duration-300 shadow-2xs hover:shadow-xs group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30"
+            title="Instant Helpline: +91 7080909590 (Mon-Sat 9:30 AM - 7:00 PM)"
+            aria-label="Direct Phone Helpline"
           >
-            <div className="w-6 h-6 rounded-full bg-red-500/10 group-hover:bg-[#8B1E1E] text-[#8B1E1E] group-hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xs">
-              <Phone className="w-3 h-3 group-hover:rotate-12 transition-transform duration-200" />
-            </div>
-            <div className="flex flex-col leading-tight text-left">
-              <span className="text-[11px] font-bold text-slate-800 group-hover:text-[#8B1E1E] tracking-tight transition-colors font-heading">
-                Call now
-              </span>
-              <span className="text-[10px] font-bold text-stone-500 group-hover:text-slate-700 tracking-tight font-mono">
-                7080909590
-              </span>
-            </div>
+            {/* Live Availability Radar Beacon */}
+            <span className="absolute top-0 right-0 flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border-2 border-white" />
+            </span>
+            <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
           </a>
 
-          {/* PRIMARY ACTION: Dominant Get A Quote CTA */}
+          {/* Primary High-Conversion CTA Button */}
           <button
             onClick={onCtaClick}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs xl:text-[13px] px-4 xl:px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/20 transition-all"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-semibold text-[13.5px] xl:text-[14px] px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/20 hover:shadow-lg hover:shadow-[#8B1E1E]/30 transition-all"
           >
             <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Mobile Menu & Call Action */}
-        <div className="flex items-center gap-2.5 lg:hidden">
+        {/* Mobile Navigation Header Controls */}
+        <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Urgency Call Button */}
           <a
             href="tel:7080909590"
-            className="flex items-center gap-1.5 text-xs font-bold text-[#8B1E1E] bg-red-50 border border-red-200/70 px-3 py-1.5 rounded-full shadow-2xs active:scale-95 transition-transform"
+            className="relative flex items-center justify-center w-9 h-9 rounded-full bg-red-50 text-[#8B1E1E] border border-red-200/80 shadow-2xs active:scale-95 transition-transform"
+            title="Call Helpline"
+            aria-label="Call Helpline"
           >
-            <Phone className="w-3 h-3 text-[#8B1E1E]" />
-            <span>Call now</span>
+            <span className="absolute top-0 right-0 flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 border-2 border-white" />
+            </span>
+            <Phone className="w-4 h-4" />
           </a>
 
           <button
@@ -158,6 +167,7 @@ export const Header: React.FC<HeaderProps> = ({
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+
       </div>
 
       {/* Mobile Drawer Menu */}
@@ -170,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`text-left px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  className={`text-left px-3.5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
                       ? 'bg-[#8B1E1E]/10 text-[#8B1E1E] font-semibold'
                       : 'text-slate-700 hover:bg-slate-50'
