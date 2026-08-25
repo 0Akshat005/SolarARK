@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import { MapPin, Phone, Mail, ExternalLink, Building2, Navigation } from "lucide-react";
 
 export interface OfficeLocation {
+  type?: string;
   city: string;
   badge: string;
   address: string;
+  latitude?: number;
+  longitude?: number;
   phone: string;
   email: string;
   mapUrl: string;
@@ -23,25 +26,8 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
   const active = offices[activeIndex];
 
-  // Clean, high-accuracy query strings for Google Maps embed centered at (50%, 50%)
-  const getSearchQuery = (office: OfficeLocation) => {
-    if (office.city.includes("Amravati")) {
-      return "Mira Sadan, Krushnarpan Colony, Amravati, Maharashtra 444605";
-    }
-    if (office.city.includes("Sambhajinagar")) {
-      return "Baliram Patil School Road, Chhatrapati Sambhajinagar, Maharashtra 431005";
-    }
-    if (office.city.includes("Wardha")) {
-      return "Arvi Naka, Arts College Road, Wardha, Maharashtra 442001";
-    }
-    if (office.city.includes("Akola")) {
-      return "Akola, Maharashtra 444001";
-    }
-    return office.address;
-  };
-
-  const searchQuery = getSearchQuery(active);
-  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(searchQuery)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  // Official address is the single source of truth for map centering and marker
+  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(active.address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-5 sm:p-7 xl:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-4 sm:space-y-5 h-full flex flex-col justify-between">
