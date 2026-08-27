@@ -206,6 +206,18 @@
     line-height: var(--lh-heading);
   }
 
+  /* ── Mobile Paragraph Justification (All over website for mobile viewports) ──
+     Ensures all paragraphs and body descriptions display with clean,
+     balanced justified alignment and proper hyphenation on mobile screens. */
+  @media (max-width: 768px) {
+    p:not(.text-center):not([class*="text-center"]) {
+      text-align: justify !important;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+  }
+
   /* ── Specialised Typographic Roles ── */
 
   /* Hero Display — Display family Bold, display line-height, tight tracking */
