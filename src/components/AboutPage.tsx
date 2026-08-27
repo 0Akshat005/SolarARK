@@ -65,14 +65,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-[11px] font-bold font-heading tracking-wider uppercase border border-[#8B1E1E]/20">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 text-[11px] font-bold font-heading tracking-wider uppercase shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-stone-600" />
                 <span>Since 2020 • Central India's Solar EPC Leader</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold font-heading tracking-tight leading-[1.1]">
                 Building India's Solar Future,{' '}
-                <span className="text-[#8B1E1E]">One Rooftop at a Time</span>
+                <span className="text-accent-light">One Rooftop at a Time</span>
               </h1>
 
               <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
@@ -149,13 +149,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         {/* ── 4. WHO WE ARE ── */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 space-y-5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-xs font-bold text-[#8B1E1E] font-heading">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold text-stone-700 font-heading shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
               <span>Company Profile</span>
             </div>
 
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-[1.12]">
-              Who Are <span className="text-[#8B1E1E]">We?</span>
+              Who Are <span className="text-accent-light">We?</span>
             </h2>
 
             <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
@@ -198,13 +198,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         {/* ── 5. OUR COMMITMENT BLOCKS ── */}
         <section className="space-y-12 pt-4">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-xs font-bold text-[#8B1E1E] font-heading">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold text-stone-700 font-heading shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
               <span>Our Commitment</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-[1.14]">
               Exceptional Quality. End-to-End Service.{' '}
-              <span className="text-[#8B1E1E]">Delighted Customers.</span>
+              <span className="text-accent-light">Delighted Customers.</span>
             </h2>
             <div className="flex items-center justify-center gap-3 text-[#8B1E1E]/40">
               <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#8B1E1E]/30" />

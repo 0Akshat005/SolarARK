@@ -137,8 +137,8 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
           
           <div className="space-y-4">
             {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50/95 border border-red-200/80 text-[#8B1E1E] text-xs font-semibold font-heading shadow-2xs backdrop-blur-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 text-xs font-semibold font-heading shadow-2xs backdrop-blur-xs">
+              <Sparkles className="w-3.5 h-3.5 text-stone-600" />
               <span>Zero Upfront Obligation</span>
             </div>
 

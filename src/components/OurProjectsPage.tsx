@@ -113,12 +113,12 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
             {/* Top Eyebrow Tag & Trust Badges */}
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E] shadow-sm text-[11px] font-bold text-white tracking-wider uppercase font-heading border border-red-500/30">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 shadow-2xs text-[11px] font-bold text-stone-700 tracking-wider uppercase font-heading">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <Sparkles className="w-3.5 h-3.5 text-stone-600" />
                 <span>Verified Rooftop EPC Installations</span>
               </div>
 
@@ -319,7 +319,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
           {/* Bottom Row: Clean City Filter Chips (Without ugly scrollbars) */}
           {activeTab !== 'videos' && (
-            <div className="flex items-center gap-2 pt-2 border-t border-stone-100 overflow-x-auto no-scrollbar">
+            <div className="flex items-center gap-2 pt-2 border-t border-stone-100 overflow-x-auto scrollbar-none touch-pan-x pb-1 px-0.5">
               <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider font-heading shrink-0 flex items-center gap-1">
                 <MapPin className="w-3 h-3 text-[#8B1E1E]" /> District:
               </span>

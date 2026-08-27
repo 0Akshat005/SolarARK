@@ -137,12 +137,12 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             <div className="lg:col-span-7 space-y-6">
               
               {/* Program Eyebrow Tag */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E] shadow-sm text-[11px] font-bold text-white tracking-wider uppercase font-heading border border-red-500/30">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 shadow-2xs text-[11px] font-bold tracking-wider uppercase font-heading">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <Sparkles className="w-3.5 h-3.5 text-stone-600" />
                 <span>JOIN INDIA’S CLEAN ENERGY REVOLUTION</span>
               </div>
 
@@ -150,7 +150,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <div className="space-y-2">
                 <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
                   Empower Your Career with <br />
-                  <span className="text-[#8B1E1E]">
+                  <span className="text-accent-light">
                     SolarArk Projects
                   </span>
                 </h1>

@@ -30,17 +30,17 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
     <section aria-label="Office Locations Map" className="bg-white border border-[#EBE6DF] rounded-[20px] p-5 sm:p-7 xl:p-8 shadow-[0_10px_28px_rgba(28,35,46,0.07)] space-y-4 sm:space-y-5 h-full flex flex-col justify-between">
       {/* Header Block */}
       <div className="space-y-1.5">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-xs font-semibold text-[#8B1E1E] border border-red-100 font-heading">
-          <Navigation className="w-3.5 h-3.5 text-[#8B1E1E]" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-semibold text-stone-700 font-heading shadow-2xs">
+          <Navigation className="w-3.5 h-3.5 text-stone-600" />
           <span>Regional Footprint &amp; Map</span>
         </div>
         <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-[#0B1730] tracking-tight leading-[1.18] m-0">SolarArk Registered Offices</h2>
         <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">Select a regional center to view its address, engineering service desk &amp; live map.</p>
       </div>
 
-      {/* Resilient Office Selector Row — Single line on desktop, scroll rail on mobile */}
+      {/* Resilient Office Selector Row — Smooth touch rail on mobile, single line on desktop */}
       <div 
-        className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar pb-0.5 pt-0.5" 
+        className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none touch-pan-x pb-2 pt-0.5 -mx-1 px-1" 
         role="tablist" 
         aria-label="Choose office location"
       >

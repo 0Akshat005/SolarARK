@@ -78,6 +78,86 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   // Comparison bar widths (animated proportional bars)
   const solarBarPercent = Math.max(5, Math.round((billWithSolar / monthlyBill) * 100));
 
+  const renderComparisonCard = () => (
+    <div className={`p-4 rounded-2xl bg-white border border-stone-200/90 shadow-md space-y-2.5 transition-all duration-700 delay-[200ms] ease-out ${
+      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+    }`}>
+      <div className="flex items-baseline justify-between border-b border-stone-100 pb-2">
+        <span className="text-xs font-bold text-slate-900 font-heading block">
+          Grid vs Solar
+        </span>
+        <span className="text-[10px] text-stone-500 font-medium">
+          Based on your {formatINR(monthlyBill)}/mo bill
+        </span>
+      </div>
+
+      {/* 2 Clean Comparison Rows */}
+      <div className="space-y-2">
+        {/* ROW 1: GRID ELECTRICITY */}
+        <div className="p-2 sm:p-2.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+          <div className="flex items-center justify-between text-[10.5px]">
+            <span className="font-bold text-slate-800 font-heading">
+              Grid Electricity
+            </span>
+            <span className="text-[9.5px] text-stone-500 font-semibold">
+              Rising cost
+            </span>
+          </div>
+
+          {/* 3 Step Trajectory */}
+          <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
+              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">Today</span>
+              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(monthlyBill)}</span>
+            </div>
+            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
+              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 5 Yrs</span>
+              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid5Y)}</span>
+            </div>
+            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
+              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 10 Yrs</span>
+              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid10Y)}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ROW 2: SOLARARK ROOFTOP */}
+        <div className="p-2 sm:p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 space-y-1">
+          <div className="flex items-center justify-between text-[10.5px]">
+            <div className="flex items-center gap-1.5 font-bold text-emerald-800 font-heading">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>SolarARK Rooftop</span>
+            </div>
+            <span className="text-[9.5px] font-semibold text-emerald-700">
+              Predictable cost
+            </span>
+          </div>
+
+          {/* 3 Step Trajectory (All Fixed & Stable) */}
+          <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
+            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
+              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">Today</span>
+              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
+            </div>
+            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
+              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 5 Yrs</span>
+              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
+            </div>
+            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
+              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 10 Yrs</span>
+              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Concluding Psychological Note */}
+      <p className="text-[10px] text-stone-500 font-medium italic text-center pt-1 border-t border-stone-100 m-0">
+        The longer you stay on the grid, the more you keep paying.
+      </p>
+    </div>
+  );
+
   return (
     <section 
       ref={sectionRef}
@@ -131,83 +211,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               Lock in predictable power costs for 25+ years instead of paying rising grid tariffs.
             </p>
 
-            {/* ── Simplified Comparison Card: Premium Light Presentation ── */}
-            <div className={`p-4 rounded-2xl bg-white border border-stone-200/90 shadow-md space-y-2.5 transition-all duration-700 delay-[200ms] ease-out ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}>
-              <div className="flex items-baseline justify-between border-b border-stone-100 pb-2">
-                <span className="text-xs font-bold text-slate-900 font-heading block">
-                  Grid vs Solar
-                </span>
-                <span className="text-[10px] text-stone-500 font-medium">
-                  Based on your {formatINR(monthlyBill)}/mo bill
-                </span>
-              </div>
-
-              {/* 2 Clean Comparison Rows */}
-              <div className="space-y-2">
-                {/* ROW 1: GRID ELECTRICITY */}
-                <div className="p-2 sm:p-2.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                  <div className="flex items-center justify-between text-[10.5px]">
-                    <span className="font-bold text-slate-800 font-heading">
-                      Grid Electricity
-                    </span>
-                    <span className="text-[9.5px] text-stone-500 font-semibold">
-                      Rising cost
-                    </span>
-                  </div>
-
-                  {/* 3 Step Trajectory */}
-                  <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-                    <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-                      <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">Today</span>
-                      <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(monthlyBill)}</span>
-                    </div>
-                    <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-                      <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 5 Yrs</span>
-                      <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid5Y)}</span>
-                    </div>
-                    <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-                      <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 10 Yrs</span>
-                      <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid10Y)}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ROW 2: SOLARARK ROOFTOP */}
-                <div className="p-2 sm:p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 space-y-1">
-                  <div className="flex items-center justify-between text-[10.5px]">
-                    <div className="flex items-center gap-1.5 font-bold text-emerald-800 font-heading">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      <span>SolarARK Rooftop</span>
-                    </div>
-                    <span className="text-[9.5px] font-semibold text-emerald-700">
-                      Predictable cost
-                    </span>
-                  </div>
-
-                  {/* 3 Step Trajectory (All Fixed & Stable) */}
-                  <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-                    <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-                      <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">Today</span>
-                      <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-                    </div>
-                    <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-                      <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 5 Yrs</span>
-                      <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-                    </div>
-                    <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-                      <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 10 Yrs</span>
-                      <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Concluding Psychological Note */}
-              <p className="text-[10px] text-stone-500 font-medium italic text-center pt-1 border-t border-stone-100 m-0">
-                The longer you stay on the grid, the more you keep paying.
-              </p>
+            {/* ── Simplified Comparison Card (Desktop: in left column) ── */}
+            <div className="hidden lg:block">
+              {renderComparisonCard()}
             </div>
 
           </div>
@@ -467,6 +473,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
               </div>
 
+            </div>
+            {/* ── Simplified Comparison Card (Mobile: placed after interactive calculator) ── */}
+            <div className="block lg:hidden mt-5">
+              {renderComparisonCard()}
             </div>
           </div>
 

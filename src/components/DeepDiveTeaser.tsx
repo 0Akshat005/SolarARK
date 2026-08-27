@@ -26,8 +26,8 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
         {/* ── SECTION HEADER ── */}
         <div className="max-w-2xl space-y-3">
           {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-xs font-bold text-[#8B1E1E]">
-            <Info className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold font-heading text-stone-700 shadow-2xs">
+            <Info className="w-3.5 h-3.5 text-stone-600" />
             <span>Discover SolarARK</span>
           </div>
 

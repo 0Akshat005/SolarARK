@@ -101,8 +101,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-8">
         <div className="space-y-6">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7D1818] shadow-xs text-[11px] font-bold text-white tracking-wider uppercase font-heading">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 shadow-2xs text-[11px] font-bold text-stone-700 tracking-wider uppercase font-heading">
+            <Sparkles className="w-3.5 h-3.5 text-stone-600" />
             <span>SOLARARK IN ACTION • COMMUNITY &amp; EXPOS</span>
           </div>
 

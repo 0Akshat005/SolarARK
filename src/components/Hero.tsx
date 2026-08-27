@@ -138,16 +138,14 @@ export const Hero: React.FC<HeroProps> = () => {
           <div className="bg-[#0A0F1D]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.45)] ring-1 ring-white/10 p-4 sm:p-5">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               
-              {/* 4 Proof Items */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 divide-y sm:divide-y-0 sm:divide-x divide-white/10 w-full xl:w-auto flex-1">
+              {/* 4 Proof Items — Clean Responsive Cards (Zero awkward divider lines) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 w-full xl:w-auto flex-1">
                 {proofRailItems.map((item, idx) => {
                   const Icon = item.icon;
                   return (
                     <div
                       key={idx}
-                      className={`flex items-center gap-3 ${
-                        idx > 0 ? 'pt-2.5 sm:pt-0 sm:pl-3.5 lg:pl-5' : ''
-                      }`}
+                      className="flex items-center gap-3 p-2.5 sm:p-2 rounded-xl bg-white/[0.04] lg:bg-transparent border border-white/10 lg:border-0"
                     >
                       <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 text-amber-400 flex items-center justify-center shrink-0">
                         <Icon className="w-4 h-4" />

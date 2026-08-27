@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
   ];
 
   return (
-    <footer className="bg-[#0F172A] text-slate-300 text-sm border-t border-slate-800">
+    <footer className="bg-[#0F172A] text-slate-300 text-sm border-t border-slate-800 pb-20 lg:pb-0">
       
       {/* Compact Closing Trust Echo Banner */}
       <div className="bg-[#1E293B] border-b border-slate-700/60 py-6">
