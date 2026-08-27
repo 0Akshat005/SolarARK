@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SavingsCalculator } from './components/SavingsCalculator';
+import { ServiceBridge } from './components/ServiceBridge';
 import { HowItWorks } from './components/HowItWorks';
 import { Testimonials } from './components/Testimonials';
 import { TechnologySection } from './components/TechnologySection';
@@ -215,6 +216,9 @@ export default function App() {
               onCtaClick={scrollToContactForm}
               onClaimEstimate={handleClaimEstimate}
             />
+
+            {/* 1.5. Pre-Calculator Service & Value Bridge */}
+            <ServiceBridge onCalculatorClick={scrollToCalculator} />
 
             {/* 2. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
             <div id="calculator">
