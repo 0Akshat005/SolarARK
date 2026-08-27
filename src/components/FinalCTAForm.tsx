@@ -101,10 +101,10 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       id="contact-form"
       className={`relative w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 overflow-hidden ${className}`}
     >
-      {/* ── ATMOSPHERIC SOLAR-HOME VISUAL LAYER (EMERGING FROM BACKGROUND & DISSOLVING TOWARD FORM) ── */}
+      {/* ── ATMOSPHERIC SOLAR-HOME VISUAL LAYER (DESKTOP ONLY: DISSOLVING TOWARD FORM) ── */}
       <div
         aria-hidden="true"
-        className="absolute left-0 bottom-[130px] lg:bottom-[90px] w-full lg:w-[65%] h-[380px] sm:h-[440px] lg:h-[500px] pointer-events-none z-0 select-none overflow-visible"
+        className="hidden lg:block absolute left-0 bottom-[90px] w-[65%] h-[500px] pointer-events-none z-0 select-none overflow-visible"
       >
         {/* Soft Ambient Golden Atmospheric Glow */}
         <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-amber-200/8 to-transparent rounded-full blur-3xl" />
@@ -206,10 +206,48 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               </div>
             </div>
 
+            {/* ── Mobile 3D Proposal Preview Visual Card (Positioned right before the form on mobile) ── */}
+            <div className="block lg:hidden relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/90 my-3">
+              <img
+                src="/images/solar-villa-sunset.jpg"
+                alt="Solar rooftop proposal preview"
+                className="w-full h-44 object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/40 to-transparent p-3.5 flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10.5px] font-bold text-white tracking-wide font-heading border border-white/25">
+                    <Sparkles className="w-3 h-3 text-amber-300" />
+                    <span>3D CAD Engineering</span>
+                  </span>
+                  <span className="text-[10px] font-bold text-amber-300 bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-md border border-white/10 font-heading">
+                    ⚡ 24–48h Turnaround
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                    <img
+                      src="/images/thumb-3d-solar-house.png"
+                      alt="3D solar roof layout"
+                      className="w-full h-full object-contain filter drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="text-left text-white leading-tight">
+                    <p className="text-xs font-bold font-heading m-0 text-white">
+                      Free 3D Solar Model &amp; Shadow Analysis
+                    </p>
+                    <p className="text-[10.5px] text-slate-300 m-0 mt-0.5">
+                      Tailored to your roof structure with DISCOM subsidy filing
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* Spacer & Overlaid 3D Estimate Caption Card with Independent Floating Curved Arrow */}
-          <div className="pt-20 sm:pt-28 lg:pt-32 relative">
+          {/* ── Desktop Spacer & Overlaid 3D Estimate Caption Card with Independent Floating Curved Arrow ── */}
+          <div className="hidden lg:block pt-32 relative">
             <div className="relative inline-flex items-center gap-3.5 bg-slate-950/85 backdrop-blur-md text-white border border-white/15 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
               {/* Clean borderless 3D Model Thumbnail Blend */}
               <div className="w-11 h-11 shrink-0 overflow-hidden flex items-center justify-center filter drop-shadow-md">
@@ -227,7 +265,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             </div>
 
             {/* Creative Independent Floating Curved Arrow (Pointing dynamically toward the form) */}
-            <div className="hidden lg:block absolute left-[370px] -bottom-2 pointer-events-none z-20">
+            <div className="absolute left-[370px] -bottom-2 pointer-events-none z-20">
               <svg width="110" height="60" viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="filter drop-shadow-xs">
                 {/* Dynamic Arcing Path */}
                 <path
@@ -664,8 +702,8 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
       </div>
 
-      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH - PREMIUM GLASSMORPHISM) ── */}
-      <div className="relative z-20 mt-10 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(15,23,42,0.05)] rounded-3xl p-6 sm:p-8">
+      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH - CLEAN MOBILE CARD & DESKTOP GLASSMORPHISM) ── */}
+      <div className="relative z-20 mt-8 lg:mt-10 bg-white/95 lg:bg-white/45 backdrop-blur-xl border border-stone-200/90 lg:border-white/60 shadow-lg shadow-black/5 rounded-2xl sm:rounded-3xl p-5 sm:p-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Benefit 1: Accurate 3D Roof Design */}
