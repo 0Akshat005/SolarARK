@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -43,6 +43,8 @@ export const Header: React.FC<HeaderProps> = ({
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact Us', path: '/contact' },
   ];
+
+  const isDarkHero = currentPath === '/' && !isScrolled;
 
   const handleNavClick = (item: { name: string; path: string; hash?: string }) => {
     setMobileMenuOpen(false);
@@ -65,25 +67,27 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isDarkHero
+          ? 'bg-gradient-to-b from-black/60 via-black/25 to-transparent py-3.5 lg:py-4.5 border-b border-transparent'
+          : isScrolled
           ? 'bg-white/90 backdrop-blur-xl shadow-xs py-2.5 lg:py-3 border-b border-stone-200/80'
-          : 'bg-white/70 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/50'
+          : 'bg-white/80 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/50'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         
-        {/* 1. LEFT: Brand Identity */}
+        {/* 1. LEFT: Brand Identity (Adapts to Dark Hero & Light Pages) */}
         <div className="flex items-center shrink-0">
           <button
             onClick={() => onNavigate('/')}
-            className="group focus:outline-none text-left cursor-pointer"
+            className="group focus:outline-none text-left cursor-pointer transition-transform duration-200 hover:scale-[1.01]"
             aria-label="SolarARK Home"
           >
-            <SolarArkLogo variant="light" size="md" />
+            <SolarArkLogo variant={isDarkHero ? 'dark' : 'light'} size="md" />
           </button>
         </div>
 
-        {/* 2. CENTER: Symmetrical, Prominent Navigation Hub */}
+        {/* 2. CENTER: Symmetrical, High-Legibility Immersive Navigation Hub */}
         <nav 
           className="hidden lg:flex items-center justify-center gap-1 xl:gap-1.5 flex-1 px-2" 
           aria-label="Main Navigation"
@@ -96,7 +100,9 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleNavClick(item)}
                 className={`relative px-3.5 py-1.5 rounded-full text-[13.5px] xl:text-[14.5px] font-heading font-medium tracking-tight transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/20 font-semibold'
+                    ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30 font-semibold ring-1 ring-white/20'
+                    : isDarkHero
+                    ? 'text-white/90 hover:text-white hover:bg-white/15 drop-shadow-xs'
                     : 'text-slate-700 hover:text-[#8B1E1E] hover:bg-stone-100/80'
                 }`}
               >
@@ -106,13 +112,17 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* 3. RIGHT: Symmetrical Action Area (Urgency Call Icon + High-Conversion CTA) */}
+        {/* 3. RIGHT: Symmetrical Action Group (Urgency Call Icon + High-Conversion CTA) */}
         <div className="hidden lg:flex items-center justify-end gap-3 xl:gap-3.5 shrink-0">
           {/* Accessibility Toggle */}
           <button
             onClick={toggleReducedMotion}
             title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-            className="text-slate-400 hover:text-slate-700 transition-colors p-2 rounded-full hover:bg-stone-100 cursor-pointer"
+            className={`transition-colors p-2 rounded-full cursor-pointer ${
+              isDarkHero
+                ? 'text-white/70 hover:text-white hover:bg-white/10'
+                : 'text-slate-400 hover:text-slate-700 hover:bg-stone-100'
+            }`}
             aria-label={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion'}
           >
             {isReducedMotion ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -121,7 +131,11 @@ export const Header: React.FC<HeaderProps> = ({
           {/* High-Urgency Call Icon with Live Status Beacon */}
           <a
             href="tel:7080909590"
-            className="relative flex items-center justify-center w-10 h-10 rounded-full bg-red-50/90 hover:bg-[#8B1E1E] border border-red-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white transition-all duration-300 shadow-2xs hover:shadow-xs group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30"
+            className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 shadow-2xs hover:shadow-xs group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 ${
+              isDarkHero
+                ? 'bg-white/15 hover:bg-[#8B1E1E] border border-white/25 hover:border-[#8B1E1E] text-white backdrop-blur-md'
+                : 'bg-red-50/90 hover:bg-[#8B1E1E] border border-red-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white'
+            }`}
             title="Instant Helpline: +91 7080909590 (Mon-Sat 9:30 AM - 7:00 PM)"
             aria-label="Direct Phone Helpline"
           >
@@ -136,7 +150,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Primary High-Conversion CTA Button */}
           <button
             onClick={onCtaClick}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-semibold text-[13.5px] xl:text-[14px] px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/20 hover:shadow-lg hover:shadow-[#8B1E1E]/30 transition-all"
+            className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-semibold text-[13.5px] xl:text-[14px] px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/25 hover:shadow-lg hover:shadow-[#8B1E1E]/35 transition-all ring-1 ring-white/20"
           >
             <span>Get A Quote</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -148,7 +162,11 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Urgency Call Button */}
           <a
             href="tel:7080909590"
-            className="relative flex items-center justify-center w-9 h-9 rounded-full bg-red-50 text-[#8B1E1E] border border-red-200/80 shadow-2xs active:scale-95 transition-transform"
+            className={`relative flex items-center justify-center w-9 h-9 rounded-full shadow-2xs active:scale-95 transition-transform ${
+              isDarkHero
+                ? 'bg-white/15 border border-white/30 text-white backdrop-blur-md'
+                : 'bg-red-50 text-[#8B1E1E] border border-red-200/80'
+            }`}
             title="Call Helpline"
             aria-label="Call Helpline"
           >
@@ -161,7 +179,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-800 focus:outline-none cursor-pointer rounded-lg hover:bg-stone-100"
+            className={`p-2 focus:outline-none cursor-pointer rounded-lg ${
+              isDarkHero ? 'text-white hover:bg-white/15' : 'text-slate-800 hover:bg-stone-100'
+            }`}
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
