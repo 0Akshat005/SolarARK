@@ -32,7 +32,7 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigate,
   onCtaClick,
-  prefilledPincode = '560034',
+  prefilledPincode = '444601',
   prefilledBill = 8500,
 }) => {
 

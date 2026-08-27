@@ -39,7 +39,7 @@ interface ServicesPageProps {
 export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigate,
   onCtaClick,
-  prefilledPincode = '560034',
+  prefilledPincode = '444601',
   prefilledBill = 8500,
 }) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'society' | 'commercial' | 'maintenance'>('all');

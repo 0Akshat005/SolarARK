@@ -34,12 +34,12 @@ export interface FinalCTAFormProps {
 }
 
 export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
-  prefilledPincode = '560034',
+  prefilledPincode = '444601',
   prefilledBill = 8500,
   className = '',
 }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [pincode, setPincode] = useState<string>(prefilledPincode || '560034');
+  const [pincode, setPincode] = useState<string>(prefilledPincode || '444601');
   const [monthlyBill, setMonthlyBill] = useState<string>(
     prefilledBill ? `₹${prefilledBill.toLocaleString('en-IN')} / month` : '₹8,500 / month (3–4 BHK)'
   );
@@ -353,7 +353,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                           setPincode(val);
                           if (val.length === 6) setPincodeError('');
                         }}
-                        placeholder="e.g. 560034"
+                        placeholder="e.g. 444601"
                         className="w-full pl-10 pr-4 py-3 bg-stone-50/80 border border-stone-300 focus:border-[#8B1E1E] focus:bg-white text-slate-900 text-sm font-semibold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all font-mono"
                       />
                     </div>

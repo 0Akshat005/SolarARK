@@ -28,7 +28,7 @@ export default function App() {
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
   const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname || '/');
   const [calculatorState, setCalculatorState] = useState<{ pincode: string; monthlyBill: number }>({
-    pincode: '560034',
+    pincode: '444601',
     monthlyBill: 8500,
   });
 

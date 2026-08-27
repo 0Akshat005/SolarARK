@@ -31,7 +31,7 @@ interface SavingsCalculatorProps {
 
 export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ 
   onClaimEstimate,
-  initialPincode = '560034',
+  initialPincode = '444601',
   initialBill = 8500 
 }) => {
   const [pincode, setPincode] = useState<string>(initialPincode);
@@ -62,18 +62,18 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
   const isValidPincode = pincode.length === 6 && /^\d+$/.test(pincode);
 
-  // Bill with solar (~10% residual grid charge)
-  const billWithSolar = Math.max(0, monthlyBill - results.monthlySavings);
+  // Bill with solar (minimum DISCOM single-phase meter fixed charge ~₹120/mo)
+  const billWithSolar = Math.max(120, monthlyBill - results.monthlySavings);
   const annualSavings = results.monthlySavings * 12;
 
   // 6% annual tariff hike escalation simulation for 5Y and 10Y
   const grid5Y = Math.round(monthlyBill * Math.pow(1.06, 5));
   const grid10Y = Math.round(monthlyBill * Math.pow(1.06, 10));
 
-  // Derived daily generation (system kW Ã— 4 peak sun hours)
-  const dailyGeneration = (results.systemSizeKw * 4).toFixed(1);
+  // Derived daily generation (system kW × 4.2 peak sun hours for Central India / Maharashtra)
+  const dailyGeneration = (results.systemSizeKw * 4.2).toFixed(1);
 
-  const quickPresets = [3000, 6000, 8500, 12000, 18000];
+  const quickPresets = [1000, 3000, 6000, 8500, 12000, 18000];
 
   // Comparison bar widths (animated proportional bars)
   const solarBarPercent = Math.max(5, Math.round((billWithSolar / monthlyBill) * 100));
@@ -242,12 +242,13 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         maxLength={6}
                         value={pincode}
                         onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                        placeholder="e.g. 560034"
+                        placeholder="e.g. 444601"
                         className="w-full bg-stone-50 border border-stone-200 focus:border-[#8B1E1E] text-slate-900 text-xs font-semibold px-3 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all placeholder:text-stone-400"
                       />
                       {isValidPincode ? (
                         <span className="absolute right-2 top-1.5 text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1 animate-in fade-in zoom-in-95 duration-300">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Serviceable
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          {/^(40|41|42|43|44)/.test(pincode) ? 'MSEDCL Serviceable' : 'Serviceable'}
                         </span>
                       ) : (
                         pincode.length > 0 && (
