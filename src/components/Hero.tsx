@@ -114,9 +114,6 @@ export const Hero: React.FC<HeroProps> = () => {
 
         {/* ── Subtle Cinematic Depth Gradients (Very gentle & soft so video remains full-fledge visible) ── */}
         <div className="absolute inset-0 z-[1] pointer-events-none select-none">
-          {/* Top subtle scrim for Navbar contrast */}
-          <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#0A0F1D]/35 to-transparent" />
-
           {/* Bottom gentle edge feather for smooth transition */}
           <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-[#0A0F1D]/50 to-transparent" />
         </div>

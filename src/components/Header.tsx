@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isDarkHero
-            ? 'py-3 sm:py-3.5 lg:py-4 border-b border-transparent'
+            ? 'py-3 sm:py-3.5 lg:py-4 border-b-0'
             : isScrolled
             ? 'bg-white/92 backdrop-blur-xl shadow-xs py-2.5 lg:py-3 border-b border-stone-200/80'
             : 'bg-white/90 backdrop-blur-lg py-3 lg:py-3.5 border-b border-stone-200/60'
