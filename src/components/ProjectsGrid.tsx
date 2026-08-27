@@ -88,15 +88,15 @@ export const ProjectsGrid: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick 
                   {/* Header Strip */}
                   <div className="flex items-center justify-between border-b border-stone-100 pb-4">
                     <div>
-                      <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5" /> {proj.city}, {proj.state}
+                      <span className="text-xs font-bold text-stone-600 uppercase tracking-wider font-heading flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-stone-500" /> {proj.city}, {proj.state}
                       </span>
                       <h3 className="text-lg font-bold text-slate-900 font-heading mt-0.5">
                         {proj.homeownerName}
                       </h3>
                     </div>
 
-                    <span className="text-xs font-bold text-[#8B1E1E] bg-red-50 px-3 py-1.5 rounded-xl border border-red-100">
+                    <span className="text-xs font-semibold text-stone-700 bg-stone-100 px-3 py-1.5 rounded-xl border border-stone-200">
                       {proj.category || 'Solar Rooftop'}
                     </span>
                   </div>

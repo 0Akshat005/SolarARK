@@ -15,8 +15,8 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
-            <Eye className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200 text-xs font-semibold">
+            <Eye className="w-4 h-4 text-stone-600" />
             <span>Visual Roof Architecture Preview</span>
           </div>
 

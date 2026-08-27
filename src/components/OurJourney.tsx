@@ -205,11 +205,11 @@ export const OurJourney: React.FC = () => {
       <div className="journey-header relative z-10 text-center max-w-3xl mx-auto mb-14 sm:mb-18 space-y-3">
         {/* Eyebrow: — OUR STORY — */}
         <div className="flex items-center justify-center gap-2">
-          <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
-          <p className="text-xs sm:text-[13px] font-bold text-[#8B1E1E] uppercase tracking-[0.2em] font-heading m-0">
+          <span className="w-4 h-[1.5px] bg-stone-400" />
+          <p className="text-xs sm:text-[13px] font-bold text-stone-600 uppercase tracking-[0.2em] font-heading m-0">
             Our Story
           </p>
-          <span className="w-4 h-[1.5px] bg-[#8B1E1E]" />
+          <span className="w-4 h-[1.5px] bg-stone-400" />
         </div>
 
         {/* Display Headline */}

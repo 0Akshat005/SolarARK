@@ -145,7 +145,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
                 Connect with Our Certified <br />
-                <span className="text-[#8B1E1E]">Solar Rooftop EPC Experts in Maharashtra</span>
+                <span className="text-[#0B1730]">Solar Rooftop EPC Experts in Maharashtra</span>
               </h1>
 
               <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">

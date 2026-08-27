@@ -138,7 +138,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               <div className="lg:col-span-8 space-y-3.5">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
                   Explore SolarArk’s <br />
-                  <span className="text-[#8B1E1E]">
+                  <span className="text-[#0B1730]">
                     Verified Completed Projects
                   </span>
                 </h1>

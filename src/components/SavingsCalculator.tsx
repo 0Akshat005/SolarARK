@@ -110,18 +110,18 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             
-            {/* Eyebrow Pill — Maroon badge */}
-            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 text-[#8B1E1E] shadow-2xs text-[10px] sm:text-[10.5px] font-bold tracking-wide font-heading">
-              <TrendingUp className="w-3 h-3 text-[#8B1E1E]" />
+            {/* Eyebrow Pill — Clean neutral badge */}
+            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 shadow-2xs text-[10px] sm:text-[10.5px] font-bold tracking-wide font-heading">
+              <TrendingUp className="w-3 h-3 text-stone-600" />
               <span>GRID PRICES RISE. SOLAR STAYS STEADY.</span>
             </div>
 
-            {/* Headline Hierarchy */}
+            {/* Headline Hierarchy — Clean Corporate Navy */}
             <div className="space-y-1">
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.15] m-0">
                 Your electricity bill keeps rising.
               </h2>
-              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold tracking-tight leading-[1.15] m-0 text-[#8B1E1E]">
+              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.15] m-0">
                 Your solar cost doesn’t.
               </h3>
             </div>
@@ -152,7 +152,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="font-bold text-slate-800 font-heading">
                       Grid Electricity
                     </span>
-                    <span className="text-[9.5px] text-red-600 font-semibold">
+                    <span className="text-[9.5px] text-stone-500 font-semibold">
                       Rising cost
                     </span>
                   </div>

@@ -55,8 +55,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 text-[11px] font-bold text-[#8B1E1E] tracking-widest uppercase font-heading">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-[11px] font-bold text-stone-700 tracking-widest uppercase font-heading">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
               <span>Complete Solar EPC Services</span>
             </div>
 
@@ -145,7 +145,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-200">
           <div>
-            <span className="text-xs font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
+            <span className="text-xs font-bold text-stone-600 uppercase tracking-wider font-heading block">
               Explore By Sector
             </span>
             <h2 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">

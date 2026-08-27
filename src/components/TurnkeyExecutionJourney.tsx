@@ -175,8 +175,8 @@ export const TurnkeyExecutionJourney: React.FC = () => {
         </div>
 
         <div className="relative z-10 text-center max-w-2xl mx-auto space-y-3.5 py-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F7EFE9] border border-[#8B1E1E]/15 shadow-2xs text-[11px] font-semibold text-[#8B1E1E] tracking-widest uppercase font-heading">
-            <Sparkles className="w-3.5 h-3.5 text-[#8B1E1E]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 shadow-2xs text-[11px] font-semibold text-stone-700 tracking-widest uppercase font-heading">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Turnkey Execution Journey</span>
           </div>
 

@@ -106,8 +106,8 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
               }`}
             >
               {/* Eyebrow Pill Badge — Condensed Bold, wide tracking */}
-              <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FBF1EC] border border-[#8B1E1E]/20 text-[#8B1E1E] text-[11px]">
-                <TrendingUp className="w-3.5 h-3.5 text-[#8B1E1E]" />
+              <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200 text-stone-700 text-[11px] font-bold">
+                <TrendingUp className="w-3.5 h-3.5 text-stone-600" />
                 <span>GRID TARIFF ESCALATION VS SOLAR STABILITY</span>
               </div>
 
@@ -179,15 +179,15 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                     {/* Timeline Headers Across Top */}
                     <div className="grid grid-cols-3 text-center mb-5 relative z-10">
                       <div className="text-center">
-                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E] font-heading">Today</div>
+                        <div className="text-xs sm:text-sm font-bold text-slate-800 font-heading">Today</div>
                         <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5">Current Tariff</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E] font-heading">5 Years</div>
+                        <div className="text-xs sm:text-sm font-bold text-slate-800 font-heading">5 Years</div>
                         <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5">+35% Grid Rise</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xs sm:text-sm font-bold text-[#8B1E1E] font-heading">10 Years</div>
+                        <div className="text-xs sm:text-sm font-bold text-slate-800 font-heading">10 Years</div>
                         <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5">+80% Grid Rise</div>
                       </div>
                     </div>

@@ -52,8 +52,8 @@ export const TrustPillars: React.FC = () => {
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
-            <Shield className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200 text-xs font-semibold">
+            <Shield className="w-4 h-4 text-emerald-600" />
             <span>Built on Four Core Pillars of Excellence</span>
           </div>
 

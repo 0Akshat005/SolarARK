@@ -58,7 +58,7 @@ export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = ''
 
             {/* Credible Attribution Hierarchy */}
             <div className="space-y-1 pt-0.5">
-              <h3 className="font-heading text-lg sm:text-xl font-bold text-[#8B1E1E] tracking-tight m-0">
+              <h3 className="font-heading text-lg sm:text-xl font-bold text-[#0B1730] tracking-tight m-0">
                 Shrikant Tikhile
               </h3>
               <p className="text-xs sm:text-sm font-bold text-slate-800 font-heading m-0">

@@ -97,7 +97,7 @@ export const TrustBar: React.FC = () => {
       <section className="bg-[#F8FAFC] py-10 sm:py-12 px-6 sm:px-12 border-b border-slate-200/60 relative z-10">
         <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-[11px] font-bold tracking-[0.2em] text-[#8B1E1E] uppercase font-heading">
+            <span className="text-[11px] font-bold tracking-[0.2em] text-stone-600 uppercase font-heading">
               Rooftop Transformation
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 font-heading">
