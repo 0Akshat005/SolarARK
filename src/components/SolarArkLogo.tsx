@@ -85,10 +85,10 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
       {/* ── Official Brand Tagline: assured renewable komfort ── */}
       {showTagline && (
         <span
-          className={`font-sans font-normal ${currentSize.tagline} leading-none transition-colors duration-200 ${
-            isDark ? 'text-stone-300' : 'text-[#8B1E1E]/90'
+          className={`font-sans ${currentSize.tagline} leading-none transition-colors duration-200 ${
+            isDark ? 'text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]' : 'text-[#8B1E1E]/90 font-normal'
           }`}
-          style={{ letterSpacing: '0.06em' }}
+          style={{ letterSpacing: '0.07em' }}
         >
           assured renewable komfort
         </span>
