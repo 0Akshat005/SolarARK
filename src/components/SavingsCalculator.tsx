@@ -116,12 +116,12 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <span>GRID PRICES RISE. SOLAR STAYS STEADY.</span>
             </div>
 
-            {/* Headline Hierarchy — Clean Corporate Navy */}
+            {/* Headline Hierarchy — Standout Accent Pair */}
             <div className="space-y-1">
               <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.15] m-0">
                 Your electricity bill keeps rising.
               </h2>
-              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.15] m-0">
+              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold tracking-tight leading-[1.15] m-0 text-accent-light">
                 Your solar cost doesn’t.
               </h3>
             </div>

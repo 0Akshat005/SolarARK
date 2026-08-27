@@ -276,9 +276,9 @@
     color: #F5EDE0;
   }
 
-  /* On light/neutral backgrounds (Warm Charcoal to Taupe Gradient) */
+  /* On light/neutral backgrounds (Warm Golden-Bronze to Champagne Accent Gradient) */
   .text-accent-light {
-    background: linear-gradient(100deg, #2A2118 0%, #6B5842 55%, #8B7355 100%);
+    background: linear-gradient(100deg, #3B2A1A 0%, #8A6132 50%, #B88546 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
