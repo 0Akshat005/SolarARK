@@ -302,19 +302,21 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       </div>
                     </div>
 
-                    {/* Quick Select */}
-                    <div className="space-y-1 pt-1">
-                      <span className="text-[9.5px] font-semibold text-stone-400 uppercase tracking-wider block">Quick select</span>
-                      <div className="flex flex-wrap gap-1.5">
+                    {/* Quick Select (3 Above, 3 Below Grid) */}
+                    <div className="space-y-2 pt-2">
+                      <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                        Quick Select
+                      </span>
+                      <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
                         {quickPresets.map((preset) => (
                           <button
                             key={preset}
                             type="button"
                             onClick={() => setMonthlyBill(preset)}
-                            className={`text-[11px] px-2.5 py-1 rounded-lg font-semibold border transition-all duration-200 active:scale-95 cursor-pointer ${
+                            className={`text-xs sm:text-sm py-2.5 sm:py-3 px-2 rounded-xl font-bold font-heading border transition-all duration-200 active:scale-95 cursor-pointer text-center ${
                               monthlyBill === preset
-                                ? 'btn-primary-maroon text-white border-transparent shadow-sm scale-[1.02]'
-                                : 'bg-stone-50 text-slate-700 border-stone-200 hover:border-stone-300 hover:bg-stone-100 hover:scale-[1.02]'
+                                ? 'btn-primary-maroon text-white border-transparent shadow-md shadow-[#8B1E1E]/25 scale-[1.02]'
+                                : 'bg-stone-50 text-slate-800 border-stone-200/90 hover:border-stone-300 hover:bg-stone-100 hover:scale-[1.01]'
                             }`}
                           >
                             {formatINR(preset)}{preset >= 18000 ? '+' : ''}
@@ -325,9 +327,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </div>
 
                   {/* Privacy Box */}
-                  <div className="p-2.5 rounded-xl bg-amber-50/50 border border-amber-100/80 flex items-center gap-2 text-[10.5px] text-slate-600">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
-                    <span>Your details are 100% secure & private.</span>
+                  <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/80 flex items-center gap-2.5 text-xs text-slate-700 font-medium">
+                    <ShieldCheck className="w-4 h-4 text-[#8B1E1E] shrink-0" />
+                    <span>Your details are 100% secure &amp; private.</span>
                   </div>
 
                 </div>
