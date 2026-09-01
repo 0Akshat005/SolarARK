@@ -112,11 +112,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       headline: 'Grid Synchronization & Real-Time Telemetry',
       description: 'DISCOM net-meter is synchronized. Switch on clean solar power, watch your electric meter spin backward, and track daily generation directly on the SolarArk companion app.',
       icon: BarChart3,
-      image: '/images/earnwithus/earnwithus-hero-rooftop.jpg',
-      alt: 'Operational residential rooftop solar array generating clean electricity',
+      image: '/images/process/stage-04-commission-inverter.png',
+      alt: 'SolarArk engineer commissioning smart hybrid solar inverter and digital net meter',
       hotspots: [
-        { label: 'Active Solar Telemetry', desc: 'Daily generation & savings telemetry', pos: 'top-16 right-16' },
-        { label: '₹78,000 Subsidy Credited', desc: 'Direct to client bank account', pos: 'bottom-20 left-20' },
+        { label: 'Smart Solar Inverter', desc: 'Real-time generation telemetry', pos: 'top-14 right-24' },
+        { label: 'Synchronized Net-Meter', desc: 'DISCOM grid bi-directional meter', pos: 'bottom-20 right-36' },
       ],
     },
   ];
@@ -147,12 +147,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-center opacity-85"
+              className="w-full h-full object-cover object-center opacity-90"
             />
 
-            {/* Subtle Right & Top Edge Cinematic Vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-l from-black/35 via-transparent to-transparent pointer-events-none" />
+            {/* Subtle Right & Top Edge Cinematic Vignette - Relaxed for natural image glow */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Stage Hotspot Tooltip Badges (Floating on image) */}
             <div className="absolute inset-0 pointer-events-none hidden xl:block">
@@ -178,25 +178,25 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
           </div>
         ))}
 
-        {/* ── Immersive Subtle Dark Scrim on Left Side (High contrast text clarity) ── */}
+        {/* ── Immersive Subtle Dark Scrim on Left Side (High contrast text clarity with increased right glow) ── */}
         <div
           className="hidden lg:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(10, 15, 29, 0.92) 0%, rgba(10, 15, 29, 0.78) 36%, rgba(10, 15, 29, 0.42) 54%, rgba(10, 15, 29, 0.12) 68%, transparent 84%)',
+              'linear-gradient(90deg, rgba(10, 15, 29, 0.88) 0%, rgba(10, 15, 29, 0.72) 34%, rgba(10, 15, 29, 0.32) 52%, rgba(10, 15, 29, 0.06) 66%, transparent 80%)',
           }}
         />
         <div
           className="lg:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(10, 15, 29, 0.92) 0%, rgba(10, 15, 29, 0.75) 50%, rgba(10, 15, 29, 0.92) 100%)',
+              'linear-gradient(180deg, rgba(10, 15, 29, 0.88) 0%, rgba(10, 15, 29, 0.65) 50%, rgba(10, 15, 29, 0.88) 100%)',
           }}
         />
 
         {/* Subtle Top & Bottom Blends */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0A0F1D]/80 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0A0F1D]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#0A0F1D]/75 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0A0F1D]/75 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* ── 3. MAIN CONTENT LAYER ── */}
