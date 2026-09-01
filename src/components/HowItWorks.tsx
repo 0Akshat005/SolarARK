@@ -70,8 +70,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
       headline: '3D LiDAR Laser Shade & Structural Scan',
       description: 'Our certified engineers conduct a 3D LiDAR laser scan of your rooftop to evaluate tilt angle, structural strength, and shadow profiles from nearby trees or parapet walls.',
       icon: Compass,
-      image: '/images/story-empty-rooftop.jpg',
-      alt: 'Certified engineer conducting 3D shadow and roof survey',
+      image: '/images/process/stage-01-survey-rooftop.jpg',
+      alt: 'Certified engineer conducting physical 3D LiDAR rooftop survey',
       hotspots: [
         { label: '3D LiDAR Scan Active', desc: '±1mm rooftop topography precision', pos: 'top-16 left-12' },
         { label: 'DISCOM Feeder Checked', desc: '100% capacity pre-approved', pos: 'bottom-20 right-16' },
