@@ -218,7 +218,10 @@ export default function App() {
             />
 
             {/* 1.5. Pre-Calculator Service & Value Bridge */}
-            <ServiceBridge onCalculatorClick={scrollToCalculator} />
+            <ServiceBridge
+              onCalculatorClick={scrollToCalculator}
+              onNavigate={navigateTo}
+            />
 
             {/* 2. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
             <div id="calculator">
