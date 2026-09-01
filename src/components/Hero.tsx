@@ -160,11 +160,11 @@ export const Hero: React.FC<HeroProps> = () => {
                 })}
               </div>
 
-              {/* Minimalist Live Video Controls Dock */}
+              {/* Minimalist On-Site Video Controls Dock */}
               <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 shrink-0 self-end xl:self-center">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="hidden sm:inline text-amber-300 font-heading">LIVE FOOTAGE</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
                   <span className="hidden sm:inline text-slate-400">•</span>
                   <span>Maharashtra EPC</span>
                 </div>
