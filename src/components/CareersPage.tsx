@@ -21,8 +21,6 @@ import {
   Sparkles,
   Award,
   Users,
-  Building,
-  GraduationCap,
   ChevronDown,
   ChevronUp,
   Search,
@@ -309,86 +307,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
         </div>
       </section>
 
-      {/* ── 4. WHY WORK AT SOLARARK (CULTURE PILLARS) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-20">
-        
-        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E]/10 text-xs font-bold text-[#8B1E1E] font-heading">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Why Join Us</span>
-          </div>
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Build a Purpose-Driven Clean-Tech Career
-          </h2>
-          <p className="text-xs sm:text-sm text-stone-500">
-            We provide the resources, mentorship, and high-impact projects for you to excel.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-              <TrendingUp className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Booming Clean-Tech Sector</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Directly participate in India's national PM Surya Ghar distributed rooftop revolution.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-              <Award className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Rewarding Compensation</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Competitive fixed CTC packages + monthly project bonuses &amp; fast-track promotion paths.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
-              <GraduationCap className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Continuous Technical Training</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Hands-on masterclasses on solar CAD design, smart inverters, and DISCOM liaisons.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-              <Users className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Collaborative Culture</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Work in an open, vibrant environment that celebrates innovation, diversity, and team wins.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-              <Building className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Multi-City Regional Hubs</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Active hubs across Nagpur, Pune, Amravati, Sambhajinagar, Wardha, and Akola.</p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-heading font-bold text-sm text-slate-900">Real Environmental Impact</h3>
-              <p className="text-xs text-stone-500 leading-relaxed">Every megawatt your team commissions prevents thousands of tonnes of CO2 emissions.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       {/* ── 6. DEDICATED APPLICATION STUDIO ── */}
       <section id="application-studio" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28 scroll-mt-24">
