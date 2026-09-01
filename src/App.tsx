@@ -217,24 +217,24 @@ export default function App() {
               onClaimEstimate={handleClaimEstimate}
             />
 
-            {/* 1.5. Pre-Calculator Service & Value Bridge */}
+            {/* 2. 4-Step Transparent Installation Process */}
+            <div id="how-it-works">
+              <HowItWorks onCtaClick={scrollToContactForm} />
+            </div>
+
+            {/* 3. Pre-Calculator Service & Value Bridge */}
             <ServiceBridge
               onCalculatorClick={scrollToCalculator}
               onNavigate={navigateTo}
             />
 
-            {/* 2. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
+            {/* 4. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
             <div id="calculator">
               <SavingsCalculator
                 onClaimEstimate={handleClaimEstimate}
                 initialPincode={calculatorState.pincode}
                 initialBill={calculatorState.monthlyBill}
               />
-            </div>
-
-            {/* 3. 4-Step Transparent Installation Process */}
-            <div id="how-it-works">
-              <HowItWorks onCtaClick={scrollToContactForm} />
             </div>
 
             {/* 5. Deep-Dive Bento Teaser Grid */}
