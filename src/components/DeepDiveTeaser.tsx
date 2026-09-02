@@ -24,22 +24,35 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 space-y-10 sm:space-y-12">
         
         {/* ── SECTION HEADER ── */}
-        <div className="max-w-2xl space-y-3">
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold font-heading text-stone-700 shadow-2xs">
-            <Info className="w-3.5 h-3.5 text-stone-600" />
-            <span>Discover SolarARK</span>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-8">
+          <div className="max-w-2xl space-y-3">
+            {/* Eyebrow Pill */}
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold font-heading text-stone-700 shadow-2xs">
+              <Info className="w-3.5 h-3.5 text-stone-600" />
+              <span>Discover SolarARK</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+              See what powers <span className="text-accent-light">SolarARK.</span>
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
+              Explore our technology, real installations, homeowner experiences, and smart monitoring — all in one place.
+            </p>
           </div>
 
-          {/* Headline */}
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-            See what powers <span className="text-accent-light">SolarARK.</span>
-          </h2>
-
-          {/* Subtitle */}
-          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
-            Explore our technology, real installations, homeowner experiences, and smart monitoring — all in one place.
-          </p>
+          {/* Services Redirect — Right-aligned editorial anchor */}
+          <button
+            onClick={() => onNavigate('/services')}
+            className="group shrink-0 inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-stone-300 bg-white hover:border-[#8B1E1E]/40 hover:bg-[#8B1E1E]/[0.04] text-stone-700 hover:text-[#8B1E1E] transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md self-start sm:self-end"
+          >
+            <span className="font-heading font-semibold text-sm tracking-wide">
+              Explore our services
+            </span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+          </button>
         </div>
 
         {/* ── ASYMMETRIC BENTO EDITORIAL COMPOSITION ── */}
