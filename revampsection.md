@@ -1,773 +1,713 @@
-# SOLARARK — FIX + POLISH THE “FROM ROOFTOP TO RUNNING SYSTEM” SECTION
+# SOLARARK — COMPLETE 4-STEP CINEMATIC JOURNEY REDESIGN
 
-Use the existing SolarARK website:
-https://solar-ark-sigma.vercel.app/
+Redesign the existing SolarARK “Frictionless End-to-End” 4-step section as ONE
+cohesive premium visual experience.
 
-The current implementation is conceptually correct, but the visual execution needs a substantial refinement.
+The four steps are:
 
-The reference design is the intended direction.
-
-DO NOT redesign the concept.
-DO NOT revert to cards.
-DO NOT introduce a new visual language.
-
-Instead, fix the hierarchy, readability, responsiveness, spacing, and background treatment so the section feels like a premium solar/engineering website.
-
---------------------------------------------------
-1. MOST IMPORTANT PROBLEM TO FIX
---------------------------------------------------
-
-The architectural background illustration is currently too visually dominant.
-
-It is sitting behind the process content and making:
-
-- icons difficult to read
-- stage labels low contrast
-- descriptions difficult to scan
-- the timeline visually unclear
-- mobile composition especially cluttered
-
-The illustration must become an ATMOSPHERIC BACKGROUND ELEMENT.
-
-It must NEVER compete with typography or the process timeline.
-
-Think:
-
-CONTENT = foreground
-TIMELINE = foreground
-ILLUSTRATION = background atmosphere
-
-Not:
-
-CONTENT + IMAGE + TIMELINE all fighting for attention.
-
---------------------------------------------------
-2. BACKGROUND ILLUSTRATION — DESKTOP
---------------------------------------------------
-
-Use the supplied architectural solar-house illustration.
-
-DO NOT change the illustration itself.
-
-Position it:
-
-- right half of section
-- approximately 55–65% from left
-- vertically around the middle/lower half
-- slightly behind the process line
-- extend/fade it naturally into the page background
-
-Maximum visual opacity:
-approximately 0.22–0.30
-
-Use a soft mask/fade so the image disappears toward:
-
-- left side
-- top
-- bottom
-
-The left content area must remain visually clean.
+01 — SURVEY
+02 — DESIGN
+03 — INSTALL
+04 — COMMISSION / LIVE
 
 IMPORTANT:
+Do NOT design these as four independent card-based sections.
 
-No dark image edges.
-No image rectangle.
-No visible image boundary.
-No hard box.
-No shadow around the image.
+They must feel like four chapters of ONE visual story.
 
-The house should feel like an architectural sketch quietly embedded into the page.
+The user's visual understanding should be:
 
-Add a very subtle warm radial glow behind the illustration if required.
+LOOK AT THE HOME
+→ UNDERSTAND THE ENERGY
+→ BUILD THE SYSTEM
+→ SWITCH IT ON
 
-The illustration should NEVER overlap important text.
-
---------------------------------------------------
-3. BACKGROUND MUST NEVER SIT BEHIND READABLE COPY
---------------------------------------------------
-
-Maintain a safe foreground zone.
-
-The following must always have a clean, high-contrast background:
-
-- eyebrow
-- heading
-- body copy
-- Explore our services
-- timeline numbers
-- timeline labels
-- timeline descriptions
-
-Use layering:
-
-background illustration
-↓
-very subtle background fade/overlay
-↓
-timeline
-↓
-content
-
-The illustration can intersect empty space, but not typography.
+The photography changes between chapters, but the design language remains consistent.
 
 --------------------------------------------------
-4. DESKTOP COMPOSITION
+1. OVERALL DESIGN PHILOSOPHY
 --------------------------------------------------
 
-Target desktop section height:
+The current implementation is too box-heavy.
 
-520–580px.
+REMOVE the feeling of:
 
-Do not make the section unnecessarily tall.
+- dashboard
+- SaaS interface
+- WordPress solar template
+- floating card collection
+- card grid
+- multiple overlapping badges
+- excessive rounded containers
 
-Use a centered max-width container matching the existing SolarARK website.
+Instead use:
 
-Desktop composition:
+CINEMATIC PHOTOGRAPHY
++
+EDITORIAL TYPOGRAPHY
++
+LIGHT TECHNICAL ANNOTATIONS
++
+MINIMAL JOURNEY NAVIGATION
 
-TOP:
-eyebrow + heading + paragraph
+The photograph should be the dominant element.
 
-UPPER RIGHT:
-Explore our services
+UI should feel like information printed onto the photograph,
+not panels placed above it.
 
-MIDDLE / LOWER:
-single continuous four-stage journey
-
-BACKGROUND:
-architectural illustration on right
-
-BOTTOM:
-closing statement + metadata
-
-The section should feel editorial and spacious rather than component-based.
-
---------------------------------------------------
-5. HEADING
---------------------------------------------------
-
-Exact copy:
-
-Solar, properly planned.
-Properly supported.
-
-Highlight only:
-
-supported.
-
-Color:
-SolarARK red.
-
-Use existing Instrument Sans.
-
-Desktop:
-
-font-size: 52–60px
-font-weight: 600
-line-height: 0.98–1.05
-letter-spacing: -0.035em
-
-Do not use an ultra-heavy font weight.
-
-The heading should be the strongest visual element.
+The background image should receive approximately 70–80%
+of the visual attention.
 
 --------------------------------------------------
-6. BODY COPY
+2. SHARED BRAND SYSTEM
 --------------------------------------------------
 
-Exact copy:
+Keep SolarARK's existing visual identity exactly.
 
-We assess, size, coordinate and support your system—
-so the move to solar feels straightforward from day one.
+Typography:
+- Space Grotesk for major headings
+- Instrument Sans for body/UI
 
-Desktop width:
-approximately 470–520px.
+Primary:
+- deep navy / near-black
+- warm off-white
 
-Font:
-Instrument Sans
-16–17px
-font-weight: 400
-line-height: 1.5–1.6
+Accent:
+- SolarARK maroon/red
 
-Color:
-existing dark navy with slightly reduced opacity.
+Secondary:
+- controlled amber/orange
 
---------------------------------------------------
-7. SERVICE CTA
---------------------------------------------------
+Do NOT introduce new color systems.
 
-Exact text:
-
-Explore our services ↗
-
-This is NOT a conventional button.
-
-Keep it visually lightweight.
-
-Desktop:
-position toward the upper-right.
-
-Style:
-
-dark navy text
-small arrow inside a very subtle circular outline
-minimal warm glow on hover
-
-Hover:
-
-text → SolarARK red
-arrow → moves 3–4px right
-soft warm glow
-subtle underline reveal
-
-Do NOT use:
-
-filled pill
-large button
-heavy border
-drop shadow
-
-Link directly to the Services section/page.
+Do NOT turn the site into:
+- beige editorial luxury
+- green eco branding
+- bright orange solar startup aesthetic
+- purple SaaS UI
 
 --------------------------------------------------
-8. PROCESS TIMELINE
+3. SHARED PHOTOGRAPHIC TREATMENT
 --------------------------------------------------
 
-The four stages are the main visual system.
+Every step uses a real-looking, documentary-style photograph.
 
-Do NOT place them into cards.
+Photography must feel:
 
-Use one continuous engineered line:
+- Indian residential environment
+- believable
+- imperfect
+- professionally photographed
+- natural lighting
+- realistic materials
+- realistic people
+- realistic equipment
 
-01 ───────── 02 ───────── 03 ───────── 04
+Avoid:
+- glossy stock photography
+- exaggerated HDR
+- futuristic architecture
+- fake engineering scenes
+- excessive bokeh
+- obviously AI-generated environments
+- impossible equipment
+- excessive logos
+- staged corporate poses
 
-The line should span the usable width.
-
-It must feel intentional and perfectly aligned.
-
-Each node:
-
-48–54px diameter
-cream/ivory interior
-thin SolarARK red/orange border
-very subtle warm glow
-
-Numbers:
-
-01
-02
-03
-04
-
-Instrument Sans
-15–17px
-600
-
-Under every node:
-
-short vertical connector
-
-Then icon
-
-Then stage title
-
-Then short description
+Each photograph must show something that actually belongs
+to that particular stage.
 
 --------------------------------------------------
-9. EXACT STAGE CONTENT
+4. IMPORTANT IMAGE FRAMING RULE
 --------------------------------------------------
 
-01
+NEVER use a generic:
 
-ROOF
+background-position: center
 
-Right system
-for your site
+for all photographs.
 
-
-02
-
-SYSTEM
-
-Sized to your
-actual usage
-
-
-03
-
-APPROVAL
-
-Subsidy & DISCOM
-coordination
-
-
-04
-
-SUPPORT
-
-Support beyond
-installation
-
-Keep this copy exactly.
-
-Do not add paragraphs.
-
-The Pareto principle is intentional here:
-only the information necessary to understand SolarARK's journey.
-
---------------------------------------------------
-10. TIMELINE READABILITY
---------------------------------------------------
-
-The current screenshot has the illustration crossing behind stages 03 and 04.
-
-FIX THIS.
-
-Timeline content must have a consistently clean visual zone.
-
-Use one of these techniques:
-
-preferred:
-move illustration behind the line but fade it heavily
-
-OR:
-
-use a subtle translucent ivory gradient behind the timeline content
-
-The background should be quiet enough that:
-
-ROOF
-Right system for your site
-
-and
-
-APPROVAL
-Subsidy & DISCOM coordination
-
-are immediately readable.
-
-Never sacrifice text contrast for the illustration.
-
---------------------------------------------------
-11. BOTTOM CLOSING MESSAGE
---------------------------------------------------
+Each image must be art-directed independently.
 
 Use:
 
-One team. Every step of your solar journey.
+background-size: cover
 
-Below:
+but manually tune background-position for each stage.
 
-ASSESSMENT • DESIGN • APPROVALS • INSTALLATION • SUPPORT
+The important subject of each photograph must remain visible.
 
-Keep it compact.
+Never allow interface content to cover the main photographic subject.
 
-This should behave as the final visual punctuation of the section.
+The photograph is NOT decoration.
 
-Do NOT make it look like another component/card.
-
---------------------------------------------------
-12. MOBILE MUST BE A SEPARATE COMPOSITION
---------------------------------------------------
-
-IMPORTANT:
-
-Do NOT simply shrink the desktop layout.
-
-The current mobile layout is NOT acceptable.
-
-Desktop and mobile should share the same design language, but mobile needs its own composition.
+The photograph is the storytelling device.
 
 --------------------------------------------------
-13. MOBILE CONTENT PRIORITY
+5. COMMON LAYOUT
 --------------------------------------------------
 
-Mobile order:
+Desktop section:
 
-01 eyebrow
+height:
+~680–740px
 
-02 heading
+full width
 
-03 paragraph
+photo:
+100% width
+100% height
 
-04 Explore our services
+content max width:
+~1320px
 
-05 visual journey
+Primary content:
+left 38–42%
 
-06 closing statement
+Photography focal area:
+right 58–62%
 
-07 metadata
+However, this is NOT a rigid split-screen.
 
-Everything must fit naturally within the section.
+Use the photograph itself to determine the composition.
 
-No horizontal overflow.
-
-No cropped content.
-
-No hidden stage.
-
-No content disappearing below the viewport unexpectedly.
-
---------------------------------------------------
-14. MOBILE BACKGROUND IMAGE
---------------------------------------------------
-
-The desktop illustration placement must NOT be reused on mobile.
-
-This is critical.
-
-On mobile:
-
-move the architectural illustration to the LOWER BACKGROUND.
-
-Position:
-
-center / slightly right
-
-lower 45–65% of section
-
-opacity:
-approximately 0.10–0.18
-
-strong fade toward the top
-
-strong fade behind text
-
-The illustration should feel like a faint environmental texture.
-
-The tree must NOT sit directly behind the stage labels.
-
-The house must NOT pass through text.
-
-The upper 35–40% of the mobile section should have an almost completely clean background.
-
-This creates proper reading hierarchy.
+The left side should naturally contain darker / quieter photographic areas.
 
 --------------------------------------------------
-15. MOBILE HEADING
+6. CONTINUOUS OVERLAY
 --------------------------------------------------
 
-Use:
+Use ONE continuous cinematic gradient across each photograph.
 
-36–42px
-600
-line-height: 1.0–1.08
-letter-spacing: -0.03em
+Left:
+strong navy/black
 
-Do NOT force awkward line breaks.
+Center:
+medium transparency
 
-Allow the browser to wrap naturally.
-
-The desired visual rhythm is approximately:
-
-Solar, properly planned.
-Properly supported.
-
-not:
-
-Solar, properly
-planned. Properly
-supported.
-
-unless the actual viewport requires it.
-
---------------------------------------------------
-16. MOBILE BODY
---------------------------------------------------
-
-16px
-line-height: 1.5
-
-Maximum width:
-~370px
-
-Keep enough horizontal padding:
-
-20–24px minimum.
-
-Do not let text touch viewport edges.
-
---------------------------------------------------
-17. MOBILE CTA
---------------------------------------------------
-
-Place immediately after the paragraph.
-
-Do not push it into the timeline.
-
-Spacing:
-
-20–26px above
-24–32px below
-
-Keep it exactly as lightweight as desktop.
-
---------------------------------------------------
-18. MOBILE TIMELINE — DO NOT USE 2x2 GRID
---------------------------------------------------
-
-The current 2x2 arrangement feels like a generic feature grid.
-
-Do NOT use four isolated columns.
-
-Instead use a VERTICAL OR DIAGONAL JOURNEY.
-
-Preferred mobile structure:
-
-01
-│
-02
-│
-03
-│
-04
-
-with the line visually connecting the stages.
-
-Each stage can alternate slightly left/right if necessary, but maintain a single visual axis.
+Right:
+light overlay
 
 Example:
 
-01  ROOF
-    Right system for your site
-       │
-       ↓
-02  SYSTEM
-    Sized to your actual usage
-       │
-       ↓
-03  APPROVAL
-    Subsidy & DISCOM coordination
-       │
-       ↓
-04  SUPPORT
-    Support beyond installation
+left ≈ 70–80%
+center ≈ 35–45%
+right ≈ 10–20%
 
-This immediately communicates progression and uses significantly less width.
+The transition must be smooth.
 
-Do NOT create four boxed cards.
+NEVER create a rectangular dark box behind text.
+
+The darkening must appear to belong to the photograph.
 
 --------------------------------------------------
-19. MOBILE ICONS
+7. TYPOGRAPHIC HIERARCHY
 --------------------------------------------------
 
-Use the same thin-line icon family.
+Small eyebrow:
 
-Icon size:
+FRICTIONLESS END-TO-END
+· STEP 01 OF 04
 
-24–28px
+Then large headline.
 
-Node:
+Headline should remain around:
 
-42–46px
+56–68px desktop
 
-Keep icons and labels visually secondary to the heading.
+Space Grotesk
+bold
 
---------------------------------------------------
-20. MOBILE SPACING
---------------------------------------------------
+Line-height:
+~0.95–1.05
 
-Use a deliberate rhythm.
+Keep headline width around:
+520–600px
 
-Suggested:
+Supporting copy:
+18–20px
 
-section padding:
-72px 20px 56px
+Maximum width:
+540px
 
-eyebrow → heading:
-16px
-
-heading → body:
-14–18px
-
-body → CTA:
-22px
-
-CTA → journey:
-38–48px
-
-stage → stage:
-24–32px
-
-journey → closing statement:
-44–52px
-
-closing statement → metadata:
-10–14px
-
-Do not introduce excessive empty gaps.
+Do not overcrowd the left side.
 
 --------------------------------------------------
-21. RESPONSIVE BREAKPOINT LOGIC
+8. STEP 01 — SURVEY
+--------------------------------------------------
+
+PHOTOGRAPHIC STORY:
+
+A SolarARK engineer is physically surveying a real Indian residential rooftop.
+
+Show:
+- rooftop
+- parapet
+- water tank
+- surrounding homes
+- trees
+- rooftop equipment
+- engineer
+- tripod / surveying equipment
+
+The image must communicate:
+
+“First, we understand the roof.”
+
+Engineer should NOT be installing anything.
+
+No solar-panel-heavy scene.
+
+This is the inspection stage.
+
+MAIN HEADLINE:
+
+“We understand your roof first.”
+
+Supporting copy:
+
+“Before we recommend a system, we study the roof, orientation, shading,
+available area and the conditions that will shape its performance.”
+
+Minimal technical annotation:
+
+ROOF SURVEY
+ORIENTATION
+SHADE
+USABLE AREA
+
+Use tiny labels connected by extremely thin lines.
+
+Do NOT use cards.
+
+CTA:
+
+“See how your home is surveyed →”
+
+BOTTOM JOURNEY:
+
+01 SURVEY — active
+02 DESIGN
+03 INSTALL
+04 LIVE
+
+Use only typography + thin connecting line + small nodes.
+
+--------------------------------------------------
+9. STEP 02 — DESIGN
+--------------------------------------------------
+
+PHOTOGRAPHIC STORY:
+
+Move INSIDE the design/engineering environment.
+
+A SolarARK engineer should be reviewing a real solar design
+using a workstation, plans or measured site information.
+
+Possible visible elements:
+
+- monitor
+- roof plan
+- solar layout
+- CAD/model
+- engineering drawings
+- electricity information
+- calculator/notebook
+- Indian urban context through window
+
+The scene must communicate:
+
+“We turn what we learned into a design.”
+
+Do NOT show an installer.
+
+Do NOT make the inverter the subject.
+
+Do NOT show completed solar installation.
+
+MAIN HEADLINE:
+
+“Then we design around what we found.”
+
+Supporting copy:
+
+“Your roof, energy use and future requirements shape the system we design —
+not a standard package pulled from a template.”
+
+Minimal annotations:
+
+SITE DATA
+ENERGY USE
+SYSTEM DESIGN
+
+These should appear subtly around the photograph.
+
+CTA:
+
+“See what shapes the design →”
+
+Bottom journey:
+
+01 SURVEY
+02 DESIGN — active
+03 INSTALL
+04 LIVE
+
+Same line.
+Same typography.
+Same node behavior.
+
+--------------------------------------------------
+10. STEP 03 — INSTALL
+--------------------------------------------------
+
+PHOTOGRAPHIC STORY:
+
+Now move back outside.
+
+Show REAL SolarARK installers actively installing solar panels.
+
+Must look like a genuine Indian residential installation.
+
+Show:
+
+- maroon SolarARK polo
+- black collar
+- proper work pants
+- white safety helmet
+- gloves
+- harness where appropriate
+- photovoltaic modules
+- mounting structure
+- tools
+- rooftop
+- realistic parapet
+- surrounding neighbourhood
+
+The team must appear to actually be working.
+
+No posing toward camera.
+
+One person can secure a panel,
+another can work further along the array.
+
+The visual message:
+
+“The design now becomes a real system.”
+
+MAIN HEADLINE:
+
+“Now we build it right.”
+
+Supporting copy:
+
+“Our installation team turns the design into a finished system,
+with careful mounting, wiring and on-site execution.”
+
+Technical micro-labels:
+
+MOUNTING
+WIRING
+INSTALLATION
+
+Do NOT invent claims such as:
+“certified”
+“guaranteed”
+“zero failure”
+unless those claims already exist in the actual website content.
+
+CTA:
+
+“See how SolarARK installs →”
+
+Bottom journey:
+
+01 SURVEY
+02 DESIGN
+03 INSTALL — active
+04 LIVE
+
+--------------------------------------------------
+11. STEP 04 — COMMISSION / LIVE
+--------------------------------------------------
+
+PHOTOGRAPHIC STORY:
+
+The final scene moves INSIDE the real home.
+
+Show the completed solar system being switched on / commissioned.
+
+The technician should be operating or checking the inverter,
+meter, electrical connection, or monitoring interface.
+
+The home must feel lived-in.
+
+The system is now operational.
+
+The photograph must communicate:
+
+“The hard work is complete. Your system is now ready.”
+
+MAIN HEADLINE:
+
+“Your system is ready.
+Now let it work.”
+
+Supporting copy:
+
+“Once installation is complete, we connect the system,
+verify operation and make sure everything is ready for everyday use.”
+
+Minimal status line:
+
+GRID CONNECTED
+SYSTEM LIVE
+MONITORING ACTIVE
+
+Use very small status dots.
+
+No status cards.
+
+CTA:
+
+“Book your free site survey →”
+
+Bottom journey:
+
+01 SURVEY
+02 DESIGN
+03 INSTALL
+04 LIVE — active
+
+--------------------------------------------------
+12. JOURNEY NAVIGATION — CRITICAL
+--------------------------------------------------
+
+REMOVE the current large 4-card step container.
+
+Do NOT use four cards.
+
+Do NOT use four rounded rectangles.
+
+Instead:
+
+                01              02              03              04
+             SURVEY          DESIGN           INSTALL           LIVE
+                ●───────────────●───────────────●───────────────●
+
+Thin line.
+
+Tiny nodes.
+
+Active step:
+SolarARK maroon/red glow.
+
+Completed steps:
+soft warm-white.
+
+Future steps:
+low-opacity white.
+
+Small arrows may be used between labels,
+but never giant directional arrows.
+
+This becomes a navigation system,
+not a content block.
+
+--------------------------------------------------
+13. CTA SYSTEM
+--------------------------------------------------
+
+Do not use a huge red rectangular button.
+
+Use an editorial CTA:
+
+Book your free site survey →
+
+or stage-specific:
+
+See how your home is surveyed →
+See what shapes the design →
+See how SolarARK installs →
+Book your free site survey →
+
+Typography:
+16–18px
+
+Maroon/red underline.
+
+No pill.
+No giant rounded rectangle.
+No excessive shadow.
+
+--------------------------------------------------
+14. REMOVE THESE EVERYWHERE
+--------------------------------------------------
+
+REMOVE:
+
+- large floating information cards
+- large black content panels
+- floating certification box
+- top-right telemetry card
+- oversized red CTA button
+- multiple badge pills
+- repeated checkmark cards
+- excessive borders
+- excessive rounded corners
+- dashboard-style bottom container
+- unnecessary numerical claims
+- fake telemetry
+- fake efficiency claims
+- fake certification claims
+- fake statistics
+
+--------------------------------------------------
+15. VISUAL STORY CONTINUITY
+--------------------------------------------------
+
+The viewer should subconsciously feel:
+
+STEP 01:
+“Someone comes to understand my roof.”
+
+STEP 02:
+“They turn that information into a plan.”
+
+STEP 03:
+“They physically build what was planned.”
+
+STEP 04:
+“They switch it on and hand over a working system.”
+
+This continuity is more important than decorative UI.
+
+--------------------------------------------------
+16. PHOTOGRAPHIC COLOR CONTINUITY
+--------------------------------------------------
+
+Keep all four photographs within the same photographic world.
+
+Use:
+
+warm daylight
+natural shadows
+slightly cinematic contrast
+realistic skin tones
+subtle warm highlights
+
+The locations can change,
+but grading should feel consistent.
+
+Avoid:
+one image being blue,
+another orange,
+another green,
+another studio-white.
+
+They should look like the same production shoot.
+
+--------------------------------------------------
+17. BRANDING ON STAFF
+--------------------------------------------------
+
+Whenever a SolarARK team member appears:
+
+shirt:
+deep SolarARK maroon
+
+collar:
+black
+
+sleeve trim:
+black where visually appropriate
+
+branding:
+subtle SolarARK identity
+
+Do not make the logo enormous.
+
+The shirt should look like a real company uniform,
+not promotional merchandise.
+
+--------------------------------------------------
+18. RESPONSIVE BEHAVIOUR
 --------------------------------------------------
 
 Desktop:
-≥ 1024px
 
-Use horizontal journey.
+photograph dominant
+content left
+technical annotations right/around subject
+journey line bottom
 
 Tablet:
-768–1023px
 
-Keep horizontal journey only if it remains genuinely readable.
-Otherwise progressively tighten it.
+increase gradient slightly
+preserve photographic subject
+reduce annotations
 
 Mobile:
-< 768px
 
-Switch to vertical journey.
+do NOT simply crop the desktop composition.
 
-Do not rely on desktop scaling.
+Recompose each photograph.
 
---------------------------------------------------
-22. COLOR SYSTEM
---------------------------------------------------
+Keep:
+person
+important equipment
+main context
 
-Use the existing SolarARK palette.
+Then place text over the darker portion.
 
-Background:
-warm ivory / off-white
+Journey becomes:
 
-Approx:
-#F8F4EE
+01 → 02 → 03 → 04
 
-Primary text:
-deep navy
-
-Approx:
-#10233F
-
-Brand red:
-Approx:
-#982522
-
-Warm solar accent:
-Approx:
-#D96B3C
-
-Borders:
-very subtle warm gray/beige.
-
-Do not introduce:
-
-green primary accents
-purple
-bright orange
-neon gradients
-generic SaaS blue
-
-SolarARK should remain:
-
-IVORY + NAVY + RED + SUBTLE WARM PEACH.
+with active stage highlighted.
 
 --------------------------------------------------
-23. TYPOGRAPHY
+19. FINAL ART-DIRECTION CHECK
 --------------------------------------------------
 
-Use Instrument Sans throughout.
+Before finalizing the implementation, review the entire sequence
+as though it were a high-end brand film paused at four moments.
 
-Do not import or introduce another display font.
+STEP 01 must visually say:
+SURVEY
 
-Maintain the website's existing font variables.
+STEP 02 must visually say:
+DESIGN
 
-Typography should be:
+STEP 03 must visually say:
+INSTALL
 
-clean
-architectural
-slightly editorial
-confident
-not excessively bold
+STEP 04 must visually say:
+LIVE
 
-Avoid excessive uppercase text except for eyebrow and process labels.
+If a photograph could belong to another step,
+replace it.
 
---------------------------------------------------
-24. MICRO INTERACTION
---------------------------------------------------
+If the UI is more noticeable than the photography,
+reduce the UI.
 
-Keep animation subtle.
+If the section looks like a collection of cards,
+remove the cards.
 
-On entering viewport:
+If it looks like a WordPress solar template,
+simplify the interface.
 
-eyebrow:
-fade + 8px upward
+If the viewer cannot understand the stage without reading every word,
+improve the photograph first.
 
-heading:
-fade + 12px upward
+The final experience should feel like:
 
-timeline:
-line draws horizontally on desktop
+PREMIUM ENGINEERING BRAND
++
+REAL INDIAN RESIDENTIAL SOLAR
++
+CINEMATIC STORYTELLING
++
+MINIMAL EDITORIAL UI
 
-mobile:
-line reveals vertically
-
-nodes:
-small opacity/scale reveal
-
-illustration:
-slow opacity reveal
-
-No exaggerated parallax.
-
-No floating cards.
-
-No bouncing.
-
-No spinning.
-
-No excessive blur.
-
-The animation should feel engineered and premium.
-
---------------------------------------------------
-25. ACCESSIBILITY
---------------------------------------------------
-
-Maintain WCAG-friendly text contrast.
-
-Do not rely on the illustration for meaning.
-
-Icons are decorative/supportive.
-
-All CTA links must remain keyboard accessible.
-
-Do not place text on image areas where contrast depends on the image staying unchanged.
-
---------------------------------------------------
-26. FINAL VISUAL CHECK
-
-Before finishing, compare the implementation against the supplied reference and verify:
-
-DESKTOP:
-
-✓ heading is dominant
-✓ illustration is subtle
-✓ text remains perfectly readable
-✓ timeline is one coherent system
-✓ no cards
-✓ no unnecessary containers
-✓ CTA is understated
-✓ section height is compact
-✓ bottom message is visible
-✓ visual hierarchy is obvious within 3–5 seconds
-
-MOBILE:
-
-✓ no horizontal overflow
-✓ no 2x2 card/grid feel
-✓ no text over the tree/house
-✓ illustration is much lighter
-✓ heading remains dominant
-✓ CTA appears naturally after copy
-✓ all four stages are easy to scan
-✓ journey feels sequential
-✓ closing statement is visible
-✓ metadata is visible
-✓ section does not feel excessively tall
-
-MOST IMPORTANT:
-
-The background illustration is decoration.
-The typography and journey are the product.
-
-Never sacrifice readability, hierarchy, or responsiveness to show the illustration.
-
-The final result should feel like a premium architectural/engineering brand website—not WordPress, not SaaS, not a generic template.
+It should feel custom-built specifically for SolarARK.
