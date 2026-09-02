@@ -90,23 +90,25 @@ export const Hero: React.FC<HeroProps> = () => {
         id="hero"
         className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
       >
-        {/* Full-bleed real project hero video */}
-        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D]">
+        {/* Full-bleed real project hero video with 60fps web-optimized local stream */}
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D] transform-gpu">
           <video
             ref={videoRef}
             autoPlay={!isReducedMotion}
             muted={isMuted}
+            defaultMuted
             loop
             playsInline
             preload="auto"
-            className="w-full h-full object-cover object-center"
+            poster="/images/hero-video-poster.jpg"
+            className="w-full h-full object-cover object-center will-change-transform transform-gpu"
           >
             <source
-              src="https://www.thesolarark.com/static/media/homepage1.064e908497b52c839705.mp4"
+              src="/videos/hero-drone-installation.mp4"
               type="video/mp4"
             />
             <source
-              src="https://www.thesolarark.com/static/media/SolarPanels.f60c55f23cce92688a48.mp4"
+              src="https://www.thesolarark.com/static/media/homepage1.064e908497b52c839705.mp4"
               type="video/mp4"
             />
           </video>
