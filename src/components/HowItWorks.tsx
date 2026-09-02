@@ -4,37 +4,65 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import {
-  ShieldCheck,
-  Compass,
-  Grid,
-  Wrench,
-  BarChart3,
-  Trees,
-  Layers,
-  Maximize2,
-  Cpu,
-  BarChart2,
-  Wind,
-  Zap,
-  Users,
-  Activity,
-  Wifi,
-  CheckCircle2,
-  Sparkles,
-} from 'lucide-react';
 
 interface HowItWorksProps {
-  onCtaClick: () => void;
+  onCtaClick?: () => void;
 }
 
-export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
+const stages = [
+  {
+    id: '01',
+    label: 'SURVEY',
+    headlineLine1: 'First, we understand',
+    headlineLine2: 'your roof.',
+    paragraph:
+      'Before we recommend a system, we study your roof, orientation, shading and available space.',
+    technicalRail: '3D LiDAR  ·  SHADE  ·  STRUCTURE  ·  ORIENTATION',
+    image: '/images/process/stage-01-survey-rooftop.jpg',
+    alt: 'SolarARK engineer conducting physical 3D LiDAR rooftop survey on residential terrace',
+  },
+  {
+    id: '02',
+    label: 'DESIGN',
+    headlineLine1: 'Then we design around',
+    headlineLine2: 'what we found.',
+    paragraph:
+      'Your roof, energy use and future requirements shape the system we design — not a standard package pulled from a template.',
+    technicalRail: 'SITE DATA  ·  ENERGY USE  ·  CAD LAYOUT  ·  YIELD FORECAST',
+    image: '/images/process/stage-02-cad-design.jpg',
+    alt: 'SolarARK design engineer reviewing custom 3D CAD solar layout and string architecture',
+  },
+  {
+    id: '03',
+    label: 'INSTALL',
+    headlineLine1: 'Now we build',
+    headlineLine2: 'it right.',
+    paragraph:
+      'Our installation team turns the design into a finished system, with careful mounting, wiring and on-site execution.',
+    technicalRail: 'MOUNTING  ·  WIRING  ·  TIER-1 MODULES  ·  ON-SITE EXECUTION',
+    image: '/images/process/stage-03-install-wide.jpg',
+    alt: 'SolarARK technicians installing solar panels with safety gear on residential rooftop',
+  },
+  {
+    id: '04',
+    label: 'COMMISSION',
+    headlineLine1: 'Your system is ready.',
+    headlineLine2: 'Now let it work.',
+    paragraph:
+      'Once installation is complete, we connect the system, verify operation and make sure everything is ready for everyday use.',
+    technicalRail: 'GRID CONNECTED  ·  SYSTEM LIVE  ·  NET-METERING  ·  TELEMETRY ACTIVE',
+    image: '/images/process/stage-04-commission-inverter.png',
+    alt: 'SolarARK technician commissioning smart hybrid solar inverter inside residence',
+  },
+] as const;
+
+export const HowItWorks: React.FC<HowItWorksProps> = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
 
-  const STEP_DURATION_MS = 6000;
+  const STEP_DURATION_MS = 6500;
   const TICK_INTERVAL_MS = 50;
 
   useEffect(() => {
@@ -65,151 +93,15 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
     setProgress(0);
   };
 
-  const stages = [
-    {
-      id: '01',
-      label: 'SURVEY',
-      tagline: 'We understand your roof first.',
-      headline: '3D LIDAR LASER SHADE & STRUCTURAL SCAN',
-      description:
-        'Our certified engineers conduct a 3D LiDAR laser scan of your rooftop to evaluate tilt angle, structural strength, and shadow profiles from nearby trees or parapet walls.',
-      icon: Compass,
-      image: '/images/process/stage-01-survey-rooftop.jpg',
-      alt: 'Certified SolarARK engineer conducting physical 3D LiDAR rooftop survey during golden hour',
-      specs: [
-        {
-          icon: Compass,
-          title: '3D LiDAR Scan',
-          subtitle: '±1mm precision',
-        },
-        {
-          icon: Trees,
-          title: 'Shade Analysis',
-          subtitle: 'Tree & obstruction',
-        },
-        {
-          icon: Layers,
-          title: 'Structural Check',
-          subtitle: 'Strength validated',
-        },
-        {
-          icon: Maximize2,
-          title: 'Tilt & Orientation',
-          subtitle: 'Max efficiency',
-        },
-      ],
-    },
-    {
-      id: '02',
-      label: 'DESIGN',
-      tagline: 'A system designed around your home.',
-      headline: 'CUSTOM 3D CAD BLUEPRINT & SHADOW SIMULATION',
-      description:
-        'We generate an exact 3D CAD layout simulation showing module placement, wind-load calculations, and guaranteed generation estimates before you invest.',
-      icon: Grid,
-      image: '/images/process/stage-02-cad-design.jpg',
-      alt: 'Custom 3D CAD solar layout and string architecture on engineer workstation',
-      specs: [
-        {
-          icon: Cpu,
-          title: '3D CAD Blueprint',
-          subtitle: 'String architecture',
-        },
-        {
-          icon: BarChart2,
-          title: 'Yield Simulation',
-          subtitle: 'Seasonal kWh forecast',
-        },
-        {
-          icon: Wind,
-          title: 'WindPro Sizing',
-          subtitle: '170 km/h rating',
-        },
-        {
-          icon: Maximize2,
-          title: 'Terrace Usability',
-          subtitle: 'Zero slab penetration',
-        },
-      ],
-    },
-    {
-      id: '03',
-      label: 'INSTALL',
-      tagline: 'Our team handles the work.',
-      headline: 'TURNKEY EXECUTION BY CERTIFIED MASTER INSTALLERS',
-      description:
-        'Our in-house master installers mount the WindPro galvanized structure, run concealed conduits, and coordinate DISCOM net-metering and PM Surya Ghar subsidy filings end to end.',
-      icon: Wrench,
-      image: '/images/process/stage-03-install-wide.jpg',
-      alt: 'Certified SolarArk technicians installing solar panels on residential rooftop at sunset',
-      specs: [
-        {
-          icon: Wrench,
-          title: 'WindPro Structure',
-          subtitle: 'Galvanized steel',
-        },
-        {
-          icon: Zap,
-          title: 'Concealed Conduits',
-          subtitle: 'UV-resistant piping',
-        },
-        {
-          icon: Grid,
-          title: 'Tier-1 Modules',
-          subtitle: '22.8% cell efficiency',
-        },
-        {
-          icon: Users,
-          title: 'Master Installers',
-          subtitle: 'In-house certified crew',
-        },
-      ],
-    },
-    {
-      id: '04',
-      label: 'COMMISSION',
-      tagline: 'You start generating. You start saving.',
-      headline: 'GRID SYNCHRONIZATION & REAL-TIME TELEMETRY',
-      description:
-        'DISCOM net-meter is synchronized. Switch on clean solar power, watch your electric meter spin backward, and track daily generation directly on the SolarArk companion app.',
-      icon: BarChart3,
-      image: '/images/process/stage-04-commission-inverter.png',
-      alt: 'SolarArk engineer commissioning smart hybrid solar inverter and digital net meter',
-      specs: [
-        {
-          icon: Activity,
-          title: 'Grid Sync Active',
-          subtitle: 'DISCOM net-metering',
-        },
-        {
-          icon: Wifi,
-          title: 'IoT Telemetry',
-          subtitle: 'SolarArk mobile app',
-        },
-        {
-          icon: CheckCircle2,
-          title: 'PM Surya Ghar',
-          subtitle: '₹78,000 subsidy credited',
-        },
-        {
-          icon: Sparkles,
-          title: 'System Live',
-          subtitle: '100% operational',
-        },
-      ],
-    },
-  ];
-
   const currentStage = stages[activeStep];
-  const CurrentIcon = currentStage.icon;
 
   return (
     <section
       id="how-it-works"
-      aria-label="Frictionless End-to-End Installation Process"
-      className="relative bg-[#080D1A] pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-14 border-b border-stone-800/60 overflow-hidden text-white selection:bg-[#8B1E1E] selection:text-white"
+      aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
+      className="relative bg-[#080D1A] min-h-[640px] sm:min-h-[680px] lg:min-h-[720px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
-      {/* ── 1. CINEMATIC BACKGROUND PHOTOGRAPHY WITH SEAMLESS EDITORIAL GRADIENT ── */}
+      {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {stages.map((stage, idx) => (
           <div
@@ -223,201 +115,153 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick }) => {
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-center opacity-90"
+              className="w-full h-full object-cover object-right sm:object-center opacity-95"
             />
-
-            {/* Subtle natural vignetting */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080D1A] via-transparent to-black/25 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#080D1A] via-[#080D1A]/70 to-transparent pointer-events-none" />
           </div>
         ))}
 
-        {/* ── Seamless Left-Side Editorial Scrim for 100% Typography Clarity ── */}
+        {/* Soft, Transparent Scrim: ~55-60% Left -> ~25% Center -> ~8-10% Right */}
         <div
-          className="hidden lg:block absolute inset-0 z-10 pointer-events-none"
+          className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.95) 0%, rgba(8, 13, 26, 0.86) 34%, rgba(8, 13, 26, 0.45) 54%, rgba(8, 13, 26, 0.08) 70%, transparent 84%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.65) 0%, rgba(8, 13, 26, 0.50) 36%, rgba(8, 13, 26, 0.22) 58%, rgba(8, 13, 26, 0.06) 78%, transparent 100%)',
           }}
         />
         <div
-          className="lg:hidden absolute inset-0 z-10 pointer-events-none"
+          className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.95) 0%, rgba(8, 13, 26, 0.82) 50%, rgba(8, 13, 26, 0.95) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.75) 0%, rgba(8, 13, 26, 0.50) 45%, rgba(8, 13, 26, 0.85) 100%)',
           }}
         />
 
-        {/* Top and Bottom soft bleeds */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#080D1A] to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#080D1A] to-transparent pointer-events-none z-10" />
+        {/* Minimal top and bottom subtle fades */}
+        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/50 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080D1A]/70 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* ── 2. FOREGROUND CONTENT & NAVIGATION SYSTEM ── */}
-      <div className="relative z-10 max-w-[1380px] mx-auto px-5 sm:px-6 lg:px-12 flex flex-col justify-between min-h-[600px] lg:min-h-[660px]">
-        
-        {/* ── TOP EDITORIAL ROW ── */}
-        <div className="max-w-2xl space-y-4 pt-1">
+      {/* ── 2. FOREGROUND EDITORIAL CONTENT (LEFT ~40%) ── */}
+      <div className="relative z-20 max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 w-full pt-14 sm:pt-18 lg:pt-22">
+        <div className="max-w-xl space-y-4">
           
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-xs text-xs">
-            <span className="w-2.5 h-2.5 rounded-full border-2 border-[#C0392B] flex items-center justify-center">
-              <span className="w-1 h-1 rounded-full bg-[#C0392B]" />
-            </span>
-            <span className="font-heading tracking-wider uppercase text-[11.5px] text-slate-200">
-              FRICTIONLESS END-TO-END · STEP {currentStage.id} OF 04
-            </span>
+          {/* Minimal Eyebrow */}
+          <div className="text-[#E7D8B9] text-xs sm:text-[13px] font-semibold tracking-[0.18em] uppercase font-heading">
+            STEP {currentStage.id} OF 04 · {currentStage.label}
           </div>
 
-          {/* Main Headline */}
-          <div className="space-y-1">
-            <h2 
-              className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-bold text-white tracking-tight leading-[1.08] m-0"
-              style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8)' }}
-            >
-              We handle the <br className="hidden sm:inline" />
-              hard part.
-            </h2>
-            <h3 
-              className="font-heading text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight leading-[1.08] m-0 text-white"
-              style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.8)' }}
-            >
-              You just <span className="text-[#E7D8B9]">save.</span>
-            </h3>
-          </div>
+          {/* 2-Line Headline */}
+          <h2
+            className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.02] m-0"
+            style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.9)' }}
+          >
+            {currentStage.headlineLine1} <br />
+            {currentStage.headlineLine2}
+          </h2>
 
-          {/* Red Accent Divider Bar */}
-          <div className="w-12 h-0.5 bg-[#982522] rounded-full my-2.5" />
-
-          {/* Stage Headline & Description (Clean, unboxed editorial format per reference) */}
-          <div className="space-y-2 pt-1 max-w-xl">
-            <div className="flex items-center gap-2.5 text-[#E7D8B9] text-xs sm:text-[13px] font-bold font-heading tracking-wider uppercase">
-              <CurrentIcon className="w-4 h-4 text-[#E7D8B9] shrink-0" />
-              <span>STAGE {currentStage.id}: {currentStage.headline}</span>
-            </div>
-            <p 
-              className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed m-0"
-              style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)' }}
-            >
-              {currentStage.description}
-            </p>
-          </div>
-
-          {/* Minimalist Certified Installation Team Badge */}
-          <div className="inline-flex items-center gap-3 bg-black/40 backdrop-blur-md rounded-2xl border border-white/15 px-4 py-2 text-white mt-1 shadow-md">
-            <div className="w-7 h-7 rounded-full border border-white/20 bg-white/5 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-3.5 h-3.5 text-slate-200" />
-            </div>
-            <div className="text-left">
-              <span className="font-heading font-bold text-xs text-white block leading-tight">
-                Certified Installation Team
-              </span>
-              <span className="text-[11px] text-slate-300 font-normal block leading-tight mt-0.5">
-                Safety. Quality. On-time.
-              </span>
-            </div>
-          </div>
+          {/* Concise Supporting Explanation */}
+          <p
+            className="text-slate-100 text-sm sm:text-base lg:text-[17.5px] leading-relaxed max-w-lg font-normal pt-1 m-0"
+            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.9)' }}
+          >
+            {currentStage.paragraph}
+          </p>
 
         </div>
+      </div>
 
-        {/* ── 3. TECHNICAL MICRO-SPECS STRIP (MIDDLE ROW) ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 my-8 max-w-3xl">
-          {currentStage.specs.map((spec, sIdx) => {
-            const SpecIcon = spec.icon;
-            return (
-              <div
-                key={sIdx}
-                className="flex items-center gap-2.5 bg-black/35 backdrop-blur-md border border-white/10 rounded-2xl px-3 py-2.5 transition-all duration-300 hover:border-white/25"
-              >
-                <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-slate-300">
-                  <SpecIcon className="w-4 h-4 text-[#E7D8B9]" />
-                </div>
-                <div className="min-w-0">
-                  <div className="font-heading font-bold text-xs text-white truncate leading-tight">
-                    {spec.title}
-                  </div>
-                  <div className="text-[10.5px] text-slate-400 truncate leading-tight mt-0.5">
-                    {spec.subtitle}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+      {/* ── 3. BOTTOM TECHNICAL RAIL & EDITORIAL PROGRESS SPAN ── */}
+      <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="relative z-20 max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 w-full pb-10 sm:pb-12 space-y-6 pt-12"
+      >
+        
+        {/* Unobtrusive Technical Annotation Rail */}
+        <div className="text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-slate-300/80 font-heading">
+          {currentStage.technicalRail}
         </div>
 
-        {/* ── 4. BOTTOM CINEMATIC JOURNEY STEPPER (INTEGRATED EDITORIAL DOCK) ── */}
-        <div 
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="pt-6 border-t border-white/10"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-0 items-start relative">
+        {/* 4-Stage Transparent Editorial Progress Line */}
+        <div className="space-y-3">
+          
+          {/* Stage Labels Row */}
+          <div className="grid grid-cols-4 gap-2 sm:gap-6">
             {stages.map((stage, idx) => {
-              const Icon = stage.icon;
               const isActive = activeStep === idx;
+              const isPassed = idx < activeStep;
 
               return (
-                <div 
-                  key={stage.id} 
-                  className={`relative flex flex-col justify-between p-2 sm:p-2.5 lg:px-4 ${
-                    idx < 3 ? 'lg:border-r lg:border-white/10' : ''
-                  }`}
+                <button
+                  key={stage.id}
+                  onClick={() => handleStepClick(idx)}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`Step ${stage.id}: ${stage.label}`}
+                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1"
                 >
-                  <button
-                    onClick={() => handleStepClick(idx)}
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-label={`Step ${stage.id}: ${stage.label}`}
-                    className="group w-full flex items-start gap-3 text-left cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E7D8B9] transition-all"
-                  >
-                    {/* Circular Step Icon */}
-                    <div
-                      className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <span
+                      className={`text-[10px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
                         isActive
-                          ? 'bg-[#8B1E1E]/40 border-2 border-[#C0392B] text-white shadow-[0_0_18px_rgba(192,57,43,0.6)] scale-105'
-                          : 'bg-black/40 border border-white/15 text-slate-300 group-hover:border-white/30 group-hover:text-white'
+                          ? 'text-[#C0392B]'
+                          : isPassed
+                          ? 'text-slate-300'
+                          : 'text-slate-400/80 group-hover:text-slate-200'
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
-                    </div>
-
-                    {/* Stage Number, Label, Tagline */}
-                    <div className="space-y-0.5 min-w-0">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] sm:text-[11px] font-bold font-heading uppercase tracking-wider text-[#C0392B]">
-                          {stage.id}
-                        </span>
-                        <span className="font-heading font-bold text-xs sm:text-[13px] tracking-wide text-white block uppercase">
-                          {stage.label}
-                        </span>
-                      </div>
-
-                      <p className={`text-[10px] sm:text-[11px] leading-snug font-normal m-0 ${
-                        isActive ? 'text-slate-200 font-medium' : 'text-slate-400'
-                      }`}>
-                        {stage.tagline}
-                      </p>
-                    </div>
-                  </button>
-
-                  {/* Active Step Progress Indicator Underline with Glowing Terminal Dot */}
-                  <div className="mt-3 relative h-1 w-full bg-white/10 rounded-full overflow-visible">
-                    {isActive && (
-                      <div
-                        className="h-full bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_10px_#C0392B] transition-all duration-75 ease-linear relative flex items-center justify-end"
-                        style={{ width: `${progress}%` }}
-                      >
-                        <span className="w-2.5 h-2.5 rounded-full bg-[#C0392B] border-2 border-white shadow-[0_0_8px_#C0392B] translate-x-1/2" />
-                      </div>
-                    )}
-                    {!isActive && idx < activeStep && (
-                      <div className="h-full bg-[#D96B3C]/50 w-full rounded-full" />
-                    )}
+                      {stage.id}
+                    </span>
+                    <span
+                      className={`font-heading font-bold text-xs sm:text-sm tracking-wide uppercase transition-colors ${
+                        isActive
+                          ? 'text-white'
+                          : isPassed
+                          ? 'text-slate-200'
+                          : 'text-slate-400 group-hover:text-slate-200'
+                      }`}
+                    >
+                      {stage.label}
+                    </span>
                   </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Continuous 1px Progress Rail Spine */}
+          <div className="grid grid-cols-4 gap-2 sm:gap-6 items-center">
+            {stages.map((stage, idx) => {
+              const isActive = activeStep === idx;
+              const isPassed = idx < activeStep;
+
+              return (
+                <div key={stage.id} className="relative h-1 flex items-center">
+                  {/* Base Track */}
+                  <div className="w-full h-[1.5px] bg-white/20 rounded-full overflow-hidden">
+                    {/* Active Gradient Fill */}
+                    {isActive ? (
+                      <div
+                        className="h-full bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_8px_#C0392B] transition-all duration-75 ease-linear"
+                        style={{ width: `${progress}%` }}
+                      />
+                    ) : isPassed ? (
+                      <div className="h-full bg-white/60 w-full" />
+                    ) : null}
+                  </div>
+
+                  {/* Active Terminal Node */}
+                  {isActive && (
+                    <div
+                      className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#C0392B] border border-white shadow-[0_0_10px_#C0392B]"
+                      style={{ left: `calc(${progress}% - 4px)` }}
+                    />
+                  )}
                 </div>
               );
             })}
           </div>
+
         </div>
 
       </div>

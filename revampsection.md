@@ -1,105 +1,271 @@
-FIX ONLY THE EXISTING STEP/JOURNEY SECTION. DO NOT REDESIGN THE WEBSITE.
+# SURGICAL FIX — SOLARARK END-TO-END SECTION
 
-The current problem is NOT the content itself — it is the composition.
+Do NOT redesign the whole website.
+Do NOT change the background image.
+Do NOT change global typography or brand colors.
 
-1. KEEP THE CURRENT BACKGROUND IMAGE.
-Do not replace it.
-Do not zoom into it.
-Do not crop the surveyor out.
-Let the rooftop + surveyor remain clearly visible.
+Fix ONLY the current 4-step cinematic section shown on screen.
 
-2. REMOVE THE HEAVY BLACK VIGNETTE.
-The image is currently too dark and feels artificial.
-Reduce the overlay substantially.
-Use only a soft left-to-right navy gradient:
-dark enough for text on the left,
-but naturally transparent across the middle/right.
-The photograph must remain obviously visible.
+The current section feels crowded because too many UI layers compete with the photograph.
+Make the photograph and the current step the clear hero.
 
-3. REMOVE THE LARGE CONTENT BOX.
-The stage description must NOT sit inside a rounded black card.
-Make it flat editorial content directly over the photograph:
-eyebrow
-→ headline
-→ one concise paragraph
-→ one small supporting detail.
+## 1. REMOVE THE REPETITION
 
-No container.
-No panel.
-No floating shadow.
+REMOVE this headline from the step section:
 
-4. FIX THE EMPTY SPACE.
-The large empty area below the copy currently feels accidental.
-Use that space intentionally by moving the 4-step journey lower,
-but make it a thin editorial navigation line rather than cards.
+“We handle the hard part.
+You just save.”
 
-Use:
+That message belongs to the main hero and is being repeated here.
 
-01 SURVEY ───── 02 DESIGN ───── 03 INSTALL ───── 04 COMMISSION
+For STEP 01 replace it with:
 
-Only thin line + small nodes + text.
-Active step = SolarARK red/maroon.
-No rounded step boxes.
+“First, we understand your roof.”
 
-5. REDUCE THE AMOUNT OF TEXT.
-The current section looks messy because there are too many competing
-messages.
+For the other steps use equally direct stage-specific headlines:
 
-For STEP 01 use only:
+STEP 02:
+“Then we design around what we found.”
 
-FRICTIONLESS END-TO-END · STEP 01 OF 04
+STEP 03:
+“Now we build it right.”
 
-We understand your roof first.
+STEP 04:
+“Your system is ready. Now let it work.”
 
-Before we recommend a system, we study your roof,
-orientation, shading and available space.
+This immediately tells the user what is happening.
 
-3D LiDAR · SHADE · STRUCTURE
+## 2. SIMPLIFY THE LEFT CONTENT
+
+Keep only:
+
+EYEBROW
+STEP 01 OF 04 · SURVEY
+
+HEADLINE
+First, we understand your roof.
+
+PARAGRAPH
+“Before we recommend a system, we study your roof, orientation, shading and available space.”
+
+Then one small technical line:
+
+3D LiDAR · SHADE · STRUCTURE · ORIENTATION
 
 Nothing else.
 
-Remove the “Certified Installation Team” box from this stage.
+REMOVE:
+- certification card
+- duplicated explanation
+- extra badge
+- redundant micro-copy
 
-6. HEADLINE SCALE.
-Keep the main headline strong, but reduce its width so it does not
-create a giant text block.
+## 3. FIX THE IMAGE VISIBILITY
 
-Use approximately:
-56–64px desktop
-tight line-height
-max-width ~600px
+The photograph is currently buried under excessive black.
 
-7. BACKGROUND-FIRST COMPOSITION.
-The photograph is the main visual.
-Text is secondary.
-Do not allow text or navigation to cover the surveyor,
-tripod or important rooftop details.
+Reduce the overlay significantly.
 
-8. PROFESSIONAL ART DIRECTION.
-The final result must feel like:
-cinematic engineering photography + premium editorial typography.
+Use a very soft cinematic navy gradient:
 
-NOT:
-dashboard
-SaaS
-WordPress
-card grid
-floating UI
-dark overlay template.
+LEFT:
+~55–60%
 
-9. DO NOT TOUCH OTHER SECTIONS.
-Do not modify:
-hero
-header
-calculator
-fonts
-global colors
-other page sections.
+CENTER:
+~25–30%
 
-Only correct the existing 4-step journey section composition.
+RIGHT:
+~8–12%
 
-FINAL TEST:
-Look at the section for 2 seconds.
-The viewer should immediately see:
-REAL ROOFTOP → REAL SURVEYOR → “WE UNDERSTAND YOUR ROOF FIRST”
-with the 4-step journey quietly guiding the eye at the bottom.
+Never apply a heavy uniform black overlay.
+
+The surveyor, tripod, rooftop and surrounding Indian residential environment must remain clearly visible.
+
+The photograph must feel photographic, not like a dark background texture.
+
+## 4. FIX THE HEADLINE
+
+Do NOT use the current 3-line headline.
+
+Use:
+
+First, we understand
+your roof.
+
+Maximum 2 lines.
+
+Space Grotesk.
+Approx. 56–62px desktop.
+Tight line-height.
+Strong but not oversized.
+
+The headline should occupy roughly the upper-left 40%,
+leaving the image visible around it.
+
+## 5. USE THE EMPTY SPACE CORRECTLY
+
+Do NOT fill the empty middle with another card.
+
+Instead create intentional breathing space between:
+
+headline/content
+and
+bottom journey.
+
+The photograph should occupy this negative space.
+
+The surveyor should visually anchor the right side.
+
+This empty area is intentional cinematic space, not unused UI space.
+
+## 6. REMOVE THE FOUR TECHNICAL CARDS
+
+These four boxes:
+
+3D LiDAR Scan
+Shade Analysis
+Structural Check
+Tilt & Orientation
+
+currently look like a card grid and destroy the photography.
+
+Replace them with ONE unobtrusive technical annotation rail:
+
+3D LiDAR  ·  SHADE  ·  STRUCTURE  ·  ORIENTATION
+
+Small Instrument Sans.
+Low opacity.
+Thin separators.
+
+No rounded containers.
+No icons in circles.
+No cards.
+
+Place this rail just above the bottom journey.
+
+## 7. REDESIGN THE BOTTOM JOURNEY
+
+REMOVE all four large step cards.
+
+Replace with a transparent editorial progress rail:
+
+01 SURVEY ───── 02 DESIGN ───── 03 INSTALL ───── 04 COMMISSION
+
+Thin 1px line.
+
+Small circular nodes.
+
+Active:
+SolarARK maroon/red.
+
+Inactive:
+soft white / muted opacity.
+
+Each stage can have one tiny subtitle:
+
+SURVEY
+Design
+Install
+Commission
+
+No descriptions.
+
+No card backgrounds.
+No borders around each step.
+No giant circles.
+
+The journey should feel like navigation through a brand story.
+
+## 8. CONTENT POSITIONING
+
+Desktop:
+
+LEFT:
+headline + paragraph
+
+RIGHT:
+surveyor + rooftop photograph
+
+BOTTOM:
+technical annotation rail
+
+VERY BOTTOM:
+journey progress line
+
+Do not centre-align the content.
+
+Do not push the text into the photographic subject.
+
+Do not place text over the technician.
+
+## 9. PHOTO FRAMING
+
+Keep:
+
+- surveyor
+- LiDAR tripod
+- rooftop parapet
+- surrounding Indian houses
+- trees
+- warm daylight
+
+The surveyor should sit around the right 65–75% of the image.
+
+Use:
+
+background-size: cover;
+
+but DO NOT blindly use:
+background-position: center;
+
+Tune the image manually so the surveyor remains fully readable.
+
+## 10. VISUAL HIERARCHY
+
+The viewer should see, in this order:
+
+1. REAL ROOFTOP / SURVEYOR
+2. “First, we understand your roof.”
+3. Short explanation
+4. Small technical rail
+5. 01 → 02 → 03 → 04 journey
+
+Nothing else should compete.
+
+## 11. DO NOT ADD
+
+No:
+- cards
+- pills
+- badges
+- floating boxes
+- dashboard UI
+- certification panel
+- giant CTA
+- extra icons
+- fake metrics
+- excessive borders
+- black rectangular overlays
+- repeated headline
+
+## FINAL TEST
+
+At normal desktop viewing distance, the result should immediately communicate:
+
+REAL INDIAN ROOFTOP
++
+ENGINEER SURVEYING IT
++
+“FIRST, WE UNDERSTAND YOUR ROOF.”
+
+If the viewer notices the UI before the photograph,
+reduce the UI.
+
+If the image still looks too dark,
+reduce the overlay.
+
+If the section still feels crowded,
+remove content rather than adding spacing or cards.
+
+The final result should feel like a premium cinematic engineering brand,
+not a WordPress solar website.
