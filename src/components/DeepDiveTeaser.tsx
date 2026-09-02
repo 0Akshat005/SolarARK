@@ -62,7 +62,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
           {/* TECHNOLOGY_IMAGE */}
           <div
             onClick={() => onNavigate('/technology')}
-            className="lg:col-span-5 relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10"
+            className="lg:col-span-5 relative group rounded-3xl overflow-hidden bg-[#EFECE6] cursor-pointer min-h-[320px] sm:min-h-[440px] lg:min-h-[540px] flex flex-col justify-between transition-all duration-500 shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-slate-900/10 active:scale-[0.99]"
           >
             {/* Asset Slot: TECHNOLOGY_IMAGE */}
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -144,7 +144,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                   15+ cities. Hundreds of rooftop installations. Verified bill savings.
                 </p>
                 <div className="pt-1.5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 group-hover:text-emerald-300 group-hover:translate-x-1 transition-all">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 group-hover:text-emerald-200 group-hover:translate-x-1 transition-all drop-shadow-xs">
                     <span>View Case Studies</span>
                     <ArrowRight className="w-4 h-4" />
                   </span>

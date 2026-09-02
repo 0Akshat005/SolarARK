@@ -19,6 +19,7 @@ const stages = [
       'Before we recommend a system, we study your roof, orientation, shading and available space.',
     technicalRail: '3D LiDAR  ·  SHADE  ·  STRUCTURE  ·  ORIENTATION',
     image: '/images/process/stage-01-survey-rooftop.jpg',
+    imagePosition: 'object-[52%_center] sm:object-center',
     alt: 'SolarARK engineer conducting physical 3D LiDAR rooftop survey on residential terrace',
   },
   {
@@ -30,6 +31,7 @@ const stages = [
       'Your roof, energy use and future requirements shape the system we design — not a standard package pulled from a template.',
     technicalRail: 'SITE DATA  ·  ENERGY USE  ·  CAD LAYOUT  ·  YIELD FORECAST',
     image: '/images/process/stage-02-cad-design.jpg',
+    imagePosition: 'object-[65%_center] sm:object-center',
     alt: 'SolarARK design engineer reviewing custom 3D CAD solar layout and string architecture',
   },
   {
@@ -41,6 +43,7 @@ const stages = [
       'Our installation team turns the design into a finished system, with careful mounting, wiring and on-site execution.',
     technicalRail: 'MOUNTING  ·  WIRING  ·  TIER-1 MODULES  ·  ON-SITE EXECUTION',
     image: '/images/process/stage-03-install-wide.jpg',
+    imagePosition: 'object-[75%_center] sm:object-center',
     alt: 'SolarARK technicians installing solar panels with safety gear on residential rooftop',
   },
   {
@@ -52,6 +55,7 @@ const stages = [
       'Once installation is complete, we connect the system, verify operation and make sure everything is ready for everyday use.',
     technicalRail: 'GRID CONNECTED  ·  SYSTEM LIVE  ·  NET-METERING  ·  TELEMETRY ACTIVE',
     image: '/images/process/stage-04-commission-inverter.png',
+    imagePosition: 'object-[65%_center] sm:object-center',
     alt: 'SolarARK technician commissioning smart hybrid solar inverter inside residence',
   },
 ] as const;
@@ -99,7 +103,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
     <section
       id="how-it-works"
       aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
-      className="relative bg-[#080D1A] min-h-[640px] sm:min-h-[680px] lg:min-h-[720px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
+      className="relative bg-[#080D1A] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
       {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -115,12 +119,12 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
             <img
               src={stage.image}
               alt={stage.alt}
-              className="w-full h-full object-cover object-right sm:object-center opacity-95"
+              className={`w-full h-full object-cover ${stage.imagePosition} opacity-95`}
             />
           </div>
         ))}
 
-        {/* Soft, Transparent Scrim: ~55-60% Left -> ~25% Center -> ~8-10% Right */}
+        {/* Soft Scrim: Desktop (90deg) vs Mobile (180deg vertical with clear center subject window) */}
         <div
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
@@ -132,27 +136,27 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.75) 0%, rgba(8, 13, 26, 0.50) 45%, rgba(8, 13, 26, 0.85) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.82) 0%, rgba(8, 13, 26, 0.45) 35%, rgba(8, 13, 26, 0.25) 55%, rgba(8, 13, 26, 0.85) 100%)',
           }}
         />
 
         {/* Minimal top and bottom subtle fades */}
-        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/50 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080D1A]/70 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* ── 2. FOREGROUND EDITORIAL CONTENT (LEFT ~40%) ── */}
-      <div className="relative z-20 max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 w-full pt-14 sm:pt-18 lg:pt-22">
-        <div className="max-w-xl space-y-4">
+      <div className="relative z-20 max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-18 sm:pt-20 lg:pt-22">
+        <div className="max-w-xl space-y-3 sm:space-y-4">
           
           {/* Minimal Eyebrow */}
-          <div className="text-[#E7D8B9] text-xs sm:text-[13px] font-semibold tracking-[0.18em] uppercase font-heading">
+          <div className="text-[#E7D8B9] text-[11px] sm:text-[13px] font-semibold tracking-[0.16em] sm:tracking-[0.18em] uppercase font-heading">
             STEP {currentStage.id} OF 04 · {currentStage.label}
           </div>
 
-          {/* 2-Line Headline */}
+          {/* 2-Line Headline — Responsive text size prevents unwanted 3rd line wrap on 360-390px */}
           <h2
-            className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.02] m-0"
+            className="font-heading text-[28px] xs:text-[32px] sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.10] sm:leading-[1.02] m-0"
             style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.9)' }}
           >
             {currentStage.headlineLine1} <br />
@@ -161,7 +165,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
 
           {/* Concise Supporting Explanation */}
           <p
-            className="text-slate-100 text-sm sm:text-base lg:text-[17.5px] leading-relaxed max-w-lg font-normal pt-1 m-0"
+            className="text-slate-100 text-xs sm:text-base lg:text-[17.5px] leading-relaxed max-w-lg font-normal pt-0.5 sm:pt-1 m-0"
             style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.9)' }}
           >
             {currentStage.paragraph}
@@ -174,19 +178,19 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
       <div 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative z-20 max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-12 w-full pb-10 sm:pb-12 space-y-6 pt-12"
+        className="relative z-20 max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-8 sm:pb-12 space-y-4 sm:space-y-6 pt-8 sm:pt-12"
       >
         
-        {/* Unobtrusive Technical Annotation Rail */}
-        <div className="text-[11px] sm:text-xs font-semibold tracking-[0.16em] uppercase text-slate-300/80 font-heading">
+        {/* Unobtrusive Technical Annotation Rail — Responsive tracking & wrap-safety */}
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] sm:text-xs font-semibold tracking-[0.06em] sm:tracking-[0.16em] uppercase text-slate-300/85 font-heading py-0.5 leading-snug">
           {currentStage.technicalRail}
         </div>
 
         {/* 4-Stage Transparent Editorial Progress Line */}
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           
-          {/* Stage Labels Row */}
-          <div className="grid grid-cols-4 gap-2 sm:gap-6">
+          {/* Stage Labels Row — Stacks number above label on mobile so all 4 fit comfortably */}
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-6">
             {stages.map((stage, idx) => {
               const isActive = activeStep === idx;
               const isPassed = idx < activeStep;
@@ -198,11 +202,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
                   role="tab"
                   aria-selected={isActive}
                   aria-label={`Step ${stage.id}: ${stage.label}`}
-                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1"
+                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1 min-w-0"
                 >
-                  <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
                     <span
-                      className={`text-[10px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
+                      className={`text-[9.5px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
                         isActive
                           ? 'text-[#C0392B]'
                           : isPassed
@@ -213,7 +217,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
                       {stage.id}
                     </span>
                     <span
-                      className={`font-heading font-bold text-xs sm:text-sm tracking-wide uppercase transition-colors ${
+                      className={`font-heading font-bold text-[10px] sm:text-sm tracking-wide uppercase transition-colors truncate sm:overflow-visible ${
                         isActive
                           ? 'text-white'
                           : isPassed
@@ -230,7 +234,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
           </div>
 
           {/* Continuous 1px Progress Rail Spine */}
-          <div className="grid grid-cols-4 gap-2 sm:gap-6 items-center">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-6 items-center">
             {stages.map((stage, idx) => {
               const isActive = activeStep === idx;
               const isPassed = idx < activeStep;

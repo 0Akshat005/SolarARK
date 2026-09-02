@@ -249,7 +249,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         value={pincode}
                         onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
                         placeholder="e.g. 444601"
-                        className="w-full bg-stone-50 border border-stone-200 focus:border-[#8B1E1E] text-slate-900 text-xs font-semibold px-3 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all placeholder:text-stone-400"
+                        className="w-full bg-stone-50 border border-stone-200 focus:border-[#8B1E1E] text-slate-900 text-xs font-semibold pl-3 pr-36 sm:pr-40 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all placeholder:text-stone-400"
                       />
                       {isValidPincode ? (
                         <span className="absolute right-2 top-1.5 text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1 animate-in fade-in zoom-in-95 duration-300">
