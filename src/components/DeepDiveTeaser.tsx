@@ -129,7 +129,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
               {/* Top-Left Badge Pill: 02 */}
               <div className="relative z-10 p-5 sm:p-6 flex justify-start">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#059669] text-white text-xs font-bold shadow-md">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
                   <Building2 className="w-3.5 h-3.5" />
                   <span>02</span>
                 </div>
@@ -144,7 +144,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                   15+ cities. Hundreds of rooftop installations. Verified bill savings.
                 </p>
                 <div className="pt-1.5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 group-hover:text-emerald-200 group-hover:translate-x-1 transition-all drop-shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all drop-shadow-xs">
                     <span>View Case Studies</span>
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -177,7 +177,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Top-Left Badge Pill: 03 */}
                 <div className="relative z-10 p-5 flex justify-start">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D97706] text-white text-xs font-bold shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
                     <Star className="w-3.5 h-3.5" />
                     <span>03</span>
                   </div>
@@ -222,7 +222,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Top-Left Badge Pill: 04 */}
                 <div className="relative z-10 p-5 flex justify-start">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7C3AED] text-white text-xs font-bold shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
                     <Smartphone className="w-3.5 h-3.5" />
                     <span>04</span>
                   </div>
@@ -237,7 +237,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
                     Track generation, savings, and system health in real time.
                   </p>
                   <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-400 group-hover:text-purple-300 group-hover:translate-x-1 transition-all">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
                       <span>Explore Monitoring</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
