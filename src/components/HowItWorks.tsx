@@ -148,28 +148,28 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
           </div>
         ))}
 
-        {/* ── Refined Cinematic Radial/Edge Vignette (slightly enhanced edge depth, ~18–20% edges) ── */}
+        {/* ── Refined Cinematic Radial/Edge Vignette (enhanced edge depth, ~28–30% edges) ── */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 56% 50%, transparent 0%, rgba(8, 13, 26, 0.03) 38%, rgba(8, 13, 26, 0.11) 68%, rgba(8, 13, 26, 0.19) 100%)',
+              'radial-gradient(ellipse at 56% 50%, transparent 0%, rgba(8, 13, 26, 0.04) 36%, rgba(8, 13, 26, 0.16) 66%, rgba(8, 13, 26, 0.28) 100%)',
           }}
         />
 
-        {/* Gentle Left Text Separation — Slightly richer depth while preserving daylight highlights */}
+        {/* Gentle Left Text Separation — Richer contrast behind typography while keeping natural lighting */}
         <div
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.42) 0%, rgba(8, 13, 26, 0.22) 22%, rgba(8, 13, 26, 0.07) 40%, transparent 55%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.56) 0%, rgba(8, 13, 26, 0.32) 24%, rgba(8, 13, 26, 0.10) 42%, transparent 58%)',
           }}
         />
         <div
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.44) 0%, rgba(8, 13, 26, 0.16) 28%, transparent 50%, rgba(8, 13, 26, 0.22) 85%, rgba(8, 13, 26, 0.35) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.58) 0%, rgba(8, 13, 26, 0.24) 28%, transparent 50%, rgba(8, 13, 26, 0.28) 85%, rgba(8, 13, 26, 0.45) 100%)',
           }}
         />
       </div>
