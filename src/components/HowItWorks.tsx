@@ -4,9 +4,11 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface HowItWorksProps {
   onCtaClick?: () => void;
+  onNavigate?: (path: string) => void;
 }
 
 const stages = [
@@ -60,7 +62,7 @@ const stages = [
   },
 ] as const;
 
-export const HowItWorks: React.FC<HowItWorksProps> = () => {
+export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
@@ -97,13 +99,21 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
     setProgress(0);
   };
 
+  const handleProjectsRedirect = () => {
+    if (onNavigate) {
+      onNavigate('/projects');
+    } else if (onCtaClick) {
+      onCtaClick();
+    }
+  };
+
   const currentStage = stages[activeStep];
 
   return (
     <section
       id="how-it-works"
       aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
-      className="relative bg-[#080D1A] min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
+      className="relative bg-[#080D1A] min-h-[660px] sm:min-h-[740px] lg:min-h-[820px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
       {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -129,68 +139,104 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.65) 0%, rgba(8, 13, 26, 0.50) 36%, rgba(8, 13, 26, 0.22) 58%, rgba(8, 13, 26, 0.06) 78%, transparent 100%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.72) 0%, rgba(8, 13, 26, 0.55) 36%, rgba(8, 13, 26, 0.25) 58%, rgba(8, 13, 26, 0.08) 78%, transparent 100%)',
           }}
         />
         <div
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.82) 0%, rgba(8, 13, 26, 0.45) 35%, rgba(8, 13, 26, 0.25) 55%, rgba(8, 13, 26, 0.85) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.85) 0%, rgba(8, 13, 26, 0.45) 35%, rgba(8, 13, 26, 0.25) 55%, rgba(8, 13, 26, 0.90) 100%)',
           }}
         />
 
         {/* Minimal top and bottom subtle fades */}
-        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080D1A]/70 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* ── 2. FOREGROUND EDITORIAL CONTENT (LEFT ~40%) ── */}
-      <div className="relative z-20 max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-18 sm:pt-20 lg:pt-22">
-        <div className="max-w-xl space-y-3 sm:space-y-4">
+      {/* ── 2. FOREGROUND EDITORIAL CONTENT (PROPERLY STRUCTURED & SPACED) ── */}
+      <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-20 sm:pt-24 lg:pt-28">
+        <div className="max-w-2xl space-y-4 sm:space-y-6">
           
-          {/* Minimal Eyebrow */}
-          <div className="text-[#E7D8B9] text-[11px] sm:text-[13px] font-semibold tracking-[0.16em] sm:tracking-[0.18em] uppercase font-heading">
-            STEP {currentStage.id} OF 04 · {currentStage.label}
+          {/* Structured Eyebrow Tag */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E7D8B9] text-xs font-semibold tracking-wider uppercase font-heading shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B]" />
+            <span>STEP {currentStage.id} OF 04 · {currentStage.label}</span>
           </div>
 
-          {/* 2-Line Headline — Responsive text size prevents unwanted 3rd line wrap on 360-390px */}
+          {/* 2-Line Headline — Well-spaced, confident typography */}
           <h2
-            className="font-heading text-[28px] xs:text-[32px] sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.10] sm:leading-[1.02] m-0"
-            style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.9)' }}
+            className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.08] m-0"
+            style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.95)' }}
           >
             {currentStage.headlineLine1} <br />
             {currentStage.headlineLine2}
           </h2>
 
-          {/* Concise Supporting Explanation */}
+          {/* Structured Explanation with generous line-height */}
           <p
-            className="text-slate-100 text-xs sm:text-base lg:text-[17.5px] leading-relaxed max-w-lg font-normal pt-0.5 sm:pt-1 m-0"
-            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.9)' }}
+            className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal pt-1 m-0"
+            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.95)' }}
           >
             {currentStage.paragraph}
           </p>
 
+          {/* Unobtrusive Technical Specs Rail — Structured discreet pill */}
+          <div className="pt-2">
+            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase text-slate-300/85 font-heading bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 inline-block">
+              {currentStage.technicalRail}
+            </span>
+          </div>
+
         </div>
       </div>
 
-      {/* ── 3. BOTTOM TECHNICAL RAIL & EDITORIAL PROGRESS SPAN ── */}
+      {/* ── 3. BOTTOM REDIRECT BUTTON & EDITORIAL PROGRESS SPAN (MATCHING DESIGN REFERENCE) ── */}
       <div 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative z-20 max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-8 sm:pb-12 space-y-4 sm:space-y-6 pt-8 sm:pt-12"
+        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-10 sm:pb-14 space-y-7 sm:space-y-8 pt-10 sm:pt-14"
       >
         
-        {/* Unobtrusive Technical Annotation Rail — Responsive tracking & wrap-safety */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] sm:text-xs font-semibold tracking-[0.06em] sm:tracking-[0.16em] uppercase text-slate-300/85 font-heading py-0.5 leading-snug">
-          {currentStage.technicalRail}
+        {/* ── REDIRECT BUTTON (EXACT REPLICATION OF DESIGN REFERENCE) ── */}
+        <div>
+          <button
+            onClick={handleProjectsRedirect}
+            className="group inline-flex items-center gap-4 sm:gap-5 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
+            aria-label="See SolarARK in the Real World - Explore completed solar installations across Maharashtra"
+          >
+            {/* Circular Red Outlined Icon Container */}
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#C0392B] bg-black/40 backdrop-blur-sm flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-red-400 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(192,57,43,0.4)]">
+              <ArrowUpRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+
+            {/* Text Stack */}
+            <div className="space-y-1 min-w-0">
+              {/* Top Line: Title with red arrow */}
+              <div className="flex items-center gap-2 font-heading text-xs sm:text-[13px] font-bold tracking-wider text-white uppercase">
+                <span>SEE SOLARARK IN THE REAL WORLD</span>
+                <span className="text-[#C0392B] text-sm sm:text-base font-bold transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </div>
+
+              {/* Subtitle */}
+              <p className="text-xs sm:text-[13px] text-slate-300 font-normal leading-snug">
+                Explore completed solar installations across Maharashtra.
+              </p>
+
+              {/* Red Accent Underline */}
+              <div className="pt-1.5">
+                <div className="w-12 sm:w-14 h-[2px] bg-[#C0392B] rounded-full transition-all duration-300 group-hover:w-20 group-hover:bg-red-400" />
+              </div>
+            </div>
+          </button>
         </div>
 
-        {/* 4-Stage Transparent Editorial Progress Line */}
-        <div className="space-y-2 sm:space-y-3">
+        {/* ── 4-STAGE TRANSPARENT EDITORIAL PROGRESS RAIL WITH CIRCULAR NODES ── */}
+        <div className="space-y-3 sm:space-y-3.5">
           
-          {/* Stage Labels Row — Stacks number above label on mobile so all 4 fit comfortably */}
-          <div className="grid grid-cols-4 gap-1.5 sm:gap-6">
+          {/* Stage Labels Row */}
+          <div className="grid grid-cols-4 gap-2 sm:gap-6">
             {stages.map((stage, idx) => {
               const isActive = activeStep === idx;
               const isPassed = idx < activeStep;
@@ -204,20 +250,18 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
                   aria-label={`Step ${stage.id}: ${stage.label}`}
                   className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1 min-w-0"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
                     <span
-                      className={`text-[9.5px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
+                      className={`text-[10px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
                         isActive
                           ? 'text-[#C0392B]'
-                          : isPassed
-                          ? 'text-slate-300'
-                          : 'text-slate-400/80 group-hover:text-slate-200'
+                          : 'text-slate-400 group-hover:text-slate-200'
                       }`}
                     >
                       {stage.id}
                     </span>
                     <span
-                      className={`font-heading font-bold text-[10px] sm:text-sm tracking-wide uppercase transition-colors truncate sm:overflow-visible ${
+                      className={`font-heading font-bold text-[10px] sm:text-sm tracking-wide uppercase transition-colors ${
                         isActive
                           ? 'text-white'
                           : isPassed
@@ -233,37 +277,44 @@ export const HowItWorks: React.FC<HowItWorksProps> = () => {
             })}
           </div>
 
-          {/* Continuous 1px Progress Rail Spine */}
-          <div className="grid grid-cols-4 gap-1.5 sm:gap-6 items-center">
-            {stages.map((stage, idx) => {
-              const isActive = activeStep === idx;
-              const isPassed = idx < activeStep;
+          {/* Continuous Progress Spine with Circular Nodes (as in design reference) */}
+          <div className="relative flex items-center pt-1">
+            
+            {/* Background Base Track */}
+            <div className="absolute inset-x-0 h-[1.5px] bg-white/20 rounded-full" />
 
-              return (
-                <div key={stage.id} className="relative h-1 flex items-center">
-                  {/* Base Track */}
-                  <div className="w-full h-[1.5px] bg-white/20 rounded-full overflow-hidden">
-                    {/* Active Gradient Fill */}
-                    {isActive ? (
-                      <div
-                        className="h-full bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_8px_#C0392B] transition-all duration-75 ease-linear"
-                        style={{ width: `${progress}%` }}
-                      />
-                    ) : isPassed ? (
-                      <div className="h-full bg-white/60 w-full" />
-                    ) : null}
-                  </div>
+            {/* Active Continuous Fill Line */}
+            <div
+              className="absolute left-0 h-[2px] bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_8px_#C0392B] transition-all duration-75 ease-linear"
+              style={{
+                width: `${Math.min(100, Math.max(0, ((activeStep + progress / 100) / 3.9) * 100))}%`,
+              }}
+            />
 
-                  {/* Active Terminal Node */}
-                  {isActive && (
-                    <div
-                      className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#C0392B] border border-white shadow-[0_0_10px_#C0392B]"
-                      style={{ left: `calc(${progress}% - 4px)` }}
+            {/* 4 Circular Stepper Nodes */}
+            <div className="relative w-full grid grid-cols-4 items-center">
+              {stages.map((stage, idx) => {
+                const isActive = activeStep === idx;
+                const isPassed = idx < activeStep;
+
+                return (
+                  <div key={stage.id} className="flex items-center">
+                    <button
+                      onClick={() => handleStepClick(idx)}
+                      aria-label={`Go to Step ${stage.id}`}
+                      className={`cursor-pointer transition-all duration-300 rounded-full flex items-center justify-center p-0 focus:outline-none ${
+                        isActive
+                          ? 'w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#C0392B] border-2 border-white shadow-[0_0_12px_#C0392B] scale-110'
+                          : isPassed
+                          ? 'w-2.5 h-2.5 bg-white border-2 border-[#C0392B]'
+                          : 'w-2.5 h-2.5 bg-[#080D1A] border-2 border-slate-400 hover:border-white'
+                      }`}
                     />
-                  )}
-                </div>
-              );
-            })}
+                  </div>
+                );
+              })}
+            </div>
+
           </div>
 
         </div>

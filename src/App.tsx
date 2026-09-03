@@ -218,7 +218,7 @@ export default function App() {
 
             {/* 2. 4-Step Transparent Installation Process */}
             <div id="how-it-works">
-              <HowItWorks onCtaClick={scrollToContactForm} />
+              <HowItWorks onCtaClick={scrollToContactForm} onNavigate={navigateTo} />
             </div>
 
             {/* 3. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
