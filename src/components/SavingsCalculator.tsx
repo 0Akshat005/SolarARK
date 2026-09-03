@@ -522,68 +522,67 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               </p>
             </div>
 
-            {/* ── REAL ARCHITECTURAL VILLA ARTWORK WITH FLOATING ELEMENTS ── */}
-            <div className="relative mt-8 sm:mt-10">
-              {/* Luxury House Image with Rooftop Solar at Golden Hour */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/60 max-w-[460px] h-[310px] sm:h-[350px]">
+            {/* ── SEAMLESS ARTWORK (NO BOX, NO BORDER) ── */}
+            <div className="relative mt-2 sm:mt-4 -ml-4 sm:-ml-6 lg:-ml-8 z-10">
+              {/* Luxury House Image with Rooftop Solar at Golden Hour - Blended into Canvas */}
+              <div className="relative w-full max-w-[500px]">
                 <img
-                  src="/images/calculator-villa.jpg"
+                  src="/images/calculator-villa-blended.png"
                   alt="Modern villa with SolarARK rooftop solar panels at sunset"
-                  className="w-full h-full object-cover object-[center_68%]"
+                  className="w-full h-auto object-contain pointer-events-none select-none"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-              </div>
 
-              {/* Floating Glowing Lightning Badge ⚡ */}
-              <div className="absolute -top-5 right-6 sm:right-10 z-20">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full bg-[#E05A36]/35 blur-md animate-pulse" />
-                  <div className="relative w-12 h-12 rounded-full bg-white border border-[#E05A36]/40 shadow-lg flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-[#D8542F]" fill="#D8542F" />
+                {/* Floating Glowing Lightning Badge ⚡ */}
+                <div className="absolute top-[8%] right-[16%] sm:right-[20%] z-20">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-[#E05A36]/35 blur-md animate-pulse" />
+                    <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white border border-[#E05A36]/40 shadow-lg flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-[#D8542F]" fill="#D8542F" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Dotted Arched Connection Line */}
-              <svg
-                className="absolute -top-10 right-10 sm:right-16 w-36 h-24 pointer-events-none z-10 opacity-70"
-                viewBox="0 0 140 90"
-                fill="none"
-              >
-                <path
-                  d="M 120 70 C 110 30, 60 10, 10 20"
-                  stroke="#D8542F"
-                  strokeWidth="1.5"
-                  strokeDasharray="4 4"
-                />
-                <circle cx="10" cy="20" r="3" fill="#D8542F" />
-              </svg>
-
-              {/* Frosted Glass Security Badge Card */}
-              <div
-                className="absolute bottom-4 right-4 sm:right-6 z-20 px-4 py-3 rounded-2xl border border-white/60 shadow-xl flex items-center gap-3"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.84)',
-                  backdropFilter: 'blur(14px)',
-                  WebkitBackdropFilter: 'blur(14px)',
-                }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${COLORS.successGreen}15` }}
+                {/* Dotted Arched Connection Line */}
+                <svg
+                  className="absolute -top-6 right-[18%] sm:right-[22%] w-36 h-24 pointer-events-none z-10 opacity-70"
+                  viewBox="0 0 140 90"
+                  fill="none"
                 >
-                  <ShieldCheck className="w-5 h-5" style={{ color: COLORS.successGreen }} />
-                </div>
-                <div className="space-y-0.5">
-                  <span className="text-[11px] text-stone-500 block leading-tight font-medium">
-                    Your data is
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold block text-slate-900 leading-tight font-heading">
-                    100% secure
-                  </span>
-                  <span className="text-[9.5px] text-stone-400 block leading-tight">
-                    Private. Protected. Never shared.
-                  </span>
+                  <path
+                    d="M 120 70 C 110 30, 60 10, 10 20"
+                    stroke="#D8542F"
+                    strokeWidth="1.5"
+                    strokeDasharray="4 4"
+                  />
+                  <circle cx="10" cy="20" r="3" fill="#D8542F" />
+                </svg>
+
+                {/* Frosted Glass Security Badge Card */}
+                <div
+                  className="absolute bottom-6 right-4 sm:right-8 z-20 px-4 py-3 rounded-2xl border border-white/60 shadow-xl flex items-center gap-3"
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.85)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                  }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: `${COLORS.successGreen}15` }}
+                  >
+                    <ShieldCheck className="w-5 h-5" style={{ color: COLORS.successGreen }} />
+                  </div>
+                  <div className="space-y-0.5">
+                    <span className="text-[11px] text-stone-500 block leading-tight font-medium">
+                      Your data is
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold block text-slate-900 leading-tight font-heading">
+                      100% secure
+                    </span>
+                    <span className="text-[9.5px] text-stone-400 block leading-tight">
+                      Private. Protected. Never shared.
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
