@@ -6,8 +6,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {
   BadgeCheck,
-  Building2,
-  Cpu,
   Layers,
   Headphones,
   Play,
@@ -21,6 +19,47 @@ interface HeroProps {
   onCalculatorClick?: () => void;
   onClaimEstimate?: (data: { pincode: string; monthlyBill: number }) => void;
 }
+
+// ── CUSTOM LINE-ART SVG ICONS MATCHING DESIGN REFERENCE ──
+
+// Real Projects: Building with center tower, archway, and side wings
+const RealProjectsIcon: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M3 21h18" />
+    <path d="M5 21V10a2 2 0 0 1 2-2h1" />
+    <path d="M16 8h1a2 2 0 0 1 2 2v11" />
+    <rect x="8" y="3" width="8" height="18" rx="2" />
+    <path d="M10 17v4" />
+    <path d="M14 17v4" />
+    <path d="M10 17h4" />
+    <path d="M10 7h4" />
+    <path d="M10 11h4" />
+  </svg>
+);
+
+// Quality Components: 12-scallop rosette circular badge with 5-point star
+const QualityBadgeIcon: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+    <polygon points="12 8 13.2 10.8 16.2 11.1 13.9 13.1 14.6 16 12 14.4 9.4 16 10.1 13.1 7.8 11.1 10.8 10.8 12 8" strokeWidth="1.4" />
+  </svg>
+);
 
 export const Hero: React.FC<HeroProps> = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -62,14 +101,14 @@ export const Hero: React.FC<HeroProps> = () => {
 
   const proofRailItems = [
     {
-      icon: Building2,
+      icon: RealProjectsIcon,
       label: 'REAL PROJECTS',
-      sub: 'Solar installations across Maharashtra',
+      sub: 'Across Maharashtra',
     },
     {
-      icon: Cpu,
+      icon: QualityBadgeIcon,
       label: 'QUALITY COMPONENTS',
-      sub: 'Tier-1 technology & engineering',
+      sub: 'Tier-1 technology',
     },
     {
       icon: Layers,
@@ -78,14 +117,14 @@ export const Hero: React.FC<HeroProps> = () => {
     },
     {
       icon: Headphones,
-      label: 'AFTER-SALES SUPPORT',
-      sub: 'Long-term assistance when you need it',
+      label: 'AFTER-SALES',
+      sub: 'Support when you need it',
     },
   ];
 
   return (
     <>
-      {/* ── 1. CLEAN, IMMERSIVE BACKGROUND-VIDEO HERO (VIDEO-FIRST) ── */}
+      {/* ── 1. IMMERSIVE BACKGROUND-VIDEO HERO (VIDEO-FIRST) ── */}
       <section
         id="hero"
         className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
@@ -114,93 +153,87 @@ export const Hero: React.FC<HeroProps> = () => {
           </video>
         </div>
 
-        {/* ── Subtle Cinematic Depth Gradients (Very gentle & soft so video remains full-fledge visible) ── */}
-        <div className="absolute inset-0 z-[1] pointer-events-none select-none">
-          {/* Bottom gentle edge feather for smooth transition */}
-          <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-[#0A0F1D]/50 to-transparent" />
-        </div>
-      </section>
-
-      {/* ── 2. BELOW-HERO TRANSITION & PROOF RAIL SECTION (NATURAL PAGE FLOW) ── */}
-      <section className="w-full bg-[#0A0F1D] py-4 sm:py-5 border-b border-stone-800/50 relative z-10 space-y-3.5">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-3.5">
-          
-          {/* PM Surya Ghar Authorized EPC Partner Pill */}
-          <div className="flex items-center justify-center">
-            <div className="eyebrow inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/20 text-white shadow-sm text-xs sm:text-[13px] tracking-wide">
+        {/* ── Bottom Gradient Feather & Controls Dock Floating Above Base ── */}
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 px-4 sm:px-8 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/60 to-transparent pt-16">
+          <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
+            
+            {/* PM Surya Ghar Authorized EPC Partner Pill */}
+            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-sm text-xs sm:text-[13px] tracking-wide">
               <BadgeCheck className="w-4 h-4 text-amber-400 shrink-0" />
               <span>PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
             </div>
-          </div>
 
-          {/* 4-Pillar Proof Rail Card with Live Video Controls */}
-          <div className="bg-[#0A0F1D]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/20 shadow-[0_16px_48px_rgba(0,0,0,0.45)] ring-1 ring-white/10 p-4 sm:p-5">
-            <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
-              
-              {/* 4 Proof Items — Clean Responsive Cards (Zero awkward divider lines) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 w-full xl:w-auto flex-1">
-                {proofRailItems.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-3 p-2.5 sm:p-2 rounded-xl bg-white/[0.04] lg:bg-transparent border border-white/10 lg:border-0"
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 text-amber-400 flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <div className="space-y-0.5 text-left">
-                        <h4 className="font-heading text-xs sm:text-sm font-bold text-white tracking-wide text-left">
-                          {item.label}
-                        </h4>
-                        <p className="text-[11px] text-slate-300 text-left leading-snug">
-                          {item.sub}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
+            {/* Minimalist On-Site Video Controls Dock */}
+            <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3.5 py-1.5 shadow-sm">
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-300">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
+                <span className="hidden sm:inline text-slate-400">•</span>
+                <span>Maharashtra EPC</span>
               </div>
 
-              {/* Minimalist On-Site Video Controls Dock */}
-              <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5 shrink-0 self-end xl:self-center">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-300">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
-                  <span className="hidden sm:inline text-slate-400">•</span>
-                  <span>Maharashtra EPC</span>
-                </div>
+              <div className="flex items-center gap-1.5 pl-2 border-l border-white/20">
+                <button
+                  onClick={togglePlayPause}
+                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title={isPlaying ? 'Pause' : 'Play'}
+                >
+                  {isPlaying ? (
+                    <Pause className="w-2.5 h-2.5 fill-white" />
+                  ) : (
+                    <Play className="w-2.5 h-2.5 fill-white ml-0.5" />
+                  )}
+                </button>
 
-                <div className="flex items-center gap-1.5 pl-2 border-l border-white/15">
-                  <button
-                    onClick={togglePlayPause}
-                    aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                    className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                    title={isPlaying ? 'Pause' : 'Play'}
-                  >
-                    {isPlaying ? (
-                      <Pause className="w-3 h-3 fill-white" />
-                    ) : (
-                      <Play className="w-3 h-3 fill-white ml-0.5" />
-                    )}
-                  </button>
-
-                  <button
-                    onClick={toggleMute}
-                    aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-                    className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                    title={isMuted ? 'Unmute' : 'Mute'}
-                  >
-                    {isMuted ? (
-                      <VolumeX className="w-3 h-3" />
-                    ) : (
-                      <Volume2 className="w-3 h-3" />
-                    )}
-                  </button>
-                </div>
+                <button
+                  onClick={toggleMute}
+                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                  className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  title={isMuted ? 'Unmute' : 'Mute'}
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-3 h-3" />
+                  ) : (
+                    <Volume2 className="w-3 h-3" />
+                  )}
+                </button>
               </div>
-
             </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2. UNBOXED EDITORIAL PROOF RAIL (MATCHING DESIGN REFERENCE EXACTLY) ── */}
+      <section className="w-full bg-[#0A0F1D] py-5 sm:py-7 border-b border-stone-800/80 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-0 items-center">
+            {proofRailItems.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`flex items-center gap-3.5 sm:gap-4 lg:px-6 xl:px-8 ${
+                    idx < 3 ? 'lg:border-r lg:border-white/15' : ''
+                  }`}
+                >
+                  {/* Standalone Golden Line-Art Icon (Zero Box Container) */}
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#E5A93C] shrink-0 stroke-[1.75]" />
+
+                  {/* Clean Typography Hierarchy */}
+                  <div className="space-y-0.5 min-w-0">
+                    <h4 className="font-heading text-xs sm:text-[13px] font-bold text-white tracking-wider uppercase">
+                      {item.label}
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-slate-300/80 font-normal leading-snug">
+                      {item.sub}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>
@@ -208,5 +241,3 @@ export const Hero: React.FC<HeroProps> = () => {
     </>
   );
 };
-
-
