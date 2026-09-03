@@ -4,15 +4,15 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowRight, EyeOff, Eye } from 'lucide-react';
+import { Phone, Menu, X, ArrowRight } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
 
 interface HeaderProps {
   onCtaClick: () => void;
   onNavigate: (path: string) => void;
   currentPath: string;
-  isReducedMotion: boolean;
-  toggleReducedMotion: () => void;
+  isReducedMotion?: boolean;
+  toggleReducedMotion?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -132,20 +132,6 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* 3. RIGHT: Symmetrical Action Group (Urgency Call Icon + High-Conversion CTA) */}
           <div className="hidden lg:flex items-center justify-end gap-2.5 xl:gap-3 shrink-0">
-            {/* Accessibility Toggle */}
-            <button
-              onClick={toggleReducedMotion}
-              title={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion for Accessibility'}
-              className={`transition-colors p-2 rounded-full cursor-pointer ${
-                isDarkHero
-                  ? 'text-white/80 hover:text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]'
-                  : 'text-slate-400 hover:text-slate-700 hover:bg-stone-100'
-              }`}
-              aria-label={isReducedMotion ? 'Enable Motion Effects' : 'Reduce Motion'}
-            >
-              {isReducedMotion ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-            </button>
-
             {/* High-Urgency Call Icon with Live Status Beacon */}
             <a
               href="tel:7080909590"
