@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowRight } from 'lucide-react';
+import { PhoneCall, Menu, X, ArrowRight } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
 
 interface HeaderProps {
@@ -130,25 +130,20 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </nav>
 
-          {/* 3. RIGHT: Symmetrical Action Group (Urgency Call Icon + High-Conversion CTA) */}
+          {/* 3. RIGHT: Symmetrical Action Group (Refined Call Action + High-Conversion CTA) */}
           <div className="hidden lg:flex items-center justify-end gap-2.5 xl:gap-3 shrink-0">
-            {/* High-Urgency Call Icon with Live Status Beacon */}
+            {/* Refined Premium Call Button (Eye-Catching, AI-Indicator Removed) */}
             <a
               href="tel:7080909590"
-              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 shadow-2xs hover:shadow-xs group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 ${
+              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 hover:scale-105 active:scale-95 ${
                 isDarkHero
-                  ? 'bg-white/15 hover:bg-[#8B1E1E] border border-white/25 hover:border-[#8B1E1E] text-white backdrop-blur-md'
-                  : 'bg-red-50/90 hover:bg-[#8B1E1E] border border-red-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white'
+                  ? 'bg-white/10 hover:bg-[#8B1E1E] border border-white/25 hover:border-[#8B1E1E] text-white backdrop-blur-md shadow-xs hover:shadow-[0_4px_20px_rgba(139,30,30,0.45)] ring-1 ring-white/10'
+                  : 'bg-white hover:bg-[#8B1E1E] border border-stone-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white shadow-xs hover:shadow-[0_4px_16px_rgba(139,30,30,0.25)] ring-1 ring-black/[0.04]'
               }`}
               title="Instant Helpline: +91 7080909590 (Mon-Sat 9:30 AM - 7:00 PM)"
               aria-label="Direct Phone Helpline"
             >
-              {/* Live Availability Radar Beacon */}
-              <span className="absolute top-0 right-0 flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border-2 border-white" />
-              </span>
-              <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
+              <PhoneCall className="w-[18px] h-[18px] stroke-[1.9] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110" />
             </a>
 
             {/* Primary High-Conversion CTA Button */}
@@ -163,22 +158,18 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Mobile Navigation Header Controls */}
           <div className="flex items-center gap-2 lg:hidden">
-            {/* Mobile Urgency Call Button */}
+            {/* Mobile Premium Call Button */}
             <a
               href="tel:7080909590"
-              className={`relative flex items-center justify-center w-9 h-9 rounded-full shadow-2xs active:scale-95 transition-transform ${
+              className={`relative flex items-center justify-center w-9 h-9 rounded-full active:scale-95 transition-all duration-300 ${
                 isDarkHero
-                  ? 'bg-white/15 border border-white/30 text-white backdrop-blur-md'
-                  : 'bg-red-50 text-[#8B1E1E] border border-red-200/80'
+                  ? 'bg-white/10 border border-white/25 text-white backdrop-blur-md shadow-xs'
+                  : 'bg-white text-[#8B1E1E] border border-stone-200 shadow-xs'
               }`}
               title="Call Helpline"
               aria-label="Call Helpline"
             >
-              <span className="absolute top-0 right-0 flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 border-2 border-white" />
-              </span>
-              <Phone className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 stroke-[1.9]" />
             </a>
 
             <button
