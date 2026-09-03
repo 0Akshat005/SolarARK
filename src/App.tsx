@@ -15,6 +15,7 @@ import { FinalCTAForm } from './components/FinalCTAForm';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
 import { DeepDiveTeaser } from './components/DeepDiveTeaser';
+import { ProjectTrustBridge } from './components/ProjectTrustBridge';
 import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
 import { EarnWithUsPage } from './components/EarnWithUsPage';
@@ -215,6 +216,9 @@ export default function App() {
               onCtaClick={scrollToContactForm}
               onClaimEstimate={handleClaimEstimate}
             />
+
+            {/* Warm-Ivory Editorial Trust Bridge Section */}
+            <ProjectTrustBridge onNavigate={navigateTo} />
 
             {/* 2. 4-Step Transparent Installation Process */}
             <div id="how-it-works">
