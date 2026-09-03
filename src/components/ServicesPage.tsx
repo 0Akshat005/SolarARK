@@ -113,9 +113,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           <div className="lg:col-span-5">
             <div className="relative rounded-tl-[90px] sm:rounded-tl-[120px] rounded-br-3xl rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 group">
               <img
-                src="/images/completed-projects-home.jpg"
-                alt="SolarArk Engineered Rooftop Solar Installation"
-                className="w-full h-[360px] sm:h-[460px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                src="/images/services/install.jpeg"
+                alt="SolarArk Certified Turnkey Solar Installation & Commissioning"
+                className="w-full h-[360px] sm:h-[460px] object-cover object-[center_35%] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/hero-solar-home.png';
                 }}
@@ -126,13 +126,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-500/30 backdrop-blur-md border border-emerald-400/40 text-[10px] font-bold text-emerald-300 uppercase tracking-wider font-heading">
                   <Sparkles className="w-3 h-3" />
-                  <span>Precision Engineering</span>
+                  <span>Turnkey EPC Execution</span>
                 </div>
                 <div className="text-base sm:text-lg font-bold leading-snug">
-                  High-Yield N-Type Bifacial Solar Systems
+                  Certified Turnkey Solar Engineering
                 </div>
                 <p className="text-xs text-slate-200 leading-relaxed">
-                  Elevated structural clearance preserving complete usable rooftop walking and terrace leisure space.
+                  End-to-end site assessment, precision CAD modeling, DISCOM net-metering sync, and 25-year reliability.
                 </p>
               </div>
             </div>
@@ -194,8 +194,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
                 <img
-                  src="/images/completed-projects-home.jpg"
-                  alt="SolarArk Residential Rooftop Solar Installation"
+                  src="/images/services/homes.jpg"
+                  alt="SolarArk Residential Elevated Rooftop Solar Installation in Maharashtra"
                   className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
               </div>
@@ -346,8 +346,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-5 relative group order-1 lg:order-2">
               <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
                 <img
-                  src="/images/target-solar-systems-roof.jpg"
-                  alt="Housing Society Rooftop Solar Array"
+                  src="/images/services/housing_society.png"
+                  alt="SolarArk Housing Society Rooftop Solar Array"
                   className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
               </div>
@@ -372,8 +372,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-5 relative group">
               <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
                 <img
-                  src="/images/official-solar-systems-roof.png"
-                  alt="Commercial & Industrial Solar Plant EPC"
+                  src="/images/services/industrials.jpg"
+                  alt="SolarArk Commercial & Industrial Solar Plant EPC"
                   className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
               </div>
@@ -523,7 +523,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-5 relative group order-1 lg:order-2">
               <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
                 <img
-                  src="/images/target-env-sunset-roof.jpg"
+                  src="/images/services/cleaning.jpeg"
                   alt="SolarArk Solar Panel Cleaning and Maintenance Service"
                   className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
@@ -543,7 +543,210 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
       </div>
 
-      {/* ── SECTION 04: FINAL CONVERSION LEAD FORM ── */}
+      {/* ── SECTION 04: 5 CORE TECHNICAL LIFECYCLE SERVICES (OFFICIAL SOLARARK SERVICES) ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-20 lg:mt-28">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-[11px] font-bold text-stone-700 tracking-widest uppercase font-heading">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
+            <span>Turnkey Support Ecosystem</span>
+          </div>
+
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
+            Comprehensive Solar Lifecycle Services
+          </h2>
+
+          <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+            From seamless rooftop installation to real-time IoT monitoring, scheduled cleaning, and subsidy financing — SolarArk provides certified end-to-end expertise.
+          </p>
+        </div>
+
+        {/* 5-Card High-Impact Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Card 1: Installation & Commissioning */}
+          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
+                <img
+                  src="/images/services/install.jpeg"
+                  alt="SolarArk Installation & Commissioning Service"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute top-3 left-3 bg-[#8B1E1E] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
+                  Turnkey EPC
+                </div>
+              </div>
+              <div className="p-6 space-y-2.5">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                  Installation &amp; Commissioning
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+                  Our expert engineering team ensures a seamless solar panel installation, from site assessment and 3D structural modeling to DISCOM net-metering synchronization and activation.
+                </p>
+              </div>
+            </div>
+            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
+              <span className="text-[11px] font-semibold text-stone-500 font-heading">
+                ✓ DISCOM &amp; IEC Compliant
+              </span>
+              <button
+                onClick={onCtaClick}
+                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+              >
+                <span>Book Survey</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Card 2: Solar Panel Cleaning Service */}
+          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
+                <img
+                  src="/images/services/cleaning.jpeg"
+                  alt="Solar Panel Cleaning Service"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
+                  Yield Recovery
+                </div>
+              </div>
+              <div className="p-6 space-y-2.5">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                  Solar Panel Cleaning Service
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+                  Regular cleaning enhances solar efficiency by removing dust, industrial soot, debris, and bird droppings, ensuring maximum sunlight absorption and peak energy output.
+                </p>
+              </div>
+            </div>
+            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
+              <span className="text-[11px] font-semibold text-stone-500 font-heading">
+                ✓ Up to 25% Higher Generation
+              </span>
+              <button
+                onClick={onCtaClick}
+                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+              >
+                <span>Book Wash</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3: Online Real-Time Monitoring */}
+          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
+                <img
+                  src="/images/services/online_monitoring.jpg"
+                  alt="SolarArk Online Real-Time IoT Monitoring"
+                  className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute top-3 left-3 bg-emerald-700 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
+                  Smart IoT Telemetry
+                </div>
+              </div>
+              <div className="p-6 space-y-2.5">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                  Online IoT Monitoring
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+                  Track your solar system’s generation in real time with our advanced smartphone monitoring app, helping you optimize energy usage, track savings, and detect faults instantly.
+                </p>
+              </div>
+            </div>
+            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
+              <span className="text-[11px] font-semibold text-stone-500 font-heading">
+                ✓ 24/7 Mobile App Tracking
+              </span>
+              <button
+                onClick={onCtaClick}
+                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+              >
+                <span>Learn More</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Card 4: Proactive System Maintenance */}
+          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
+                <img
+                  src="/images/services/maintenance.jpeg"
+                  alt="Proactive System Maintenance & Electrical Diagnostics"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
+                  Preventive Care
+                </div>
+              </div>
+              <div className="p-6 space-y-2.5">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
+                  Proactive System Maintenance
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+                  We provide regular on-site check-ups, multimeter electrical string diagnostics, and preventive maintenance to ensure consistent energy output and extend panel lifespan.
+                </p>
+              </div>
+            </div>
+            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
+              <span className="text-[11px] font-semibold text-stone-500 font-heading">
+                ✓ Comprehensive AMC Plans
+              </span>
+              <button
+                onClick={onCtaClick}
+                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+              >
+                <span>Inquire AMC</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Card 5: Solar Financing & Subsidy Advisory (Spans 2 cols on lg) */}
+          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+            <div className="grid grid-cols-1 md:grid-cols-12 items-center h-full">
+              <div className="relative md:col-span-6 h-52 sm:h-64 md:h-full overflow-hidden bg-stone-100 min-h-[220px]">
+                <img
+                  src="/images/services/financing.jpeg"
+                  alt="Solar Financing & PM Surya Ghar Subsidy Advisory"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute top-3 left-3 bg-emerald-800 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
+                  Zero-Stress Financing
+                </div>
+              </div>
+              <div className="p-6 sm:p-8 md:col-span-6 space-y-3 flex flex-col justify-between h-full">
+                <div>
+                  <h3 className="font-heading text-lg sm:text-2xl font-bold text-slate-900">
+                    Solar Financing &amp; Subsidy Assistance
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal mt-2">
+                    We offer flexible financing options to make clean solar energy immediately affordable. Benefit from zero-deposit bank EMI plans, 100% assistance with PM Surya Ghar national portal subsidy disbursement (up to ₹78,000), and OPEX commercial models.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-emerald-700 font-heading">
+                    ✓ ₹78,000 Direct DBT Subsidy
+                  </span>
+                  <button
+                    onClick={onCtaClick}
+                    className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
+                  >
+                    <span>Check Subsidy Eligibility</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 05: FINAL CONVERSION LEAD FORM ── */}
       <div className="mt-16 lg:mt-24">
         <FinalCTAForm
           prefilledPincode={prefilledPincode}
