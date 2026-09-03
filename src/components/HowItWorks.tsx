@@ -148,19 +148,28 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
           </div>
         ))}
 
-        {/* Subtle Left Readability Gradient — NOT a full dark overlay */}
+        {/* ── Very Subtle Cinematic Radial/Edge Vignette (8–12% edges, 0–3% focal center) ── */}
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse at 56% 50%, transparent 0%, rgba(8, 13, 26, 0.02) 42%, rgba(8, 13, 26, 0.07) 72%, rgba(8, 13, 26, 0.11) 100%)',
+          }}
+        />
+
+        {/* Gentle Left Text Separation — Light falloff preserving natural daylight */}
         <div
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.40) 0%, rgba(8, 13, 26, 0.22) 18%, rgba(8, 13, 26, 0.08) 35%, transparent 50%, transparent 100%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.28) 0%, rgba(8, 13, 26, 0.12) 22%, rgba(8, 13, 26, 0.03) 38%, transparent 52%)',
           }}
         />
         <div
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.42) 0%, rgba(8, 13, 26, 0.18) 30%, transparent 50%, rgba(8, 13, 26, 0.35) 85%, rgba(8, 13, 26, 0.50) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.32) 0%, rgba(8, 13, 26, 0.10) 30%, transparent 52%, rgba(8, 13, 26, 0.16) 88%, rgba(8, 13, 26, 0.24) 100%)',
           }}
         />
       </div>
