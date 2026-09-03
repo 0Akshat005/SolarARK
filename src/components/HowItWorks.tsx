@@ -113,7 +113,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
     <section
       id="how-it-works"
       aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
-      className="relative bg-[#080D1A] min-h-[660px] sm:min-h-[740px] lg:min-h-[820px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
+      className="relative bg-[#080D1A] min-h-[560px] sm:min-h-[620px] lg:min-h-[660px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
       {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -134,60 +134,59 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
           </div>
         ))}
 
-        {/* Soft Scrim: Desktop (90deg) vs Mobile (180deg vertical with clear center subject window) */}
+        {/* Soft Scrim: Desktop (90deg) vs Mobile (180deg vertical) */}
         <div
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.72) 0%, rgba(8, 13, 26, 0.55) 36%, rgba(8, 13, 26, 0.25) 58%, rgba(8, 13, 26, 0.08) 78%, transparent 100%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.75) 0%, rgba(8, 13, 26, 0.58) 36%, rgba(8, 13, 26, 0.25) 58%, rgba(8, 13, 26, 0.08) 78%, transparent 100%)',
           }}
         />
         <div
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.85) 0%, rgba(8, 13, 26, 0.45) 35%, rgba(8, 13, 26, 0.25) 55%, rgba(8, 13, 26, 0.90) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.88) 0%, rgba(8, 13, 26, 0.45) 35%, rgba(8, 13, 26, 0.25) 55%, rgba(8, 13, 26, 0.92) 100%)',
           }}
         />
 
         {/* Minimal top and bottom subtle fades */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* ── 2. FOREGROUND EDITORIAL CONTENT (PROPERLY STRUCTURED & SPACED) ── */}
-      <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-20 sm:pt-24 lg:pt-28">
-        <div className="max-w-2xl space-y-4 sm:space-y-6">
+      {/* ── 2. FOREGROUND EDITORIAL CONTENT (STRUCTURED & SPACED ELEGANTLY) ── */}
+      <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-14 sm:pt-16 lg:pt-18">
+        <div className="max-w-xl space-y-3 sm:space-y-3.5">
           
-          {/* Structured Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E7D8B9] text-xs font-semibold tracking-wider uppercase font-heading shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B]" />
-            <span>STEP {currentStage.id} OF 04 · {currentStage.label}</span>
+          {/* Eyebrow & Technical Rail Inline Strip — Eliminates vertical congestion */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-heading">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E7D8B9] text-[11px] font-semibold tracking-wider uppercase shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B]" />
+              <span>STEP {currentStage.id} OF 04 · {currentStage.label}</span>
+            </div>
+            <span className="hidden sm:inline text-white/30">•</span>
+            <span className="text-[10.5px] sm:text-[11px] text-slate-300/80 font-medium tracking-[0.14em] uppercase hidden sm:inline">
+              {currentStage.technicalRail}
+            </span>
           </div>
 
-          {/* 2-Line Headline — Well-spaced, confident typography */}
+          {/* 2-Line Headline — Well-proportioned, doesn't crowd out viewport */}
           <h2
-            className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-bold text-white tracking-tight leading-[1.08] m-0"
+            className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-white tracking-tight leading-[1.10] m-0"
             style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.95)' }}
           >
             {currentStage.headlineLine1} <br />
             {currentStage.headlineLine2}
           </h2>
 
-          {/* Structured Explanation with generous line-height */}
+          {/* Structured Paragraph */}
           <p
-            className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal pt-1 m-0"
+            className="text-slate-200/90 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-lg font-normal m-0"
             style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.95)' }}
           >
             {currentStage.paragraph}
           </p>
-
-          {/* Unobtrusive Technical Specs Rail — Structured discreet pill */}
-          <div className="pt-2">
-            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.12em] uppercase text-slate-300/85 font-heading bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 inline-block">
-              {currentStage.technicalRail}
-            </span>
-          </div>
 
         </div>
       </div>
@@ -196,44 +195,44 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
       <div 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-10 sm:pb-14 space-y-7 sm:space-y-8 pt-10 sm:pt-14"
+        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-6 sm:pb-8 lg:pb-10 space-y-4 sm:space-y-5 pt-6 sm:pt-8"
       >
         
         {/* ── REDIRECT BUTTON (EXACT REPLICATION OF DESIGN REFERENCE) ── */}
         <div>
           <button
             onClick={handleProjectsRedirect}
-            className="group inline-flex items-center gap-4 sm:gap-5 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
+            className="group inline-flex items-center gap-3.5 sm:gap-4 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
             aria-label="See SolarARK in the Real World - Explore completed solar installations across Maharashtra"
           >
             {/* Circular Red Outlined Icon Container */}
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#C0392B] bg-black/40 backdrop-blur-sm flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-red-400 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(192,57,43,0.4)]">
-              <ArrowUpRight className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#C0392B] bg-black/40 backdrop-blur-sm flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-red-400 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(192,57,43,0.4)]">
+              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
 
             {/* Text Stack */}
-            <div className="space-y-1 min-w-0">
+            <div className="space-y-0.5 min-w-0">
               {/* Top Line: Title with red arrow */}
-              <div className="flex items-center gap-2 font-heading text-xs sm:text-[13px] font-bold tracking-wider text-white uppercase">
+              <div className="flex items-center gap-2 font-heading text-[11px] sm:text-xs font-bold tracking-wider text-white uppercase">
                 <span>SEE SOLARARK IN THE REAL WORLD</span>
-                <span className="text-[#C0392B] text-sm sm:text-base font-bold transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span className="text-[#C0392B] text-xs sm:text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">→</span>
               </div>
 
               {/* Subtitle */}
-              <p className="text-xs sm:text-[13px] text-slate-300 font-normal leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-300 font-normal leading-snug">
                 Explore completed solar installations across Maharashtra.
               </p>
 
               {/* Red Accent Underline */}
-              <div className="pt-1.5">
-                <div className="w-12 sm:w-14 h-[2px] bg-[#C0392B] rounded-full transition-all duration-300 group-hover:w-20 group-hover:bg-red-400" />
+              <div className="pt-1">
+                <div className="w-10 sm:w-12 h-[2px] bg-[#C0392B] rounded-full transition-all duration-300 group-hover:w-16 group-hover:bg-red-400" />
               </div>
             </div>
           </button>
         </div>
 
         {/* ── 4-STAGE TRANSPARENT EDITORIAL PROGRESS RAIL WITH CIRCULAR NODES ── */}
-        <div className="space-y-3 sm:space-y-3.5">
+        <div className="space-y-2 sm:space-y-2.5">
           
           {/* Stage Labels Row */}
           <div className="grid grid-cols-4 gap-2 sm:gap-6">
@@ -248,11 +247,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
                   role="tab"
                   aria-selected={isActive}
                   aria-label={`Step ${stage.id}: ${stage.label}`}
-                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1 min-w-0"
+                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-0.5 min-w-0"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
                     <span
-                      className={`text-[10px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
+                      className={`text-[9.5px] sm:text-[11px] font-bold font-heading uppercase tracking-wider transition-colors ${
                         isActive
                           ? 'text-[#C0392B]'
                           : 'text-slate-400 group-hover:text-slate-200'
@@ -261,7 +260,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
                       {stage.id}
                     </span>
                     <span
-                      className={`font-heading font-bold text-[10px] sm:text-sm tracking-wide uppercase transition-colors ${
+                      className={`font-heading font-bold text-[9.5px] sm:text-xs tracking-wide uppercase transition-colors ${
                         isActive
                           ? 'text-white'
                           : isPassed
@@ -304,10 +303,10 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
                       aria-label={`Go to Step ${stage.id}`}
                       className={`cursor-pointer transition-all duration-300 rounded-full flex items-center justify-center p-0 focus:outline-none ${
                         isActive
-                          ? 'w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#C0392B] border-2 border-white shadow-[0_0_12px_#C0392B] scale-110'
+                          ? 'w-3 h-3 bg-[#C0392B] border-2 border-white shadow-[0_0_12px_#C0392B] scale-110'
                           : isPassed
-                          ? 'w-2.5 h-2.5 bg-white border-2 border-[#C0392B]'
-                          : 'w-2.5 h-2.5 bg-[#080D1A] border-2 border-slate-400 hover:border-white'
+                          ? 'w-2 h-2 bg-white border border-[#C0392B]'
+                          : 'w-2 h-2 bg-[#080D1A] border border-slate-400 hover:border-white'
                       }`}
                     />
                   </div>
