@@ -33,7 +33,7 @@ const stages: StageConfig[] = [
       'Before we recommend a system, we study your roof, orientation, shading and available space.',
     technicalItems: ['3D LIDAR', 'SHADE ANALYSIS', 'STRUCTURAL AUDIT', 'ORIENTATION'],
     image: '/images/process/stage-01-survey-rooftop.jpg',
-    imagePosition: 'object-[52%_center] sm:object-center',
+    imagePosition: 'object-[68%_center]',
     alt: 'SolarARK engineer conducting physical 3D LiDAR rooftop survey on residential terrace',
   },
   {
@@ -45,7 +45,7 @@ const stages: StageConfig[] = [
       'Your roof, energy use and future requirements shape the system we design — not a standard package pulled from a template.',
     technicalItems: ['SITE DATA', 'ENERGY USE', 'CAD LAYOUT', 'YIELD FORECAST'],
     image: '/images/process/stage-02-cad-design.jpg',
-    imagePosition: 'object-[65%_center] sm:object-center',
+    imagePosition: 'object-[58%_center]',
     alt: 'SolarARK design engineer reviewing custom 3D CAD solar layout and string architecture',
   },
   {
@@ -57,7 +57,7 @@ const stages: StageConfig[] = [
       'Our installation team turns the design into a finished system, with careful mounting, wiring and on-site execution.',
     technicalItems: ['MOUNTING', 'WIRING', 'TIER-1 MODULES', 'ON-SITE EXECUTION'],
     image: '/images/process/stage-03-install-wide.jpg',
-    imagePosition: 'object-[75%_center] sm:object-center',
+    imagePosition: 'object-[62%_center]',
     alt: 'SolarARK technicians installing solar panels with safety gear on residential rooftop',
   },
   {
@@ -69,7 +69,7 @@ const stages: StageConfig[] = [
       "Once installation is complete, we connect the system, verify performance and ensure it's ready for everyday use — reliably.",
     technicalItems: ['GRID CONNECTED', 'SYSTEM LIVE', 'NET-METERING'],
     image: '/images/process/stage-04-commission-inverter.png',
-    imagePosition: 'object-[65%_center] sm:object-center',
+    imagePosition: 'object-[64%_center]',
     alt: 'SolarARK technician commissioning smart hybrid solar inverter inside residence',
   },
 ];
@@ -125,6 +125,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
     <section
       id="how-it-works"
       aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
       className="relative bg-[#080D1A] min-h-[680px] sm:min-h-[740px] lg:min-h-[800px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
       {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
@@ -141,38 +143,34 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
             <img
               src={stage.image}
               alt={stage.alt}
-              className={`w-full h-full object-cover ${stage.imagePosition} opacity-95`}
+              className={`w-full h-full object-cover ${stage.imagePosition}`}
             />
           </div>
         ))}
 
-        {/* Soft Scrim: Desktop (90deg) vs Mobile (180deg vertical) */}
+        {/* Subtle Left Readability Gradient — NOT a full dark overlay */}
         <div
           className="hidden md:block absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(8, 13, 26, 0.95) 0%, rgba(8, 13, 26, 0.85) 32%, rgba(8, 13, 26, 0.50) 52%, rgba(8, 13, 26, 0.15) 70%, transparent 100%)',
+              'linear-gradient(90deg, rgba(8, 13, 26, 0.40) 0%, rgba(8, 13, 26, 0.22) 18%, rgba(8, 13, 26, 0.08) 35%, transparent 50%, transparent 100%)',
           }}
         />
         <div
           className="md:hidden absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8, 13, 26, 0.92) 0%, rgba(8, 13, 26, 0.55) 35%, rgba(8, 13, 26, 0.30) 55%, rgba(8, 13, 26, 0.94) 100%)',
+              'linear-gradient(180deg, rgba(8, 13, 26, 0.42) 0%, rgba(8, 13, 26, 0.18) 30%, transparent 50%, rgba(8, 13, 26, 0.35) 85%, rgba(8, 13, 26, 0.50) 100%)',
           }}
         />
-
-        {/* Minimal top and bottom subtle edge fades */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* ── 2. FOREGROUND EDITORIAL CONTENT (PER DESIGN REFERENCE) ── */}
+      {/* ── 2. FOREGROUND EDITORIAL CONTENT (STRICT 3-LEVEL VERTICAL RHYTHM) ── */}
       <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-16 sm:pt-20 lg:pt-22">
-        <div className="max-w-xl space-y-4 sm:space-y-5 text-left">
+        <div className="max-w-xl text-left">
           
-          {/* 1. EYEBROW WITH RED RING NODE & ACCENT LINE */}
-          <div>
+          {/* 1. STEP LABEL (GAP TO HEADLINE: 24–28px) */}
+          <div className="mb-[26px] sm:mb-[28px]">
             <div className="flex items-center gap-2.5 text-white/90 text-xs sm:text-[13px] font-semibold tracking-[0.20em] uppercase font-heading">
               <div className="w-2.5 h-2.5 rounded-full border-2 border-[#D9483B] shrink-0" />
               <span>STEP {currentStage.id} OF 04 · {currentStage.label}</span>
@@ -181,39 +179,41 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
             <div className="w-12 sm:w-14 h-[1.5px] bg-[#D9483B] mt-2" />
           </div>
 
-          {/* 2. HEADLINE (DOMINANT ELEMENT WITH WARM GOLD ACCENT PUNCHWORD) */}
-          <h2
-            className="font-heading text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.08] m-0"
-            style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.95)' }}
-          >
-            {currentStage.id === '04' ? (
-              <>
-                Your system is <br />
-                ready. <br />
-                Now let it <span className="text-[#E5A93C]">work.</span>
-              </>
-            ) : (
-              <>
-                {currentStage.headlineLines.map((line, lIdx) => (
-                  <React.Fragment key={lIdx}>
-                    {line} <br />
-                  </React.Fragment>
-                ))}
-                <span className="text-[#E5A93C]">{currentStage.headlineAccent}</span>
-              </>
-            )}
-          </h2>
+          {/* 2. HEADLINE + SUPPORTING COPY (ONE GROUP: KEPT CLOSE, GAP TO TECH LINE: 36–44px) */}
+          <div className="mb-[38px] sm:mb-[42px]">
+            <h2
+              className="font-heading text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-bold text-white tracking-tight leading-[1.08] m-0"
+              style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.95)' }}
+            >
+              {currentStage.id === '04' ? (
+                <>
+                  Your system is <br />
+                  ready. <br />
+                  Now let it <span className="text-[#E5A93C]">work.</span>
+                </>
+              ) : (
+                <>
+                  {currentStage.headlineLines.map((line, lIdx) => (
+                    <React.Fragment key={lIdx}>
+                      {line} <br />
+                    </React.Fragment>
+                  ))}
+                  <span className="text-[#E5A93C]">{currentStage.headlineAccent}</span>
+                </>
+              )}
+            </h2>
 
-          {/* 3. PARAGRAPH (SITS CLEARLY BELOW HEADLINE) */}
-          <p
-            className="text-slate-200/90 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-lg font-normal m-0"
-            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.95)' }}
-          >
-            {currentStage.paragraph}
-          </p>
+            {/* Paragraph kept close to Headline */}
+            <p
+              className="text-slate-200/90 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-lg font-normal mt-3 sm:mt-3.5 m-0"
+              style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.95)' }}
+            >
+              {currentStage.paragraph}
+            </p>
+          </div>
 
-          {/* 4. TECHNICAL LINE WITH CHECKMARK ICONS */}
-          <div className="pt-1 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-slate-300 font-heading">
+          {/* 3. TECHNICAL LINE (SECOND GROUP: CLEARLY SEPARATED, GAP TO CTA: 40–52px) */}
+          <div className="mb-[44px] sm:mb-[48px] flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-slate-300 font-heading">
             {currentStage.technicalItems.map((item, tIdx) => (
               <React.Fragment key={tIdx}>
                 <div className="flex items-center gap-1.5">
@@ -227,8 +227,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
             ))}
           </div>
 
-          {/* 5. PROJECT CTA (DISTINCT ACTION BELOW TECHNICAL LINE) */}
-          <div className="pt-4 sm:pt-5">
+          {/* 4. PROJECT CTA (THIRD GROUP: GAP TO JOURNEY: 90–110px) */}
+          <div className="mb-[96px] sm:mb-[104px]">
             <button
               onClick={handleProjectsRedirect}
               className="group inline-flex items-center gap-3.5 sm:gap-4 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
@@ -264,7 +264,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
       <div 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-8 sm:pb-10 lg:pb-12 pt-10 sm:pt-14 space-y-3 sm:space-y-3.5"
+        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-8 sm:pb-10 lg:pb-12 pt-0 space-y-3 sm:space-y-3.5"
       >
         
         {/* Stage Labels Row */}
