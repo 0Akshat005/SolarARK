@@ -1,47 +1,388 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * Premium Solar Savings Calculator — Redesigned Section
+ * ======================================================
+ * Split-panel layout inspired by the revampsection.md specification.
+ * Preserves the existing calculation engine (src/utils/calculator.ts)
+ * and the same props interface for zero-breaking-change App.tsx integration.
  */
 
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { CalculatorResults } from '../types';
 import { calculateSolarSavings, formatINR } from '../utils/calculator';
-import { 
-  CheckCircle2, 
-  ArrowRight, 
-  ChevronDown, 
-  ChevronUp, 
-  Sun, 
-  ShieldCheck, 
-  Info, 
-  Leaf, 
-  TrendingDown, 
-  TrendingUp, 
-  Lock, 
-  Award,
+import {
+  CheckCircle2,
+  ArrowRight,
+  Sun,
+  ShieldCheck,
+  MapPin,
+  Clock,
+  Shield,
   Zap,
-  Check
+  Award,
+  Pencil,
+  Leaf,
 } from 'lucide-react';
 
+/* ══════════════════════════════════════════════════════════════
+   DESIGN TOKENS (from revampsection.md spec)
+   ══════════════════════════════════════════════════════════════ */
+const TOKENS = {
+  bgCream: '#F8F4EF',
+  cardSurface: '#FFFDFC',
+  deepNavy: '#07162B',
+  solarCoral: '#E9532D',
+  coralGlow: 'rgba(233, 83, 45, 0.18)',
+  successGreen: '#2F9E58',
+  mutedText: '#68707A',
+  border: 'rgba(7, 22, 43, 0.12)',
+} as const;
+
+/* ══════════════════════════════════════════════════════════════
+   SLIDER CONFIGURATION
+   ══════════════════════════════════════════════════════════════ */
+const SLIDER_MIN = 1000;
+const SLIDER_MAX = 25000;
+const SLIDER_STEP = 500;
+
+const ARC_TICKS = [
+  { value: 1000, label: '₹1k' },
+  { value: 5000, label: '₹5k' },
+  { value: 10000, label: '₹10k' },
+  { value: 15000, label: '₹15k' },
+  { value: 25000, label: '₹25k+' },
+];
+
+/* ══════════════════════════════════════════════════════════════
+   PROPS INTERFACE (unchanged from original for App.tsx compat)
+   ══════════════════════════════════════════════════════════════ */
 interface SavingsCalculatorProps {
   onClaimEstimate: (data: { pincode: string; monthlyBill: number }) => void;
   initialPincode?: string;
   initialBill?: number;
 }
 
-export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({ 
+/* ══════════════════════════════════════════════════════════════
+   COMPONENT: SVG ARC SLIDER (Desktop)
+   ══════════════════════════════════════════════════════════════ */
+interface ArcSliderProps {
+  value: number;
+  min: number;
+  max: number;
+  step: number;
+  onChange: (val: number) => void;
+  ticks: typeof ARC_TICKS;
+}
+
+const ArcSlider: React.FC<ArcSliderProps> = ({ value, min, max, step, onChange, ticks }) => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const isDragging = useRef(false);
+
+  // Arc geometry: semicircle from left to right
+  const cx = 200, cy = 190, r = 160;
+  const startAngle = Math.PI; // left
+  const endAngle = 0;        // right
+
+  const valueToAngle = useCallback((v: number) => {
+    const t = (v - min) / (max - min);
+    return startAngle + t * (endAngle - startAngle);
+  }, [min, max]);
+
+  const angleToValue = useCallback((angle: number) => {
+    const t = (angle - startAngle) / (endAngle - startAngle);
+    const raw = min + t * (max - min);
+    return Math.round(Math.max(min, Math.min(max, raw)) / step) * step;
+  }, [min, max, step]);
+
+  const pointOnArc = useCallback((angle: number) => ({
+    x: cx + r * Math.cos(angle),
+    y: cy - r * Math.sin(angle),
+  }), []);
+
+  const currentAngle = valueToAngle(value);
+  const thumbPos = pointOnArc(currentAngle);
+
+  // Build the filled arc path from start to current
+  const arcPath = () => {
+    const start = pointOnArc(startAngle);
+    const end = thumbPos;
+    const largeArc = (startAngle - currentAngle) > Math.PI ? 1 : 0;
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 ${largeArc} 1 ${end.x} ${end.y}`;
+  };
+
+  // Full arc background path
+  const fullArcPath = () => {
+    const start = pointOnArc(startAngle);
+    const end = pointOnArc(endAngle);
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 0 1 ${end.x} ${end.y}`;
+  };
+
+  const handlePointerEvent = useCallback((e: React.PointerEvent | PointerEvent) => {
+    if (!svgRef.current) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    // Scale to SVG coordinate space
+    const svgX = (x / rect.width) * 400;
+    const svgY = (y / rect.height) * 220;
+    const dx = svgX - cx;
+    const dy = cy - svgY;
+    let angle = Math.atan2(dy, dx);
+    if (angle < 0) angle = 0;
+    if (angle > Math.PI) angle = Math.PI;
+    onChange(angleToValue(angle));
+  }, [angleToValue, onChange]);
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    isDragging.current = true;
+    (e.target as Element).setPointerCapture(e.pointerId);
+    handlePointerEvent(e);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (isDragging.current) handlePointerEvent(e);
+  };
+
+  const onPointerUp = () => {
+    isDragging.current = false;
+  };
+
+  return (
+    <div className="relative select-none" aria-hidden="true">
+      <svg
+        ref={svgRef}
+        viewBox="0 0 400 220"
+        className="w-full max-w-[420px] mx-auto cursor-pointer"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        style={{ touchAction: 'none' }}
+      >
+        {/* Background arc track */}
+        <path
+          d={fullArcPath()}
+          fill="none"
+          stroke="#E8E4DF"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+        {/* Filled arc (active portion) */}
+        <path
+          d={arcPath()}
+          fill="none"
+          stroke={TOKENS.solarCoral}
+          strokeWidth="6"
+          strokeLinecap="round"
+          className="drop-shadow-sm"
+        />
+        {/* Warm glow behind filled arc */}
+        <path
+          d={arcPath()}
+          fill="none"
+          stroke={TOKENS.solarCoral}
+          strokeWidth="16"
+          strokeLinecap="round"
+          opacity="0.12"
+        />
+
+        {/* Tick labels */}
+        {ticks.map((tick) => {
+          const angle = valueToAngle(tick.value);
+          const labelPos = pointOnArc(angle);
+          // Offset labels outward
+          const labelOffset = {
+            x: cx + (r + 28) * Math.cos(angle),
+            y: cy - (r + 28) * Math.sin(angle),
+          };
+          return (
+            <g key={tick.value}>
+              {/* Small tick dot on arc */}
+              <circle cx={labelPos.x} cy={labelPos.y} r="3" fill="#C4BFB8" />
+              {/* Label text */}
+              <text
+                x={labelOffset.x}
+                y={labelOffset.y}
+                textAnchor="middle"
+                dominantBaseline="central"
+                className="fill-stone-500"
+                style={{ fontSize: '11px', fontWeight: 600, fontFamily: 'var(--font-heading)' }}
+              >
+                {tick.label}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Thumb circle */}
+        <circle
+          cx={thumbPos.x}
+          cy={thumbPos.y}
+          r="14"
+          fill="white"
+          stroke={TOKENS.solarCoral}
+          strokeWidth="3"
+          className="drop-shadow-md cursor-grab active:cursor-grabbing"
+          style={{ filter: 'drop-shadow(0 2px 6px rgba(233, 83, 45, 0.3))' }}
+        />
+        {/* Inner sun icon on thumb */}
+        <circle
+          cx={thumbPos.x}
+          cy={thumbPos.y}
+          r="5"
+          fill={TOKENS.solarCoral}
+        />
+      </svg>
+    </div>
+  );
+};
+
+/* ══════════════════════════════════════════════════════════════
+   COMPONENT: DECORATIVE WAVE
+   ══════════════════════════════════════════════════════════════ */
+const DecorativeWave: React.FC = () => (
+  <svg viewBox="0 0 400 30" className="w-full max-w-[400px] mx-auto opacity-30 h-5" preserveAspectRatio="none">
+    <path
+      d="M0 15 Q50 5, 100 15 T200 15 T300 15 T400 15"
+      fill="none"
+      stroke={TOKENS.solarCoral}
+      strokeWidth="1.5"
+      strokeDasharray="4 3"
+    />
+    <path
+      d="M0 20 Q50 10, 100 20 T200 20 T300 20 T400 20"
+      fill="none"
+      stroke={TOKENS.solarCoral}
+      strokeWidth="1"
+      opacity="0.5"
+      strokeDasharray="2 4"
+    />
+  </svg>
+);
+
+/* ══════════════════════════════════════════════════════════════
+   COMPONENT: CALCULATOR HERO IMAGE PLACEHOLDER
+   ══════════════════════════════════════════════════════════════ */
+const CalculatorHeroImage: React.FC = () => (
+  <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden h-[220px] sm:h-[260px] lg:h-[280px] bg-gradient-to-br from-amber-100/60 via-orange-50/40 to-stone-200/50 border border-stone-200/60 shadow-inner">
+    {/*
+     * ┌─────────────────────────────────────────────────┐
+     * │  FUTURE IMAGE SOURCE                            │
+     * │                                                 │
+     * │  Replace the gradient placeholder below with:   │
+     * │  <img                                           │
+     * │    src="/images/calculator-hero.jpg"             │
+     * │    alt="Modern home with SolarARK rooftop solar" │
+     * │    className="w-full h-full object-cover"        │
+     * │  />                                             │
+     * │                                                 │
+     * │  Recommended: Warm sunset residential photo     │
+     * │  with visible solar panels on the rooftop.      │
+     * └─────────────────────────────────────────────────┘
+     */}
+
+    {/* Placeholder decorative solar abstract */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="relative">
+        {/* Abstract house shape */}
+        <svg viewBox="0 0 120 100" className="w-24 h-20 opacity-20">
+          <polygon points="60,10 10,50 110,50" fill="#D4A574" />
+          <rect x="20" y="50" width="80" height="40" fill="#C4A882" rx="2" />
+          {/* Solar panel grid */}
+          <rect x="30" y="20" width="25" height="15" fill="#5B7B8A" rx="1" opacity="0.7" />
+          <rect x="60" y="20" width="25" height="15" fill="#5B7B8A" rx="1" opacity="0.7" />
+          <line x1="42" y1="20" x2="42" y2="35" stroke="#7BA0B2" strokeWidth="0.5" />
+          <line x1="72" y1="20" x2="72" y2="35" stroke="#7BA0B2" strokeWidth="0.5" />
+        </svg>
+        {/* Sun glow */}
+        <div className="absolute -top-4 -right-4 w-12 h-12 bg-amber-300/30 rounded-full blur-lg" />
+      </div>
+    </div>
+
+    {/* Warm bottom gradient fade */}
+    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-amber-50/80 to-transparent" />
+  </div>
+);
+
+/* ══════════════════════════════════════════════════════════════
+   COMPONENT: STEP PROGRESS HEADER
+   ══════════════════════════════════════════════════════════════ */
+interface ProgressHeaderProps {
+  currentStep: 1 | 2;
+}
+
+const ProgressHeader: React.FC<ProgressHeaderProps> = ({ currentStep }) => (
+  <div className="flex items-center gap-3 sm:gap-4 pb-5 mb-5 border-b" style={{ borderColor: TOKENS.border }}>
+    {/* Step 1 */}
+    <div className="flex items-center gap-2">
+      <span
+        className="w-6 h-6 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0 transition-colors duration-300"
+        style={{
+          backgroundColor: TOKENS.solarCoral,
+          color: 'white',
+        }}
+      >
+        {currentStep > 1 ? '✓' : '1'}
+      </span>
+      <span className="text-xs sm:text-sm font-bold" style={{ color: TOKENS.deepNavy }}>
+        Your Details
+      </span>
+    </div>
+
+    {/* Progress line */}
+    <div className="flex-1 h-0.5 rounded-full bg-stone-200 relative overflow-hidden">
+      <div
+        className="absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out"
+        style={{
+          width: currentStep >= 2 ? '100%' : '0%',
+          backgroundColor: TOKENS.solarCoral,
+        }}
+      />
+    </div>
+
+    {/* Step 2 */}
+    <div className="flex items-center gap-2">
+      <span
+        className="w-6 h-6 rounded-full text-[11px] font-bold flex items-center justify-center shrink-0 transition-colors duration-300"
+        style={{
+          backgroundColor: currentStep >= 2 ? TOKENS.solarCoral : '#E8E4DF',
+          color: currentStep >= 2 ? 'white' : '#999',
+        }}
+      >
+        2
+      </span>
+      <span
+        className="text-xs sm:text-sm font-semibold transition-colors duration-300"
+        style={{ color: currentStep >= 2 ? TOKENS.deepNavy : '#999' }}
+      >
+        Your Solar Recommendation
+      </span>
+    </div>
+  </div>
+);
+
+/* ══════════════════════════════════════════════════════════════
+   MAIN COMPONENT: SAVINGS CALCULATOR
+   ══════════════════════════════════════════════════════════════ */
+export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   onClaimEstimate,
   initialPincode = '444601',
-  initialBill = 8500 
+  initialBill = 8500,
 }) => {
+  // ── State ──
   const [pincode, setPincode] = useState<string>(initialPincode);
   const [monthlyBill, setMonthlyBill] = useState<number>(initialBill);
-  const [showFullBreakdown, setShowFullBreakdown] = useState<boolean>(false);
+  const [currentStep, setCurrentStep] = useState<1 | 2>(1);
+  const [isCalculating, setIsCalculating] = useState(false);
+  const [calculatedResults, setCalculatedResults] = useState<CalculatorResults | null>(null);
 
-  // ── Scroll-triggered entrance animation state ──
+  // ── Refs ──
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const calculatorCardRef = useRef<HTMLDivElement>(null);
 
+  // ── Scroll-triggered entrance ──
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -50,466 +391,604 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const results: CalculatorResults = useMemo(() => {
-    return calculateSolarSavings({ pincode, monthlyBill });
-  }, [pincode, monthlyBill]);
-
   const isValidPincode = pincode.length === 6 && /^\d+$/.test(pincode);
+  const isFormValid = isValidPincode && monthlyBill >= SLIDER_MIN;
 
-  // Bill with solar (minimum DISCOM single-phase meter fixed charge ~₹120/mo)
-  const billWithSolar = Math.max(120, monthlyBill - results.monthlySavings);
-  const annualSavings = results.monthlySavings * 12;
+  // ── Handlers ──
+  const handleCalculate = async () => {
+    if (!isFormValid) return;
+    setIsCalculating(true);
+    // Simulate brief calculation delay for UX polish
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    const results = calculateSolarSavings({ pincode, monthlyBill });
+    setCalculatedResults(results);
+    setIsCalculating(false);
+    setCurrentStep(2);
+    // Smooth scroll to keep results visible
+    setTimeout(() => {
+      calculatorCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
 
-  // 6% annual tariff hike escalation simulation for 5Y and 10Y
-  const grid5Y = Math.round(monthlyBill * Math.pow(1.06, 5));
-  const grid10Y = Math.round(monthlyBill * Math.pow(1.06, 10));
+  const handleEditDetails = () => {
+    setCurrentStep(1);
+    // Preserve pincode and monthlyBill — they remain in state
+  };
 
-  // Derived daily generation (system kW × 4.2 peak sun hours for Central India / Maharashtra)
-  const dailyGeneration = (results.systemSizeKw * 4.2).toFixed(1);
+  const handleGetQuote = () => {
+    onClaimEstimate({ pincode, monthlyBill });
+  };
 
-  const quickPresets = [1000, 3000, 6000, 8500, 12000, 18000];
+  // Detect reduced motion
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 
-  // Comparison bar widths (animated proportional bars)
-  const solarBarPercent = Math.max(5, Math.round((billWithSolar / monthlyBill) * 100));
-
-  const renderComparisonCard = () => (
-    <div className={`p-4 rounded-2xl bg-white border border-stone-200/90 shadow-md space-y-2.5 transition-all duration-700 delay-[200ms] ease-out ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-    }`}>
-      <div className="flex items-baseline justify-between border-b border-stone-100 pb-2">
-        <span className="text-xs font-bold text-slate-900 font-heading block">
-          Grid vs Solar
-        </span>
-        <span className="text-[10px] text-stone-500 font-medium">
-          Based on your {formatINR(monthlyBill)}/mo bill
-        </span>
-      </div>
-
-      {/* 2 Clean Comparison Rows */}
-      <div className="space-y-2">
-        {/* ROW 1: GRID ELECTRICITY */}
-        <div className="p-2 sm:p-2.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-          <div className="flex items-center justify-between text-[10.5px]">
-            <span className="font-bold text-slate-800 font-heading">
-              Grid Electricity
-            </span>
-            <span className="text-[9.5px] text-stone-500 font-semibold">
-              Rising cost
-            </span>
-          </div>
-
-          {/* 3 Step Trajectory */}
-          <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">Today</span>
-              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(monthlyBill)}</span>
-            </div>
-            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 5 Yrs</span>
-              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid5Y)}</span>
-            </div>
-            <div className="bg-white rounded-lg py-1 px-1 border border-stone-200 shadow-2xs">
-              <span className="text-[8.5px] text-stone-500 uppercase block font-semibold">In 10 Yrs</span>
-              <span className="text-[11px] font-bold text-slate-900 font-heading">{formatINR(grid10Y)}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ROW 2: SOLARARK ROOFTOP */}
-        <div className="p-2 sm:p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 space-y-1">
-          <div className="flex items-center justify-between text-[10.5px]">
-            <div className="flex items-center gap-1.5 font-bold text-emerald-800 font-heading">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>SolarARK Rooftop</span>
-            </div>
-            <span className="text-[9.5px] font-semibold text-emerald-700">
-              Predictable cost
-            </span>
-          </div>
-
-          {/* 3 Step Trajectory (All Fixed & Stable) */}
-          <div className="grid grid-cols-3 gap-1.5 text-center pt-0.5">
-            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">Today</span>
-              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-            </div>
-            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 5 Yrs</span>
-              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-            </div>
-            <div className="bg-white rounded-lg py-1 px-1 border border-emerald-200/80 shadow-2xs">
-              <span className="text-[8.5px] text-emerald-700 uppercase block font-semibold">In 10 Yrs</span>
-              <span className="text-[11px] font-bold text-emerald-800 font-heading">~{formatINR(billWithSolar)}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Concluding Psychological Note */}
-      <p className="text-[10px] text-stone-500 font-medium italic text-center pt-1 border-t border-stone-100 m-0">
-        The longer you stay on the grid, the more you keep paying.
-      </p>
-    </div>
-  );
+  const transitionClass = prefersReducedMotion
+    ? ''
+    : 'transition-all duration-700 ease-out';
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="calculator" 
-      className="relative overflow-hidden py-10 sm:py-12 lg:py-14 bg-gradient-to-b from-[#F5F4F0] via-[#FAF9F6] to-[#F5F4F0] border-b border-stone-200"
+      id="calculator"
+      className="relative overflow-hidden"
+      style={{ backgroundColor: TOKENS.bgCream }}
     >
-      {/* ── 1. SUBTLE SOLAR ROOFTOP BACKDROP WITH SOFT LIGHT BLEND ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-        <div className="absolute inset-0 w-full h-full opacity-15">
-          <img
-            src="/calculator-solar-home.jpg"
-            alt="Real Residential Rooftop Solar Installation"
-            className="w-full h-full object-cover object-[75%_35%]"
-          />
-        </div>
-
-        {/* Soft Warm Solar Glow */}
-        <div className="absolute top-[8%] right-[10%] w-[38%] h-[280px] bg-amber-500/10 blur-[90px] rounded-full" />
+      {/* ── SUBTLE DECORATIVE ELEMENTS ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Warm solar glow top-right */}
+        <div
+          className="absolute top-[5%] right-[8%] w-[400px] h-[300px] rounded-full blur-[100px]"
+          style={{ backgroundColor: TOKENS.coralGlow }}
+        />
+        {/* Faint orbital decorative ring */}
+        <svg className="absolute top-[15%] left-[25%] w-[300px] h-[300px] opacity-[0.04]" viewBox="0 0 300 300">
+          <circle cx="150" cy="150" r="140" fill="none" stroke={TOKENS.deepNavy} strokeWidth="0.8" strokeDasharray="4 6" />
+          <circle cx="150" cy="150" r="100" fill="none" stroke={TOKENS.deepNavy} strokeWidth="0.5" strokeDasharray="2 8" />
+        </svg>
       </div>
 
-      {/* ── 2. MAIN SECTION GRID: BALANCED & SCREEN-FITTED ── */}
-      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 space-y-6 lg:space-y-7">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          
-          {/* ═══════════════════════════════════════════════════════════════
-              LEFT SIDE: RESTRAINED, EDITORIAL GRID VS SOLAR PRESENTATION
-             ═══════════════════════════════════════════════════════════════ */}
-          <div className={`lg:col-span-4 xl:col-span-4 space-y-5 lg:space-y-6 pt-1 transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            
-            {/* Eyebrow Pill — Clean neutral badge */}
-            <div className="eyebrow inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 shadow-2xs text-[10px] sm:text-[10.5px] font-bold tracking-wide font-heading">
-              <TrendingUp className="w-3 h-3 text-stone-600" />
-              <span>GRID PRICES RISE. SOLAR STAYS STEADY.</span>
+      {/* ── MAIN CONTENT ── */}
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
+
+        {/* ═══ SPLIT PANEL GRID ═══ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          {/* ════════════════════════════════════════════════════════
+              A. LEFT: BRAND / STORYTELLING PANEL (~5 cols = ~42%)
+             ════════════════════════════════════════════════════════ */}
+          <div
+            className={`lg:col-span-5 space-y-6 lg:space-y-8 ${transitionClass} ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            {/* Sun badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-amber-200/80 bg-amber-50/60 shadow-sm">
+              <Sun className="w-4 h-4 text-amber-600" />
+              <span
+                className="text-[11px] font-bold tracking-widest uppercase"
+                style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+              >
+                Smart Today. Secure Forever.
+              </span>
             </div>
 
-            {/* Headline Hierarchy — Standout Accent Pair */}
+            {/* Premium editorial headline */}
             <div className="space-y-1">
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.15] m-0">
-                Your electricity bill keeps rising.
+              <h2
+                className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight leading-[1.1]"
+                style={{ color: TOKENS.deepNavy }}
+              >
+                Predictable power.
+                <br />
+                Lasting savings.
               </h2>
-              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-bold tracking-tight leading-[1.15] m-0 text-accent-light">
-                Your solar cost doesn’t.
-              </h3>
+              <p
+                className="text-3xl sm:text-4xl lg:text-[44px] font-bold leading-[1.1] tracking-tight"
+                style={{
+                  color: TOKENS.solarCoral,
+                  fontFamily: 'Georgia, "Times New Roman", serif',
+                  fontStyle: 'italic',
+                }}
+              >
+                It starts with you.
+              </p>
             </div>
 
-            {/* Supporting Concise Sentence */}
-            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed text-left m-0 max-w-lg">
-              Lock in predictable power costs for 25+ years instead of paying rising grid tariffs.
+            {/* Supporting paragraph */}
+            <p
+              className="text-sm sm:text-base leading-relaxed max-w-md"
+              style={{ color: TOKENS.mutedText }}
+            >
+              Share a couple of details and we'll reveal your ideal solar system, estimated savings, and long-term benefits.
             </p>
 
-            {/* ── Simplified Comparison Card (Desktop: in left column) ── */}
-            <div className="hidden lg:block">
-              {renderComparisonCard()}
-            </div>
+            {/* Hero image placeholder with frosted security overlay */}
+            <div className="relative hidden sm:block">
+              <CalculatorHeroImage />
 
+              {/* Frosted security card overlaying the image */}
+              <div
+                className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:w-56 px-4 py-3 rounded-xl border border-white/40 flex items-center gap-3"
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                }}
+              >
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${TOKENS.successGreen}15` }}
+                >
+                  <ShieldCheck className="w-5 h-5" style={{ color: TOKENS.successGreen }} />
+                </div>
+                <div>
+                  <span className="text-xs font-bold block" style={{ color: TOKENS.deepNavy }}>
+                    Your data is 100% secure
+                  </span>
+                  <span className="text-[10px] font-medium" style={{ color: TOKENS.mutedText }}>
+                    Private. Protected. Never shared.
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* ═══════════════════════════════════════════════════════════════
-              RIGHT SIDE: STREAMLINED 2-COLUMN CALCULATOR CARD
-             ═══════════════════════════════════════════════════════════════ */}
-          <div className={`lg:col-span-8 xl:col-span-8 transition-all duration-700 delay-150 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <div className="bg-white rounded-3xl border border-stone-200/90 shadow-2xl shadow-black/20 p-5 sm:p-6 lg:p-7">
-              
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                
-                {/* ── LEFT HALF: STEP 1 INPUTS (md:col-span-5) ── */}
-                <div className="md:col-span-5 space-y-4">
-                  
-                  <div className="flex items-center gap-2 pb-2 border-b border-stone-100">
-                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">1</span>
-                    <span className="eyebrow text-xs text-slate-900">Your Details</span>
-                  </div>
+          {/* ════════════════════════════════════════════════════════
+              B. RIGHT: INTERACTIVE CALCULATOR CARD (~7 cols = ~58%)
+             ════════════════════════════════════════════════════════ */}
+          <div
+            ref={calculatorCardRef}
+            className={`lg:col-span-7 ${transitionClass} delay-150 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}
+          >
+            <div
+              className="rounded-[28px] sm:rounded-[36px] border shadow-2xl p-5 sm:p-7 lg:p-9"
+              style={{
+                backgroundColor: TOKENS.cardSurface,
+                borderColor: TOKENS.border,
+                boxShadow: '0 25px 60px -12px rgba(7, 22, 43, 0.12), 0 8px 24px -8px rgba(7, 22, 43, 0.08)',
+              }}
+            >
+              {/* Step Progress */}
+              <ProgressHeader currentStep={currentStep} />
 
-                  {/* Pincode Field */}
-                  <div className="space-y-1">
-                    <label htmlFor="pincode-input" className="block text-[11px] font-bold text-slate-700">
-                      Enter 6-digit pincode
-                    </label>
-                    <div className="relative">
-                      <input
-                        id="pincode-input"
-                        type="text"
-                        maxLength={6}
-                        value={pincode}
-                        onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                        placeholder="e.g. 444601"
-                        className="w-full bg-stone-50 border border-stone-200 focus:border-[#8B1E1E] text-slate-900 text-xs font-semibold pl-3 pr-36 sm:pr-40 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 transition-all placeholder:text-stone-400"
-                      />
-                      {isValidPincode ? (
-                        <span className="absolute right-2 top-1.5 text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1 animate-in fade-in zoom-in-95 duration-300">
-                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                          {/^(40|41|42|43|44)/.test(pincode) ? 'MSEDCL Serviceable' : 'Serviceable'}
-                        </span>
-                      ) : (
-                        pincode.length > 0 && (
-                          <span className="absolute right-2.5 top-2.5 text-[10px] font-medium text-stone-400">
-                            {6 - pincode.length} left
+              {/* ── STEP 1: INPUT FORM ── */}
+              {currentStep === 1 && (
+                <div className={prefersReducedMotion ? '' : 'animate-in fade-in duration-500'}>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleCalculate();
+                    }}
+                    className="space-y-6 sm:space-y-7"
+                  >
+                    {/* PINCODE SECTION */}
+                    <fieldset className="space-y-2.5">
+                      <legend
+                        className="text-xs font-bold tracking-widest uppercase"
+                        style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                      >
+                        Enter Your Location
+                      </legend>
+
+                      <div
+                        className="relative flex items-center border rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 transition-all duration-200 focus-within:ring-2"
+                        style={{
+                          borderColor: TOKENS.border,
+                          backgroundColor: 'white',
+                        }}
+                      >
+                        <MapPin className="w-5 h-5 shrink-0 mr-3" style={{ color: TOKENS.mutedText }} />
+                        <input
+                          id="pincode-input"
+                          type="text"
+                          inputMode="numeric"
+                          maxLength={6}
+                          value={pincode}
+                          onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
+                          placeholder="Enter 6-digit pincode"
+                          className="flex-1 bg-transparent text-sm sm:text-base font-medium placeholder:text-stone-400 focus:outline-none"
+                          style={{ color: TOKENS.deepNavy }}
+                          aria-label="Enter your 6-digit pincode"
+                          autoComplete="postal-code"
+                        />
+
+                        {/* Serviceability badge */}
+                        {isValidPincode ? (
+                          <span
+                            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold shrink-0 ml-2"
+                            style={{
+                              backgroundColor: `${TOKENS.successGreen}12`,
+                              color: TOKENS.successGreen,
+                              border: `1px solid ${TOKENS.successGreen}30`,
+                            }}
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            {/^(40|41|42|43|44)/.test(pincode) ? 'MSEDCL Serviceable' : 'Serviceable'}
                           </span>
-                        )
-                      )}
-                    </div>
-                  </div>
+                        ) : (
+                          pincode.length > 0 && (
+                            <span className="text-[11px] font-medium shrink-0 ml-2" style={{ color: '#AAA' }}>
+                              {6 - pincode.length} digits left
+                            </span>
+                          )
+                        )}
+                      </div>
+                    </fieldset>
 
-                  {/* Monthly Bill Slider */}
-                  <div className="space-y-2 pt-0.5">
-                    <div className="flex items-center justify-between">
-                      <label htmlFor="bill-slider" className="text-[11px] font-bold text-slate-700 flex items-center gap-1">
-                        <span>Monthly electricity bill</span>
-                        <Info className="w-3 h-3 text-stone-400" />
+                    {/* BILL SELECTOR SECTION */}
+                    <fieldset className="space-y-3">
+                      <legend
+                        className="text-xs font-bold tracking-widest uppercase"
+                        style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                      >
+                        What's your average monthly electricity bill?
+                      </legend>
+
+                      {/* ── Desktop: Arc Slider ── */}
+                      <div className="hidden sm:block">
+                        <ArcSlider
+                          value={monthlyBill}
+                          min={SLIDER_MIN}
+                          max={SLIDER_MAX}
+                          step={SLIDER_STEP}
+                          onChange={setMonthlyBill}
+                          ticks={ARC_TICKS}
+                        />
+                      </div>
+
+                      {/* ── Mobile: Horizontal Slider ── */}
+                      <div className="block sm:hidden space-y-1 pt-1">
+                        <input
+                          type="range"
+                          min={SLIDER_MIN}
+                          max={SLIDER_MAX}
+                          step={SLIDER_STEP}
+                          value={monthlyBill}
+                          onChange={(e) => setMonthlyBill(Number(e.target.value))}
+                          className="w-full h-2.5 rounded-lg appearance-none cursor-pointer"
+                          style={{
+                            background: `linear-gradient(to right, ${TOKENS.solarCoral} ${((monthlyBill - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN)) * 100}%, #E8E4DF ${((monthlyBill - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN)) * 100}%)`,
+                          }}
+                          aria-label="Monthly electricity bill amount"
+                        />
+                        <div className="flex justify-between text-[10px] font-semibold px-0.5" style={{ color: TOKENS.mutedText, fontFamily: 'var(--font-heading)' }}>
+                          {ARC_TICKS.map((t) => (
+                            <span key={t.value}>{t.label}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Central amount display */}
+                      <div className="text-center space-y-1 py-1">
+                        <div className="flex items-baseline justify-center gap-1.5">
+                          <span
+                            className="text-4xl sm:text-5xl font-bold tabular-nums tracking-tight"
+                            style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                          >
+                            {formatINR(monthlyBill)}
+                          </span>
+                          <span className="text-sm font-medium" style={{ color: TOKENS.mutedText }}>
+                            /month
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Decorative wave */}
+                      <div className="hidden sm:block">
+                        <DecorativeWave />
+                      </div>
+
+                      {/* Accessible hidden range for screen readers */}
+                      <label htmlFor="bill-range-a11y" className="sr-only">
+                        Monthly electricity bill slider
                       </label>
-                    </div>
-
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="stat-figure text-2xl sm:text-3xl text-slate-900 transition-all duration-200">
-                        {formatINR(monthlyBill)}
-                      </span>
-                      <span className="text-[11px] font-semibold text-stone-500">/ month</span>
-                    </div>
-
-                    <div className="space-y-1 px-0.5">
                       <input
-                        id="bill-slider"
+                        id="bill-range-a11y"
                         type="range"
-                        min={1000}
-                        max={35000}
-                        step={500}
+                        min={SLIDER_MIN}
+                        max={SLIDER_MAX}
+                        step={SLIDER_STEP}
                         value={monthlyBill}
                         onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                        className="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#8B1E1E] focus:outline-none"
-                        aria-label="Monthly electricity bill range slider"
+                        className="sr-only"
+                        aria-label={`Monthly electricity bill: ${formatINR(monthlyBill)}`}
+                        aria-valuemin={SLIDER_MIN}
+                        aria-valuemax={SLIDER_MAX}
+                        aria-valuenow={monthlyBill}
+                        aria-valuetext={`${formatINR(monthlyBill)} per month`}
                       />
-                      <div className="flex justify-between text-[9.5px] font-semibold text-stone-400 font-heading">
-                        <span>₹1k</span>
-                        <span>₹7.5k</span>
-                        <span>₹15k</span>
-                        <span>₹25k+</span>
-                      </div>
-                    </div>
+                    </fieldset>
 
-                    {/* Quick Select (3 Above, 3 Below Grid) */}
-                    <div className="space-y-2 pt-2">
-                      <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
-                        Quick Select
-                      </span>
-                      <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
-                        {quickPresets.map((preset) => (
-                          <button
-                            key={preset}
-                            type="button"
-                            onClick={() => setMonthlyBill(preset)}
-                            className={`text-xs sm:text-sm py-2.5 sm:py-3 px-2 rounded-xl font-bold font-heading border transition-all duration-200 active:scale-95 cursor-pointer text-center ${
-                              monthlyBill === preset
-                                ? 'btn-primary-maroon text-white border-transparent shadow-md shadow-[#8B1E1E]/25 scale-[1.02]'
-                                : 'bg-stone-50 text-slate-800 border-stone-200/90 hover:border-stone-300 hover:bg-stone-100 hover:scale-[1.01]'
-                            }`}
+                    {/* PRIMARY CTA */}
+                    <div className="space-y-3 pt-1">
+                      <button
+                        type="submit"
+                        disabled={!isFormValid || isCalculating}
+                        className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-full text-white text-sm sm:text-base font-bold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer group"
+                        style={{
+                          backgroundColor: isFormValid ? TOKENS.deepNavy : '#B0B5BC',
+                          fontFamily: 'var(--font-heading)',
+                        }}
+                        aria-label="Calculate my solar savings"
+                      >
+                        {/* Left sun icon */}
+                        <span
+                          className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                          style={{ backgroundColor: TOKENS.coralGlow }}
+                        >
+                          <Sun className="w-5 h-5" style={{ color: TOKENS.solarCoral }} />
+                        </span>
+
+                        <span>
+                          {isCalculating ? 'Calculating your savings…' : 'Calculate My Solar Savings'}
+                        </span>
+
+                        {/* Right arrow icon */}
+                        {!isCalculating && (
+                          <span
+                            className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 group-hover:translate-x-1 transition-transform"
+                            style={{ backgroundColor: TOKENS.solarCoral }}
                           >
-                            {formatINR(preset)}{preset >= 18000 ? '+' : ''}
-                          </button>
-                        ))}
+                            <ArrowRight className="w-5 h-5 text-white" />
+                          </span>
+                        )}
+
+                        {/* Loading spinner */}
+                        {isCalculating && (
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        )}
+                      </button>
+
+                      {/* Trust indicators */}
+                      <div className="flex items-center justify-center gap-4 sm:gap-6 text-[11px] font-medium" style={{ color: TOKENS.mutedText }}>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5" />
+                          Takes less than 30 seconds
+                        </span>
+                        <span className="w-0.5 h-3 bg-stone-300 rounded-full" />
+                        <span className="flex items-center gap-1.5">
+                          <Shield className="w-3.5 h-3.5" />
+                          No obligation
+                        </span>
+                      </div>
+
+                      {/* Handwritten-style note (desktop only) */}
+                      <div className="hidden lg:flex items-center justify-end gap-2 pr-4 pt-1">
+                        <span
+                          className="text-[12px] font-medium italic"
+                          style={{
+                            color: TOKENS.mutedText,
+                            fontFamily: 'Georgia, "Times New Roman", serif',
+                          }}
+                        >
+                          Get your personalized savings estimate
+                        </span>
+                        {/* Curved arrow pointing left toward CTA */}
+                        <svg width="28" height="20" viewBox="0 0 28 20" className="rotate-[200deg] opacity-40">
+                          <path d="M2 18 C8 6, 18 2, 26 8" fill="none" stroke={TOKENS.mutedText} strokeWidth="1.5" strokeLinecap="round" />
+                          <polygon points="24,4 26,8 22,8" fill={TOKENS.mutedText} />
+                        </svg>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Privacy Box */}
-                  <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/80 flex items-center gap-2.5 text-xs text-slate-700 font-medium">
-                    <ShieldCheck className="w-4 h-4 text-[#8B1E1E] shrink-0" />
-                    <span>Your details are 100% secure &amp; private.</span>
-                  </div>
-
+                  </form>
                 </div>
+              )}
 
-                {/* ── RIGHT HALF: STEP 2 SYSTEM SIZING & ESTIMATE (md:col-span-7) ── */}
-                <div className="md:col-span-7 space-y-3.5 md:border-l md:border-stone-100 md:pl-6">
-                  
-                  <div className="flex items-center gap-2 pb-2 border-b border-stone-100">
-                    <span className="w-5 h-5 rounded-full bg-[#8B1E1E] text-white text-[11px] font-bold flex items-center justify-center shrink-0">2</span>
-                    <span className="eyebrow text-xs text-slate-900">Your Recommended Solar Setup</span>
-                  </div>
-
-                  {/* Hero System Sizing & Subsidy Card */}
-                  <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-stone-900 via-[#1C1F2E] to-stone-900 text-white border border-stone-800 relative overflow-hidden flex items-center justify-between shadow-md">
-                    <div className="space-y-1 z-10">
-                      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-400/20 text-amber-300 text-[10px] font-semibold tracking-wide uppercase font-heading">
-                        <Zap className="w-3 h-3 text-amber-400" />
-                        <span>Recommended Sizing</span>
-                      </div>
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="stat-figure text-2xl sm:text-3xl text-white font-bold transition-all duration-300">
-                          {results.systemSizeKw} kW
-                        </span>
-                        <span className="text-xs font-semibold text-slate-300">Rooftop Solar Array</span>
-                      </div>
-                      <p className="text-[11px] text-slate-300 m-0">
-                        Generates ~{dailyGeneration} kWh/day · Eligible for {formatINR(results.subsidyAmount)} Central Subsidy
-                      </p>
+              {/* ── STEP 2: RESULTS PANEL ── */}
+              {currentStep === 2 && calculatedResults && (
+                <div className={prefersReducedMotion ? '' : 'animate-in fade-in slide-in-from-bottom-4 duration-500'}>
+                  <div className="space-y-6">
+                    {/* Results header */}
+                    <div className="flex items-center justify-between">
+                      <h3
+                        className="text-lg sm:text-xl font-bold"
+                        style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                      >
+                        Your Solar Recommendation
+                      </h3>
+                      <button
+                        type="button"
+                        onClick={handleEditDetails}
+                        className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border transition-colors hover:bg-stone-50 cursor-pointer"
+                        style={{ color: TOKENS.mutedText, borderColor: TOKENS.border }}
+                      >
+                        <Pencil className="w-3 h-3" />
+                        Edit details
+                      </button>
                     </div>
-                    <div className="relative z-10 w-12 h-12 rounded-xl bg-white/10 border border-white/20 shadow-xs flex items-center justify-center shrink-0 p-1.5">
-                      <Sun className="w-7 h-7 text-amber-400" />
-                    </div>
-                    <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
-                  </div>
 
-                  {/* Comparison: Current Bill vs With Solar — animated bars */}
-                  <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1.5">
-                    <div className="grid grid-cols-2 gap-2 items-center">
-                      <div className="p-2 rounded-lg bg-white border border-stone-200/80 shadow-2xs">
-                        <span className="text-[9px] font-semibold text-stone-400 uppercase tracking-wider block">Current Bill</span>
-                        <span className="text-xs sm:text-sm font-bold text-rose-700 font-heading block">
-                          {formatINR(monthlyBill)}
-                        </span>
-                        <div className="w-full h-1.5 bg-stone-100 rounded-full mt-1 overflow-hidden">
-                          <div className="h-full bg-gradient-to-r from-rose-500 to-rose-600 rounded-full transition-all duration-500 ease-out w-full" />
+                    {/* Based on summary */}
+                    <p className="text-xs font-medium" style={{ color: TOKENS.mutedText }}>
+                      Based on {formatINR(monthlyBill)}/month electricity bill in pincode {pincode}
+                    </p>
+
+                    {/* Result cards grid */}
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      {/* System Size */}
+                      <div
+                        className="p-4 sm:p-5 rounded-2xl border"
+                        style={{ borderColor: TOKENS.border, backgroundColor: 'white' }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <Zap className="w-4 h-4" style={{ color: TOKENS.solarCoral }} />
+                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: TOKENS.mutedText, fontFamily: 'var(--font-heading)' }}>
+                            System Size
+                          </span>
                         </div>
+                        <span
+                          className="text-2xl sm:text-3xl font-bold tabular-nums"
+                          style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                        >
+                          {calculatedResults.systemSizeKw} kW
+                        </span>
+                        <span className="text-xs block mt-0.5" style={{ color: TOKENS.mutedText }}>
+                          Rooftop Solar Array
+                        </span>
                       </div>
 
-                      <div className="p-2 rounded-lg bg-emerald-50/60 border border-emerald-200/80 shadow-2xs">
-                        <span className="text-[9px] font-semibold text-emerald-700 uppercase tracking-wider block">With Solar</span>
-                        <span className="text-xs sm:text-sm font-bold text-emerald-800 font-heading block">
-                          ~{formatINR(billWithSolar)}
-                        </span>
-                        <div className="w-full h-1.5 bg-emerald-100 rounded-full mt-1 overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-all duration-500 ease-out" 
-                            style={{ width: `${solarBarPercent}%` }} 
-                          />
+                      {/* Monthly Savings */}
+                      <div
+                        className="p-4 sm:p-5 rounded-2xl border"
+                        style={{ borderColor: `${TOKENS.successGreen}30`, backgroundColor: `${TOKENS.successGreen}08` }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <Sun className="w-4 h-4" style={{ color: TOKENS.successGreen }} />
+                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: TOKENS.successGreen, fontFamily: 'var(--font-heading)' }}>
+                            Monthly Savings
+                          </span>
                         </div>
+                        <span
+                          className="text-2xl sm:text-3xl font-bold tabular-nums"
+                          style={{ color: TOKENS.successGreen, fontFamily: 'var(--font-heading)' }}
+                        >
+                          {formatINR(calculatedResults.monthlySavings)}
+                        </span>
+                        <span className="text-xs block mt-0.5" style={{ color: TOKENS.mutedText }}>
+                          Estimated bill reduction
+                        </span>
+                      </div>
+
+                      {/* Annual Savings */}
+                      <div
+                        className="p-4 sm:p-5 rounded-2xl border"
+                        style={{ borderColor: TOKENS.border, backgroundColor: 'white' }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <Award className="w-4 h-4" style={{ color: TOKENS.solarCoral }} />
+                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: TOKENS.mutedText, fontFamily: 'var(--font-heading)' }}>
+                            Annual Savings
+                          </span>
+                        </div>
+                        <span
+                          className="text-2xl sm:text-3xl font-bold tabular-nums"
+                          style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                        >
+                          {formatINR(calculatedResults.annualSavings)}
+                        </span>
+                        <span className="text-xs block mt-0.5" style={{ color: TOKENS.mutedText }}>
+                          Per year estimated
+                        </span>
+                      </div>
+
+                      {/* Payback Period */}
+                      <div
+                        className="p-4 sm:p-5 rounded-2xl border"
+                        style={{ borderColor: TOKENS.border, backgroundColor: 'white' }}
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <Clock className="w-4 h-4" style={{ color: TOKENS.solarCoral }} />
+                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: TOKENS.mutedText, fontFamily: 'var(--font-heading)' }}>
+                            Payback Period
+                          </span>
+                        </div>
+                        <span
+                          className="text-2xl sm:text-3xl font-bold tabular-nums"
+                          style={{ color: TOKENS.deepNavy, fontFamily: 'var(--font-heading)' }}
+                        >
+                          {calculatedResults.paybackYears.toFixed(1)} Yrs
+                        </span>
+                        <span className="text-xs block mt-0.5" style={{ color: TOKENS.mutedText }}>
+                          After subsidy of {formatINR(calculatedResults.subsidyAmount)}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between text-[11px] text-slate-700 font-medium px-0.5">
-                      <span>Expected Grid Bill Reduction:</span>
-                      <span className="font-bold text-emerald-700 font-heading">
-                        Up to 90% Bill Cut
+                    {/* Environmental impact strip */}
+                    <div
+                      className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 py-3 px-4 rounded-xl border"
+                      style={{ borderColor: `${TOKENS.successGreen}20`, backgroundColor: `${TOKENS.successGreen}06` }}
+                    >
+                      <span className="flex items-center gap-2 text-xs font-semibold" style={{ color: TOKENS.successGreen }}>
+                        <Leaf className="w-4 h-4" />
+                        {calculatedResults.co2OffsetTonnes} tonnes CO₂/year avoided
+                      </span>
+                      <span className="hidden sm:block w-px h-4" style={{ backgroundColor: `${TOKENS.successGreen}30` }} />
+                      <span className="text-xs font-semibold" style={{ color: TOKENS.successGreen }}>
+                        ≈ {calculatedResults.treesEquivalent} trees planted equivalent
                       </span>
                     </div>
-                  </div>
 
-                  {/* Primary CTA */}
-                  <div className="space-y-1.5 pt-0.5">
-                    <button
-                      type="button"
-                      onClick={() => onClaimEstimate({ pincode, monthlyBill })}
-                      className="w-full btn-primary-maroon font-heading font-bold text-sm sm:text-base py-3 px-4 rounded-xl flex items-center justify-center gap-2 group cursor-pointer transition-transform duration-200 hover:scale-[1.01] active:scale-[0.99]"
-                    >
-                      <span>Get My Free Savings Estimate</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <div className="flex items-center justify-center gap-1.5 text-[10.5px] text-stone-500 font-medium text-center">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                      <span>No Obligation · 100% Free · 3D Site Survey</span>
+                    {/* Indicative disclaimer */}
+                    <p className="text-[10px] text-center italic" style={{ color: '#AAA' }}>
+                      * Estimates are indicative. Actual output varies by roof orientation, shading, tariff slab, and approvals.
+                    </p>
+
+                    {/* Secondary CTA */}
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                      <button
+                        type="button"
+                        onClick={handleGetQuote}
+                        className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full text-white text-sm font-bold transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                        style={{ backgroundColor: TOKENS.solarCoral, fontFamily: 'var(--font-heading)' }}
+                      >
+                        <span>Talk to a Solar Expert</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleGetQuote}
+                        className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full text-sm font-bold border transition-all duration-200 hover:bg-stone-50 cursor-pointer"
+                        style={{
+                          color: TOKENS.deepNavy,
+                          borderColor: TOKENS.border,
+                          fontFamily: 'var(--font-heading)',
+                        }}
+                      >
+                        Get Detailed Quote
+                      </button>
                     </div>
                   </div>
-
-                  {/* Secondary Specs */}
-                  <div className="grid grid-cols-2 gap-2 pt-0.5">
-                    <div className="p-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px]">
-                      <span className="text-stone-400 text-[9px] uppercase font-semibold block">Recommended System</span>
-                      <span className="font-bold text-slate-800 font-heading">{results.systemSizeKw} kW Rooftop</span>
-                    </div>
-                    <div className="p-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px]">
-                      <span className="text-stone-400 text-[9px] uppercase font-semibold block">Effective Investment</span>
-                      <span className="font-bold text-slate-800 font-heading">{formatINR(results.effectiveNetCost)} Net</span>
-                    </div>
-                  </div>
-
-                  {/* Expandable Breakdown */}
-                  <div className="pt-1">
-                    <button
-                      type="button"
-                      onClick={() => setShowFullBreakdown(!showFullBreakdown)}
-                      className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-700 hover:text-stone-900 hover:underline cursor-pointer transition-colors"
-                    >
-                      <span>{showFullBreakdown ? 'Hide financial breakdown' : 'See full breakdown'}</span>
-                      {showFullBreakdown ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                    </button>
-
-                    {showFullBreakdown && (
-                      <div className="mt-2 p-3 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-[11px] animate-in fade-in slide-in-from-top-2 duration-300">
-                        <div className="grid grid-cols-2 gap-2 pb-1.5 border-b border-stone-200/60">
-                          <div>
-                            <span className="text-stone-500 block">Gross Cost:</span>
-                            <span className="font-bold text-slate-900">{formatINR(results.estimatedCostBeforeSubsidy)}</span>
-                          </div>
-                          <div>
-                            <span className="text-emerald-700 block">Subsidy:</span>
-                            <span className="font-bold text-emerald-700">-{formatINR(results.subsidyAmount)}</span>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-2 pb-1.5 border-b border-stone-200/60">
-                          <div>
-                            <span className="text-stone-500 block">Daily Units:</span>
-                            <span className="font-bold text-slate-900">~{dailyGeneration} kWh</span>
-                          </div>
-                          <div>
-                            <span className="text-stone-500 block">Payback:</span>
-                            <span className="font-bold text-slate-900">{results.paybackYears.toFixed(1)} Yrs</span>
-                          </div>
-                        </div>
-
-                        <div className="pt-0.5 flex items-center justify-between text-slate-700">
-                          <span className="font-semibold">25-Yr Savings:</span>
-                          <span className="font-bold text-emerald-700 text-xs font-heading">{formatINR(results.twentyFiveYearSavings)}</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
                 </div>
-
-              </div>
-
-            </div>
-            {/* ── Simplified Comparison Card (Mobile: placed after interactive calculator) ── */}
-            <div className="block lg:hidden mt-5">
-              {renderComparisonCard()}
+              )}
             </div>
           </div>
-
         </div>
+      </div>
 
-        {/* ── 3. BOTTOM TRUST STRIP ── */}
-        <div className={`pt-3 border-t border-stone-200/80 transition-all duration-700 delay-500 ease-out ${
+      {/* ════════════════════════════════════════════════════════
+          C. BOTTOM DEEP NAVY TRUST STRIP
+         ════════════════════════════════════════════════════════ */}
+      <div
+        className={`${transitionClass} delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
-            <div className="flex items-center justify-center gap-1.5 text-stone-600 text-[11px] font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
-              <span>Trusted by families &amp; businesses</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 text-stone-600 text-[11px] font-semibold">
-              <Zap className="w-3.5 h-3.5 text-amber-600" />
-              <span>Tier-1 High Efficiency Cells</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 text-stone-600 text-[11px] font-semibold">
-              <Award className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Expert In-House Installation</span>
-            </div>
-            <div className="flex items-center justify-center gap-1.5 text-stone-600 text-[11px] font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
-              <span>25-Year Performance Guarantee</span>
-            </div>
+        }`}
+        style={{ backgroundColor: TOKENS.deepNavy }}
+      >
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 lg:gap-16">
+            {[
+              { icon: Zap, title: 'Tier-1', subtitle: 'High Efficiency Cells' },
+              { icon: Award, title: 'Expert', subtitle: 'In-House Installation' },
+              { icon: ShieldCheck, title: '25-Year', subtitle: 'Performance Guarantee' },
+            ].map((item, i) => (
+              <React.Fragment key={item.title}>
+                {i > 0 && (
+                  <div className="hidden sm:block w-px h-8 bg-white/15 rounded-full" />
+                )}
+                <div className="flex items-center gap-3">
+                  <item.icon className="w-5 h-5 text-white/60 shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <span className="text-sm font-bold text-white block leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                      {item.title}
+                    </span>
+                    <span className="text-xs text-white/50 font-medium">{item.subtitle}</span>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
           </div>
         </div>
-
       </div>
     </section>
   );
 };
-
