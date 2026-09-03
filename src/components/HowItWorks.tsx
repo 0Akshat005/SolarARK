@@ -113,7 +113,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
     <section
       id="how-it-works"
       aria-label="SolarARK 4-Step Cinematic End-to-End Journey"
-      className="relative bg-[#080D1A] min-h-[560px] sm:min-h-[620px] lg:min-h-[660px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
+      className="relative bg-[#080D1A] min-h-[660px] sm:min-h-[720px] lg:min-h-[760px] border-b border-stone-800/60 overflow-hidden text-white flex flex-col justify-between select-none"
     >
       {/* ── 1. REAL PHOTOGRAPHY WITH SOFT CINEMATIC GRADIENT ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -151,169 +151,159 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onCtaClick, onNavigate }
         />
 
         {/* Minimal top and bottom subtle fades */}
-        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#080D1A]/60 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#080D1A]/80 to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* ── 2. FOREGROUND EDITORIAL CONTENT (STRUCTURED & SPACED ELEGANTLY) ── */}
-      <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-14 sm:pt-16 lg:pt-18">
-        <div className="max-w-xl space-y-3 sm:space-y-3.5">
+      {/* ── 2. FOREGROUND EDITORIAL CONTENT (PER REVAMPSECTION.MD SPECIFICATION) ── */}
+      <div className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pt-16 sm:pt-20 lg:pt-22">
+        <div className="max-w-xl space-y-4 sm:space-y-5 text-left">
           
-          {/* Eyebrow & Technical Rail Inline Strip — Eliminates vertical congestion */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-heading">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#E7D8B9] text-[11px] font-semibold tracking-wider uppercase shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B]" />
-              <span>STEP {currentStage.id} OF 04 · {currentStage.label}</span>
-            </div>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span className="text-[10.5px] sm:text-[11px] text-slate-300/80 font-medium tracking-[0.14em] uppercase hidden sm:inline">
-              {currentStage.technicalRail}
-            </span>
+          {/* 1. EYEBROW */}
+          <div className="text-[#E7D8B9] text-xs sm:text-[13px] font-semibold tracking-[0.18em] uppercase font-heading">
+            STEP {currentStage.id} OF 04 · {currentStage.label}
           </div>
 
-          {/* 2-Line Headline — Well-proportioned, doesn't crowd out viewport */}
+          {/* 2. HEADLINE (DOMINANT ELEMENT) */}
           <h2
-            className="font-heading text-2xl xs:text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-white tracking-tight leading-[1.10] m-0"
-            style={{ textShadow: '0 2px 24px rgba(0, 0, 0, 0.95)' }}
+            className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-[1.10] m-0"
+            style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.9)' }}
           >
             {currentStage.headlineLine1} <br />
             {currentStage.headlineLine2}
           </h2>
 
-          {/* Structured Paragraph */}
+          {/* 3. PARAGRAPH (SITS CLEARLY BELOW HEADLINE) */}
           <p
-            className="text-slate-200/90 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-lg font-normal m-0"
-            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.95)' }}
+            className="text-slate-200 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-lg font-normal m-0"
+            style={{ textShadow: '0 1px 12px rgba(0, 0, 0, 0.9)' }}
           >
             {currentStage.paragraph}
           </p>
 
+          {/* 4. TECHNICAL LINE (SEPARATED FROM PARAGRAPH WITH SMALL GAP, NO PILL) */}
+          <div className="pt-0.5 text-[11px] sm:text-xs font-semibold tracking-[0.14em] uppercase text-slate-300/80 font-heading">
+            {currentStage.technicalRail}
+          </div>
+
+          {/* 5. PROJECT CTA (DISTINCT ACTION BELOW TECHNICAL LINE) */}
+          <div className="pt-2 sm:pt-3">
+            <button
+              onClick={handleProjectsRedirect}
+              className="group inline-flex items-center gap-3.5 sm:gap-4 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
+              aria-label="See SolarARK in the Real World - Explore completed solar installations across Maharashtra"
+            >
+              {/* Circular Red Outlined Icon */}
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#C0392B] bg-black/40 backdrop-blur-sm flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-red-400 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(192,57,43,0.4)]">
+                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </div>
+
+              {/* Text Content */}
+              <div className="space-y-0.5 min-w-0">
+                <div className="flex items-center gap-2 font-heading text-[11px] sm:text-xs font-bold tracking-wider text-white uppercase">
+                  <span>SEE SOLARARK IN THE REAL WORLD</span>
+                  <span className="text-[#C0392B] text-xs sm:text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </div>
+
+                <p className="text-[11px] sm:text-xs text-slate-300 font-normal leading-snug">
+                  Explore completed solar installations across Maharashtra.
+                </p>
+
+                <div className="pt-1">
+                  <div className="w-10 sm:w-12 h-[2px] bg-[#C0392B] rounded-full transition-all duration-300 group-hover:w-16 group-hover:bg-red-400" />
+                </div>
+              </div>
+            </button>
+          </div>
+
         </div>
       </div>
 
-      {/* ── 3. BOTTOM REDIRECT BUTTON & EDITORIAL PROGRESS SPAN (MATCHING DESIGN REFERENCE) ── */}
+      {/* ── 3. BOTTOM JOURNEY / NAVIGATION (ANCHORED NEAR LOWER PORTION) ── */}
       <div 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
-        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-6 sm:pb-8 lg:pb-10 space-y-4 sm:space-y-5 pt-6 sm:pt-8"
+        className="relative z-20 max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 w-full pb-8 sm:pb-10 lg:pb-12 pt-10 sm:pt-14 space-y-3 sm:space-y-3.5"
       >
         
-        {/* ── REDIRECT BUTTON (EXACT REPLICATION OF DESIGN REFERENCE) ── */}
-        <div>
-          <button
-            onClick={handleProjectsRedirect}
-            className="group inline-flex items-center gap-3.5 sm:gap-4 text-left cursor-pointer focus:outline-none transition-all py-1 max-w-xl"
-            aria-label="See SolarARK in the Real World - Explore completed solar installations across Maharashtra"
-          >
-            {/* Circular Red Outlined Icon Container */}
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#C0392B] bg-black/40 backdrop-blur-sm flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-red-400 group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(192,57,43,0.4)]">
-              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
+        {/* Stage Labels Row */}
+        <div className="grid grid-cols-4 gap-2 sm:gap-6">
+          {stages.map((stage, idx) => {
+            const isActive = activeStep === idx;
+            const isPassed = idx < activeStep;
 
-            {/* Text Stack */}
-            <div className="space-y-0.5 min-w-0">
-              {/* Top Line: Title with red arrow */}
-              <div className="flex items-center gap-2 font-heading text-[11px] sm:text-xs font-bold tracking-wider text-white uppercase">
-                <span>SEE SOLARARK IN THE REAL WORLD</span>
-                <span className="text-[#C0392B] text-xs sm:text-sm font-bold transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </div>
-
-              {/* Subtitle */}
-              <p className="text-[11px] sm:text-xs text-slate-300 font-normal leading-snug">
-                Explore completed solar installations across Maharashtra.
-              </p>
-
-              {/* Red Accent Underline */}
-              <div className="pt-1">
-                <div className="w-10 sm:w-12 h-[2px] bg-[#C0392B] rounded-full transition-all duration-300 group-hover:w-16 group-hover:bg-red-400" />
-              </div>
-            </div>
-          </button>
+            return (
+              <button
+                key={stage.id}
+                onClick={() => handleStepClick(idx)}
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Step ${stage.id}: ${stage.label}`}
+                className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-1 min-w-0"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
+                  <span
+                    className={`text-[10px] sm:text-xs font-bold font-heading uppercase tracking-wider transition-colors ${
+                      isActive
+                        ? 'text-[#C0392B]'
+                        : 'text-slate-400 group-hover:text-slate-200'
+                    }`}
+                  >
+                    {stage.id}
+                  </span>
+                  <span
+                    className={`font-heading font-bold text-[10px] sm:text-sm tracking-wide uppercase transition-colors ${
+                      isActive
+                        ? 'text-white'
+                        : isPassed
+                        ? 'text-slate-200'
+                        : 'text-slate-400 group-hover:text-slate-200'
+                    }`}
+                  >
+                    {stage.label}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
 
-        {/* ── 4-STAGE TRANSPARENT EDITORIAL PROGRESS RAIL WITH CIRCULAR NODES ── */}
-        <div className="space-y-2 sm:space-y-2.5">
+        {/* Continuous Progress Spine with Circular Nodes */}
+        <div className="relative flex items-center pt-1">
           
-          {/* Stage Labels Row */}
-          <div className="grid grid-cols-4 gap-2 sm:gap-6">
+          {/* Background Base Track */}
+          <div className="absolute inset-x-0 h-[1.5px] bg-white/20 rounded-full" />
+
+          {/* Active Continuous Fill Line */}
+          <div
+            className="absolute left-0 h-[2px] bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_8px_#C0392B] transition-all duration-75 ease-linear"
+            style={{
+              width: `${Math.min(100, Math.max(0, ((activeStep + progress / 100) / 3.9) * 100))}%`,
+            }}
+          />
+
+          {/* 4 Circular Stepper Nodes */}
+          <div className="relative w-full grid grid-cols-4 items-center">
             {stages.map((stage, idx) => {
               const isActive = activeStep === idx;
               const isPassed = idx < activeStep;
 
               return (
-                <button
-                  key={stage.id}
-                  onClick={() => handleStepClick(idx)}
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`Step ${stage.id}: ${stage.label}`}
-                  className="group flex flex-col items-start text-left cursor-pointer focus:outline-none transition-all py-0.5 min-w-0"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-2">
-                    <span
-                      className={`text-[9.5px] sm:text-[11px] font-bold font-heading uppercase tracking-wider transition-colors ${
-                        isActive
-                          ? 'text-[#C0392B]'
-                          : 'text-slate-400 group-hover:text-slate-200'
-                      }`}
-                    >
-                      {stage.id}
-                    </span>
-                    <span
-                      className={`font-heading font-bold text-[9.5px] sm:text-xs tracking-wide uppercase transition-colors ${
-                        isActive
-                          ? 'text-white'
-                          : isPassed
-                          ? 'text-slate-200'
-                          : 'text-slate-400 group-hover:text-slate-200'
-                      }`}
-                    >
-                      {stage.label}
-                    </span>
-                  </div>
-                </button>
+                <div key={stage.id} className="flex items-center">
+                  <button
+                    onClick={() => handleStepClick(idx)}
+                    aria-label={`Go to Step ${stage.id}`}
+                    className={`cursor-pointer transition-all duration-300 rounded-full flex items-center justify-center p-0 focus:outline-none ${
+                      isActive
+                        ? 'w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#C0392B] border-2 border-white shadow-[0_0_12px_#C0392B] scale-110'
+                        : isPassed
+                        ? 'w-2.5 h-2.5 bg-white border-2 border-[#C0392B]'
+                        : 'w-2.5 h-2.5 bg-[#080D1A] border-2 border-slate-400 hover:border-white'
+                    }`}
+                  />
+                </div>
               );
             })}
-          </div>
-
-          {/* Continuous Progress Spine with Circular Nodes (as in design reference) */}
-          <div className="relative flex items-center pt-1">
-            
-            {/* Background Base Track */}
-            <div className="absolute inset-x-0 h-[1.5px] bg-white/20 rounded-full" />
-
-            {/* Active Continuous Fill Line */}
-            <div
-              className="absolute left-0 h-[2px] bg-gradient-to-r from-[#D96B3C] to-[#C0392B] rounded-full shadow-[0_0_8px_#C0392B] transition-all duration-75 ease-linear"
-              style={{
-                width: `${Math.min(100, Math.max(0, ((activeStep + progress / 100) / 3.9) * 100))}%`,
-              }}
-            />
-
-            {/* 4 Circular Stepper Nodes */}
-            <div className="relative w-full grid grid-cols-4 items-center">
-              {stages.map((stage, idx) => {
-                const isActive = activeStep === idx;
-                const isPassed = idx < activeStep;
-
-                return (
-                  <div key={stage.id} className="flex items-center">
-                    <button
-                      onClick={() => handleStepClick(idx)}
-                      aria-label={`Go to Step ${stage.id}`}
-                      className={`cursor-pointer transition-all duration-300 rounded-full flex items-center justify-center p-0 focus:outline-none ${
-                        isActive
-                          ? 'w-3 h-3 bg-[#C0392B] border-2 border-white shadow-[0_0_12px_#C0392B] scale-110'
-                          : isPassed
-                          ? 'w-2 h-2 bg-white border border-[#C0392B]'
-                          : 'w-2 h-2 bg-[#080D1A] border border-slate-400 hover:border-white'
-                      }`}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-
           </div>
 
         </div>
