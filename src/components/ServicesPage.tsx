@@ -753,49 +753,43 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP WITH OFFICIAL BILL TIERS ── */}
-      <section className="border-t border-stone-200/80 bg-[#FCFAF7]">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-10 lg:py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP (COMPACT ARCHITECTURAL STRIP) ── */}
+      <section className="border-t border-stone-200/80 bg-[#FCFAF7] py-6 sm:py-8 lg:py-9">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 lg:gap-8">
             
-            {/* Left Tagline & Heading */}
-            <div className="lg:col-span-4 space-y-2">
+            {/* Left: Eyebrow + Headline + Subtext */}
+            <div className="space-y-1.5 shrink-0 max-w-lg">
               <div className="flex items-center gap-3">
                 <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
                   Book Free Consultation
                 </span>
                 <div className="w-8 h-[1px] bg-stone-300" />
+                <span className="text-[11px] font-bold text-[#8B1E2D] uppercase tracking-wider">
+                  Up to ₹78,000 Subsidy
+                </span>
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
                 Tell us about your property.
               </h3>
               <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                Connect with our solar experts for honest, professional advice tailored to your energy needs.
+                Connect with our solar experts for honest advice tailored to your energy needs.
               </p>
             </div>
 
-            {/* Right: Monthly Electric Bill Tier Selector & Action */}
-            <div className="lg:col-span-8 bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <span className="text-xs font-bold text-slate-900 uppercase tracking-wider font-heading">
-                  Select Your Monthly Electric Bill
-                </span>
-                <span className="text-[11px] text-stone-500 font-medium">
-                  Official SolarARK Subsidy & ROI Guidance
-                </span>
-              </div>
-
-              {/* Bill Tier Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {/* Right: Inline Bill Tier Segmented Bar + Action Button */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 lg:gap-4 shrink-0">
+              {/* Bill tier chips */}
+              <div className="flex items-center gap-1 bg-stone-200/60 p-1 rounded-xl overflow-x-auto scrollbar-none">
                 {BILL_TIERS.map((tier) => (
                   <button
                     key={tier}
                     type="button"
                     onClick={() => setSelectedBillTier(tier)}
-                    className={`py-2 px-2.5 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer border ${
+                    className={`px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                       selectedBillTier === tier
-                        ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
-                        : 'bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300 hover:text-slate-900'
+                        ? 'bg-[#8B1E2D] text-white shadow-xs'
+                        : 'text-stone-600 hover:text-slate-900 hover:bg-white/70'
                     }`}
                   >
                     {tier}
@@ -803,19 +797,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 ))}
               </div>
 
-              {/* Action Button & Trust Note */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-stone-100">
-                <span className="text-xs text-stone-500 text-center sm:text-left">
-                  Zero obligation • Up to ₹78,000 PM Surya Ghar subsidy calculation
-                </span>
-                <PrimaryButton
-                  size="md"
-                  onClick={onCtaClick}
-                  className="px-6 py-2.5 text-xs sm:text-sm w-full sm:w-auto"
-                >
-                  Get Free Consultation →
-                </PrimaryButton>
-              </div>
+              {/* Action Button */}
+              <PrimaryButton
+                size="md"
+                onClick={onCtaClick}
+                className="px-6 py-2.5 text-xs sm:text-sm whitespace-nowrap w-full sm:w-auto shrink-0"
+              >
+                Get Free Consultation →
+              </PrimaryButton>
             </div>
 
           </div>
