@@ -1,451 +1,209 @@
-GLOBAL PRIMARY CTA REVAMP — PREMIUM MAROON SYSTEM
 
-Use the attached reference image as the visual benchmark for the button language.
+# SolarARK Services Page — 4-Phase Implementation Plan
 
-Your task is to independently audit the existing site, identify the current primary CTA component, and redesign/refactor that component into a polished global button system.
+## Phase 1 — Audit + Page Foundation
 
-IMPORTANT:
-Do not just copy the screenshot.
-Use it as art direction and improve it where appropriate using senior-level UI/UX judgment.
+**Goal:** Lock the content, layout system, and reusable structure before building the section.
 
-━━━━━━━━━━━━━━━━━━━━
-1. DESIGN INTENT
-━━━━━━━━━━━━━━━━━━━━
+### Build
 
-The current buttons feel somewhat generic and AI-styled.
+* Audit existing `/services` implementation and reuse existing global components wherever they already match the reference.
+* Verify service content against the official SolarARK website.
+* Establish the page-level grid, spacing, typography, colors, borders, image treatment and CTA styles from the supplied references.
+* Reuse the site's existing:
 
-Replace that feeling with:
+  * Header/navigation
+  * Button/CTA
+  * Container
+  * Footer
+  * Typography tokens
+* Do **not** create duplicate versions of global components.
 
-PREMIUM
-WARM
-CONFIDENT
-MODERN
-INVITING
-BRAND-LED
-QUIETLY ELEGANT
+### Technical approach
 
-The brand's defining color is MAROON.
+Use responsive CSS Grid/Flexbox with fluid sizing (`clamp()`, `minmax()`, `aspect-ratio`) instead of fixed positioning.
 
-Maroon must remain visually dominant.
+Create the page around reusable data-driven components rather than hard-coded markup.
 
-Do NOT let black, navy, charcoal or very dark oxblood dominate the button.
+### Dependency
 
-The button should immediately read as a premium MAROON CTA against a light website.
+None.
 
-Think:
+### Acceptance criteria
 
-“refined premium brand”
+* Content hierarchy is finalized.
+* Existing site-wide components are reused where appropriate.
+* Services page visually follows the established SolarARK system.
+* No unnecessary page-specific abstractions are introduced.
 
-NOT:
+---
 
-“dark futuristic interface”
-“gaming UI”
-“AI-generated glassmorphism”
-“neon luxury”
+# Phase 2 — Core Services Experience
 
-━━━━━━━━━━━━━━━━━━━━
-2. COLOR SYSTEM
-━━━━━━━━━━━━━━━━━━━━
+**Goal:** Build the majority of the page's user-facing experience.
 
-Build the CTA using a restrained maroon tonal system rather than a flat color.
+### Build
 
-Primary:
-- rich warm maroon
-- approximately in the visual family of #8B1E2D
+**1. Services Hero**
 
-Highlight:
-- slightly brighter maroon/red
-- approximately #A93446
+* Editorial headline and supporting statement.
+* Same spacing/typography hierarchy as the reference.
+* Restrained maroon/terracotta emphasis.
 
-Depth:
-- slightly deeper maroon
-- approximately #6E1421
+**2. Three Solution Categories**
 
-These are visual direction references, not rigid values.
-Adapt them to the site's existing brand palette so the result feels native.
+* Residential
+* Commercial
+* Industrial
 
-Recommended treatment:
+Use one reusable `SolutionCard` component with unique content/image data.
 
-background:
-subtle maroon tonal gradient
+Desktop should use the strong **three-panel image-led layout** shown in the reference; tablet/mobile should naturally transition to fewer columns/stacked cards.
 
-TOP / CENTER:
-slightly warmer/lighter maroon
+**3. Our Approach**
 
-BOTTOM / EDGES:
-slightly deeper maroon
+* Site Assessment
+* System Design
+* Installation
+* Ongoing Support
 
-Keep the difference subtle.
+Use the reference's image + process structure rather than a generic timeline/card layout.
 
-The user should perceive one sophisticated maroon surface, not an obvious gradient.
+**4. Featured Projects / Proof**
 
-Avoid:
-- black-heavy gradients
-- pure red
-- neon red
-- purple maroon
-- blue gradients
-- metallic gradients
-- glass reflections
+* Reuse existing project data/components where possible.
+* Show a concise selection of real SolarARK projects.
+* Link through to actual project pages.
 
-━━━━━━━━━━━━━━━━━━━━
-3. BUTTON FORM
-━━━━━━━━━━━━━━━━━━━━
+### Content strategy
 
-Use the reference's elegant elongated pill geometry, but refine the proportions for the actual website.
+Apply the 80/20 rule aggressively:
 
-Characteristics:
-- generous horizontal breathing room
-- medium visual height
-- large controlled radius
-- clean silhouette
-- no excessive thickness
-- no chunky appearance
+**Hero → identify solution type → explain value → show how SolarARK works → prove it with projects.**
 
-The CTA should feel expensive because of proportion and spacing, not decoration.
+Avoid filling the page with technical information that belongs on deeper service/detail pages.
 
-Keep the existing typography family.
+### Technical approach
 
-Typography should be:
-- clean
-- medium/semi-bold
-- highly legible
-- warm white / white
-- optically centered
+* `SolutionsGrid`
+* `SolutionCard`
+* `ApproachSection`
+* `ProcessSteps`
+* `ProjectCard`
 
-Do not make the text unnecessarily bold.
+Make cards/data reusable so the same patterns can be extended to other revamped pages without rebuilding them.
 
-━━━━━━━━━━━━━━━━━━━━
-4. ARROW
-━━━━━━━━━━━━━━━━━━━━
+### Acceptance criteria
 
-For forward actions such as:
+* The three service categories are the dominant decision point.
+* Each category is immediately understandable.
+* The process section communicates professionalism and methodology.
+* Real project proof supports the services.
+* Desktop composition closely follows the reference while remaining responsive.
 
-Get A Quote
-Enquire
-Start Project
-Request a Call
-etc.
+---
 
-Use one elegant right arrow.
+# Phase 3 — Conversion + Responsive Refinement
 
-The arrow should:
-- be thin
-- be simple
-- be proportionally smaller than the text
-- have comfortable spacing
-- align optically with the text
+**Goal:** Finish the page as a conversion-oriented experience rather than simply matching the visual reference.
 
-Do NOT put the arrow inside a circle.
-Do NOT create a separate icon badge.
-Do NOT use an oversized arrow.
+### Build/refine
 
-On hover:
-arrow translates approximately 3–5px to the right.
+**Assessment CTA**
 
-Use a smooth 250–350ms transition.
+* Strong closing CTA immediately before the footer.
+* Reuse the same primary assessment button used in the header.
+* Clear single next action rather than multiple competing CTAs.
 
-━━━━━━━━━━━━━━━━━━━━
-5. SHADOW + DEPTH
-━━━━━━━━━━━━━━━━━━━━
+**Responsive behavior**
+Test at:
 
-This is critical.
+`320px / 375px / 768px / 1024px / 1280px / 1440px+`
 
-The reference has depth, but the implementation must NOT become dark or depressed.
+Pay particular attention to:
 
-Create depth primarily through:
+* Hero headline wrapping
+* Three-card → stacked transition
+* Approach image/process transformation
+* Project card overflow/swiping
+* CTA sizing
+* Footer stacking
+* Navigation collapse
 
-- soft warm ambient shadow
-- subtle maroon aura
-- restrained border highlight
-- tonal surface variation
+### UX refinement
 
-Shadow should be:
-soft
-diffused
-low opacity
-slightly warm
-mostly underneath
+Add restrained interactions:
 
-Avoid a huge glow surrounding the button.
+* image hover treatment
+* subtle arrow movement
+* appropriate focus/hover states
+* minimal reveal/motion
 
-The button must feel elevated, not illuminated by a neon light.
+Avoid excessive animations or trendy effects that conflict with the calm SolarARK aesthetic.
 
-━━━━━━━━━━━━━━━━━━━━
-6. BORDER
-━━━━━━━━━━━━━━━━━━━━
+### Acceptance criteria
 
-Use a very subtle warm-maroon border/highlight.
+* No horizontal overflow at any supported width.
+* No clipped/overlapping content.
+* Mobile layout feels intentionally designed rather than compressed desktop.
+* CTA remains obvious and usable.
+* Interactions enhance usability without distracting from content.
 
-It should give the edge definition against the background.
+---
 
-Do NOT use:
-- bright white border
-- thick red outline
-- double border
-- glossy rim
-- excessive contrast
+# Phase 4 — Final QA + Visual Match
 
-The border should only become slightly more visible on hover/focus.
+**Goal:** Make the result production-ready and ensure it actually feels like the supplied SolarARK design system.
 
-━━━━━━━━━━━━━━━━━━━━
-7. GET A QUOTE — PRIMARY CTA
-━━━━━━━━━━━━━━━━━━━━
+### Verify
 
-The HEADER “Get A Quote” button is the main reference implementation.
+**Content**
 
-Make it the strongest CTA in the header.
+* Every service statement is accurate to the official SolarARK source.
+* No invented project figures, locations or claims.
+* All links and CTAs point to valid destinations.
 
-It should have:
-- premium maroon surface
-- warm subtle depth
-- white typography
-- refined arrow
-- elegant shadow
-- excellent spacing
+**Visual**
 
-Keep its current functionality and positioning.
+* Typography hierarchy
+* Maroon/terracotta accent usage
+* Warm background treatment
+* Image quality/cropping
+* Section spacing
+* Borders/rules
+* Button styling
+* Footer consistency
 
-Do NOT redesign the entire header.
+**Technical**
 
-Only improve the CTA component.
+* Responsive behavior
+* Accessibility basics
+* Keyboard/focus states
+* Image alt text
+* Loading/performance
+* Console errors
+* Broken routes/assets
 
-━━━━━━━━━━━━━━━━━━━━
-8. CONTACT US — SECONDARY CTA
-━━━━━━━━━━━━━━━━━━━━
+### Acceptance criteria
 
-Where “Contact Us” is currently represented using the same primary CTA style:
+The page should pass this final test:
 
-Keep the same design language but introduce slightly lower visual emphasis.
+> **At first glance it should look like it belongs to the same SolarARK website as the supplied Home, Projects and About references; at the same time, the content hierarchy should make the three solutions and assessment CTA immediately understandable.**
 
-Do NOT create a completely unrelated button.
+---
 
-It should still clearly belong to the same family.
+## Final development sequence
 
-Hierarchy should be:
-
-GET A QUOTE
-      ↓
-strongest / highest emphasis
-
-CONTACT US
-      ↓
-slightly quieter
-
-━━━━━━━━━━━━━━━━━━━━
-9. PHONE / ICON BUTTON
-━━━━━━━━━━━━━━━━━━━━
-
-For the circular call/phone control:
-
-Do not make it look like an unrelated component.
-
-Use:
-- clean light/white surface
-- subtle maroon border
-- maroon icon
-- very soft shadow
-- same visual radius language
-- same interaction quality
-
-Keep it visually lighter than the maroon CTA.
-
-It should feel like a premium utility control sitting beside the CTA.
-
-━━━━━━━━━━━━━━━━━━━━
-10. HOVER STATE
-━━━━━━━━━━━━━━━━━━━━
-
-Create a refined interaction.
-
-DEFAULT:
-rich warm maroon
-
-HOVER:
-slightly brighter/richer maroon
-slightly stronger border
-subtle warm shadow increase
-arrow shifts 3–5px
-optional 1px elevation
-
-Do NOT:
-- dramatically scale
-- bounce
-- rotate
-- flash
-- create strong glow
-- turn bright red
-
-The interaction should feel expensive and intentional.
-
-━━━━━━━━━━━━━━━━━━━━
-11. ACTIVE STATE
-━━━━━━━━━━━━━━━━━━━━
-
-On click/press:
-
-- reduce elevation slightly
-- return button toward its original position
-- subtly deepen the maroon
-- keep transition smooth
-
-It should feel tactile, not animated for the sake of animation.
-
-━━━━━━━━━━━━━━━━━━━━
-12. FOCUS STATE
-━━━━━━━━━━━━━━━━━━━━
-
-Create an accessible keyboard focus treatment that is visually compatible with the brand.
-
-Do not rely on the browser's default ugly outline.
-
-Use a restrained maroon/warm focus ring with enough contrast to remain accessible.
-
-━━━━━━━━━━━━━━━━━━━━
-13. DISABLED STATE
-━━━━━━━━━━━━━━━━━━━━
-
-Create a desaturated version of the same system.
-
-It must still look like the same component, simply inactive.
-
-Avoid making it look like a completely different gray button.
-
-━━━━━━━━━━━━━━━━━━━━
-14. GLOBAL COMPONENT REFACTOR
-━━━━━━━━━━━━━━━━━━━━
-
-THIS IS IMPORTANT.
-
-Do not manually modify each button independently.
-
-First locate the shared button component, design tokens, CSS class, utility, or component abstraction responsible for primary CTAs.
-
-Refactor that system.
-
-Then update all relevant existing primary CTA instances so they inherit the new design automatically.
-
-Search the entire project for duplicated styles and consolidate where practical.
-
-Examples may include:
-- Get A Quote
-- Contact Us
-- Enquire Now
-- Request a Quote
-- Start a Project
-- Request a Callback
-- relevant project/service CTAs
-
-Do not change unrelated:
-- text links
-- secondary navigation
-- pagination
-- filters
-- form controls
-- icon-only utilities
-- components with intentionally different hierarchy
-
-unless they are genuinely using the same primary CTA component.
-
-━━━━━━━━━━━━━━━━━━━━
-15. RESPONSIVE BEHAVIOR
-━━━━━━━━━━━━━━━━━━━━
-
-Audit desktop, tablet and mobile.
-
-Desktop:
-retain the elegant elongated proportion.
-
-Tablet:
-reduce horizontal padding naturally.
-
-Mobile:
-ensure buttons do not become excessively wide or visually heavy.
-
-Preserve touch-friendly sizing and accessibility.
-
-Do not let the CTA dominate mobile layouts.
-
-━━━━━━━━━━━━━━━━━━━━
-16. DESIGN QUALITY BAR
-━━━━━━━━━━━━━━━━━━━━
-
-Use the attached image as the visual benchmark, but make the final implementation feel even more polished.
-
-Pay special attention to:
-
-OPTICAL ALIGNMENT
-—not just mathematically centered.
-
-SPACING
-—text and arrow should breathe.
-
-WEIGHT
-—the button must feel substantial without feeling heavy.
-
-COLOR
-—maroon must remain dominant.
-
-DEPTH
-—use subtle lighting, not darkness.
-
-HIERARCHY
-—Get A Quote should immediately attract attention without looking loud.
-
-CONSISTENCY
-—all primary CTAs should feel like one designed system.
-
-━━━━━━━━━━━━━━━━━━━━
-17. DO NOT CHANGE
-━━━━━━━━━━━━━━━━━━━━
-
-Do not unnecessarily modify:
-- page layouts
-- navigation structure
-- content
-- existing imagery
-- typography system
-- brand identity
-- CTA copy
-- link destinations
-- functionality
-- unrelated UI components
-
-This is a BUTTON SYSTEM REVAMP, not a site redesign.
-
-━━━━━━━━━━━━━━━━━━━━
-FINAL ART DIRECTION
-━━━━━━━━━━━━━━━━━━━━
-
-The final result should feel like a senior product designer intentionally crafted a proprietary CTA system for a premium maroon brand.
-
-The visual reference is:
-
-warm maroon
-+
-soft dimensional lighting
-+
-clean white typography
-+
-restrained shadow
-+
-excellent spacing
-+
-minimal arrow
-+
-strong hierarchy
-
-NOT:
-
-black pill
-+
-red glow
-+
-glassmorphism
-+
-generic AI aesthetic.
-
-Before completing the implementation, inspect the final site visually and remove anything that feels excessive, synthetic, overly dark, generic, or decorative.
-
-Prioritize the 20% of visual decisions that create 80% of the perceived premium quality:
-COLOR → PROPORTION → SPACING → TYPOGRAPHY → DEPTH → INTERACTION.
+```text
+PHASE 1
+Audit + Foundation
+        ↓
+PHASE 2
+Hero + Solutions + Approach + Projects
+        ↓
+PHASE 3
+CTA + Responsive + Interaction
+        ↓
+PHASE 4
+QA + Visual/Content Verification
+```

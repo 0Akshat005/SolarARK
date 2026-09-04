@@ -3,17 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import {
   ArrowRight,
+  ArrowLeft,
+  ChevronRight,
   CheckCircle2,
-  BadgePercent,
-  TrendingDown,
   Sparkles,
-  PhoneCall,
 } from 'lucide-react';
-
-import { FinalCTAForm } from './FinalCTAForm';
+import { PrimaryButton } from './PrimaryButton';
 
 interface ServicesPageProps {
   onNavigate: (path: string) => void;
@@ -22,113 +20,138 @@ interface ServicesPageProps {
   prefilledBill?: number;
 }
 
+interface ApproachStep {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  // Percentage coordinates for SVG leader lines on desktop
+  lineStart: { x: number; y: number };
+  lineEnd: { x: number; y: number };
+  anchor: 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right';
+}
+
+const APPROACH_STEPS: ApproachStep[] = [
+  {
+    id: 'step-1',
+    number: '01',
+    title: 'Site Assessment',
+    description: 'Understanding your space, energy needs and potential.',
+    anchor: 'top-left',
+    lineStart: { x: 30, y: 16 },
+    lineEnd: { x: 42, y: 32 },
+  },
+  {
+    id: 'step-2',
+    number: '02',
+    title: 'System Design',
+    description: 'Tailored for maximum efficiency and performance.',
+    anchor: 'bottom-left',
+    lineStart: { x: 30, y: 82 },
+    lineEnd: { x: 40, y: 64 },
+  },
+  {
+    id: 'step-3',
+    number: '03',
+    title: 'Installation',
+    description: 'Safe, precise and professional execution.',
+    anchor: 'top-right',
+    lineStart: { x: 70, y: 16 },
+    lineEnd: { x: 62, y: 36 },
+  },
+  {
+    id: 'step-4',
+    number: '04',
+    title: 'Ongoing Support',
+    description: 'Monitoring, maintenance and long-term partnership.',
+    anchor: 'bottom-right',
+    lineStart: { x: 70, y: 82 },
+    lineEnd: { x: 58, y: 68 },
+  },
+];
+
+interface FeaturedProject {
+  id: string;
+  capacity: string;
+  category: string;
+  city: string;
+  image: string;
+  alt: string;
+}
+
+const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    id: 'proj-res',
+    capacity: '6 kW',
+    category: 'Residential',
+    city: 'Amravati',
+    image: '/images/projects/featured-residential.jpg',
+    alt: '6 kW Residential rooftop solar installation in Amravati',
+  },
+  {
+    id: 'proj-comm',
+    capacity: '100 kW',
+    category: 'Commercial',
+    city: 'Nagpur',
+    image: '/images/projects/featured-commercial.jpg',
+    alt: '100 kW Commercial solar installation in Nagpur',
+  },
+  {
+    id: 'proj-ind',
+    capacity: '250 kW',
+    category: 'Industrial',
+    city: 'Wardha',
+    image: '/images/projects/featured-industrial.jpg',
+    alt: '250 kW Industrial solar plant in Wardha',
+  },
+];
+
 export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigate,
   onCtaClick,
-  prefilledPincode = '444601',
-  prefilledBill = 8500,
 }) => {
+  const [activeStep, setActiveStep] = useState<string>('step-1');
+  const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
+  const projectsScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleNextProject = () => {
+    setCurrentProjectIndex((prev) => {
+      const next = (prev + 1) % FEATURED_PROJECTS.length;
+      if (projectsScrollRef.current) {
+        const cardWidth = projectsScrollRef.current.clientWidth / 3;
+        projectsScrollRef.current.scrollTo({
+          left: next * cardWidth,
+          behavior: 'smooth',
+        });
+      }
+      return next;
+    });
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex((prev) => {
+      const next = prev === 0 ? FEATURED_PROJECTS.length - 1 : prev - 1;
+      if (projectsScrollRef.current) {
+        const cardWidth = projectsScrollRef.current.clientWidth / 3;
+        projectsScrollRef.current.scrollTo({
+          left: next * cardWidth,
+          behavior: 'smooth',
+        });
+      }
+      return next;
+    });
+  };
+
+  const scrollToApproach = () => {
+    const el = document.getElementById('our-approach');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
-
-
-      {/* ── SECTION 01: EDITORIAL SERVICES HERO ── */}
+    <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
+      
+      {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-[11px] font-bold text-stone-700 tracking-widest uppercase font-heading">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              <span>Complete Solar EPC Services</span>
-            </div>
-
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-slate-900 tracking-tight leading-[1.12]">
-              Engineered for Maximum Solar Yield.<br />
-              <span className="text-accent-light">Tailored for Every Rooftop.</span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
-              SolarArk delivers certified turnkey solar solutions for Indian homes, housing societies, commercial businesses, and industrial facilities. From precision 3D CAD engineering and PM Surya Ghar subsidy claims to 25-year generation reliability.
-            </p>
-
-            {/* Quick CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button
-                onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold px-7 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
-              >
-                <span>Book Free Site Survey</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href="tel:+917080909590"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#8B1E1E] bg-white border border-stone-200 px-5 py-3.5 rounded-xl transition-colors shadow-xs"
-              >
-                <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
-                <span>Call Solar Advisor (7080909590)</span>
-              </a>
-            </div>
-
-            {/* Quick Reassurance Pill Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-stone-200/80">
-              <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-slate-900 block font-heading">⚡ Up to 90%</span>
-                <span className="text-[11px] text-stone-500">Bill Reduction</span>
-              </div>
-              <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-slate-900 block font-heading">₹78,000 Subsidy</span>
-                <span className="text-[11px] text-stone-500">PM Surya Ghar</span>
-              </div>
-              <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-emerald-700 block font-heading">25-Yr Warranty</span>
-                <span className="text-[11px] text-stone-500">Performance Guarantee</span>
-              </div>
-              <div className="space-y-0.5">
-                <span className="text-[11px] font-bold text-slate-800 block font-heading">5,000+ Roofs</span>
-                <span className="text-[11px] text-stone-500">Maharashtra Track Record</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Hero Visual Art Direction */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-tl-[90px] sm:rounded-tl-[120px] rounded-br-3xl rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 group">
-              <img
-                src="/images/services/install.jpeg"
-                alt="SolarArk Certified Turnkey Solar Installation &amp; Commissioning"
-                className="w-full h-[360px] sm:h-[460px] object-cover object-[center_35%] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/hero-solar-home.png';
-                }}
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-500/30 backdrop-blur-md border border-emerald-400/40 text-[10px] font-bold text-emerald-300 uppercase tracking-wider font-heading">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Turnkey EPC Execution</span>
-                </div>
-                <div className="text-base sm:text-lg font-bold leading-snug">
-                  Certified Turnkey Solar Engineering
-                </div>
-                <p className="text-xs text-slate-200 leading-relaxed">
-                  End-to-end site assessment, precision CAD modeling, DISCOM net-metering sync, and 25-year reliability.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-
-      {/* ── SECTION 02: EDITORIAL SOLUTIONS SHOWCASE ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
 
         {/* Editorial Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16">
@@ -136,12 +159,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
               Solutions
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
               Energy solutions for{' '}
               <br className="hidden sm:block" />
               every kind of{' '}
               <span className="text-[#8B1E2D]">space.</span>
-            </h2>
+            </h1>
           </div>
           <div className="lg:col-span-5 flex items-end gap-6 lg:gap-8">
             <div className="space-y-0.5 border-l-2 border-stone-200 pl-6">
@@ -162,17 +185,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {/* Card 01: Residential */}
           <div 
             className="group relative overflow-hidden rounded-2xl cursor-pointer"
-            onClick={() => {
-              const el = document.getElementById('detail-residential');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+            onClick={scrollToApproach}
             role="link"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                const el = document.getElementById('detail-residential');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToApproach();
               }
             }}
           >
@@ -189,9 +208,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <span className="text-xs font-bold text-white/70 font-heading">01</span>
                 <div className="w-8 h-[1px] bg-white/40" />
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Residential
-              </h3>
+              </h2>
               <p className="text-sm text-white/80 leading-relaxed">
                 Greater savings.<br />
                 A cleaner, more independent home.
@@ -213,17 +232,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {/* Card 02: Commercial */}
           <div 
             className="group relative overflow-hidden rounded-2xl cursor-pointer"
-            onClick={() => {
-              const el = document.getElementById('detail-commercial');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+            onClick={scrollToApproach}
             role="link"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                const el = document.getElementById('detail-commercial');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToApproach();
               }
             }}
           >
@@ -240,9 +255,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <span className="text-xs font-bold text-white/70 font-heading">02</span>
                 <div className="w-8 h-[1px] bg-white/40" />
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Commercial
-              </h3>
+              </h2>
               <p className="text-sm text-white/80 leading-relaxed">
                 Turn your roof into a<br />
                 long-term business asset.
@@ -264,17 +279,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {/* Card 03: Industrial */}
           <div 
             className="group relative overflow-hidden rounded-2xl cursor-pointer"
-            onClick={() => {
-              const el = document.getElementById('detail-commercial');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+            onClick={scrollToApproach}
             role="link"
             tabIndex={0}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                const el = document.getElementById('detail-commercial');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToApproach();
               }
             }}
           >
@@ -291,9 +302,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <span className="text-xs font-bold text-white/70 font-heading">03</span>
                 <div className="w-8 h-[1px] bg-white/40" />
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Industrial
-              </h3>
+              </h2>
               <p className="text-sm text-white/80 leading-relaxed">
                 Engineered for larger demands.<br />
                 Built for long-term performance.
@@ -315,412 +326,347 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-
-
-      {/* ── SECTION 03: DETAILED SERVICE SECTIONS (SCROLL TARGETS) ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-16 lg:space-y-24">
-
-        {/* DETAIL 01: RESIDENTIAL & HOUSING SOCIETIES */}
-        <section id="detail-residential" className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
+      {/* ── SECTION 02: OUR APPROACH (MATCHING REFERENCE ARCHITECTURAL ROOFTOP) ── */}
+      <section id="our-approach" className="scroll-mt-28 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Image */}
-          <div className="lg:col-span-5 relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-              <img
-                src="/images/services/homes.jpg"
-                alt="SolarArk Residential Rooftop Solar Installation in Maharashtra"
-                className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-              />
+          {/* Left Text Block */}
+          <div className="lg:col-span-4 space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+                Our Approach
+              </span>
+              <div className="w-8 h-[1px] bg-stone-300" />
             </div>
 
-            {/* Floating Subsidy Badge */}
-            <div className="absolute -bottom-4 right-4 sm:-right-4 bg-[#8B1E2D] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-              <BadgePercent className="w-4 h-4 text-amber-300 shrink-0" />
-              <div className="text-left leading-tight">
-                <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Govt. Subsidy</span>
-                <span className="text-xs sm:text-sm font-bold font-heading">Up to ₹78,000 Direct Credit</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content */}
-          <div className="lg:col-span-7 space-y-5 lg:pl-4">
-            <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-              <span className="text-slate-800 font-bold">01 — RESIDENTIAL &amp; COMMUNITY SOLAR</span>
-              <div className="w-12 h-[1px] bg-stone-300" />
-            </div>
-
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-              Residential Rooftop Solar for Indian Homes &amp; Housing Societies
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+              Built around<br />
+              the site, not<br />
+              <span className="text-[#8B1E2D]">a template.</span>
             </h2>
 
             <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-              SolarArk custom-designs rooftop solar systems that eliminate high monthly electricity tariffs, protect terrace waterproofing, and guarantee clean energy for 25+ years. For housing societies, our community arrays drastically lower maintenance charges for all residents — powering lifts, water pumps, and common lighting.
+              Every space is different. We take a site-first approach to design solar systems that are efficient, reliable and built for the long term.
             </p>
 
-            {/* Verified Feature Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Tier-1 N-Type TOPCon 580Wp Bifacial Panels
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  100% PM Surya Ghar Portal Subsidy Filing
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Zero-Penetration Elevated Terrace Mounts
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  MSEDCL Net-Metering Synchronization
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Powers Common Lifts &amp; Water Pumps
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Committee Presentation &amp; ROI Reports
-                </span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2">
               <button
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-[#8B1E2D] group transition-colors cursor-pointer"
               >
-                <span>Get Home Solar Proposal</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <button
-                onClick={() => onNavigate('/contact')}
-                className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors cursor-pointer"
-              >
-                Request Terrace Inspection
+                <span>Our Process</span>
+                <ArrowRight className="w-4 h-4 text-[#8B1E2D] transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-        </section>
-
-
-        {/* DETAIL 02: COMMERCIAL & INDUSTRIAL */}
-        <section id="detail-commercial" className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-          
-          {/* Left Content (Reversed Layout) */}
-          <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
-            <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-              <span className="text-slate-800 font-bold">02 — COMMERCIAL &amp; INDUSTRIAL</span>
-              <div className="w-12 h-[1px] bg-stone-300" />
-            </div>
-
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-              Commercial &amp; Industrial Solar Plants
-            </h2>
-
-            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-              Whether you operate a manufacturing facility, warehouse, cold storage, private hospital, or retail complex, electricity is one of your highest controllable expenses. SolarArk delivers heavy-duty kilowatt and megawatt installations with rapid payback, 40% accelerated tax depreciation, and long-term tariff hedging.
-            </p>
-
-            {/* Commercial / Industrial Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  HT Net-Metering &amp; Transformer Sync
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Flexible Capex / OPEX Financing Models
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Maximum Demand (MD) Tariff Shaving
-                </span>
-              </div>
-              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs font-semibold text-slate-800">
-                  Robust Galvanized Shed &amp; Ground Mounts
-                </span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <button
-                onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
-              >
-                <span>Request Feasibility Audit</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <a
-                href="mailto:info@thesolarark.com"
-                className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors"
-              >
-                Email RFP / Tender Docs
-              </a>
-            </div>
-          </div>
-
-          {/* Right Image */}
-          <div className="lg:col-span-5 relative group order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+          {/* Right Photographic Container with Annotated Callout Pointers */}
+          <div className="lg:col-span-8 relative">
+            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border border-stone-200/90 bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
+              
+              {/* Aerial Architectural Photo */}
               <img
-                src="/images/services/industrials.jpg"
-                alt="SolarArk Commercial &amp; Industrial Solar Plant"
-                className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                src="/images/approach-rooftop.jpg"
+                alt="SolarArk custom rooftop solar engineering site assessment and installation"
+                className="w-full h-full object-cover object-center"
               />
-            </div>
 
-            {/* Tax Depreciation Badge */}
-            <div className="absolute -bottom-4 left-4 sm:-left-4 bg-emerald-800 text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-              <TrendingDown className="w-4 h-4 text-emerald-300 shrink-0" />
-              <div className="text-left leading-tight">
-                <span className="text-[10px] font-bold uppercase tracking-wider block text-emerald-200">High ROI</span>
-                <span className="text-xs sm:text-sm font-bold font-heading">40% Accelerated Tax Depreciation</span>
-              </div>
-            </div>
-          </div>
+              {/* Contrast Scrim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/60 pointer-events-none" />
 
-        </section>
+              {/* Desktop Interactive SVG Leader Lines */}
+              <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                {APPROACH_STEPS.map((step) => {
+                  const isHighlighted = activeStep === step.id;
+                  return (
+                    <g key={step.id} className="transition-opacity duration-300">
+                      {/* Leader Line */}
+                      <line
+                        x1={step.lineStart.x}
+                        y1={step.lineStart.y}
+                        x2={step.lineEnd.x}
+                        y2={step.lineEnd.y}
+                        stroke={isHighlighted ? '#FFFFFF' : 'rgba(255, 255, 255, 0.45)'}
+                        strokeWidth={isHighlighted ? '0.35' : '0.25'}
+                        strokeDasharray={isHighlighted ? 'none' : '0.8 0.6'}
+                      />
+                      {/* Anchor Dot on rooftop */}
+                      <circle
+                        cx={step.lineEnd.x}
+                        cy={step.lineEnd.y}
+                        r={isHighlighted ? '1.2' : '0.8'}
+                        fill={isHighlighted ? '#E05252' : '#FFFFFF'}
+                        className="transition-all duration-300"
+                      />
+                      {isHighlighted && (
+                        <circle
+                          cx={step.lineEnd.x}
+                          cy={step.lineEnd.y}
+                          r="2.2"
+                          fill="none"
+                          stroke="#E05252"
+                          strokeWidth="0.3"
+                          opacity="0.75"
+                        />
+                      )}
+                    </g>
+                  );
+                })}
+              </svg>
 
-      </div>
-
-
-
-      {/* ── SECTION 04: 5 CORE TECHNICAL LIFECYCLE SERVICES (OFFICIAL SOLARARK SERVICES) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-20 lg:mt-28">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-[11px] font-bold text-stone-700 tracking-widest uppercase font-heading">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8B1E1E]" />
-            <span>Turnkey Support Ecosystem</span>
-          </div>
-
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-tight">
-            Comprehensive Solar Lifecycle Services
-          </h2>
-
-          <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-            From seamless rooftop installation to real-time IoT monitoring, scheduled cleaning, and subsidy financing — SolarArk provides certified end-to-end expertise.
-          </p>
-        </div>
-
-        {/* 5-Card High-Impact Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Card 1: Installation & Commissioning */}
-          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
-                <img
-                  src="/images/services/install.jpeg"
-                  alt="SolarArk Installation &amp; Commissioning Service"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-[#8B1E1E] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
-                  Turnkey EPC
-                </div>
-              </div>
-              <div className="p-6 space-y-2.5">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
-                  Installation &amp; Commissioning
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                  Our expert engineering team ensures a seamless solar panel installation, from site assessment and 3D structural modeling to DISCOM net-metering synchronization and activation.
-                </p>
-              </div>
-            </div>
-            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-stone-500 font-heading">
-                ✓ DISCOM &amp; IEC Compliant
-              </span>
-              <button
-                onClick={onCtaClick}
-                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
-              >
-                <span>Book Survey</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2: Solar Panel Cleaning Service */}
-          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
-                <img
-                  src="/images/services/cleaning.jpeg"
-                  alt="Solar Panel Cleaning Service"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
-                  Yield Recovery
-                </div>
-              </div>
-              <div className="p-6 space-y-2.5">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
-                  Solar Panel Cleaning Service
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                  Regular cleaning enhances solar efficiency by removing dust, industrial soot, debris, and bird droppings, ensuring maximum sunlight absorption and peak energy output.
-                </p>
-              </div>
-            </div>
-            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-stone-500 font-heading">
-                ✓ Up to 25% Higher Generation
-              </span>
-              <button
-                onClick={onCtaClick}
-                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
-              >
-                <span>Book Wash</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 3: Online Real-Time Monitoring */}
-          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
-                <img
-                  src="/images/services/online_monitoring.jpg"
-                  alt="SolarArk Online Real-Time IoT Monitoring"
-                  className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-emerald-700 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
-                  Smart IoT Telemetry
-                </div>
-              </div>
-              <div className="p-6 space-y-2.5">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
-                  Online IoT Monitoring
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                  Track your solar system's generation in real time with our advanced smartphone monitoring app, helping you optimize energy usage, track savings, and detect faults instantly.
-                </p>
-              </div>
-            </div>
-            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-stone-500 font-heading">
-                ✓ 24/7 Mobile App Tracking
-              </span>
-              <button
-                onClick={onCtaClick}
-                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
-              >
-                <span>Learn More</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 4: Proactive System Maintenance */}
-          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-            <div>
-              <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
-                <img
-                  src="/images/services/maintenance.jpeg"
-                  alt="Proactive System Maintenance &amp; Electrical Diagnostics"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
-                  Preventive Care
-                </div>
-              </div>
-              <div className="p-6 space-y-2.5">
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-slate-900">
-                  Proactive System Maintenance
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                  We provide regular on-site check-ups, multimeter electrical string diagnostics, and preventive maintenance to ensure consistent energy output and extend panel lifespan.
-                </p>
-              </div>
-            </div>
-            <div className="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-stone-500 font-heading">
-                ✓ Comprehensive AMC Plans
-              </span>
-              <button
-                onClick={onCtaClick}
-                className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
-              >
-                <span>Inquire AMC</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Card 5: Solar Financing & Subsidy Advisory (Spans 2 cols on lg) */}
-          <div className="group bg-white rounded-3xl overflow-hidden border border-stone-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between md:col-span-2 lg:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-12 items-center h-full">
-              <div className="relative md:col-span-6 h-52 sm:h-64 md:h-full overflow-hidden bg-stone-100 min-h-[220px]">
-                <img
-                  src="/images/services/financing.jpeg"
-                  alt="Solar Financing &amp; PM Surya Ghar Subsidy Advisory"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute top-3 left-3 bg-emerald-800 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
-                  Zero-Stress Financing
-                </div>
-              </div>
-              <div className="p-6 sm:p-8 md:col-span-6 space-y-3 flex flex-col justify-between h-full">
-                <div>
-                  <h3 className="font-heading text-lg sm:text-2xl font-bold text-slate-900">
-                    Solar Financing &amp; Subsidy Assistance
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal mt-2">
-                    We offer flexible financing options to make clean solar energy immediately affordable. Benefit from zero-deposit bank EMI plans, 100% assistance with PM Surya Ghar national portal subsidy disbursement (up to ₹78,000), and OPEX commercial models.
+              {/* Desktop Floating Annotations (Overlaying the Image exactly as in reference) */}
+              <div className="hidden lg:block">
+                
+                {/* 01 Site Assessment (Top Left) */}
+                <div 
+                  className={`absolute top-[8%] left-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer ${
+                    activeStep === 'step-1' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
+                  }`}
+                  onMouseEnter={() => setActiveStep('step-1')}
+                  onClick={() => setActiveStep('step-1')}
+                >
+                  <span className="text-[11px] font-bold text-white/70 font-heading block">01</span>
+                  <div className="font-heading font-bold text-sm text-white mt-0.5">Site Assessment</div>
+                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                    Understanding your space, energy needs and potential.
                   </p>
                 </div>
-                <div className="pt-4 border-t border-stone-100 flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-emerald-700 font-heading">
-                    ✓ ₹78,000 Direct DBT Subsidy
-                  </span>
-                  <button
-                    onClick={onCtaClick}
-                    className="text-xs font-bold text-[#8B1E1E] hover:text-[#5E1212] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform cursor-pointer"
-                  >
-                    <span>Check Subsidy Eligibility</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+
+                {/* 02 System Design (Bottom Left) */}
+                <div 
+                  className={`absolute bottom-[8%] left-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer ${
+                    activeStep === 'step-2' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
+                  }`}
+                  onMouseEnter={() => setActiveStep('step-2')}
+                  onClick={() => setActiveStep('step-2')}
+                >
+                  <span className="text-[11px] font-bold text-white/70 font-heading block">02</span>
+                  <div className="font-heading font-bold text-sm text-white mt-0.5">System Design</div>
+                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                    Tailored for maximum efficiency and performance.
+                  </p>
                 </div>
+
+                {/* 03 Installation (Top Right) */}
+                <div 
+                  className={`absolute top-[8%] right-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer text-left ${
+                    activeStep === 'step-3' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
+                  }`}
+                  onMouseEnter={() => setActiveStep('step-3')}
+                  onClick={() => setActiveStep('step-3')}
+                >
+                  <span className="text-[11px] font-bold text-white/70 font-heading block">03</span>
+                  <div className="font-heading font-bold text-sm text-white mt-0.5">Installation</div>
+                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                    Safe, precise and professional execution.
+                  </p>
+                </div>
+
+                {/* 04 Ongoing Support (Bottom Right) */}
+                <div 
+                  className={`absolute bottom-[8%] right-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer text-left ${
+                    activeStep === 'step-4' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
+                  }`}
+                  onMouseEnter={() => setActiveStep('step-4')}
+                  onClick={() => setActiveStep('step-4')}
+                >
+                  <span className="text-[11px] font-bold text-white/70 font-heading block">04</span>
+                  <div className="font-heading font-bold text-sm text-white mt-0.5">Ongoing Support</div>
+                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                    Monitoring, maintenance and long-term partnership.
+                  </p>
+                </div>
+
               </div>
+
             </div>
+
+            {/* Mobile / Tablet Structured Callout Grid below the photo */}
+            <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+              {APPROACH_STEPS.map((step) => (
+                <div 
+                  key={step.id}
+                  className="bg-white border border-stone-200 rounded-xl p-4 space-y-1 shadow-xs"
+                >
+                  <span className="text-[11px] font-bold text-[#8B1E2D] font-heading block">
+                    {step.number}
+                  </span>
+                  <div className="font-heading font-bold text-sm text-slate-900">
+                    {step.title}
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ── SECTION 05: FINAL CONVERSION LEAD FORM ── */}
-      <div className="mt-16 lg:mt-24">
-        <FinalCTAForm
-          prefilledPincode={prefilledPincode}
-          prefilledBill={prefilledBill}
-        />
-      </div>
+      {/* ── SECTION 03: FEATURED PROJECTS (DARK OBSIDIAN EDITORIAL SECTION) ── */}
+      <section className="bg-[#0D131B] text-white py-16 sm:py-20 lg:py-24 mb-16 lg:mb-24 relative overflow-hidden">
+        
+        {/* Subtle Ambient Vignette */}
+        <div className="absolute inset-0 bg-radial-gradient from-slate-900/40 via-transparent to-black pointer-events-none" />
+
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+          
+          {/* Header & Controls Row */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+            
+            {/* Title & Copy */}
+            <div className="space-y-4 max-w-2xl">
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] font-bold text-white/50 uppercase tracking-[0.2em] font-heading block">
+                  Featured Projects
+                </span>
+                <div className="w-8 h-[1px] bg-white/20" />
+              </div>
+
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-[1.08]">
+                Real spaces.{' '}
+                <span className="text-[#E05252]">Real impact.</span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-white/70 font-normal leading-relaxed">
+                From residential rooftops to large industrial facilities, our projects reflect long-term value and a cleaner tomorrow.
+              </p>
+
+              {/* View All Projects Link */}
+              <div className="pt-2">
+                <button
+                  onClick={() => onNavigate('/projects')}
+                  className="inline-flex items-center gap-3 text-white/90 hover:text-white group cursor-pointer"
+                >
+                  <div className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                  <span className="text-sm font-semibold tracking-wide">View All Projects</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Top Right Carousel Navigation Controls */}
+            <div className="flex items-center gap-2 self-start lg:self-end">
+              <button
+                onClick={handlePrevProject}
+                aria-label="Previous project"
+                className="w-10 h-10 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleNextProject}
+                aria-label="Next project"
+                className="w-10 h-10 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+          </div>
+
+          {/* 3 Project Cards Grid */}
+          <div 
+            ref={projectsScrollRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 overflow-x-auto scrollbar-none"
+          >
+            {FEATURED_PROJECTS.map((project, idx) => (
+              <div
+                key={project.id}
+                onClick={() => onNavigate('/projects')}
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border ${
+                  currentProjectIndex === idx ? 'border-white/40 ring-1 ring-white/20' : 'border-white/15 hover:border-white/30'
+                }`}
+              >
+                {/* Project Image */}
+                <div className="aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-slate-900">
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out"
+                  />
+                </div>
+
+                {/* Dark Vignette Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+
+                {/* Bottom Content Bar */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 flex items-end justify-between">
+                  <div className="space-y-1">
+                    <div className="font-heading font-bold text-2xl sm:text-[26px] text-white tracking-tight">
+                      {project.capacity}
+                    </div>
+                    <div className="text-xs text-white/75 font-medium">
+                      {project.category} <span className="text-white/40">|</span> {project.city}
+                    </div>
+                  </div>
+
+                  {/* Circular Arrow Button */}
+                  <div className="w-9 h-9 rounded-full border border-white/35 flex items-center justify-center text-white group-hover:border-white group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shrink-0">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Counter at Bottom Right */}
+          <div className="flex justify-end items-center gap-2 mt-6 text-xs text-white/50 font-mono tracking-widest">
+            <span className="text-white font-bold">{String(currentProjectIndex + 1).padStart(2, '0')}</span>
+            <div className="w-8 h-[1px] bg-white/30" />
+            <span>03</span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Tagline */}
+            <div className="md:col-span-3 space-y-1">
+              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
+                A Cleaner
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
+                Brighter
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
+                Maharashtra
+              </span>
+              <div className="w-8 h-[1px] bg-stone-300 mt-2" />
+            </div>
+
+            {/* Center Copy */}
+            <div className="md:col-span-6 md:border-l md:border-stone-200 md:pl-8 space-y-1.5">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
+                Tell us about your property.
+              </h3>
+              <p className="text-sm text-stone-600 font-normal leading-relaxed">
+                We'll help assess the right solar solution for your space.
+              </p>
+            </div>
+
+            {/* Right Action Button */}
+            <div className="md:col-span-3 flex md:justify-end">
+              <PrimaryButton
+                size="md"
+                onClick={onCtaClick}
+                className="px-7 py-3 text-sm w-full sm:w-auto"
+              >
+                Get a Solar Assessment
+              </PrimaryButton>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
     </div>
   );
