@@ -1,231 +1,424 @@
-Refine ONLY the existing “Featured Projects” section on the SolarARK services/solutions page.
+Refine ONLY the existing “OUR APPROACH” section.
+
+Use the supplied SolarARK `solutionpage.png` reference as the PRIMARY visual specification.
+Use the current implementation only to understand what already exists.
 
 IMPORTANT:
-The currently implemented section is visually too tall because the dark navy background fills the entire section and consumes unnecessary vertical space. This is NOT what the provided SolarARK design reference shows.
+Do NOT redesign the whole page.
+Do NOT change the global header, footer, typography system, colors, navigation, or unrelated sections.
+Do NOT invent a new visual language.
 
-Use the previously provided `solutionpage.png` / reference design as the PRIMARY visual specification and the currently implemented screenshot as the element/content reference.
+The current section is functional, but its composition is not accurate to the reference. Rebuild the section's INTERNAL LAYOUT and visual hierarchy so it closely follows the reference while remaining responsive and production-quality.
 
-DO NOT redesign the section conceptually.
-DO NOT change the project content, project cards, navigation, footer, typography system, or overall SolarARK brand language.
-Do not introduce a new visual style.
-Preserve the existing functionality and carousel behavior.
+==================================================
+CORE DESIGN INTENT
+==================================================
 
-THE MAIN FIX:
-The Featured Projects section should feel like a compact, editorial project showcase sitting inside a controlled dark visual band — NOT like a huge full-height dark-blue block.
+This section should communicate one idea:
 
-### 1. REDUCE THE SECTION HEIGHT SIGNIFICANTLY
+“SolarARK designs around the individual site rather than applying a generic solar template.”
 
-Remove the unnecessary oversized vertical dark-blue canvas currently surrounding the content.
+The left side is the editorial explanation.
+The right side is the visual proof + process.
 
-The dark background should still exist, but it must behave as a tight section container whose height is determined naturally by its content.
+Think:
+EDITORIAL INTRO + IMMERSIVE PROCESS VISUAL
 
-Aim for the visual proportion shown in the reference:
-- compact upper content area
-- project cards become the dominant visual object
-- very limited empty vertical space below the cards
-- no giant dark background extending far beyond the actual content
+NOT:
+TEXT + GIANT IMAGE + FLOATING UI CARDS
 
-Do NOT solve this by simply shrinking everything.
-Instead, improve the composition and reclaim wasted space.
+==================================================
+1. FIX THE OVERALL COMPOSITION
+==================================================
 
-### 2. RECREATE THE REFERENCE COMPOSITION
+Use a balanced two-column editorial grid.
 
-Use the reference's hierarchy:
+LEFT:
+A relatively narrow text column.
 
-[FEATURED PROJECTS]
-Real spaces. Real impact.
-Short supporting paragraph
-View All Projects
+RIGHT:
+A larger but CONTROLLED image-led process canvas.
 
-                         ←   →
+The section should feel compact and intentional, with the two columns vertically aligned around the same visual center.
 
-[PROJECT CARD] [PROJECT CARD] [PROJECT CARD]
+Do NOT let the image dominate the page vertically.
 
-                                      01 ─── 03
+Do NOT create a huge empty section around the image.
 
-The section should feel approximately like one carefully composed editorial frame.
+Do NOT vertically center everything inside an unnecessarily tall section.
 
-The left introductory block and the project cards should share the same visual rhythm and grid.
+Use natural content-driven height.
 
-### 3. USE THE AVAILABLE SPACE MORE INTELLIGENTLY
-
-Do not center everything vertically inside a giant section.
-
-Use a structured max-width container.
-
-Recommended composition:
+The visual proportion should feel close to the supplied reference:
+- left content roughly 30–35%
+- right visual roughly 65–70%
 - generous horizontal breathing room
-- compact top/bottom padding
-- heading aligned with the project-card grid
-- carousel arrows positioned near the upper-right project area
-- pagination positioned near the lower-right edge of the project-card row
-- project cards should visually anchor the entire section
+- restrained vertical padding
 
-Use CSS Grid/Flexbox and responsive spacing rather than absolute page-level positioning.
+Use CSS Grid rather than arbitrary positioning.
 
-Avoid arbitrary large heights such as:
-height: 700px;
-min-height: 700px;
-or viewport-based heights that create empty space.
+==================================================
+2. LEFT EDITORIAL COLUMN
+==================================================
 
-The section should naturally size to its content.
+Preserve the conceptual content hierarchy:
 
-### 4. PROJECT CARDS ARE THE HERO OF THIS SECTION
+OUR APPROACH
+Built around
+the site, not
+a template.
 
-The cards should remain large enough to feel premium, but they should not create excessive overall section height.
+Supporting paragraph.
 
-Keep:
-- strong photography
-- rounded corners consistent with the reference
-- dark image treatment/overlay only where needed for text readability
-- project capacity prominent
-- category/location underneath
-- circular arrow interaction
+Our Process →
 
-The image itself should have a controlled aspect ratio similar to the reference.
+The heading is the primary visual element.
 
-Do NOT make cards unnecessarily tall.
+Use a strong editorial line break similar to the reference.
+
+Do NOT make the text width excessively wide.
+
+The accent/maroon treatment should emphasize only the key phrase:
+“a template.”
+
+The left column should feel calm, spacious and premium.
+
+The supporting copy should remain comfortably readable and should NOT stretch across the entire page.
+
+The “Our Process →” link should be a simple editorial text link with a restrained arrow.
+
+Do not put the CTA inside a large button.
+
+==================================================
+3. RIGHT PROCESS VISUAL
+==================================================
+
+THIS IS THE MOST IMPORTANT CORRECTION.
+
+The current implementation uses a large image with oversized dark floating cards.
+
+Remove that visual treatment.
+
+Instead create ONE controlled rounded image canvas.
+
+The image should:
+- have a refined rounded rectangle
+- use a realistic solar rooftop/project image
+- have a subtle dark tonal overlay for readability
+- remain visually photographic
+- avoid excessive black/vignette treatment
+- avoid looking like a dashboard
 
 Use:
 aspect-ratio
 object-fit: cover
-responsive grid sizing
+overflow: hidden
+border-radius
 
-rather than fixed card heights.
+Do NOT use a giant fixed height.
 
-### 5. DARK BACKGROUND TREATMENT
+The image should scale naturally with its grid column.
 
-The reference uses a dark, sophisticated section, but the darkness should feel like a framing device around the project showcase.
+==================================================
+4. PROCESS INFORMATION INSIDE THE IMAGE
+==================================================
 
-The current result feels like a large dark-blue empty canvas.
+Use the four process stages:
 
-Fix that by:
-- reducing vertical padding
-- keeping the dark section tightly wrapped around the content
-- using subtle tonal variation / restrained ambient image influence only where appropriate
-- avoiding a heavy full-section vignette
-- avoiding large empty dark areas
+01 Site Assessment
+02 System Design
+03 Installation
+04 Ongoing Support
 
-The dark background should support the imagery, not compete with it.
+But DO NOT present them as four large floating cards.
 
-Maintain the SolarARK maroon/terracotta accent.
+The reference uses a much lighter INFORMATIONAL ANNOTATION system.
 
-Do NOT introduce green, blue eco gradients, excessive glow, glassmorphism, or black cinematic effects.
+Each stage should feel like a small editorial annotation connected to a point on the image.
 
-### 6. SPACING
+Visual model:
 
-Follow a premium editorial spacing system.
+01 Site Assessment
+short description
+        |
+        └──────── ●
 
-Prioritize:
-- strong relationship between heading and supporting copy
-- intentional gap between intro content and cards
-- consistent card-to-card spacing
-- minimal unnecessary space beneath cards
+                         ● ─────── Installation
+                                  short description
 
-The current implementation has too much vertical breathing room.
+02 System Design
+short description
+        |
+        └──────── ●
 
-Reduce it substantially while preserving enough whitespace for a premium feel.
+                         ● ─────── Ongoing Support
+                                  short description
 
-Think:
-“luxury editorial portfolio section”
-rather than
-“large landing-page banner”.
+This means:
 
-### 7. DESKTOP LAYOUT
+- small number
+- concise title
+- short supporting copy
+- subtle connector line
+- small anchor point
+- no heavy card container
 
-At desktop width, target approximately:
+==================================================
+5. ANNOTATION STYLE
+==================================================
 
-┌───────────────────────────────────────────────────────────────┐
-│ FEATURED PROJECTS                               ←     →       │
-│                                                               │
-│ Real spaces. Real impact.                                    │
-│ Supporting description                                       │
-│                                                               │
-│ View All Projects                                            │
-│                                                               │
-│ [──────── card ────────] [──────── card ────────] [──────── card ────────] │
-│                                                               │
-│                                                        01 ─── 03 │
-└───────────────────────────────────────────────────────────────┘
-
-But use the actual reference proportions rather than literally reproducing this ASCII layout.
-
-The card row should occupy the majority of the visual weight.
-
-### 8. RESPONSIVE BEHAVIOR
-
-Desktop:
-- 3 cards visible
-- compact section height
-- arrows visible
-- pagination aligned cleanly
-
-Tablet:
-- adapt card widths naturally
-- reduce gaps/padding
-- avoid forcing desktop proportions
-
-Mobile:
-- one card visible / horizontal carousel
-- horizontal swipe should feel natural
-- heading and CTA stack cleanly
-- arrows must not overlap important content
-- pagination remains visible
-- section remains compact
-
-At no breakpoint should the dark background become unnecessarily tall.
-
-### 9. PRESERVE EXISTING FUNCTIONALITY
-
-Keep:
-- current carousel logic
-- project links
-- arrow controls
-- project pagination
-- hover interactions
-
-Only improve their positioning and visual composition.
-
-Do not rewrite functionality unnecessarily.
-
-### 10. IMPLEMENTATION QUALITY
-
-Build this as a reusable responsive component.
-
-Avoid:
-- hard-coded desktop coordinates
-- large fixed heights
-- excessive absolute positioning
-- duplicated markup
-- viewport-specific hacks
-- arbitrary negative margins
+The annotations must feel integrated with the photography.
 
 Use:
-- CSS Grid
-- Flexbox
-- max-width containers
-- fluid spacing
-- aspect-ratio
-- clamp()
-- responsive media queries
+- white/light text
+- very subtle translucent backing ONLY when absolutely necessary
+- thin connector lines
+- small circular anchor points
+- one restrained maroon emphasis point
 
-### FINAL VISUAL TARGET
+Avoid:
+- large glassmorphism panels
+- thick borders
+- giant rounded cards
+- excessive shadows
+- glowing neon dots
+- dashboard UI styling
 
-The final result should look much closer to the previously supplied SolarARK `solutionpage.png` reference:
+The image should remain visible underneath.
 
-- compact dark section
-- project cards visually dominant
-- strong editorial heading
-- controlled whitespace
-- clean arrows/pagination
-- no giant dark-blue empty area
-- premium SolarARK maroon accent
-- sophisticated, warm, restrained visual language
+The annotations should feel like an architect's/site-planning markup rather than software UI.
 
-Most importantly:
+==================================================
+6. CONNECTOR GEOMETRY
+==================================================
 
-DO NOT simply shrink the current section.
+Use carefully controlled connector lines to connect each process item to a meaningful location within the rooftop image.
 
-RECOMPOSE THE EXISTING ELEMENTS so the same content occupies significantly less unnecessary vertical space and the project cards become the main visual anchor, matching the proportions and spatial intelligence of the reference design.
+Important:
+Do NOT randomly position lines.
 
-Before finishing, compare the implementation against the reference at 1440px, 1280px, 1024px, 768px and 375px widths and correct any spacing, overflow, alignment or proportion issues.
+The line should visually terminate at a believable feature of the solar installation.
+
+For example:
+Site Assessment → roof/site area
+System Design → solar array/layout
+Installation → panel installation zone
+Ongoing Support → completed system
+
+Use subtle thin lines with small anchor points.
+
+Only the connector layer may use controlled absolute positioning INSIDE the image canvas.
+
+Do NOT use absolute positioning for the entire section layout.
+
+==================================================
+7. REMOVE THE CURRENT FLOATING CARD LOOK
+==================================================
+
+The current “01 Site Assessment” panel is too large and visually heavy.
+
+Reduce it substantially.
+
+The process information should occupy perhaps 10–15% of the image's visual weight, not become the main object.
+
+The photograph remains the hero.
+
+The annotation system explains the photograph.
+
+That relationship is critical.
+
+==================================================
+8. IMAGE TREATMENT
+==================================================
+
+Use a high-quality solar rooftop image with:
+- strong architectural geometry
+- visible solar arrays
+- enough negative space for annotations
+- daylight / natural atmosphere
+- realistic photography
+
+Avoid:
+- overly dark image
+- artificial cinematic black overlay
+- generic AI-looking architecture
+- excessive blue tint
+- green “eco” imagery
+- obvious stock-photo appearance
+
+The reference feels warm, architectural and premium.
+
+Match that feeling.
+
+==================================================
+9. SPACING
+==================================================
+
+The current section has too much vertical space.
+
+Reduce the section padding while keeping it premium.
+
+Suggested relationship:
+
+section top padding
+↓
+left heading / right image begin
+↓
+image height determined naturally
+↓
+small bottom breathing space
+
+Do NOT add large empty areas above or below.
+
+The section should occupy significantly less vertical space than the current implementation.
+
+Do not compensate by shrinking the actual typography excessively.
+
+Recompose the layout instead.
+
+==================================================
+10. RESPONSIVE DESIGN
+==================================================
+
+Desktop:
+- two-column editorial layout
+- left narrative
+- right image/process canvas
+- four annotations integrated into image
+
+Tablet:
+- slightly narrower left column
+- image scales naturally
+- annotation positions adapt
+- reduce connector complexity if necessary
+
+Mobile:
+DO NOT attempt to preserve the desktop overlay literally.
+
+Use:
+
+OUR APPROACH
+headline
+description
+Our Process →
+
+[image]
+
+01 Site Assessment
+description
+
+02 System Design
+description
+
+03 Installation
+description
+
+04 Ongoing Support
+description
+
+On mobile, the annotations can become a clean vertical sequence BELOW the image or as restrained overlays only where legibility is excellent.
+
+Prioritize readability and usability over forcing the desktop composition onto a small screen.
+
+No horizontal overflow.
+
+==================================================
+11. DESIGN QUALITY
+==================================================
+
+Use the reference's visual principles:
+
+- warm off-white background
+- dark charcoal/navy typography
+- SolarARK maroon accent
+- thin rules
+- generous but controlled whitespace
+- refined rounded image treatment
+- editorial typography
+- restrained shadows
+- no unnecessary effects
+
+The result should feel like a premium architecture / energy consultancy website, not a generic solar landing page.
+
+==================================================
+12. CONTENT / UX LOGIC
+==================================================
+
+Keep the process to these four core stages because they communicate the majority of the customer's journey:
+
+01 Site Assessment
+Understand the property, energy needs and site potential.
+
+02 System Design
+Translate site conditions and energy requirements into an appropriate system design.
+
+03 Installation
+Professional, precise execution of the planned system.
+
+04 Ongoing Support
+Monitoring, maintenance and long-term system support.
+
+Keep descriptions concise.
+
+Do not overload this section with technical specifications.
+
+A professional solar assessment begins with understanding site conditions and energy requirements before system design, while installation and ongoing support follow as distinct stages. This hierarchy is consistent with established solar project workflows. 
+
+==================================================
+13. IMPLEMENTATION QUALITY
+==================================================
+
+Build this as reusable components.
+
+Suggested structure:
+
+<ApproachSection>
+  <ApproachIntro />
+  <ProcessVisual>
+    <ProcessAnnotation />
+    <ProcessConnector />
+  </ProcessVisual>
+</ApproachSection>
+
+Use a data array for the four process steps.
+
+Use responsive CSS rather than duplicated desktop/mobile markup wherever practical.
+
+Avoid:
+- fixed page heights
+- arbitrary pixel offsets
+- negative-margin hacks
+- excessive absolute positioning
+- duplicated process markup
+- viewport-specific hacks
+
+==================================================
+FINAL TARGET
+==================================================
+
+The final section should visually read as:
+
+OUR APPROACH              ┌──────────────────────────────┐
+                          │       SOLAR ROOFTOP          │
+Built around              │                              │
+the site, not             │  01 ───── ●                 │
+a template.               │                              │
+                          │                ● ───── 03   │
+Supporting copy           │                              │
+                          │  02 ───── ●                 │
+Our Process →             │                ● ───── 04   │
+                          └──────────────────────────────┘
+
+This is only a structural reference, NOT a literal implementation.
+
+The critical visual outcome:
+
+LEFT = editorial explanation
+RIGHT = one refined photographic canvas
+PROCESS = lightweight annotations integrated into the image
+SECTION = compact, balanced and spacious without wasted vertical area
+
+Before finishing, compare the result directly against the supplied `solutionpage.png` at desktop, tablet and mobile sizes.
+
+Do NOT stop after making it merely “similar”.
+Correct the hierarchy, proportions, spacing, annotation scale and image treatment until it feels intentionally designed from the same SolarARK system as the reference.

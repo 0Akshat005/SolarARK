@@ -326,12 +326,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 02: OUR APPROACH (MATCHING REFERENCE ARCHITECTURAL ROOFTOP) ── */}
-      <section id="our-approach" className="scroll-mt-28 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      {/* ── SECTION 02: OUR APPROACH (ARCHITECTURAL ANNOTATION COMPOSITION) ── */}
+      <section id="our-approach" className="scroll-mt-28 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          {/* Left Text Block */}
-          <div className="lg:col-span-4 space-y-5">
+          {/* Left Editorial Column (~33% width) */}
+          <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
                 Our Approach
@@ -339,140 +339,126 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="w-8 h-[1px] bg-stone-300" />
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.12]">
               Built around<br />
               the site, not<br />
               <span className="text-[#8B1E2D]">a template.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed max-w-sm">
               Every space is different. We take a site-first approach to design solar systems that are efficient, reliable and built for the long term.
             </p>
 
             <div className="pt-2">
               <button
                 onClick={onCtaClick}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-[#8B1E2D] group transition-colors cursor-pointer"
+                className="text-xs sm:text-sm font-semibold text-[#8B1E2D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer"
               >
                 <span>Our Process</span>
-                <ArrowRight className="w-4 h-4 text-[#8B1E2D] transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-          {/* Right Photographic Container with Annotated Callout Pointers */}
+          {/* Right Process Canvas (~67% width) */}
           <div className="lg:col-span-8 relative">
-            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border border-stone-200/90 bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
+            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-md border border-stone-200/80 bg-[#FCFAF7] aspect-[16/10] sm:aspect-[16/9]">
               
-              {/* Aerial Architectural Photo */}
+              {/* Daylight Drone Architectural Photo */}
               <img
-                src="/images/approach-rooftop.jpg"
-                alt="SolarArk custom rooftop solar engineering site assessment and installation"
+                src="/images/approach-aerial-bright.jpg"
+                alt="SolarArk custom site-first solar rooftop engineering and installation"
                 className="w-full h-full object-cover object-center"
               />
 
-              {/* Contrast Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/60 pointer-events-none" />
+              {/* Seamless Left Fade Gradient (blending photo smoothly into off-white background) */}
+              <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-[#FCFAF7] via-[#FCFAF7]/75 to-transparent pointer-events-none z-[1]" />
+              
+              {/* Subtle Right Dark Vignette (ensuring white text legibility) */}
+              <div className="absolute inset-y-0 right-0 w-[42%] bg-gradient-to-l from-black/60 via-black/25 to-transparent pointer-events-none z-[1]" />
 
-              {/* Desktop Interactive SVG Leader Lines */}
-              <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {APPROACH_STEPS.map((step) => {
-                  const isHighlighted = activeStep === step.id;
-                  return (
-                    <g key={step.id} className="transition-opacity duration-300">
-                      {/* Leader Line */}
-                      <line
-                        x1={step.lineStart.x}
-                        y1={step.lineStart.y}
-                        x2={step.lineEnd.x}
-                        y2={step.lineEnd.y}
-                        stroke={isHighlighted ? '#FFFFFF' : 'rgba(255, 255, 255, 0.45)'}
-                        strokeWidth={isHighlighted ? '0.35' : '0.25'}
-                        strokeDasharray={isHighlighted ? 'none' : '0.8 0.6'}
-                      />
-                      {/* Anchor Dot on rooftop */}
-                      <circle
-                        cx={step.lineEnd.x}
-                        cy={step.lineEnd.y}
-                        r={isHighlighted ? '1.2' : '0.8'}
-                        fill={isHighlighted ? '#E05252' : '#FFFFFF'}
-                        className="transition-all duration-300"
-                      />
-                      {isHighlighted && (
-                        <circle
-                          cx={step.lineEnd.x}
-                          cy={step.lineEnd.y}
-                          r="2.2"
-                          fill="none"
-                          stroke="#E05252"
-                          strokeWidth="0.3"
-                          opacity="0.75"
-                        />
-                      )}
-                    </g>
-                  );
-                })}
+              {/* Desktop Thin Architectural SVG Leader Lines */}
+              <svg 
+                className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-[2]" 
+                viewBox="0 0 100 100" 
+                preserveAspectRatio="none"
+              >
+                {/* 01 Site Assessment Line: Horizontal right from text, then angled down-right to rooftop dot */}
+                <polyline
+                  points="32,18 42,18 51,36"
+                  fill="none"
+                  stroke="#334155"
+                  strokeWidth="0.32"
+                />
+                <circle cx="51" cy="36" r="0.9" fill="#0F172A" />
+
+                {/* 02 System Design Line: Horizontal right to building structure dot */}
+                <line
+                  x1="32"
+                  y1="68"
+                  x2="46"
+                  y2="68"
+                  stroke="#334155"
+                  strokeWidth="0.32"
+                />
+                <circle cx="46" cy="68" r="0.9" fill="#0F172A" />
+
+                {/* 03 Installation Line: Horizontal left from text, then angled down-left to panel array dot */}
+                <polyline
+                  points="76,18 70,18 64,30"
+                  fill="none"
+                  stroke="#F1F5F9"
+                  strokeWidth="0.32"
+                />
+                <circle cx="64" cy="30" r="0.9" fill="#FFFFFF" />
+
+                {/* 04 Ongoing Support Line: Horizontal left to facility equipment dot */}
+                <line
+                  x1="76"
+                  y1="68"
+                  x2="68"
+                  y2="68"
+                  stroke="#F1F5F9"
+                  strokeWidth="0.32"
+                />
+                <circle cx="68" cy="68" r="0.9" fill="#FFFFFF" />
               </svg>
 
-              {/* Desktop Floating Annotations (Overlaying the Image exactly as in reference) */}
+              {/* Desktop Architectural Annotations (No Floating Heavy Cards, Pure Typography) */}
               <div className="hidden lg:block">
                 
-                {/* 01 Site Assessment (Top Left) */}
-                <div 
-                  className={`absolute top-[8%] left-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer ${
-                    activeStep === 'step-1' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
-                  }`}
-                  onMouseEnter={() => setActiveStep('step-1')}
-                  onClick={() => setActiveStep('step-1')}
-                >
-                  <span className="text-[11px] font-bold text-white/70 font-heading block">01</span>
-                  <div className="font-heading font-bold text-sm text-white mt-0.5">Site Assessment</div>
-                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                {/* 01 Site Assessment (Top Left - Dark Text) */}
+                <div className="absolute top-[8%] left-[4%] max-w-[175px] z-[2]">
+                  <span className="text-xs font-bold text-stone-500 font-heading block">01</span>
+                  <div className="font-heading font-bold text-sm sm:text-base text-slate-900 leading-snug">Site Assessment</div>
+                  <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed mt-0.5">
                     Understanding your space, energy needs and potential.
                   </p>
                 </div>
 
-                {/* 02 System Design (Bottom Left) */}
-                <div 
-                  className={`absolute bottom-[8%] left-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer ${
-                    activeStep === 'step-2' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
-                  }`}
-                  onMouseEnter={() => setActiveStep('step-2')}
-                  onClick={() => setActiveStep('step-2')}
-                >
-                  <span className="text-[11px] font-bold text-white/70 font-heading block">02</span>
-                  <div className="font-heading font-bold text-sm text-white mt-0.5">System Design</div>
-                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                {/* 02 System Design (Bottom Left - Dark Text) */}
+                <div className="absolute bottom-[16%] left-[4%] max-w-[175px] z-[2]">
+                  <span className="text-xs font-bold text-stone-500 font-heading block">02</span>
+                  <div className="font-heading font-bold text-sm sm:text-base text-slate-900 leading-snug">System Design</div>
+                  <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed mt-0.5">
                     Tailored for maximum efficiency and performance.
                   </p>
                 </div>
 
-                {/* 03 Installation (Top Right) */}
-                <div 
-                  className={`absolute top-[8%] right-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer text-left ${
-                    activeStep === 'step-3' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
-                  }`}
-                  onMouseEnter={() => setActiveStep('step-3')}
-                  onClick={() => setActiveStep('step-3')}
-                >
-                  <span className="text-[11px] font-bold text-white/70 font-heading block">03</span>
-                  <div className="font-heading font-bold text-sm text-white mt-0.5">Installation</div>
-                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                {/* 03 Installation (Top Right - White Text) */}
+                <div className="absolute top-[8%] right-[4%] max-w-[175px] z-[2] text-left">
+                  <span className="text-xs font-bold text-white/70 font-heading block">03</span>
+                  <div className="font-heading font-bold text-sm sm:text-base text-white leading-snug">Installation</div>
+                  <p className="text-[11px] sm:text-xs text-white/85 leading-relaxed mt-0.5">
                     Safe, precise and professional execution.
                   </p>
                 </div>
 
-                {/* 04 Ongoing Support (Bottom Right) */}
-                <div 
-                  className={`absolute bottom-[8%] right-[5%] max-w-[210px] p-3 rounded-xl transition-all duration-300 cursor-pointer text-left ${
-                    activeStep === 'step-4' ? 'bg-black/40 backdrop-blur-md ring-1 ring-white/30' : 'hover:bg-black/20'
-                  }`}
-                  onMouseEnter={() => setActiveStep('step-4')}
-                  onClick={() => setActiveStep('step-4')}
-                >
-                  <span className="text-[11px] font-bold text-white/70 font-heading block">04</span>
-                  <div className="font-heading font-bold text-sm text-white mt-0.5">Ongoing Support</div>
-                  <p className="text-[11px] text-white/75 leading-relaxed mt-1">
+                {/* 04 Ongoing Support (Bottom Right - White Text) */}
+                <div className="absolute bottom-[16%] right-[4%] max-w-[175px] z-[2] text-left">
+                  <span className="text-xs font-bold text-white/70 font-heading block">04</span>
+                  <div className="font-heading font-bold text-sm sm:text-base text-white leading-snug">Ongoing Support</div>
+                  <p className="text-[11px] sm:text-xs text-white/85 leading-relaxed mt-0.5">
                     Monitoring, maintenance and long-term partnership.
                   </p>
                 </div>
@@ -486,7 +472,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               {APPROACH_STEPS.map((step) => (
                 <div 
                   key={step.id}
-                  className="bg-white border border-stone-200 rounded-xl p-4 space-y-1 shadow-xs"
+                  className="bg-white border border-stone-200 rounded-xl p-3.5 space-y-0.5 shadow-xs"
                 >
                   <span className="text-[11px] font-bold text-[#8B1E2D] font-heading block">
                     {step.number}
