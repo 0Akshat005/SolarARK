@@ -506,19 +506,23 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 03: FEATURED PROJECTS (DARK OBSIDIAN EDITORIAL SECTION) ── */}
-      <section className="bg-[#0D131B] text-white py-16 sm:py-20 lg:py-24 mb-16 lg:mb-24 relative overflow-hidden">
+      {/* ── SECTION 03: FEATURED PROJECTS (COMPACT EDITORIAL HORIZONTAL FRAME) ── */}
+      <section className="relative text-white py-10 sm:py-12 lg:py-14 overflow-hidden">
         
-        {/* Subtle Ambient Vignette */}
-        <div className="absolute inset-0 bg-radial-gradient from-slate-900/40 via-transparent to-black pointer-events-none" />
+        {/* Atmospheric Twilight Tree Canopy Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-top pointer-events-none opacity-40 mix-blend-luminosity"
+          style={{ backgroundImage: "url('/images/projects-backdrop.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D131B]/95 via-[#0D131B]/90 to-[#0A0E15] pointer-events-none" />
 
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           
-          {/* Header & Controls Row */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+          {/* Unified Horizontal Layout: Intro on Left, Cards on Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
-            {/* Title & Copy */}
-            <div className="space-y-4 max-w-2xl">
+            {/* Left Column: Eyebrow, Heading, Description, View All Projects CTA */}
+            <div className="lg:col-span-3 xl:col-span-3 space-y-4">
               <div className="flex items-center gap-3">
                 <span className="text-[11px] font-bold text-white/50 uppercase tracking-[0.2em] font-heading block">
                   Featured Projects
@@ -526,108 +530,113 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <div className="w-8 h-[1px] bg-white/20" />
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[48px] font-bold text-white tracking-tight leading-[1.08]">
-                Real spaces.{' '}
-                <span className="text-[#E05252]">Real impact.</span>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-white tracking-tight leading-[1.08]">
+                Real spaces.<br />
+                <span className="text-[#C83848]">Real impact.</span>
               </h2>
 
-              <p className="text-sm sm:text-base text-white/70 font-normal leading-relaxed">
+              <p className="text-xs sm:text-sm text-white/70 font-normal leading-relaxed max-w-sm">
                 From residential rooftops to large industrial facilities, our projects reflect long-term value and a cleaner tomorrow.
               </p>
 
-              {/* View All Projects Link */}
-              <div className="pt-2">
+              {/* View All Projects Button */}
+              <div className="pt-1">
                 <button
                   onClick={() => onNavigate('/projects')}
                   className="inline-flex items-center gap-3 text-white/90 hover:text-white group cursor-pointer"
                 >
-                  <div className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
-                    <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
+                    <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
-                  <span className="text-sm font-semibold tracking-wide">View All Projects</span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-wide">View All Projects</span>
                 </button>
               </div>
             </div>
 
-            {/* Top Right Carousel Navigation Controls */}
-            <div className="flex items-center gap-2 self-start lg:self-end">
-              <button
-                onClick={handlePrevProject}
-                aria-label="Previous project"
-                className="w-10 h-10 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+            {/* Right Column: Carousel Controls, 3-Card Grid, and Pagination */}
+            <div className="lg:col-span-9 xl:col-span-9 flex flex-col justify-between">
+              
+              {/* Carousel Controls (Positioned Top Right Above Cards) */}
+              <div className="flex justify-end items-center gap-2 mb-3">
+                <button
+                  onClick={handlePrevProject}
+                  aria-label="Previous project"
+                  className="w-8 h-8 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleNextProject}
+                  aria-label="Next project"
+                  className="w-8 h-8 rounded-full border border-[#8B1E2D]/60 hover:border-white flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+                >
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* 3 Project Cards Grid */}
+              <div 
+                ref={projectsScrollRef}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 lg:gap-4 overflow-x-auto scrollbar-none"
               >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={handleNextProject}
-                aria-label="Next project"
-                className="w-10 h-10 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                {FEATURED_PROJECTS.map((project, idx) => (
+                  <div
+                    key={project.id}
+                    onClick={() => onNavigate('/projects')}
+                    className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border ${
+                      currentProjectIndex === idx ? 'border-white/40 ring-1 ring-white/20' : 'border-white/15 hover:border-white/30'
+                    }`}
+                  >
+                    {/* Project Image (Aspect-Ratio Controlled) */}
+                    <div className="aspect-[4/3] overflow-hidden bg-slate-900">
+                      <img
+                        src={project.image}
+                        alt={project.alt}
+                        className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out"
+                      />
+                    </div>
+
+                    {/* Dark Vignette Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+
+                    {/* Bottom Content Bar */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between">
+                      <div className="space-y-0.5">
+                        <div className="font-heading font-bold text-xl sm:text-2xl text-white tracking-tight leading-none">
+                          {project.capacity}
+                        </div>
+                        <div className="text-[11px] sm:text-xs text-white/75 font-medium mt-1">
+                          {project.category} <span className="text-white/40">|</span> {project.city}
+                        </div>
+                      </div>
+
+                      {/* Circular Arrow Button */}
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/35 flex items-center justify-center text-white group-hover:border-white group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shrink-0">
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Counter / Progress at Bottom Right */}
+              <div className="flex justify-end items-center gap-2 mt-3 text-[11px] text-white/50 font-mono tracking-widest">
+                <span className="text-white font-bold">{String(currentProjectIndex + 1).padStart(2, '0')}</span>
+                <div className="w-10 h-[1px] bg-white/25" />
+                <span>03</span>
+              </div>
+
             </div>
 
-          </div>
-
-          {/* 3 Project Cards Grid */}
-          <div 
-            ref={projectsScrollRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 overflow-x-auto scrollbar-none"
-          >
-            {FEATURED_PROJECTS.map((project, idx) => (
-              <div
-                key={project.id}
-                onClick={() => onNavigate('/projects')}
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border ${
-                  currentProjectIndex === idx ? 'border-white/40 ring-1 ring-white/20' : 'border-white/15 hover:border-white/30'
-                }`}
-              >
-                {/* Project Image */}
-                <div className="aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-slate-900">
-                  <img
-                    src={project.image}
-                    alt={project.alt}
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out"
-                  />
-                </div>
-
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-
-                {/* Bottom Content Bar */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 flex items-end justify-between">
-                  <div className="space-y-1">
-                    <div className="font-heading font-bold text-2xl sm:text-[26px] text-white tracking-tight">
-                      {project.capacity}
-                    </div>
-                    <div className="text-xs text-white/75 font-medium">
-                      {project.category} <span className="text-white/40">|</span> {project.city}
-                    </div>
-                  </div>
-
-                  {/* Circular Arrow Button */}
-                  <div className="w-9 h-9 rounded-full border border-white/35 flex items-center justify-center text-white group-hover:border-white group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shrink-0">
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Counter at Bottom Right */}
-          <div className="flex justify-end items-center gap-2 mt-6 text-xs text-white/50 font-mono tracking-widest">
-            <span className="text-white font-bold">{String(currentProjectIndex + 1).padStart(2, '0')}</span>
-            <div className="w-8 h-[1px] bg-white/30" />
-            <span>03</span>
           </div>
 
         </div>
       </section>
 
-      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="bg-white border border-stone-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP (FULL-WIDTH CLEAN EDITORIAL) ── */}
+      <section className="border-t border-stone-200/80 bg-[#FCFAF7]">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-10 lg:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left Tagline */}
             <div className="md:col-span-3 space-y-1">
@@ -644,11 +653,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
 
             {/* Center Copy */}
-            <div className="md:col-span-6 md:border-l md:border-stone-200 md:pl-8 space-y-1.5">
+            <div className="md:col-span-6 md:border-l md:border-stone-200 md:pl-8 space-y-1">
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
                 Tell us about your property.
               </h3>
-              <p className="text-sm text-stone-600 font-normal leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-500 font-normal leading-relaxed">
                 We'll help assess the right solar solution for your space.
               </p>
             </div>
@@ -658,7 +667,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <PrimaryButton
                 size="md"
                 onClick={onCtaClick}
-                className="px-7 py-3 text-sm w-full sm:w-auto"
+                className="px-6 py-3 text-sm w-full sm:w-auto"
               >
                 Get a Solar Assessment
               </PrimaryButton>

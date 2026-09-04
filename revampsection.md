@@ -1,209 +1,231 @@
+Refine ONLY the existing “Featured Projects” section on the SolarARK services/solutions page.
 
-# SolarARK Services Page — 4-Phase Implementation Plan
+IMPORTANT:
+The currently implemented section is visually too tall because the dark navy background fills the entire section and consumes unnecessary vertical space. This is NOT what the provided SolarARK design reference shows.
 
-## Phase 1 — Audit + Page Foundation
+Use the previously provided `solutionpage.png` / reference design as the PRIMARY visual specification and the currently implemented screenshot as the element/content reference.
 
-**Goal:** Lock the content, layout system, and reusable structure before building the section.
+DO NOT redesign the section conceptually.
+DO NOT change the project content, project cards, navigation, footer, typography system, or overall SolarARK brand language.
+Do not introduce a new visual style.
+Preserve the existing functionality and carousel behavior.
 
-### Build
+THE MAIN FIX:
+The Featured Projects section should feel like a compact, editorial project showcase sitting inside a controlled dark visual band — NOT like a huge full-height dark-blue block.
 
-* Audit existing `/services` implementation and reuse existing global components wherever they already match the reference.
-* Verify service content against the official SolarARK website.
-* Establish the page-level grid, spacing, typography, colors, borders, image treatment and CTA styles from the supplied references.
-* Reuse the site's existing:
+### 1. REDUCE THE SECTION HEIGHT SIGNIFICANTLY
 
-  * Header/navigation
-  * Button/CTA
-  * Container
-  * Footer
-  * Typography tokens
-* Do **not** create duplicate versions of global components.
+Remove the unnecessary oversized vertical dark-blue canvas currently surrounding the content.
 
-### Technical approach
+The dark background should still exist, but it must behave as a tight section container whose height is determined naturally by its content.
 
-Use responsive CSS Grid/Flexbox with fluid sizing (`clamp()`, `minmax()`, `aspect-ratio`) instead of fixed positioning.
+Aim for the visual proportion shown in the reference:
+- compact upper content area
+- project cards become the dominant visual object
+- very limited empty vertical space below the cards
+- no giant dark background extending far beyond the actual content
 
-Create the page around reusable data-driven components rather than hard-coded markup.
+Do NOT solve this by simply shrinking everything.
+Instead, improve the composition and reclaim wasted space.
 
-### Dependency
+### 2. RECREATE THE REFERENCE COMPOSITION
 
-None.
+Use the reference's hierarchy:
 
-### Acceptance criteria
+[FEATURED PROJECTS]
+Real spaces. Real impact.
+Short supporting paragraph
+View All Projects
 
-* Content hierarchy is finalized.
-* Existing site-wide components are reused where appropriate.
-* Services page visually follows the established SolarARK system.
-* No unnecessary page-specific abstractions are introduced.
+                         ←   →
 
----
+[PROJECT CARD] [PROJECT CARD] [PROJECT CARD]
 
-# Phase 2 — Core Services Experience
+                                      01 ─── 03
 
-**Goal:** Build the majority of the page's user-facing experience.
+The section should feel approximately like one carefully composed editorial frame.
 
-### Build
+The left introductory block and the project cards should share the same visual rhythm and grid.
 
-**1. Services Hero**
+### 3. USE THE AVAILABLE SPACE MORE INTELLIGENTLY
 
-* Editorial headline and supporting statement.
-* Same spacing/typography hierarchy as the reference.
-* Restrained maroon/terracotta emphasis.
+Do not center everything vertically inside a giant section.
 
-**2. Three Solution Categories**
+Use a structured max-width container.
 
-* Residential
-* Commercial
-* Industrial
+Recommended composition:
+- generous horizontal breathing room
+- compact top/bottom padding
+- heading aligned with the project-card grid
+- carousel arrows positioned near the upper-right project area
+- pagination positioned near the lower-right edge of the project-card row
+- project cards should visually anchor the entire section
 
-Use one reusable `SolutionCard` component with unique content/image data.
+Use CSS Grid/Flexbox and responsive spacing rather than absolute page-level positioning.
 
-Desktop should use the strong **three-panel image-led layout** shown in the reference; tablet/mobile should naturally transition to fewer columns/stacked cards.
+Avoid arbitrary large heights such as:
+height: 700px;
+min-height: 700px;
+or viewport-based heights that create empty space.
 
-**3. Our Approach**
+The section should naturally size to its content.
 
-* Site Assessment
-* System Design
-* Installation
-* Ongoing Support
+### 4. PROJECT CARDS ARE THE HERO OF THIS SECTION
 
-Use the reference's image + process structure rather than a generic timeline/card layout.
+The cards should remain large enough to feel premium, but they should not create excessive overall section height.
 
-**4. Featured Projects / Proof**
+Keep:
+- strong photography
+- rounded corners consistent with the reference
+- dark image treatment/overlay only where needed for text readability
+- project capacity prominent
+- category/location underneath
+- circular arrow interaction
 
-* Reuse existing project data/components where possible.
-* Show a concise selection of real SolarARK projects.
-* Link through to actual project pages.
+The image itself should have a controlled aspect ratio similar to the reference.
 
-### Content strategy
+Do NOT make cards unnecessarily tall.
 
-Apply the 80/20 rule aggressively:
+Use:
+aspect-ratio
+object-fit: cover
+responsive grid sizing
 
-**Hero → identify solution type → explain value → show how SolarARK works → prove it with projects.**
+rather than fixed card heights.
 
-Avoid filling the page with technical information that belongs on deeper service/detail pages.
+### 5. DARK BACKGROUND TREATMENT
 
-### Technical approach
+The reference uses a dark, sophisticated section, but the darkness should feel like a framing device around the project showcase.
 
-* `SolutionsGrid`
-* `SolutionCard`
-* `ApproachSection`
-* `ProcessSteps`
-* `ProjectCard`
+The current result feels like a large dark-blue empty canvas.
 
-Make cards/data reusable so the same patterns can be extended to other revamped pages without rebuilding them.
+Fix that by:
+- reducing vertical padding
+- keeping the dark section tightly wrapped around the content
+- using subtle tonal variation / restrained ambient image influence only where appropriate
+- avoiding a heavy full-section vignette
+- avoiding large empty dark areas
 
-### Acceptance criteria
+The dark background should support the imagery, not compete with it.
 
-* The three service categories are the dominant decision point.
-* Each category is immediately understandable.
-* The process section communicates professionalism and methodology.
-* Real project proof supports the services.
-* Desktop composition closely follows the reference while remaining responsive.
+Maintain the SolarARK maroon/terracotta accent.
 
----
+Do NOT introduce green, blue eco gradients, excessive glow, glassmorphism, or black cinematic effects.
 
-# Phase 3 — Conversion + Responsive Refinement
+### 6. SPACING
 
-**Goal:** Finish the page as a conversion-oriented experience rather than simply matching the visual reference.
+Follow a premium editorial spacing system.
 
-### Build/refine
+Prioritize:
+- strong relationship between heading and supporting copy
+- intentional gap between intro content and cards
+- consistent card-to-card spacing
+- minimal unnecessary space beneath cards
 
-**Assessment CTA**
+The current implementation has too much vertical breathing room.
 
-* Strong closing CTA immediately before the footer.
-* Reuse the same primary assessment button used in the header.
-* Clear single next action rather than multiple competing CTAs.
+Reduce it substantially while preserving enough whitespace for a premium feel.
 
-**Responsive behavior**
-Test at:
+Think:
+“luxury editorial portfolio section”
+rather than
+“large landing-page banner”.
 
-`320px / 375px / 768px / 1024px / 1280px / 1440px+`
+### 7. DESKTOP LAYOUT
 
-Pay particular attention to:
+At desktop width, target approximately:
 
-* Hero headline wrapping
-* Three-card → stacked transition
-* Approach image/process transformation
-* Project card overflow/swiping
-* CTA sizing
-* Footer stacking
-* Navigation collapse
+┌───────────────────────────────────────────────────────────────┐
+│ FEATURED PROJECTS                               ←     →       │
+│                                                               │
+│ Real spaces. Real impact.                                    │
+│ Supporting description                                       │
+│                                                               │
+│ View All Projects                                            │
+│                                                               │
+│ [──────── card ────────] [──────── card ────────] [──────── card ────────] │
+│                                                               │
+│                                                        01 ─── 03 │
+└───────────────────────────────────────────────────────────────┘
 
-### UX refinement
+But use the actual reference proportions rather than literally reproducing this ASCII layout.
 
-Add restrained interactions:
+The card row should occupy the majority of the visual weight.
 
-* image hover treatment
-* subtle arrow movement
-* appropriate focus/hover states
-* minimal reveal/motion
+### 8. RESPONSIVE BEHAVIOR
 
-Avoid excessive animations or trendy effects that conflict with the calm SolarARK aesthetic.
+Desktop:
+- 3 cards visible
+- compact section height
+- arrows visible
+- pagination aligned cleanly
 
-### Acceptance criteria
+Tablet:
+- adapt card widths naturally
+- reduce gaps/padding
+- avoid forcing desktop proportions
 
-* No horizontal overflow at any supported width.
-* No clipped/overlapping content.
-* Mobile layout feels intentionally designed rather than compressed desktop.
-* CTA remains obvious and usable.
-* Interactions enhance usability without distracting from content.
+Mobile:
+- one card visible / horizontal carousel
+- horizontal swipe should feel natural
+- heading and CTA stack cleanly
+- arrows must not overlap important content
+- pagination remains visible
+- section remains compact
 
----
+At no breakpoint should the dark background become unnecessarily tall.
 
-# Phase 4 — Final QA + Visual Match
+### 9. PRESERVE EXISTING FUNCTIONALITY
 
-**Goal:** Make the result production-ready and ensure it actually feels like the supplied SolarARK design system.
+Keep:
+- current carousel logic
+- project links
+- arrow controls
+- project pagination
+- hover interactions
 
-### Verify
+Only improve their positioning and visual composition.
 
-**Content**
+Do not rewrite functionality unnecessarily.
 
-* Every service statement is accurate to the official SolarARK source.
-* No invented project figures, locations or claims.
-* All links and CTAs point to valid destinations.
+### 10. IMPLEMENTATION QUALITY
 
-**Visual**
+Build this as a reusable responsive component.
 
-* Typography hierarchy
-* Maroon/terracotta accent usage
-* Warm background treatment
-* Image quality/cropping
-* Section spacing
-* Borders/rules
-* Button styling
-* Footer consistency
+Avoid:
+- hard-coded desktop coordinates
+- large fixed heights
+- excessive absolute positioning
+- duplicated markup
+- viewport-specific hacks
+- arbitrary negative margins
 
-**Technical**
+Use:
+- CSS Grid
+- Flexbox
+- max-width containers
+- fluid spacing
+- aspect-ratio
+- clamp()
+- responsive media queries
 
-* Responsive behavior
-* Accessibility basics
-* Keyboard/focus states
-* Image alt text
-* Loading/performance
-* Console errors
-* Broken routes/assets
+### FINAL VISUAL TARGET
 
-### Acceptance criteria
+The final result should look much closer to the previously supplied SolarARK `solutionpage.png` reference:
 
-The page should pass this final test:
+- compact dark section
+- project cards visually dominant
+- strong editorial heading
+- controlled whitespace
+- clean arrows/pagination
+- no giant dark-blue empty area
+- premium SolarARK maroon accent
+- sophisticated, warm, restrained visual language
 
-> **At first glance it should look like it belongs to the same SolarARK website as the supplied Home, Projects and About references; at the same time, the content hierarchy should make the three solutions and assessment CTA immediately understandable.**
+Most importantly:
 
----
+DO NOT simply shrink the current section.
 
-## Final development sequence
+RECOMPOSE THE EXISTING ELEMENTS so the same content occupies significantly less unnecessary vertical space and the project cards become the main visual anchor, matching the proportions and spatial intelligence of the reference design.
 
-```text
-PHASE 1
-Audit + Foundation
-        ↓
-PHASE 2
-Hero + Solutions + Approach + Projects
-        ↓
-PHASE 3
-CTA + Responsive + Interaction
-        ↓
-PHASE 4
-QA + Visual/Content Verification
-```
+Before finishing, compare the implementation against the reference at 1440px, 1280px, 1024px, 768px and 375px widths and correct any spacing, overflow, alignment or proportion issues.
