@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SavingsCalculator } from './components/SavingsCalculator';
+import { SavingsResults } from './components/SavingsResults';
 import { HowItWorks } from './components/HowItWorks';
 import { Testimonials } from './components/Testimonials';
 import { TechnologySection } from './components/TechnologySection';
@@ -23,6 +24,7 @@ import { GalleryPage } from './components/GalleryPage';
 import { CareersPage } from './components/CareersPage';
 import { ContactPage } from './components/ContactPage';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
+import { CalculatorResults } from './types';
 
 export default function App() {
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
@@ -31,6 +33,7 @@ export default function App() {
     pincode: '444601',
     monthlyBill: 8500,
   });
+  const [calculatorResults, setCalculatorResults] = useState<CalculatorResults | null>(null);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -148,6 +151,10 @@ export default function App() {
     scrollToContactForm();
   };
 
+  const handleResultsCalculated = (results: CalculatorResults) => {
+    setCalculatorResults(results);
+  };
+
   // Dedicated Page Container wrapper with Breadcrumbs & Back link
   const renderDedicatedPage = (
     title: string,
@@ -228,6 +235,16 @@ export default function App() {
                 initialPincode={calculatorState.pincode}
                 initialBill={calculatorState.monthlyBill}
               />
+
+              {calculatorResults && (
+                <SavingsResults
+                  results={calculatorResults}
+                  pincode={calculatorState.pincode}
+                  monthlyBill={calculatorState.monthlyBill}
+                  onTalkToExpert={scrollToContactForm}
+                  onRoofHelpClick={scrollToContactForm}
+                />
+              )}
             </div>
 
             {/* 5. Deep-Dive Bento Teaser Grid */}
