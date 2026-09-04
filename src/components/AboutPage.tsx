@@ -1,27 +1,28 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
+ * AboutPage — High-End Editorial About Page for SolarArk Projects Pvt. Ltd.
+ *
+ * Designed in exact alignment with the master architectural reference:
+ * 1. Hero Band: Editorial typography ("real life." in maroon #8B1E1E), paragraph,
+ *    and a full-bleed architectural solar facade visual bleeding to the right edge.
+ * 2. Origin Story Band: 3-part seamless panoramic strip (field engineer visual with
+ *    "From Maharashtra, for a cleaner tomorrow." quote + white story panel + sunset panel).
+ *    Zero unnecessary vertical spacing from the hero!
+ * 3. What We Believe Band: Statement with maroon accent ("a better tomorrow.") +
+ *    supporting copy + 3 numbered minimal text pillars, paired with full-bleed
+ *    technology-solar-module.jpg on the right with sun flare.
+ * 4. Team Band: Full-width panoramic band with field engineering team, dark gradient scrim,
+ *    headline, and "Meet Our Team" outline pill CTA.
+ * 5. Process Band (How We Work): Compact minimal horizontal rail with circle arrow button,
+ *    4 step labels with minimal underline dashes, and vertical accent text.
+ * 6. Journey Band (Behind Every Installation): Compact header with navigation buttons (< >)
+ *    and a continuous 6-tile photo strip with tight gap.
+ * 7. Bottom CTA Band: Panoramic landscape visual background with headline and dual pill CTAs.
+ *
+ * @license SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import {
-  CheckCircle2,
-  Sun,
-  Globe,
-  SunMedium,
-  Target,
-  Eye,
-  Award,
-  Users,
-  Zap,
-  ShieldCheck,
-  MapPin,
-  ArrowRight,
-  Sparkles
-} from 'lucide-react';
-
-import { OurJourney } from './OurJourney';
-import { PrimaryButton } from './PrimaryButton';
+import React, { useRef, useState, useEffect } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -30,296 +31,586 @@ interface AboutPageProps {
   prefilledBill?: number;
 }
 
+/* ── 6 Curated Photos for Band 6 Journey Strip ── */
+const journeyStripPhotos = [
+  {
+    src: '/images/process/stage-03-install-wide.jpg',
+    alt: 'SolarARK certified engineers installing Tier-1 modules',
+  },
+  {
+    src: '/images/process/stage-01-survey-rooftop.jpg',
+    alt: 'High-precision laser site survey and shadow analysis',
+  },
+  {
+    src: '/images/process/stage-02-cad-design.jpg',
+    alt: '3D CAD structural blueprints and generation simulation',
+  },
+  {
+    src: '/images/process/stage-04-commission-inverter.png',
+    alt: 'Inverter telemetry and net-metering synchronization',
+  },
+  {
+    src: '/images/solar-villa-sunset.jpg',
+    alt: 'Completed luxury residential solar installation at sunset',
+  },
+  {
+    src: '/images/gallery/gallery1.jpg',
+    alt: 'SolarARK annual milestone lamp lighting celebration',
+  },
+];
+
 export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigate,
   onCtaClick,
-  prefilledPincode = '444601',
-  prefilledBill = 8500,
 }) => {
+  /* ── Gallery scroll controls ── */
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const impactStats = [
-    { value: '5,000+', label: 'Rooftops Powered', icon: Zap },
-    { value: '12+', label: 'Districts Covered', icon: MapPin },
-    { value: '25 Yr', label: 'SunSure Warranty', icon: ShieldCheck },
-    { value: '₹78K', label: 'Max Govt. Subsidy', icon: Award },
-  ];
+  const updateScrollState = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 6);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 6);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState);
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, []);
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.6;
+    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
 
   return (
     <div
-      className="pt-20 lg:pt-24 pb-8 min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="min-h-screen bg-[#FAF9F6] text-slate-900 overflow-x-hidden selection:bg-[#8B1E1E] selection:text-white"
       itemScope
       itemType="https://schema.org/Organization"
     >
-      {/* Schema.org microdata */}
       <meta itemProp="name" content="SolarArk Projects Pvt. Ltd." />
       <meta itemProp="url" content="https://www.thesolarark.com/about" />
 
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 1 — HERO
+          Left: Editorial headline ("real life." in #8B1E1E maroon),
+                subtle paragraph, tagline with dash rule.
+          Right: Architectural solar facade reaching the edge.
+          Far right: CLEANER / BRIGHTER / MAHARASHTRA stacked text.
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-[#FAF9F6] border-b border-stone-200/50">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
-
-      {/* ── 1. HERO ABOUT BANNER ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 rounded-3xl p-8 sm:p-12 lg:p-16 text-slate-900 shadow-md border border-stone-200/90 overflow-hidden">
-          {/* Ambient glows */}
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-[#8B1E1E]/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/8 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 text-[11px] font-bold font-heading tracking-wider uppercase shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-stone-600" />
-                <span>Since 2020 • Central India's Solar EPC Leader</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold font-heading tracking-tight leading-[1.1]">
-                Building India's Solar Future,{' '}
-                <span className="text-accent-light">One Rooftop at a Time</span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
-                SolarArk Projects Pvt. Ltd. is Maharashtra's fastest-growing residential &amp; commercial rooftop solar EPC company. Founded by <strong className="text-slate-900">Shrikant Tikhile</strong>, we have powered 5,000+ rooftops across 12 districts with Tier-1 bifacial modules, end-to-end turnkey engineering, and the 25-year SunSure Promise.
+          {/* Left Column: Editorial Headline & Copy */}
+          <div className="lg:col-span-6 px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 pt-20 pb-12 sm:pt-24 sm:pb-14 lg:py-16 xl:py-20 flex flex-col justify-center">
+            <div className="max-w-xl">
+              <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] mb-4 uppercase font-medium">
+                ABOUT SOLAR ARK
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-2">
-                <PrimaryButton
-                  onClick={onCtaClick}
-                  size="md"
-                >
-                  Request Free Site Survey
-                </PrimaryButton>
+              <h1
+                className="hero-display text-[#0B1730] tracking-tight leading-[1.04] mb-5 font-bold"
+                style={{ fontSize: 'clamp(2.5rem, 1.8rem + 3.2vw, 4.75rem)' }}
+              >
+                Energy that
+                <br />
+                works for{' '}
+                <span className="text-[#8B1E1E]">real life.</span>
+              </h1>
+
+              <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-md mb-7">
+                We design and deliver solar solutions that make clean energy practical,
+                reliable and truly beneficial for the spaces people live, work and grow in.
+              </p>
+
+              <div className="flex items-center gap-3 pt-1">
+                <div className="w-8 h-[1.5px] bg-stone-400" />
+                <span className="text-[11px] font-heading font-semibold text-stone-500 tracking-[0.2em] uppercase">
+                  ASSURED RENEWABLE KOMFORT
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Architectural Solar Facade & Stacked Text */}
+          <div className="lg:col-span-6 relative h-[380px] sm:h-[440px] lg:h-auto min-h-[460px] flex items-stretch">
+            <div className="relative flex-1 h-full overflow-hidden">
+              <img
+                src="/images/solar-villa-sunset.jpg"
+                alt="SolarARK modern architectural building with integrated solar rooftop at sunset"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+            </div>
+
+            {/* Stacked Word Column on Far Right (Matching Reference) */}
+            <div className="hidden xl:flex w-24 shrink-0 bg-[#FAF9F6] flex-col justify-start items-center pt-8 px-2 border-l border-stone-200/40">
+              <div className="flex flex-col items-start gap-1 text-[9px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase leading-tight">
+                <span>CLEANER</span>
+                <span>BRIGHTER</span>
+                <span>MAHARASHTRA</span>
+                <div className="w-5 h-[1.5px] bg-stone-400 mt-2" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 2 — ORIGIN STORY STRIP ("Where it all began.")
+          3-Part Panoramic Strip meeting Hero with ZERO gap.
+          Left: Field engineer visual + "From Maharashtra, for a cleaner tomorrow."
+          Center: Clean white story block with "Our Journey ->"
+          Right: Sunset panel + "SAME SPACES NEW POSSIBILITIES"
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative w-full bg-[#0B1730] overflow-hidden border-b border-stone-200/50">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
+
+          {/* Part 1 (Left 6 cols): Field Engineer Visual with Quote Scrim */}
+          <div className="lg:col-span-6 relative h-[360px] sm:h-[420px] lg:h-[480px] overflow-hidden">
+            <img
+              src="/images/process/stage-03-install-wide.jpg"
+              alt="SolarARK engineers reviewing blueprints on a Maharashtra rooftop solar installation"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+            {/* Gradient scrim for quote legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+            <div className="absolute bottom-8 left-6 sm:bottom-10 sm:left-10 lg:left-16 max-w-sm z-10">
+              <blockquote className="font-heading font-medium text-white text-lg sm:text-xl lg:text-2xl leading-snug mb-3">
+                “From
+                <br />
+                Maharashtra,
+                <br />
+                for a cleaner
+                <br />
+                tomorrow.”
+              </blockquote>
+              <div className="w-6 h-[1.5px] bg-stone-300" />
+            </div>
+          </div>
+
+          {/* Part 2 (Center 4 cols): Clean White Origin Story Panel */}
+          <div className="lg:col-span-4 bg-white text-[#0B1730] px-8 py-10 sm:px-10 sm:py-12 lg:p-12 xl:p-14 flex flex-col justify-center">
+            <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] mb-3 uppercase font-medium">
+              OUR STORY
+            </p>
+            <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.12] mb-4">
+              Where it
+              <br />
+              all began.
+            </h2>
+            <p className="text-sm sm:text-[14px] text-stone-600 leading-relaxed mb-5">
+              Solar Ark was founded with a clear purpose — to make renewable energy accessible,
+              reliable and relevant for homes, businesses and industries. What began as a small
+              team with a big vision has grown into a trusted solar partner for clients across Maharashtra.
+            </p>
+            <div className="w-6 h-[1.5px] bg-stone-300 mb-5" />
+            <div>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('journey-gallery');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-2 text-sm font-heading font-semibold text-[#8B1E1E] hover:text-[#A82424] transition-colors cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+              >
+                <span>Our Journey</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </div>
+          </div>
+
+          {/* Part 3 (Right 2 cols): Sunset Solar Panel Visual */}
+          <div className="lg:col-span-2 relative h-[220px] lg:h-[480px] overflow-hidden hidden sm:block">
+            <img
+              src="/images/earnwithus/earnwithus-hero-rooftop.jpg"
+              alt="Solar panels reflecting the golden sunset"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+            {/* Dark overlay with stacked text */}
+            <div className="absolute inset-0 bg-black/25" />
+            <div className="hidden xl:flex absolute right-4 top-8 flex-col items-start gap-1 z-10">
+              <div className="flex flex-col items-start text-[8px] font-heading font-semibold text-white/90 drop-shadow-md tracking-[0.24em] uppercase leading-tight">
+                <span>SAME</span>
+                <span>SPACES</span>
+                <span>NEW</span>
+                <span>POSSIBILITIES</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 3 — WHAT WE BELIEVE
+          Zero gap from Band 2.
+          Left: Statement ("a better tomorrow." in #8B1E1E maroon) +
+                supporting paragraph + 3 minimal numbered pillars.
+          Right: technology-solar-module.jpg with sun flare.
+          Far right: DIFFERENT / SPACES / SAME / PURPOSE stacked text.
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-[#FAF9F6] border-b border-stone-200/60">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
+
+          {/* Left Column (7 cols): Belief Statement, Paragraph, and 3 Pillars */}
+          <div className="lg:col-span-7 px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-12 py-12 sm:py-14 lg:py-16 flex flex-col justify-center">
+            <div className="max-w-2xl">
+              <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] mb-3 uppercase font-medium">
+                WHAT WE BELIEVE
+              </p>
+
+              {/* Split row: Headline on left, supporting copy on right */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start mb-8 lg:mb-10">
+                <div className="md:col-span-7">
+                  <h2
+                    className="font-heading font-bold text-[#0B1730] tracking-tight leading-[1.08]"
+                    style={{ fontSize: 'clamp(1.75rem, 1.2rem + 2vw, 2.75rem)' }}
+                  >
+                    Good solar is not
+                    <br />
+                    just technology.
+                    <br />
+                    It’s <span className="text-[#8B1E1E]">a better tomorrow.</span>
+                  </h2>
+                </div>
+                <div className="md:col-span-5 pt-1">
+                  <p className="text-xs sm:text-[13px] text-stone-600 leading-relaxed">
+                    Every space is different. Every energy need is unique. We believe in
+                    thoughtful design, reliable execution and long-term support — because
+                    real progress comes from solutions that truly fit your world.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Numbered Minimal Pillars in a Horizontal Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 border-t border-stone-200/80 pt-6">
+                <div>
+                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-1.5">
+                    01
+                  </span>
+                  <h3 className="font-heading font-bold text-base text-[#0B1730] tracking-tight mb-1">
+                    Thoughtful Design
+                  </h3>
+                  <p className="text-xs text-stone-500 leading-relaxed">
+                    Solutions designed around real needs.
+                  </p>
+                </div>
+
+                <div>
+                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-1.5">
+                    02
+                  </span>
+                  <h3 className="font-heading font-bold text-base text-[#0B1730] tracking-tight mb-1">
+                    Reliable Execution
+                  </h3>
+                  <p className="text-xs text-stone-500 leading-relaxed">
+                    Quality in every detail.
+                  </p>
+                </div>
+
+                <div>
+                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-1.5">
+                    03
+                  </span>
+                  <h3 className="font-heading font-bold text-base text-[#0B1730] tracking-tight mb-1">
+                    Long-term Support
+                  </h3>
+                  <p className="text-xs text-stone-500 leading-relaxed">
+                    We stay with you beyond installation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column (5 cols): Angled Solar Panel with Sun Flare */}
+          <div className="lg:col-span-5 relative h-[320px] sm:h-[380px] lg:h-auto min-h-[420px] flex items-stretch">
+            <div className="relative flex-1 h-full overflow-hidden">
+              <img
+                src="/images/technology-solar-module.jpg"
+                alt="High-efficiency solar module angled toward the sun with brilliant flare"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+            </div>
+            {/* Stacked Word Column on Far Right */}
+            <div className="hidden xl:flex w-24 shrink-0 bg-[#FAF9F6] flex-col justify-end items-center pb-8 px-2 border-l border-stone-200/40">
+              <div className="flex flex-col items-start gap-1 text-[9px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase leading-tight">
+                <span>DIFFERENT</span>
+                <span>SPACES</span>
+                <span>SAME</span>
+                <span>PURPOSE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 4 — THE TEAM BAND
+          Full-width panoramic photo band with hardhat team.
+          Left: Dark scrim + "THE PEOPLE BEHIND SOLAR ARK" + headline +
+                "Meet Our Team ->" outline pill CTA.
+          Right: "Different perspectives. A shared purpose."
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[380px] sm:min-h-[420px] lg:min-h-[440px] flex items-center">
+        {/* Full-width panoramic background visual */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src="/images/process/stage-03-install-wide.jpg"
+            alt="SolarARK field engineering team on installation site at sunset"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+          {/* Panoramic dark gradient scrim across the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30" />
+        </div>
+
+        {/* Content Container */}
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 py-12 sm:py-14 lg:py-16 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+
+            {/* Left: Eyebrow, Headline, and Outline Pill CTA */}
+            <div className="max-w-xl space-y-4">
+              <p className="eyebrow text-xs text-stone-300 tracking-[0.2em] uppercase font-medium">
+                THE PEOPLE
+                <br />
+                BEHIND SOLAR ARK
+              </p>
+              <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.08]">
+                A team that
+                <br />
+                builds what
+                <br />
+                matters.
+              </h2>
+              <div className="pt-2">
                 <button
-                  onClick={() => onNavigate('/projects')}
-                  className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-heading font-bold text-xs sm:text-sm px-6 py-3 rounded-xl border border-stone-200 transition-all flex items-center gap-2 cursor-pointer"
+                  onClick={() => onNavigate('/gallery')}
+                  className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white group"
                 >
-                  <span>View Our 5,000+ Projects</span>
+                  <span>Meet Our Team</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
             </div>
 
-            {/* Founder Portrait */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200/90 bg-stone-100">
-                <img
-                  src="/images/official-founder-office-clean.png"
-                  alt="SolarArk Founder Shrikant Tikhile at Company Headquarters"
-                  className="w-full h-[300px] sm:h-[380px] object-cover object-center"
-                  onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="text-xs font-bold text-amber-300 font-heading tracking-wider uppercase">Founder & Managing Director</div>
-                  <div className="text-lg font-bold text-white font-heading mt-0.5">Shrikant Tikhile</div>
-                </div>
-              </div>
+            {/* Right: Signature Editorial Quote */}
+            <div className="max-w-xs text-left lg:text-right">
+              <blockquote className="font-heading italic text-stone-200 text-sm sm:text-base leading-snug drop-shadow-md mb-2">
+                “Different
+                <br />
+                perspectives.
+                <br />
+                <span className="text-white font-medium not-italic">A shared purpose.”</span>
+              </blockquote>
+              <div className="w-6 h-[1.5px] bg-stone-300 ml-auto hidden lg:block" />
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 2. IMPACT STATS STRIP ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-14">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {impactStats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-2xs text-center space-y-2 hover:border-[#8B1E1E]/40 hover:shadow-xs transition-all"
-            >
-              <div className="w-10 h-10 rounded-xl bg-red-50 text-[#8B1E1E] flex items-center justify-center mx-auto">
-                <stat.icon className="w-5 h-5" />
-              </div>
-              <div className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                {stat.value}
-              </div>
-              <div className="text-xs font-bold text-stone-500 uppercase tracking-wider font-heading">
-                {stat.label}
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 5 — PROCESS (How We Work)
+          Compact minimal horizontal rail:
+          Left: "HOW WE WORK" + headline + circle arrow button.
+          Right: 4 steps (01, 02, 03, 04) with minimal underline dashes.
+          Far right: A SMOOTHER / CLEANER / BRIGHTER / TOMORROW.
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-[#FAF9F6] border-b border-stone-200/60 py-8 sm:py-10 lg:py-12">
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+            {/* Left: Intro + Circle Arrow Button */}
+            <div className="lg:col-span-4 space-y-3">
+              <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] uppercase font-medium">
+                HOW WE WORK
+              </p>
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl tracking-tight leading-[1.12]">
+                From understanding
+                <br />
+                to lasting impact.
+              </h2>
+              <div>
+                <button
+                  onClick={onCtaClick}
+                  className="w-10 h-10 rounded-full border border-stone-300 hover:border-[#8B1E1E] hover:bg-[#8B1E1E]/5 flex items-center justify-center transition-all cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Schedule a site consultation"
+                >
+                  <ArrowRight className="w-4 h-4 text-stone-600 group-hover:text-[#8B1E1E] transition-colors" />
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-14">
-
-        {/* ── 3. OUR JOURNEY TIMELINE ── */}
-        <OurJourney />
-
-        {/* ── 4. WHO WE ARE ── */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          <div className="lg:col-span-6 space-y-5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold text-stone-700 font-heading shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              <span>Company Profile</span>
-            </div>
-
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-[1.12]">
-              Who Are <span className="text-accent-light">We?</span>
-            </h2>
-
-            <p className="text-base sm:text-lg text-stone-600 leading-relaxed">
-              We build strong, lasting partnerships with our clients — delivering customized solar rooftop systems that align with their unique energy needs, roof structures, and financial goals. Whether you are a homeowner reducing your electricity bill, a housing society going green, or an industrial unit cutting operational costs, SolarArk is your end-to-end turnkey EPC partner.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Right: 4 Horizontal Steps with Underline Dashes */}
+            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-6 relative">
               {[
-                'Tier-1 Bifacial Solar Modules',
-                'Battery & Hybrid Storage',
-                'Solar Financing & EMI Options',
-                '24×7 Monitoring & Support',
-              ].map((cap, idx) => (
-                <div key={idx} className="flex items-center gap-3 bg-white border border-stone-200/80 rounded-xl p-3.5 shadow-2xs hover:border-[#8B1E1E]/30 transition-colors">
-                  <div className="w-7 h-7 rounded-lg bg-red-50 text-[#8B1E1E] flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <span className="text-xs sm:text-sm font-bold text-slate-900 font-heading">
-                    {cap}
+                { num: '01', line1: 'Understand', line2: 'the Site' },
+                { num: '02', line1: 'Design', line2: 'the System' },
+                { num: '03', line1: 'Execute', line2: 'Professionally' },
+                { num: '04', line1: 'Support', line2: 'Long-term' },
+              ].map((step) => (
+                <div key={step.num} className="space-y-1.5">
+                  <span className="text-xs font-heading font-semibold text-stone-400 block">
+                    {step.num}
                   </span>
+                  <h3 className="font-heading font-bold text-sm sm:text-[15px] text-[#0B1730] tracking-tight leading-snug">
+                    {step.line1}
+                    <br />
+                    {step.line2}
+                  </h3>
+                  <div className="w-5 h-[1.5px] bg-stone-300 pt-0.5" />
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-stone-200/90 bg-stone-100 group">
-              <img
-                src="/images/official-founder-desk-clean.png"
-                alt="SolarArk Management Office & Operations Desk"
-                className="w-full h-[320px] sm:h-[400px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
+            {/* Far Right: Stacked Text Accent (Matching Reference) */}
+            <div className="hidden xl:flex lg:col-span-1 justify-end">
+              <div className="flex flex-col items-start text-[8px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase leading-tight">
+                <span>A SMOOTHER</span>
+                <span>CLEANER</span>
+                <span>BRIGHTER</span>
+                <span>TOMORROW</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 6 — JOURNEY STRIP ("Behind Every Installation")
+          Compact header with "A GLIMPSE INTO OUR JOURNEY" and (< >) arrows.
+          Underneath: Continuous 6-tile photo strip showing all 6 photos side-by-side.
+          ════════════════════════════════════════════════════════════════ */}
+      <section id="journey-gallery" className="py-10 sm:py-12 lg:py-14 bg-[#FAF9F6] scroll-mt-20 border-b border-stone-200/50">
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+
+          {/* Compact Header Row */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5 sm:mb-6">
+            <div>
+              <p className="eyebrow text-xs text-stone-500 mb-1 tracking-[0.2em] uppercase font-medium">
+                BEHIND EVERY INSTALLATION
+              </p>
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl tracking-tight leading-[1.14]">
+                Real people. Real progress.
+              </h2>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] sm:text-[11px] font-heading font-semibold text-stone-400 tracking-[0.18em] uppercase hidden sm:block">
+                A GLIMPSE INTO OUR JOURNEY
+              </span>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => scroll('left')}
+                  disabled={!canScrollLeft}
+                  className="w-8 h-8 sm:w-8 sm:h-8 rounded-full border border-stone-300 hover:border-stone-500 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Scroll photo strip left"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5 text-stone-600" />
+                </button>
+                <button
+                  onClick={() => scroll('right')}
+                  disabled={!canScrollRight}
+                  className="w-8 h-8 sm:w-8 sm:h-8 rounded-full border border-stone-300 hover:border-stone-500 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Scroll photo strip right"
+                >
+                  <ChevronRight className="w-3.5 h-3.5 text-stone-600" />
+                </button>
+              </div>
             </div>
           </div>
-        </section>
 
-        {/* ── 5. OUR COMMITMENT BLOCKS ── */}
-        <section className="space-y-12 pt-4">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold text-stone-700 font-heading shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              <span>Our Commitment</span>
-            </div>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-[1.14]">
-              Exceptional Quality. End-to-End Service.{' '}
-              <span className="text-accent-light">Delighted Customers.</span>
-            </h2>
-            <div className="flex items-center justify-center gap-3 text-[#8B1E1E]/40">
-              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#8B1E1E]/30" />
-              <Sun className="w-4 h-4 text-[#8B1E1E]/60" />
-              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#8B1E1E]/30" />
-            </div>
-          </div>
-
-          {/* Block 01 */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+          {/* Continuous 6-Tile Photo Strip (6 Columns on Desktop matching reference exactly) */}
+          <div
+            ref={scrollRef}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 lg:gap-3"
+          >
+            {journeyStripPhotos.map((photo, idx) => (
+              <div
+                key={idx}
+                className="w-full aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/3] overflow-hidden group cursor-pointer bg-stone-100"
+              >
                 <img
-                  src="/images/target-env-sunset-roof.jpg"
-                  alt="Environmental Responsibility — Solar Rooftop at Sunset"
-                  className="w-full h-[280px] sm:h-[360px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/official-env-sunset-roof.png';
-                  }}
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="eager"
                 />
               </div>
-              <div className="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#8B1E1E] text-white rounded-full border-4 border-[#FAF9F6] shadow-xl items-center justify-center z-10">
-                <Globe className="w-5 h-5" />
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 space-y-4 sm:pl-4">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-bold text-stone-400 font-heading">01</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
-              </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Environmental Responsibility
-              </h3>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                At SolarArk, we are pioneers in the solar energy revolution — dedicated to providing innovative, cost-effective, and sustainable solar solutions to homes, businesses, and industries across Maharashtra. We believe renewable energy is the key to building a brighter, more sustainable future, and every rooftop we power reduces carbon footprints and promotes environmental stewardship.
-              </p>
-            </div>
+            ))}
           </div>
 
-          {/* Block 02 */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            <div className="lg:col-span-7 space-y-4 sm:pr-4 order-2 lg:order-1">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-bold text-stone-400 font-heading">02</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
-              </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Engineered Solar Systems
-              </h3>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                With a focus on quality, efficiency, and customer satisfaction, we ensure that each solar solution is structurally engineered and tailored to the unique needs of our clients. Whether you're looking to reduce your home's energy costs, transition your business to renewable power, or implement large-scale solar systems in industrial facilities, SolarArk guides you every step of the way — from 3D roof survey to net-metering commissioning.
-              </p>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 7 — BOTTOM CTA ("Building a cleaner future, together.")
+          Warm golden dusk landscape visual background with dark charcoal headline
+          on left & maroon pill CTA + soft taupe outline pill CTA on right.
+          ════════════════════════════════════════════════════════════════ */}
+      <section className="relative w-full overflow-hidden py-14 sm:py-16 lg:py-20">
+        {/* Warm golden dusk landscape texture */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src="/images/projects-backdrop.jpg"
+            alt="Maharashtra mountain horizon at sunset"
+            className="w-full h-full object-cover object-center"
+            loading="eager"
+          />
+          {/* Warm ambient sunset wash (matching reference) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F6EDE0]/95 via-[#EEDDCA]/85 to-[#E6D1BA]/80" />
+        </div>
+
+        {/* Content */}
+        <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+            <div className="md:w-7/12">
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[40px] tracking-tight leading-[1.1]">
+                Building a cleaner future,
+                <br />
+                together.
+              </h2>
             </div>
 
-            <div className="lg:col-span-5 relative group order-1 lg:order-2">
-              <div className="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#8B1E1E] text-white rounded-full border-4 border-[#FAF9F6] shadow-xl items-center justify-center z-10">
-                <SunMedium className="w-5 h-5" />
-              </div>
-              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-                <img
-                  src="/images/target-solar-systems-roof.jpg"
-                  alt="SolarArk Engineered Commercial Rooftop Installation"
-                  className="w-full h-[280px] sm:h-[360px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/official-solar-systems-roof.png';
-                  }}
-                />
-              </div>
+            <div className="md:w-5/12 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 justify-end w-full">
+              <button
+                onClick={() => onNavigate('/projects')}
+                className="inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E1E] hover:bg-[#A82424] rounded-full px-7 py-3 transition-all duration-300 cursor-pointer shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+              >
+                <span>Explore Our Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={onCtaClick}
+                className="inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-[#0B1730] bg-[#FAF8F5]/60 hover:bg-[#FAF8F5] border border-stone-400/60 rounded-full px-7 py-3 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1730]"
+              >
+                Talk to Our Team
+              </button>
             </div>
           </div>
-        </section>
-
-        {/* ── 6. MISSION & VISION ── */}
-        <section className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 border border-stone-200/90 rounded-3xl p-8 sm:p-12 shadow-md">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-
-            {/* Mission */}
-            <div className="space-y-4 relative">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#8B1E1E] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Target className="w-5 h-5" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold text-slate-900">Our Mission</h3>
-              </div>
-              <div className="border-l-4 border-[#8B1E1E] pl-5 space-y-2">
-                <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                  SolarArk's mission extends beyond projects. We nurture awareness about sustainable living practices, inspire individuals to make eco-conscious choices, and deliver complete turnkey solar rooftop installations — from subsidy filing to net-metering commissioning — so homeowners never need to visit a government office.
-                </p>
-              </div>
-            </div>
-
-            {/* Vision */}
-            <div className="space-y-4 relative">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Eye className="w-5 h-5" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold text-slate-900">Our Vision</h3>
-              </div>
-              <div className="border-l-4 border-amber-400 pl-5 space-y-2">
-                <p className="text-xs sm:text-sm text-stone-700 font-semibold italic leading-relaxed">
-                  "Empowering Communities, Illuminating Futures: SolarArk's Vision for a Sustainable India"
-                </p>
-                <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                  We envision a future where every corner of India is powered by clean, sustainable energy — where communities thrive in harmony with nature, and where innovation and tradition converge to create a brighter tomorrow. Our vision is to lead India's rooftop solar revolution from the heartland of Maharashtra.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-      </div>
+        </div>
+      </section>
 
     </div>
   );
 };
+
