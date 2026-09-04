@@ -117,15 +117,24 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`relative px-3.5 py-1.5 rounded-full text-[13.5px] xl:text-[14.5px] font-heading font-medium tracking-tight transition-all cursor-pointer ${
+                  className={`relative px-4 py-1.5 rounded-full text-[13.5px] xl:text-[14.5px] font-heading font-medium tracking-tight transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/30 font-semibold ring-1 ring-white/20'
+                      ? isDarkHero
+                        ? 'bg-white/15 text-white font-semibold shadow-xs'
+                        : 'bg-[#8B1E2D]/8 text-[#8B1E2D] font-semibold'
                       : isDarkHero
                       ? 'text-white hover:text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]'
-                      : 'text-slate-700 hover:text-[#8B1E1E] hover:bg-stone-100/80'
+                      : 'text-slate-700 hover:text-[#8B1E2D] hover:bg-stone-100/80'
                   }`}
                 >
                   <span>{item.name}</span>
+                  {isActive && (
+                    <span
+                      className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
+                        isDarkHero ? 'bg-amber-400' : 'bg-[#8B1E2D]'
+                      }`}
+                    />
+                  )}
                 </button>
               );
             })}
@@ -133,25 +142,27 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* 3. RIGHT: Symmetrical Action Group (Refined Call Action + High-Conversion CTA) */}
           <div className="hidden lg:flex items-center justify-end gap-2.5 xl:gap-3 shrink-0">
-            {/* Refined Premium Call Button (Eye-Catching, AI-Indicator Removed) */}
+            {/* Refined Premium Call Button (Directly Matching media_1788508458641.png) */}
             <a
               href="tel:7080909590"
-              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 hover:scale-105 active:scale-95 ${
+              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]/40 hover:scale-105 active:scale-95 ${
                 isDarkHero
-                  ? 'bg-white/10 hover:bg-[#8B1E1E] border border-white/25 hover:border-[#8B1E1E] text-white backdrop-blur-md shadow-xs hover:shadow-[0_4px_20px_rgba(139,30,30,0.45)] ring-1 ring-white/10'
-                  : 'bg-white hover:bg-[#8B1E1E] border border-stone-200 hover:border-[#8B1E1E] text-[#8B1E1E] hover:text-white shadow-xs hover:shadow-[0_4px_16px_rgba(139,30,30,0.25)] ring-1 ring-black/[0.04]'
+                  ? 'bg-white/10 hover:bg-white/20 border border-white/25 text-white backdrop-blur-md shadow-xs'
+                  : 'bg-white hover:bg-stone-50 border border-[#8B1E2D]/22 text-[#8B1E2D] shadow-[0_4px_16px_-2px_rgba(139,30,45,0.18)] hover:shadow-[0_6px_22px_-2px_rgba(139,30,45,0.28)]'
               }`}
               title="Instant Helpline: +91 7080909590 (Mon-Sat 9:30 AM - 7:00 PM)"
               aria-label="Direct Phone Helpline"
             >
-              <PhoneCall className="w-[18px] h-[18px] stroke-[1.9] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110" />
+              <PhoneCall className={`w-[18px] h-[18px] stroke-[1.9] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110 ${
+                isDarkHero ? 'text-white' : 'text-[#8B1E2D]'
+              }`} />
             </a>
 
             {/* Primary High-Conversion CTA Button (Executive Reference Archetype) */}
             <PrimaryButton
               size="sm"
               onClick={onCtaClick}
-              className="text-[13.5px] xl:text-[14px]"
+              className="px-6 py-2.5 text-[13.5px] xl:text-[14px]"
             >
               Get A Quote
             </PrimaryButton>
@@ -165,7 +176,7 @@ export const Header: React.FC<HeaderProps> = ({
               className={`relative flex items-center justify-center w-9 h-9 rounded-full active:scale-95 transition-all duration-300 ${
                 isDarkHero
                   ? 'bg-white/10 border border-white/25 text-white backdrop-blur-md shadow-xs'
-                  : 'bg-white text-[#8B1E1E] border border-stone-200 shadow-xs'
+                  : 'bg-white text-[#8B1E2D] border border-[#8B1E2D]/22 shadow-xs'
               }`}
               title="Call Helpline"
               aria-label="Call Helpline"

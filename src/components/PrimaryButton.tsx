@@ -9,6 +9,7 @@ import { ArrowRight } from 'lucide-react';
 export interface PrimaryButtonProps {
   children: React.ReactNode;
   as?: 'button' | 'a';
+  variant?: 'primary' | 'secondary';
   href?: string;
   target?: string;
   rel?: string;
@@ -29,15 +30,17 @@ export interface PrimaryButtonProps {
 /**
  * PrimaryButton - Strict implementation of the executive reference design
  * Features:
- * - Deep, velvety oxblood / burgundy radial gradient
- * - Ultra-fine luminous crimson perimeter stroke
- * - Ambient warm-red halo & back-bloom
- * - Minimalist right arrow with smooth glide on hover
- * - Zero AI gloss, zero heavy badges, pure luxury feel
+ * - Visually dominant warm maroon palette (#8B1E2D, #A93446 hover, #6E1421 depth)
+ * - Restrained warm-maroon border highlight
+ * - Ambient warm diffused shadow underneath
+ * - Minimalist right arrow with smooth glide on hover (primary)
+ * - Secondary mode without arrow for quieter actions (e.g. Contact Us)
+ * - Zero AI gloss, zero heavy badges, pure luxury brand feel
  */
 export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   children,
   as = 'button',
+  variant = 'primary',
   href,
   target,
   rel,
@@ -45,7 +48,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   disabled = false,
   onClick,
   size = 'md',
-  showArrow = true,
+  showArrow,
   icon,
   iconPosition = 'right',
   fullWidth = false,
@@ -54,6 +57,8 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   'aria-label': ariaLabel,
   id,
 }) => {
+  // Arrow defaults to true for primary variant, false for secondary variant
+  const shouldShowArrow = showArrow !== undefined ? showArrow : variant === 'primary';
   // Size-specific padding and typography
   const sizeClasses = {
     sm: 'text-[13px] px-5 py-2 sm:py-2.5 gap-2',
@@ -69,10 +74,10 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 
   const baseClasses = [
     'group relative inline-flex items-center justify-center font-heading font-semibold rounded-full',
-    'text-[#F8F8F8] tracking-wide antialiased select-none',
+    'text-white tracking-[0.025em] antialiased select-none',
     'transition-all duration-300 ease-out cursor-pointer',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950',
-    'disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none disabled:transform-none disabled:shadow-none',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
+    'disabled:opacity-85 disabled:cursor-not-allowed disabled:pointer-events-none disabled:transform-none disabled:shadow-none',
     'btn-primary-reference',
     sizeClasses,
     fullWidth ? 'w-full' : '',
@@ -94,7 +99,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           {icon}
         </span>
       )}
-      {!icon && showArrow && (
+      {!icon && shouldShowArrow && (
         <ArrowRight
           className={`${arrowSizeClass} shrink-0 stroke-[1.75] transition-transform duration-300 ease-out group-hover:translate-x-1.5`}
         />

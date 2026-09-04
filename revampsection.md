@@ -1,269 +1,451 @@
-You are an expert product designer and senior frontend engineer. Fully redesign and implement the “Solar Calculator” / savings-estimator section of my website:
+GLOBAL PRIMARY CTA REVAMP — PREMIUM MAROON SYSTEM
 
-https://solar-ark-sigma.vercel.app/
+Use the attached reference image as the visual benchmark for the button language.
 
-Do not make it a static mockup. Build a polished, production-quality, fully responsive and interactive calculator experience inspired by the supplied visual reference, while maintaining a clean SolarARK brand identity and a premium Indian residential-solar audience feel.
+Your task is to independently audit the existing site, identify the current primary CTA component, and redesign/refactor that component into a polished global button system.
 
 IMPORTANT:
-- First inspect the existing project structure, routes, design system, components, and current calculator logic.
-- Preserve the existing working site outside this calculator area unless a small supporting change is necessary.
-- Reuse the project’s existing framework, styling approach, icon library, and component conventions where possible.
-- Do not introduce a new UI framework or unnecessary dependencies.
-- If the existing calculator already has business logic, preserve and improve it rather than replacing it with hard-coded display values.
-- Code must be clean, maintainable, accessible, and responsive—not a static image-like design.
+Do not just copy the screenshot.
+Use it as art direction and improve it where appropriate using senior-level UI/UX judgment.
 
-==================================================
-PRIMARY GOAL
-==================================================
+━━━━━━━━━━━━━━━━━━━━
+1. DESIGN INTENT
+━━━━━━━━━━━━━━━━━━━━
 
-Create a premium “Solar Savings Calculator” section that captures:
-1. User location via Indian 6-digit pincode
-2. Average monthly electricity bill
-3. A calculation action
-4. A useful personalized recommendation/result state
+The current buttons feel somewhat generic and AI-styled.
 
-The visual direction should feel warm, trustworthy, high-end, modern, and conversion-focused:
-- Cream/off-white background
-- Deep navy text and surfaces
-- Solar orange/coral as the principal accent
-- Soft peach glow, warm shadows, faint grid/wave line art
-- Large editorial serif display typography for the marketing headline
-- Clean modern sans-serif for form labels, navigation, and calculator controls
-- Rounded card corners, generally 28–40px on desktop
-- Subtle micro-interactions rather than flashy animation
+Replace that feeling with:
 
-==================================================
-SECTION STRUCTURE
-==================================================
+PREMIUM
+WARM
+CONFIDENT
+MODERN
+INVITING
+BRAND-LED
+QUIETLY ELEGANT
 
-Build the calculator as a full-width section with two complementary panels on desktop and a stacked layout on mobile.
+The brand's defining color is MAROON.
 
-A. LEFT: BRAND / STORYTELLING PANEL
-- Approx. 36–42% of desktop width.
-- Use a softly textured warm ivory / light peach background.
-- Top: display the SolarARK logo or existing brand mark.
-- Add a small rounded badge with a sun icon and a line similar to:
-  “SMART TODAY. SECURE FOREVER.”
-- Large premium headline with intentional line breaks:
-  “Predictable power.
-   Lasting savings.
-   It starts with you.”
-- Make “It starts with you.” use the orange/coral accent and an elegant italic serif treatment.
-- Add a brief supporting paragraph:
-  “Share a couple of details and we’ll reveal your ideal solar system, estimated savings, and long-term benefits.”
-- Reserve a large media block in the lower portion for a future image:
-  - Use a clearly named placeholder area/component such as `CalculatorHeroImage`.
-  - Do NOT use an external stock image.
-  - The placeholder should be visually attractive even without an image: soft gradient, subtle house/solar abstract pattern, or neutral media frame.
-  - Add a code comment showing where a future image source should be placed.
-  - The image block should support `object-fit: cover`, maintain a premium crop, and gracefully render once an actual image is supplied.
-- Add a small frosted/translucent security card over the media region:
-  - Shield/lock icon
-  - “Your data is 100% secure”
-  - “Private. Protected. Never shared.”
-- Optionally include very subtle decorative orbital lines, sun marks, curves, and dotted paths. These must not affect readability or interfere with controls.
+Maroon must remain visually dominant.
 
-B. RIGHT: INTERACTIVE CALCULATOR PANEL
-- Approx. 58–64% of desktop width.
-- It should appear as a large elevated off-white card, with generous padding, soft shadow, and a large rounded corner radius.
-- Add a progress header:
-  - Step 1: “Your Details” (active)
-  - Step 2: “Your Solar Recommendation” (inactive until calculation is completed)
-  - Use a thin orange progress line that animates when the form is valid/calculated.
-- Add form label:
-  “ENTER YOUR LOCATION”
-- Add a pincode field:
-  - Input type should support numeric keypad on mobile.
-  - Accept exactly six numeric digits.
-  - Format and validate in real time.
-  - Show clear inline validation state.
-  - Include a location-pin icon.
-  - Include an optional serviceability state on the right:
-    - Valid: green check icon + “Serviceable”
-    - Invalid or unsupported: clear neutral/error state and helpful message
-  - Do not claim a specific electricity-distribution provider unless it is backed by actual project logic/data.
-  - If there is no real serviceability API, use a clearly documented configurable validation function/data source instead of pretending to make a live API call.
+Do NOT let black, navy, charcoal or very dark oxblood dominate the button.
 
-- Add the question:
-  “WHAT’S YOUR AVERAGE MONTHLY ELECTRICITY BILL?”
+The button should immediately read as a premium MAROON CTA against a light website.
 
-- Add an interactive bill selector:
-  - Desktop: a premium curved/arc slider inspired by the reference.
-  - Mobile/tablet: use an accessible, touch-friendly horizontal range slider while retaining the same visual style.
-  - Do not sacrifice usability for visual fidelity.
-  - Show the selected amount prominently in the center, formatted in INR:
-    Example: ₹8,500 / month
-  - Include visible range cues such as ₹1k, ₹5k, ₹10k, ₹15k, ₹25k+.
-  - Define sensible min/max/step values, for example:
-    min ₹1,000
-    max ₹25,000
-    step ₹500
-  - The selected amount must update instantly as the slider moves.
-  - Use proper ARIA labels and keyboard support.
-  - Ensure all text remains readable at every screen size.
+Think:
 
-- Add a subtle decorative energy-wave / dotted-line visual beneath the price display. Keep it CSS/SVG based and non-essential so that it can be hidden at smaller sizes without breaking the UI.
+“refined premium brand”
 
-- Add a large primary CTA:
-  “Calculate My Solar Savings”
-  - Dark navy pill-shaped button.
-  - Left circular glowing sun/energy icon.
-  - Right coral/orange circular arrow icon.
-  - Include hover, active, focus-visible, disabled, and loading states.
-  - Disable it until the pincode is valid and the bill amount has a valid value.
-  - On submit, show a brief loading state such as “Calculating your savings…” without blocking the page.
-  - Use a real button and form submit behavior, not a clickable div.
+NOT:
 
-- Under CTA, show trust indicators:
-  - Clock icon: “Takes less than 30 seconds”
-  - Shield icon: “No obligation”
-- On desktop, place a handwritten-style or gently styled note near the CTA:
-  “Get your personalized savings estimate”
-  with a subtle curved arrow pointing toward the CTA.
-- Hide or simplify this decorative note on mobile if space is constrained.
+“dark futuristic interface”
+“gaming UI”
+“AI-generated glassmorphism”
+“neon luxury”
 
-C. BOTTOM ASSURANCE STRIP
-- Add a full-width deep navy strip across the bottom of the calculator section.
-- Include three trust statements, each with a refined outlined icon:
-  1. “Tier-1” / “High Efficiency Cells”
-  2. “Expert” / “In-House Installation”
-  3. “25-Year” / “Performance Guarantee”
-- Use tasteful separators or spacing.
-- On mobile, stack these into a clean, readable three-row or one-column layout.
+━━━━━━━━━━━━━━━━━━━━
+2. COLOR SYSTEM
+━━━━━━━━━━━━━━━━━━━━
 
-==================================================
-CALCULATION AND RESULT EXPERIENCE
-==================================================
+Build the CTA using a restrained maroon tonal system rather than a flat color.
 
-Implement actual interactive behavior.
+Primary:
+- rich warm maroon
+- approximately in the visual family of #8B1E2D
 
-1. Form state
-- Maintain pincode, validation status, selected monthly bill, loading state, and recommendation/results state.
-- Persist the user’s selected bill and pincode during the current session so accidental navigation or layout changes do not erase the form.
-- Handle invalid form submissions accessibly by moving focus to the first error and announcing errors appropriately.
+Highlight:
+- slightly brighter maroon/red
+- approximately #A93446
 
-2. Calculation
-- Encapsulate the calculator logic in a reusable utility/function, for example:
-  `calculateSolarRecommendation({ monthlyBill, pincode })`
-- Make all assumptions configurable at the top of the utility or in a constants/config file.
-- Use a transparent illustrative estimate model, not a fake exact quote.
-- Suggested configurable output fields:
-  - Estimated recommended system size in kW
-  - Approximate monthly solar generation in kWh
-  - Approximate monthly savings in INR
-  - Approximate annual savings in INR
-  - Indicative payback period
-  - Estimated CO₂ avoided annually, if the project has a suitable methodology
-- Clearly label estimates as indicative, since real output varies by location, roof, tariff, shading, consumption pattern, and approvals.
-- Avoid inventing real-world provider-specific rules, subsidies, tariffs, or service coverage. Keep values configurable and clearly marked as estimate assumptions.
+Depth:
+- slightly deeper maroon
+- approximately #6E1421
 
-3. Results panel / step two
-- After successful submit, animate the progress state from Step 1 to Step 2.
-- Smooth-scroll or transition to a recommendation panel within this same section.
-- The results panel should continue the premium design language, not look like a generic dashboard.
-- Prominently show:
-  “Your Solar Recommendation”
-- Present the key outputs in elegant cards or a concise visual summary:
-  - Recommended system size
-  - Estimated monthly savings
-  - Estimated annual savings
-  - Indicative payback period
-- Include a small “Based on ₹X/month electricity bill” summary.
-- Include an “Edit details” button that returns to the form with all prior values retained.
-- Include a secondary conversion action appropriate for the existing product flow, such as:
-  “Talk to a solar expert” or “Get detailed quote”
-  Only wire it to an existing route/action if one already exists; otherwise use a clearly marked placeholder callback or TODO.
-- Ensure the results experience remains fully usable on mobile.
+These are visual direction references, not rigid values.
+Adapt them to the site's existing brand palette so the result feels native.
 
-==================================================
-RESPONSIVE BEHAVIOR
-==================================================
+Recommended treatment:
+
+background:
+subtle maroon tonal gradient
+
+TOP / CENTER:
+slightly warmer/lighter maroon
+
+BOTTOM / EDGES:
+slightly deeper maroon
+
+Keep the difference subtle.
+
+The user should perceive one sophisticated maroon surface, not an obvious gradient.
+
+Avoid:
+- black-heavy gradients
+- pure red
+- neon red
+- purple maroon
+- blue gradients
+- metallic gradients
+- glass reflections
+
+━━━━━━━━━━━━━━━━━━━━
+3. BUTTON FORM
+━━━━━━━━━━━━━━━━━━━━
+
+Use the reference's elegant elongated pill geometry, but refine the proportions for the actual website.
+
+Characteristics:
+- generous horizontal breathing room
+- medium visual height
+- large controlled radius
+- clean silhouette
+- no excessive thickness
+- no chunky appearance
+
+The CTA should feel expensive because of proportion and spacing, not decoration.
+
+Keep the existing typography family.
+
+Typography should be:
+- clean
+- medium/semi-bold
+- highly legible
+- warm white / white
+- optically centered
+
+Do not make the text unnecessarily bold.
+
+━━━━━━━━━━━━━━━━━━━━
+4. ARROW
+━━━━━━━━━━━━━━━━━━━━
+
+For forward actions such as:
+
+Get A Quote
+Enquire
+Start Project
+Request a Call
+etc.
+
+Use one elegant right arrow.
+
+The arrow should:
+- be thin
+- be simple
+- be proportionally smaller than the text
+- have comfortable spacing
+- align optically with the text
+
+Do NOT put the arrow inside a circle.
+Do NOT create a separate icon badge.
+Do NOT use an oversized arrow.
+
+On hover:
+arrow translates approximately 3–5px to the right.
+
+Use a smooth 250–350ms transition.
+
+━━━━━━━━━━━━━━━━━━━━
+5. SHADOW + DEPTH
+━━━━━━━━━━━━━━━━━━━━
+
+This is critical.
+
+The reference has depth, but the implementation must NOT become dark or depressed.
+
+Create depth primarily through:
+
+- soft warm ambient shadow
+- subtle maroon aura
+- restrained border highlight
+- tonal surface variation
+
+Shadow should be:
+soft
+diffused
+low opacity
+slightly warm
+mostly underneath
+
+Avoid a huge glow surrounding the button.
+
+The button must feel elevated, not illuminated by a neon light.
+
+━━━━━━━━━━━━━━━━━━━━
+6. BORDER
+━━━━━━━━━━━━━━━━━━━━
+
+Use a very subtle warm-maroon border/highlight.
+
+It should give the edge definition against the background.
+
+Do NOT use:
+- bright white border
+- thick red outline
+- double border
+- glossy rim
+- excessive contrast
+
+The border should only become slightly more visible on hover/focus.
+
+━━━━━━━━━━━━━━━━━━━━
+7. GET A QUOTE — PRIMARY CTA
+━━━━━━━━━━━━━━━━━━━━
+
+The HEADER “Get A Quote” button is the main reference implementation.
+
+Make it the strongest CTA in the header.
+
+It should have:
+- premium maroon surface
+- warm subtle depth
+- white typography
+- refined arrow
+- elegant shadow
+- excellent spacing
+
+Keep its current functionality and positioning.
+
+Do NOT redesign the entire header.
+
+Only improve the CTA component.
+
+━━━━━━━━━━━━━━━━━━━━
+8. CONTACT US — SECONDARY CTA
+━━━━━━━━━━━━━━━━━━━━
+
+Where “Contact Us” is currently represented using the same primary CTA style:
+
+Keep the same design language but introduce slightly lower visual emphasis.
+
+Do NOT create a completely unrelated button.
+
+It should still clearly belong to the same family.
+
+Hierarchy should be:
+
+GET A QUOTE
+      ↓
+strongest / highest emphasis
+
+CONTACT US
+      ↓
+slightly quieter
+
+━━━━━━━━━━━━━━━━━━━━
+9. PHONE / ICON BUTTON
+━━━━━━━━━━━━━━━━━━━━
+
+For the circular call/phone control:
+
+Do not make it look like an unrelated component.
+
+Use:
+- clean light/white surface
+- subtle maroon border
+- maroon icon
+- very soft shadow
+- same visual radius language
+- same interaction quality
+
+Keep it visually lighter than the maroon CTA.
+
+It should feel like a premium utility control sitting beside the CTA.
+
+━━━━━━━━━━━━━━━━━━━━
+10. HOVER STATE
+━━━━━━━━━━━━━━━━━━━━
+
+Create a refined interaction.
+
+DEFAULT:
+rich warm maroon
+
+HOVER:
+slightly brighter/richer maroon
+slightly stronger border
+subtle warm shadow increase
+arrow shifts 3–5px
+optional 1px elevation
+
+Do NOT:
+- dramatically scale
+- bounce
+- rotate
+- flash
+- create strong glow
+- turn bright red
+
+The interaction should feel expensive and intentional.
+
+━━━━━━━━━━━━━━━━━━━━
+11. ACTIVE STATE
+━━━━━━━━━━━━━━━━━━━━
+
+On click/press:
+
+- reduce elevation slightly
+- return button toward its original position
+- subtly deepen the maroon
+- keep transition smooth
+
+It should feel tactile, not animated for the sake of animation.
+
+━━━━━━━━━━━━━━━━━━━━
+12. FOCUS STATE
+━━━━━━━━━━━━━━━━━━━━
+
+Create an accessible keyboard focus treatment that is visually compatible with the brand.
+
+Do not rely on the browser's default ugly outline.
+
+Use a restrained maroon/warm focus ring with enough contrast to remain accessible.
+
+━━━━━━━━━━━━━━━━━━━━
+13. DISABLED STATE
+━━━━━━━━━━━━━━━━━━━━
+
+Create a desaturated version of the same system.
+
+It must still look like the same component, simply inactive.
+
+Avoid making it look like a completely different gray button.
+
+━━━━━━━━━━━━━━━━━━━━
+14. GLOBAL COMPONENT REFACTOR
+━━━━━━━━━━━━━━━━━━━━
+
+THIS IS IMPORTANT.
+
+Do not manually modify each button independently.
+
+First locate the shared button component, design tokens, CSS class, utility, or component abstraction responsible for primary CTAs.
+
+Refactor that system.
+
+Then update all relevant existing primary CTA instances so they inherit the new design automatically.
+
+Search the entire project for duplicated styles and consolidate where practical.
+
+Examples may include:
+- Get A Quote
+- Contact Us
+- Enquire Now
+- Request a Quote
+- Start a Project
+- Request a Callback
+- relevant project/service CTAs
+
+Do not change unrelated:
+- text links
+- secondary navigation
+- pagination
+- filters
+- form controls
+- icon-only utilities
+- components with intentionally different hierarchy
+
+unless they are genuinely using the same primary CTA component.
+
+━━━━━━━━━━━━━━━━━━━━
+15. RESPONSIVE BEHAVIOR
+━━━━━━━━━━━━━━━━━━━━
+
+Audit desktop, tablet and mobile.
 
 Desktop:
-- Use the split brand-panel + calculator-card composition.
-- Maintain airy spacing and premium proportions.
-- Do not allow content to feel compressed on 1280px-wide screens.
+retain the elegant elongated proportion.
 
 Tablet:
-- Retain hierarchy and card quality.
-- The two-column layout may narrow or transition at an appropriate breakpoint.
-- Ensure slider labels never collide.
+reduce horizontal padding naturally.
 
 Mobile:
-- Stack content vertically.
-- Place marketing/brand introduction first, followed by the calculator card.
-- Reduce display type size carefully; keep it editorial and readable.
-- Make the pincode field, slider, CTA, and result cards full-width/touch friendly.
-- Use the simple range slider rather than the decorative curved control if needed.
-- Do not use horizontal scrolling.
-- Keep tappable controls at least 44px tall.
-- Preserve key content and functionality; only reduce non-essential decorative elements.
+ensure buttons do not become excessively wide or visually heavy.
 
-==================================================
-ACCESSIBILITY AND QUALITY
-==================================================
+Preserve touch-friendly sizing and accessibility.
 
-- Use semantic landmarks, headings, labels, fieldsets where appropriate, and actual button/input elements.
-- Ensure keyboard navigation works for every interactive element.
-- Add clear `:focus-visible` styles that fit the design.
-- Meet strong color contrast standards, especially for navy/orange/cream combinations.
-- Respect `prefers-reduced-motion`.
-- Do not communicate important states with color alone.
-- Add descriptive aria-labels for icon-only elements.
-- Avoid text embedded in decorative images.
-- Do not make the curved slider the only available control; include an accessible semantic range input underneath or use it as the functional control.
-- Avoid layout shifts while transitioning into loading/results states.
-- Keep animations fast, subtle, and purposeful: 150–300ms where appropriate.
-- Optimize for performance: SVG/CSS decorations over large assets, no unnecessarily heavy libraries, and lazy-load any eventual large image.
+Do not let the CTA dominate mobile layouts.
 
-==================================================
-VISUAL DETAILS
-==================================================
+━━━━━━━━━━━━━━━━━━━━
+16. DESIGN QUALITY BAR
+━━━━━━━━━━━━━━━━━━━━
 
-Use these approximate design tokens, adapting them to the existing site branding where necessary:
+Use the attached image as the visual benchmark, but make the final implementation feel even more polished.
 
-- Background cream: #F8F4EF
-- Card surface: #FFFDFC
-- Deep navy: #07162B or closest existing brand navy
-- Solar orange/coral: #E9532D
-- Warm accent glow: rgba(233, 83, 45, 0.18)
-- Success green: #2F9E58
-- Muted text: #68707A
-- Border: rgba(7, 22, 43, 0.12)
-- Large display serif: use an existing premium serif if already in the project; otherwise use a performance-friendly fallback stack
-- UI sans: use the existing project font; otherwise a clean modern sans-serif fallback
+Pay special attention to:
 
-Visual constraints:
-- Avoid generic SaaS dashboard styling.
-- Avoid excessive gradients, glassmorphism, and oversized icons.
-- Avoid creating a replica of the reference; capture its hierarchy, warmth, and premium conversion focus in an original implementation.
-- Ensure no important text is positioned only as an absolute decorative overlay.
-- The hero/media area must remain intentionally blank/placeholder-friendly until an image is added later.
+OPTICAL ALIGNMENT
+—not just mathematically centered.
 
-==================================================
-DELIVERABLES
-==================================================
+SPACING
+—text and arrow should breathe.
 
-1. Implement the redesigned calculator section in the existing project.
-2. Create or refactor reusable components where useful, for example:
-   - SolarCalculator
-   - PincodeInput
-   - ElectricityBillSlider
-   - CalculatorProgress
-   - SolarRecommendationResults
-   - TrustStrip
-   - CalculatorHeroImage
-3. Add a small calculation utility/config module with documented assumptions.
-4. Add form validation and complete loading/error/success states.
-5. Ensure desktop, tablet, and mobile responsiveness.
-6. Add concise comments only where future customization is expected, especially:
-   - Future hero image source
-   - Pincode serviceability data/API integration
-   - Calculation assumptions
-   - Quote/contact callback integration
-7. Verify there are no console errors, broken imports, inaccessible controls, or hard-coded static interactions.
-8. Return a concise summary of:
-   - Files changed
-   - Existing logic reused
-   - Configuration values to customize
-   - Exact place to add the future image asset
+WEIGHT
+—the button must feel substantial without feeling heavy.
+
+COLOR
+—maroon must remain dominant.
+
+DEPTH
+—use subtle lighting, not darkness.
+
+HIERARCHY
+—Get A Quote should immediately attract attention without looking loud.
+
+CONSISTENCY
+—all primary CTAs should feel like one designed system.
+
+━━━━━━━━━━━━━━━━━━━━
+17. DO NOT CHANGE
+━━━━━━━━━━━━━━━━━━━━
+
+Do not unnecessarily modify:
+- page layouts
+- navigation structure
+- content
+- existing imagery
+- typography system
+- brand identity
+- CTA copy
+- link destinations
+- functionality
+- unrelated UI components
+
+This is a BUTTON SYSTEM REVAMP, not a site redesign.
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL ART DIRECTION
+━━━━━━━━━━━━━━━━━━━━
+
+The final result should feel like a senior product designer intentionally crafted a proprietary CTA system for a premium maroon brand.
+
+The visual reference is:
+
+warm maroon
++
+soft dimensional lighting
++
+clean white typography
++
+restrained shadow
++
+excellent spacing
++
+minimal arrow
++
+strong hierarchy
+
+NOT:
+
+black pill
++
+red glow
++
+glassmorphism
++
+generic AI aesthetic.
+
+Before completing the implementation, inspect the final site visually and remove anything that feels excessive, synthetic, overly dark, generic, or decorative.
+
+Prioritize the 20% of visual decisions that create 80% of the perceived premium quality:
+COLOR → PROPORTION → SPACING → TYPOGRAPHY → DEPTH → INTERACTION.
