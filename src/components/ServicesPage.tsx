@@ -3,28 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  ArrowLeft,
   ArrowRight,
-  Home as HomeIcon,
   CheckCircle2,
-  Zap,
-  Building,
-  Factory,
-  Wrench,
-  ShieldCheck,
   BadgePercent,
-  Calendar,
+  TrendingDown,
   Sparkles,
   PhoneCall,
-  Clock,
-  Activity,
-  MapPin,
-  TrendingDown,
-  Layers,
-  BarChart3,
-  Sun
 } from 'lucide-react';
 
 import { FinalCTAForm } from './FinalCTAForm';
@@ -42,11 +28,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   prefilledPincode = '444601',
   prefilledBill = 8500,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'society' | 'commercial' | 'maintenance'>('all');
 
   return (
     <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E1E] selection:text-white">
-      
 
 
       {/* ── SECTION 01: EDITORIAL SERVICES HERO ── */}
@@ -114,7 +98,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="relative rounded-tl-[90px] sm:rounded-tl-[120px] rounded-br-3xl rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-100 group">
               <img
                 src="/images/services/install.jpeg"
-                alt="SolarArk Certified Turnkey Solar Installation & Commissioning"
+                alt="SolarArk Certified Turnkey Solar Installation &amp; Commissioning"
                 className="w-full h-[360px] sm:h-[460px] object-cover object-[center_35%] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/hero-solar-home.png';
@@ -141,407 +125,391 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 02: CATEGORY SELECTOR TABS ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-stone-200">
-          <div>
-            <span className="text-xs font-bold text-stone-600 uppercase tracking-wider font-heading block">
-              Explore By Sector
+
+
+      {/* ── SECTION 02: EDITORIAL SOLUTIONS SHOWCASE ── */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
+
+        {/* Editorial Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+              Solutions
             </span>
-            <h2 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
-              Select Your Energy Requirement
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+              Energy solutions for{' '}
+              <br className="hidden sm:block" />
+              every kind of{' '}
+              <span className="text-[#8B1E2D]">space.</span>
             </h2>
           </div>
-
-          {/* Segment Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {[
-              { id: 'all', label: 'All Services', icon: Layers },
-              { id: 'residential', label: 'Homes (Residential)', icon: HomeIcon },
-              { id: 'society', label: 'Housing Societies', icon: Building },
-              { id: 'commercial', label: 'Commercial & Industrial', icon: Factory },
-              { id: 'maintenance', label: 'O&M / Cleaning', icon: Wrench },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeCategory === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveCategory(tab.id as any)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#8B1E1E] text-white shadow-md shadow-[#8B1E1E]/20'
-                      : 'bg-white text-stone-700 hover:text-slate-900 border border-stone-200 hover:border-stone-300'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
+          <div className="lg:col-span-5 flex items-end gap-6 lg:gap-8">
+            <div className="space-y-0.5 border-l-2 border-stone-200 pl-6">
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Cleaner</span>
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Spaces</span>
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block mt-1.5">Stronger</span>
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Communities</span>
+            </div>
+            <p className="text-sm text-stone-500 leading-relaxed max-w-[240px] border-l border-stone-200 pl-6">
+              Thoughtful solar solutions for the spaces where life, business and industry move forward.
+            </p>
           </div>
+        </div>
+
+        {/* ── Three-Column Full-Bleed Image Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4">
+          
+          {/* Card 01: Residential */}
+          <div 
+            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            onClick={() => {
+              const el = document.getElementById('detail-residential');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const el = document.getElementById('detail-residential');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
+            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+              <img 
+                src="/images/services/homes.jpg"
+                alt="Residential rooftop solar installation on Indian home"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-white/70 font-heading">01</span>
+                <div className="w-8 h-[1px] bg-white/40" />
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                Residential
+              </h3>
+              <p className="text-sm text-white/80 leading-relaxed">
+                Greater savings.<br />
+                A cleaner, more independent home.
+              </p>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                Explore Residential
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Homes</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Villas</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Housing Societies</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 02: Commercial */}
+          <div 
+            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            onClick={() => {
+              const el = document.getElementById('detail-commercial');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const el = document.getElementById('detail-commercial');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
+            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+              <img 
+                src="/images/services/commercial.png"
+                alt="Commercial building with rooftop solar array"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-white/70 font-heading">02</span>
+                <div className="w-8 h-[1px] bg-white/40" />
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                Commercial
+              </h3>
+              <p className="text-sm text-white/80 leading-relaxed">
+                Turn your roof into a<br />
+                long-term business asset.
+              </p>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                Explore Commercial
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Offices</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Retail Spaces</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Institutions</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 03: Industrial */}
+          <div 
+            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            onClick={() => {
+              const el = document.getElementById('detail-commercial');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            role="link"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const el = document.getElementById('detail-commercial');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
+            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+              <img 
+                src="/images/services/industrials.jpg"
+                alt="Industrial solar plant installation on factory roof"
+                className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-white/70 font-heading">03</span>
+                <div className="w-8 h-[1px] bg-white/40" />
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+                Industrial
+              </h3>
+              <p className="text-sm text-white/80 leading-relaxed">
+                Engineered for larger demands.<br />
+                Built for long-term performance.
+              </p>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                Explore Industrial
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Manufacturing</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Warehouses</span>
+                <span className="text-white/25 text-xs">|</span>
+                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Industrial Parks</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* ── SECTION 03: VARIABLE LAYOUT PRIMARY SERVICES SHOWCASE ── */}
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-20 lg:space-y-28">
 
-        {/* SERVICE 01: RESIDENTIAL ROOFTOP SOLAR (HOMES) */}
-        {(activeCategory === 'all' || activeCategory === 'residential') && (
-          <section id="service-homes" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-            
-            {/* Left Photographic Arched Container */}
-            <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-                <img
-                  src="/images/services/homes.jpg"
-                  alt="SolarArk Residential Elevated Rooftop Solar Installation in Maharashtra"
-                  className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
+
+      {/* ── SECTION 03: DETAILED SERVICE SECTIONS (SCROLL TARGETS) ── */}
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 space-y-16 lg:space-y-24">
+
+        {/* DETAIL 01: RESIDENTIAL & HOUSING SOCIETIES */}
+        <section id="detail-residential" className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
+          
+          {/* Left Image */}
+          <div className="lg:col-span-5 relative group">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+              <img
+                src="/images/services/homes.jpg"
+                alt="SolarArk Residential Rooftop Solar Installation in Maharashtra"
+                className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              />
+            </div>
+
+            {/* Floating Subsidy Badge */}
+            <div className="absolute -bottom-4 right-4 sm:-right-4 bg-[#8B1E2D] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
+              <BadgePercent className="w-4 h-4 text-amber-300 shrink-0" />
+              <div className="text-left leading-tight">
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Govt. Subsidy</span>
+                <span className="text-xs sm:text-sm font-bold font-heading">Up to ₹78,000 Direct Credit</span>
               </div>
+            </div>
+          </div>
 
-              {/* Floating Subsidy Badge */}
-              <div className="absolute -bottom-4 right-4 sm:-right-4 bg-[#8B1E1E] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-                <BadgePercent className="w-4 h-4 text-amber-300 shrink-0" />
-                <div className="text-left leading-tight">
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Govt. Subsidy</span>
-                  <span className="text-xs sm:text-sm font-bold font-heading">Up to ₹78,000 Direct Credit</span>
-                </div>
+          {/* Right Content */}
+          <div className="lg:col-span-7 space-y-5 lg:pl-4">
+            <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
+              <span className="text-slate-800 font-bold">01 — RESIDENTIAL &amp; COMMUNITY SOLAR</span>
+              <div className="w-12 h-[1px] bg-stone-300" />
+            </div>
+
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Residential Rooftop Solar for Indian Homes &amp; Housing Societies
+            </h2>
+
+            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+              SolarArk custom-designs rooftop solar systems that eliminate high monthly electricity tariffs, protect terrace waterproofing, and guarantee clean energy for 25+ years. For housing societies, our community arrays drastically lower maintenance charges for all residents — powering lifts, water pumps, and common lighting.
+            </p>
+
+            {/* Verified Feature Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Tier-1 N-Type TOPCon 580Wp Bifacial Panels
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  100% PM Surya Ghar Portal Subsidy Filing
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Zero-Penetration Elevated Terrace Mounts
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  MSEDCL Net-Metering Synchronization
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Powers Common Lifts &amp; Water Pumps
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Committee Presentation &amp; ROI Reports
+                </span>
               </div>
             </div>
 
-            {/* Right Service Content */}
-            <div className="lg:col-span-7 space-y-5 lg:pl-4">
-              <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-slate-800 font-bold">01 — RESIDENTIAL EPC</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <button
+                onClick={onCtaClick}
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+              >
+                <span>Get Home Solar Proposal</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('/contact')}
+                className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors cursor-pointer"
+              >
+                Request Terrace Inspection
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+
+        {/* DETAIL 02: COMMERCIAL & INDUSTRIAL */}
+        <section id="detail-commercial" className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
+          
+          {/* Left Content (Reversed Layout) */}
+          <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
+            <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
+              <span className="text-slate-800 font-bold">02 — COMMERCIAL &amp; INDUSTRIAL</span>
+              <div className="w-12 h-[1px] bg-stone-300" />
+            </div>
+
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
+              Commercial &amp; Industrial Solar Plants
+            </h2>
+
+            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+              Whether you operate a manufacturing facility, warehouse, cold storage, private hospital, or retail complex, electricity is one of your highest controllable expenses. SolarArk delivers heavy-duty kilowatt and megawatt installations with rapid payback, 40% accelerated tax depreciation, and long-term tariff hedging.
+            </p>
+
+            {/* Commercial / Industrial Features */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  HT Net-Metering &amp; Transformer Sync
+                </span>
               </div>
-
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-                Residential Rooftop Solar for Indian Homes
-              </h2>
-
-              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-                At SolarArk, we are dedicated to providing innovative, cost-effective and sustainable solar solutions to homeowners across Maharashtra. We custom design rooftop systems that eliminate high monthly electricity tariffs, protect terrace waterproofing, and guarantee clean renewable energy generation for 25+ years.
-              </p>
-
-              {/* Verified Feature Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Tier-1 N-Type TOPCon 580Wp Bifacial Panels
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    100% PM Surya Ghar Portal Subsidy Filing
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Zero-Penetration Elevated Terrace Mounts
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    MSEDCL Net-Metering Synchronization
-                  </span>
-                </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Flexible Capex / OPEX Financing Models
+                </span>
               </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={onCtaClick}
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Get Home Solar Proposal</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={() => onNavigate('/contact')}
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors cursor-pointer"
-                >
-                  Request Terrace Inspection
-                </button>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Maximum Demand (MD) Tariff Shaving
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs font-semibold text-slate-800">
+                  Robust Galvanized Shed &amp; Ground Mounts
+                </span>
               </div>
             </div>
 
-          </section>
-        )}
+            {/* Action Buttons */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <button
+                onClick={onCtaClick}
+                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+              >
+                <span>Request Feasibility Audit</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-        {/* SERVICE 02: HOUSING SOCIETIES & APARTMENT COMMUNITIES (REVERSED LAYOUT) */}
-        {(activeCategory === 'all' || activeCategory === 'society') && (
-          <section id="service-society" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
-              <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-slate-800 font-bold">02 — COMMUNITY SOLAR</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
-              </div>
+              <a
+                href="mailto:info@thesolarark.com"
+                className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors"
+              >
+                Email RFP / Tender Docs
+              </a>
+            </div>
+          </div>
 
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-                Solar Solutions for Housing Societies &amp; Apartments
-              </h2>
-
-              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-                Cooperative housing societies face exorbitant common-area electricity bills every month for elevators, water booster pumps, security floodlighting, and clubhouses. SolarArk designs custom community solar arrays that drastically lower maintenance charges for all apartment residents.
-              </p>
-
-              {/* Society Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Powers Common Lifts &amp; Water Pumps
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    High-Rise High-Wind CAD Structural Design
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Committee Presentation &amp; ROI Reports
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Zero Out-Of-Pocket Society Financing
-                  </span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={onCtaClick}
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Book Society Presentation</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <a
-                  href="tel:+917080909590"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
-                >
-                  <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
-                  <span>Call Society Specialist</span>
-                </a>
-              </div>
+          {/* Right Image */}
+          <div className="lg:col-span-5 relative group order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
+              <img
+                src="/images/services/industrials.jpg"
+                alt="SolarArk Commercial &amp; Industrial Solar Plant"
+                className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              />
             </div>
 
-            {/* Right Photographic Arched Container */}
-            <div className="lg:col-span-5 relative group order-1 lg:order-2">
-              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-                <img
-                  src="/images/services/housing_society.png"
-                  alt="SolarArk Housing Society Rooftop Solar Array"
-                  className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              <div className="absolute -bottom-4 left-4 sm:-left-4 bg-[#0B1730] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-                <Building className="w-4 h-4 text-amber-400 shrink-0" />
-                <div className="text-left leading-tight">
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-slate-300">50+ Societies Solarised</span>
-                  <span className="text-xs sm:text-sm font-bold font-heading">Pune &amp; Chh. Sambhajinagar</span>
-                </div>
+            {/* Tax Depreciation Badge */}
+            <div className="absolute -bottom-4 left-4 sm:-left-4 bg-emerald-800 text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
+              <TrendingDown className="w-4 h-4 text-emerald-300 shrink-0" />
+              <div className="text-left leading-tight">
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-emerald-200">High ROI</span>
+                <span className="text-xs sm:text-sm font-bold font-heading">40% Accelerated Tax Depreciation</span>
               </div>
             </div>
+          </div>
 
-          </section>
-        )}
-
-        {/* SERVICE 03: COMMERCIAL & INDUSTRIAL HIGH-YIELD EPC */}
-        {(activeCategory === 'all' || activeCategory === 'commercial') && (
-          <section id="service-commercial" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-            
-            {/* Left Photographic Arched Container */}
-            <div className="lg:col-span-5 relative group">
-              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-                <img
-                  src="/images/services/industrials.jpg"
-                  alt="SolarArk Commercial & Industrial Solar Plant EPC"
-                  className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              <div className="absolute -bottom-4 right-4 sm:-right-4 bg-emerald-800 text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-                <TrendingDown className="w-4 h-4 text-emerald-300 shrink-0" />
-                <div className="text-left leading-tight">
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-emerald-200">High ROI</span>
-                  <span className="text-xs sm:text-sm font-bold font-heading">40% Accelerated Tax Depreciation</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Service Content */}
-            <div className="lg:col-span-7 space-y-5 lg:pl-4">
-              <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-slate-800 font-bold">03 — COMMERCIAL &amp; INDUSTRIAL</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
-              </div>
-
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-                Commercial &amp; Industrial Solar Plants
-              </h2>
-
-              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-                Whether you operate a manufacturing facility, warehouse, cold storage, private hospital, or educational campus, electricity represents one of your highest controllable operational expenses. SolarArk delivers heavy-duty megawatt and kilowatt installations with rapid payback and long-term tariff hedging.
-              </p>
-
-              {/* Commercial Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    HT Net-Metering &amp; Transformer Sync
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Flexible Capex / OPEX Financing Models
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Maximum Demand (MD) Tariff Shaving
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Robust Galvanized Shed &amp; Ground Mounts
-                  </span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={onCtaClick}
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Request Industrial Feasibility Audit</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <a
-                  href="mailto:info@thesolarark.com"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors"
-                >
-                  Email RFP / Tender Docs
-                </a>
-              </div>
-            </div>
-
-          </section>
-        )}
-
-        {/* SERVICE 04: PROACTIVE MAINTENANCE, CLEANING & IOT MONITORING */}
-        {(activeCategory === 'all' || activeCategory === 'maintenance') && (
-          <section id="service-maintenance" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-5 lg:pr-4 order-2 lg:order-1">
-              <div className="flex items-center gap-2 text-stone-400 font-heading text-xs font-semibold">
-                <span className="text-slate-800 font-bold">04 — OPERATIONS &amp; MAINTENANCE</span>
-                <div className="w-12 h-[1px] bg-stone-300" />
-              </div>
-
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-snug">
-                Proactive Solar Cleaning &amp; Annual Maintenance (AMC)
-              </h2>
-
-              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
-                Dust, bird droppings, and environmental soiling can reduce solar generation yield by up to 25%. SolarArk offers professional panel washing, electrical safety testing, inverter telemetry maintenance, and rapid 24-hour technician dispatch across all regional branches.
-              </p>
-
-              {/* Maintenance Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Deionized Water Washing &amp; Soiling Removal
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    Drone Thermal Scans for Hotspot Detection
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    24/7 Smart Telemetry Generation Alerts
-                  </span>
-                </div>
-                <div className="flex items-start gap-2.5 bg-[#FCFAF7] border border-stone-200/80 rounded-xl p-3">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-semibold text-slate-800">
-                    24-Hour Rapid Field Technician Dispatch
-                  </span>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={onCtaClick}
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Inquire About Solar AMC</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-
-                <a
-                  href="tel:+917080909590"
-                  className="text-xs sm:text-sm font-bold text-stone-700 hover:text-[#8B1E1E] bg-stone-100 hover:bg-stone-200 px-5 py-3 rounded-xl transition-colors inline-flex items-center gap-2"
-                >
-                  <PhoneCall className="w-4 h-4 text-[#8B1E1E]" />
-                  <span>Helpline (7080909590)</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Photographic Arched Container */}
-            <div className="lg:col-span-5 relative group order-1 lg:order-2">
-              <div className="relative rounded-tl-[80px] sm:rounded-tl-[100px] rounded-br-2xl rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-lg border border-stone-200/80 bg-stone-100">
-                <img
-                  src="/images/services/cleaning.jpeg"
-                  alt="SolarArk Solar Panel Cleaning and Maintenance Service"
-                  className="w-full h-[300px] sm:h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
-              </div>
-
-              <div className="absolute -bottom-4 left-4 sm:-left-4 bg-[#8B1E1E] text-white px-4 py-2.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
-                <Activity className="w-4 h-4 text-amber-300 shrink-0" />
-                <div className="text-left leading-tight">
-                  <span className="text-[10px] font-bold uppercase tracking-wider block text-stone-200">Peak Performance</span>
-                  <span className="text-xs sm:text-sm font-bold font-heading">24/7 Remote Diagnostics</span>
-                </div>
-              </div>
-            </div>
-
-          </section>
-        )}
+        </section>
 
       </div>
+
+
 
       {/* ── SECTION 04: 5 CORE TECHNICAL LIFECYCLE SERVICES (OFFICIAL SOLARARK SERVICES) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mt-20 lg:mt-28">
@@ -568,7 +536,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
                 <img
                   src="/images/services/install.jpeg"
-                  alt="SolarArk Installation & Commissioning Service"
+                  alt="SolarArk Installation &amp; Commissioning Service"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute top-3 left-3 bg-[#8B1E1E] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
@@ -652,7 +620,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   Online IoT Monitoring
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                  Track your solar system’s generation in real time with our advanced smartphone monitoring app, helping you optimize energy usage, track savings, and detect faults instantly.
+                  Track your solar system's generation in real time with our advanced smartphone monitoring app, helping you optimize energy usage, track savings, and detect faults instantly.
                 </p>
               </div>
             </div>
@@ -676,7 +644,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="relative h-52 sm:h-56 overflow-hidden bg-stone-100">
                 <img
                   src="/images/services/maintenance.jpeg"
-                  alt="Proactive System Maintenance & Electrical Diagnostics"
+                  alt="Proactive System Maintenance &amp; Electrical Diagnostics"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute top-3 left-3 bg-amber-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
@@ -712,7 +680,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="relative md:col-span-6 h-52 sm:h-64 md:h-full overflow-hidden bg-stone-100 min-h-[220px]">
                 <img
                   src="/images/services/financing.jpeg"
-                  alt="Solar Financing & PM Surya Ghar Subsidy Advisory"
+                  alt="Solar Financing &amp; PM Surya Ghar Subsidy Advisory"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute top-3 left-3 bg-emerald-800 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-heading shadow-md">
