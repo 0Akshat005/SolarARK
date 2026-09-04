@@ -10,6 +10,7 @@ import {
   ChevronRight,
   CheckCircle2,
   Sparkles,
+  Play,
 } from 'lucide-react';
 import { PrimaryButton } from './PrimaryButton';
 
@@ -20,6 +21,97 @@ interface ServicesPageProps {
   prefilledBill?: number;
 }
 
+interface SpecializedService {
+  id: string;
+  number: string;
+  tabName: string;
+  title: string;
+  shortDesc: string;
+  deliverables: string[];
+  image: string;
+  alt: string;
+}
+
+const SPECIALIZED_SERVICES: SpecializedService[] = [
+  {
+    id: 'cleaning',
+    number: '01',
+    tabName: 'Panel Cleaning',
+    title: 'Solar Panel Cleaning Service',
+    shortDesc: 'Regular cleaning enhances efficiency by removing dust, debris, and bird droppings, ensuring maximum sunlight absorption for optimal performance.',
+    deliverables: [
+      'De-mineralized water wash prevents mineral scaling and surface etching',
+      'Non-abrasive microfiber equipment protects anti-reflective panel coating',
+      'Restores up to 15–25% lost generation caused by environmental dust accumulation',
+    ],
+    image: '/images/services/cleaning.jpg',
+    alt: 'Solar panel cleaning service with professional equipment',
+  },
+  {
+    id: 'monitoring',
+    number: '02',
+    tabName: 'Online Monitoring',
+    title: 'Online Monitoring',
+    shortDesc: 'Track your solar system’s performance in real time with our advanced online monitoring tools, helping you optimize energy usage and detect issues instantly.',
+    deliverables: [
+      'Real-time generation analytics, daily peak tracking, and DISCOM export stats',
+      'Instant automated inverter fault detection and SMS/email alerts',
+      'Mobile app & cloud dashboard with downloadable historical yield reports',
+    ],
+    image: '/images/services/monitoring.jpg',
+    alt: 'Real-time online solar monitoring dashboard analytics',
+  },
+  {
+    id: 'maintenance',
+    number: '03',
+    tabName: 'Preventive Maintenance',
+    title: 'Proactive System Maintenance',
+    shortDesc: 'We provide regular system check-ups and preventive maintenance to ensure consistent energy output and extend the lifespan of your solar panels.',
+    deliverables: [
+      'Scheduled physical & electrical diagnostic check-ups by certified engineers',
+      'Thermal imaging inspections to detect hot spots and micro-cracks before failure',
+      'Superstructure torque verification, grounding checks, and MC4 connector health audits',
+    ],
+    image: '/images/services/maintenance.jpg',
+    alt: 'Engineer conducting preventive maintenance on solar array',
+  },
+  {
+    id: 'installation',
+    number: '04',
+    tabName: 'Installation & Commissioning',
+    title: 'Installation & Commissioning',
+    shortDesc: 'Our expert team ensures a seamless solar panel installation, from site assessment to system activation, following industry best practices for safety and efficiency.',
+    deliverables: [
+      'Elevated galvanized GI superstructures custom-engineered for maximum roof clearance',
+      'Tier-1 bifacial panels, certified European/Indian inverters, and IP67 DC junction boxes',
+      'End-to-end DISCOM net metering liaison, safety testing, and official grid synchronization',
+    ],
+    image: '/images/services/installation.jpg',
+    alt: 'SolarArk installation team mounting solar panels on rooftop',
+  },
+  {
+    id: 'financing',
+    number: '05',
+    tabName: 'Solar Financing & Subsidies',
+    title: 'Solar Financing',
+    shortDesc: 'We offer flexible financing options to make solar energy affordable, including EMI plans, government subsidies, and leasing models to suit your budget.',
+    deliverables: [
+      'PM Surya Ghar: Muft Bijli Yojana subsidy assistance with direct DBT transfer (up to ₹78,000)',
+      'Low-interest, collateral-free solar loans with easy EMI tenures (1 to 5 years)',
+      '40% accelerated depreciation & GST input credit guidance for commercial & industrial clients',
+    ],
+    image: '/images/services/financing.jpg',
+    alt: 'Solar financing and subsidy guidance consultation',
+  },
+];
+
+const BILL_TIERS = [
+  '₹1,000 – ₹2,000',
+  '₹2,000 – ₹3,000',
+  '₹3,000 – ₹4,000',
+  '₹4,000 – ₹5,000',
+  '₹5,000+',
+];
 
 interface FeaturedProject {
   id: string;
@@ -62,7 +154,23 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   onCtaClick,
 }) => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
+  const [activeServiceTab, setActiveServiceTab] = useState<number>(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
+  const [selectedBillTier, setSelectedBillTier] = useState<string>('₹3,000 – ₹4,000');
   const projectsScrollRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleVideoPlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      }
+    }
+  };
 
   const handleNextProject = () => {
     setCurrentProjectIndex((prev) => {
@@ -162,8 +270,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 Residential
               </h2>
               <p className="text-sm text-white/80 leading-relaxed">
-                Greater savings.<br />
-                A cleaner, more independent home.
+                Custom-designed solar for homeowners and housing communities to slash bills and ensure independence.
               </p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
                 Explore Residential
@@ -209,8 +316,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 Commercial
               </h2>
               <p className="text-sm text-white/80 leading-relaxed">
-                Turn your roof into a<br />
-                long-term business asset.
+                Tailored installations for businesses to reduce operational costs and optimize energy usage.
               </p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
                 Explore Commercial
@@ -256,8 +362,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 Industrial
               </h2>
               <p className="text-sm text-white/80 leading-relaxed">
-                Engineered for larger demands.<br />
-                Built for long-term performance.
+                Large-scale systems engineered to cut heavy expenses while boosting long-term efficiency.
               </p>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
                 Explore Industrial
@@ -324,6 +429,201 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           </div>
 
         </div>
+      </section>
+
+      {/* ── SECTION 02B: CLIENT PROOF & AUTHENTIC VIDEO SHOWCASE ── */}
+      <section id="client-story" className="scroll-mt-20 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Editorial Narrative & Proof Stats */}
+          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+                Client Story
+              </span>
+              <div className="w-8 h-[1px] bg-stone-300" />
+            </div>
+
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
+              90% of customers recommend{' '}
+              <span className="text-[#8B1E2D]">SolarARK.</span>
+            </h2>
+
+            <p className="text-sm sm:text-base font-semibold text-slate-800 tracking-tight">
+              Central India's top homeowners and businesses choose SolarARK.
+            </p>
+
+            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed">
+              Discover the future of energy with SolarArk's advanced solar panel systems. We offer reliable, maintainable, affordable, and efficient turnkey solar solutions designed to drastically cut electricity bills while ensuring long-term energy independence.
+            </p>
+
+            {/* Credibility Figures Bar */}
+            <div className="grid grid-cols-3 gap-4 pt-3 border-t border-stone-200/80">
+              <div>
+                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">90%</div>
+                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Recommendation Rate</div>
+              </div>
+              <div>
+                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">25 Yrs</div>
+                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Performance Guarantee</div>
+              </div>
+              <div>
+                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">4+ Cities</div>
+                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Direct Maharashtra Hubs</div>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <PrimaryButton size="md" onClick={onCtaClick} className="px-6 py-2.5 text-xs sm:text-sm">
+                Get a Free Consultation
+              </PrimaryButton>
+            </div>
+          </div>
+
+          {/* Right Video Player Frame */}
+          <div className="lg:col-span-7">
+            <div className="relative rounded-2xl overflow-hidden shadow-md border border-stone-200/80 bg-slate-950 aspect-[16/9] group">
+              <video
+                ref={videoRef}
+                src="/videos/client-testimonial-web.mp4"
+                poster="/images/client-video-poster.jpg"
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+                onPlay={() => setIsVideoPlaying(true)}
+                onPause={() => setIsVideoPlaying(false)}
+              />
+              
+              {/* Custom Play Overlay Badge (fades out when video is active) */}
+              {!isVideoPlaying && (
+                <div 
+                  onClick={toggleVideoPlay}
+                  className="absolute inset-0 bg-black/25 hover:bg-black/15 transition-all duration-300 flex items-center justify-center cursor-pointer"
+                >
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#8B1E2D]/90 text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-white/20">
+                    <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-white translate-x-0.5" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[11px] sm:text-xs font-medium text-white tracking-wide">
+                      Real Customer Rooftop Installation
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── SECTION 02C: SPECIALIZED TECHNICAL & LIFECYCLE SERVICES (PARETO TABS) ── */}
+      <section id="specialized-services" className="scroll-mt-20 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
+        
+        {/* Header Block */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+          <div className="space-y-2">
+            <div className="flex items-center gap-3">
+              <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+                Lifecycle & Support
+              </span>
+              <div className="w-8 h-[1px] bg-stone-300" />
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
+              Specialized services built for{' '}
+              <span className="text-[#8B1E2D]">peak yield.</span>
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-stone-500 max-w-md leading-relaxed">
+            From automated monitoring to preventive maintenance and subsidy financing, we support your installation across its entire 25-year lifecycle.
+          </p>
+        </div>
+
+        {/* Pareto Horizontal Tab Navigator */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-4">
+          {SPECIALIZED_SERVICES.map((srv, idx) => (
+            <button
+              key={srv.id}
+              onClick={() => setActiveServiceTab(idx)}
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer border ${
+                activeServiceTab === idx
+                  ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
+                  : 'bg-white text-stone-600 border-stone-200 hover:border-stone-300 hover:text-slate-900'
+              }`}
+            >
+              <span className="text-[10px] opacity-60 mr-1.5">{srv.number}</span>
+              {srv.tabName}
+            </button>
+          ))}
+        </div>
+
+        {/* Active Service Showcase Card */}
+        <div className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Narrative Details */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold text-[#8B1E2D] font-heading">
+                  {SPECIALIZED_SERVICES[activeServiceTab].number} / 05
+                </span>
+                <div className="w-6 h-[1px] bg-[#8B1E2D]/40" />
+                <span className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider">
+                  SolarARK Official Service
+                </span>
+              </div>
+
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                {SPECIALIZED_SERVICES[activeServiceTab].title}
+              </h3>
+
+              <p className="text-sm text-stone-600 leading-relaxed">
+                {SPECIALIZED_SERVICES[activeServiceTab].shortDesc}
+              </p>
+
+              {/* Key Deliverables List */}
+              <div className="space-y-2.5 pt-2 border-t border-stone-100">
+                {SPECIALIZED_SERVICES[activeServiceTab].deliverables.map((item, dIdx) => (
+                  <div key={dIdx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#8B1E2D] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-3 flex flex-wrap items-center gap-4">
+                <PrimaryButton size="md" onClick={onCtaClick} className="px-5 py-2.5 text-xs sm:text-sm">
+                  Enquire About This Service
+                </PrimaryButton>
+                <button
+                  onClick={onCtaClick}
+                  className="text-xs font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
+                >
+                  Speak with an Engineer →
+                </button>
+              </div>
+            </div>
+
+            {/* Right Photo */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-xl overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 group">
+                <img
+                  src={SPECIALIZED_SERVICES[activeServiceTab].image}
+                  alt={SPECIALIZED_SERVICES[activeServiceTab].alt}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-medium text-white">
+                  {SPECIALIZED_SERVICES[activeServiceTab].title}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
       {/* ── SECTION 03: FEATURED PROJECTS (COMPACT EDITORIAL HORIZONTAL FRAME) ── */}
@@ -453,44 +753,69 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP (FULL-WIDTH CLEAN EDITORIAL) ── */}
+      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP WITH OFFICIAL BILL TIERS ── */}
       <section className="border-t border-stone-200/80 bg-[#FCFAF7]">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-10 lg:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-10 lg:py-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left Tagline */}
-            <div className="md:col-span-3 space-y-1">
-              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
-                A Cleaner
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
-                Brighter
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-bold text-stone-400 uppercase tracking-[0.2em] font-heading block">
-                Maharashtra
-              </span>
-              <div className="w-8 h-[1px] bg-stone-300 mt-2" />
-            </div>
-
-            {/* Center Copy */}
-            <div className="md:col-span-6 md:border-l md:border-stone-200 md:pl-8 space-y-1">
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
+            {/* Left Tagline & Heading */}
+            <div className="lg:col-span-4 space-y-2">
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+                  Book Free Consultation
+                </span>
+                <div className="w-8 h-[1px] bg-stone-300" />
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight leading-tight">
                 Tell us about your property.
               </h3>
-              <p className="text-xs sm:text-sm text-stone-500 font-normal leading-relaxed">
-                We'll help assess the right solar solution for your space.
+              <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                Connect with our solar experts for honest, professional advice tailored to your energy needs.
               </p>
             </div>
 
-            {/* Right Action Button */}
-            <div className="md:col-span-3 flex md:justify-end">
-              <PrimaryButton
-                size="md"
-                onClick={onCtaClick}
-                className="px-6 py-3 text-sm w-full sm:w-auto"
-              >
-                Get a Solar Assessment
-              </PrimaryButton>
+            {/* Right: Monthly Electric Bill Tier Selector & Action */}
+            <div className="lg:col-span-8 bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span className="text-xs font-bold text-slate-900 uppercase tracking-wider font-heading">
+                  Select Your Monthly Electric Bill
+                </span>
+                <span className="text-[11px] text-stone-500 font-medium">
+                  Official SolarARK Subsidy & ROI Guidance
+                </span>
+              </div>
+
+              {/* Bill Tier Chips */}
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                {BILL_TIERS.map((tier) => (
+                  <button
+                    key={tier}
+                    type="button"
+                    onClick={() => setSelectedBillTier(tier)}
+                    className={`py-2 px-2.5 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer border ${
+                      selectedBillTier === tier
+                        ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
+                        : 'bg-stone-50 text-stone-600 border-stone-200 hover:border-stone-300 hover:text-slate-900'
+                    }`}
+                  >
+                    {tier}
+                  </button>
+                ))}
+              </div>
+
+              {/* Action Button & Trust Note */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-stone-100">
+                <span className="text-xs text-stone-500 text-center sm:text-left">
+                  Zero obligation • Up to ₹78,000 PM Surya Ghar subsidy calculation
+                </span>
+                <PrimaryButton
+                  size="md"
+                  onClick={onCtaClick}
+                  className="px-6 py-2.5 text-xs sm:text-sm w-full sm:w-auto"
+                >
+                  Get Free Consultation →
+                </PrimaryButton>
+              </div>
             </div>
 
           </div>
