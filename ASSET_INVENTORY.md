@@ -53,7 +53,7 @@
 | \public/images/services/installation.jpg\ | **EPC & Structural Installation:** Aluminum rails, lightning arrestors, and earthing. | EPC Service |
 | \public/images/services/financing.jpg\ | **Solar Financing & Zero-Capex:** EMI, bank subsidy processing, and loan support. | Financial Care |
 | \public/images/services/monitoring.jpg\ | **24/7 Telemetry & Remote Monitoring:** IoT inverter data tracking and alert system. | Smart Solar |
-| \public/images/approach-artwork.jpg\ | **Services Editorial:** Artwork illustrating solar design methodology. | Editorial |
+| \public/images/approach-artwork.png\ | **Services Editorial:** Artwork illustrating solar design methodology. | Editorial |
 | \public/images/client-video-poster.jpg\ | **Client Video Poster:** Video poster for homeowner testimonial. | Media |
 | \public/videos/client-testimonial-web.mp4\ | **Client Video Review:** High-definition customer feedback video. | Video |
 | \public/images/projects-backdrop.jpg\ | **Turnkey Engineering Backdrop:** Structural texture behind service guarantees. | Background |

@@ -418,7 +418,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {/* Right Open Full-Bleed Image (No box, no card, extends to top, bottom, and right edges) */}
           <div className="w-full lg:w-[62%] xl:w-[66%] relative flex items-center justify-end">
             <img
-              src="/images/approach-artwork.jpg"
+              src="/images/approach-artwork.png"
               alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
               className="w-full h-auto object-cover object-right block"
               style={{
