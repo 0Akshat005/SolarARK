@@ -276,12 +276,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 02: OUR APPROACH (COMPACT RECTANGULAR STRIP PER DESIGN INSPIRATION) ── */}
-      <section id="our-approach" className="scroll-mt-20 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+      {/* ── SECTION 02: OUR APPROACH (OPEN FULL-BLEED ARCHITECTURAL STRIP) ── */}
+      <section id="our-approach" className="scroll-mt-20 relative w-full overflow-hidden mb-6 lg:mb-8 bg-[#FCFAF7]">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between">
           
-          {/* Left Editorial Text Column (~32% width) */}
-          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
+          {/* Left Editorial Text Column (aligned with container) */}
+          <div className="w-full lg:w-[38%] xl:w-[34%] pl-4 sm:pl-6 lg:pl-[max(1.5rem,calc((100vw-1360px)/2+3rem))] pr-4 sm:pr-6 lg:pr-8 py-6 lg:py-8 space-y-3 sm:space-y-4 shrink-0 z-10">
             <div className="flex items-center gap-3">
               <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
                 Our Approach
@@ -310,15 +310,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
           </div>
 
-          {/* Right Rectangular Strip Artwork Canvas (~68% width) */}
-          <div className="lg:col-span-8">
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-stone-200/80 bg-white shadow-xs">
-              <img
-                src="/images/approach-artwork.jpg"
-                alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
-                className="w-full h-auto object-cover object-center block"
-              />
-            </div>
+          {/* Right Open Full-Bleed Image (No box, no card, extends to top, bottom, and right edges) */}
+          <div className="w-full lg:w-[62%] xl:w-[66%] relative flex items-center justify-end">
+            <img
+              src="/images/approach-artwork.jpg"
+              alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
+              className="w-full h-auto object-cover object-right block"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 24px, black 100%)',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 24px, black 100%)',
+              }}
+            />
           </div>
 
         </div>
