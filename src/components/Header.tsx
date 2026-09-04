@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { PhoneCall, Menu, X, ArrowRight } from 'lucide-react';
+import { PhoneCall, Phone, Menu, X, ArrowRight } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
 
 interface HeaderProps {

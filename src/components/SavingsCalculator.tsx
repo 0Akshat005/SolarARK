@@ -57,6 +57,7 @@ interface SavingsCalculatorProps {
   onClaimEstimate: (data: { pincode: string; monthlyBill: number }) => void;
   initialPincode?: string;
   initialBill?: number;
+  onResultsCalculated?: (results: CalculatorResults) => void;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -357,6 +358,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   onClaimEstimate,
   initialPincode = '444601',
   initialBill = 8500,
+  onResultsCalculated,
 }) => {
   const [pincode, setPincode] = useState<string>(initialPincode);
   const [monthlyBill, setMonthlyBill] = useState<number>(initialBill);
@@ -393,6 +395,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     setCalculatedResults(results);
     setIsCalculating(false);
     setCurrentStep(2);
+    if (onResultsCalculated) {
+      onResultsCalculated(results);
+    }
     setTimeout(() => {
       calculatorCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100);
@@ -939,6 +944,21 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       className="flex-1 h-14 rounded-full border border-stone-300 hover:bg-stone-50 active:scale-[0.99] text-[#121824] font-bold text-sm sm:text-base font-heading flex items-center justify-center gap-2 transition-all cursor-pointer"
                     >
                       <span>Get Detailed 3D Quote</span>
+                    </button>
+                  </div>
+
+                  {/* Link to Full Engineering Breakdown below */}
+                  <div className="pt-2 text-center">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const el = document.getElementById('savings-results');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="text-xs font-semibold text-stone-500 hover:text-[#D8542F] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                    >
+                      <span>Explore complete roof area & 25-year financial breakdown</span>
+                      <span>↓</span>
                     </button>
                   </div>
                 </div>

@@ -234,6 +234,7 @@ export default function App() {
                 onClaimEstimate={handleClaimEstimate}
                 initialPincode={calculatorState.pincode}
                 initialBill={calculatorState.monthlyBill}
+                onResultsCalculated={handleResultsCalculated}
               />
 
               {calculatorResults && (

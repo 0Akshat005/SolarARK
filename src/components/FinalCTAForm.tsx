@@ -59,6 +59,12 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
     if (prefilledPincode) setPincode(prefilledPincode);
   }, [prefilledPincode]);
 
+  useEffect(() => {
+    if (prefilledBill) {
+      setMonthlyBill(`₹${prefilledBill.toLocaleString('en-IN')} / month`);
+    }
+  }, [prefilledBill]);
+
   const handleStep1Continue = (e: React.FormEvent) => {
     e.preventDefault();
     if (!pincode || pincode.length !== 6 || !/^\d{6}$/.test(pincode)) {
