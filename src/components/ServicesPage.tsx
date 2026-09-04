@@ -20,55 +20,6 @@ interface ServicesPageProps {
   prefilledBill?: number;
 }
 
-interface ApproachStep {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-  // Percentage coordinates for SVG leader lines on desktop
-  lineStart: { x: number; y: number };
-  lineEnd: { x: number; y: number };
-  anchor: 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right';
-}
-
-const APPROACH_STEPS: ApproachStep[] = [
-  {
-    id: 'step-1',
-    number: '01',
-    title: 'Site Assessment',
-    description: 'Understanding your space, energy needs and potential.',
-    anchor: 'top-left',
-    lineStart: { x: 30, y: 16 },
-    lineEnd: { x: 42, y: 32 },
-  },
-  {
-    id: 'step-2',
-    number: '02',
-    title: 'System Design',
-    description: 'Tailored for maximum efficiency and performance.',
-    anchor: 'bottom-left',
-    lineStart: { x: 30, y: 82 },
-    lineEnd: { x: 40, y: 64 },
-  },
-  {
-    id: 'step-3',
-    number: '03',
-    title: 'Installation',
-    description: 'Safe, precise and professional execution.',
-    anchor: 'top-right',
-    lineStart: { x: 70, y: 16 },
-    lineEnd: { x: 62, y: 36 },
-  },
-  {
-    id: 'step-4',
-    number: '04',
-    title: 'Ongoing Support',
-    description: 'Monitoring, maintenance and long-term partnership.',
-    anchor: 'bottom-right',
-    lineStart: { x: 70, y: 82 },
-    lineEnd: { x: 58, y: 68 },
-  },
-];
 
 interface FeaturedProject {
   id: string;
@@ -110,7 +61,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   onNavigate,
   onCtaClick,
 }) => {
-  const [activeStep, setActiveStep] = useState<string>('step-1');
   const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
   const projectsScrollRef = useRef<HTMLDivElement>(null);
 
@@ -148,10 +98,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="pt-24 sm:pt-28 lg:pt-32 pb-16 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
+    <div className="pt-24 sm:pt-28 lg:pt-32 pb-12 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
       
       {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-20 lg:mb-28">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
 
         {/* Editorial Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16">
@@ -326,12 +276,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 02: OUR APPROACH (ARCHITECTURAL ANNOTATION COMPOSITION) ── */}
-      <section id="our-approach" className="scroll-mt-28 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 lg:mb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      {/* ── SECTION 02: OUR APPROACH (COMPACT RECTANGULAR STRIP PER DESIGN INSPIRATION) ── */}
+      <section id="our-approach" className="scroll-mt-20 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* Left Editorial Column (~33% width) */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Left Editorial Text Column (~32% width) */}
+          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
                 Our Approach
@@ -339,7 +289,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="w-8 h-[1px] bg-stone-300" />
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
               Built around<br />
               the site, not<br />
               <span className="text-[#8B1E2D]">a template.</span>
@@ -349,144 +299,26 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               Every space is different. We take a site-first approach to design solar systems that are efficient, reliable and built for the long term.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <button
                 onClick={onCtaClick}
                 className="text-xs sm:text-sm font-semibold text-[#8B1E2D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer"
               >
-                <span>Our Process</span>
+                <span className="underline underline-offset-4 decoration-[#8B1E2D]">Our Process</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-          {/* Right Process Canvas (~67% width) */}
-          <div className="lg:col-span-8 relative">
-            <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-md border border-stone-200/80 bg-[#FCFAF7] aspect-[16/10] sm:aspect-[16/9]">
-              
-              {/* Daylight Drone Architectural Photo */}
+          {/* Right Rectangular Strip Artwork Canvas (~68% width) */}
+          <div className="lg:col-span-8">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-stone-200/80 bg-white shadow-xs">
               <img
-                src="/images/approach-aerial-bright.jpg"
-                alt="SolarArk custom site-first solar rooftop engineering and installation"
-                className="w-full h-full object-cover object-center"
+                src="/images/approach-artwork.jpg"
+                alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
+                className="w-full h-auto object-cover object-center block"
               />
-
-              {/* Seamless Left Fade Gradient (blending photo smoothly into off-white background) */}
-              <div className="absolute inset-y-0 left-0 w-[42%] bg-gradient-to-r from-[#FCFAF7] via-[#FCFAF7]/75 to-transparent pointer-events-none z-[1]" />
-              
-              {/* Subtle Right Dark Vignette (ensuring white text legibility) */}
-              <div className="absolute inset-y-0 right-0 w-[42%] bg-gradient-to-l from-black/60 via-black/25 to-transparent pointer-events-none z-[1]" />
-
-              {/* Desktop Thin Architectural SVG Leader Lines */}
-              <svg 
-                className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-[2]" 
-                viewBox="0 0 100 100" 
-                preserveAspectRatio="none"
-              >
-                {/* 01 Site Assessment Line: Horizontal right from text, then angled down-right to rooftop dot */}
-                <polyline
-                  points="32,18 42,18 51,36"
-                  fill="none"
-                  stroke="#334155"
-                  strokeWidth="0.32"
-                />
-                <circle cx="51" cy="36" r="0.9" fill="#0F172A" />
-
-                {/* 02 System Design Line: Horizontal right to building structure dot */}
-                <line
-                  x1="32"
-                  y1="68"
-                  x2="46"
-                  y2="68"
-                  stroke="#334155"
-                  strokeWidth="0.32"
-                />
-                <circle cx="46" cy="68" r="0.9" fill="#0F172A" />
-
-                {/* 03 Installation Line: Horizontal left from text, then angled down-left to panel array dot */}
-                <polyline
-                  points="76,18 70,18 64,30"
-                  fill="none"
-                  stroke="#F1F5F9"
-                  strokeWidth="0.32"
-                />
-                <circle cx="64" cy="30" r="0.9" fill="#FFFFFF" />
-
-                {/* 04 Ongoing Support Line: Horizontal left to facility equipment dot */}
-                <line
-                  x1="76"
-                  y1="68"
-                  x2="68"
-                  y2="68"
-                  stroke="#F1F5F9"
-                  strokeWidth="0.32"
-                />
-                <circle cx="68" cy="68" r="0.9" fill="#FFFFFF" />
-              </svg>
-
-              {/* Desktop Architectural Annotations (No Floating Heavy Cards, Pure Typography) */}
-              <div className="hidden lg:block">
-                
-                {/* 01 Site Assessment (Top Left - Dark Text) */}
-                <div className="absolute top-[8%] left-[4%] max-w-[175px] z-[2]">
-                  <span className="text-xs font-bold text-stone-500 font-heading block">01</span>
-                  <div className="font-heading font-bold text-sm sm:text-base text-slate-900 leading-snug">Site Assessment</div>
-                  <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed mt-0.5">
-                    Understanding your space, energy needs and potential.
-                  </p>
-                </div>
-
-                {/* 02 System Design (Bottom Left - Dark Text) */}
-                <div className="absolute bottom-[16%] left-[4%] max-w-[175px] z-[2]">
-                  <span className="text-xs font-bold text-stone-500 font-heading block">02</span>
-                  <div className="font-heading font-bold text-sm sm:text-base text-slate-900 leading-snug">System Design</div>
-                  <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed mt-0.5">
-                    Tailored for maximum efficiency and performance.
-                  </p>
-                </div>
-
-                {/* 03 Installation (Top Right - White Text) */}
-                <div className="absolute top-[8%] right-[4%] max-w-[175px] z-[2] text-left">
-                  <span className="text-xs font-bold text-white/70 font-heading block">03</span>
-                  <div className="font-heading font-bold text-sm sm:text-base text-white leading-snug">Installation</div>
-                  <p className="text-[11px] sm:text-xs text-white/85 leading-relaxed mt-0.5">
-                    Safe, precise and professional execution.
-                  </p>
-                </div>
-
-                {/* 04 Ongoing Support (Bottom Right - White Text) */}
-                <div className="absolute bottom-[16%] right-[4%] max-w-[175px] z-[2] text-left">
-                  <span className="text-xs font-bold text-white/70 font-heading block">04</span>
-                  <div className="font-heading font-bold text-sm sm:text-base text-white leading-snug">Ongoing Support</div>
-                  <p className="text-[11px] sm:text-xs text-white/85 leading-relaxed mt-0.5">
-                    Monitoring, maintenance and long-term partnership.
-                  </p>
-                </div>
-
-              </div>
-
             </div>
-
-            {/* Mobile / Tablet Structured Callout Grid below the photo */}
-            <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-              {APPROACH_STEPS.map((step) => (
-                <div 
-                  key={step.id}
-                  className="bg-white border border-stone-200 rounded-xl p-3.5 space-y-0.5 shadow-xs"
-                >
-                  <span className="text-[11px] font-bold text-[#8B1E2D] font-heading block">
-                    {step.number}
-                  </span>
-                  <div className="font-heading font-bold text-sm text-slate-900">
-                    {step.title}
-                  </div>
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
           </div>
 
         </div>
