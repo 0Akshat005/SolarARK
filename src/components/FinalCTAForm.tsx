@@ -26,6 +26,7 @@ import {
   PhoneCall,
   Calendar
 } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 export interface FinalCTAFormProps {
   prefilledPincode?: string;
@@ -528,13 +529,13 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
               {/* Bottom CTA & Micro-Trust */}
               <div className="space-y-3 pt-4">
-                <button
+                <PrimaryButton
                   type="submit"
-                  className="w-full btn-primary-maroon font-bold py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
+                  fullWidth
+                  size="md"
                 >
-                  <span>Continue to Step 2</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  Continue to Step 2
+                </PrimaryButton>
 
                 <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 text-center">
                   <Lock className="w-3.5 h-3.5 text-emerald-600" />
@@ -635,13 +636,13 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
               {/* Submit CTA */}
               <div className="space-y-3 pt-3">
-                <button
+                <PrimaryButton
                   type="submit"
-                  className="w-full btn-primary-maroon font-bold py-3.5 sm:py-4 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer"
+                  fullWidth
+                  size="md"
                 >
-                  <span>Submit &amp; Generate 3D Proposal</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  Submit &amp; Generate 3D Proposal
+                </PrimaryButton>
 
                 <div className="flex items-center justify-center gap-1.5 text-xs text-slate-500 text-center">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -693,13 +694,16 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                 >
                   <span>Open in WhatsApp</span>
                 </a>
-                <a
+                <PrimaryButton
+                  as="a"
                   href="tel:+917080909590"
-                  className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white btn-primary-maroon px-5 py-3 rounded-xl cursor-pointer"
+                  size="sm"
+                  icon={<PhoneCall className="w-4 h-4" />}
+                  iconPosition="left"
+                  showArrow={false}
                 >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Call (7080909590)</span>
-                </a>
+                  Call (7080909590)
+                </PrimaryButton>
               </div>
             </div>
           )}

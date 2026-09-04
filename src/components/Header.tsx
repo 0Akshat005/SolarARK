@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { PhoneCall, Phone, Menu, X, ArrowRight } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
+import { PrimaryButton } from './PrimaryButton';
 
 interface HeaderProps {
   onCtaClick: () => void;
@@ -146,14 +147,14 @@ export const Header: React.FC<HeaderProps> = ({
               <PhoneCall className="w-[18px] h-[18px] stroke-[1.9] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110" />
             </a>
 
-            {/* Primary High-Conversion CTA Button */}
-            <button
+            {/* Primary High-Conversion CTA Button (Executive Reference Archetype) */}
+            <PrimaryButton
+              size="sm"
               onClick={onCtaClick}
-              className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-semibold text-[13.5px] xl:text-[14px] px-5 py-2.5 rounded-full flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#8B1E1E]/25 hover:shadow-lg hover:shadow-[#8B1E1E]/35 transition-all ring-1 ring-white/20"
+              className="text-[13.5px] xl:text-[14px]"
             >
-              <span>Get A Quote</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+              Get A Quote
+            </PrimaryButton>
           </div>
 
           {/* Mobile Navigation Header Controls */}
@@ -237,16 +238,16 @@ export const Header: React.FC<HeaderProps> = ({
               <span>Direct Helpline: +91 7080909590</span>
             </a>
 
-            <button
+            <PrimaryButton
+              size="md"
+              fullWidth
               onClick={() => {
                 setMobileMenuOpen(false);
                 onCtaClick();
               }}
-              className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-sm py-3.5 rounded-2xl shadow-lg shadow-[#8B1E1E]/30 flex items-center justify-center gap-2 transition-all cursor-pointer ring-1 ring-white/20"
             >
-              <span>Get Free Solar Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              Get Free Solar Consultation
+            </PrimaryButton>
           </div>
 
         </div>

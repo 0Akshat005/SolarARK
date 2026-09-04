@@ -24,6 +24,7 @@ import {
   Building,
   Heart
 } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 import { GALLERY_ALBUMS } from '../data/solarData';
 import { GalleryAlbum } from '../types';
 
@@ -118,13 +119,12 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             </div>
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3">
-              <button
+              <PrimaryButton
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-heading font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all inline-flex items-center gap-2 cursor-pointer"
+                size="md"
               >
-                <span>Join Our Partner Network</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Join Our Partner Network
+              </PrimaryButton>
               <span className="text-[11px] text-stone-500 font-medium">
                 Over 10,000+ attendees engaged across our events
               </span>
@@ -375,13 +375,12 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               <span className="text-xs text-stone-500 font-medium">
                 High-Resolution Photographs from SolarArk Archives
               </span>
-              <button
+              <PrimaryButton
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                size="sm"
               >
-                <span>Connect With SolarArk Team</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+                Connect With SolarArk Team
+              </PrimaryButton>
             </div>
 
           </div>

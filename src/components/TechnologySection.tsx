@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { TECH_SPECS } from '../data/solarData';
 import { Cpu, ShieldCheck, Zap, Layers, ArrowRight, Check } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   const [activeTechIndex, setActiveTechIndex] = useState<number>(0);
@@ -115,13 +116,13 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                 Full technical datasheet provided during free 3D design consultation.
               </span>
 
-              <button
+              <PrimaryButton
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#8B1E1E]/20 shrink-0"
+                size="sm"
+                className="shrink-0"
               >
-                <span>Request Tech Datasheet</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Request Tech Datasheet
+              </PrimaryButton>
             </div>
           </div>
 

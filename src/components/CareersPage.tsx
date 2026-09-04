@@ -37,6 +37,7 @@ import {
   Layers,
   X
 } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 interface CareersPageProps {
   onNavigate: (path: string) => void;
@@ -567,20 +568,16 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
                     {/* Submit Button */}
                     <div className="pt-2">
-                      <button
+                      <PrimaryButton
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                        fullWidth
+                        size="md"
+                        icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
+                        showArrow={false}
                       >
-                        {isSubmitting ? (
-                          <span>Submitting Application...</span>
-                        ) : (
-                          <>
-                            <span>Submit Job Application</span>
-                            <Send className="w-4 h-4" />
-                          </>
-                        )}
-                      </button>
+                        {isSubmitting ? 'Submitting Application...' : 'Submit Job Application'}
+                      </PrimaryButton>
                     </div>
 
                     <p className="text-[11px] text-stone-500 text-center pt-1">

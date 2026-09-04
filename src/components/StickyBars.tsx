@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ArrowRight, PhoneCall } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 interface StickyBarsProps {
   onCtaClick: () => void;
@@ -20,7 +21,7 @@ export const StickyBars: React.FC<StickyBarsProps> = ({ onCtaClick }) => {
         {/* 1. Direct Instant Dial (Clean & Premium Call Action) */}
         <a
           href="tel:7080909590"
-          className="flex-1 bg-white hover:bg-stone-50 active:scale-[0.98] border border-stone-200 text-[#8B1E1E] font-heading font-bold text-xs py-2.5 px-2 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+          className="flex-1 bg-white hover:bg-stone-50 active:scale-[0.98] border border-stone-200 text-[#8B1E1E] font-heading font-bold text-xs py-2.5 px-2 rounded-full flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
           title="Call Helpline: 7080909590"
           aria-label="Call SolarARK Advisor"
         >
@@ -29,14 +30,16 @@ export const StickyBars: React.FC<StickyBarsProps> = ({ onCtaClick }) => {
         </a>
 
         {/* 2. Primary High-Conversion CTA Button */}
-        <button
-          type="button"
-          onClick={onCtaClick}
-          className="flex-1 bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs py-2.5 px-2 rounded-xl flex items-center justify-center gap-1.5 shadow-md shadow-[#8B1E1E]/25 transition-all ring-1 ring-white/20 cursor-pointer"
-        >
-          <span>Get Free Estimate</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        <div className="flex-1">
+          <PrimaryButton
+            size="sm"
+            fullWidth
+            onClick={onCtaClick}
+            className="py-2 px-2 text-xs"
+          >
+            Get Free Estimate
+          </PrimaryButton>
+        </div>
       </div>
     </>
   );

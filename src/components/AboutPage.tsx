@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 
 import { OurJourney } from './OurJourney';
+import { PrimaryButton } from './PrimaryButton';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -80,13 +81,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
-                <button
+                <PrimaryButton
                   onClick={onCtaClick}
-                  className="bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md shadow-[#8B1E1E]/30 transition-all flex items-center gap-2 cursor-pointer"
+                  size="md"
                 >
-                  <span>Request Free Site Survey</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                  Request Free Site Survey
+                </PrimaryButton>
                 <button
                   onClick={() => onNavigate('/projects')}
                   className="bg-stone-100 hover:bg-stone-200 text-slate-900 font-heading font-bold text-xs sm:text-sm px-6 py-3 rounded-xl border border-stone-200 transition-all flex items-center gap-2 cursor-pointer"

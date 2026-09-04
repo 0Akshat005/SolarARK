@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ShieldCheck, Zap, Award, Clock, ArrowRight, DollarSign } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   return (
@@ -128,13 +129,13 @@ export const GuaranteeSpotlight: React.FC<{ onCtaClick: () => void }> = ({ onCta
             </p>
           </div>
 
-          <button
+          <PrimaryButton
             onClick={onCtaClick}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2 whitespace-nowrap"
+            size="md"
+            className="whitespace-nowrap shrink-0"
           >
-            <span>Get My Free Savings Estimate</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            Get My Free Savings Estimate
+          </PrimaryButton>
         </div>
 
       </div>

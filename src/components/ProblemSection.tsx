@@ -5,6 +5,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { TrendingUp, ShieldCheck, Sun, IndianRupee, Home, ArrowRight } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 interface ProblemSectionProps {
   onCtaClick: () => void;
@@ -311,13 +312,13 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onCtaClick }) =>
                   </div>
 
                   <div className="flex flex-col items-center sm:items-end shrink-0 w-full sm:w-auto">
-                    <button
+                    <PrimaryButton
                       onClick={onCtaClick}
-                      className="w-full sm:w-auto btn-primary-maroon text-xs sm:text-sm font-bold font-heading px-6 py-3 rounded-xl flex items-center justify-center gap-2 group cursor-pointer"
+                      size="md"
+                      className="w-full sm:w-auto"
                     >
-                      <span>See My Savings</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                    </button>
+                      See My Savings
+                    </PrimaryButton>
                     <span className="text-[10px] text-slate-400 mt-1 font-medium text-center">
                       Free estimate in 60 seconds
                     </span>

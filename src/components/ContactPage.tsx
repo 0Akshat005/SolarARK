@@ -22,6 +22,7 @@ import {
   FileCheck
 } from 'lucide-react';
 import { OfficeLocationMap } from './OfficeLocationMap';
+import { PrimaryButton } from './PrimaryButton';
 
 interface ContactPageProps {
   onNavigate: (path: string) => void;
@@ -181,16 +182,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </div>
               </div>
 
-              <a
+              <PrimaryButton
+                as="a"
                 href="https://wa.me/917080909590?text=Hi%20SolarArk%20Team%2C%20I%20would%20like%20to%20get%20a%20free%20solar%20rooftop%20estimate."
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat with SolarArk engineer on WhatsApp"
-                className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] active:scale-[0.98] text-white font-heading font-bold text-xs sm:text-sm py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                fullWidth
+                size="md"
               >
-                <span>Chat on WhatsApp Instantly</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+                Chat on WhatsApp Instantly
+              </PrimaryButton>
             </div>
 
           </div>
@@ -408,20 +410,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  <button
+                  <PrimaryButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary-maroon font-heading font-bold py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 focus-visible:outline-none"
+                    fullWidth
+                    size="md"
+                    icon={isSubmitting ? undefined : <Send className="w-4 h-4" />}
+                    showArrow={false}
                   >
-                    {isSubmitting ? (
-                      <span>Submitting Request...</span>
-                    ) : (
-                      <>
-                        <span>Confirm Free Site Survey Request</span>
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    {isSubmitting ? 'Submitting Request...' : 'Confirm Free Site Survey Request'}
+                  </PrimaryButton>
 
                   <p className="text-[11px] text-stone-500 text-center pt-1 m-0">
                     🔒 Privacy Assured: We only contact you regarding your solar rooftop assessment.

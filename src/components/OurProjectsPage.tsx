@@ -40,6 +40,7 @@ import {
   Wallet,
   Gauge
 } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 import { PROJECT_CASE_STUDIES, INSTALLATION_VIDEO_REELS } from '../data/solarData';
 import { formatINR } from '../utils/calculator';
 import { ProjectCaseStudy, InstallationVideoReel } from '../types';
@@ -511,13 +512,13 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
                     {/* Card Bottom Actions */}
                     <div className="p-6 pt-0 space-y-2">
-                      <button
+                      <PrimaryButton
                         onClick={onCtaClick}
-                        className="w-full py-3 bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm shadow-[#8B1E1E]/20 cursor-pointer"
+                        fullWidth
+                        size="sm"
                       >
-                        <span>Get Similar Proposal for My Roof</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                        Get Similar Proposal for My Roof
+                      </PrimaryButton>
 
                       <button
                         onClick={() => setSelectedProjectModal(proj)}
@@ -665,13 +666,13 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
             </p>
           </div>
 
-          <button
+          <PrimaryButton
             onClick={() => onNavigate('/gallery')}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-md shadow-[#8B1E1E]/20 transition-all inline-flex items-center gap-2 shrink-0 cursor-pointer"
+            size="md"
+            className="shrink-0"
           >
-            <span>Explore Community Gallery</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            Explore Community Gallery
+          </PrimaryButton>
         </div>
       </section>
 
@@ -820,15 +821,16 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               {/* CTA */}
               <div className="flex items-center gap-3 pt-2">
-                <button
+                <PrimaryButton
                   onClick={() => {
                     setSelectedProjectModal(null);
                     onCtaClick();
                   }}
-                  className="flex-1 bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs py-3 rounded-xl transition-colors text-center cursor-pointer shadow-md"
+                  size="sm"
+                  className="flex-1"
                 >
                   Get Custom Estimate for My Rooftop
-                </button>
+                </PrimaryButton>
                 <button
                   onClick={() => setSelectedProjectModal(null)}
                   className="px-4 py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs rounded-xl transition-colors cursor-pointer"

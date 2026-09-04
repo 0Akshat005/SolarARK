@@ -6,6 +6,7 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ShieldCheck, Star, ArrowRight, Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { SolarArkLogo } from './SolarArkLogo';
+import { PrimaryButton } from './PrimaryButton';
 
 interface FooterProps {
   onCtaClick: () => void;
@@ -69,13 +70,12 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
             </div>
           </div>
 
-          <button
+          <PrimaryButton
             onClick={onCtaClick}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all inline-flex items-center gap-2 shadow-sm cursor-pointer"
+            size="sm"
           >
-            <span>Get Free Solar Consultation</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            Get Free Solar Consultation
+          </PrimaryButton>
         </div>
       </div>
 

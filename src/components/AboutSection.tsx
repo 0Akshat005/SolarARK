@@ -23,6 +23,7 @@ import {
   Heart,
   MapPin
 } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 interface AboutSectionProps {
   onCtaClick?: () => void;
@@ -473,13 +474,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onCtaClick }) => {
           {/* CTA Trigger */}
           {onCtaClick && (
             <div className="pt-6 text-center">
-              <button
+              <PrimaryButton
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-sm font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-[#8B1E1E]/25 transition-all inline-flex items-center gap-2 active:scale-[0.98] cursor-pointer"
+                size="md"
               >
-                <span>Get Your Free Solar Estimate</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                Get Your Free Solar Estimate
+              </PrimaryButton>
             </div>
           )}
         </div>

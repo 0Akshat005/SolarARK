@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { FAQ_LIST } from '../data/solarData';
 import { HelpCircle, ChevronDown, Search, ArrowRight } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
@@ -136,13 +137,13 @@ export const FAQSection: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick })
             </div>
           </div>
 
-          <button
+          <PrimaryButton
             onClick={onCtaClick}
-            className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold text-xs px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap"
+            size="sm"
+            className="whitespace-nowrap shrink-0"
           >
-            <span>Ask an Expert</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+            Ask an Expert
+          </PrimaryButton>
         </div>
 
       </div>

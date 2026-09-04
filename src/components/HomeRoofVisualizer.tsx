@@ -5,6 +5,7 @@
 
 import React, { useState } from 'react';
 import { Eye, Sparkles, Sun, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { PrimaryButton } from './PrimaryButton';
 
 export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick }) => {
   const [viewMode, setViewMode] = useState<'before' | 'after'>('after');
@@ -147,13 +148,13 @@ export const HomeRoofVisualizer: React.FC<{ onCtaClick: () => void }> = ({ onCta
                 </span>
               </div>
 
-              <button
+              <PrimaryButton
                 onClick={onCtaClick}
-                className="bg-[#8B1E1E] hover:bg-[#5E1212] text-white font-semibold px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap"
+                size="sm"
+                className="whitespace-nowrap shrink-0"
               >
-                <span>Request 3D Design</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+                Request 3D Design
+              </PrimaryButton>
             </div>
           </div>
 
