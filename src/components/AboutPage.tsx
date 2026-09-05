@@ -16,6 +16,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MaharashtraStrip } from './MaharashtraStrip';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -521,6 +522,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
         </div>
       </section>
+ 
+      {/* ════════════════════════════════════════════════════════════════
+          BAND 5.5 — MAHARASHTRA LOCATIONS STRIP ("Built in Maharashtra")
+          ════════════════════════════════════════════════════════════════ */}
+      <MaharashtraStrip onNavigate={onNavigate} onCtaClick={onCtaClick} />
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 6 — JOURNEY GALLERY ("Behind Every Installation")
