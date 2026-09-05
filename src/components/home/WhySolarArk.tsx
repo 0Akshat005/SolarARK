@@ -52,7 +52,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* ── LEFT DARK BLOCK: BRAND STORY & SUNSET ENGINEER VISUAL ── */}
-            <div className="lg:col-span-6 relative min-h-[460px] sm:min-h-[520px] lg:min-h-[620px] overflow-hidden flex flex-col justify-end p-6 sm:p-10 lg:p-14 bg-[#0A1220]">
+            <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] overflow-hidden flex flex-col justify-end p-6 sm:p-8 lg:p-10 bg-[#0A1220]">
               
               {/* Background Authentic Photo */}
               <img
@@ -100,10 +100,10 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
             </div>
 
             {/* ── RIGHT LIGHT BLOCK: 2x2 CAPABILITY MATRIX ── */}
-            <div className="lg:col-span-6 bg-[#FAF9F6] p-6 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-center space-y-8 sm:space-y-10">
+            <div className="lg:col-span-6 bg-[#FAF9F6] p-6 sm:p-8 lg:p-10 xl:p-12 flex flex-col justify-center space-y-6 sm:space-y-7">
               
               {/* Header */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-stone-600">
                     Why Solar ARK
@@ -111,14 +111,14 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
                   <span className="w-8 h-px bg-stone-300" />
                 </div>
 
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.10]">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
                   A smarter<br />
                   <span className="text-[#8B1E1E]">way to energy.</span>
                 </h2>
               </div>
 
               {/* 2x2 Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                 {pillars.map((item, idx) => {
                   const Icon = item.icon;
                   return (

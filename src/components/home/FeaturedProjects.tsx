@@ -42,8 +42,8 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] py-16 sm:py-20 lg:py-24 border-b border-stone-200/80">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-10 sm:space-y-12">
+    <section className="w-full bg-[#FAF9F6] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-6 sm:space-y-8">
         
         {/* ── HEADER ROW ── */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">

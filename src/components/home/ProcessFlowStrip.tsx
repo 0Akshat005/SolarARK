@@ -35,8 +35,8 @@ export const ProcessFlowStrip: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-white border-b border-stone-200/80 py-12 sm:py-16">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-8">
+    <section className="w-full bg-white border-b border-stone-200/80 py-8 sm:py-10 lg:py-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-6">
         
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">

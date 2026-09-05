@@ -12,7 +12,7 @@ interface PreFooterBannerProps {
 
 export const PreFooterBanner: React.FC<PreFooterBannerProps> = ({ onCtaClick }) => {
   return (
-    <section className="relative w-full bg-[#080E1C] overflow-hidden py-14 sm:py-16 lg:py-20 border-t border-stone-800">
+    <section className="relative w-full bg-[#080E1C] overflow-hidden py-8 sm:py-10 lg:py-12 border-t border-stone-800">
       
       {/* Background Solar Dusk Texture */}
       <img

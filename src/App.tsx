@@ -5,8 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
-import { EditorialHero } from './components/home/EditorialHero';
-import { MetricsRibbon } from './components/home/MetricsRibbon';
+import { Hero } from './components/Hero';
 import { SolutionsScale } from './components/home/SolutionsScale';
 import { WhySolarArk } from './components/home/WhySolarArk';
 import { FeaturedProjects } from './components/home/FeaturedProjects';
@@ -215,14 +214,12 @@ export default function App() {
         {/* HOMEPAGE VIEW */}
         {currentPath === '/' && (
           <>
-            {/* 1. What SolarARK Does: Editorial Hero */}
-            <EditorialHero
+            {/* 1. Preserved Video Hero & Trust Badges Proof Rail (Exactly as before) */}
+            <Hero
               onCtaClick={scrollToContactForm}
-              onAssessmentClick={scrollToCalculator}
+              onClaimEstimate={handleClaimEstimate}
+              onCalculatorClick={scrollToCalculator}
             />
-
-            {/* 2. Social Proof & Scale: Metrics Ribbon */}
-            <MetricsRibbon />
 
             {/* 3. Which Solution Fits Me: Solutions by Scale */}
             <SolutionsScale onNavigate={navigateTo} />
