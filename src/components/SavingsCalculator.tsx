@@ -675,14 +675,6 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
           </div>
 
-          {/* 3D Pop-Out Tree Foliage Layer (CRITICAL) */}
-          <div className="absolute top-[28%] -left-12 xl:-left-16 w-32 xl:w-40 pointer-events-none select-none z-30 drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)]">
-            <img
-              src="/images/tree-popout-transparent.png"
-              alt="Natural tree pop-out foliage"
-              className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-700"
-            />
-          </div>
 
           {/* Top Stacked Editorial Typography */}
           <div className="relative z-10 p-4 xl:p-5 pt-8 text-white">
