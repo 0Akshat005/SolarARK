@@ -26,8 +26,6 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   const solutions = [
     {
       id: 'residential',
-      num: '01',
-      tag: 'Rooftop Ecosystem',
       title: 'Residential Solar',
       subtitle: 'For a more independent home',
       image: '/images/projects/featured-residential.jpg',
@@ -35,8 +33,6 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
     },
     {
       id: 'commercial',
-      num: '02',
-      tag: 'Clean Enterprise',
       title: 'Commercial Solar',
       subtitle: 'For growing businesses',
       image: '/images/projects/featured-commercial.jpg',
@@ -44,8 +40,6 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
     },
     {
       id: 'industrial',
-      num: '03',
-      tag: 'High-Yield Megawatt',
       title: 'Industrial Solar',
       subtitle: 'For a stronger, sustainable future',
       image: '/images/projects/featured-industrial.jpg',
@@ -84,10 +78,10 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             <div>
               <button
                 onClick={() => onNavigate('/services')}
-                className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-[#8B1E1E]/40 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E] hover:text-white text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Solutions</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
               </button>
             </div>
           </div>
@@ -129,7 +123,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
           <div
             key={item.id}
             onClick={() => onNavigate(item.path)}
-            className={`group relative h-[420px] sm:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-8 lg:p-10 bg-stone-950 ${
+            className={`group relative h-[420px] sm:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-end p-6 sm:p-8 lg:p-10 bg-stone-950 ${
               idx !== 0 ? 'border-t md:border-t-0 md:border-l border-white/15' : ''
             }`}
           >
@@ -142,17 +136,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             />
 
             {/* Cinematic Scrim */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/25 transition-opacity duration-300 group-hover:opacity-95" />
-
-            {/* Top Taxonomy / Category Tag */}
-            <div className="relative z-10 flex items-center justify-between">
-              <span className="font-heading text-[10.5px] font-semibold uppercase tracking-[0.22em] text-white/75">
-                {`${item.num} // ${item.id.toUpperCase()}`}
-              </span>
-              <span className="text-[11px] font-heading font-medium tracking-wide text-white/55 group-hover:text-white/90 transition-colors">
-                {item.tag}
-              </span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-opacity duration-300 group-hover:opacity-95" />
 
             {/* Direct Information Overlay (Title + Subtitle + Circular Outline Arrow) */}
             <div className="relative z-10 flex items-end justify-between gap-4">
