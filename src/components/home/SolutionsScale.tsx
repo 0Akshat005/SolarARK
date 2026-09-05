@@ -2,15 +2,15 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * SolutionsScale — Solutions Section with Editorial Magazine Top Row
- * Strictly matched to reference close-up media_1788617653069.png:
- * - Wide horizontal section with warm/off-white background.
- * - Top row (3-column horizontal balance):
- *   1. Left: Eyebrow "OUR SOLUTIONS" + large headline "Solar for every scale."
- *   2. Center: Short supporting paragraph + compact maroon pill CTA "Explore Solutions →"
- *   3. Right: Small, landscape rectangular supporting image with subtle rounded corners,
- *      flush to the right side, showing modern house with sunburst and "Same sun. A brighter tomorrow." + white hairline.
- * - Bottom row: Seamless transition into the large three-part continuous photographic band
+ * SolutionsScale — Solutions Section with Compact Editorial Magazine Top Row
+ * Strictly adheres to reference close-up media_1788617653069.png & layout proportions:
+ * - 3 balanced horizontal zones on top row:
+ *   1. Left (~32%): Eyebrow "OUR SOLUTIONS ────" + Heading "Solar for / every scale."
+ *   2. Center (~42%): Short supporting copy + compact maroon outline CTA "Explore Solutions →"
+ *   3. Right (~20-22%): Small compact landscape rectangular image accent (approx 18-22% viewport width,
+ *      subtly rounded [3px], NO card border, NO shadow, flush right).
+ * - Compact top row proportions with minimal vertical whitespace.
+ * - Immediately transitions into the continuous, full-viewport-width 3-part image band:
  *   | RESIDENTIAL | COMMERCIAL | INDUSTRIAL |
  */
 
@@ -47,48 +47,48 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] pt-8 sm:pt-10 lg:pt-12 pb-0 border-b border-stone-200/80">
+    <section className="w-full bg-[#FAF9F6] border-b border-stone-200/80">
       
-      {/* ── 3-COLUMN COMPACT EDITORIAL MAGAZINE TOP ROW (Matched to media_1788617653069.png) ── */}
-      <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 mb-6 sm:mb-8">
+      {/* ── 3-COLUMN COMPACT EDITORIAL MAGAZINE TOP ROW (~30% / ~45% / ~22%) ── */}
+      <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-7 lg:py-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center justify-between">
           
-          {/* 1. LEFT: Large Headline (approx 4.5 cols on desktop) */}
-          <div className="md:col-span-5 lg:col-span-4 space-y-2">
+          {/* 1. LEFT (~32%): Eyebrow + Large Display Heading */}
+          <div className="md:col-span-4 space-y-1.5 sm:space-y-2">
             <div className="flex items-center gap-2">
-              <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-stone-500">
+              <span className="font-heading text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">
                 OUR SOLUTIONS
               </span>
-              <span className="w-8 h-px bg-stone-300" />
+              <span className="w-7 h-px bg-stone-300" />
             </div>
 
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.04]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-slate-900 tracking-tight leading-[1.05]">
               Solar for<br />
               <span className="text-[#8B1E1E]">every scale.</span>
             </h2>
           </div>
 
-          {/* 2. CENTER: Short Supporting Copy + Compact Maroon Outline CTA (approx 4 cols) */}
-          <div className="md:col-span-4 lg:col-span-4 space-y-3.5 max-w-[420px]">
-            <p className="text-stone-600 text-xs sm:text-sm lg:text-[14.5px] font-normal leading-relaxed">
+          {/* 2. CENTER (~44%): Short Supporting Copy + Compact Outline Pill CTA */}
+          <div className="md:col-span-5 space-y-3">
+            <p className="text-stone-600 text-xs sm:text-sm lg:text-[14px] font-normal leading-relaxed max-w-[390px]">
               From homes to industries, we design solar solutions that make energy simpler, smarter and more sustainable.
             </p>
 
             <div>
               <button
                 onClick={() => onNavigate('/services')}
-                className="group inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#8B1E1E]/40 hover:border-[#8B1E1E] bg-white hover:bg-red-50/40 text-[#8B1E1E] text-xs sm:text-sm font-heading font-semibold transition-all duration-200 cursor-pointer shadow-2xs"
+                className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/5 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Solutions</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
               </button>
             </div>
           </div>
 
-          {/* 3. RIGHT: Small Landscape Rectangular Supporting Image Block (approx 3.5-4 cols, flush right) */}
-          <div className="hidden md:flex md:col-span-3 lg:col-span-4 justify-end">
-            <div className="relative w-full max-w-[360px] lg:max-w-[400px] h-[125px] sm:h-[135px] lg:h-[142px] rounded-lg overflow-hidden border border-stone-300/80 shadow-xs bg-stone-900 group">
-              {/* Landscape Image with Pavilion & Sunburst */}
+          {/* 3. RIGHT (~20–22%): Small Landscape Rectangular Supporting Image Block (NO border, NO shadow, flush right) */}
+          <div className="hidden md:flex md:col-span-3 justify-end">
+            <div className="relative w-[280px] sm:w-[310px] lg:w-[340px] xl:w-[360px] h-[112px] sm:h-[120px] lg:h-[128px] xl:h-[134px] rounded-[4px] overflow-hidden bg-stone-900 group select-none">
+              {/* Landscape Image with Pavilion & Golden Sunlight */}
               <img
                 src="/images/revamp/sun-landscape-tomorrow.jpg"
                 alt="Architectural pavilion with golden sunlight"
@@ -98,14 +98,14 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
               {/* Left Dark Gradient Scrim for Legibility */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
               
-              {/* Typography Overlay + White Hairline */}
-              <div className="relative z-10 p-3.5 sm:p-4 h-full flex flex-col justify-center">
-                <span className="font-heading font-bold text-sm sm:text-base text-white leading-snug tracking-tight">
+              {/* Typography Overlay + White Hairline Underline (Matching reference media_1788617653069.png) */}
+              <div className="relative z-10 pl-4 sm:pl-5 pr-2 py-3 h-full flex flex-col justify-center">
+                <span className="font-heading font-bold text-xs sm:text-[13px] text-white leading-[1.22] tracking-tight">
                   Same sun.<br />
                   A brighter<br />
                   tomorrow.
                 </span>
-                <div className="w-7 h-[1.5px] bg-white mt-2" />
+                <div className="w-8 sm:w-10 h-[1.5px] bg-white/95 mt-2" />
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
         </div>
       </div>
 
-      {/* ── SEAMLESS TRANSITION INTO THE LARGE THREE-PART IMAGE BAND ── */}
+      {/* ── SEAMLESS TRANSITION INTO THE CONTINUOUS FULL-WIDTH 3-PART IMAGE BAND ── */}
       <div className="w-full grid grid-cols-1 md:grid-cols-3 border-t border-stone-300/80">
         {solutions.map((item, idx) => (
           <div
