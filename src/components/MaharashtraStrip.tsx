@@ -111,7 +111,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
       aria-label="Built in Maharashtra"
       className={`w-full bg-[#FAF9F6] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80 ${className}`}
     >
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-12">
+      <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
         {/* ── SINGLE CONTINUOUS HORIZONTAL ROW (lg+) ── */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-5 xl:gap-8">
 

@@ -2,14 +2,13 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * SolutionsScale — Single Cohesive Three-Panel Editorial Image Band
- * Strictly matched to reference mockup media_1788615637835.jpg:
- * - 3-column asymmetric header:
- *   Col 1: Eyebrow "OUR SOLUTIONS" + headline "Solar for every scale."
- *   Col 2: Concise descriptive paragraph + outline pill button "Explore Solutions →"
- *   Col 3: Vertical rectangular photograph tile "Same sun. A brighter tomorrow."
- * - Visual band: 3 large rectangular images (Residential, Commercial, Industrial)
- *   with bottom-left title + subtitle and bottom-right circular outline arrow button.
+ * SolutionsScale — Single Continuous Horizontal Photographic Band
+ * Strictly adheres to revamp.md & reference mockup media_1788615637835.jpg:
+ * - TEXT: Controlled content grid for header.
+ * - IMAGE: Expansive, full-width continuous photographic band: | RESIDENTIAL | COMMERCIAL | INDUSTRIAL |
+ * - The three photographs sit directly against one another with NO rounded cards, NO floating boxes,
+ *   and NO large outer side gutters.
+ * - Minimal direct text overlay: category, short descriptor, and circular outline arrow.
  */
 
 import React from 'react';
@@ -45,10 +44,10 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 space-y-6 sm:space-y-8">
-
-        {/* ── 3-COLUMN ASYMMETRIC EDITORIAL HEADER (Faithful to Reference) ── */}
+    <section className="w-full bg-[#FAF9F6] pt-8 sm:pt-10 lg:pt-12 pb-0 border-b border-stone-200/80">
+      
+      {/* ── CONTROLLED CONTENT GRID FOR HEADER TEXT ── */}
+      <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 mb-6 sm:mb-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Column 1: Eyebrow + Headline (approx 4 cols) */}
@@ -83,7 +82,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
 
           {/* Column 3: Asymmetric Vertical Photo Tile "Same sun. A brighter tomorrow." (approx 3 cols) */}
           <div className="hidden md:block md:col-span-3">
-            <div className="relative h-[160px] lg:h-[175px] rounded-xl overflow-hidden border border-stone-300/80 shadow-xs bg-stone-900 group">
+            <div className="relative h-[155px] lg:h-[165px] rounded-lg overflow-hidden border border-stone-300/80 shadow-xs bg-stone-900 group">
               <img
                 src="/images/revamp/sun-brighter-tomorrow.jpg"
                 alt="Sun shining through lush canopy"
@@ -102,47 +101,49 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
           </div>
 
         </div>
+      </div>
 
-        {/* ── 3-PANEL RECTANGULAR EDITORIAL IMAGE BAND ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
-          {solutions.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => onNavigate(item.path)}
-              className="group relative h-[340px] sm:h-[380px] lg:h-[420px] rounded-xl overflow-hidden cursor-pointer flex flex-col justify-end p-6 sm:p-7 border border-stone-300/70 bg-stone-950 shadow-sm"
-            >
-              {/* Rectangular Backdrop Photo */}
-              <img
-                src={item.image}
-                alt={`${item.title} rooftop solar installation`}
-                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                loading="eager"
-              />
+      {/* ── EXPANSIVE FULL-WIDTH CONTINUOUS EDITORIAL IMAGE BAND (NO Rounded Cards, NO Gutters) ── */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 border-t border-stone-300/80">
+        {solutions.map((item, idx) => (
+          <div
+            key={item.id}
+            onClick={() => onNavigate(item.path)}
+            className={`group relative h-[360px] sm:h-[420px] lg:h-[460px] xl:h-[500px] overflow-hidden cursor-pointer flex flex-col justify-end p-6 sm:p-8 lg:p-10 bg-stone-950 ${
+              idx !== 0 ? 'border-t md:border-t-0 md:border-l border-white/20' : ''
+            }`}
+          >
+            {/* Full-Bleed Rectangular Photography */}
+            <img
+              src={item.image}
+              alt={`${item.title} rooftop solar installation`}
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-104"
+              loading="eager"
+            />
 
-              {/* Editorial Scrim Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-95" />
+            {/* Cinematic Scrim */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent transition-opacity duration-300 group-hover:opacity-95" />
 
-              {/* Bottom Content: Title + Subtitle on Left, Circular Outline Arrow on Right */}
-              <div className="relative z-10 flex items-end justify-between gap-4">
-                <div className="space-y-1">
-                  <h3 className="font-heading font-bold text-xl sm:text-2xl text-white tracking-tight leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-200/90 font-normal leading-relaxed">
-                    {item.subtitle}
-                  </p>
-                </div>
+            {/* Direct Information Overlay (Title + Subtitle + Circular Outline Arrow) */}
+            <div className="relative z-10 flex items-end justify-between gap-4">
+              <div className="space-y-1">
+                <h3 className="font-heading font-bold text-2xl sm:text-[26px] lg:text-3xl text-white tracking-tight leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-200/90 font-normal leading-relaxed">
+                  {item.subtitle}
+                </p>
+              </div>
 
-                {/* Circular Outline Arrow Button (Matching Reference) */}
-                <div className="w-9 h-9 rounded-full border border-white/70 group-hover:border-white group-hover:bg-white/15 flex items-center justify-center text-white shrink-0 transition-all duration-300 group-hover:scale-110">
-                  <ArrowRight className="w-4 h-4 text-white" strokeWidth={1.75} />
-                </div>
+              {/* Circular Outline Arrow Button */}
+              <div className="w-10 h-10 rounded-full border border-white/70 group-hover:border-white group-hover:bg-white/20 flex items-center justify-center text-white shrink-0 transition-all duration-300 group-hover:scale-110">
+                <ArrowRight className="w-4 h-4 text-white" strokeWidth={1.75} />
               </div>
             </div>
-          ))}
-        </div>
-
+          </div>
+        ))}
       </div>
+
     </section>
   );
 };

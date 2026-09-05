@@ -1,255 +1,177 @@
- ### HOMEPAGE VISUAL REFINEMENT — STRICT DESIGN DIRECTION
+Yes — the current result is still **misreading the reference**. It has copied the *content arrangement* but not the **spatial/compositional logic** of the reference. The biggest problem is that Antigravity keeps translating the design into a centered `max-width` card system.
 
-> **Revamp ONLY the sections below the existing Hero + Trust/Proof Rail.**
+Use this **much stricter corrective prompt**:
+
+> **STOP AND REWORK THE HOMEPAGE SECTIONS BELOW THE HERO/PROOF RAIL.**
 >
-> **DO NOT TOUCH:**
+> The previous implementation is **still NOT matching the attached design reference**.
 >
-> * the existing Hero banner/video;
-> * hero height, video, overlay, CTA, typography or controls;
-> * the Trust/Proof Rail directly beneath the hero;
-> * navigation, footer, routing or unrelated components.
+> Use the **attached reference image as the ONLY visual benchmark**. Do not interpret it as a generic inspiration. Compare the current rendered result against the reference and correct the composition accordingly.
 >
-> Those existing elements are already approved and must remain intact.
+> ### THE CORE PROBLEM
 >
-> ---
+> You are still designing the page as:
 >
-> ### PRIMARY DESIGN PROBLEM TO FIX
+> **centered max-width container → isolated rounded image cards → large outer whitespace**
 >
-> The current implementation is visually too **card-heavy and component-like**. Images are being treated as individual cards with rounded corners, borders, shadows and separate white containers.
+> That is NOT the reference.
 >
-> **STOP doing this.**
+> The reference uses a **continuous editorial grid where photographic areas occupy much more of the available horizontal canvas**.
 >
-> The attached reference demonstrates an **editorial, art-directed composition**, where imagery is part of the page's visual architecture rather than a collection of UI cards.
+> ### HARD RULE: STOP CARDIFYING THE IMAGES
 >
-> Rebuild the relevant homepage sections so they feel like a **premium renewable-energy editorial website**, not a SaaS dashboard or template.
+> Do NOT put the primary photographs inside:
 >
-> ---
+> * rounded cards;
+> * floating containers;
+> * white cards with image + content underneath;
+> * individual shadowed boxes;
+> * nested rounded wrappers.
 >
-> ### IMAGE TREATMENT — NON-NEGOTIABLE
+> The photographs themselves should become the **visual structure of the section**.
 >
-> **Do NOT use the following treatment for primary visual sections:**
+> ### SOLUTIONS SECTION — REBUILD THIS
 >
-> * rounded image cards;
-> * floating image boxes;
-> * image + white card underneath;
-> * excessive drop shadows;
-> * thick borders;
-> * nested cards;
-> * image thumbnails sitting inside a larger card;
-> * repeated “card / card / card” patterns.
+> The current Residential / Commercial / Industrial presentation is still three separate cards.
 >
-> Instead, use **large rectangular editorial image compositions** integrated directly into the layout.
+> Change it to a **single continuous horizontal photographic band**, inspired directly by the attached reference.
 >
-> The image should feel **anchored into the grid itself**, not placed inside a component.
+> Think:
 >
-> Use:
+> `| RESIDENTIAL | COMMERCIAL | INDUSTRIAL |`
 >
-> * large rectangular crops;
-> * edge-to-edge image bands where appropriate;
-> * asymmetric image/text relationships;
-> * intentional cropping;
-> * subtle overlays only when necessary;
-> * thin structural dividers;
-> * controlled negative space;
-> * strong alignment with the page grid.
+> as **one unified image composition**, not:
 >
-> **Important:** “full-bleed” does NOT mean every image should fill the entire section or viewport. The intended treatment is a **large, properly cropped rectangular visual area integrated into the composition**.
+> `[card] [card] [card]`
 >
-> ---
+> The three images should sit directly against one another with minimal/no gutters, filling almost the entire available viewport width.
 >
-> ### SERVICE SECTION
+> Use rectangular crops with consistent visual height.
 >
-> Transform the current **Residential / Commercial / Industrial** card grid.
+> Overlay only:
 >
-> Do NOT render three independent rounded cards.
->
-> Instead, create a **single cohesive three-panel editorial image band**:
->
-> `[ Residential visual ] [ Commercial visual ] [ Industrial visual ]`
->
-> The three photographs should visually behave as one continuous composition while remaining independently understandable.
->
-> Place only minimal information over/within the images:
->
-> * category;
-> * short descriptor;
-> * capacity/range where useful;
+> * category name;
+> * very short supporting line;
 > * subtle arrow/action.
 >
-> Avoid large white content boxes underneath every image.
+> Do not put a large white information panel under each image.
 >
-> Keep the section title and introductory copy above/beside the visual band, using the inspiration's editorial asymmetry.
+> ### WHY SOLARARK SECTION
 >
-> ---
+> Keep the reference's strong **image + information split**.
 >
-> ### “WHY SOLARARK” / DIFFERENTIATION SECTION
+> The photographic panel should be large and visually dominant.
 >
-> Do NOT split this into another collection of rounded cards.
+> The information side should remain clean and editorial.
 >
-> Use a **strong 2-part editorial composition**:
+> Do NOT wrap either side in a card.
 >
-> **Large rectangular photographic panel** on one side
-> +
-> **clean typographic information field** on the other.
+> The image should extend naturally to the viewport edge on its side, while the text remains aligned to the site's content grid.
 >
-> The image should occupy meaningful visual weight.
+> ### FEATURED PROJECTS — REBUILD THIS TOO
 >
-> The supporting capabilities such as site intelligence, system design, professional execution and continued support should be presented as **lightweight editorial points**, preferably in a structured 2×2 arrangement with thin dividers or simple iconography — NOT four floating cards.
+> The current project section is STILL using a card-grid mentality.
 >
-> This section should feel calm, engineered and premium.
+> Follow the attached reference's editorial project presentation:
 >
-> ---
+> **large rectangular image areas + concise metadata + typography**
 >
-> ### FEATURED PROJECTS
+> not:
 >
-> The current project cards are also too generic and card-like.
+> `[rounded image card] [rounded image card] [rounded image card]`
 >
-> Reinterpret them as **editorial project panels**:
+> Remove the large outer left/right whitespace surrounding the visual composition.
 >
-> * large rectangular project imagery;
-> * concise project metadata;
-> * strong system-size figure;
-> * location/application;
-> * subtle case-study action.
+> Let the project imagery occupy the available horizontal canvas much more aggressively.
 >
-> The image should be the dominant visual element.
+> Keep the project information minimal and integrated into the visual treatment.
 >
-> Avoid large white rounded containers surrounding every project.
+> ### VERY IMPORTANT: CONTENT GRID ≠ IMAGE CONTAINER
 >
-> Use a strong horizontal rhythm and clean separation through spacing/dividers instead of card borders.
+> You may keep a controlled max-width grid for **text alignment**.
 >
-> ---
+> But do NOT use that same max-width constraint to trap every photograph inside a narrow centered rectangle.
 >
-> ### SECTION RHYTHM
+> Use this model:
 >
-> Follow the reference's visual rhythm:
+> **TEXT:** controlled content grid
+> **IMAGE:** expansive editorial composition
 >
-> **light editorial section → image-led band → light information section → image/text composition → project proof → CTA**
+> This distinction is the most important correction.
 >
-> Do not make every section use the same grid.
+> ### SPACING
 >
-> Deliberately vary:
+> The reference does NOT have huge empty gutters between the page edge and every image.
 >
-> * image position;
-> * column proportions;
-> * visual density;
-> * alignment;
-> * section height.
+> Remove unnecessary horizontal whitespace.
 >
-> This variation is essential to achieve an art-directed result.
+> Sections should feel visually connected:
 >
-> ---
+> **text → image band → image/text split → project band**
 >
-> ### SPACING — VERY IMPORTANT
+> rather than:
 >
-> The current version also contains excessive empty vertical spacing.
+> **blank margin → card → blank margin → card → blank margin**
 >
-> Remove unnecessary gaps.
+> Do not compensate for a lack of visual quality with additional padding.
 >
-> Use **tight, intentional editorial spacing**, not generic large Tailwind section padding everywhere.
+> ### IMAGE CROPPING
 >
-> Related content should feel visually connected.
+> Use deliberate rectangular crops.
 >
-> Distinct sections should still have enough breathing room to be clearly separated.
+> Images must completely fill their assigned visual area using `object-fit: cover` or equivalent responsive art direction.
 >
-> **Do not create huge blank areas merely to make a section feel “premium.”**
+> Do not stretch images.
 >
-> Premium should come from:
-> **composition + typography + photography + proportion + restraint**, not excessive whitespace.
+> Choose `object-position` specifically for each photograph so the important solar installation/building remains visible.
 >
-> ---
+> Desktop, tablet and mobile may use different crop positions.
 >
-> ### CONTENT
+> ### REFERENCE MATCHING
 >
-> Use the **official SolarARK website and existing repository content/assets as the factual source**.
+> When looking at the attached reference, pay particular attention to:
 >
-> The attached design reference is **NOT a content source**.
+> **1. Images occupy large horizontal regions.**
+> **2. Images are rectangular, not card-like.**
+> **3. Adjacent visual areas form a continuous composition.**
+> **4. Text is integrated into the grid rather than enclosed in cards.**
+> **5. The page alternates image-heavy and light information bands.**
+> **6. The visual rhythm is compact and deliberate.**
+> **7. There are no giant empty side gutters around every image.**
 >
-> Do not copy its:
+> Match these principles **visually**, not just structurally.
 >
-> * headlines;
-> * slogans;
-> * descriptions;
-> * statistics;
-> * photography;
-> * wording.
+> ### DO NOT TOUCH
 >
-> Apply the **Pareto principle**:
+> Absolutely preserve:
 >
-> Keep only the information that delivers the majority of:
-> **clarity + trust + differentiation + conversion.**
+> * existing Hero video/banner;
+> * Hero content;
+> * Hero controls;
+> * Trust/Proof Rail below Hero;
+> * navigation;
+> * footer;
+> * routing;
+> * functionality unrelated to these homepage sections.
 >
-> Make important information visually prominent and compress secondary information.
+> ### FINAL SELF-CHECK
 >
-> ---
+> Before finishing, look at the rendered homepage beside the attached reference.
 >
-> ### IMAGES
+> Ask:
 >
-> Prefer authentic existing SolarARK assets from the repository.
+> **“Does this look like an editorial page with integrated photography, or does it still look like a collection of UI cards?”**
 >
-> Only generate a new image when an existing asset genuinely cannot satisfy the required visual composition.
+> If it still looks like cards, **do not stop — remove the card treatment and redesign the composition.**
 >
-> If a new image is required, generate it specifically for the **exact rectangular crop needed by the layout**.
+> **The final result must visually move from the current “card grid” toward the attached reference's “continuous editorial image grid.”**
 >
-> Do not generate a generic “solar stock photo.”
+> **Do not add another card to solve any problem.**
 >
-> The image must look realistic, professionally photographed, regionally believable and consistent with SolarARK's existing visual language.
+> The target is:
 >
-> ---
+> **EXPANSIVE IMAGE → CONTROLLED TEXT → RECTANGULAR VISUAL BAND → ASYMMETRIC SPLIT → PROJECT-LED COMPOSITION**
 >
-> ### BRAND / UI
+> not:
 >
-> Preserve SolarARK's established:
->
-> * maroon identity;
-> * restrained gold accent;
-> * Space Grotesk display typography;
-> * Instrument Sans body typography;
-> * existing spacing/radius/design tokens.
->
-> Do not introduce another design language.
->
-> Use rounded corners **sparingly** only where they are genuinely appropriate. They must not become the defining visual characteristic of the homepage.
->
-> ---
->
-> ### QUALITY BAR
->
-> Before considering the redesign complete, compare the result against the reference specifically for:
->
-> **1. Editorial composition**
-> Does it look art-directed rather than assembled from components?
->
-> **2. Image integration**
-> Do images belong to the layout rather than sitting inside cards?
->
-> **3. Visual rhythm**
-> Does the page alternate between visual and informational weight?
->
-> **4. Whitespace discipline**
-> Is every major gap intentional?
->
-> **5. Hierarchy**
-> Can a visitor understand the offering within seconds?
->
-> **6. Premium feel**
-> Does the result feel like a high-end architecture/energy brand rather than an AI-generated SaaS template?
->
-> **7. Conversion**
-> Is the SolarARK assessment CTA still the clearest next action?
->
-> **CRITICAL FINAL RULE:**
->
-> **Do not solve any design problem by adding another card.**
->
-> Whenever you are about to create a rounded container around an image, stop and ask whether that visual can instead be integrated directly into the editorial grid.
->
-> The desired result is:
->
-> **OPEN + EDITORIAL + RECTANGULAR + ASYMMETRIC + PHOTOGRAPHIC + RESTRAINED**
->
-> **NOT:**
->
-> **BOXED + CARD-HEAVY + REPETITIVE + DASHBOARD-LIKE.**
->
-> Implement only the homepage changes described above and leave the existing Hero and Trust/Proof Rail untouched.
+> **CONTAINER → CARD → CARD → CARD.**
