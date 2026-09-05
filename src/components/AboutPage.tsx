@@ -109,10 +109,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Far right: Vertical architectural marker "CLEANER / BRIGHTER / MAHARASHTRA"
           ════════════════════════════════════════════════════════════════ */}
       <section className="relative bg-[#FAF9F6] border-b border-stone-300/60 overflow-hidden">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[560px] lg:min-h-[620px]">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[520px] lg:min-h-[560px]">
 
           {/* Left Column (5 cols on xl, 6 on lg) — Editorial Copy */}
-          <div className="lg:col-span-6 xl:col-span-5 px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 flex flex-col justify-center">
+          <div className="lg:col-span-6 xl:col-span-5 px-6 sm:px-10 lg:px-14 py-12 sm:py-16 lg:py-18 flex flex-col justify-center">
             <p className="eyebrow text-xs text-stone-500 mb-6 tracking-[0.22em] uppercase">
               ABOUT SOLAR ARK
             </p>
@@ -270,11 +270,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
           {/* Left Column (8 cols) — Editorial Content & Procedural Pillars */}
-          <div className="lg:col-span-7 xl:col-span-8 px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 flex flex-col justify-between">
+          <div className="lg:col-span-7 xl:col-span-8 px-6 sm:px-10 lg:px-14 py-12 sm:py-14 lg:py-16 flex flex-col justify-between">
 
             {/* Top Row: Eyebrow + Headline + Paragraph */}
-            <div className="mb-12 lg:mb-16">
-              <p className="eyebrow text-xs text-stone-500 mb-4 tracking-[0.2em] uppercase">
+            <div className="mb-8 lg:mb-10">
+              <p className="eyebrow text-xs text-stone-500 mb-3 tracking-[0.2em] uppercase">
                 WHAT WE BELIEVE
               </p>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
@@ -369,7 +369,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Right (65%): Panoramic authentic team photo with gradient blend
           Bottom right: Quote overlay “Different perspectives. A shared purpose.”
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[460px] flex items-center">
+      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
         {/* Full-bleed team photo on desktop with seamless left gradient blend */}
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[65%] h-full">
           <img
@@ -382,7 +382,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
 
         {/* Content Layer */}
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 relative z-10 w-full">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-12 sm:py-14 lg:py-16 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             {/* Left 5 cols: Text & Dark Pill CTA */}
@@ -450,29 +450,33 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Middle (60%): 4 columns separated by 1px vertical divider lines with accent dash
           Right (15%): Vertical label "A SMOOTHER / CLEANER / BRIGHTER / TOMORROW"
           ════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#FAF9F6] border-b border-stone-300/60 py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#FAF9F6] border-b border-stone-300/60 py-8 sm:py-10 lg:py-11">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-stretch">
 
-            {/* Left 3 cols: Intro + Circle Button */}
-            <div className="lg:col-span-4 xl:col-span-3 lg:pr-8 space-y-4">
-              <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] uppercase">
+            {/* Left 3 cols: Intro + Inline Circle Button */}
+            <div className="lg:col-span-4 xl:col-span-3 lg:pr-8 flex flex-col justify-center">
+              <p className="eyebrow text-xs text-stone-500 mb-2 tracking-[0.2em] uppercase">
                 HOW WE WORK
               </p>
-              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12]">
-                From understanding to lasting impact.
-              </h2>
-              <button
-                onClick={onCtaClick}
-                className="w-10 h-10 rounded-full border border-stone-400 hover:border-[#8B1E1E] hover:bg-[#8B1E1E] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                aria-label="Get Started"
-              >
-                <ArrowRight className="w-4 h-4 text-stone-700 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
-              </button>
+              <div className="flex items-end gap-3 sm:gap-4">
+                <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-[26px] lg:text-[28px] tracking-tight leading-[1.12]">
+                  From understanding
+                  <br />
+                  to lasting impact.
+                </h2>
+                <button
+                  onClick={onCtaClick}
+                  className="shrink-0 w-9 h-9 rounded-full border border-stone-400 hover:border-[#8B1E1E] hover:bg-[#8B1E1E] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group mb-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Get Started"
+                >
+                  <ArrowRight className="w-4 h-4 text-stone-700 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                </button>
+              </div>
             </div>
 
             {/* Middle 7 cols: 4 Procedural Columns Separated by 1px Vertical Dividers */}
-            <div className="lg:col-span-6 xl:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-0">
+            <div className="lg:col-span-6 xl:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-0 items-stretch">
               {[
                 { num: '01', title: 'Understand the Site' },
                 { num: '02', title: 'Design the System' },
@@ -481,17 +485,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               ].map((step, idx) => (
                 <div
                   key={step.num}
-                  className={`sm:px-6 py-2 ${
+                  className={`flex flex-col justify-between sm:px-5 lg:px-6 py-1 ${
                     idx !== 0 ? 'sm:border-l border-stone-300/70' : ''
                   }`}
                 >
-                  <span className="text-xs font-heading font-bold text-stone-400 block mb-3">
-                    {step.num}
-                  </span>
-                  <h3 className="font-heading text-base sm:text-[17px] font-bold text-[#0B1730] tracking-tight leading-snug mb-3">
-                    {step.title}
-                  </h3>
-                  <div className="w-6 h-[2px] bg-stone-300" />
+                  <div>
+                    <span className="text-xs font-heading font-bold text-stone-400 block mb-2">
+                      {step.num}
+                    </span>
+                    <h3 className="font-heading text-sm sm:text-[15px] lg:text-base font-bold text-[#0B1730] tracking-tight leading-snug">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <div className="w-6 h-[2px] bg-stone-300 mt-4" />
                 </div>
               ))}
             </div>
@@ -521,16 +527,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Top row: Eyebrow + Headline + A GLIMPSE INTO OUR JOURNEY ( ← ) ( → )
           Bottom: Seamless 6-photo photojournalistic contact strip spanning full width
           ════════════════════════════════════════════════════════════════ */}
-      <section id="journey-gallery" className="bg-[#FAF9F6] pt-14 pb-16 sm:pt-16 sm:pb-20 scroll-mt-20">
+      <section id="journey-gallery" className="bg-[#FAF9F6] pt-8 pb-10 sm:pt-9 sm:pb-12 scroll-mt-20">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
 
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4 sm:mb-5">
             <div>
-              <p className="eyebrow text-xs text-stone-500 mb-2 tracking-[0.2em] uppercase">
+              <p className="eyebrow text-xs text-stone-500 mb-1.5 tracking-[0.2em] uppercase">
                 BEHIND EVERY INSTALLATION
               </p>
-              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.12]">
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12]">
                 Real people. Real progress.
               </h2>
             </div>
@@ -591,7 +597,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Left: Display heading
           Right: Dual pill buttons (Maroon fill + warm outline)
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="relative py-12 sm:py-14 lg:py-16 overflow-hidden">
         {/* Photographic Backdrop */}
         <div className="absolute inset-0 z-0">
           <img
