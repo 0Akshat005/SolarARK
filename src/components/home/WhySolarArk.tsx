@@ -1,6 +1,12 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * WhySolarArk — Strong 2-Part Editorial Composition
+ * Rebuilt strictly to adhere to revamp.md:
+ * - 2-part composition: Large rectangular photographic panel + clean typographic information field.
+ * - Supporting capabilities in a structured 2x2 arrangement with thin architectural dividers.
+ * - NO floating cards. Calm, engineered, and premium.
  */
 
 import React, { useState } from 'react';
@@ -23,24 +29,28 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
 
   const pillars = [
     {
+      num: '01',
       icon: Compass,
       title: 'Site Intelligence',
-      description: 'Understanding your space and energy needs with 3D drone mapping, shadow analysis, and load audits.',
+      description: 'Understanding your space and energy profile with 3D drone LiDAR mapping, high-resolution shadow analysis, and electrical load audits.',
     },
     {
+      num: '02',
       icon: Cpu,
       title: 'System Design',
-      description: 'Tailored solutions for maximum performance with Tier-1 bifacial panels and optimized inverter stringing.',
+      description: 'Custom CAD blueprints and string optimization engineered with Tier-1 bifacial modules and smart hybrid inverters.',
     },
     {
+      num: '03',
       icon: Wrench,
       title: 'Professional Execution',
-      description: 'Safe, efficient and reliable installation by certified in-house EPC technicians with zero roof leaks.',
+      description: 'Safe, certified EPC installation using structural anodized aluminum framing, weatherproof conduits, and zero roof penetrations.',
     },
     {
+      num: '04',
       icon: ShieldCheck,
       title: 'Continued Support',
-      description: 'A partner beyond commissioning with 25-year SunSure performance warranty and active IoT telemetry.',
+      description: 'Long-term partnership with 25-year linear performance warranty, MSEDCL net-metering liaison, and live IoT telemetry.',
     },
   ];
 
@@ -49,27 +59,26 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
       <section className="w-full bg-[#FAF9F6] border-b border-stone-200/80 overflow-hidden">
         <div className="max-w-[1440px] mx-auto">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[520px] lg:min-h-[560px]">
             
-            {/* ── LEFT DARK BLOCK: BRAND STORY & SUNSET ENGINEER VISUAL ── */}
-            <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] overflow-hidden flex flex-col justify-end p-6 sm:p-8 lg:p-10 bg-[#0A1220]">
+            {/* ── LEFT PANEL: LARGE RECTANGULAR PHOTOGRAPHIC PANEL (6 COLS) ── */}
+            <div className="lg:col-span-6 relative min-h-[400px] sm:min-h-[460px] lg:min-h-full overflow-hidden flex flex-col justify-end p-7 sm:p-10 lg:p-12 bg-[#0A1220]">
               
-              {/* Background Authentic Photo */}
+              {/* Authentic High-Res Rooftop Photo */}
               <img
                 src="/images/revamp/engineer-solar-sunset.jpg"
-                alt="SolarARK engineer on rooftop solar installation at sunset"
-                className="absolute inset-0 w-full h-full object-cover object-center opacity-85 transition-transform duration-700 hover:scale-102"
+                alt="SolarARK certified engineer inspecting rooftop solar array at golden hour"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-103"
+                loading="eager"
               />
 
-              {/* Gradient Overlays for High Contrast Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+              {/* Editorial Gradient Scrim for Legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent hidden lg:block" />
 
-              {/* Foreground Story Content */}
+              {/* Left Foreground Content */}
               <div className="relative z-10 space-y-4 max-w-md">
-                
-                {/* Brand Monogram Tag */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white/90 text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white/90 text-xs font-mono">
                   <span>SolarARK Engineering</span>
                 </div>
 
@@ -78,11 +87,11 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
                   on a roof.
                 </h3>
 
-                <p className="text-sm sm:text-base text-stone-200 font-normal leading-relaxed">
-                  Engineered for performance. Built for what comes next.
+                <p className="text-xs sm:text-sm text-stone-200 font-normal leading-relaxed">
+                  Every rooftop is unique. We combine precision spatial engineering, strict Tier-1 component selection, and seamless DISCOM grid integration for measurable lifelong returns.
                 </p>
 
-                {/* Our Approach Button */}
+                {/* Our Approach Video/Modal Trigger */}
                 <div className="pt-2">
                   <button
                     onClick={() => setApproachModalOpen(true)}
@@ -91,45 +100,54 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
                     <span className="w-6 h-6 rounded-full bg-white text-slate-950 flex items-center justify-center transition-transform group-hover:scale-110">
                       <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                     </span>
-                    <span>Our Approach</span>
+                    <span>Our Engineering Standards</span>
                   </button>
                 </div>
-
               </div>
 
             </div>
 
-            {/* ── RIGHT LIGHT BLOCK: 2x2 CAPABILITY MATRIX ── */}
-            <div className="lg:col-span-6 bg-[#FAF9F6] p-6 sm:p-8 lg:p-10 xl:p-12 flex flex-col justify-center space-y-6 sm:space-y-7">
+            {/* ── RIGHT PANEL: CLEAN TYPOGRAPHIC INFORMATION FIELD (6 COLS) ── */}
+            <div className="lg:col-span-6 bg-[#FAF9F6] p-7 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-between space-y-6 sm:space-y-8">
               
               {/* Header */}
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-stone-600">
-                    Why Solar ARK
+                  <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-stone-600">
+                    WHY SOLAR ARK
                   </span>
                   <span className="w-8 h-px bg-stone-300" />
                 </div>
 
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
-                  A smarter<br />
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+                  A smarter{' '}
                   <span className="text-[#8B1E1E]">way to energy.</span>
                 </h2>
               </div>
 
-              {/* 2x2 Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+              {/* 2x2 Structured Architectural Matrix with Thin Hairline Dividers (NO Cards) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-stone-300/80">
                 {pillars.map((item, idx) => {
                   const Icon = item.icon;
+                  const isRightCol = idx % 2 === 1;
+                  const isBottomRow = idx >= 2;
+
                   return (
-                    <div key={idx} className="space-y-3">
-                      {/* Icon badge in rounded square */}
-                      <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[#8B1E1E] flex items-center justify-center">
-                        <Icon className="w-5 h-5 stroke-[1.75]" />
+                    <div
+                      key={item.num}
+                      className={`py-5 sm:py-6 flex flex-col justify-between space-y-2.5 ${
+                        isRightCol ? 'sm:pl-6 sm:border-l border-stone-300/80' : 'sm:pr-6'
+                      } ${isBottomRow ? 'border-t border-stone-300/80' : ''}`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-xs font-bold text-[#8B1E1E]">
+                          {item.num}
+                        </span>
+                        <Icon className="w-4 h-4 text-stone-500" strokeWidth={1.75} />
                       </div>
 
                       <div className="space-y-1">
-                        <h4 className="font-heading text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+                        <h4 className="font-heading text-base sm:text-[17px] font-bold text-slate-900 tracking-tight">
                           {item.title}
                         </h4>
                         <p className="text-xs sm:text-[13px] text-stone-600 font-normal leading-relaxed">
@@ -142,14 +160,14 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
               </div>
 
               {/* Bottom Exploration Link */}
-              <div className="pt-2 border-t border-stone-200/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-stone-300/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <span className="text-xs text-stone-500 font-medium">
                   ISO-certified turnkey engineering standards
                 </span>
 
                 <button
                   onClick={() => onNavigate('/about')}
-                  className="inline-flex items-center gap-1.5 text-xs font-heading font-semibold text-[#8B1E1E] hover:text-[#741616] cursor-pointer group"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-heading font-semibold text-[#8B1E1E] hover:text-[#741616] cursor-pointer group"
                 >
                   <span>Read company philosophy</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -163,40 +181,60 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* ── OUR APPROACH VIDEO MODAL ── */}
+      {/* ── APPROACH MODAL ── */}
       {approachModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-6 animate-in fade-in duration-200">
-          <div className="relative w-full max-w-3xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-            <button
-              onClick={() => setApproachModalOpen(false)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition-colors cursor-pointer border border-white/20"
-              aria-label="Close modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="p-6 sm:p-8 space-y-4 text-white">
-              <span className="font-heading text-xs font-bold uppercase tracking-wider text-amber-400">
-                SolarARK Engineering Philosophy
-              </span>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight">
-                Precision engineering that protects your roof.
-              </h3>
-              <p className="text-sm text-stone-300 leading-relaxed">
-                SolarARK was established with a singular focus: delivering residential and commercial solar rooftops that stand the test of time. From drone LiDAR surveys to certified electrical technicians, we handle every stage in-house — securing net metering approvals, direct bank subsidies, and 25-year performance monitoring.
-              </p>
-              
-              <div className="pt-4 flex items-center gap-4">
-                <button
-                  onClick={() => {
-                    setApproachModalOpen(false);
-                    onNavigate('/about');
-                  }}
-                  className="px-5 py-2.5 rounded-full bg-[#8B1E1E] hover:bg-[#741616] text-white text-xs sm:text-sm font-heading font-semibold transition-colors cursor-pointer"
-                >
-                  Explore Full Story & Team →
-                </button>
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setApproachModalOpen(false)}
+        >
+          <div 
+            className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-stone-100 pb-4">
+              <div>
+                <span className="font-mono text-xs text-[#8B1E1E] uppercase tracking-wider font-semibold">
+                  Engineering Standards
+                </span>
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
+                  How SolarARK Engineers Every Rooftop
+                </h3>
               </div>
+              <button
+                onClick={() => setApproachModalOpen(false)}
+                className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center cursor-pointer transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="space-y-4 text-xs sm:text-sm text-stone-600 leading-relaxed">
+              <p>
+                SolarArk is an ISO-certified engineering and renewable energy EPC firm headquartered in Maharashtra. We deliver tailored rooftop solar installations for residential villas, housing societies, commercial campuses, and industrial plants.
+              </p>
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="font-heading font-bold text-slate-900 text-sm">Tier-1 Components</div>
+                  <div className="text-xs text-stone-500 mt-0.5">Bifacial mono PERC/TOPCon modules with 25-yr linear output warranty.</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/80">
+                  <div className="font-heading font-bold text-slate-900 text-sm">Turnkey Approvals</div>
+                  <div className="text-xs text-stone-500 mt-0.5">Direct PM Surya Ghar subsidy filing & MSEDCL bi-directional meter setup.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-2 flex items-center justify-end gap-3 border-t border-stone-100">
+              <button
+                onClick={() => {
+                  setApproachModalOpen(false);
+                  onNavigate('/about');
+                }}
+                className="px-5 py-2 rounded-full bg-[#8B1E1E] text-white text-xs font-heading font-semibold hover:bg-[#741616] transition-colors cursor-pointer"
+              >
+                Explore Full About Story
+              </button>
             </div>
           </div>
         </div>
