@@ -2,26 +2,24 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * SolarARK Compressed & Strategic Solar Savings Calculator
- * ========================================================
- * Redesigned using the Pareto Principle (80/20 Rule) & Structured Rectangular Architecture:
- * - 100% visible at a glance without scrolling on standard laptop/desktop screens.
- * - Value display integrated directly inside the optical dome of the Arc Slider.
- * - 5 instant 1-tap bill bracket preset chips (₹3k, ₹6k, ₹8.5k, ₹12k, ₹20k+).
- * - Compact location bar with real-time MSEDCL serviceability feedback.
- * - Architectural framed villa window with docked privacy shield & trust bullets.
- * - High-conversion primary CTA button with micro trust reassurances.
- * - Full 2-step flow powered by Maharashtra MSEDCL tariff calculation engine.
+ * SolarARK Solar Savings Calculator Hero Section
+ * ===============================================
+ * Revamped to strictly match target design specification (revamp.md & media_1788642138965.png):
+ * - Zone 1: Left Hero Panel (~44% desktop width) with architectural villa at dusk,
+ *   editorial Playfair Display headline, 3 circular trust badges, and Caveat handwriting quote.
+ * - Zone 2: Center Calculator Card (~42% desktop width) with Stepper (Step 1 Your Details / Step 2 Your Savings),
+ *   pincode detection & MSEDCL validation, dynamic centered bill display, horizontal gradient slider,
+ *   5 preset chips, deep maroon pill CTA, micro-trust reassurances, and official Mahavitaran authority emblem.
+ * - Zone 3: Right Sunlight & Tree Band (~14% desktop width) with sunset sky backdrop,
+ *   stacked editorial typography, paginator (01 / 02), and 3D tree pop-out foliage overlapping the card.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CalculatorResults } from '../types';
 import { calculateSolarSavings, formatINR } from '../utils/calculator';
 import {
-  CheckCircle2,
   ArrowRight,
   Sun,
-  ShieldCheck,
   MapPin,
   Clock,
   Shield,
@@ -30,20 +28,13 @@ import {
   Pencil,
   Leaf,
   Award,
+  Crosshair,
+  Info,
+  Check,
+  FileText,
+  Lock,
+  X,
 } from 'lucide-react';
-
-/* ── DESIGN TOKENS ── */
-const COLORS = {
-  bgCream: '#F7F4EF',
-  cardBg: '#FFFFFF',
-  deepNavy: '#0A1424',
-  footerNavy: '#07101E',
-  terracotta: '#D8542F',
-  successGreen: '#2F9E58',
-  textMuted: '#6E6761',
-  textHeading: '#121824',
-  trackBg: '#EFECE6',
-};
 
 const SLIDER_MIN = 1000;
 const SLIDER_MAX = 25000;
@@ -55,250 +46,6 @@ interface SavingsCalculatorProps {
   initialBill?: number;
 }
 
-/* ══════════════════════════════════════════════════════════════
-   PIECEWISE MAPPING FOR COMPACT ARC SLIDER
-   --------------------------------------------------------------
-   - 0%   -> ₹1,000   (angle PI = 180 deg, left origin)
-   - 25%  -> ₹5,000   (angle 0.75 PI = 135 deg, left incline)
-   - 50%  -> ₹10,000  (angle 0.50 PI = 90 deg, EXACT APEX)
-   - 75%  -> ₹15,000  (angle 0.25 PI = 45 deg, right decline)
-   - 100% -> ₹25,000+ (angle 0.00 PI = 0 deg, right end)
-   ══════════════════════════════════════════════════════════════ */
-const SEGMENTS = [
-  { valStart: 1000, valEnd: 5000, progStart: 0.0, progEnd: 0.25 },
-  { valStart: 5000, valEnd: 10000, progStart: 0.25, progEnd: 0.5 },
-  { valStart: 10000, valEnd: 15000, progStart: 0.5, progEnd: 0.75 },
-  { valStart: 15000, valEnd: 25000, progStart: 0.75, progEnd: 1.0 },
-];
-
-function valueToProgress(val: number): number {
-  const clamped = Math.max(SLIDER_MIN, Math.min(SLIDER_MAX, val));
-  for (const seg of SEGMENTS) {
-    if (clamped <= seg.valEnd) {
-      const segT = (clamped - seg.valStart) / (seg.valEnd - seg.valStart);
-      return seg.progStart + segT * (seg.progEnd - seg.progStart);
-    }
-  }
-  return 1.0;
-}
-
-function progressToValue(progress: number): number {
-  const clamped = Math.max(0, Math.min(1, progress));
-  for (const seg of SEGMENTS) {
-    if (clamped <= seg.progEnd) {
-      const segT = (clamped - seg.progStart) / (seg.progEnd - seg.progStart);
-      const raw = seg.valStart + segT * (seg.valEnd - seg.valStart);
-      return Math.round(raw / SLIDER_STEP) * SLIDER_STEP;
-    }
-  }
-  return SLIDER_MAX;
-}
-
-/* ══════════════════════════════════════════════════════════════
-   COMPONENT: COMPACT SVG ARC SLIDER WITH DOME-INTEGRATED VALUE
-   ══════════════════════════════════════════════════════════════ */
-interface CompactArcSliderProps {
-  value: number;
-  onChange: (val: number) => void;
-}
-
-const CompactArcSlider: React.FC<CompactArcSliderProps> = ({ value, onChange }) => {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const isDragging = useRef(false);
-
-  // Compact proportional arch geometry
-  const cx = 240;
-  const cy = 160;
-  const rx = 195;
-  const ry = 130;
-
-  const progressToAngle = useCallback((p: number) => {
-    return Math.PI - p * Math.PI;
-  }, []);
-
-  const angleToProgress = useCallback((angle: number) => {
-    const clamped = Math.max(0, Math.min(Math.PI, angle));
-    return (Math.PI - clamped) / Math.PI;
-  }, []);
-
-  const getPoint = useCallback(
-    (angle: number) => ({
-      x: cx + rx * Math.cos(angle),
-      y: cy - ry * Math.sin(angle),
-    }),
-    [cx, cy, rx, ry]
-  );
-
-  const currentProg = valueToProgress(value);
-  const currentAngle = progressToAngle(currentProg);
-  const thumbPos = getPoint(currentAngle);
-
-  // Background full arch
-  const bgPath = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 0 1 ${cx + rx} ${cy}`;
-
-  // Active colored track
-  const activePath = `M ${cx - rx} ${cy} A ${rx} ${ry} 0 0 1 ${thumbPos.x} ${thumbPos.y}`;
-
-  // Milestone ticks
-  const milestones = [
-    { label: '₹1k', prog: 0.0, offset: { x: -14, y: -14 } },
-    { label: '₹5k', prog: 0.25, offset: { x: -16, y: -16 } },
-    { label: '₹10k', prog: 0.5, offset: { x: 0, y: -18 } },
-    { label: '₹15k', prog: 0.75, offset: { x: 16, y: -16 } },
-    { label: '₹25k+', prog: 1.0, offset: { x: 18, y: -14 } },
-  ];
-
-  const handlePointer = useCallback(
-    (e: React.PointerEvent | PointerEvent) => {
-      if (!svgRef.current) return;
-      const rect = svgRef.current.getBoundingClientRect();
-      const clientX = e.clientX - rect.left;
-      const clientY = e.clientY - rect.top;
-
-      const svgX = (clientX / rect.width) * 480;
-      const svgY = (clientY / rect.height) * 175;
-
-      const dx = (svgX - cx) / rx;
-      const dy = (cy - svgY) / ry;
-
-      let angle = Math.atan2(dy, dx);
-      if (angle < 0) angle = 0;
-      if (angle > Math.PI) angle = Math.PI;
-
-      const prog = angleToProgress(angle);
-      onChange(progressToValue(prog));
-    },
-    [cx, cy, rx, ry, angleToProgress, onChange]
-  );
-
-  const onPointerDown = (e: React.PointerEvent) => {
-    isDragging.current = true;
-    (e.target as Element).setPointerCapture?.(e.pointerId);
-    handlePointer(e);
-  };
-
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (isDragging.current) handlePointer(e);
-  };
-
-  const onPointerUp = () => {
-    isDragging.current = false;
-  };
-
-  return (
-    <div className="relative select-none w-full max-w-[460px] mx-auto">
-      <svg
-        ref={svgRef}
-        viewBox="0 0 480 175"
-        className="w-full h-auto cursor-pointer overflow-visible"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        style={{ touchAction: 'none' }}
-      >
-        <defs>
-          <linearGradient id="compactArcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#C9421E" />
-            <stop offset="50%" stopColor="#E05A36" />
-            <stop offset="100%" stopColor="#F27752" />
-          </linearGradient>
-
-          <filter id="compactThumbGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feDropShadow dx="0" dy="2" stdDeviation="5" floodColor="#E05A36" floodOpacity="0.45" />
-          </filter>
-        </defs>
-
-        {/* 1. Background full track */}
-        <path
-          d={bgPath}
-          fill="none"
-          stroke={COLORS.trackBg}
-          strokeWidth="6.5"
-          strokeLinecap="round"
-        />
-
-        {/* 2. Milestone tick dots */}
-        {milestones.map((m) => {
-          const angle = progressToAngle(m.prog);
-          const pt = getPoint(angle);
-          return (
-            <circle
-              key={m.label}
-              cx={pt.x}
-              cy={pt.y}
-              r="3"
-              fill="#D0CBC2"
-            />
-          );
-        })}
-
-        {/* 3. Active colored track */}
-        <path
-          d={activePath}
-          fill="none"
-          stroke="url(#compactArcGrad)"
-          strokeWidth="7"
-          strokeLinecap="round"
-        />
-
-        {/* 4. Milestone labels */}
-        {milestones.map((m) => {
-          const angle = progressToAngle(m.prog);
-          const pt = getPoint(angle);
-          const lx = pt.x + m.offset.x;
-          const ly = pt.y + m.offset.y;
-          return (
-            <text
-              key={`label-${m.label}`}
-              x={lx}
-              y={ly}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              className="font-bold fill-[#7A746E] select-none text-[11px]"
-              style={{ fontFamily: 'var(--font-heading, "Space Grotesk")' }}
-            >
-              {m.label}
-            </text>
-          );
-        })}
-
-        {/* 5. Scrubber Thumb with `< >` arrows */}
-        <g
-          transform={`translate(${thumbPos.x}, ${thumbPos.y})`}
-          filter="url(#compactThumbGlow)"
-          className="cursor-grab active:cursor-grabbing"
-        >
-          <circle r="13" fill="#E05A36" stroke="#FFFFFF" strokeWidth="2.5" />
-          <circle r="6" fill="#F0724D" opacity="0.5" />
-          <path
-            d="M -4 -0.5 L -1.5 -2.5 M -4 -0.5 L -1.5 1.5 M 4 -0.5 L 1.5 -2.5 M 4 -0.5 L 1.5 1.5"
-            stroke="#FFFFFF"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-          />
-        </g>
-      </svg>
-
-      {/* 6. Optical Dome Display: INR Value centered directly inside the arc */}
-      <div className="absolute inset-x-0 bottom-1 flex flex-col items-center justify-center pointer-events-none select-none">
-        <div className="flex items-baseline gap-1.5">
-          <span className="font-heading text-4xl sm:text-[44px] font-bold tracking-tight text-[#0A1424] tabular-nums leading-none">
-            {formatINR(value)}
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-stone-500 leading-none">
-            /month
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-/* ══════════════════════════════════════════════════════════════
-   MAIN COMPONENT: SAVINGS CALCULATOR (COMPRESSED RECTANGULAR)
-   ══════════════════════════════════════════════════════════════ */
 export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   onClaimEstimate,
   initialPincode = '444601',
@@ -309,6 +56,8 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   const [currentStep, setCurrentStep] = useState<1 | 2>(1);
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
   const [calculatedResults, setCalculatedResults] = useState<CalculatorResults | null>(null);
+  const [isLocating, setIsLocating] = useState<boolean>(false);
+  const [showSampleBillModal, setShowSampleBillModal] = useState<boolean>(false);
 
   const sectionRef = useRef<HTMLElement>(null);
   const calculatorCardRef = useRef<HTMLDivElement>(null);
@@ -334,7 +83,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   const handleCalculate = async () => {
     if (!isFormValid) return;
     setIsCalculating(true);
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 400));
     const results = calculateSolarSavings({ pincode, monthlyBill });
     setCalculatedResults(results);
     setIsCalculating(false);
@@ -352,7 +101,26 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     onClaimEstimate({ pincode, monthlyBill });
   };
 
-  // 5 Pareto Quick-Select Bracket Pills
+  const handleDetectLocation = () => {
+    if (!navigator.geolocation) {
+      setPincode('444601');
+      return;
+    }
+    setIsLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      () => {
+        setIsLocating(false);
+        setPincode('444601');
+      },
+      () => {
+        setIsLocating(false);
+        setPincode('444601');
+      },
+      { timeout: 4000 }
+    );
+  };
+
+  // 5 Quick-Select Preset Chips matching reference image
   const PRESET_PILLS = [
     { label: '₹3k', value: 3000 },
     { label: '₹6k', value: 6000 },
@@ -361,248 +129,339 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     { label: '₹20k+', value: 20000 },
   ];
 
+  // Calculate slider percentage for gradient fill
+  const sliderPercentage = Math.min(
+    100,
+    Math.max(0, ((monthlyBill - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN)) * 100)
+  );
+
   return (
     <section
       ref={sectionRef}
       id="calculator"
-      className="relative overflow-hidden py-8 sm:py-10 lg:py-12 border-b border-stone-200/80"
-      style={{ backgroundColor: COLORS.bgCream }}
+      className="relative overflow-hidden bg-[#FAF8F5] border-b border-stone-200/80 select-none"
     >
-      {/* Subtle Background Glow */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+      {/* ── Custom Slider Range Input CSS Styling ── */}
+      <style>{`
+        input[type=range].calc-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #7B1818;
+          border: 3px solid #FFFFFF;
+          box-shadow: 0 2px 8px rgba(123, 24, 24, 0.45);
+          cursor: pointer;
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        input[type=range].calc-slider::-webkit-slider-thumb:hover {
+          transform: scale(1.15);
+          box-shadow: 0 3px 12px rgba(123, 24, 24, 0.6);
+        }
+        input[type=range].calc-slider::-moz-range-thumb {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #7B1818;
+          border: 3px solid #FFFFFF;
+          box-shadow: 0 2px 8px rgba(123, 24, 24, 0.45);
+          cursor: pointer;
+        }
+      `}</style>
+
+      {/* ══════════════════════════════════════════════════════════════
+          MAIN 3-ZONE FULL-WIDTH SPLIT-SCREEN CONTAINER
+         ══════════════════════════════════════════════════════════════ */}
+      <div className="relative w-full max-w-[1600px] mx-auto min-h-[640px] flex flex-col lg:flex-row items-stretch">
+
+        {/* ══════════════════════════════════════════════════════════════
+            ZONE 1: LEFT HERO PANEL (~44% DESKTOP WIDTH)
+            - Warm off-white sky fading down to sunset villa photo
+            - Editorial Playfair Display headline & 3 circular trust badges
+            - Caveat cursive Hindi/Marathi motto over bottom villa
+           ══════════════════════════════════════════════════════════════ */}
         <div
-          className="absolute top-[20%] left-[15%] w-[500px] h-[400px] rounded-full blur-[130px] opacity-30"
-          style={{ backgroundColor: '#FCD9B1' }}
-        />
-      </div>
+          className={`relative w-full lg:w-[45%] xl:w-[46%] shrink-0 flex flex-col justify-between p-6 sm:p-8 lg:p-10 xl:p-12 overflow-hidden transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {/* Architectural Villa Photo at bottom with natural sky blending */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <img
+              src="/images/calc-left-clean@2x.png"
+              alt="Modern architectural villa with SolarARK rooftop solar panels at dusk"
+              className="w-full h-full object-cover object-left-bottom"
+              loading="eager"
+            />
+            {/* Top subtle fade to guarantee text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/85 via-[#FAF8F5]/40 to-transparent h-[45%]" />
+          </div>
 
-      <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-
-          {/* ══════════════════════════════════════════════════════════════
-              LEFT PANEL: STRUCTURED STORYTELLING & FRAMED VILLA WINDOW
-             ══════════════════════════════════════════════════════════════ */}
-          <div
-            className={`lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5 transition-all duration-700 ease-out ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#E8E2D8] bg-[#FDFCF9] shadow-2xs w-fit">
-              <Sun className="w-3.5 h-3.5 text-[#D8542F]" />
-              <span className="text-[10px] sm:text-[10.5px] font-bold tracking-widest text-[#5E5750] uppercase font-heading">
-                Smart Today. Secure Forever.
+          {/* Top Editorial Storytelling Block */}
+          <div className="relative z-10 space-y-4 sm:space-y-5 max-w-xl">
+            {/* Eyebrow with hairline accent */}
+            <div className="flex items-center gap-3">
+              <span className="text-[10.5px] sm:text-[11px] font-bold tracking-[0.22em] text-[#55504A] uppercase font-heading">
+                Clean energy. Brighter tomorrows
               </span>
+              <span className="h-[1.5px] w-14 sm:w-16 bg-[#8B1E1E]" />
             </div>
 
-            {/* Editorial Serif Headline */}
-            <div className="space-y-0.5">
+            {/* Display Headline in Playfair Display Serif */}
+            <div>
               <h2
-                className="text-3xl sm:text-4xl lg:text-[38px] font-bold text-[#121824] leading-[1.08] tracking-tight"
+                className="text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-bold text-[#111827] leading-[1.04] tracking-tight"
                 style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
               >
-                Predictable power.
+                See your
                 <br />
-                Lasting savings.
+                <span className="text-[#801414]">real savings.</span>
               </h2>
-              <div className="relative pt-0.5 inline-block">
-                <h3
-                  className="text-3xl sm:text-4xl lg:text-[38px] font-bold leading-[1.08] tracking-tight text-[#D8542F] italic"
-                  style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
-                >
-                  It starts with you.
-                </h3>
-                <svg
-                  viewBox="0 0 220 18"
-                  className="w-44 sm:w-52 h-2.5 text-[#D8542F] mt-0.5 opacity-90"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <path d="M 6 12 C 60 18, 140 16, 212 4" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </div>
             </div>
 
-            {/* Concise Value Copy */}
-            <p className="text-xs sm:text-sm text-[#6E6761] leading-relaxed max-w-md font-sans">
-              Enter your location and average electricity bill to reveal your custom rooftop capacity, monthly savings, and PM Surya Ghar government subsidy in seconds.
+            {/* Subline */}
+            <p className="text-sm sm:text-base text-[#4B5563] font-normal leading-relaxed">
+              Know your solar savings in 30 seconds.
             </p>
 
-            {/* Framed Architectural Villa Window */}
-            <div className="relative w-full aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/9] rounded-2xl overflow-hidden border border-stone-300/70 shadow-md bg-stone-900 group">
-              <img
-                src="/images/calculator-villa-blended.png"
-                alt="Modern villa with SolarARK rooftop solar panels at sunset"
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent" />
-
-              {/* Floating Energy Zap Badge */}
-              <div className="absolute top-3 right-3 z-20">
-                <div className="w-8 h-8 rounded-full bg-white/95 border border-[#E05A36]/40 shadow-sm flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-[#D8542F]" fill="#D8542F" />
+            {/* 3 Circular Trust Badges with Hairline Dividers */}
+            <div className="pt-2 sm:pt-3">
+              <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4.5 bg-white/70 backdrop-blur-xs px-3 sm:px-4 py-2.5 rounded-2xl border border-stone-200/60 shadow-2xs">
+                
+                {/* Badge 1: Accurate Savings */}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#FDF2EA] border border-[#F5D5C2] flex items-center justify-center shrink-0 text-[#801414]">
+                    <span className="font-bold text-sm font-heading leading-none">₹</span>
+                  </div>
+                  <div className="leading-tight">
+                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                      Accurate savings
+                    </span>
+                    <span className="text-[10px] text-stone-500 font-medium block">
+                      Based on MSEDCL rates
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Docked Security & Regional Badge */}
-              <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/15 text-white">
-                <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="text-[10.5px] font-medium text-white/90">
-                    100% Data Private · MSEDCL Aligned
-                  </span>
+                <div className="hidden sm:block w-px h-7 bg-stone-300/70 shrink-0" />
+
+                {/* Badge 2: Govt. Subsidy */}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#FDF2EA] border border-[#F5D5C2] flex items-center justify-center shrink-0 text-[#801414]">
+                    <Shield className="w-3.5 h-3.5" strokeWidth={2.2} />
+                  </div>
+                  <div className="leading-tight">
+                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                      Govt. subsidy
+                    </span>
+                    <span className="text-[10px] text-stone-500 font-medium block">
+                      PM Surya Ghar
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[9.5px] font-bold text-amber-300 font-heading">
-                  Vidarbha Hub
-                </span>
-              </div>
-            </div>
 
-            {/* 3 Compact Trust Bullets */}
-            <div className="grid grid-cols-3 gap-2 pt-0.5">
-              <div className="flex items-center gap-1.5 text-[11px] text-stone-600 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Zero roof leaks</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-stone-600 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>₹78k subsidy</span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[11px] text-stone-600 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>25-yr warranty</span>
+                <div className="hidden sm:block w-px h-7 bg-stone-300/70 shrink-0" />
+
+                {/* Badge 3: 25-Year Assurance */}
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#FDF2EA] border border-[#F5D5C2] flex items-center justify-center shrink-0 text-[#801414]">
+                    <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />
+                  </div>
+                  <div className="leading-tight">
+                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                      25-year assurance
+                    </span>
+                    <span className="text-[10px] text-stone-500 font-medium block">
+                      Reliable. Worry-free.
+                    </span>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
 
-          {/* ══════════════════════════════════════════════════════════════
-              RIGHT PANEL: COMPACT HIGH-CONVERSION CALCULATOR CARD
-             ══════════════════════════════════════════════════════════════ */}
-          <div
-            ref={calculatorCardRef}
-            className={`lg:col-span-7 transition-all duration-700 delay-150 ease-out relative z-10 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <div className="rounded-2xl sm:rounded-3xl border border-[#EAE5DE] bg-white p-5 sm:p-6 lg:p-7 shadow-[0_20px_60px_-15px_rgba(20,25,35,0.09)]">
+          {/* Bottom Area Spacer:
+              On desktop, the image calc-left-clean@2x.png naturally presents the luxury villa
+              and the white handwritten script "Ghar ki bijli, ab apne Suraj se." with underline
+              in the bottom-left over the trees.
+              On mobile, we provide a fallback caption container to preserve the visual poetry. */}
+          <div className="relative z-10 pt-16 sm:pt-24 lg:pt-36 block lg:hidden">
+            <div className="bg-black/50 backdrop-blur-xs p-3 rounded-xl inline-block text-white">
+              <p
+                className="text-xl font-medium tracking-wide text-white leading-tight font-handwriting"
+                style={{ fontFamily: 'var(--font-handwriting, "Caveat", cursive)' }}
+              >
+                Ghar ki bijli, ab apne Suraj se.
+              </p>
+              <div className="w-28 h-0.5 bg-white/80 rounded-full mt-1" />
+            </div>
+          </div>
+        </div>
 
-              {/* ── STEP HEADER ── */}
-              <div className="flex items-center gap-3 pb-3.5 mb-4 border-b border-[#F0ECE5]">
-                {/* Step 1 Pill */}
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 transition-colors shadow-2xs"
-                    style={{
-                      backgroundColor: currentStep >= 1 ? COLORS.terracotta : '#E8E4DF',
-                      color: 'white',
-                    }}
-                  >
-                    {currentStep > 1 ? '✓' : '1'}
-                  </span>
-                  <span className="text-xs sm:text-sm font-bold text-[#121824] font-heading">
-                    Your Details
-                  </span>
-                </div>
-
-                {/* Progress Line */}
-                <div className="flex-1 flex items-center h-0.5">
-                  <div
-                    className="h-full rounded-l-full transition-all duration-500"
-                    style={{
-                      width: currentStep >= 2 ? '100%' : '50%',
-                      backgroundColor: COLORS.terracotta,
-                    }}
-                  />
-                  <div
-                    className="h-full flex-1 border-b border-dashed border-stone-300 transition-all duration-500"
-                    style={{ display: currentStep >= 2 ? 'none' : 'block' }}
-                  />
-                </div>
-
-                {/* Step 2 Pill */}
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-6 h-6 rounded-full text-xs font-medium flex items-center justify-center shrink-0 transition-colors"
-                    style={{
-                      backgroundColor: currentStep >= 2 ? COLORS.terracotta : '#FFFFFF',
-                      border: currentStep >= 2 ? 'none' : '1px solid #D5D0C8',
-                      color: currentStep >= 2 ? 'white' : '#8D939D',
-                    }}
-                  >
-                    2
-                  </span>
-                  <span
-                    className="text-xs sm:text-sm font-medium transition-colors"
-                    style={{ color: currentStep >= 2 ? '#121824' : '#8D939D' }}
-                  >
-                    Your Recommendation
-                  </span>
-                </div>
+        {/* ══════════════════════════════════════════════════════════════
+            ZONE 2: CENTER CALCULATOR CARD (~42% DESKTOP WIDTH)
+            - Sits on clean white background with diagonal visual seam
+            - Stepper header, Location / Pincode bar with MSEDCL badge
+            - Centered dynamic bill display, horizontal gradient slider
+            - 5 preset quick-tap pills, deep maroon rounded pill CTA
+            - Mahavitaran official authority emblem footer
+           ══════════════════════════════════════════════════════════════ */}
+        <div
+          ref={calculatorCardRef}
+          className={`relative w-full lg:w-[41%] xl:w-[40%] shrink-0 bg-white z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10 shadow-[0_15px_50px_-10px_rgba(25,20,20,0.08)] transition-all duration-700 delay-100 ease-out border-l border-r lg:border-r-0 border-stone-200/80 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <div>
+            {/* ── STEPPER: Step 1 (Your Details) / Step 2 (Your Savings) ── */}
+            <div className="flex items-center gap-3 pb-4 mb-5 border-b border-stone-100">
+              {/* Step 1 Pill */}
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 shadow-2xs transition-colors"
+                  style={{
+                    backgroundColor: currentStep >= 1 ? '#7B1818' : '#E5E7EB',
+                    color: 'white',
+                  }}
+                >
+                  {currentStep > 1 ? '✓' : '1'}
+                </span>
+                <span className="text-xs sm:text-[13px] font-semibold text-[#111827] font-heading">
+                  Your Details
+                </span>
               </div>
 
-              {/* ── STEP 1: COMPACT INTERACTIVE DETAILS FORM ── */}
-              {currentStep === 1 && (
-                <div className="space-y-4 animate-in fade-in duration-300">
-                  
-                  {/* 1. COMPACT LOCATION PINCODE BAR */}
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-[#121824] font-heading">
-                      <span>Enter Your Location</span>
-                      <span className="text-stone-400 font-normal lowercase">pincode</span>
-                    </div>
+              {/* Connecting Progress Line */}
+              <div className="flex-1 max-w-[130px] flex items-center h-0.5">
+                <div
+                  className="h-full rounded-full transition-all duration-500"
+                  style={{
+                    width: currentStep >= 2 ? '100%' : '50%',
+                    backgroundColor: '#8B1E1E',
+                  }}
+                />
+                <div
+                  className="h-full flex-1 bg-stone-200 rounded-r-full"
+                  style={{ display: currentStep >= 2 ? 'none' : 'block' }}
+                />
+              </div>
 
-                    <div className="relative flex items-center rounded-xl border border-[#DED8CE] bg-stone-50/50 hover:bg-white px-3.5 py-2.5 shadow-2xs transition-all focus-within:border-[#D8542F] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#D8542F]/15">
-                      <MapPin className="w-4 h-4 text-[#8A847C] shrink-0 mr-2.5" strokeWidth={1.75} />
-                      <input
-                        id="calc-pincode"
-                        type="text"
-                        inputMode="numeric"
-                        maxLength={6}
-                        value={pincode}
-                        onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                        placeholder="Enter 6-digit pincode (e.g. 444601)"
-                        className="flex-1 bg-transparent text-sm font-semibold text-[#121824] placeholder:text-stone-400 focus:outline-none"
+              {/* Step 2 Pill */}
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-6 h-6 rounded-full text-xs font-medium flex items-center justify-center shrink-0 transition-colors"
+                  style={{
+                    backgroundColor: currentStep >= 2 ? '#7B1818' : '#FFFFFF',
+                    border: currentStep >= 2 ? 'none' : '1px solid #D1D5DB',
+                    color: currentStep >= 2 ? 'white' : '#6B7280',
+                  }}
+                >
+                  2
+                </span>
+                <span
+                  className="text-xs sm:text-[13px] font-medium transition-colors"
+                  style={{ color: currentStep >= 2 ? '#111827' : '#6B7280' }}
+                >
+                  Your Savings
+                </span>
+              </div>
+            </div>
+
+            {/* ── STEP 1: INTERACTIVE DETAILS FORM ── */}
+            {currentStep === 1 && (
+              <div className="space-y-5 animate-in fade-in duration-300">
+                
+                {/* 1. LOCATION & PINCODE INPUT BAR */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label
+                      htmlFor="calc-pincode-input"
+                      className="text-xs sm:text-[12.5px] font-semibold text-[#1F2937]"
+                    >
+                      Enter your location (Pincode)
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleDetectLocation}
+                      disabled={isLocating}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#8B1E1E] hover:text-[#681414] transition-colors cursor-pointer"
+                    >
+                      <Crosshair
+                        className={`w-3.5 h-3.5 text-[#8B1E1E] ${isLocating ? 'animate-spin' : ''}`}
                       />
+                      <span>{isLocating ? 'Detecting…' : 'Detect my location'}</span>
+                    </button>
+                  </div>
 
-                      {/* Serviceability badge */}
-                      {isValidPincode ? (
-                        <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0 ml-2 bg-[#2F9E58]/10 text-[#2F9E58] border border-[#2F9E58]/30">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2F9E58]" />
-                          <span>{/^(40|41|42|43|44)/.test(pincode) ? 'MSEDCL Serviceable' : 'Serviceable'}</span>
+                  <div className="relative flex items-center rounded-xl border border-stone-300/90 bg-white hover:border-stone-400 px-3.5 py-2.5 shadow-2xs transition-all focus-within:border-[#8B1E1E] focus-within:ring-2 focus-within:ring-[#8B1E1E]/15">
+                    <MapPin className="w-4 h-4 text-[#8B1E1E] shrink-0 mr-2.5" strokeWidth={2} />
+                    <input
+                      id="calc-pincode-input"
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={6}
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
+                      placeholder="Enter 6-digit pincode (e.g. 444601)"
+                      className="flex-1 bg-transparent text-sm sm:text-base font-semibold text-[#111827] placeholder:text-stone-400 focus:outline-none"
+                    />
+
+                    {/* MSEDCL Serviceability pill */}
+                    {isValidPincode ? (
+                      <span className="flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0 ml-2 bg-[#E6F4EA] text-[#137333] border border-[#CEEAD6]">
+                        <Check className="w-3 h-3 text-[#137333]" strokeWidth={3} />
+                        <span>MSEDCL Serviceable</span>
+                      </span>
+                    ) : (
+                      pincode.length > 0 && (
+                        <span className="text-[11px] font-medium text-stone-400 shrink-0 ml-2">
+                          {6 - pincode.length} digits left
                         </span>
-                      ) : (
-                        pincode.length > 0 && (
-                          <span className="text-[11px] font-medium text-stone-400 shrink-0 ml-2">
-                            {6 - pincode.length} digits left
-                          </span>
-                        )
-                      )}
+                      )
+                    )}
+                  </div>
+                </div>
+
+                {/* 2. MONTHLY BILL SLIDER WITH CENTERED VALUE & PRESETS */}
+                <div className="space-y-2 pt-1">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-semibold text-[#1F2937]">
+                      <span>Your average monthly electricity bill</span>
+                      <Info
+                        className="w-3.5 h-3.5 text-stone-400 cursor-help"
+                        onClick={() => setShowSampleBillModal(true)}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setShowSampleBillModal(true)}
+                      className="text-xs font-semibold text-[#8B1E1E] hover:underline cursor-pointer inline-flex items-center gap-0.5"
+                    >
+                      <span>Not sure? See a sample bill</span>
+                      <span className="text-sm leading-none">→</span>
+                    </button>
+                  </div>
+
+                  {/* Centered Large Dynamic Amount */}
+                  <div className="text-center py-1.5">
+                    <div className="inline-flex items-baseline gap-1">
+                      <span
+                        className="text-4xl sm:text-[44px] font-bold text-[#111827] tracking-tight tabular-nums leading-none font-heading"
+                      >
+                        {formatINR(monthlyBill)}
+                      </span>
+                      <span className="text-sm font-normal text-stone-500">
+                        / month
+                      </span>
                     </div>
                   </div>
 
-                  {/* 2. COMPACT MONTHLY BILL SLIDER WITH DOME GAUGE */}
-                  <div className="space-y-1.5 pt-0.5">
-                    <h3 className="text-center text-xs font-bold uppercase tracking-wider text-[#121824] font-heading">
-                      What's your average monthly electricity bill?
-                    </h3>
-
-                    {/* Desktop/Tablet Compact Arc Slider */}
-                    <div className="hidden sm:block">
-                      <CompactArcSlider
-                        value={monthlyBill}
-                        onChange={setMonthlyBill}
-                      />
-                    </div>
-
-                    {/* Mobile Touch Slider fallback */}
-                    <div className="block sm:hidden space-y-2 pt-1 pb-1">
-                      <div className="text-center">
-                        <span className="font-heading text-4xl font-bold tracking-tight text-[#0A1424]">
-                          {formatINR(monthlyBill)}
-                        </span>
-                        <span className="text-xs font-medium text-stone-500 ml-1">/month</span>
-                      </div>
+                  {/* Range Slider Track with Red/Maroon Gradient Fill */}
+                  <div className="flex items-center gap-3 px-1 pt-1 pb-2">
+                    <span className="text-xs font-semibold text-stone-400 shrink-0">₹1k</span>
+                    <div className="relative flex-1 flex items-center">
                       <input
                         type="range"
                         min={SLIDER_MIN}
@@ -610,257 +469,367 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         step={SLIDER_STEP}
                         value={monthlyBill}
                         onChange={(e) => setMonthlyBill(Number(e.target.value))}
-                        className="w-full h-2.5 rounded-lg appearance-none cursor-pointer accent-[#D8542F]"
+                        aria-label="Monthly electricity bill"
+                        className="calc-slider w-full h-2 rounded-full appearance-none cursor-pointer"
                         style={{
-                          background: `linear-gradient(to right, #D8542F ${((monthlyBill - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN)) * 100}%, #E8E4DF ${((monthlyBill - SLIDER_MIN) / (SLIDER_MAX - SLIDER_MIN)) * 100}%)`,
+                          background: `linear-gradient(to right, #801414 0%, #B91C1C ${sliderPercentage}%, #E5E7EB ${sliderPercentage}%, #E5E7EB 100%)`,
                         }}
                       />
                     </div>
+                    <span className="text-xs font-semibold text-stone-400 shrink-0">₹25k+</span>
+                  </div>
 
-                    {/* 5 Instant Pareto Quick-Select Bracket Pills */}
-                    <div className="flex items-center justify-center gap-1.5 sm:gap-2 pt-1">
-                      {PRESET_PILLS.map((pill) => (
+                  {/* 5 Quick-Select Bracket Pills */}
+                  <div className="flex items-center justify-center gap-2 pt-0.5">
+                    {PRESET_PILLS.map((pill) => {
+                      const isActive = monthlyBill === pill.value;
+                      return (
                         <button
                           key={pill.label}
                           type="button"
                           onClick={() => setMonthlyBill(pill.value)}
-                          className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            monthlyBill === pill.value
-                              ? 'bg-[#0A1424] text-white shadow-xs'
-                              : 'bg-stone-100 hover:bg-stone-200/80 text-stone-600 hover:text-stone-900 border border-stone-200/60'
+                          className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                            isActive
+                              ? 'bg-[#7B1818] text-white shadow-xs'
+                              : 'bg-[#F3F4F6] text-[#374151] hover:bg-[#E5E7EB] border border-transparent'
                           }`}
                         >
                           {pill.label}
                         </button>
-                      ))}
-                    </div>
+                      );
+                    })}
                   </div>
-
-                  {/* 3. PRIMARY CTA BUTTON & CONFIDENCE MICRO-COPY */}
-                  <div className="space-y-2 pt-1">
-                    <button
-                      type="button"
-                      onClick={handleCalculate}
-                      disabled={!isFormValid || isCalculating}
-                      className="w-full h-13 sm:h-14 rounded-full bg-[#0A1424] hover:bg-[#121E33] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_12px_28px_-6px_rgba(10,20,36,0.35)] flex items-center justify-between px-3 sm:px-4 transition-all cursor-pointer group"
-                    >
-                      {/* Left Sun Icon with Glowing Ring */}
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-amber-500/25 to-orange-500/35 border border-amber-400/40 flex items-center justify-center shrink-0">
-                        <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF9E42]" />
-                      </div>
-
-                      {/* Button Text */}
-                      <span className="text-white font-bold text-sm sm:text-base tracking-wide font-heading">
-                        {isCalculating ? 'Calculating your savings…' : 'Calculate My Solar Savings'}
-                      </span>
-
-                      {/* Right Coral Arrow */}
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#D8542F] group-hover:bg-[#E2613B] flex items-center justify-center shrink-0 shadow-sm group-hover:translate-x-0.5 transition-transform">
-                        {isCalculating ? (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        ) : (
-                          <ArrowRight className="w-4 h-4 text-white" />
-                        )}
-                      </div>
-                    </button>
-
-                    {/* Confidence Proof Under CTA */}
-                    <div className="flex items-center justify-center gap-3 sm:gap-5 text-[11px] text-[#7A746E] pt-1 font-medium select-none">
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-[#8C867E]" />
-                        Takes 30 seconds
-                      </span>
-                      <span className="w-1 h-1 rounded-full bg-[#D8542F]" />
-                      <span className="flex items-center gap-1">
-                        <Shield className="w-3 h-3 text-[#8C867E]" />
-                        100% No obligation
-                      </span>
-                      <span className="w-1 h-1 rounded-full bg-[#D8542F]" />
-                      <span>Direct MSEDCL Rates</span>
-                    </div>
-                  </div>
-
                 </div>
-              )}
 
-              {/* ── STEP 2: SOLAR RECOMMENDATION RESULTS PANEL ── */}
-              {currentStep === 2 && calculatedResults && (
-                <div className="space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  <div className="flex items-center justify-between pb-2.5 border-b border-stone-100">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-[#121824] font-heading">
-                        Your Solar Recommendation
-                      </h3>
-                      <p className="text-xs text-stone-500 mt-0.5">
-                        Based on {formatINR(monthlyBill)}/month bill in pincode {pincode}
-                      </p>
+                {/* 3. PRIMARY CTA BUTTON: DEEP MAROON ROUNDED PILL */}
+                <div className="space-y-2.5 pt-2">
+                  <button
+                    type="button"
+                    onClick={handleCalculate}
+                    disabled={!isFormValid || isCalculating}
+                    className="w-full h-13 sm:h-14 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_10px_24px_-4px_rgba(123,24,24,0.38)] flex items-center justify-between px-3 sm:px-4 transition-all cursor-pointer group"
+                  >
+                    {/* Left Glowing Line Sun Icon */}
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0">
+                      <Sun className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#FDBA74]" />
                     </div>
-                    <button
-                      type="button"
-                      onClick={handleEditDetails}
-                      className="flex items-center gap-1.5 text-xs font-bold text-[#D8542F] hover:text-[#B84220] px-3 py-1.5 rounded-lg border border-[#D8542F]/30 hover:bg-[#D8542F]/5 transition-colors cursor-pointer"
+
+                    {/* Button Text */}
+                    <span
+                      className="text-white font-medium text-sm sm:text-base tracking-wide"
+                      style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
                     >
-                      <Pencil className="w-3 h-3" />
-                      <span>Edit details</span>
-                    </button>
-                  </div>
-
-                  {/* 4 Metric Cards Grid */}
-                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-                    {/* Recommended System */}
-                    <div className="p-3.5 sm:p-4 rounded-xl border border-stone-200 bg-white shadow-2xs">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Zap className="w-3.5 h-3.5 text-[#D8542F]" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 font-heading">
-                          System Size
-                        </span>
-                      </div>
-                      <div className="font-heading text-xl sm:text-2xl font-bold text-[#121824] tabular-nums">
-                        {calculatedResults.systemSizeKw} kW
-                      </div>
-                      <span className="text-[11px] text-stone-500 mt-0.5 block">
-                        Rooftop PV Array
-                      </span>
-                    </div>
-
-                    {/* Monthly Savings */}
-                    <div className="p-3.5 sm:p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 shadow-2xs">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Sun className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 font-heading">
-                          Monthly Savings
-                        </span>
-                      </div>
-                      <div className="font-heading text-xl sm:text-2xl font-bold text-emerald-700 tabular-nums">
-                        {formatINR(calculatedResults.monthlySavings)}
-                      </div>
-                      <span className="text-[11px] text-emerald-600 mt-0.5 block">
-                        Up to 90% reduction
-                      </span>
-                    </div>
-
-                    {/* Annual Savings */}
-                    <div className="p-3.5 sm:p-4 rounded-xl border border-stone-200 bg-white shadow-2xs">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Award className="w-3.5 h-3.5 text-[#D8542F]" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 font-heading">
-                          Annual Savings
-                        </span>
-                      </div>
-                      <div className="font-heading text-xl sm:text-2xl font-bold text-[#121824] tabular-nums">
-                        {formatINR(calculatedResults.annualSavings)}
-                      </div>
-                      <span className="text-[11px] text-stone-500 mt-0.5 block">
-                        Direct cash kept / year
-                      </span>
-                    </div>
-
-                    {/* Payback Period */}
-                    <div className="p-3.5 sm:p-4 rounded-xl border border-stone-200 bg-white shadow-2xs">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Clock className="w-3.5 h-3.5 text-[#D8542F]" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 font-heading">
-                          Payback Period
-                        </span>
-                      </div>
-                      <div className="font-heading text-xl sm:text-2xl font-bold text-[#121824] tabular-nums">
-                        {calculatedResults.paybackYears.toFixed(1)} Yrs
-                      </div>
-                      <span className="text-[11px] text-stone-500 mt-0.5 block">
-                        With {formatINR(calculatedResults.subsidyAmount)} subsidy
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Environmental Impact Banner */}
-                  <div className="flex items-center justify-between py-2 px-3 rounded-lg bg-emerald-50/60 border border-emerald-200/70 text-emerald-800 text-[11px] font-semibold">
-                    <span className="flex items-center gap-1.5">
-                      <Leaf className="w-3.5 h-3.5 text-emerald-600" />
-                      {calculatedResults.co2OffsetTonnes} tonnes CO₂/yr avoided
+                      {isCalculating ? 'Calculating your savings…' : 'Show My Solar Savings'}
                     </span>
-                    <span>≈ {calculatedResults.treesEquivalent} trees planted</span>
-                  </div>
 
-                  {/* 2 Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
-                    <button
-                      type="button"
-                      onClick={handleContactExpert}
-                      className="flex-1 h-12 rounded-full bg-[#D8542F] hover:bg-[#E2613B] active:scale-[0.99] text-white font-bold text-sm font-heading shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
-                    >
-                      <span>Talk to a Solar Expert</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleContactExpert}
-                      className="flex-1 h-12 rounded-full border border-stone-300 hover:bg-stone-50 active:scale-[0.99] text-[#121824] font-bold text-sm font-heading flex items-center justify-center gap-2 transition-all cursor-pointer"
-                    >
-                      <span>Get Detailed 3D Quote</span>
-                    </button>
+                    {/* Right Circular Rose Badge with Maroon Arrow */}
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FCE7E7] group-hover:bg-white flex items-center justify-center shrink-0 shadow-2xs group-hover:translate-x-0.5 transition-transform">
+                      {isCalculating ? (
+                        <div className="w-3.5 h-3.5 border-2 border-[#7B1818]/30 border-t-[#7B1818] rounded-full animate-spin" />
+                      ) : (
+                        <ArrowRight className="w-4 h-4 text-[#7B1818]" />
+                      )}
+                    </div>
+                  </button>
+
+                  {/* Micro-Trust Reassurances Under CTA */}
+                  <div className="flex items-center justify-center gap-3 sm:gap-5 text-[11px] text-[#4B5563] pt-0.5 font-medium select-none">
+                    <span className="flex items-center gap-1">
+                      <Zap className="w-3.5 h-3.5 text-[#801414]" />
+                      Takes 30 seconds
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-stone-300" />
+                    <span className="flex items-center gap-1">
+                      <Lock className="w-3.5 h-3.5 text-[#801414]" />
+                      No spam
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-stone-300" />
+                    <span className="flex items-center gap-1">
+                      <Shield className="w-3.5 h-3.5 text-[#801414]" />
+                      100% confidential
+                    </span>
                   </div>
                 </div>
-              )}
 
+              </div>
+            )}
+
+            {/* ── STEP 2: RESULTS RECOMMENDATION PANEL ── */}
+            {currentStep === 2 && calculatedResults && (
+              <div className="space-y-4 animate-in fade-in duration-300">
+                <div className="flex items-center justify-between pb-2 border-b border-stone-100">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#111827] font-heading">
+                      Your Solar Recommendation
+                    </h3>
+                    <p className="text-xs text-stone-500">
+                      For {formatINR(monthlyBill)}/mo bill in {pincode}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleEditDetails}
+                    className="flex items-center gap-1 text-xs font-semibold text-[#8B1E1E] hover:underline cursor-pointer"
+                  >
+                    <Pencil className="w-3 h-3" />
+                    <span>Edit details</span>
+                  </button>
+                </div>
+
+                {/* 4 Financial Metric Cards */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                      System Size
+                    </span>
+                    <div className="text-xl sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                      {calculatedResults.systemSizeKw} kW
+                    </div>
+                    <span className="text-[10.5px] text-stone-500">Rooftop PV Array</span>
+                  </div>
+
+                  <div className="p-3 rounded-xl border border-emerald-200 bg-emerald-50/40">
+                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block font-heading">
+                      Monthly Savings
+                    </span>
+                    <div className="text-xl sm:text-2xl font-bold text-emerald-700 font-heading mt-0.5">
+                      {formatINR(calculatedResults.monthlySavings)}
+                    </div>
+                    <span className="text-[10.5px] text-emerald-600 font-medium">Up to 90% reduction</span>
+                  </div>
+
+                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                      Annual Savings
+                    </span>
+                    <div className="text-xl sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                      {formatINR(calculatedResults.annualSavings)}
+                    </div>
+                    <span className="text-[10.5px] text-stone-500">Direct cash retained</span>
+                  </div>
+
+                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                      Payback Period
+                    </span>
+                    <div className="text-xl sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                      {calculatedResults.paybackYears.toFixed(1)} Yrs
+                    </div>
+                    <span className="text-[10.5px] text-stone-500">With ₹78k subsidy</span>
+                  </div>
+                </div>
+
+                {/* Environmental Impact Strip */}
+                <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-200 text-emerald-800 text-xs font-medium">
+                  <span className="flex items-center gap-1.5">
+                    <Leaf className="w-3.5 h-3.5 text-emerald-600" />
+                    {calculatedResults.co2OffsetTonnes} tonnes CO₂/yr offset
+                  </span>
+                  <span>≈ {calculatedResults.treesEquivalent} trees planted</span>
+                </div>
+
+                {/* Action CTA Button */}
+                <button
+                  type="button"
+                  onClick={handleContactExpert}
+                  className="w-full h-12 sm:h-13 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] text-white font-semibold text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
+                >
+                  <span>Claim Your ₹78,000 Subsidy Estimate</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* ── SOCIAL PROOF & MAHAVITARAN OFFICIAL EMBLEM FOOTER ── */}
+          <div className="mt-5 pt-4 border-t border-stone-200/80 flex items-center justify-between gap-4">
+            {/* Left: Homeowner Count */}
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-[#801414] shrink-0" />
+              <span className="text-xs font-medium text-[#374151]">
+                Trusted by 1,000+ homeowners across Maharashtra
+              </span>
+            </div>
+
+            {/* Right: Official MAHAVITARAN emblem */}
+            <div className="flex items-center gap-2 shrink-0">
+              <svg viewBox="0 0 32 20" className="h-5 w-auto" fill="none" aria-hidden="true">
+                <path d="M4 18 L14 2 L11 11 L18 11 L8 27 L11 18 Z" fill="#CC0000" />
+                <path d="M14 18 L24 2 L21 11 L28 11 L18 27 L21 18 Z" fill="#CC0000" opacity="0.6" />
+              </svg>
+              <div className="text-left leading-tight hidden sm:block">
+                <span className="text-[11.5px] font-black tracking-wider text-[#1F2937] block font-heading">
+                  MAHAVITARAN
+                </span>
+                <span className="text-[7.5px] text-stone-500 font-medium block">
+                  Maharashtra State Electricity Distribution Co. Ltd.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════════════════════════════
+            ZONE 3: RIGHT SUNLIGHT & TREE BAND (~14% DESKTOP WIDTH)
+            - Full height vertical strip with sunset horizon image
+            - Stacked editorial typography & 01 / 02 paginator
+            - 3D Pop-out tree foliage crossing the left boundary
+           ══════════════════════════════════════════════════════════════ */}
+        <div className="relative hidden lg:flex lg:w-[14%] xl:w-[14%] shrink-0 flex-col justify-between overflow-visible">
+          {/* Sunset Horizon Background */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <img
+              src="/images/calc-sunset-sky.jpg"
+              alt="Golden sunset horizon"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+          </div>
+
+          {/* 3D Pop-Out Tree Foliage Layer (CRITICAL)
+              Crosses the left boundary from the right band over the center card with soft drop shadow */}
+          <div className="absolute top-[28%] -left-12 xl:-left-16 w-32 xl:w-40 pointer-events-none select-none z-30 drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)]">
+            <img
+              src="/images/tree-popout-transparent.png"
+              alt="Natural tree pop-out foliage"
+              className="w-full h-auto object-contain transform hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+
+          {/* Top Stacked Editorial Typography */}
+          <div className="relative z-10 p-4 xl:p-5 pt-8 text-white">
+            <div className="text-[10px] xl:text-[10.5px] font-bold tracking-[0.18em] leading-relaxed uppercase text-white/95 drop-shadow-sm font-heading">
+              TODAY'S
+              <br />
+              SUNLIGHT.
+              <br />
+              A BRIGHTER
+              <br />
+              TOMORROW
+              <br />
+              FOR YOUR HOME.
+            </div>
+            <div className="w-7 h-[1.5px] bg-[#8B1E1E] mt-2.5" />
+          </div>
+
+          {/* Bottom Paginator & Tagline */}
+          <div className="relative z-10 p-4 xl:p-5 pb-8 text-white space-y-2">
+            <div className="text-[11px] font-bold tracking-[0.2em] text-white/90 font-heading">
+              01 / 02
+            </div>
+            <div className="w-7 h-[1px] bg-white/40" />
+            <div className="text-[9px] xl:text-[9.5px] font-bold tracking-[0.2em] leading-relaxed uppercase text-white/85 font-heading">
+              CLEANER
+              <br />
+              STRONGER
+              <br />
+              MORE INDEPENDENT
+            </div>
+            <div className="w-7 h-[1px] bg-white/40" />
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── SAMPLE ELECTRICITY BILL MODAL ── */}
+      {showSampleBillModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-stone-200 relative">
+            <button
+              type="button"
+              onClick={() => setShowSampleBillModal(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-stone-100 text-stone-500 hover:text-stone-800 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-2 text-[#801414]">
+              <FileText className="w-5 h-5" />
+              <h4 className="font-bold text-base text-[#111827] font-heading">
+                Finding Your Bill Amount
+              </h4>
+            </div>
+
+            <p className="text-xs text-stone-600 leading-relaxed">
+              On your Maharashtra MSEDCL (Mahavitaran) electricity bill, check the <strong>"Current Bill Amount" (चालू देयक रक्कम)</strong> or take the average of your last 3–6 months for the most accurate solar array calculation.
+            </p>
+
+            <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-1.5 text-stone-700">
+              <div className="flex justify-between">
+                <span className="font-medium text-stone-500">Typical 1–2 BHK:</span>
+                <span className="font-bold text-[#111827]">₹2,500 – ₹4,500/mo (2–3 kW)</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium text-stone-500">Typical 3–4 BHK:</span>
+                <span className="font-bold text-[#111827]">₹6,000 – ₹10,000/mo (4–6 kW)</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium text-stone-500">Luxury Villa / Bungalow:</span>
+                <span className="font-bold text-[#111827]">₹12,000 – ₹25,000+/mo (8–15 kW)</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowSampleBillModal(false)}
+              className="w-full py-2.5 rounded-full bg-[#7B1818] text-white text-xs font-bold font-heading hover:bg-[#681414] transition-colors"
+            >
+              Got it, continue calculation
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── BASE TRUST RIBBON (Bottom of section) ── */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-5 border-t border-stone-200/80">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-stone-700">
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
+            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
+              <Zap className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
+            </div>
+            <div>
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+                Tier-1 Bifacial Solar
+              </span>
+              <span className="text-[11px] text-stone-500 block">
+                Topcon / Mono PERC Technology
+              </span>
             </div>
           </div>
 
-        </div>
+          <div className="hidden sm:block w-px h-6 bg-stone-300/60" />
 
-        {/* ── COMPACT BASE TRUST RIBBON ── */}
-        <div className="mt-8 pt-5 border-t border-stone-200/80">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-stone-700">
-            {/* Item 1 */}
-            <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white/80 flex items-center justify-center shrink-0 shadow-2xs">
-                <Zap className="w-3.5 h-3.5 text-[#D8542F]" strokeWidth={2} />
-              </div>
-              <div>
-                <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#121824]">
-                  Tier-1
-                </span>
-                <span className="text-[11px] text-stone-500 block">
-                  High Efficiency Cells
-                </span>
-              </div>
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
+            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
+              <Users className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
             </div>
-
-            <div className="hidden sm:block w-px h-6 bg-stone-300/60" />
-
-            {/* Item 2 */}
-            <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white/80 flex items-center justify-center shrink-0 shadow-2xs">
-                <Users className="w-3.5 h-3.5 text-[#D8542F]" strokeWidth={2} />
-              </div>
-              <div>
-                <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#121824]">
-                  Expert Team
-                </span>
-                <span className="text-[11px] text-stone-500 block">
-                  In-House Certified Installation
-                </span>
-              </div>
+            <div>
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+                Certified Installers
+              </span>
+              <span className="text-[11px] text-stone-500 block">
+                In-House Maharashtra Engineering Team
+              </span>
             </div>
+          </div>
 
-            <div className="hidden sm:block w-px h-6 bg-stone-300/60" />
+          <div className="hidden sm:block w-px h-6 bg-stone-300/60" />
 
-            {/* Item 3 */}
-            <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white/80 flex items-center justify-center shrink-0 shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#D8542F]" strokeWidth={2} />
-              </div>
-              <div>
-                <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#121824]">
-                  25-Year
-                </span>
-                <span className="text-[11px] text-stone-500 block">
-                  Linear Performance Warranty
-                </span>
-              </div>
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-center sm:justify-start">
+            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
+              <Award className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
+            </div>
+            <div>
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+                25-Year Warranty
+              </span>
+              <span className="text-[11px] text-stone-500 block">
+                Linear Performance Guarantee
+              </span>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

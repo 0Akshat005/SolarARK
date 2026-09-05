@@ -1,177 +1,76 @@
-Yes — the current result is still **misreading the reference**. It has copied the *content arrangement* but not the **spatial/compositional logic** of the reference. The biggest problem is that Antigravity keeps translating the design into a centered `max-width` card system.
+You are a senior frontend engineer working inside the SolarARK codebase.
 
-Use this **much stricter corrective prompt**:
+Attached image:
+- This is the **target design** for the Solar Savings calculator hero.
+- Left: editorial villa photo + headline + trust badges.
+- Center: calculator card (“Your Details” step) with pincode and monthly bill slider.
+- Right: narrow vertical band with sunlight + tree pop-out and tagline.
 
-> **STOP AND REWORK THE HOMEPAGE SECTIONS BELOW THE HERO/PROOF RAIL.**
->
-> The previous implementation is **still NOT matching the attached design reference**.
->
-> Use the **attached reference image as the ONLY visual benchmark**. Do not interpret it as a generic inspiration. Compare the current rendered result against the reference and correct the composition accordingly.
->
-> ### THE CORE PROBLEM
->
-> You are still designing the page as:
->
-> **centered max-width container → isolated rounded image cards → large outer whitespace**
->
-> That is NOT the reference.
->
-> The reference uses a **continuous editorial grid where photographic areas occupy much more of the available horizontal canvas**.
->
-> ### HARD RULE: STOP CARDIFYING THE IMAGES
->
-> Do NOT put the primary photographs inside:
->
-> * rounded cards;
-> * floating containers;
-> * white cards with image + content underneath;
-> * individual shadowed boxes;
-> * nested rounded wrappers.
->
-> The photographs themselves should become the **visual structure of the section**.
->
-> ### SOLUTIONS SECTION — REBUILD THIS
->
-> The current Residential / Commercial / Industrial presentation is still three separate cards.
->
-> Change it to a **single continuous horizontal photographic band**, inspired directly by the attached reference.
->
-> Think:
->
-> `| RESIDENTIAL | COMMERCIAL | INDUSTRIAL |`
->
-> as **one unified image composition**, not:
->
-> `[card] [card] [card]`
->
-> The three images should sit directly against one another with minimal/no gutters, filling almost the entire available viewport width.
->
-> Use rectangular crops with consistent visual height.
->
-> Overlay only:
->
-> * category name;
-> * very short supporting line;
-> * subtle arrow/action.
->
-> Do not put a large white information panel under each image.
->
-> ### WHY SOLARARK SECTION
->
-> Keep the reference's strong **image + information split**.
->
-> The photographic panel should be large and visually dominant.
->
-> The information side should remain clean and editorial.
->
-> Do NOT wrap either side in a card.
->
-> The image should extend naturally to the viewport edge on its side, while the text remains aligned to the site's content grid.
->
-> ### FEATURED PROJECTS — REBUILD THIS TOO
->
-> The current project section is STILL using a card-grid mentality.
->
-> Follow the attached reference's editorial project presentation:
->
-> **large rectangular image areas + concise metadata + typography**
->
-> not:
->
-> `[rounded image card] [rounded image card] [rounded image card]`
->
-> Remove the large outer left/right whitespace surrounding the visual composition.
->
-> Let the project imagery occupy the available horizontal canvas much more aggressively.
->
-> Keep the project information minimal and integrated into the visual treatment.
->
-> ### VERY IMPORTANT: CONTENT GRID ≠ IMAGE CONTAINER
->
-> You may keep a controlled max-width grid for **text alignment**.
->
-> But do NOT use that same max-width constraint to trap every photograph inside a narrow centered rectangle.
->
-> Use this model:
->
-> **TEXT:** controlled content grid
-> **IMAGE:** expansive editorial composition
->
-> This distinction is the most important correction.
->
-> ### SPACING
->
-> The reference does NOT have huge empty gutters between the page edge and every image.
->
-> Remove unnecessary horizontal whitespace.
->
-> Sections should feel visually connected:
->
-> **text → image band → image/text split → project band**
->
-> rather than:
->
-> **blank margin → card → blank margin → card → blank margin**
->
-> Do not compensate for a lack of visual quality with additional padding.
->
-> ### IMAGE CROPPING
->
-> Use deliberate rectangular crops.
->
-> Images must completely fill their assigned visual area using `object-fit: cover` or equivalent responsive art direction.
->
-> Do not stretch images.
->
-> Choose `object-position` specifically for each photograph so the important solar installation/building remains visible.
->
-> Desktop, tablet and mobile may use different crop positions.
->
-> ### REFERENCE MATCHING
->
-> When looking at the attached reference, pay particular attention to:
->
-> **1. Images occupy large horizontal regions.**
-> **2. Images are rectangular, not card-like.**
-> **3. Adjacent visual areas form a continuous composition.**
-> **4. Text is integrated into the grid rather than enclosed in cards.**
-> **5. The page alternates image-heavy and light information bands.**
-> **6. The visual rhythm is compact and deliberate.**
-> **7. There are no giant empty side gutters around every image.**
->
-> Match these principles **visually**, not just structurally.
->
-> ### DO NOT TOUCH
->
-> Absolutely preserve:
->
-> * existing Hero video/banner;
-> * Hero content;
-> * Hero controls;
-> * Trust/Proof Rail below Hero;
-> * navigation;
-> * footer;
-> * routing;
-> * functionality unrelated to these homepage sections.
->
-> ### FINAL SELF-CHECK
->
-> Before finishing, look at the rendered homepage beside the attached reference.
->
-> Ask:
->
-> **“Does this look like an editorial page with integrated photography, or does it still look like a collection of UI cards?”**
->
-> If it still looks like cards, **do not stop — remove the card treatment and redesign the composition.**
->
-> **The final result must visually move from the current “card grid” toward the attached reference's “continuous editorial image grid.”**
->
-> **Do not add another card to solve any problem.**
->
-> The target is:
->
-> **EXPANSIVE IMAGE → CONTROLLED TEXT → RECTANGULAR VISUAL BAND → ASYMMETRIC SPLIT → PROJECT-LED COMPOSITION**
->
-> not:
->
-> **CONTAINER → CARD → CARD → CARD.**
+Context
+- Stack: React + TypeScript + Vite, Tailwind for layout + design tokens already defined in `index.css` / DESIGN.md.
+- File: `src/components/SavingsCalculator.tsx` currently implements the calculator UI; we want to **revamp** its outer layout + styling to match the attached design while keeping the calculation logic and props intact.
+- You MUST use our existing brand colors, typography roles, spacing scale and glass-panel utilities from `index.css` instead of random Tailwind colors.
+
+Exact UI we want (component scope = full hero section around the calculator):
+
+1. Split-screen layout
+   - Full-width horizontal section with three logical zones:
+     - Left **hero panel** (~40–45% width).
+     - Center **calculator card** (~40–45% width).
+     - Right **sunlight / tree band** (~15–20% width).
+   - On mobile: stack vertically (hero → calculator → right band), keeping all content and hierarchy.
+
+2. Left hero panel
+   - Background: large villa-with-solar photo filling the panel.
+   - Overlaid copy (top-left):
+     - Eyebrow: “Clean energy. Brighter tomorrows.”
+     - Main headline: two-line display type like “See your real savings.” (use the exact SolarARK copy already defined in this repo; do not invent new slogans).
+     - Subline: “Know your solar savings in 30 seconds.”
+   - Below headline: three circular trust badges in a row:
+     - “Accurate savings – Based on MSEDCL rates.”
+     - “Govt. subsidy – PM Surya Ghar.”
+     - “25-year assurance – Reliable. Worry-free.”
+   - Bottom-left: handwritten style caption (use existing Marathi/English line from the repo if present) with a subtle curved underline.
+   - Use our `hero-display`, `eyebrow`, and spacing tokens to match the density of the screenshot.
+
+3. Center calculator card (“Your Details” step)
+   - Card sits on a warm off-white background, slightly overlapping the left hero via z-index and shadow.
+   - Top stepper:
+     - Step 1 “Your Details” highlighted with maroon line and filled circle.
+     - Step 2 “Your Savings” shown as upcoming, with muted circle.
+   - Pincode field:
+     - Label above input.
+     - Input with left location icon.
+     - Right-hand serviceability pill (“MSEDCL Serviceable”) aligned as in the design.
+   - Monthly bill slider:
+     - Large ₹ value centered (“₹8,500 / month” style, but use dynamic value from state).
+     - Horizontal slider with red thumb and min/max labels (₹1k … ₹25k+).
+     - Four preset pill buttons below (₹1k, ₹3k, ₹6k, ₹12k, ₹20k+), centered.
+   - Primary CTA:
+     - Wide maroon rounded pill button: “Show My Solar Savings” with sun icon on the left and arrow on the right.
+     - Below CTA: three tiny trust lines with icons (“Takes 30 seconds”, “No spam”, “100% confidential”).
+   - Reuse existing calculator logic (`calculateSolarSavings`, pincode validation, etc.) and wire all inputs/CTAs to that logic.
+
+4. Right sunlight / tree band (CRITICAL)
+   - Narrow vertical panel on the far right, full height:
+     - Background: sunset city / landscape image.
+     - The **tree pop-out** must overlap both the hero and the calculator card:
+       - Use an absolutely positioned tree image that crosses the boundary between left and center panels (z-index above both).
+       - Soft shadow and slight scale to feel like it’s “popping out”, but no heavy animations.
+     - Vertical text block:
+       - Small “01 / 02” paginator.
+       - Tagline stacked vertically: “Cleaner / Stronger / More independent”.
+   - Ensure this band is responsive: on mobile, tree sits above or behind the calculator card without breaking layout.
+
+Implementation rules
+- Phase 1: Build the layout structure and DOM hierarchy for this hero in `SavingsCalculator.tsx` (section + 3 columns), using Tailwind layout utilities only (grid/flex, gap, padding). No colors beyond neutral backgrounds.
+- Phase 2: Apply SolarARK design tokens and brand styles from DESIGN.md / `index.css` to match the screenshot: colors, fonts, radii, shadows, glass effects.
+- Phase 3: Polish interactions:
+  - Hover/focus-visible states for CTA and pills.
+  - Smooth transitions (`transition-all duration-200`) for slider thumb, pills and CTA.
+  - Respect `prefers-reduced-motion` for any subtle entrance effects.
+
+Output
+1. Short summary of how you mapped the screenshot to the React structure.
+2. The updated `SavingsCalculator.tsx` code implementing this full hero layout (keep calculation logic intact).
+3. Notes on how the tree pop-out is layered (which elements use `relative`, `absolute`, and z-index).
