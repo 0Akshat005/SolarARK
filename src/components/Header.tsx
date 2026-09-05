@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
     { name: 'Contact Us', path: '/contact' },
   ];
 
-  const isDarkHero = currentPath === '/' && !isScrolled;
+  const isDarkHero = false;
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -162,9 +162,9 @@ export const Header: React.FC<HeaderProps> = ({
             <PrimaryButton
               size="sm"
               onClick={onCtaClick}
-              className="px-6 py-2.5 text-[13.5px] xl:text-[14px]"
+              className="px-5 py-2.5 text-[13.5px] xl:text-[14px]"
             >
-              Get A Quote
+              Get a Solar Assessment
             </PrimaryButton>
           </div>
 

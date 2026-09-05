@@ -5,16 +5,21 @@
 
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
+import { EditorialHero } from './components/home/EditorialHero';
+import { MetricsRibbon } from './components/home/MetricsRibbon';
+import { SolutionsScale } from './components/home/SolutionsScale';
+import { WhySolarArk } from './components/home/WhySolarArk';
+import { FeaturedProjects } from './components/home/FeaturedProjects';
+import { BuiltInMaharashtra } from './components/home/BuiltInMaharashtra';
+import { ProcessFlowStrip } from './components/home/ProcessFlowStrip';
+import { PreFooterBanner } from './components/home/PreFooterBanner';
 import { SavingsCalculator } from './components/SavingsCalculator';
-import { HowItWorks } from './components/HowItWorks';
-import { Testimonials } from './components/Testimonials';
+import { FinalCTAForm } from './components/FinalCTAForm';
 import { TechnologySection } from './components/TechnologySection';
 import { AppExperience } from './components/AppExperience';
-import { FinalCTAForm } from './components/FinalCTAForm';
+import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
-import { DeepDiveTeaser } from './components/DeepDiveTeaser';
 import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
 import { EarnWithUsPage } from './components/EarnWithUsPage';
@@ -210,18 +215,31 @@ export default function App() {
         {/* HOMEPAGE VIEW */}
         {currentPath === '/' && (
           <>
-            {/* 1. Hero with conversion triggers */}
-            <Hero
+            {/* 1. What SolarARK Does: Editorial Hero */}
+            <EditorialHero
               onCtaClick={scrollToContactForm}
-              onClaimEstimate={handleClaimEstimate}
+              onAssessmentClick={scrollToCalculator}
             />
 
-            {/* 2. 4-Step Transparent Installation Process */}
-            <div id="how-it-works">
-              <HowItWorks onCtaClick={scrollToContactForm} onNavigate={navigateTo} />
-            </div>
+            {/* 2. Social Proof & Scale: Metrics Ribbon */}
+            <MetricsRibbon />
 
-            {/* 3. Comprehensive Solar Savings Calculator & Grid Tariff Stability Hub */}
+            {/* 3. Which Solution Fits Me: Solutions by Scale */}
+            <SolutionsScale onNavigate={navigateTo} />
+
+            {/* 4. Why Trust SolarARK: Engineering Story & Capability Matrix */}
+            <WhySolarArk onNavigate={navigateTo} />
+
+            {/* 5. Real Project Proof: Featured Projects */}
+            <FeaturedProjects onNavigate={navigateTo} />
+
+            {/* 6. Regional Authority: Built in Maharashtra */}
+            <BuiltInMaharashtra onNavigate={navigateTo} />
+
+            {/* 7. How the Process Works: 4-Step Installation Rail */}
+            <ProcessFlowStrip />
+
+            {/* 8. Savings & Feasibility Assessment: Interactive Calculator */}
             <div id="calculator">
               <SavingsCalculator
                 onClaimEstimate={handleClaimEstimate}
@@ -230,10 +248,10 @@ export default function App() {
               />
             </div>
 
-            {/* 5. Deep-Dive Bento Teaser Grid */}
-            <DeepDiveTeaser onNavigate={navigateTo} />
+            {/* 9. Pre-Footer Banner: "Your roof could do more." */}
+            <PreFooterBanner onCtaClick={scrollToContactForm} />
 
-            {/* 6. Lead Consultation Form */}
+            {/* 10. Consultation & 3D Site Survey Request Form */}
             <div id="contact-form">
               <FinalCTAForm
                 prefilledPincode={calculatorState.pincode}
