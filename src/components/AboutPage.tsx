@@ -1,24 +1,21 @@
 /**
  * AboutPage — High-Fidelity Editorial About Page for SolarArk Projects Pvt. Ltd.
  *
- * Structural Architecture drawn from reference (aboutpage.png):
- * 1. Hero Band: Editorial split layout. Left typography ("Energy that works for real life." with rust-red accent),
- *    right full-bleed architectural solar building facade with vertical text ribbon ("CLEANER / BRIGHTER / MAHARASHTRA").
- * 2. Origin Triptych: Seamless 3-part panoramic strip (0 gaps). Left: rooftop array with quote scrim;
- *    Center: pure white story card ("Where it all began."); Right: angled solar sunset slice with vertical text ("SAME / SPACES / NEW / POSSIBILITIES").
- * 3. Belief Band: Split layout. Left 65% statement + 3 minimal procedural pillars with subtle dividers;
- *    Right 35% full-height glistening solar panel array with vertical text ("DIFFERENT / SPACES / SAME / PURPOSE").
- * 4. Team Band: Cinematic dark full-width band. Left copy + "Meet Our Team ->" pill CTA; Right integrated field team visual + quote.
- * 5. Process Rail: Interconnected horizontal procedural rail with 1px borders between 4 steps + right vertical ribbon.
- * 6. Journey Strip: 6-photo visual proof strip with category captions and smooth navigation.
- * 7. Horizon CTA: Golden-hour landscape band with "Building a cleaner future, together." + dual pill CTAs.
+ * Designed with strict adherence to the structural approach, visual hierarchy,
+ * and design system of the architectural editorial reference:
+ * - Eliminates unnecessary white space by using full-width imagery, alternating tones,
+ *   and interlocking panels rather than disconnected floating cards.
+ * - Architectural 12-column grid with thin 1px procedural divider lines.
+ * - Strategic brand maroon (#8B1E1E) accent typography on key phrases ("real life.", "a better tomorrow.").
+ * - Vertical editorial margin typography ("CLEANER / BRIGHTER / MAHARASHTRA", etc.).
+ * - High-end procedural process strip and seamless 6-photo photojournalistic contact strip.
+ * - Full preservation of SolarArk content, authentic imagery, and routing props.
  *
  * @license SPDX-License-Identifier: Apache-2.0
  */
 
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { PrimaryButton } from './PrimaryButton';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -27,37 +24,37 @@ interface AboutPageProps {
   prefilledBill?: number;
 }
 
-/* ── 6 Field Journey Photos for Visual Proof Strip ── */
+/* ── 6 Curated Photojournalistic Journey Photos ── */
 const journeyPhotos = [
   {
     src: '/images/process/stage-03-install-wide.jpg',
     tag: 'Execution',
-    caption: 'Precision Module Mounting at Sunset',
-  },
-  {
-    src: '/images/earnwithus/earnwithus-hero-rooftop.jpg',
-    tag: 'Aerial Survey',
-    caption: 'Rooftop Megawatt Infrastructure',
+    caption: 'Precision rooftop mounting across Maharashtra',
   },
   {
     src: '/images/process/stage-01-survey-rooftop.jpg',
-    tag: 'Site Audit',
-    caption: 'RTK GPS & Laser Shadow Analysis',
+    tag: 'Survey',
+    caption: 'High-precision laser survey & shadow analysis',
+  },
+  {
+    src: '/images/process/stage-02-cad-design.jpg',
+    tag: 'Engineering',
+    caption: 'Custom 3D CAD design & layout simulation',
   },
   {
     src: '/images/process/stage-04-commission-inverter.png',
-    tag: 'Commissioning',
-    caption: 'Smart Hybrid Inverter Telemetry',
+    tag: 'Technology',
+    caption: 'Smart hybrid inverter sync & telemetry setup',
   },
   {
     src: '/images/projects/featured-commercial.jpg',
     tag: 'Commercial',
-    caption: 'Turnkey Institutional Grid Integration',
+    caption: 'Commercial rooftop solar landmark project',
   },
   {
-    src: '/images/completed-projects-home.jpg',
-    tag: 'Residential',
-    caption: 'Architectural Solar Villa Handover',
+    src: '/images/gallery/lucky1.jpg',
+    tag: 'Milestone',
+    caption: 'Customer commissioning & net-metering handover',
   },
 ];
 
@@ -65,7 +62,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigate,
   onCtaClick,
 }) => {
-  /* ── Journey strip scroll logic ── */
+  /* ── Gallery scroll controls ── */
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -107,93 +104,98 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 1 — HERO BAND
-          Clean grid split: Left editorial copy, right architectural solar facade
-          with vertical text ribbon. Zero bottom gap (touches Band 2).
+          Left: Editorial headline with maroon accent + short paragraph + eyebrow
+          Right: Integrated executive founder portrait with seamless right bleed
+          Far right: Vertical architectural marker "CLEANER / BRIGHTER / MAHARASHTRA"
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#FAF9F6] pt-24 lg:pt-28 overflow-hidden border-b border-stone-200/60">
-        <div className="w-full max-w-[1440px] mx-auto pl-4 sm:pl-6 md:pl-12 lg:pl-16 pr-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[580px] lg:min-h-[640px]">
+      <section className="relative bg-[#FAF9F6] border-b border-stone-300/60 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[560px] lg:min-h-[620px]">
 
-            {/* Left Editorial Story Column */}
-            <div className="lg:col-span-5 flex flex-col justify-center py-12 lg:py-16 pr-6 sm:pr-8 z-10">
-              <p className="eyebrow text-[11px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase mb-6">
-                ABOUT SOLAR ARK
-              </p>
+          {/* Left Column (5 cols on xl, 6 on lg) — Editorial Copy */}
+          <div className="lg:col-span-6 xl:col-span-5 px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 flex flex-col justify-center">
+            <p className="eyebrow text-xs text-stone-500 mb-6 tracking-[0.22em] uppercase">
+              ABOUT SOLAR ARK
+            </p>
 
-              <h1 className="hero-display text-[#0B1730] tracking-tight leading-[1.05] text-4xl sm:text-5xl lg:text-[62px] mb-6">
-                Energy that{' '}
-                <br className="hidden sm:block" />
-                works for{' '}
-                <span className="text-[#8B1E1E] font-serif italic">real life.</span>
-              </h1>
+            <h1
+              className="hero-display text-[#0B1730] tracking-tight leading-[1.04] mb-6"
+              style={{ fontSize: 'clamp(2.4rem, 1.8rem + 2.8vw, 4.5rem)' }}
+            >
+              Energy that{' '}
+              <br />
+              works for <span className="text-[#8B1E1E] font-heading font-bold">real life.</span>
+            </h1>
 
-              <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-md mb-8">
-                We design and deliver solar solutions that make clean energy practical,
-                reliable and truly beneficial for the spaces people live, work and grow in.
-              </p>
+            <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-lg mb-8">
+              We design and deliver solar solutions that make clean energy practical,
+              reliable and truly beneficial for the spaces people live, work and grow in.
+            </p>
 
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-[1px] bg-stone-400" />
-                <span className="text-[11px] font-heading font-semibold text-stone-400 tracking-[0.18em] uppercase">
-                  ASSURED RENEWABLE KOMFORT
-                </span>
-              </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-[1.5px] bg-stone-300" />
+              <span className="text-[11px] font-heading font-semibold text-stone-500 tracking-[0.2em] uppercase">
+                ASSURED RENEWABLE KOMFORT
+              </span>
             </div>
-
-            {/* Right Architectural Solar Building Facade + Vertical Ribbon */}
-            <div className="lg:col-span-7 relative flex items-stretch">
-              <div className="relative w-full h-[360px] sm:h-[440px] lg:h-full overflow-hidden">
-                <img
-                  src="/images/solar-villa-sunset.jpg"
-                  alt="Modern architectural headquarters with rooftop solar installations at sunset"
-                  className="w-full h-full object-cover object-center"
-                  loading="eager"
-                />
-                {/* Soft gradient edge vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#FAF9F6]/20 lg:via-transparent lg:to-transparent" />
-              </div>
-
-              {/* Vertical Text Ribbon on Far Right Margin */}
-              <div className="hidden xl:flex absolute right-4 2xl:right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-2 pointer-events-none z-20">
-                {['CLEANER', 'BRIGHTER', 'MAHARASHTRA'].map((word) => (
-                  <span
-                    key={word}
-                    className="text-[9px] font-heading font-semibold text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] tracking-[0.3em] uppercase"
-                    style={{ writingMode: 'vertical-lr' }}
-                  >
-                    {word}
-                  </span>
-                ))}
-              </div>
-            </div>
-
           </div>
+
+          {/* Right Column (7 cols on xl, 6 on lg) — Full-Bleed Executive Visual */}
+          <div className="lg:col-span-6 xl:col-span-7 relative min-h-[380px] sm:min-h-[460px] lg:min-h-full">
+            <img
+              src="/images/earnwithus/director-shrikant-editorial.jpg"
+              alt="SolarArk Founder & Managing Director Shrikant Tikhile"
+              className="w-full h-full object-cover object-top sm:object-center"
+              loading="eager"
+            />
+            {/* Elegant Founder Attribution Badge */}
+            <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 bg-black/65 backdrop-blur-md px-5 py-3 rounded-xl text-white border border-white/10 shadow-lg">
+              <p className="text-[10px] font-heading font-semibold text-[#FFB020] uppercase tracking-wider">
+                Founder & Managing Director
+              </p>
+              <p className="text-sm sm:text-base font-heading font-bold text-white mt-0.5">
+                Shrikant Tikhile
+              </p>
+            </div>
+
+            {/* Architectural Stacked Margin Label (Top Right) */}
+            <div className="hidden xl:flex absolute right-8 xl:right-12 top-24 flex-col items-start gap-1 pointer-events-none z-20">
+              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
+                CLEANER
+              </span>
+              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
+                BRIGHTER
+              </span>
+              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
+                MAHARASHTRA
+              </span>
+              <div className="w-5 h-[1.5px] bg-stone-400 mt-1" />
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          BAND 2 — ORIGIN STORY TRIPTYCH
-          Seamless 3-part connected panoramic strip (0 gaps).
-          Left: Panoramic rooftop array with quote scrim (52%)
-          Center: Pure white story card (32%)
-          Right: Glistening solar panel sunset slice with vertical text (16%)
+          BAND 2 — ORIGIN STORY STRIP ("Where it all began")
+          Continuous 3-panel panoramic strip with zero dead whitespace:
+          Left (55%): Rooftop photo with scrim quote
+          Center (30%): White story panel with "Our Journey →"
+          Right (15%): Solar sunset visual with vertical label
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#0B1730] overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[480px] lg:min-h-[520px]">
+      <section className="relative bg-[#0B1730] text-white overflow-hidden">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
-          {/* Panel 1 (Left 6 cols / 50%): Panoramic Rooftop Array with Scrim Quote */}
-          <div className="lg:col-span-6 relative min-h-[360px] lg:min-h-full overflow-hidden">
+          {/* Panel 1: Left (7 cols on lg, 6 on xl) — Rooftop Photo with Quote */}
+          <div className="lg:col-span-7 xl:col-span-6 relative min-h-[340px] sm:min-h-[420px] lg:min-h-[460px]">
             <img
               src="/images/earnwithus/earnwithus-hero-rooftop.jpg"
-              alt="Solar engineer overseeing panoramic rooftop solar installation across Maharashtra"
+              alt="SolarArk rooftop solar array overlooking Maharashtra skyline"
               className="w-full h-full object-cover object-center"
               loading="eager"
             />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
-            {/* Scrim Quote */}
-            <div className="absolute bottom-8 left-6 sm:bottom-10 sm:left-10 max-w-md z-10">
-              <blockquote className="font-heading font-semibold text-white text-2xl sm:text-3xl leading-snug tracking-tight">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-transparent lg:to-black/30" />
+            <div className="absolute bottom-8 left-8 sm:bottom-10 sm:left-12 max-w-md border-l-2 border-[#8B1E1E] pl-5">
+              <blockquote className="font-heading font-medium text-white text-xl sm:text-2xl lg:text-3xl leading-snug tracking-tight">
                 “From Maharashtra,
                 <br />
                 for a cleaner tomorrow.”
@@ -201,19 +203,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </div>
 
-          {/* Panel 2 (Center 4 cols / 33%): Pure White Story Block */}
-          <div className="lg:col-span-4 bg-white text-[#0B1730] p-8 sm:p-12 lg:p-14 flex flex-col justify-center z-10 border-r border-stone-200/50">
-            <p className="eyebrow text-[11px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase mb-3">
+          {/* Panel 2: Center (5 cols on lg, 4 on xl) — Crisp White Story Block */}
+          <div className="lg:col-span-5 xl:col-span-4 bg-white text-[#0B1730] px-8 sm:px-12 py-12 sm:py-16 lg:py-20 flex flex-col justify-center">
+            <p className="eyebrow text-xs text-stone-500 mb-3 tracking-[0.2em] uppercase">
               OUR STORY
             </p>
-            <h2 className="font-heading font-bold text-[#0B1730] text-3xl sm:text-4xl tracking-tight leading-[1.12] mb-5">
+            <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12] mb-4">
               Where it all began.
             </h2>
             <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed mb-6">
               Solar Ark was founded with a clear purpose — to make renewable energy accessible,
-              reliable and relevant for homes, businesses and industries. What began as a small
-              team with a big vision has grown into a trusted solar partner for clients across Maharashtra.
+              reliable and relevant for homes, businesses and industries. What began as a small team
+              with a big vision has grown into a trusted solar partner for clients across Maharashtra.
             </p>
+            <div className="w-8 h-[1.5px] bg-stone-300 mb-6" />
             <div>
               <button
                 onClick={() => {
@@ -228,26 +231,29 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </div>
 
-          {/* Panel 3 (Right 2 cols / 17%): Angled Sunset Solar Panel Slice with Vertical Text */}
-          <div className="lg:col-span-2 relative min-h-[220px] lg:min-h-full overflow-hidden hidden lg:block">
+          {/* Panel 3: Right (Hidden on lg, 2 cols on xl) — Sunset Visual with Stacked Text */}
+          <div className="hidden xl:block xl:col-span-2 relative min-h-[460px]">
             <img
-              src="/images/completed-projects-home.jpg"
-              alt="Glistening solar panels at sunset"
-              className="w-full h-full object-cover object-right"
+              src="/images/solar-villa-sunset.jpg"
+              alt="Solar panels reflecting sunset glow"
+              className="w-full h-full object-cover object-center"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-black/25" />
-            {/* Vertical Text Ribbon */}
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10">
-              {['SAME', 'SPACES', 'NEW', 'POSSIBILITIES'].map((word) => (
-                <span
-                  key={word}
-                  className="text-[9px] font-heading font-semibold text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] tracking-[0.28em] uppercase"
-                  style={{ writingMode: 'vertical-lr' }}
-                >
-                  {word}
-                </span>
-              ))}
+            <div className="absolute inset-0 bg-black/35" />
+            <div className="absolute top-8 right-6 flex flex-col items-start gap-1 pointer-events-none z-10">
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                SAME
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                SPACES
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                NEW
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                POSSIBILITIES
+              </span>
+              <div className="w-4 h-[1px] bg-white/70 mt-1" />
             </div>
           </div>
 
@@ -256,134 +262,148 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 3 — WHAT WE BELIEVE
-          Split layout: Left 65% Statement + 3 Numbered Minimal Pillars;
-          Right 35% Full-height solar array with vertical text.
-          Seamless flush connection into Band 4.
+          Architectural grid with thin 1px vertical dividers:
+          Left (8 cols): Top headline + paragraph; Bottom 3 numbered pillars with dividers
+          Right (4 cols): Angled sunlit solar panel photo with vertical label
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#FAF9F6] border-b border-stone-200/60">
-        <div className="w-full max-w-[1440px] mx-auto pl-4 sm:pl-6 md:pl-12 lg:pl-16 pr-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+      <section className="relative bg-[#FAF9F6] border-b border-stone-300/60 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
-            {/* Left 8 cols: Statement & 3 Pillars */}
-            <div className="lg:col-span-8 py-16 sm:py-20 lg:py-24 pr-6 sm:pr-10 lg:pr-14 flex flex-col justify-between">
-              <div>
-                <p className="eyebrow text-[11px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase mb-6">
-                  WHAT WE BELIEVE
-                </p>
+          {/* Left Column (8 cols) — Editorial Content & Procedural Pillars */}
+          <div className="lg:col-span-7 xl:col-span-8 px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 flex flex-col justify-between">
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-14">
-                  <div className="md:col-span-7">
-                    <h2 className="font-heading font-bold text-[#0B1730] text-3xl sm:text-4xl lg:text-[44px] leading-[1.1] tracking-tight">
-                      Good solar is not just technology.{' '}
-                      <br className="hidden sm:block" />
-                      It's <span className="text-[#8B1E1E] font-serif italic">a better tomorrow.</span>
-                    </h2>
-                  </div>
-                  <div className="md:col-span-5">
-                    <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-                      Every space is different. Every energy need is unique. We believe in thoughtful
-                      design, reliable execution and long-term support — because real progress comes
-                      from solutions that truly fit your world.
-                    </p>
-                  </div>
+            {/* Top Row: Eyebrow + Headline + Paragraph */}
+            <div className="mb-12 lg:mb-16">
+              <p className="eyebrow text-xs text-stone-500 mb-4 tracking-[0.2em] uppercase">
+                WHAT WE BELIEVE
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
+                <div className="md:col-span-7">
+                  <h2
+                    className="font-heading font-bold text-[#0B1730] tracking-tight leading-[1.08]"
+                    style={{ fontSize: 'clamp(1.85rem, 1.4rem + 1.8vw, 3rem)' }}
+                  >
+                    Good solar is not just technology.
+                    <br />
+                    It’s <span className="text-[#8B1E1E]">a better tomorrow.</span>
+                  </h2>
                 </div>
-              </div>
-
-              {/* 3 Procedural Minimal Pillars separated by dividers */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-stone-200">
-                <div>
-                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-2">01</span>
-                  <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-1.5">
-                    Thoughtful Design
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                    Solutions designed around real needs.
-                  </p>
-                </div>
-
-                <div>
-                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-2">02</span>
-                  <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-1.5">
-                    Reliable Execution
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                    Quality in every detail.
-                  </p>
-                </div>
-
-                <div>
-                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-2">03</span>
-                  <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-1.5">
-                    Long-term Support
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                    We stay with you beyond installation.
+                <div className="md:col-span-5">
+                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
+                    Every space is different. Every energy need is unique. We believe in thoughtful
+                    design, reliable execution and long-term support — because real progress comes
+                    from solutions that truly fit your world.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right 4 cols: Full-Height Glistening Solar Panel Array with Vertical Text */}
-            <div className="lg:col-span-4 relative min-h-[300px] lg:min-h-full overflow-hidden">
-              <img
-                src="/images/approach-artwork.png"
-                alt="Solar panels angled upwards reflecting golden sunlight"
-                className="w-full h-full object-cover object-center"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              {/* Vertical Text Ribbon */}
-              <div className="absolute right-4 bottom-8 flex flex-col items-center gap-2 z-10">
-                {['DIFFERENT', 'SPACES', 'SAME', 'PURPOSE'].map((word) => (
-                  <span
-                    key={word}
-                    className="text-[9px] font-heading font-semibold text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] tracking-[0.28em] uppercase"
-                    style={{ writingMode: 'vertical-lr' }}
-                  >
-                    {word}
-                  </span>
-                ))}
+            {/* Bottom Row: 3 Numbered Minimal Pillars with Thin 1px Vertical Dividers */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 pt-8 border-t border-stone-300/70">
+              <div className="sm:pr-6 sm:border-r border-stone-300/70">
+                <span className="text-xs font-heading font-bold text-stone-400 block mb-2">01</span>
+                <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-2">
+                  Thoughtful Design
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                  Solutions designed around real needs.
+                </p>
+              </div>
+
+              <div className="sm:px-6 sm:border-r border-stone-300/70">
+                <span className="text-xs font-heading font-bold text-stone-400 block mb-2">02</span>
+                <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-2">
+                  Reliable Execution
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                  Quality in every detail.
+                </p>
+              </div>
+
+              <div className="sm:pl-6">
+                <span className="text-xs font-heading font-bold text-stone-400 block mb-2">03</span>
+                <h3 className="font-heading text-lg font-bold text-[#0B1730] tracking-tight mb-2">
+                  Long-term Support
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
+                  We stay with you beyond installation.
+                </p>
               </div>
             </div>
 
           </div>
+
+          {/* Right Column (4 cols) — Sunlit Angled Solar Panel Visual */}
+          <div className="lg:col-span-5 xl:col-span-4 relative min-h-[360px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-stone-300/60">
+            <img
+              src="/images/technology-solar-module.jpg"
+              alt="High efficiency monocrystalline solar panels basking in sun flare"
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+            {/* Stacked Margin Label (Bottom Right) */}
+            <div className="hidden sm:flex absolute right-6 bottom-8 flex-col items-start gap-1 pointer-events-none z-10">
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                DIFFERENT
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                SPACES
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                SAME
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+                PURPOSE
+              </span>
+              <div className="w-4 h-[1px] bg-white/70 mt-1" />
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          BAND 4 — THE PEOPLE BEHIND SOLAR ARK
-          Cinematic dark full-width band. Left copy + "Meet Our Team ->" pill;
-          Right panoramic field engineers with blueprints on site + quote.
+          BAND 4 — TEAM BAND ("A team that builds what matters")
+          Dark full-width band (#0B1730):
+          Left (35%): Eyebrow + Headline + pill CTA
+          Right (65%): Panoramic authentic team photo with gradient blend
+          Bottom right: Quote overlay “Different perspectives. A shared purpose.”
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[440px] lg:min-h-[480px] flex items-center">
-        {/* Panoramic Team Image filling middle/right */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[62%] h-full">
+      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[460px] flex items-center">
+        {/* Full-bleed team photo on desktop with seamless left gradient blend */}
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[65%] h-full">
           <img
-            src="/images/process/stage-03-install-wide.jpg"
-            alt="SolarARK field engineering team with blueprints on rooftop installation at sunset"
+            src="/images/gallery/office.jpg"
+            alt="SolarARK team members celebrating customer milestone at headquarters"
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          {/* Multi-directional dark scrim */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1730] via-[#0B1730]/40 to-transparent lg:bg-gradient-to-r lg:from-[#0B1730] lg:via-[#0B1730]/80 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1730] via-[#0B1730]/75 to-transparent" />
         </div>
 
         {/* Content Layer */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-20 lg:py-24 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-            {/* Left 5 cols: Typography + Pill CTA */}
+            {/* Left 5 cols: Text & Dark Pill CTA */}
             <div className="lg:col-span-5 space-y-6 max-w-md">
-              <p className="eyebrow text-[11px] font-heading font-semibold text-stone-400 tracking-[0.22em] uppercase">
+              <p className="eyebrow text-xs text-[#E27D16] tracking-[0.2em] uppercase">
                 THE PEOPLE BEHIND SOLAR ARK
               </p>
-              <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.1]">
-                A team that builds what matters.
+              <h2
+                className="font-heading font-bold text-white tracking-tight leading-[1.08]"
+                style={{ fontSize: 'clamp(2rem, 1.6rem + 2vw, 3.5rem)' }}
+              >
+                A team that
+                <br />
+                builds what
+                <br />
+                matters.
               </h2>
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/gallery')}
-                  className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-full px-7 py-3 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1730] group"
+                  className="inline-flex items-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-full px-7 py-3 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1730] group"
                 >
                   <span>Meet Our Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -391,13 +411,31 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
             </div>
 
-            {/* Right 7 cols: Italic Quote on bottom right */}
-            <div className="lg:col-span-7 relative flex justify-end items-end h-[160px] lg:h-[280px]">
+            {/* Mobile & Tablet only: Team image stacked cleanly below text */}
+            <div className="lg:hidden relative h-[260px] sm:h-[340px] rounded-xl overflow-hidden shadow-lg mt-4">
+              <img
+                src="/images/gallery/office.jpg"
+                alt="SolarARK team members celebrating customer milestone at headquarters"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1730]/90 via-transparent to-transparent" />
+              <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 max-w-[240px] text-right">
+                <p className="font-heading italic text-stone-200 text-xs sm:text-sm leading-snug">
+                  “Different perspectives.{' '}
+                  <span className="text-white font-semibold not-italic">A shared purpose.</span>”
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop only: Quote badge overlay */}
+            <div className="hidden lg:flex lg:col-span-7 justify-end items-end h-[300px]">
               <div className="max-w-[260px] text-right z-20">
                 <p className="font-heading italic text-stone-200 text-sm leading-snug drop-shadow-md">
-                  “Different perspectives. <br />
-                  <span className="text-white font-medium not-italic">A shared purpose.”</span>
+                  “Different perspectives.{' '}
+                  <span className="text-white font-semibold not-italic">A shared purpose.</span>”
                 </p>
+                <div className="w-6 h-[1.5px] bg-white/40 ml-auto mt-3" />
               </div>
             </div>
 
@@ -406,66 +444,72 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          BAND 5 — PROCESS RAIL (How We Work)
-          Clean horizontal procedural rail with 1px border dividers:
-          Left intro + 4 distinct steps + right vertical ribbon.
+          BAND 5 — PROCESS BAND ("How We Work")
+          Clean architectural procedural rail:
+          Left (25%): Eyebrow + Headline + circle arrow button
+          Middle (60%): 4 columns separated by 1px vertical divider lines with accent dash
+          Right (15%): Vertical label "A SMOOTHER / CLEANER / BRIGHTER / TOMORROW"
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#FAF9F6] border-b border-stone-200/60 py-14 sm:py-16">
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-0">
+      <section className="bg-[#FAF9F6] border-b border-stone-300/60 py-16 sm:py-20 lg:py-24">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-start">
 
-            {/* Left 4 cols: Intro + Circle Button */}
-            <div className="lg:col-span-4 pr-6 lg:border-r lg:border-stone-200">
-              <p className="eyebrow text-[11px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase mb-3">
+            {/* Left 3 cols: Intro + Circle Button */}
+            <div className="lg:col-span-4 xl:col-span-3 lg:pr-8 space-y-4">
+              <p className="eyebrow text-xs text-stone-500 tracking-[0.2em] uppercase">
                 HOW WE WORK
               </p>
-              <div className="flex items-center gap-4">
-                <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl tracking-tight leading-[1.12]">
-                  From understanding <br className="hidden sm:block" />
-                  to lasting impact.
-                </h2>
-                <button
-                  onClick={onCtaClick}
-                  className="w-10 h-10 rounded-full border border-stone-300 hover:border-[#8B1E1E] hover:bg-[#8B1E1E]/5 flex items-center justify-center shrink-0 transition-colors cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                  aria-label="Get started"
-                >
-                  <ArrowRight className="w-4 h-4 text-stone-600 group-hover:text-[#8B1E1E] transition-colors" />
-                </button>
-              </div>
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12]">
+                From understanding to lasting impact.
+              </h2>
+              <button
+                onClick={onCtaClick}
+                className="w-10 h-10 rounded-full border border-stone-400 hover:border-[#8B1E1E] hover:bg-[#8B1E1E] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                aria-label="Get Started"
+              >
+                <ArrowRight className="w-4 h-4 text-stone-700 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+              </button>
             </div>
 
-            {/* Middle 7 cols: 4 Procedural Steps with Vertical 1px Dividers */}
-            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 px-0 lg:px-6 divide-y sm:divide-y-0 sm:divide-x divide-stone-200">
+            {/* Middle 7 cols: 4 Procedural Columns Separated by 1px Vertical Dividers */}
+            <div className="lg:col-span-6 xl:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-0">
               {[
                 { num: '01', title: 'Understand the Site' },
                 { num: '02', title: 'Design the System' },
                 { num: '03', title: 'Execute Professionally' },
                 { num: '04', title: 'Support Long-term' },
-              ].map((step) => (
-                <div key={step.num} className="p-4 sm:px-5 first:pl-0 sm:first:pl-4">
-                  <span className="text-xs font-heading font-semibold text-stone-400 block mb-2">
+              ].map((step, idx) => (
+                <div
+                  key={step.num}
+                  className={`sm:px-6 py-2 ${
+                    idx !== 0 ? 'sm:border-l border-stone-300/70' : ''
+                  }`}
+                >
+                  <span className="text-xs font-heading font-bold text-stone-400 block mb-3">
                     {step.num}
                   </span>
-                  <h3 className="font-heading font-bold text-sm sm:text-base text-[#0B1730] tracking-tight leading-snug mb-3">
+                  <h3 className="font-heading text-base sm:text-[17px] font-bold text-[#0B1730] tracking-tight leading-snug mb-3">
                     {step.title}
                   </h3>
-                  <div className="w-5 h-[2px] bg-stone-300" />
+                  <div className="w-6 h-[2px] bg-stone-300" />
                 </div>
               ))}
             </div>
 
-            {/* Right 1 col: Vertical Stacked Ribbon */}
-            <div className="lg:col-span-1 hidden lg:flex justify-end border-l border-stone-200 pl-4">
-              <div className="flex flex-col items-center gap-1.5 opacity-60">
-                {['A SMOOTHER', 'CLEANER', 'BRIGHTER', 'TOMORROW'].map((word) => (
-                  <span
-                    key={word}
-                    className="text-[8px] font-heading font-semibold text-stone-500 tracking-[0.24em] uppercase text-center"
-                  >
-                    {word}
-                  </span>
-                ))}
-              </div>
+            {/* Right 2 cols: Stacked Marker */}
+            <div className="hidden xl:flex xl:col-span-2 lg:pl-8 lg:border-l border-stone-300/70 flex-col justify-center items-start gap-1 pointer-events-none">
+              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
+                A SMOOTHER
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
+                CLEANER
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
+                BRIGHTER
+              </span>
+              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
+                TOMORROW
+              </span>
             </div>
 
           </div>
@@ -473,59 +517,60 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          BAND 6 — BEHIND EVERY INSTALLATION (Visual Proof Strip)
-          Header with controls + 6 compact landscape photos side-by-side
+          BAND 6 — JOURNEY GALLERY ("Behind Every Installation")
+          Top row: Eyebrow + Headline + A GLIMPSE INTO OUR JOURNEY ( ← ) ( → )
+          Bottom: Seamless 6-photo photojournalistic contact strip spanning full width
           ════════════════════════════════════════════════════════════════ */}
-      <section id="journey-gallery" className="py-14 sm:py-16 bg-[#FAF9F6] scroll-mt-20">
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+      <section id="journey-gallery" className="bg-[#FAF9F6] pt-14 pb-16 sm:pt-16 sm:pb-20 scroll-mt-20">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
 
           {/* Header Row */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
             <div>
-              <p className="eyebrow text-[11px] font-heading font-semibold text-stone-500 tracking-[0.22em] uppercase mb-1.5">
+              <p className="eyebrow text-xs text-stone-500 mb-2 tracking-[0.2em] uppercase">
                 BEHIND EVERY INSTALLATION
               </p>
-              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl tracking-tight leading-[1.14]">
+              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.12]">
                 Real people. Real progress.
               </h2>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <span className="text-[10px] font-heading font-semibold text-stone-400 tracking-[0.18em] uppercase hidden sm:block">
                 A GLIMPSE INTO OUR JOURNEY
               </span>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 lg:hidden">
                 <button
                   onClick={() => scroll('left')}
                   disabled={!canScrollLeft}
-                  className="w-8 h-8 rounded-full border border-stone-300 hover:border-stone-500 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                  aria-label="Previous photos"
+                  className="w-9 h-9 rounded-full border border-stone-400 hover:border-stone-700 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Scroll gallery left"
                 >
-                  <ChevronLeft className="w-4 h-4 text-stone-600" />
+                  <ChevronLeft className="w-4 h-4 text-stone-700" />
                 </button>
                 <button
                   onClick={() => scroll('right')}
                   disabled={!canScrollRight}
-                  className="w-8 h-8 rounded-full border border-stone-300 hover:border-stone-500 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                  aria-label="Next photos"
+                  className="w-9 h-9 rounded-full border border-stone-400 hover:border-stone-700 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  aria-label="Scroll gallery right"
                 >
-                  <ChevronRight className="w-4 h-4 text-stone-600" />
+                  <ChevronRight className="w-4 h-4 text-stone-700" />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* 6 Photos Horizontal Strip with Tight Editorial Gaps */}
+          {/* 6-Photo Contact Strip: 6-Col Grid on Desktop, Smooth Snap-Scroll on Mobile */}
           <div
             ref={scrollRef}
-            className="flex gap-2 sm:gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2"
+            className="flex gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory lg:grid lg:grid-cols-6 lg:overflow-visible pb-2 lg:pb-0"
           >
             {journeyPhotos.map((photo, idx) => (
               <div
                 key={idx}
-                className="shrink-0 w-[200px] sm:w-[230px] lg:w-[250px] snap-start group cursor-pointer"
+                className="shrink-0 w-[220px] sm:w-[260px] lg:w-auto lg:shrink snap-start group cursor-pointer"
               >
-                <div className="overflow-hidden bg-stone-200 aspect-[16/10] mb-2">
+                <div className="overflow-hidden bg-stone-200 aspect-[4/3]">
                   <img
                     src={photo.src}
                     alt={photo.caption}
@@ -533,12 +578,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     loading="eager"
                   />
                 </div>
-                <p className="text-[10px] font-heading font-semibold text-stone-400 uppercase tracking-wider mb-0.5">
-                  {photo.tag}
-                </p>
-                <p className="text-xs font-heading font-medium text-stone-700 leading-snug line-clamp-1">
-                  {photo.caption}
-                </p>
               </div>
             ))}
           </div>
@@ -547,47 +586,49 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          BAND 7 — BOTTOM CTA (Panoramic Horizon)
-          Panoramic golden-hour landscape photo background with
-          "Building a cleaner future, together." + dual pill CTAs.
+          BAND 7 — BOTTOM CTA ("Building a cleaner future, together.")
+          Warm photographic sunset landscape background
+          Left: Display heading
+          Right: Dual pill buttons (Maroon fill + warm outline)
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative py-16 sm:py-20 overflow-hidden border-t border-stone-200">
-        {/* Landscape Photo Backdrop */}
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
+        {/* Photographic Backdrop */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/earnwithus/earnwithus-hero-rooftop.jpg"
-            alt="Maharashtra panoramic horizon at sunset"
-            className="w-full h-full object-cover object-bottom brightness-[0.7] contrast-[1.05]"
+            src="/images/solar-villa-sunset.jpg"
+            alt="Maharashtra solar landscape at sunset"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          {/* Warm sunset tonal overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-950/80 via-amber-900/60 to-stone-900/80 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-[#D4AF37]/25 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/75 to-stone-900/60" />
         </div>
 
-        {/* Content Layer */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 relative z-10">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-[42px] tracking-tight leading-[1.1] mb-2">
-                Building a cleaner future, <br className="hidden sm:block" />
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+            <div className="md:w-7/12">
+              <h2
+                className="font-heading font-bold text-white tracking-tight leading-[1.08]"
+                style={{ fontSize: 'clamp(2rem, 1.6rem + 2vw, 3.5rem)' }}
+              >
+                Building a cleaner future,
+                <br />
                 together.
               </h2>
             </div>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="md:w-5/12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-end w-full">
               <button
                 onClick={() => onNavigate('/projects')}
-                className="bg-[#8B1E1E] hover:bg-[#A82424] text-white text-sm font-heading font-semibold px-8 py-3.5 rounded-full transition-all duration-300 shadow-md cursor-pointer flex items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E1E] hover:bg-[#A82424] rounded-full px-8 py-3.5 transition-all duration-300 cursor-pointer shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Explore Our Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
-
               <button
                 onClick={onCtaClick}
-                className="border border-white/60 hover:border-white hover:bg-white/10 text-white text-sm font-heading font-semibold px-8 py-3.5 rounded-full transition-all duration-300 cursor-pointer flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-[#1F1914] bg-[#E8DCCB]/90 hover:bg-[#F2E8DA] border border-[#D5C6B1] rounded-full px-8 py-3.5 transition-all duration-300 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                <span>Talk to Our Team</span>
+                Talk to Our Team
               </button>
             </div>
           </div>
