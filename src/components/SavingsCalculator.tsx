@@ -4,14 +4,16 @@
  *
  * SolarARK Solar Savings Calculator Hero Section
  * ===============================================
- * Revamped to strictly match target design specification (revamp.md & media_1788642138965.png):
- * - Zone 1: Left Hero Panel (~44% desktop width) with architectural villa at dusk,
- *   editorial Playfair Display headline, 3 circular trust badges, and Caveat handwriting quote.
- * - Zone 2: Center Calculator Card (~42% desktop width) with Stepper (Step 1 Your Details / Step 2 Your Savings),
- *   pincode detection & MSEDCL validation, dynamic centered bill display, horizontal gradient slider,
- *   5 preset chips, deep maroon pill CTA, micro-trust reassurances, and official Mahavitaran authority emblem.
- * - Zone 3: Right Sunlight & Tree Band (~14% desktop width) with sunset sky backdrop,
- *   stacked editorial typography, paginator (01 / 02), and 3D tree pop-out foliage overlapping the card.
+ * Revamped to strictly match target design specification (revamp.md & media_1788644001900.png):
+ * - Clean editorial form composition directly native to the continuous warm cream background.
+ * - Zero floating white card / SaaS container: typography and interactions float naturally.
+ * - 2-step indicator at top: 1 Your Details ────── 2 Your Savings.
+ * - Minimal outlined pincode field with compact inline MSEDCL Serviceable status.
+ * - Large centered dynamic ₹8,500 / month display, precision horizontal slider, and compact preset pills.
+ * - Dominant maroon CTA button with restrained radius, subtle depth, and generous breathing room.
+ * - Inline micro-trust reassurance: Takes 30 seconds · No spam · 100% confidential.
+ * - Credibility footer with fine hairline divider and official Mahavitaran authority emblem.
+ * - Zone 1 (Left villa panel) and Zone 3 (Right sunlight & 3D tree pop-out) preserved with pristine geometry.
  */
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -146,26 +148,26 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         input[type=range].calc-slider::-webkit-slider-thumb {
           -webkit-appearance: none;
           appearance: none;
-          width: 22px;
-          height: 22px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           background: #7B1818;
-          border: 3px solid #FFFFFF;
-          box-shadow: 0 2px 8px rgba(123, 24, 24, 0.45);
+          border: 2.5px solid #FFFFFF;
+          box-shadow: 0 2px 6px rgba(123, 24, 24, 0.4);
           cursor: pointer;
           transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
         input[type=range].calc-slider::-webkit-slider-thumb:hover {
           transform: scale(1.15);
-          box-shadow: 0 3px 12px rgba(123, 24, 24, 0.6);
+          box-shadow: 0 3px 10px rgba(123, 24, 24, 0.55);
         }
         input[type=range].calc-slider::-moz-range-thumb {
-          width: 22px;
-          height: 22px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           background: #7B1818;
-          border: 3px solid #FFFFFF;
-          box-shadow: 0 2px 8px rgba(123, 24, 24, 0.45);
+          border: 2.5px solid #FFFFFF;
+          box-shadow: 0 2px 6px rgba(123, 24, 24, 0.4);
           cursor: pointer;
         }
       `}</style>
@@ -176,7 +178,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
       <div className="relative w-full max-w-[1600px] mx-auto min-h-[640px] flex flex-col lg:flex-row items-stretch">
 
         {/* ══════════════════════════════════════════════════════════════
-            ZONE 1: LEFT HERO PANEL (~44% DESKTOP WIDTH)
+            ZONE 1: LEFT HERO PANEL (~45% DESKTOP WIDTH)
             - Warm off-white sky fading down to sunset villa photo
             - Editorial Playfair Display headline & 3 circular trust badges
             - Caveat cursive Hindi/Marathi motto over bottom villa
@@ -282,11 +284,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             </div>
           </div>
 
-          {/* Bottom Area Spacer:
-              On desktop, the image calc-left-clean@2x.png naturally presents the luxury villa
-              and the white handwritten script "Ghar ki bijli, ab apne Suraj se." with underline
-              in the bottom-left over the trees.
-              On mobile, we provide a fallback caption container to preserve the visual poetry. */}
+          {/* Bottom Area Spacer */}
           <div className="relative z-10 pt-16 sm:pt-24 lg:pt-36 block lg:hidden">
             <div className="bg-black/50 backdrop-blur-xs p-3 rounded-xl inline-block text-white">
               <p
@@ -301,26 +299,28 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         </div>
 
         {/* ══════════════════════════════════════════════════════════════
-            ZONE 2: CENTER CALCULATOR CARD (~42% DESKTOP WIDTH)
-            - Sits on clean white background with diagonal visual seam
-            - Stepper header, Location / Pincode bar with MSEDCL badge
-            - Centered dynamic bill display, horizontal gradient slider
-            - 5 preset quick-tap pills, deep maroon rounded pill CTA
-            - Mahavitaran official authority emblem footer
+            ZONE 2: CLEAN EDITORIAL CALCULATOR COMPOSITION (~41% DESKTOP WIDTH)
+            - Seamlessly native to the continuous warm cream background
+            - No white floating card, no heavy shadows, no dashboard borders
+            - 2-Step indicator: 1 Your Details ────── 2 Your Savings
+            - Refined minimal outlined pincode field with inline MSEDCL pill
+            - Large centered ₹8,500 / month display, precision slider, compact pills
+            - Dominant maroon CTA with generous breathing room
+            - Inline micro-trust assurance & Mahavitaran credibility footer
            ══════════════════════════════════════════════════════════════ */}
         <div
           ref={calculatorCardRef}
-          className={`relative w-full lg:w-[41%] xl:w-[40%] shrink-0 bg-white z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10 shadow-[0_15px_50px_-10px_rgba(25,20,20,0.08)] transition-all duration-700 delay-100 ease-out border-l border-r lg:border-r-0 border-stone-200/80 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          className={`relative w-full lg:w-[41%] xl:w-[40%] shrink-0 z-10 flex flex-col justify-between px-6 sm:px-8 lg:px-9 py-6 sm:py-8 lg:py-9 transition-all duration-700 delay-100 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           <div>
             {/* ── STEPPER: Step 1 (Your Details) / Step 2 (Your Savings) ── */}
-            <div className="flex items-center gap-3 pb-4 mb-5 border-b border-stone-100">
-              {/* Step 1 Pill */}
+            <div className="flex items-center gap-3 pb-3.5 mb-5 border-b border-stone-300/60">
+              {/* Step 1 */}
               <div className="flex items-center gap-2">
                 <span
-                  className="w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 shadow-2xs transition-colors"
+                  className="w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 transition-colors"
                   style={{
                     backgroundColor: currentStep >= 1 ? '#7B1818' : '#E5E7EB',
                     color: 'white',
@@ -333,27 +333,15 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 </span>
               </div>
 
-              {/* Connecting Progress Line */}
-              <div className="flex-1 max-w-[130px] flex items-center h-0.5">
-                <div
-                  className="h-full rounded-full transition-all duration-500"
-                  style={{
-                    width: currentStep >= 2 ? '100%' : '50%',
-                    backgroundColor: '#8B1E1E',
-                  }}
-                />
-                <div
-                  className="h-full flex-1 bg-stone-200 rounded-r-full"
-                  style={{ display: currentStep >= 2 ? 'none' : 'block' }}
-                />
-              </div>
+              {/* Connecting Line */}
+              <div className="flex-1 max-w-[120px] flex items-center h-[1px] bg-stone-300/70" />
 
-              {/* Step 2 Pill */}
+              {/* Step 2 */}
               <div className="flex items-center gap-2">
                 <span
                   className="w-6 h-6 rounded-full text-xs font-medium flex items-center justify-center shrink-0 transition-colors"
                   style={{
-                    backgroundColor: currentStep >= 2 ? '#7B1818' : '#FFFFFF',
+                    backgroundColor: currentStep >= 2 ? '#7B1818' : 'transparent',
                     border: currentStep >= 2 ? 'none' : '1px solid #D1D5DB',
                     color: currentStep >= 2 ? 'white' : '#6B7280',
                   }}
@@ -369,11 +357,11 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               </div>
             </div>
 
-            {/* ── STEP 1: INTERACTIVE DETAILS FORM ── */}
+            {/* ── STEP 1: REFINED EDITORIAL DETAILS FORM ── */}
             {currentStep === 1 && (
-              <div className="space-y-5 animate-in fade-in duration-300">
+              <div className="space-y-4.5 animate-in fade-in duration-300">
                 
-                {/* 1. LOCATION & PINCODE INPUT BAR */}
+                {/* 1. REFINED MINIMAL OUTLINED PINCODE FIELD */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label
@@ -386,7 +374,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       type="button"
                       onClick={handleDetectLocation}
                       disabled={isLocating}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#8B1E1E] hover:text-[#681414] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#8B1E1E] hover:underline transition-colors cursor-pointer"
                     >
                       <Crosshair
                         className={`w-3.5 h-3.5 text-[#8B1E1E] ${isLocating ? 'animate-spin' : ''}`}
@@ -395,7 +383,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     </button>
                   </div>
 
-                  <div className="relative flex items-center rounded-xl border border-stone-300/90 bg-white hover:border-stone-400 px-3.5 py-2.5 shadow-2xs transition-all focus-within:border-[#8B1E1E] focus-within:ring-2 focus-within:ring-[#8B1E1E]/15">
+                  <div className="relative flex items-center rounded-xl border border-stone-300/80 bg-white/70 hover:bg-white focus-within:bg-white px-3.5 py-2.5 transition-all focus-within:border-[#8B1E1E] focus-within:ring-1 focus-within:ring-[#8B1E1E]/20">
                     <MapPin className="w-4 h-4 text-[#8B1E1E] shrink-0 mr-2.5" strokeWidth={2} />
                     <input
                       id="calc-pincode-input"
@@ -408,7 +396,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       className="flex-1 bg-transparent text-sm sm:text-base font-semibold text-[#111827] placeholder:text-stone-400 focus:outline-none"
                     />
 
-                    {/* MSEDCL Serviceability pill */}
+                    {/* MSEDCL Serviceability compact pill */}
                     {isValidPincode ? (
                       <span className="flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0 ml-2 bg-[#E6F4EA] text-[#137333] border border-[#CEEAD6]">
                         <Check className="w-3 h-3 text-[#137333]" strokeWidth={3} />
@@ -424,7 +412,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </div>
                 </div>
 
-                {/* 2. MONTHLY BILL SLIDER WITH CENTERED VALUE & PRESETS */}
+                {/* 2. MONTHLY BILL INTERACTION: LARGE AMOUNT, CLEAN SLIDER, COMPACT PRESETS */}
                 <div className="space-y-2 pt-1">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-semibold text-[#1F2937]">
@@ -445,10 +433,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </div>
 
                   {/* Centered Large Dynamic Amount */}
-                  <div className="text-center py-1.5">
-                    <div className="inline-flex items-baseline gap-1">
+                  <div className="text-center py-2">
+                    <div className="inline-flex items-baseline gap-1.5">
                       <span
-                        className="text-4xl sm:text-[44px] font-bold text-[#111827] tracking-tight tabular-nums leading-none font-heading"
+                        className="text-4xl sm:text-[46px] font-bold text-[#111827] tracking-tight tabular-nums leading-none font-heading"
                       >
                         {formatINR(monthlyBill)}
                       </span>
@@ -458,7 +446,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     </div>
                   </div>
 
-                  {/* Range Slider Track with Red/Maroon Gradient Fill */}
+                  {/* Clean Slider Track with Smooth Maroon Gradient */}
                   <div className="flex items-center gap-3 px-1 pt-1 pb-2">
                     <span className="text-xs font-semibold text-stone-400 shrink-0">₹1k</span>
                     <div className="relative flex-1 flex items-center">
@@ -479,7 +467,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-xs font-semibold text-stone-400 shrink-0">₹25k+</span>
                   </div>
 
-                  {/* 5 Quick-Select Bracket Pills */}
+                  {/* 5 Compact Preset Pills */}
                   <div className="flex items-center justify-center gap-2 pt-0.5">
                     {PRESET_PILLS.map((pill) => {
                       const isActive = monthlyBill === pill.value;
@@ -488,10 +476,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           key={pill.label}
                           type="button"
                           onClick={() => setMonthlyBill(pill.value)}
-                          className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                          className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer ${
                             isActive
                               ? 'bg-[#7B1818] text-white shadow-xs'
-                              : 'bg-[#F3F4F6] text-[#374151] hover:bg-[#E5E7EB] border border-transparent'
+                              : 'bg-stone-200/50 text-[#374151] hover:bg-stone-200/80 border border-transparent'
                           }`}
                         >
                           {pill.label}
@@ -501,17 +489,17 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </div>
                 </div>
 
-                {/* 3. PRIMARY CTA BUTTON: DEEP MAROON ROUNDED PILL */}
+                {/* 3. DOMINANT MAROON CTA WITH RESTRAINED RADIUS & EDITORIAL FEEL */}
                 <div className="space-y-2.5 pt-2">
                   <button
                     type="button"
                     onClick={handleCalculate}
                     disabled={!isFormValid || isCalculating}
-                    className="w-full h-13 sm:h-14 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_10px_24px_-4px_rgba(123,24,24,0.38)] flex items-center justify-between px-3 sm:px-4 transition-all cursor-pointer group"
+                    className="w-full h-13 sm:h-13.5 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_6px_18px_-3px_rgba(123,24,24,0.35)] flex items-center justify-between px-3.5 sm:px-4.5 transition-all cursor-pointer group"
                   >
                     {/* Left Glowing Line Sun Icon */}
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0">
-                      <Sun className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#FDBA74]" />
+                    <div className="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0">
+                      <Sun className="w-4 h-4 text-[#FDBA74]" />
                     </div>
 
                     {/* Button Text */}
@@ -523,7 +511,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     </span>
 
                     {/* Right Circular Rose Badge with Maroon Arrow */}
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#FCE7E7] group-hover:bg-white flex items-center justify-center shrink-0 shadow-2xs group-hover:translate-x-0.5 transition-transform">
+                    <div className="w-8 h-8 rounded-full bg-[#FCE7E7] group-hover:bg-white flex items-center justify-center shrink-0 shadow-2xs group-hover:translate-x-0.5 transition-transform">
                       {isCalculating ? (
                         <div className="w-3.5 h-3.5 border-2 border-[#7B1818]/30 border-t-[#7B1818] rounded-full animate-spin" />
                       ) : (
@@ -532,18 +520,18 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     </div>
                   </button>
 
-                  {/* Micro-Trust Reassurances Under CTA */}
-                  <div className="flex items-center justify-center gap-3 sm:gap-5 text-[11px] text-[#4B5563] pt-0.5 font-medium select-none">
+                  {/* Micro-Trust Reassurances: Clean Inline Row */}
+                  <div className="flex items-center justify-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-[#55504A] pt-1 font-medium select-none">
                     <span className="flex items-center gap-1">
                       <Zap className="w-3.5 h-3.5 text-[#801414]" />
                       Takes 30 seconds
                     </span>
-                    <span className="w-1 h-1 rounded-full bg-stone-300" />
+                    <span className="text-stone-300">·</span>
                     <span className="flex items-center gap-1">
                       <Lock className="w-3.5 h-3.5 text-[#801414]" />
                       No spam
                     </span>
-                    <span className="w-1 h-1 rounded-full bg-stone-300" />
+                    <span className="text-stone-300">·</span>
                     <span className="flex items-center gap-1">
                       <Shield className="w-3.5 h-3.5 text-[#801414]" />
                       100% confidential
@@ -554,10 +542,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               </div>
             )}
 
-            {/* ── STEP 2: RESULTS RECOMMENDATION PANEL ── */}
+            {/* ── STEP 2: REFINED EDITORIAL RECOMMENDATION PANEL ── */}
             {currentStep === 2 && calculatedResults && (
               <div className="space-y-4 animate-in fade-in duration-300">
-                <div className="flex items-center justify-between pb-2 border-b border-stone-100">
+                <div className="flex items-center justify-between pb-2 border-b border-stone-300/60">
                   <div>
                     <h3 className="text-lg font-bold text-[#111827] font-heading">
                       Your Solar Recommendation
@@ -576,9 +564,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </button>
                 </div>
 
-                {/* 4 Financial Metric Cards */}
+                {/* 4 Clean Metric Blocks */}
                 <div className="grid grid-cols-2 gap-2.5">
-                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                  <div className="p-3 rounded-xl border border-stone-300/70 bg-white/60">
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       System Size
                     </span>
@@ -588,7 +576,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10.5px] text-stone-500">Rooftop PV Array</span>
                   </div>
 
-                  <div className="p-3 rounded-xl border border-emerald-200 bg-emerald-50/40">
+                  <div className="p-3 rounded-xl border border-emerald-200/80 bg-emerald-50/50">
                     <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block font-heading">
                       Monthly Savings
                     </span>
@@ -598,7 +586,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10.5px] text-emerald-600 font-medium">Up to 90% reduction</span>
                   </div>
 
-                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                  <div className="p-3 rounded-xl border border-stone-300/70 bg-white/60">
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       Annual Savings
                     </span>
@@ -608,7 +596,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10.5px] text-stone-500">Direct cash retained</span>
                   </div>
 
-                  <div className="p-3 rounded-xl border border-stone-200 bg-stone-50/50">
+                  <div className="p-3 rounded-xl border border-stone-300/70 bg-white/60">
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       Payback Period
                     </span>
@@ -620,7 +608,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 </div>
 
                 {/* Environmental Impact Strip */}
-                <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50/60 border border-emerald-200 text-emerald-800 text-xs font-medium">
+                <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50/70 border border-emerald-200/70 text-emerald-800 text-xs font-medium">
                   <span className="flex items-center gap-1.5">
                     <Leaf className="w-3.5 h-3.5 text-emerald-600" />
                     {calculatedResults.co2OffsetTonnes} tonnes CO₂/yr offset
@@ -641,9 +629,9 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             )}
           </div>
 
-          {/* ── SOCIAL PROOF & MAHAVITARAN OFFICIAL EMBLEM FOOTER ── */}
-          <div className="mt-5 pt-4 border-t border-stone-200/80 flex items-center justify-between gap-4">
-            {/* Left: Homeowner Count */}
+          {/* ── HOMEOWNER CREDIBILITY & MAHAVITARAN AUTHORITY FOOTER ── */}
+          <div className="mt-6 pt-4 border-t border-stone-300/60 flex items-center justify-between gap-4">
+            {/* Left: Homeowner Trust Proof */}
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-[#801414] shrink-0" />
               <span className="text-xs font-medium text-[#374151]">
@@ -687,8 +675,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
           </div>
 
-          {/* 3D Pop-Out Tree Foliage Layer (CRITICAL)
-              Crosses the left boundary from the right band over the center card with soft drop shadow */}
+          {/* 3D Pop-Out Tree Foliage Layer (CRITICAL) */}
           <div className="absolute top-[28%] -left-12 xl:-left-16 w-32 xl:w-40 pointer-events-none select-none z-30 drop-shadow-[0_12px_24px_rgba(0,0,0,0.4)]">
             <img
               src="/images/tree-popout-transparent.png"
