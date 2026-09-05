@@ -14,8 +14,8 @@
  * @license SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useRef, useState, useEffect } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
 import { MaharashtraStrip } from './MaharashtraStrip';
 
 interface AboutPageProps {
@@ -25,74 +25,10 @@ interface AboutPageProps {
   prefilledBill?: number;
 }
 
-/* ── 6 Curated Photojournalistic Journey Photos ── */
-const journeyPhotos = [
-  {
-    src: '/images/process/stage-03-install-wide.jpg',
-    tag: 'Execution',
-    caption: 'Precision rooftop mounting across Maharashtra',
-  },
-  {
-    src: '/images/process/stage-01-survey-rooftop.jpg',
-    tag: 'Survey',
-    caption: 'High-precision laser survey & shadow analysis',
-  },
-  {
-    src: '/images/process/stage-02-cad-design.jpg',
-    tag: 'Engineering',
-    caption: 'Custom 3D CAD design & layout simulation',
-  },
-  {
-    src: '/images/process/stage-04-commission-inverter.png',
-    tag: 'Technology',
-    caption: 'Smart hybrid inverter sync & telemetry setup',
-  },
-  {
-    src: '/images/projects/featured-commercial.jpg',
-    tag: 'Commercial',
-    caption: 'Commercial rooftop solar landmark project',
-  },
-  {
-    src: '/images/gallery/lucky1.jpg',
-    tag: 'Milestone',
-    caption: 'Customer commissioning & net-metering handover',
-  },
-];
-
 export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigate,
   onCtaClick,
 }) => {
-  /* ── Gallery scroll controls ── */
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const updateScrollState = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 6);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 6);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateScrollState();
-    el.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState);
-    return () => {
-      el.removeEventListener('scroll', updateScrollState);
-      window.removeEventListener('resize', updateScrollState);
-    };
-  }, []);
-
-  const scroll = (dir: 'left' | 'right') => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = el.clientWidth * 0.65;
-    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
-  };
 
   return (
     <div
@@ -528,74 +464,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           ════════════════════════════════════════════════════════════════ */}
       <MaharashtraStrip onNavigate={onNavigate} onCtaClick={onCtaClick} />
 
-      {/* ════════════════════════════════════════════════════════════════
-          BAND 6 — JOURNEY GALLERY ("Behind Every Installation")
-          Top row: Eyebrow + Headline + A GLIMPSE INTO OUR JOURNEY ( ← ) ( → )
-          Bottom: Seamless 6-photo photojournalistic contact strip spanning full width
-          ════════════════════════════════════════════════════════════════ */}
-      <section id="journey-gallery" className="bg-[#FAF9F6] pt-8 pb-10 sm:pt-9 sm:pb-12 scroll-mt-20">
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
 
-          {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-4 sm:mb-5">
-            <div>
-              <p className="eyebrow text-xs text-stone-500 mb-1.5 tracking-[0.2em] uppercase">
-                BEHIND EVERY INSTALLATION
-              </p>
-              <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12]">
-                Real people. Real progress.
-              </h2>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="text-[10px] font-heading font-semibold text-stone-400 tracking-[0.18em] uppercase hidden sm:block">
-                A GLIMPSE INTO OUR JOURNEY
-              </span>
-              <div className="flex items-center gap-1.5 lg:hidden">
-                <button
-                  onClick={() => scroll('left')}
-                  disabled={!canScrollLeft}
-                  className="w-9 h-9 rounded-full border border-stone-400 hover:border-stone-700 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                  aria-label="Scroll gallery left"
-                >
-                  <ChevronLeft className="w-4 h-4 text-stone-700" />
-                </button>
-                <button
-                  onClick={() => scroll('right')}
-                  disabled={!canScrollRight}
-                  className="w-9 h-9 rounded-full border border-stone-400 hover:border-stone-700 disabled:opacity-25 disabled:cursor-not-allowed flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                  aria-label="Scroll gallery right"
-                >
-                  <ChevronRight className="w-4 h-4 text-stone-700" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* 6-Photo Contact Strip: 6-Col Grid on Desktop, Smooth Snap-Scroll on Mobile */}
-          <div
-            ref={scrollRef}
-            className="flex gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory lg:grid lg:grid-cols-6 lg:overflow-visible pb-2 lg:pb-0"
-          >
-            {journeyPhotos.map((photo, idx) => (
-              <div
-                key={idx}
-                className="shrink-0 w-[220px] sm:w-[260px] lg:w-auto lg:shrink snap-start group cursor-pointer"
-              >
-                <div className="overflow-hidden bg-stone-200 aspect-[4/3]">
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 7 — BOTTOM CTA ("Building a cleaner future, together.")
