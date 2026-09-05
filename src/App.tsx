@@ -10,7 +10,6 @@ import { SolutionsScale } from './components/home/SolutionsScale';
 import { WhySolarArk } from './components/home/WhySolarArk';
 import { FeaturedProjects } from './components/home/FeaturedProjects';
 import { BuiltInMaharashtra } from './components/home/BuiltInMaharashtra';
-import { ProcessFlowStrip } from './components/home/ProcessFlowStrip';
 import { PreFooterBanner } from './components/home/PreFooterBanner';
 import { SavingsCalculator } from './components/SavingsCalculator';
 import { FinalCTAForm } from './components/FinalCTAForm';
@@ -233,8 +232,8 @@ export default function App() {
             {/* 6. Regional Authority: Built in Maharashtra */}
             <BuiltInMaharashtra onNavigate={navigateTo} />
 
-            {/* 7. How the Process Works: 4-Step Installation Rail */}
-            <ProcessFlowStrip />
+            {/* 7. Pre-Footer Banner: "Your roof could do more." (Directly below Built in Maharashtra per reference mockup) */}
+            <PreFooterBanner onCtaClick={scrollToContactForm} />
 
             {/* 8. Savings & Feasibility Assessment: Interactive Calculator */}
             <div id="calculator">
@@ -245,10 +244,7 @@ export default function App() {
               />
             </div>
 
-            {/* 9. Pre-Footer Banner: "Your roof could do more." */}
-            <PreFooterBanner onCtaClick={scrollToContactForm} />
-
-            {/* 10. Consultation & 3D Site Survey Request Form */}
+            {/* 9. Consultation & 3D Site Survey Request Form */}
             <div id="contact-form">
               <FinalCTAForm
                 prefilledPincode={calculatorState.pincode}
