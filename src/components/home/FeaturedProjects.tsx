@@ -73,7 +73,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
             <div>
               <button
                 onClick={() => onNavigate('/projects')}
-                className="group inline-flex items-center gap-2 px-5 py-2 rounded-full border border-stone-300 hover:border-slate-900 text-slate-800 hover:text-slate-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-full border border-stone-300 hover:border-slate-900 text-slate-800 hover:text-slate-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -86,7 +86,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
             <div
               key={item.id}
               onClick={() => onNavigate('/projects')}
-              className="md:col-span-3 group relative h-[300px] sm:h-[340px] lg:h-[360px] xl:h-[390px] overflow-hidden cursor-pointer flex flex-col justify-end p-5 sm:p-6 lg:p-7 bg-stone-950 shadow-xs border border-stone-300/70"
+              className="md:col-span-3 group relative h-[240px] sm:h-[300px] lg:h-[360px] xl:h-[390px] overflow-hidden cursor-pointer flex flex-col justify-end p-5 sm:p-6 lg:p-7 bg-stone-950 shadow-xs border border-stone-300/70"
             >
               {/* Large Rectangular Image */}
               <img

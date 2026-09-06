@@ -390,7 +390,9 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
                       </div>
                       <input
                         id="pincode-input"
-                        type="text"
+                        type="tel"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         maxLength={6}
                         value={pincode}
                         onChange={(e) => {

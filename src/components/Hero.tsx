@@ -127,7 +127,7 @@ export const Hero: React.FC<HeroProps> = () => {
       {/* ── 1. IMMERSIVE BACKGROUND-VIDEO HERO (VIDEO-FIRST) ── */}
       <section
         id="hero"
-        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[75vh] sm:min-h-[85vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
+        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[65vh] sm:min-h-[80vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
       >
         {/* Full-bleed real project hero video with 60fps web-optimized local stream */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D] transform-gpu">
@@ -154,48 +154,48 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
 
         {/* ── Bottom Gradient Feather & Controls Dock Floating Above Base ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 px-4 sm:px-8 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/60 to-transparent pt-16">
-          <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 px-3.5 sm:px-8 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/60 to-transparent pt-16">
+          <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 pointer-events-auto">
             
             {/* PM Surya Ghar Authorized EPC Partner Pill */}
-            <div className="eyebrow inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-sm text-xs sm:text-[13px] tracking-wide">
-              <BadgeCheck className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
+            <div className="eyebrow inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-sm text-[11px] sm:text-[13px] tracking-wide max-w-full">
+              <BadgeCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
+              <span className="truncate">PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
             </div>
 
-            {/* Minimalist On-Site Video Controls Dock */}
-            <div className="flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3.5 py-1.5 shadow-sm">
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            {/* Minimalist On-Site Video Controls Dock with ergonomic tap hit areas */}
+            <div className="flex items-center gap-2.5 sm:gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 sm:px-3.5 py-1.5 shadow-sm">
+              <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-slate-300">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
                 <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
                 <span className="hidden sm:inline text-slate-400">•</span>
                 <span>Maharashtra EPC</span>
               </div>
 
-              <div className="flex items-center gap-1.5 pl-2 border-l border-white/20">
+              <div className="flex items-center gap-1 pl-2 border-l border-white/20">
                 <button
                   onClick={togglePlayPause}
                   aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                  className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
                   title={isPlaying ? 'Pause' : 'Play'}
                 >
                   {isPlaying ? (
-                    <Pause className="w-2.5 h-2.5 fill-white" />
+                    <Pause className="w-3 h-3 fill-white" />
                   ) : (
-                    <Play className="w-2.5 h-2.5 fill-white ml-0.5" />
+                    <Play className="w-3 h-3 fill-white ml-0.5" />
                   )}
                 </button>
 
                 <button
                   onClick={toggleMute}
                   aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-                  className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
                   title={isMuted ? 'Unmute' : 'Mute'}
                 >
                   {isMuted ? (
-                    <VolumeX className="w-3 h-3" />
+                    <VolumeX className="w-3.5 h-3.5" />
                   ) : (
-                    <Volume2 className="w-3 h-3" />
+                    <Volume2 className="w-3.5 h-3.5" />
                   )}
                 </button>
               </div>
@@ -205,29 +205,29 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
       </section>
 
-      {/* ── 2. UNBOXED EDITORIAL PROOF RAIL (MATCHING DESIGN REFERENCE EXACTLY) ── */}
-      <section className="w-full bg-[#0A0F1D] py-5 sm:py-7 border-b border-stone-800/80 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-8">
+      {/* ── 2. UNBOXED EDITORIAL PROOF RAIL (2x2 Grid on Mobile, 4 Cols on Desktop) ── */}
+      <section className="w-full bg-[#0A0F1D] py-3.5 sm:py-7 border-b border-stone-800/80 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-3.5 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-0 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-0 items-center">
             {proofRailItems.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className={`flex items-center gap-3.5 sm:gap-4 lg:px-6 xl:px-8 ${
+                  className={`flex items-center gap-2.5 sm:gap-4 p-2 sm:p-0 lg:px-6 xl:px-8 ${
                     idx < 3 ? 'lg:border-r lg:border-white/15' : ''
                   }`}
                 >
                   {/* Standalone Golden Line-Art Icon (Zero Box Container) */}
-                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#E5A93C] shrink-0 stroke-[1.75]" />
+                  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#E5A93C] shrink-0 stroke-[1.75]" />
 
                   {/* Clean Typography Hierarchy */}
                   <div className="space-y-0.5 min-w-0">
-                    <h4 className="font-heading text-xs sm:text-[13px] font-bold text-white tracking-wider uppercase">
+                    <h4 className="font-heading text-[11px] sm:text-[13px] font-bold text-white tracking-wider uppercase leading-tight truncate">
                       {item.label}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-slate-300/80 font-normal leading-snug">
+                    <p className="text-[10px] sm:text-xs text-slate-300/80 font-normal leading-tight truncate">
                       {item.sub}
                     </p>
                   </div>

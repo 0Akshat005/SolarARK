@@ -78,7 +78,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             <div>
               <button
                 onClick={() => onNavigate('/services')}
-                className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-full border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Solutions</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
@@ -123,7 +123,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
           <div
             key={item.id}
             onClick={() => onNavigate(item.path)}
-            className={`group relative h-[420px] sm:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-end p-6 sm:p-8 lg:p-10 bg-stone-950 ${
+            className={`group relative h-[260px] sm:h-[360px] md:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-end p-5 sm:p-8 lg:p-10 bg-stone-950 ${
               idx !== 0 ? 'border-t md:border-t-0 md:border-l border-white/15' : ''
             }`}
           >
