@@ -12,6 +12,7 @@ import {
   Sparkles,
   Play,
 } from 'lucide-react';
+import { motion, useScroll, useMotionValueEvent } from 'motion/react';
 import { PrimaryButton } from './PrimaryButton';
 
 interface ServicesPageProps {
@@ -159,6 +160,33 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   const [selectedBillTier, setSelectedBillTier] = useState<string>('₹3,000 – ₹4,000');
   const projectsScrollRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stickyContainerRef = useRef<HTMLDivElement>(null);
+  const serviceItemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const { scrollYProgress } = useScroll({
+    container: stickyContainerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    const cardLength = SPECIALIZED_SERVICES.length;
+    const cardsBreakpoints = SPECIALIZED_SERVICES.map((_, index) => index / (cardLength - 1 || 1));
+    const closestBreakpointIndex = cardsBreakpoints.reduce((acc, breakpoint, index) => {
+      const distance = Math.abs(latest - breakpoint);
+      if (distance < Math.abs(latest - cardsBreakpoints[acc])) {
+        return index;
+      }
+      return acc;
+    }, 0);
+    setActiveServiceTab(closestBreakpointIndex);
+  });
+
+  const handleTabClick = (idx: number) => {
+    setActiveServiceTab(idx);
+    if (serviceItemRefs.current[idx]) {
+      serviceItemRefs.current[idx]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const toggleVideoPlay = () => {
     if (videoRef.current) {
@@ -579,7 +607,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           {SPECIALIZED_SERVICES.map((srv, idx) => (
             <button
               key={srv.id}
-              onClick={() => setActiveServiceTab(idx)}
+              onClick={() => handleTabClick(idx)}
               className={`px-4 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer border shrink-0 flex items-center ${
                 activeServiceTab === idx
                   ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
@@ -592,12 +620,102 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           ))}
         </div>
 
-        {/* Active Service Showcase Card */}
-        <div className="bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-8 lg:p-10 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+        {/* Desktop Sticky Scroll Reveal Showcase (Exact Aceternity sticky-scroll pattern art-directed for SolarARK) */}
+        <div className="hidden lg:block bg-white border border-stone-200/80 rounded-3xl p-8 lg:p-10 shadow-xs relative overflow-hidden">
+          <div className="grid grid-cols-12 gap-10 items-start">
+            
+            {/* Left Scrollable Stream */}
+            <div
+              ref={stickyContainerRef}
+              className="col-span-6 h-[32rem] overflow-y-auto pr-6 scrollbar-thin scrollbar-thumb-stone-200/80 scrollbar-track-transparent space-y-24 py-4"
+            >
+              {SPECIALIZED_SERVICES.map((srv, idx) => (
+                <motion.div
+                  key={srv.id}
+                  ref={(el) => {
+                    serviceItemRefs.current[idx] = el;
+                  }}
+                  animate={{
+                    opacity: activeServiceTab === idx ? 1 : 0.28,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-[#8B1E2D] font-heading">
+                      {srv.number} / 05
+                    </span>
+                    <div className="w-6 h-[1px] bg-[#8B1E2D]/40" />
+                    <span className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider">
+                      SolarARK Official Service
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight">
+                    {srv.title}
+                  </h3>
+
+                  <p className="text-sm text-stone-600 leading-relaxed">
+                    {srv.shortDesc}
+                  </p>
+
+                  {/* Key Deliverables List */}
+                  <div className="space-y-2.5 pt-2 border-t border-stone-100">
+                    {srv.deliverables.map((item, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-[#8B1E2D] shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-3 flex items-center gap-4">
+                    <PrimaryButton size="md" onClick={onCtaClick} className="px-6 py-2.5 text-xs sm:text-sm">
+                      Enquire About This Service →
+                    </PrimaryButton>
+                    <button
+                      onClick={onCtaClick}
+                      className="text-xs font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
+                    >
+                      Speak with an Engineer →
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+              <div className="h-20" />
+            </div>
+
+            {/* Right Sticky Visual Display */}
+            <div className="col-span-6 sticky top-4 self-start">
+              <div className="relative rounded-2xl overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 shadow-sm group">
+                <motion.img
+                  key={SPECIALIZED_SERVICES[activeServiceTab].id}
+                  src={SPECIALIZED_SERVICES[activeServiceTab].image}
+                  alt={SPECIALIZED_SERVICES[activeServiceTab].alt}
+                  initial={{ opacity: 0.6, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.35 }}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3.5 left-3.5 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-lg text-xs font-medium text-white shadow-sm flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  {SPECIALIZED_SERVICES[activeServiceTab].title}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Mobile Interactive Single-Card Showcase */}
+        <div className="block lg:hidden bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-8 shadow-xs">
+          <div className="grid grid-cols-1 gap-6 items-center">
             
             {/* Left Narrative Details */}
-            <div className="lg:col-span-6 space-y-3.5 sm:space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#8B1E2D] font-heading">
                   {SPECIALIZED_SERVICES[activeServiceTab].number} / 05
@@ -642,7 +760,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
 
             {/* Right Photo */}
-            <div className="lg:col-span-6">
+            <div>
               <div className="relative rounded-xl overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 group">
                 <img
                   src={SPECIALIZED_SERVICES[activeServiceTab].image}
