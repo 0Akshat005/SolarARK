@@ -206,14 +206,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="pt-24 sm:pt-28 lg:pt-32 pb-12 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
+    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
       
       {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
 
         {/* Editorial Header Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12 lg:mb-16">
-          <div className="lg:col-span-7 space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
+          <div className="lg:col-span-7 space-y-3 sm:space-y-4">
             <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
               Solutions
             </span>
@@ -224,21 +224,32 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <span className="text-[#8B1E2D]">space.</span>
             </h1>
           </div>
-          <div className="lg:col-span-5 flex items-end gap-6 lg:gap-8">
-            <div className="space-y-0.5 border-l-2 border-stone-200 pl-6">
+          <div className="lg:col-span-5 flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6 lg:gap-8">
+            <div className="space-y-0.5 border-l-2 border-stone-200 pl-4 sm:pl-6">
               <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Cleaner</span>
               <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Spaces</span>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block mt-1.5">Stronger</span>
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block mt-1 sm:mt-1.5">Stronger</span>
               <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Communities</span>
             </div>
-            <p className="text-sm text-stone-500 leading-relaxed max-w-[240px] border-l border-stone-200 pl-6">
+            <p className="text-sm text-stone-600 leading-relaxed max-w-none sm:max-w-[240px] border-l border-stone-200 pl-4 sm:pl-6">
               Thoughtful solar solutions for the spaces where life, business and industry move forward.
             </p>
           </div>
+
+          {/* First-Screenful Mobile Primary CTA (revamp.md Focus Area 1 & 4) */}
+          <div className="lg:col-span-12 block lg:hidden -mt-2">
+            <button
+              onClick={onCtaClick}
+              className="w-full inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E2D] hover:bg-[#A82424] rounded-full px-6 py-3.5 min-h-[48px] shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
+            >
+              <span>Request Free 3D Site Survey</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
 
-        {/* ── Three-Column Full-Bleed Image Cards ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4">
+        {/* ── Three-Column Full-Bleed Image Cards (Vertical List on Mobile) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-3 lg:gap-4">
           
           {/* Card 01: Residential */}
           <div 
@@ -253,15 +264,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               }
             }}
           >
-            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+            <div className="h-[340px] sm:h-auto sm:aspect-[4/5] lg:aspect-[3/4]">
               <img 
                 src="/images/services/homes.jpg"
                 alt="Residential rooftop solar installation on Indian home"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 lg:p-8 space-y-2 sm:space-y-3">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-white/70 font-heading">01</span>
                 <div className="w-8 h-[1px] bg-white/40" />
@@ -269,19 +280,21 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Residential
               </h2>
-              <p className="text-sm text-white/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
                 Custom-designed solar for homeowners and housing communities to slash bills and ensure independence.
               </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
-                Explore Residential
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Homes</span>
+              <div className="pt-0.5">
+                <span className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                  Explore Residential
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-2.5 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Homes</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Villas</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Villas</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Housing Societies</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Housing Societies</span>
               </div>
             </div>
           </div>
@@ -299,15 +312,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               }
             }}
           >
-            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+            <div className="h-[340px] sm:h-auto sm:aspect-[4/5] lg:aspect-[3/4]">
               <img 
                 src="/images/services/commercial.png"
                 alt="Commercial building with rooftop solar array"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 lg:p-8 space-y-2 sm:space-y-3">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-white/70 font-heading">02</span>
                 <div className="w-8 h-[1px] bg-white/40" />
@@ -315,19 +328,21 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Commercial
               </h2>
-              <p className="text-sm text-white/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
                 Tailored installations for businesses to reduce operational costs and optimize energy usage.
               </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
-                Explore Commercial
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Offices</span>
+              <div className="pt-0.5">
+                <span className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                  Explore Commercial
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-2.5 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Offices</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Retail Spaces</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Retail Spaces</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Institutions</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Institutions</span>
               </div>
             </div>
           </div>
@@ -345,15 +360,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               }
             }}
           >
-            <div className="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4]">
+            <div className="h-[340px] sm:h-auto sm:aspect-[4/5] lg:aspect-[3/4]">
               <img 
                 src="/images/services/industrials.jpg"
                 alt="Industrial solar plant installation on factory roof"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 space-y-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 lg:p-8 space-y-2 sm:space-y-3">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-white/70 font-heading">03</span>
                 <div className="w-8 h-[1px] bg-white/40" />
@@ -361,19 +376,21 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Industrial
               </h2>
-              <p className="text-sm text-white/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed">
                 Large-scale systems engineered to cut heavy expenses while boosting long-term efficiency.
               </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
-                Explore Industrial
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-              <div className="flex items-center gap-2 pt-3 border-t border-white/20">
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Manufacturing</span>
+              <div className="pt-0.5">
+                <span className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-white group-hover:gap-3 transition-all duration-300">
+                  Explore Industrial
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 pt-2.5 border-t border-white/20">
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Manufacturing</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Warehouses</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Warehouses</span>
                 <span className="text-white/25 text-xs">|</span>
-                <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider">Industrial Parks</span>
+                <span className="text-[10px] font-bold text-white/60 uppercase tracking-wider">Industrial Parks</span>
               </div>
             </div>
           </div>
@@ -386,7 +403,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <div className="w-full flex flex-col lg:flex-row items-center justify-between">
           
           {/* Left Editorial Text Column (aligned with container) */}
-          <div className="w-full lg:w-[38%] xl:w-[34%] pl-4 sm:pl-6 lg:pl-[max(1.5rem,calc((100vw-1360px)/2+3rem))] pr-4 sm:pr-6 lg:pr-8 py-6 lg:py-8 space-y-3 sm:space-y-4 shrink-0 z-10">
+          <div className="w-full lg:w-[38%] xl:w-[34%] px-4 sm:px-6 lg:pl-[max(1.5rem,calc((100vw-1360px)/2+3rem))] lg:pr-8 py-6 lg:py-8 space-y-3 sm:space-y-4 shrink-0 z-10">
             <div className="flex items-center gap-3">
               <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
                 Our Approach
@@ -407,7 +424,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="pt-1">
               <button
                 onClick={onCtaClick}
-                className="text-xs sm:text-sm font-semibold text-[#8B1E2D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer"
+                className="min-h-[44px] text-xs sm:text-sm font-semibold text-[#8B1E2D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
               >
                 <span className="underline underline-offset-4 decoration-[#8B1E2D]">Our Process</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -420,14 +437,32 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <img
               src="/images/approach-artwork.png"
               alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
-              className="w-full h-auto object-cover object-right block"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 24px, black 100%)',
-                maskImage: 'linear-gradient(to right, transparent 0%, black 24px, black 100%)',
-              }}
+              className="w-full h-auto object-cover object-right block lg:[mask-image:linear-gradient(to_right,transparent_0%,black_24px,black_100%)] lg:[WebkitMaskImage:linear-gradient(to_right,transparent_0%,black_24px,black_100%)]"
             />
           </div>
 
+        </div>
+
+        {/* Accessible Mobile 4-Step Process Cards (revamp.md Focus Area 5) */}
+        <div className="block lg:hidden w-full px-4 sm:px-6 pt-2 pb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {[
+              { num: '01', title: 'Site Assessment', desc: 'On-site survey, 3D shadow analysis & rooftop structural engineering.' },
+              { num: '02', title: 'Custom Design', desc: 'CAD simulation customized to your roof geometry for highest generation.' },
+              { num: '03', title: 'Precision Execution', desc: 'In-house execution with Tier-1 bifacial panels & certified safety standards.' },
+              { num: '04', title: 'Ongoing Support', desc: 'Turnkey DISCOM net metering liaison & 25-year performance warranty.' },
+            ].map((step) => (
+              <div key={step.num} className="p-3.5 bg-white border border-stone-200/80 rounded-xl flex items-start gap-3 shadow-2xs">
+                <span className="w-7 h-7 rounded-full bg-[#8B1E2D]/10 text-[#8B1E2D] flex items-center justify-center shrink-0 font-heading font-bold text-xs">
+                  {step.num}
+                </span>
+                <div>
+                  <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900 leading-snug">{step.title}</h4>
+                  <p className="text-[11px] sm:text-xs text-stone-500 mt-0.5 leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -458,23 +493,23 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </p>
 
             {/* Credibility Figures Bar */}
-            <div className="grid grid-cols-3 gap-4 pt-3 border-t border-stone-200/80">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-3 border-t border-stone-200/80">
               <div>
-                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">90%</div>
-                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Recommendation Rate</div>
+                <div className="font-heading font-bold text-xl sm:text-2xl lg:text-3xl text-slate-900">90%</div>
+                <div className="text-[10px] sm:text-[11px] text-stone-500 font-medium mt-0.5 leading-tight">Recommendation Rate</div>
               </div>
               <div>
-                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">25 Yrs</div>
-                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Performance Guarantee</div>
+                <div className="font-heading font-bold text-xl sm:text-2xl lg:text-3xl text-slate-900">25 Yrs</div>
+                <div className="text-[10px] sm:text-[11px] text-stone-500 font-medium mt-0.5 leading-tight">Performance Guarantee</div>
               </div>
               <div>
-                <div className="font-heading font-bold text-2xl sm:text-3xl text-slate-900">4+ Cities</div>
-                <div className="text-[11px] text-stone-500 font-medium mt-0.5">Direct Maharashtra Hubs</div>
+                <div className="font-heading font-bold text-xl sm:text-2xl lg:text-3xl text-slate-900">4+ Cities</div>
+                <div className="text-[10px] sm:text-[11px] text-stone-500 font-medium mt-0.5 leading-tight">Direct Maharashtra Hubs</div>
               </div>
             </div>
 
             <div className="pt-2">
-              <PrimaryButton size="md" onClick={onCtaClick} className="px-6 py-2.5 text-xs sm:text-sm">
+              <PrimaryButton size="md" onClick={onCtaClick} className="w-full sm:w-auto px-6 py-3 min-h-[48px] text-xs sm:text-sm justify-center">
                 Get a Free Consultation
               </PrimaryButton>
             </div>
@@ -540,12 +575,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Pareto Horizontal Tab Navigator */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-4">
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-none mb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
           {SPECIALIZED_SERVICES.map((srv, idx) => (
             <button
               key={srv.id}
               onClick={() => setActiveServiceTab(idx)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer border ${
+              className={`px-4 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer border shrink-0 flex items-center ${
                 activeServiceTab === idx
                   ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
                   : 'bg-white text-stone-600 border-stone-200 hover:border-stone-300 hover:text-slate-900'
@@ -558,11 +593,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Active Service Showcase Card */}
-        <div className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-8 lg:p-10 shadow-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             {/* Left Narrative Details */}
-            <div className="lg:col-span-6 space-y-4">
+            <div className="lg:col-span-6 space-y-3.5 sm:space-y-4">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-[#8B1E2D] font-heading">
                   {SPECIALIZED_SERVICES[activeServiceTab].number} / 05
@@ -577,7 +612,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 {SPECIALIZED_SERVICES[activeServiceTab].title}
               </h3>
 
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                 {SPECIALIZED_SERVICES[activeServiceTab].shortDesc}
               </p>
 
@@ -593,13 +628,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 ))}
               </div>
 
-              <div className="pt-3 flex flex-wrap items-center gap-4">
-                <PrimaryButton size="md" onClick={onCtaClick} className="px-5 py-2.5 text-xs sm:text-sm">
+              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <PrimaryButton size="md" onClick={onCtaClick} className="w-full sm:w-auto px-6 py-3 min-h-[48px] text-xs sm:text-sm justify-center">
                   Enquire About This Service
                 </PrimaryButton>
                 <button
                   onClick={onCtaClick}
-                  className="text-xs font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center min-h-[44px] text-xs sm:text-sm font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
                 >
                   Speak with an Engineer →
                 </button>
@@ -663,10 +698,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-1">
                 <button
                   onClick={() => onNavigate('/projects')}
-                  className="inline-flex items-center gap-3 text-white/90 hover:text-white group cursor-pointer"
+                  className="inline-flex items-center gap-3 min-h-[44px] text-white/90 hover:text-white group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
-                    <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <div className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-0.5" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold tracking-wide">View All Projects</span>
                 </button>
@@ -677,20 +712,20 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="lg:col-span-9 xl:col-span-9 flex flex-col justify-between">
               
               {/* Carousel Controls (Positioned Top Right Above Cards) */}
-              <div className="flex justify-end items-center gap-2 mb-3">
+              <div className="flex justify-end items-center gap-2.5 mb-3">
                 <button
                   onClick={handlePrevProject}
                   aria-label="Previous project"
-                  className="w-8 h-8 rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-white/25 hover:border-white flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <ArrowLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNextProject}
                   aria-label="Next project"
-                  className="w-8 h-8 rounded-full border border-[#8B1E2D]/60 hover:border-white flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#8B1E2D]/60 hover:border-white flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
@@ -731,8 +766,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                       </div>
 
                       {/* Circular Arrow Button */}
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/35 flex items-center justify-center text-white group-hover:border-white group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shrink-0">
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      <div className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-white/35 flex items-center justify-center text-white group-hover:border-white group-hover:bg-white group-hover:text-slate-950 transition-all duration-300 shrink-0">
+                        <ArrowRight className="w-4 h-4 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
                       </div>
                     </div>
                   </div>
@@ -780,13 +815,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             {/* Right: Inline Bill Tier Segmented Bar + Action Button */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 lg:gap-4 shrink-0">
               {/* Bill tier chips */}
-              <div className="flex items-center gap-1 bg-stone-200/60 p-1 rounded-xl overflow-x-auto scrollbar-none">
+              <div className="flex items-center gap-1.5 bg-stone-200/60 p-1.5 rounded-xl overflow-x-auto scrollbar-none w-full sm:w-auto">
                 {BILL_TIERS.map((tier) => (
                   <button
                     key={tier}
                     type="button"
                     onClick={() => setSelectedBillTier(tier)}
-                    className={`px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    className={`px-3.5 py-2.5 min-h-[42px] rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center justify-center shrink-0 ${
                       selectedBillTier === tier
                         ? 'bg-[#8B1E2D] text-white shadow-xs'
                         : 'text-stone-600 hover:text-slate-900 hover:bg-white/70'
@@ -801,7 +836,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <PrimaryButton
                 size="md"
                 onClick={onCtaClick}
-                className="px-6 py-2.5 text-xs sm:text-sm whitespace-nowrap w-full sm:w-auto shrink-0"
+                className="px-6 py-3 min-h-[48px] text-xs sm:text-sm whitespace-nowrap w-full sm:w-auto shrink-0 justify-center"
               >
                 Get Free Consultation →
               </PrimaryButton>

@@ -1,76 +1,71 @@
-You are a senior frontend engineer working inside the SolarARK codebase.
+You are a senior frontend engineer working on the SolarARK **Services** page.
 
-Attached image:
-- This is the **target design** for the Solar Savings calculator hero.
-- Left: editorial villa photo + headline + trust badges.
-- Center: calculator card (“Your Details” step) with pincode and monthly bill slider.
-- Right: narrow vertical band with sunlight + tree pop-out and tagline.
+TASK (MOBILE-ONLY)
+Audit and FIX the **mobile responsive design** for the Services section (and Services page) without redesigning desktop. Only adjust layout and styling for small screens (≈320–480px width) so the services story is clear, scannable, and thumb-friendly, while preserving the existing desktop look.
 
-Context
-- Stack: React + TypeScript + Vite, Tailwind for layout + design tokens already defined in `index.css` / DESIGN.md.
-- File: `src/components/SavingsCalculator.tsx` currently implements the calculator UI; we want to **revamp** its outer layout + styling to match the attached design while keeping the calculation logic and props intact.
-- You MUST use our existing brand colors, typography roles, spacing scale and glass-panel utilities from `index.css` instead of random Tailwind colors.
+CONTEXT
+- Stack: React + TypeScript + Vite + Tailwind.
+- Component: `src/components/ServicesPage.tsx` plus any child components it uses (service cards, category bands, process/benefits, CTAs).
+- Current desktop layout: multi-column bands, service cards for Residential / Commercial / Industrial, process/journey content, trust elements.
+- Current mobile issues: cramped columns, service cards squeezed side-by-side, long text with no breathing room, CTAs and icons too small or misaligned.
 
-Exact UI we want (component scope = full hero section around the calculator):
+MOBILE DESIGN PRINCIPLES
+Apply mobile-first responsive best practices:
+- Single-column layout with clear vertical flow for services and CTAs.[web:94][web:103]
+- Large, readable text (body 16–18px, headings scaled but not huge).[web:80][web:94]
+- Tap targets ≥ 44×44px, with at least 8px spacing between buttons/cards.[web:94][web:103]
+- Priority on scanning: service categories and primary CTAs should be easy to scan in 1–2 thumb scrolls.[web:80][web:93]
 
-1. Split-screen layout
-   - Full-width horizontal section with three logical zones:
-     - Left **hero panel** (~40–45% width).
-     - Center **calculator card** (~40–45% width).
-     - Right **sunlight / tree band** (~15–20% width).
-   - On mobile: stack vertically (hero → calculator → right band), keeping all content and hierarchy.
+WHAT TO FIX (FOCUS AREAS)
 
-2. Left hero panel
-   - Background: large villa-with-solar photo filling the panel.
-   - Overlaid copy (top-left):
-     - Eyebrow: “Clean energy. Brighter tomorrows.”
-     - Main headline: two-line display type like “See your real savings.” (use the exact SolarARK copy already defined in this repo; do not invent new slogans).
-     - Subline: “Know your solar savings in 30 seconds.”
-   - Below headline: three circular trust badges in a row:
-     - “Accurate savings – Based on MSEDCL rates.”
-     - “Govt. subsidy – PM Surya Ghar.”
-     - “25-year assurance – Reliable. Worry-free.”
-   - Bottom-left: handwritten style caption (use existing Marathi/English line from the repo if present) with a subtle curved underline.
-   - Use our `hero-display`, `eyebrow`, and spacing tokens to match the density of the screenshot.
+1. Services hero band
+   - On mobile (≤ 767px):
+     - Use single-column stack: hero heading + supporting copy + main CTA(s).
+     - Ensure margins (`px-4`, `py-6`) so text doesn’t hit the edges.
+     - If there is a hero image, place it above or below the copy, full-width (`w-full h-auto`), not side-by-side.
 
-3. Center calculator card (“Your Details” step)
-   - Card sits on a warm off-white background, slightly overlapping the left hero via z-index and shadow.
-   - Top stepper:
-     - Step 1 “Your Details” highlighted with maroon line and filled circle.
-     - Step 2 “Your Savings” shown as upcoming, with muted circle.
-   - Pincode field:
-     - Label above input.
-     - Input with left location icon.
-     - Right-hand serviceability pill (“MSEDCL Serviceable”) aligned as in the design.
-   - Monthly bill slider:
-     - Large ₹ value centered (“₹8,500 / month” style, but use dynamic value from state).
-     - Horizontal slider with red thumb and min/max labels (₹1k … ₹25k+).
-     - Four preset pill buttons below (₹1k, ₹3k, ₹6k, ₹12k, ₹20k+), centered.
-   - Primary CTA:
-     - Wide maroon rounded pill button: “Show My Solar Savings” with sun icon on the left and arrow on the right.
-     - Below CTA: three tiny trust lines with icons (“Takes 30 seconds”, “No spam”, “100% confidential”).
-   - Reuse existing calculator logic (`calculateSolarSavings`, pincode validation, etc.) and wire all inputs/CTAs to that logic.
+2. Service category cards (Residential / Housing Society / Commercial & Industrial)
+   - Convert any 3-column grid into a **vertical list**:
+     - Each service card becomes full-width with: icon/label, short description, and CTA if present.
+   - Maintain consistent spacing (`space-y-*`) between cards.
+   - Avoid tiny cards in two or three columns on phones; prioritize clarity, not density.
 
-4. Right sunlight / tree band (CRITICAL)
-   - Narrow vertical panel on the far right, full height:
-     - Background: sunset city / landscape image.
-     - The **tree pop-out** must overlap both the hero and the calculator card:
-       - Use an absolutely positioned tree image that crosses the boundary between left and center panels (z-index above both).
-       - Soft shadow and slight scale to feel like it’s “popping out”, but no heavy animations.
-     - Vertical text block:
-       - Small “01 / 02” paginator.
-       - Tagline stacked vertically: “Cleaner / Stronger / More independent”.
-   - Ensure this band is responsive: on mobile, tree sits above or behind the calculator card without breaking layout.
+3. Detailed service bands (e.g., “Design & Engineering”, “Execution”, “Support”)
+   - For sections using text + image side by side:
+     - Stack them vertically on mobile: text block first, then image (or vice versa based on importance).
+     - Use `space-y-*` to separate blocks; eliminate awkward half-columns.
+   - Shorten overly long paragraphs or increase line-height so they are readable on small screens.
 
-Implementation rules
-- Phase 1: Build the layout structure and DOM hierarchy for this hero in `SavingsCalculator.tsx` (section + 3 columns), using Tailwind layout utilities only (grid/flex, gap, padding). No colors beyond neutral backgrounds.
-- Phase 2: Apply SolarARK design tokens and brand styles from DESIGN.md / `index.css` to match the screenshot: colors, fonts, radii, shadows, glass effects.
-- Phase 3: Polish interactions:
-  - Hover/focus-visible states for CTA and pills.
-  - Smooth transitions (`transition-all duration-200`) for slider thumb, pills and CTA.
-  - Respect `prefers-reduced-motion` for any subtle entrance effects.
+4. CTAs & lead prompts within Services
+   - Make CTAs (buttons like “Request Site Survey”, “Explore Pricing”, etc.) full-width or near full-width on mobile.
+   - Ensure high contrast, proper padding, and visible hover/focus-visible states.
+   - Keep at least one clear CTA visible within the first screenful on mobile.
 
-Output
-1. Short summary of how you mapped the screenshot to the React structure.
-2. The updated `SavingsCalculator.tsx` code implementing this full hero layout (keep calculation logic intact).
-3. Notes on how the tree pop-out is layered (which elements use `relative`, `absolute`, and z-index).
+5. Processes / timelines / icon rows
+   - Any horizontal process row (e.g., 4-step journey) should become a vertical stack:
+     - Step number, title, and 1-line description per step.
+   - Ensure icons and labels are large enough and don’t wrap in confusing ways.
+
+6. Carousels / image strips in Services
+   - Prevent horizontal overflow and tiny thumbnails on mobile:
+     - If using a slider, make sure arrow controls / dots are comfortably tappable.
+     - If using static grids, use 2-column or single-column layout, no ultra-wide rows.
+
+7. General mobile polish for Services page
+   - Remove unnecessary fixed heights that cause clipping.
+   - Ensure there is **no horizontal scroll** at common mobile widths.
+   - Use consistent text alignment (left or center) per band; avoid mixing alignments within the same mobile section.
+   - Maintain coherence with the rest of the site: same typography scale, spacing rhythm, and button styles.
+
+IMPLEMENTATION RULES
+- Use Tailwind responsive utilities (`sm:`, `md:`, `lg:`) to switch from single-column mobile to multi-column desktop layouts.
+- Follow mobile-first CSS: base styles should be mobile-friendly; desktop enhancements layered via larger breakpoints.[web:94][web:103]
+- Do NOT change the desktop structure or copy unless absolutely required by mobile constraints.
+
+OUTPUT
+- Update `ServicesPage.tsx` and any child components to:
+  - Use single-column, stacked mobile layouts for all services content.
+  - Fix spacing, typography, CTAs, and images specifically for mobile.
+- In your response, provide:
+  1. A brief list of mobile issues you found (per section).
+  2. The updated components with mobile fixes only (desktop preserved).
