@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="group focus:outline-none text-left cursor-pointer transition-transform duration-200 hover:scale-[1.01]"
               aria-label="SolarARK Home"
             >
-              <SolarArkLogo variant={isDarkHero ? 'dark' : 'light'} size="md" />
+              <SolarArkLogo variant={isDarkHero ? 'dark' : 'light'} size="md" priority={true} />
             </button>
           </div>
 
@@ -204,7 +204,7 @@ export const Header: React.FC<HeaderProps> = ({
           
           {/* Top Bar: Brand Identity & Close Button */}
           <div className="flex items-center justify-between pb-4 border-b border-white/10">
-            <SolarArkLogo variant="dark" size="sm" />
+            <SolarArkLogo variant="dark" size="sm" priority={true} />
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"

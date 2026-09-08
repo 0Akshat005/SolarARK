@@ -11,6 +11,7 @@ interface SolarArkLogoProps {
   showTagline?: boolean;
   className?: string;
   useImage?: boolean;
+  priority?: boolean;
 }
 
 export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
@@ -18,7 +19,8 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   size = 'md',
   showTagline = true,
   className = '',
-  useImage = false,
+  useImage = true,
+  priority = false,
 }) => {
   const isDark = variant === 'dark';
 
@@ -27,35 +29,49 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
     sm: {
       brand: 'text-xl sm:text-2xl tracking-tight',
       tagline: 'text-[9px] sm:text-[10px] tracking-[0.06em] mt-0.5',
-      imgHeight: 'h-7',
+      imgHeight: 'h-7 sm:h-8',
     },
     md: {
       brand: 'text-[26px] sm:text-[30px] lg:text-[34px] tracking-tight',
       tagline: 'text-[10px] sm:text-[11px] lg:text-[12px] tracking-[0.07em] mt-0.5 sm:mt-1',
-      imgHeight: 'h-9 sm:h-10 lg:h-11',
+      imgHeight: 'h-8 sm:h-9 lg:h-10 xl:h-[42px]',
     },
     lg: {
       brand: 'text-3xl sm:text-4xl lg:text-[42px] tracking-tight',
       tagline: 'text-xs sm:text-sm tracking-[0.08em] mt-1',
-      imgHeight: 'h-12 sm:h-14',
+      imgHeight: 'h-11 sm:h-12 lg:h-14',
     },
     xl: {
       brand: 'text-4xl sm:text-5xl lg:text-[54px] tracking-tight',
       tagline: 'text-sm sm:text-base tracking-[0.08em] mt-1.5',
-      imgHeight: 'h-16 sm:h-20',
+      imgHeight: 'h-14 sm:h-16 lg:h-20',
     },
   };
 
-  const currentSize = sizeStyles[size];
+  const currentSize = sizeStyles[size] || sizeStyles.md;
+  const webpSrc = isDark
+    ? '/images/solarark-brand-logo-dark.webp'
+    : '/images/solarark-brand-logo.webp';
+  const pngSrc = isDark
+    ? '/images/solarark-brand-logo-dark.png'
+    : '/images/solarark-brand-logo.png';
 
   if (useImage) {
     return (
-      <div className={`inline-flex flex-col select-none ${className}`}>
-        <img
-          src="/images/solarark-brand-logo.png"
-          alt="SolarARK - assured renewable komfort"
-          className={`${currentSize.imgHeight} w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]`}
-        />
+      <div className={`inline-flex items-center select-none ${className}`}>
+        <picture>
+          <source srcSet={webpSrc} type="image/webp" />
+          <img
+            src={pngSrc}
+            alt="SolarARK - assured renewable komfort"
+            width={400}
+            height={126}
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            decoding="async"
+            className={`${currentSize.imgHeight} w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]`}
+          />
+        </picture>
       </div>
     );
   }

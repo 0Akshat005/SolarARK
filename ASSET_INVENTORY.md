@@ -24,10 +24,13 @@
 
 | File Path | Description / Usage | Resolution / Type |
 | :--- | :--- | :--- |
-| \public/images/solarark-brand-logo.png\ | **Header & Navigation Logo:** Primary company logo in the navbar. | PNG (Transparent) |
-| \public/images/solarlogo.png\ | **Brand Mark:** High-resolution brand logo asset & favicon. | PNG |
-| \public/videos/hero-drone-installation.mp4\ | **Hero Video Background:** Drone footage of residential solar installation. | MP4 Video |
-| \public/images/hero-video-poster.jpg\ | **Hero Video Fallback:** Poster preview while video loads. | JPG |
+| `logo.jpg` | **Official Source Master Logo:** 8K master file provided by business. | 7807×2423 JPG |
+| `public/images/solarark-brand-logo.png` & `.webp` | **Header & Brand Logo (Light):** Authentic `#771F1B` crimson and `#AE4434` terracotta on transparent canvas. | 2400×758 PNG & WebP (34 KB) |
+| `public/images/solarark-brand-logo-dark.png` & `.webp` | **Header & Brand Logo (Dark):** Pure `#FFFFFF` and `#E25845` terracotta on transparent canvas for dark navbar, mobile menu & footer. | 2400×758 PNG & WebP (32 KB) |
+| `public/images/solarlogo.png` | **Social Sharing / OpenGraph Card:** Centered official logo on warm cream `#FCFAF7` card with brand accent border. | 1200×630 PNG (67 KB) |
+| `public/favicon.png` & `apple-touch-icon.png` | **Favicon & Mobile Icons:** High-DPI browser tab icon and iOS touch icon. | 512×512 & 180×180 PNG |
+| `public/videos/hero-drone-installation.mp4` | **Hero Video Background:** Drone footage of residential solar installation. | MP4 Video |
+| `public/images/hero-video-poster.jpg` | **Hero Video Fallback:** Poster preview while video loads. | JPG |
 
 ---
 
