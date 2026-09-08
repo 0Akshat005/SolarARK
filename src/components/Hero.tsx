@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({
       {/* ── 1. IMMERSIVE BACKGROUND-VIDEO HERO (VIDEO-FIRST) ── */}
       <section
         id="hero"
-        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[65vh] sm:min-h-[80vh] lg:min-h-[92vh] max-h-[1050px] flex items-center justify-center"
+        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[60vh] sm:min-h-[70vh] lg:h-[calc(100vh-148px)] lg:min-h-[500px] lg:max-h-[760px] flex items-center justify-center"
       >
         {/* Full-bleed real project hero video with 60fps web-optimized local stream */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D] transform-gpu">
@@ -201,11 +201,11 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* ── Bottom Gradient Overlay & Editorial Hero Content ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/70 to-transparent pt-24 sm:pt-32">
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-5 sm:pb-6 lg:pb-7 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/70 to-transparent pt-20 sm:pt-24">
           <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-5 sm:gap-6 pointer-events-auto">
             
             {/* Editorial Headline & Eyebrow (Refined Scale Matching Reference Exactly) */}
-            <div className="space-y-2.5 sm:space-y-3 max-w-xl">
+            <div className="space-y-2 sm:space-y-2.5 max-w-xl">
               {/* Eyebrow with subtle maroon accent line */}
               <div className="flex items-start gap-2.5">
                 <span className="w-6 sm:w-8 h-[2px] bg-[#8B1E1E] mt-1.5 shrink-0" />
@@ -221,7 +221,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               {/* Serif Display Headline: Proportional, Elegant Editorial Sizing */}
               <h1
-                className="font-serif text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-normal text-white tracking-tight leading-[1.18]"
+                className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-normal text-white tracking-tight leading-[1.18]"
                 style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.6)' }}
               >
                 Reliable Solar Solutions.<br />
@@ -278,9 +278,9 @@ export const Hero: React.FC<HeroProps> = ({
         className="w-full bg-[#FAF8F5] border-b border-stone-200/80 relative z-10"
       >
         {/* ── DESKTOP VIEW (≥ lg / 1024px): 4 Columns + Right Scenic Vignette Matching Desktop Reference ── */}
-        <div className="hidden lg:grid grid-cols-12 max-w-[1440px] mx-auto min-h-[140px]">
+        <div className="hidden lg:grid grid-cols-12 max-w-[1440px] mx-auto min-h-[148px] items-stretch">
           {/* Left 4 Columns (9 cols of 12) */}
-          <div className="col-span-9 grid grid-cols-4 py-8 px-4 xl:px-6 divide-x divide-stone-200/80">
+          <div className="col-span-9 grid grid-cols-4 py-3.5 xl:py-4 px-4 xl:px-6 divide-x divide-stone-200/80">
             {desktopItems.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -296,28 +296,28 @@ export const Hero: React.FC<HeroProps> = ({
                     }
                   }}
                   aria-label={item.ariaLabel}
-                  className="group cursor-pointer flex flex-col justify-between text-left px-5 xl:px-6 first:pl-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 rounded-lg transition-colors"
+                  className="group cursor-pointer flex flex-col justify-between text-left px-4 xl:px-5 first:pl-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 rounded-lg transition-colors"
                 >
-                  <div className="space-y-2.5">
+                  <div className="space-y-1.5">
                     {/* Compact circular icon frame */}
-                    <div className="w-10 h-10 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center transition-colors duration-200 group-hover:bg-[#8B1E1E] group-hover:text-white">
-                      <Icon className="w-5 h-5 stroke-[1.75]" />
+                    <div className="w-9 h-9 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center transition-colors duration-200 group-hover:bg-[#8B1E1E] group-hover:text-white">
+                      <Icon className="w-4.5 h-4.5 stroke-[1.75]" />
                     </div>
 
                     {/* Headline */}
-                    <h3 className="font-heading text-base xl:text-[17px] font-bold text-stone-900 tracking-tight group-hover:text-[#8B1E1E] transition-colors leading-snug">
+                    <h3 className="font-heading text-[15px] xl:text-[16px] font-bold text-stone-900 tracking-tight group-hover:text-[#8B1E1E] transition-colors leading-snug">
                       {item.title}
                     </h3>
 
                     {/* Supporting Value Copy */}
-                    <p className="text-xs xl:text-[13px] text-stone-600 font-normal leading-relaxed text-left">
+                    <p className="text-xs xl:text-[12.5px] text-stone-600 font-normal leading-snug text-left line-clamp-2">
                       {item.description}
                     </p>
                   </div>
 
                   {/* Restrained Interactive Action Arrow */}
-                  <div className="pt-3.5 flex items-center">
-                    <ArrowRight className="w-4 h-4 text-[#8B1E1E] transition-transform duration-200 group-hover:translate-x-1" />
+                  <div className="pt-2 flex items-center">
+                    <ArrowRight className="w-3.5 h-3.5 text-[#8B1E1E] transition-transform duration-200 group-hover:translate-x-1" />
                   </div>
                 </div>
               );
@@ -325,7 +325,7 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
 
           {/* Right Brand Vignette (3 cols of 12) Matching Desktop Reference */}
-          <div className="col-span-3 relative border-l border-stone-200/80 overflow-hidden flex flex-col justify-center py-6 px-6 xl:px-8">
+          <div className="col-span-3 relative border-l border-stone-200/80 overflow-hidden flex flex-col justify-center py-3.5 px-6 xl:px-8">
             {/* Background scenic photo with soft ivory gradient fade */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
               <img
@@ -337,14 +337,14 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Foreground Brand Note */}
-            <div className="relative z-10 space-y-2">
+            <div className="relative z-10 space-y-1.5">
               <div className="flex items-center gap-1.5 text-[10px] xl:text-[11px] font-bold tracking-[0.16em] text-stone-600 uppercase">
                 <Leaf className="w-3.5 h-3.5 text-[#8B1E1E]" />
                 <span>POWERING A BRIGHTER TOMORROW</span>
               </div>
-              <div className="pt-1">
+              <div className="pt-0.5">
                 <span
-                  className="block text-2xl xl:text-3xl text-[#8B1E1E] leading-tight select-none -rotate-2 transform"
+                  className="block text-xl xl:text-2xl text-[#8B1E1E] leading-tight select-none -rotate-2 transform"
                   style={{ fontFamily: "var(--font-handwriting, 'Caveat', cursive)" }}
                 >
                   Clean energy brighter lives
