@@ -11,6 +11,7 @@ import {
   VolumeX,
   Home,
   Building2,
+  Cog,
   Layers,
   Headphones,
   Leaf,
@@ -44,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({
     } else if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.play().catch(() => {
-        // Browser autoplay fallback
+        setIsPlaying(false);
       });
     }
   }, []);
@@ -55,8 +56,7 @@ export const Hero: React.FC<HeroProps> = ({
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
     }
   };
 
@@ -66,10 +66,14 @@ export const Hero: React.FC<HeroProps> = ({
     setIsMuted(!isMuted);
   };
 
-  const handleScroll = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const handleScroll = (elementId: string) => {
+    if (elementId === 'calculator' && onCalculatorClick) {
+      onCalculatorClick();
+      return;
+    }
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -78,6 +82,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Home,
       title: 'For Your Home',
+      line1: 'Lower electricity bills.',
+      line2: 'A brighter future.',
       description: 'Lower electricity bills. A brighter future.',
       action: () => {
         if (onCalculatorClick) {
@@ -91,6 +97,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Building2,
       title: 'For Your Business',
+      line1: 'Smarter energy.',
+      line2: 'Higher savings.',
       description: 'Smarter energy. Higher savings.',
       action: () => {
         handleScroll('solutions');
@@ -98,8 +106,10 @@ export const Hero: React.FC<HeroProps> = ({
       ariaLabel: 'Explore commercial and industrial solar solutions',
     },
     {
-      icon: Layers,
+      icon: Cog,
       title: 'End-to-End Support',
+      line1: 'From consultation',
+      line2: 'to commissioning.',
       description: 'From consultation to commissioning.',
       action: () => {
         handleScroll('solutions');
@@ -109,6 +119,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Leaf,
       title: 'A Cleaner Tomorrow',
+      line1: 'Sustainable energy',
+      line2: 'for generations.',
       description: 'Sustainable energy for generations.',
       action: () => {
         if (onCtaClick) {
@@ -126,6 +138,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Home,
       title: 'For Your Home',
+      line1: 'Lower electricity bills.',
+      line2: 'A brighter future.',
       description: 'Lower electricity bills. A brighter future.',
       action: () => {
         if (onCalculatorClick) {
@@ -139,6 +153,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Building2,
       title: 'For Your Business',
+      line1: 'Smarter energy.',
+      line2: 'Greater savings.',
       description: 'Smarter energy. Greater savings.',
       action: () => {
         handleScroll('solutions');
@@ -148,6 +164,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Layers,
       title: 'End-to-End Solar',
+      line1: 'From consultation',
+      line2: 'to commissioning.',
       description: 'From consultation to commissioning.',
       action: () => {
         handleScroll('solutions');
@@ -157,6 +175,8 @@ export const Hero: React.FC<HeroProps> = ({
     {
       icon: Headphones,
       title: 'Ongoing Support',
+      line1: "We're with you",
+      line2: 'beyond installation.',
       description: "We're with you beyond installation.",
       action: () => {
         if (onCtaClick) {
@@ -174,7 +194,7 @@ export const Hero: React.FC<HeroProps> = ({
       {/* ── 1. IMMERSIVE BACKGROUND-VIDEO HERO (VIDEO-FIRST) ── */}
       <section
         id="hero"
-        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[60vh] sm:min-h-[70vh] lg:h-[calc(100vh-148px)] lg:min-h-[500px] lg:max-h-[760px] flex items-center justify-center"
+        className="relative w-full overflow-hidden bg-[#0A0F1D] min-h-[60vh] sm:min-h-[70vh] lg:h-[calc(100vh-165px)] lg:min-h-[480px] lg:max-h-[725px] flex items-center justify-center"
       >
         {/* Full-bleed real project hero video with 60fps web-optimized local stream */}
         <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D] transform-gpu">
@@ -275,12 +295,26 @@ export const Hero: React.FC<HeroProps> = ({
       {/* ── 2. EDITORIAL CONFIDENCE BRIDGE & TRANSITION ── */}
       <section
         aria-label="SolarARK Core Capabilities"
-        className="w-full bg-[#FAF8F5] border-b border-stone-200/80 relative z-10"
+        className="w-full bg-[#FAF8F5] border-b border-stone-200/80 relative z-10 overflow-hidden"
       >
+        {/* Subtle topographical architectural contour line watermark matching reference */}
+        <svg
+          className="absolute -bottom-6 -left-6 w-80 h-48 pointer-events-none opacity-25 text-[#D1BEA8] select-none"
+          viewBox="0 0 260 170"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.85"
+        >
+          <path d="M-20 170 C 35 145, 75 105, 140 125 C 200 145, 220 95, 270 85" />
+          <path d="M-30 140 C 25 115, 85 75, 160 95 C 220 115, 240 65, 290 55" />
+          <path d="M-40 110 C 15 85, 95 45, 180 65 C 240 85, 250 35, 310 25" />
+          <path d="M-50 80 C 5 55, 105 15, 200 35 C 260 55, 270 5, 330 -5" />
+        </svg>
+
         {/* ── DESKTOP VIEW (≥ lg / 1024px): 4 Columns + Right Scenic Vignette Matching Desktop Reference ── */}
-        <div className="hidden lg:grid grid-cols-12 max-w-[1440px] mx-auto min-h-[148px] items-stretch">
+        <div className="hidden lg:grid grid-cols-12 max-w-[1440px] mx-auto min-h-[148px] items-stretch relative z-10">
           {/* Left 4 Columns (9 cols of 12) */}
-          <div className="col-span-9 grid grid-cols-4 py-3.5 xl:py-4 px-4 xl:px-6 divide-x divide-stone-200/80">
+          <div className="col-span-9 grid grid-cols-4 py-2 xl:py-2.5 px-4 xl:px-6 divide-x divide-[#EAE1D3]">
             {desktopItems.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -296,28 +330,32 @@ export const Hero: React.FC<HeroProps> = ({
                     }
                   }}
                   aria-label={item.ariaLabel}
-                  className="group cursor-pointer flex flex-col justify-between text-left px-4 xl:px-5 first:pl-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 rounded-lg transition-colors"
+                  className="group cursor-pointer flex flex-col justify-between text-left px-4 xl:px-5 first:pl-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 rounded-xl transition-all"
                 >
                   <div className="space-y-1.5">
-                    {/* Compact circular icon frame */}
-                    <div className="w-9 h-9 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center transition-colors duration-200 group-hover:bg-[#8B1E1E] group-hover:text-white">
-                      <Icon className="w-4.5 h-4.5 stroke-[1.75]" />
+                    {/* Bespoke Architectural Warm Sandstone Medallion */}
+                    <div className="w-10 h-10 xl:w-11 xl:h-11 rounded-full bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] shadow-[0_2px_8px_rgba(42,33,24,0.06),inset_0_1px_1px_rgba(255,255,255,0.8)] flex items-center justify-center text-[#8B1E1E] transition-all duration-300 group-hover:border-[#8B1E1E]/40 group-hover:shadow-[0_4px_14px_rgba(139,30,30,0.12)] group-hover:scale-105">
+                      <Icon className="w-4.5 h-4.5 xl:w-5 xl:h-5 stroke-[1.65]" />
                     </div>
 
-                    {/* Headline */}
-                    <h3 className="font-heading text-[15px] xl:text-[16px] font-bold text-stone-900 tracking-tight group-hover:text-[#8B1E1E] transition-colors leading-snug">
+                    {/* Headline in Editorial Serif */}
+                    <h3 className="font-serif text-[16px] xl:text-[17px] font-medium text-stone-900 tracking-[-0.01em] group-hover:text-[#8B1E1E] transition-colors leading-snug">
                       {item.title}
                     </h3>
 
-                    {/* Supporting Value Copy */}
-                    <p className="text-xs xl:text-[12.5px] text-stone-600 font-normal leading-snug text-left line-clamp-2">
-                      {item.description}
+                    {/* Supporting 2-Line Editorial Copy */}
+                    <p className="text-[12px] xl:text-[12.5px] text-stone-600 font-normal leading-tight text-left">
+                      <span>{item.line1}</span>
+                      <br />
+                      <span className="text-stone-500">{item.line2}</span>
                     </p>
                   </div>
 
-                  {/* Restrained Interactive Action Arrow */}
+                  {/* Bespoke Circular Micro-Action Button */}
                   <div className="pt-2 flex items-center">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#8B1E1E] transition-transform duration-200 group-hover:translate-x-1" />
+                    <div className="w-6 h-6 rounded-full bg-[#F5ECE0]/80 border border-[#E2D5C3]/80 flex items-center justify-center text-[#8B1E1E] group-hover:bg-[#8B1E1E] group-hover:border-[#8B1E1E] group-hover:text-white group-hover:translate-x-1 transition-all duration-300 shadow-sm">
+                      <ArrowRight className="w-3 h-3 stroke-[2]" />
+                    </div>
                   </div>
                 </div>
               );
@@ -325,7 +363,7 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
 
           {/* Right Brand Vignette (3 cols of 12) Matching Desktop Reference */}
-          <div className="col-span-3 relative border-l border-stone-200/80 overflow-hidden flex flex-col justify-center py-3.5 px-6 xl:px-8">
+          <div className="col-span-3 relative border-l border-[#EAE1D3] overflow-hidden flex flex-col justify-center py-2.5 px-6 xl:px-8">
             {/* Background scenic photo with soft ivory gradient fade */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
               <img
@@ -338,7 +376,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Foreground Brand Note */}
             <div className="relative z-10 space-y-1.5">
-              <div className="flex items-center gap-1.5 text-[10px] xl:text-[11px] font-bold tracking-[0.16em] text-stone-600 uppercase">
+              <div className="flex items-center gap-1.5 text-[10px] xl:text-[11px] font-bold tracking-[0.16em] text-stone-600 uppercase font-sans">
                 <Leaf className="w-3.5 h-3.5 text-[#8B1E1E]" />
                 <span>POWERING A BRIGHTER TOMORROW</span>
               </div>
@@ -360,11 +398,11 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
               <span className="w-6 h-[2px] bg-[#8B1E1E]" />
-              <span className="text-[11px] font-bold tracking-[0.16em] text-stone-500 uppercase">
+              <span className="text-[11px] font-bold tracking-[0.16em] text-stone-500 uppercase font-sans">
                 WHY SOLARARK
               </span>
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl font-medium text-stone-900 tracking-tight leading-tight">
               Powering What Matters to You
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed text-left pt-0.5">
@@ -391,33 +429,35 @@ export const Hero: React.FC<HeroProps> = ({
                   aria-label={item.ariaLabel}
                   className={`group cursor-pointer flex flex-col justify-between p-3.5 sm:p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 transition-colors ${
                     /* Vertical cross border: column 1 has right border */
-                    idx % 2 === 0 ? 'border-r border-stone-200/80 pr-4 sm:pr-6' : 'pl-4 sm:pl-6'
+                    idx % 2 === 0 ? 'border-r border-[#EAE1D3] pr-4 sm:pr-6' : 'pl-4 sm:pl-6'
                   } ${
                     /* Horizontal cross border: row 1 has bottom border */
-                    idx < 2 ? 'border-b border-stone-200/80 pb-5 sm:pb-6' : 'pt-5 sm:pt-6'
+                    idx < 2 ? 'border-b border-[#EAE1D3] pb-5 sm:pb-6' : 'pt-5 sm:pt-6'
                   }`}
                 >
                   <div className="space-y-2">
-                    {/* Compact circular icon frame */}
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center transition-colors group-hover:bg-[#8B1E1E] group-hover:text-white">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
+                    {/* Bespoke Architectural Warm Sandstone Medallion */}
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] shadow-[0_2px_8px_rgba(42,33,24,0.06),inset_0_1px_1px_rgba(255,255,255,0.8)] flex items-center justify-center text-[#8B1E1E] transition-all duration-300 group-hover:border-[#8B1E1E]/40 group-hover:scale-105">
+                      <Icon className="w-5 h-5 stroke-[1.65]" />
                     </div>
 
-                    {/* Title */}
-                    <h3 className="font-heading text-[13px] sm:text-sm font-bold text-stone-900 leading-snug group-hover:text-[#8B1E1E] transition-colors">
+                    {/* Title in Serif */}
+                    <h3 className="font-serif text-[15px] sm:text-base font-medium text-stone-900 leading-snug group-hover:text-[#8B1E1E] transition-colors">
                       {item.title}
                     </h3>
 
-                    {/* Subtext */}
+                    {/* Subtext with 2-line cadence */}
                     <p className="text-[11px] sm:text-xs text-stone-600 font-normal leading-relaxed text-left">
-                      {item.description}
+                      <span>{item.line1}</span>
+                      <br />
+                      <span className="text-stone-500">{item.line2}</span>
                     </p>
                   </div>
 
                   {/* Micro circular arrow button matching reference */}
                   <div className="pt-3">
-                    <div className="w-6 h-6 rounded-full bg-stone-100/90 border border-stone-200/70 flex items-center justify-center text-[#8B1E1E] transition-all duration-200 group-hover:bg-[#8B1E1E] group-hover:text-white group-hover:translate-x-0.5">
-                      <ArrowRight className="w-3 h-3" />
+                    <div className="w-6 h-6 rounded-full bg-[#F5ECE0] border border-[#E2D5C3] flex items-center justify-center text-[#8B1E1E] transition-all duration-300 group-hover:bg-[#8B1E1E] group-hover:border-[#8B1E1E] group-hover:text-white group-hover:translate-x-0.5 shadow-sm">
+                      <ArrowRight className="w-3 h-3 stroke-[2]" />
                     </div>
                   </div>
                 </div>
@@ -444,22 +484,24 @@ export const Hero: React.FC<HeroProps> = ({
               }
             }}
             aria-label="Learn about sustainable energy for Maharashtra communities"
-            className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F4F1EB] border border-stone-200/80 flex items-center justify-between gap-3 cursor-pointer group hover:border-[#8B1E1E]/30 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40"
+            className="mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F7F3EB] border border-[#E4D7C5] flex items-center justify-between gap-3 cursor-pointer group hover:border-[#8B1E1E]/40 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 shadow-sm"
           >
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center shrink-0 group-hover:bg-[#8B1E1E] group-hover:text-white transition-colors">
-                <Leaf className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] shadow-[0_2px_8px_rgba(42,33,24,0.06)] text-[#8B1E1E] flex items-center justify-center shrink-0 group-hover:border-[#8B1E1E]/40 group-hover:scale-105 transition-all">
+                <Leaf className="w-4.5 h-4.5 stroke-[1.65]" />
               </div>
               <div className="min-w-0">
-                <h4 className="font-heading text-xs sm:text-sm font-bold text-stone-900 group-hover:text-[#8B1E1E] transition-colors truncate">
+                <h4 className="font-serif text-sm sm:text-base font-medium text-stone-900 group-hover:text-[#8B1E1E] transition-colors truncate">
                   A Cleaner, Brighter Maharashtra
                 </h4>
-                <p className="text-[11px] sm:text-xs text-stone-600 truncate mt-0.5">
+                <p className="text-[11px] sm:text-xs text-stone-600 truncate mt-0.5 font-sans">
                   Sustainable energy for stronger communities.
                 </p>
               </div>
             </div>
-            <ArrowRight className="w-4 h-4 text-[#8B1E1E] shrink-0 group-hover:translate-x-1 transition-transform" />
+            <div className="w-6 h-6 rounded-full bg-[#F5ECE0] border border-[#E2D5C3] flex items-center justify-center text-[#8B1E1E] group-hover:bg-[#8B1E1E] group-hover:border-[#8B1E1E] group-hover:text-white group-hover:translate-x-0.5 transition-all shrink-0 shadow-sm">
+              <ArrowRight className="w-3 h-3 stroke-[2]" />
+            </div>
           </div>
         </div>
       </section>
