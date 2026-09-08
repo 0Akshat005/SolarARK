@@ -218,6 +218,7 @@ export default function App() {
               onCtaClick={scrollToContactForm}
               onClaimEstimate={handleClaimEstimate}
               onCalculatorClick={scrollToCalculator}
+              onNavigate={navigateTo}
             />
 
             {/* 3. Which Solution Fits Me: Solutions by Scale */}

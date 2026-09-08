@@ -6,62 +6,29 @@
 import React, { useRef, useState, useEffect } from 'react';
 import {
   BadgeCheck,
-  Layers,
-  Headphones,
   Play,
   Pause,
   Volume2,
-  VolumeX
+  VolumeX,
+  Home,
+  Building2,
+  Layers,
+  Headphones,
+  ArrowRight
 } from 'lucide-react';
 
 interface HeroProps {
   onCtaClick?: () => void;
   onCalculatorClick?: () => void;
   onClaimEstimate?: (data: { pincode: string; monthlyBill: number }) => void;
+  onNavigate?: (path: string) => void;
 }
 
-// ── CUSTOM LINE-ART SVG ICONS MATCHING DESIGN REFERENCE ──
-
-// Real Projects: Building with center tower, archway, and side wings
-const RealProjectsIcon: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.75"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M3 21h18" />
-    <path d="M5 21V10a2 2 0 0 1 2-2h1" />
-    <path d="M16 8h1a2 2 0 0 1 2 2v11" />
-    <rect x="8" y="3" width="8" height="18" rx="2" />
-    <path d="M10 17v4" />
-    <path d="M14 17v4" />
-    <path d="M10 17h4" />
-    <path d="M10 7h4" />
-    <path d="M10 11h4" />
-  </svg>
-);
-
-// Quality Components: 12-scallop rosette circular badge with 5-point star
-const QualityBadgeIcon: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.75"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
-    <polygon points="12 8 13.2 10.8 16.2 11.1 13.9 13.1 14.6 16 12 14.4 9.4 16 10.1 13.1 7.8 11.1 10.8 10.8 12 8" strokeWidth="1.4" />
-  </svg>
-);
-
-export const Hero: React.FC<HeroProps> = () => {
+export const Hero: React.FC<HeroProps> = ({
+  onCtaClick,
+  onCalculatorClick,
+  onNavigate,
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isMuted, setIsMuted] = useState<boolean>(true);
@@ -99,28 +66,88 @@ export const Hero: React.FC<HeroProps> = () => {
     setIsMuted(!isMuted);
   };
 
-  const proofRailItems = [
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const confidenceItems = [
     {
-      icon: RealProjectsIcon,
-      label: 'REAL PROJECTS',
-      sub: 'Across Maharashtra',
+      icon: Home,
+      title: 'For Your Home',
+      description: 'A practical solar solution designed around your energy needs.',
+      action: () => {
+        if (onCalculatorClick) {
+          onCalculatorClick();
+        } else {
+          handleScroll('calculator');
+        }
+      },
+      ariaLabel: 'Explore home solar solutions and calculate savings',
     },
     {
-      icon: QualityBadgeIcon,
-      label: 'QUALITY COMPONENTS',
-      sub: 'Tier-1 technology',
+      icon: Building2,
+      title: 'For Your Business',
+      description: 'Smarter energy for greater control over operating costs.',
+      action: () => {
+        handleScroll('solutions');
+      },
+      ariaLabel: 'Explore commercial and industrial solar solutions',
     },
     {
       icon: Layers,
-      label: 'COMPLETE EPC',
-      sub: 'Design → Install → Commission',
+      title: 'End-to-End Solar',
+      description: 'From consultation and design through installation and commissioning.',
+      action: () => {
+        handleScroll('solutions');
+      },
+      ariaLabel: 'Learn about our turnkey solar engineering process',
     },
     {
       icon: Headphones,
-      label: 'AFTER-SALES',
-      sub: 'Support when you need it',
+      title: 'Support Beyond Installation',
+      description: 'Continued assistance when you need it.',
+      action: () => {
+        if (onCtaClick) {
+          onCtaClick();
+        } else {
+          handleScroll('contact-form');
+        }
+      },
+      ariaLabel: 'Contact our solar advisory and support team',
     },
   ];
+
+  const getDividerClasses = (idx: number) => {
+    // Mobile (< sm): Clean vertical stack with light bottom border
+    let cls = idx < 3 ? 'border-b border-stone-200/60 pb-6 ' : 'pb-0 ';
+
+    // Tablet (sm to lg): 2x2 grid with horizontal and vertical separators
+    if (idx < 2) {
+      cls += 'sm:border-b sm:border-stone-200/80 sm:pb-6 ';
+    } else {
+      cls += 'sm:border-b-0 sm:pt-6 ';
+    }
+
+    if (idx % 2 === 0) {
+      cls += 'sm:border-r sm:border-stone-200/80 sm:pr-6 md:sm:pr-8 ';
+    } else {
+      cls += 'sm:border-r-0 sm:pl-6 md:sm:pl-8 ';
+    }
+
+    // Desktop (lg and up): 4 horizontal columns separated by delicate dividers
+    cls += 'lg:border-b-0 lg:pt-0 lg:pb-0 ';
+    if (idx < 3) {
+      cls += 'lg:border-r lg:border-stone-200/80 ';
+    } else {
+      cls += 'lg:border-r-0 ';
+    }
+    cls += 'lg:px-6 xl:px-8 first:lg:pl-0 last:lg:pr-0';
+
+    return cls;
+  };
 
   return (
     <>
@@ -205,39 +232,60 @@ export const Hero: React.FC<HeroProps> = () => {
         </div>
       </section>
 
-      {/* ── 2. UNBOXED EDITORIAL PROOF RAIL (2x2 Grid on Mobile, 4 Cols on Desktop) ── */}
-      <section className="w-full bg-[#0A0F1D] py-3.5 sm:py-7 border-b border-stone-800/80 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-3.5 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-0 items-center">
-            {proofRailItems.map((item, idx) => {
+      {/* ── 2. EDITORIAL CONFIDENCE BRIDGE (Single Horizontal Information Rail) ── */}
+      <section
+        aria-label="SolarARK Core Capabilities"
+        className="w-full bg-[#FAF8F5] border-b border-stone-200/80 relative z-10"
+      >
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-8 lg:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-0">
+            {confidenceItems.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div
                   key={idx}
-                  className={`flex items-center gap-2.5 sm:gap-4 p-2 sm:p-0 lg:px-6 xl:px-8 ${
-                    idx < 3 ? 'lg:border-r lg:border-white/15' : ''
-                  }`}
+                  onClick={item.action}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      item.action();
+                    }
+                  }}
+                  aria-label={item.ariaLabel}
+                  className={`group cursor-pointer flex flex-col justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/40 focus-visible:ring-offset-2 rounded-lg transition-colors ${getDividerClasses(
+                    idx
+                  )}`}
                 >
-                  {/* Standalone Golden Line-Art Icon (Zero Box Container) */}
-                  <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#E5A93C] shrink-0 stroke-[1.75]" />
+                  <div className="space-y-3">
+                    {/* Compact, understated line icon */}
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#8B1E1E]/8 text-[#8B1E1E] flex items-center justify-center transition-colors duration-200 group-hover:bg-[#8B1E1E] group-hover:text-white">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.75]" />
+                    </div>
 
-                  {/* Clean Typography Hierarchy */}
-                  <div className="space-y-0.5 min-w-0">
-                    <h4 className="font-heading text-[11px] sm:text-[13px] font-bold text-white tracking-wider uppercase leading-tight truncate">
-                      {item.label}
-                    </h4>
-                    <p className="text-[10px] sm:text-xs text-slate-300/80 font-normal leading-tight truncate">
-                      {item.sub}
+                    {/* Headline */}
+                    <h3 className="font-heading text-base sm:text-[17px] font-bold text-stone-900 tracking-tight group-hover:text-[#8B1E1E] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+
+                    {/* Supporting Value Copy */}
+                    <p className="text-xs sm:text-[13px] text-stone-600 font-normal leading-relaxed text-left">
+                      {item.description}
                     </p>
+                  </div>
+
+                  {/* Restrained Interactive Action Arrow */}
+                  <div className="pt-3.5 flex items-center">
+                    <ArrowRight className="w-4 h-4 text-[#8B1E1E] transition-transform duration-200 group-hover:translate-x-1" />
                   </div>
                 </div>
               );
             })}
           </div>
-
         </div>
       </section>
     </>
   );
 };
+

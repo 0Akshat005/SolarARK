@@ -256,7 +256,7 @@
      Ensures all paragraphs and body descriptions display with clean,
      balanced justified alignment and proper hyphenation on mobile screens. */
   @media (max-width: 768px) {
-    p:not(.text-center):not([class*="text-center"]) {
+    p:not(.text-center):not([class*="text-center"]):not(.text-left):not([class*="text-left"]) {
       text-align: justify !important;
       text-justify: inter-word;
       hyphens: auto;
