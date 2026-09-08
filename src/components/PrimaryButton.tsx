@@ -25,6 +25,7 @@ export interface PrimaryButtonProps {
   title?: string;
   'aria-label'?: string;
   id?: string;
+  style?: React.CSSProperties;
 }
 
 /**
@@ -33,6 +34,7 @@ export interface PrimaryButtonProps {
  * - Visually dominant warm maroon palette (#8B1E2D, #A93446 hover, #6E1421 depth)
  * - Restrained warm-maroon border highlight
  * - Ambient warm diffused shadow underneath
+ * - Refined rounded-rectangle silhouette (12px sm / 14px md / 16px lg)
  * - Minimalist right arrow with smooth glide on hover (primary)
  * - Secondary mode without arrow for quieter actions (e.g. Contact Us)
  * - Zero AI gloss, zero heavy badges, pure luxury brand feel
@@ -56,9 +58,24 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   title,
   'aria-label': ariaLabel,
   id,
+  style,
 }) => {
   // Arrow defaults to true for primary variant, false for secondary variant
   const shouldShowArrow = showArrow !== undefined ? showArrow : variant === 'primary';
+
+  // Architectural size-specific radii
+  const radiusClasses = {
+    sm: 'rounded-xl',       // 12px
+    md: 'rounded-[14px]',   // 14px
+    lg: 'rounded-2xl',      // 16px
+  }[size];
+
+  const radiusVar = {
+    sm: '12px',
+    md: '14px',
+    lg: '16px',
+  }[size];
+
   // Size-specific padding and typography
   const sizeClasses = {
     sm: 'text-[13px] px-5 py-2 sm:py-2.5 gap-2',
@@ -73,7 +90,8 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   }[size];
 
   const baseClasses = [
-    'group relative inline-flex items-center justify-center font-heading font-semibold rounded-full',
+    'group relative inline-flex items-center justify-center font-heading font-semibold',
+    radiusClasses,
     'text-white tracking-[0.025em] antialiased select-none',
     'transition-all duration-300 ease-out cursor-pointer',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
@@ -85,6 +103,11 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ]
     .filter(Boolean)
     .join(' ');
+
+  const elementStyle: React.CSSProperties = {
+    ['--btn-radius' as string]: radiusVar,
+    ...style,
+  };
 
   const content = (
     <>
@@ -116,6 +139,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         rel={target === '_blank' && !rel ? 'noopener noreferrer' : rel}
         onClick={onClick}
         className={baseClasses}
+        style={elementStyle}
         title={title}
         aria-label={ariaLabel}
       >
@@ -131,6 +155,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       disabled={disabled}
       onClick={onClick}
       className={baseClasses}
+      style={elementStyle}
       title={title}
       aria-label={ariaLabel}
     >

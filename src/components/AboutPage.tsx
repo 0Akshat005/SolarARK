@@ -352,7 +352,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/gallery')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-full px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1730] group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1730] group"
                 >
                   <span>Meet Our Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -520,14 +520,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="w-full md:w-5/12 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-end">
               <button
                 onClick={() => onNavigate('/projects')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E1E] hover:bg-[#A82424] rounded-full px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E1E] hover:bg-[#A82424] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Explore Our Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
               <button
                 onClick={onCtaClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-[#1F1914] bg-[#E8DCCB]/90 hover:bg-[#F2E8DA] border border-[#D5C6B1] rounded-full px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-[#1F1914] bg-[#E8DCCB]/90 hover:bg-[#F2E8DA] border border-[#D5C6B1] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Talk to Our Team
               </button>

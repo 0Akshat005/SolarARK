@@ -21,7 +21,7 @@ export const StickyBars: React.FC<StickyBarsProps> = ({ onCtaClick }) => {
         {/* 1. Direct Instant Dial (Clean & Premium Call Action) */}
         <a
           href="tel:7080909590"
-          className="flex-1 bg-white hover:bg-stone-50 active:scale-[0.98] border border-stone-200 text-[#8B1E1E] font-heading font-bold text-xs py-2.5 px-2 rounded-full flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+          className="flex-1 bg-white hover:bg-stone-50 active:scale-[0.98] border border-stone-200 text-[#8B1E1E] font-heading font-bold text-xs py-2.5 px-2 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
           title="Call Helpline: 7080909590"
           aria-label="Call SolarARK Advisor"
         >

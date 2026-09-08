@@ -268,7 +268,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           <div className="lg:col-span-12 block lg:hidden -mt-2">
             <button
               onClick={onCtaClick}
-              className="w-full inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E2D] hover:bg-[#A82424] rounded-full px-6 py-3.5 min-h-[48px] shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
+              className="w-full inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E2D] hover:bg-[#A82424] rounded-[14px] px-6 py-3.5 min-h-[48px] shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
             >
               <span>Request Free 3D Site Survey</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

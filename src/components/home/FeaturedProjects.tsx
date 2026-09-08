@@ -73,7 +73,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
             <div>
               <button
                 onClick={() => onNavigate('/projects')}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-full border border-stone-300 hover:border-slate-900 text-slate-800 hover:text-slate-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-stone-300 hover:border-slate-900 text-slate-800 hover:text-slate-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />

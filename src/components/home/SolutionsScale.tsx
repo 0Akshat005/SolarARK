@@ -78,7 +78,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             <div>
               <button
                 onClick={() => onNavigate('/services')}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-full border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
               >
                 <span>Explore Solutions</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />

@@ -460,7 +460,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           key={pill.label}
                           type="button"
                           onClick={() => setMonthlyBill(pill.value)}
-                          className={`min-h-[42px] sm:min-h-0 py-2 sm:py-1.5 px-1 sm:px-4 rounded-full text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center ${
+                          className={`min-h-[42px] sm:min-h-0 py-2 sm:py-1.5 px-1 sm:px-4 rounded-xl text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center ${
                             isActive
                               ? 'bg-[#7B1818] text-white shadow-xs'
                               : 'bg-stone-200/50 text-[#374151] hover:bg-stone-200/80 border border-transparent'
@@ -479,7 +479,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     type="button"
                     onClick={handleCalculate}
                     disabled={!isFormValid || isCalculating}
-                    className="w-full h-13 sm:h-13.5 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_6px_18px_-3px_rgba(123,24,24,0.35)] flex items-center justify-between px-3.5 sm:px-4.5 transition-all cursor-pointer group"
+                    className="w-full h-13 sm:h-13.5 rounded-2xl bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_14px_-2px_rgba(123,24,24,0.3)] flex items-center justify-between px-3.5 sm:px-4.5 transition-all cursor-pointer group"
                   >
                     {/* Left Glowing Line Sun Icon */}
                     <div className="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0">
@@ -657,7 +657,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <button
                   type="button"
                   onClick={handleContactExpert}
-                  className="w-full h-12 sm:h-13 rounded-full bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] text-white font-semibold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full h-12 sm:h-13 rounded-[14px] bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] text-white font-semibold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <span>Claim Your ₹78,000 Subsidy Estimate</span>
                   <ArrowRight className="w-4 h-4" />
@@ -789,7 +789,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             <button
               type="button"
               onClick={() => setShowSampleBillModal(false)}
-              className="w-full py-3 rounded-full bg-[#7B1818] text-white text-xs font-bold font-heading hover:bg-[#681414] transition-colors cursor-pointer min-h-[44px]"
+              className="w-full py-3 rounded-xl bg-[#7B1818] text-white text-xs font-bold font-heading hover:bg-[#681414] transition-colors cursor-pointer min-h-[44px]"
             >
               Got it, continue calculation
             </button>

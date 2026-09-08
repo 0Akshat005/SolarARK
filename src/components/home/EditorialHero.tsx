@@ -94,7 +94,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
                 {/* Primary Button */}
                 <button
                   onClick={onAssessmentClick}
-                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#8B1E1E] hover:bg-[#741616] text-white text-sm sm:text-base font-heading font-semibold tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[14px] bg-[#8B1E1E] hover:bg-[#741616] text-white text-sm sm:text-base font-heading font-semibold tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
                 >
                   <span>Get a Solar Assessment</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -103,7 +103,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
                 {/* Secondary Button: Watch Story */}
                 <button
                   onClick={() => setVideoModalOpen(true)}
-                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full border border-stone-300 hover:border-stone-400 bg-white/70 hover:bg-white text-slate-800 text-sm sm:text-base font-heading font-semibold transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-xs"
+                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-[14px] border border-stone-300 hover:border-stone-400 bg-white/70 hover:bg-white text-slate-800 text-sm sm:text-base font-heading font-semibold transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-xs"
                 >
                   <span className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center text-slate-700">
                     <Play className="w-3 h-3 fill-current ml-0.5" />
