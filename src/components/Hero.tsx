@@ -5,7 +5,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import {
-  BadgeCheck,
   Play,
   Pause,
   Volume2,
@@ -201,18 +200,37 @@ export const Hero: React.FC<HeroProps> = ({
           </video>
         </div>
 
-        {/* ── Bottom Gradient Feather & Controls Dock Floating Above Base ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 px-3.5 sm:px-8 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/60 to-transparent pt-16">
-          <div className="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 pointer-events-auto">
+        {/* ── Bottom Gradient Overlay & Editorial Hero Content ── */}
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-8 sm:pb-12 lg:pb-14 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/75 to-transparent pt-28 sm:pt-36">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 pointer-events-auto">
             
-            {/* PM Surya Ghar Authorized EPC Partner Pill */}
-            <div className="eyebrow inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white shadow-sm text-[11px] sm:text-[13px] tracking-wide max-w-full">
-              <BadgeCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
-              <span className="truncate">PM SURYA GHAR AUTHORIZED EPC PARTNER</span>
+            {/* Editorial Headline & Eyebrow (Matching media_1788901232783.png) */}
+            <div className="space-y-3 sm:space-y-4 max-w-2xl">
+              {/* Eyebrow with subtle maroon accent line */}
+              <div className="flex items-start gap-3">
+                <span className="w-8 sm:w-10 h-[2px] bg-[#8B1E1E] mt-2 shrink-0" />
+                <div className="space-y-0.5">
+                  <p className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-white/85 uppercase font-sans">
+                    TRUSTED BY HOMES.
+                  </p>
+                  <p className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-white/85 uppercase font-sans">
+                    BUSINESSES &amp; A CLEANER TOMORROW
+                  </p>
+                </div>
+              </div>
+
+              {/* Serif Display Headline */}
+              <h1
+                className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-normal text-white tracking-tight leading-[1.12]"
+                style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.6)' }}
+              >
+                Reliable Solar Solutions.<br />
+                Real Impact.
+              </h1>
             </div>
 
-            {/* Minimalist On-Site Video Controls Dock with ergonomic tap hit areas */}
-            <div className="flex items-center gap-2.5 sm:gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 sm:px-3.5 py-1.5 shadow-sm">
+            {/* Minimalist On-Site Video Controls Dock */}
+            <div className="flex items-center gap-2.5 sm:gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 sm:px-3.5 py-1.5 shadow-sm self-start md:self-end">
               <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-slate-300">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
                 <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
@@ -335,10 +353,26 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {/* ── MOBILE / TABLET VIEW (< lg / 1024px): Intentional 2×2 Composition Directly Below Hero ── */}
-        <div className="block lg:hidden px-4 sm:px-6 py-6 sm:py-8 max-w-2xl mx-auto">
+        {/* ── MOBILE / TABLET VIEW (< lg / 1024px): Intentional 2×2 "Why SolarARK" Composition Matching Mobile Reference ── */}
+        <div className="block lg:hidden px-4 sm:px-6 py-8 sm:py-10 max-w-2xl mx-auto">
+          {/* Header */}
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-[2px] bg-[#8B1E1E]" />
+              <span className="text-[11px] font-bold tracking-[0.16em] text-stone-500 uppercase">
+                WHY SOLARARK
+              </span>
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight">
+              Powering What Matters to You
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed text-left pt-0.5">
+              From homes to businesses, we make solar simple, reliable and worry-free.
+            </p>
+          </div>
+
           {/* 2×2 Cross-Divider Grid Matching Reference */}
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 mt-6">
             {mobileGridItems.map((item, idx) => {
               const Icon = item.icon;
               return (
