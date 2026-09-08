@@ -48,7 +48,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] border-b border-stone-200/80 overflow-hidden">
+    <section className="w-full bg-[#FAF8F5] border-b border-stone-200/80 overflow-hidden">
       
       {/* ── 3-ZONE EDITORIAL INTRO ROW (LEFT PADDED, RIGHT FLUSH TO VIEWPORT EDGE) ── */}
       <div className="w-full pl-5 sm:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 pr-0 pt-5 sm:pt-6 lg:pt-7 pb-5 sm:pb-6">
@@ -63,7 +63,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
               <span className="w-7 h-px bg-stone-300" />
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-slate-900 tracking-tight leading-[1.03]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-stone-900 tracking-tight leading-[1.03]">
               Solar for<br />
               <span className="text-[#8B1E1E]">every scale.</span>
             </h2>

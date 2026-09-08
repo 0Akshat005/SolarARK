@@ -30,7 +30,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
   return (
     <div
-      className="min-h-screen bg-[#FAF9F6] text-slate-900 overflow-x-hidden selection:bg-[#8B1E1E] selection:text-white"
+      className="min-h-screen bg-[#FAF8F5] text-stone-900 overflow-x-hidden selection:bg-[#8B1E1E] selection:text-white"
       itemScope
       itemType="https://schema.org/Organization"
     >
@@ -43,7 +43,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Right: Integrated executive founder portrait with seamless right bleed
           Mobile: Stacked single column with clean margins and breathable padding
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#FAF9F6] border-b border-stone-300/60 overflow-hidden">
+      <section className="relative bg-[#FAF8F5] border-b border-stone-300/60 overflow-hidden">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-0 lg:min-h-[560px]">
 
           {/* Left Column (5 cols on xl, 6 on lg) — Editorial Copy */}
@@ -53,7 +53,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </p>
 
             <h1
-              className="hero-display text-[#0B1730] tracking-tight leading-[1.05] mb-4 sm:mb-6"
+              className="hero-display text-stone-900 tracking-tight leading-[1.05] mb-4 sm:mb-6"
               style={{ fontSize: 'clamp(2.1rem, 1.6rem + 2.4vw, 4.5rem)' }}
             >
               Energy that{' '}
@@ -117,7 +117,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Center (30%): White story panel with "View Our Projects →"
           Mobile: Clean vertical stack with zero overlapping cards
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#0B1730] text-white overflow-hidden">
+      <section className="relative bg-[#0F141C] text-white overflow-hidden">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
           {/* Panel 1: Left (7 cols on lg, 6 on xl) — Rooftop Photo with Quote */}
@@ -138,12 +138,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </div>
 
-          {/* Panel 2: Center (5 cols on lg, 4 on xl) — Crisp White Story Block */}
-          <div className="lg:col-span-5 xl:col-span-4 bg-white text-[#0B1730] px-5 sm:px-12 py-8 sm:py-16 lg:py-20 flex flex-col justify-center">
+          {/* Panel 2: Center (5 cols on lg, 4 on xl) — Warm Ivory Story Block */}
+          <div className="lg:col-span-5 xl:col-span-4 bg-[#FAF8F5] text-stone-900 px-5 sm:px-12 py-8 sm:py-16 lg:py-20 flex flex-col justify-center">
             <p className="eyebrow text-xs text-stone-500 mb-2 sm:mb-3 tracking-[0.2em] uppercase">
               OUR STORY
             </p>
-            <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12] mb-3 sm:mb-4">
+            <h2 className="font-heading font-bold text-stone-900 text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12] mb-3 sm:mb-4">
               Where it all began.
             </h2>
             <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed mb-5 sm:mb-6">
@@ -198,7 +198,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Mobile: Vertical list with subtle dividers between pillars
           Right: Sunlit angled solar module visual
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#FAF9F6] border-b border-stone-300/60 overflow-hidden">
+      <section className="relative bg-[#F4F1EB] border-b border-stone-300/60 overflow-hidden">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
           {/* Left Column (8 cols) — Editorial Content & Procedural Pillars */}
@@ -212,7 +212,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-start">
                 <div className="md:col-span-7">
                   <h2
-                    className="font-heading font-bold text-[#0B1730] tracking-tight leading-[1.08]"
+                    className="font-heading font-bold text-stone-900 tracking-tight leading-[1.08]"
                     style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1.8vw, 3rem)' }}
                   >
                     Good solar is not just technology.
@@ -234,7 +234,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="flex flex-col sm:grid sm:grid-cols-3 divide-y sm:divide-y-0 divide-stone-200/80 pt-6 sm:pt-8 border-t border-stone-300/70">
               <div className="pb-5 sm:pb-0 sm:pr-6 sm:border-r border-stone-300/70">
                 <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">01</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-[#0B1730] tracking-tight mb-1 sm:mb-2">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
                   Thoughtful Design
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
@@ -244,7 +244,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
               <div className="py-5 sm:py-0 sm:px-6 sm:border-r border-stone-300/70">
                 <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">02</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-[#0B1730] tracking-tight mb-1 sm:mb-2">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
                   Reliable Execution
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
@@ -254,7 +254,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
               <div className="pt-5 sm:pt-0 sm:pl-6">
                 <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">03</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-[#0B1730] tracking-tight mb-1 sm:mb-2">
+                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
                   Long-term Support
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
@@ -296,11 +296,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 4 — TEAM BAND ("A team that builds what matters")
-          Dark full-width band (#0B1730):
+          Dark full-width band (#0F141C):
           Mobile: Text above team photo, full-width thumb-friendly button
           Desktop: 65% photo width with left gradient blend
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#0B1730] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
+      <section className="relative w-full bg-[#0F141C] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
         {/* Full-bleed team photo on desktop with seamless left gradient blend */}
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[65%] h-full">
           <img
@@ -309,7 +309,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1730] via-[#0B1730]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F141C] via-[#0F141C]/75 to-transparent" />
         </div>
 
         {/* Content Layer */}
@@ -340,7 +340,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1730]/90 via-[#0B1730]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F141C]/90 via-[#0F141C]/30 to-transparent" />
                 <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 max-w-[240px] text-right">
                   <p className="font-heading italic text-stone-200 text-xs sm:text-sm leading-snug">
                     “Different perspectives.{' '}
@@ -352,7 +352,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/gallery')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1730] group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F141C] group"
                 >
                   <span>Meet Our Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -380,7 +380,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Mobile: Clean vertical stack with numbered badges & 1-line descriptions
           Desktop: 4 columns separated by 1px vertical hairline dividers
           ════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#FAF9F6] border-b border-stone-300/60 py-8 sm:py-10 lg:py-11">
+      <section className="bg-[#FAF8F5] border-b border-stone-300/60 py-8 sm:py-10 lg:py-11">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-0 items-stretch">
 
@@ -390,7 +390,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 HOW WE WORK
               </p>
               <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-4">
-                <h2 className="font-heading font-bold text-[#0B1730] text-2xl sm:text-[26px] lg:text-[28px] tracking-tight leading-[1.12]">
+                <h2 className="font-heading font-bold text-stone-900 text-2xl sm:text-[26px] lg:text-[28px] tracking-tight leading-[1.12]">
                   From understanding
                   <br />
                   to lasting impact.
@@ -447,7 +447,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       <span className="hidden sm:block text-xs font-heading font-bold text-stone-400 mb-2">
                         {step.num}
                       </span>
-                      <h3 className="font-heading text-sm sm:text-[15px] lg:text-base font-bold text-[#0B1730] tracking-tight leading-snug">
+                      <h3 className="font-heading text-sm sm:text-[15px] lg:text-base font-bold text-stone-900 tracking-tight leading-snug">
                         {step.title}
                       </h3>
                       <p className="text-xs text-stone-500 mt-1 leading-relaxed sm:hidden">

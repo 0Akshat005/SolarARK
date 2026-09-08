@@ -99,13 +99,13 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   const commercialCount = useMemo(() => PROJECT_CASE_STUDIES.filter(p => p.category === 'Commercial & Industrial').length, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-24">
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-24">
 
 
 
       {/* ── 2. HERO SHOWCASE HEADER ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-slate-900 shadow-md overflow-hidden border border-stone-200/90">
+        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-stone-900 shadow-md overflow-hidden border border-stone-200/90">
           {/* Subtle Ambient Warmth */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -125,7 +125,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <div className="flex items-center gap-3 text-xs text-stone-600">
                 <span className="flex items-center gap-1 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> Zero Slab Damage Guarantee
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> 100% DISCOM Compliant
                 </span>
                 <span className="hidden sm:inline text-stone-300">•</span>
                 <span className="hidden sm:flex items-center gap-1 font-medium">
@@ -137,14 +137,14 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
             {/* Title & Action Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
               <div className="lg:col-span-8 space-y-3.5">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading tracking-tight leading-[1.12] text-stone-900">
                   Explore SolarArk’s <br />
-                  <span className="text-[#0B1730]">
+                  <span className="text-stone-900">
                     Verified Completed Projects
                   </span>
                 </h1>
                 <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-2xl">
-                  Powering over <strong className="text-slate-900">5,000+ rooftops across Maharashtra</strong>. Explore real residential villas, housing societies, industrial factories, and on-site video walkthroughs with verified electricity bill reductions.
+                  Powering over <strong className="text-stone-900">5,000+ rooftops across Maharashtra</strong>. Explore real residential villas, housing societies, industrial factories, and on-site video walkthroughs with verified electricity bill reductions.
                 </p>
               </div>
 
@@ -172,7 +172,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   <span className="text-xs text-stone-500 font-medium">Commissioned</span>
                   <Sun className="w-4 h-4 text-amber-600" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-[#0B1730] font-heading">5,000+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-stone-900 font-heading">5,000+</div>
                 <div className="text-[11px] text-amber-800 font-medium mt-0.5">Rooftops Across MH</div>
               </div>
 
@@ -181,7 +181,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   <span className="text-xs text-stone-500 font-medium">Clean EPC Capacity</span>
                   <Gauge className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-[#0B1730] font-heading">35+ MW</div>
+                <div className="text-2xl sm:text-3xl font-bold text-stone-900 font-heading">35+ MW</div>
                 <div className="text-[11px] text-blue-800 font-medium mt-0.5">Installed &amp; Grid-Synced</div>
               </div>
 

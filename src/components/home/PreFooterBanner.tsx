@@ -29,7 +29,7 @@ export const PreFooterBanner: React.FC<PreFooterBannerProps> = ({ onCtaClick }) 
           
           {/* Left / Center: Headline & Subtitle */}
           <div className="space-y-3 max-w-xl">
-            <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-amber-400">
+            <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-amber-500">
               Let's Build a Brighter Tomorrow
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">

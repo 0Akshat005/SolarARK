@@ -46,7 +46,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80">
+    <section className="w-full bg-[#FAF8F5] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80">
       
       {/* ── EXPANSIVE HORIZONTAL CANVAS (Tight Controlled Margins) ── */}
       <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
@@ -64,7 +64,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
                 <span className="w-8 h-px bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-stone-900 tracking-tight leading-[1.08]">
                 Real spaces.<br />
                 <span className="text-[#8B1E1E]">Real impact.</span>
               </h2>
@@ -73,7 +73,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
             <div>
               <button
                 onClick={() => onNavigate('/projects')}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-stone-300 hover:border-slate-900 text-slate-800 hover:text-slate-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-stone-300 hover:border-stone-900 text-stone-800 hover:text-stone-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />

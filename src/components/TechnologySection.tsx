@@ -14,7 +14,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
   const selectedTech = TECH_SPECS[activeTechIndex];
 
   return (
-    <section id="technology" className="py-20 bg-[#FAF9F6] text-slate-900 border-b border-stone-200">
+    <section id="technology" className="py-20 bg-[#FAF8F5] text-stone-900 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
@@ -24,7 +24,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
             <span>Industrial-Grade Hardware &amp; Software</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#0B1730] tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-stone-900 tracking-tight">
             Tier-1 German &amp; Japanese Solar Engineering
           </h2>
 
@@ -48,14 +48,14 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                   className={`w-full text-left p-5 rounded-2xl border transition-all text-xs font-medium flex items-center justify-between cursor-pointer ${
                     isActive
                       ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-md'
-                      : 'bg-white border-stone-200 text-stone-600 hover:text-slate-900 hover:bg-stone-50'
+                      : 'bg-white border-stone-200 text-stone-600 hover:text-stone-900 hover:bg-stone-50'
                   }`}
                 >
                   <div>
                     <span className={`text-[10px] uppercase font-semibold ${isActive ? 'text-amber-200' : 'text-stone-400'}`}>
                       {spec.category}
                     </span>
-                    <div className={`text-sm font-semibold font-heading mt-0.5 ${isActive ? 'text-white' : 'text-slate-900'}`}>
+                    <div className={`text-sm font-semibold font-heading mt-0.5 ${isActive ? 'text-white' : 'text-stone-900'}`}>
                       {spec.title}
                     </div>
                   </div>
@@ -63,7 +63,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                   <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-lg border ${
                     isActive
                       ? 'bg-white/20 text-white border-white/30'
-                      : 'bg-stone-100 text-slate-700 border-stone-200'
+                      : 'bg-stone-100 text-stone-700 border-stone-200'
                   }`}>
                     {spec.badge}
                   </span>
@@ -85,7 +85,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold font-heading text-[#0B1730]">
+              <h3 className="text-2xl font-semibold font-heading text-stone-900">
                 {selectedTech.title}
               </h3>
 
@@ -96,7 +96,7 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
 
             {/* Spec Bullet List */}
             <div className="space-y-3">
-              <span className="text-xs font-bold text-slate-800 uppercase tracking-wider font-heading">
+              <span className="text-xs font-bold text-stone-800 uppercase tracking-wider font-heading">
                 Engineering Specifications &amp; Certifications:
               </span>
 

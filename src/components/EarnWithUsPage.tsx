@@ -191,7 +191,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
       
 
 
@@ -211,8 +211,8 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
               WebkitMaskComposite: 'source-in'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent lg:via-[#FAF9F6]/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/85 to-transparent lg:via-[#FAF8F5]/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-transparent to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -226,7 +226,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
 
             {/* High-Intent Headline */}
             <div className="space-y-1.5">
-              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-stone-900 font-heading tracking-tight leading-[1.12] m-0">
                 Earn ₹15,000+ Per Referral. <br />
                 <span className="text-accent-light">Zero Hassle. Zero Investment.</span>
               </h1>
@@ -318,7 +318,7 @@ export const EarnWithUsPage: React.FC<EarnWithUsPageProps> = ({
                 <Gift className="w-3.5 h-3.5" />
                 <span>Free Onboarding Kit</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0B1730] tracking-tight leading-snug">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-snug">
                 Everything You Need to Succeed from Day One
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">

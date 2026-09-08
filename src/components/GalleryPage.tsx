@@ -94,7 +94,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
       
 
 
@@ -109,11 +109,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8 space-y-3">
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-stone-900 font-heading tracking-tight leading-[1.14]">
                 SolarArk Gallery &amp; <br className="hidden sm:inline" />
                 <span className="text-accent-light">Community Moments</span>
               </h1>
-              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-2xl">
                 Explore highlights from our presence at CREDAI property expos, Bharatcon exhibitions, annual Surya Mitra partner meets, festive celebrations, and customer appreciation events across Maharashtra.
               </p>
             </div>
@@ -136,7 +136,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
       {/* ── 3. EVENT HIGHLIGHT VIDEO REELS ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16">
-        <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-slate-900 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md border border-stone-200/90 relative overflow-hidden space-y-6">
+        <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-stone-900 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md border border-stone-200/90 relative overflow-hidden space-y-6">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 flex items-center justify-between border-b border-stone-200/80 pb-4">
@@ -145,7 +145,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 <Film className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-[#0B1730]">
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-stone-900">
                   Event Highlights &amp; Video Moments
                 </h3>
                 <p className="text-xs text-stone-600 font-normal">

@@ -199,7 +199,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#8B1E1E] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-stone-900 font-sans selection:bg-[#8B1E1E] selection:text-white">
       {/* Universal Header */}
       <Header
         onCtaClick={scrollToContactForm}

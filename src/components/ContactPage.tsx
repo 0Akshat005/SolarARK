@@ -109,7 +109,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div 
-      className="pt-20 lg:pt-24 pb-8 min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="pt-20 lg:pt-24 pb-8 min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white"
       itemScope 
       itemType="https://schema.org/SolarEnergyContractor"
     >
@@ -130,7 +130,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ── 2. EXECUTIVE HERO SHOWCASE BANNER ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-slate-900 shadow-md border border-stone-200/90 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-stone-900 shadow-md border border-stone-200/90 overflow-hidden">
           
           {/* Subtle Ambient Light Glows */}
           <div className="absolute -top-28 -right-28 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -144,9 +144,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 <span>OFFICIAL SOLARARK CUSTOMER &amp; PARTNER DESK</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-heading tracking-tight leading-[1.12] text-stone-900">
                 Connect with Our Certified <br />
-                <span className="text-[#0B1730]">Solar Rooftop EPC Experts in Maharashtra</span>
+                <span className="text-stone-900">Solar Rooftop EPC Experts in Maharashtra</span>
               </h1>
 
               <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-2xl">
@@ -277,7 +277,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 <FileCheck className="w-3.5 h-3.5 text-[#8B1E1E]" />
                 <span>Free 3D Rooftop Survey</span>
               </div>
-              <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-[#0B1730] tracking-tight leading-[1.18] m-0">
+              <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-stone-900 tracking-tight leading-[1.18] m-0">
                 Request a Free Solar Site Assessment
               </h2>
               <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">

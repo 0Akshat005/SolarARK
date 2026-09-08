@@ -118,13 +118,13 @@ export const CareersPage: React.FC<CareersPageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-slate-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
       
 
 
       {/* ── 2. HERO SHOWCASE: TWO-COLUMN LUXURY STUDIO LAYOUT ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-slate-900 shadow-md overflow-hidden border border-stone-200/90">
+        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-stone-900 shadow-md overflow-hidden border border-stone-200/90">
           
           {/* Subtle Warmth Accents */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -147,7 +147,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
               {/* Main Headline */}
               <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold font-heading tracking-tight leading-[1.12] text-[#0B1730]">
+                <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold font-heading tracking-tight leading-[1.12] text-stone-900">
                   Empower Your Career with <br />
                   <span className="text-accent-light">
                     SolarArk Projects
@@ -161,10 +161,10 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               {/* Official Mission Description */}
               <div className="space-y-3 text-stone-600 text-xs sm:text-sm leading-relaxed max-w-xl font-normal">
                 <p>
-                  At <strong className="text-slate-900">SolarArk Projects Pvt. Ltd.</strong>, we are accelerating India's transition to rooftop clean energy. Join a high-velocity team committed to technical mastery, sustainable engineering, and exceptional customer trust.
+                  At <strong className="text-stone-900">SolarArk Projects Pvt. Ltd.</strong>, we are accelerating India's transition to rooftop clean energy. Join a high-velocity team committed to technical mastery, sustainable engineering, and exceptional customer trust.
                 </p>
                 <p className="text-stone-500 text-xs">
-                  Exciting opportunities across <strong className="text-slate-800">Sales, Engineering, CAD Design, Government DISCOM Liaison, and Project Operations</strong> across Maharashtra.
+                  Exciting opportunities across <strong className="text-stone-800">Sales, Engineering, CAD Design, Government DISCOM Liaison, and Project Operations</strong> across Maharashtra.
                 </p>
               </div>
 
@@ -269,7 +269,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">#1 Solar EPC</div>
+                <div className="text-xl sm:text-2xl font-bold text-stone-900 font-heading">#1 Solar EPC</div>
                 <div className="text-xs text-stone-500 font-medium">Central India Leader</div>
               </div>
             </div>
@@ -279,7 +279,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <TrendingUp className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">35+ MW</div>
+                <div className="text-xl sm:text-2xl font-bold text-stone-900 font-heading">35+ MW</div>
                 <div className="text-xs text-stone-500 font-medium">Capacity Commissioned</div>
               </div>
             </div>
@@ -289,7 +289,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Zap className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">100% Growth</div>
+                <div className="text-xl sm:text-2xl font-bold text-stone-900 font-heading">100% Growth</div>
                 <div className="text-xs text-stone-500 font-medium">Year-on-Year Expansion</div>
               </div>
             </div>
@@ -299,7 +299,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-xl sm:text-2xl font-bold text-[#0B1730] font-heading">4.8 / 5.0</div>
+                <div className="text-xl sm:text-2xl font-bold text-stone-900 font-heading">4.8 / 5.0</div>
                 <div className="text-xs text-stone-500 font-medium">Team Culture Rating</div>
               </div>
             </div>

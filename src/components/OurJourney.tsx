@@ -213,7 +213,7 @@ export const OurJourney: React.FC = () => {
         </div>
 
         {/* Display Headline */}
-        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-[#0B1730] font-heading tracking-tight leading-[1.12] m-0">
+        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-stone-900 font-heading tracking-tight leading-[1.12] m-0">
           How SolarARK grew, year by year
         </h2>
 
@@ -226,7 +226,7 @@ export const OurJourney: React.FC = () => {
         />
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1">
+        <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1">
           From a small beginning in Nagpur to thousands of happy customers and new horizons across Maharashtra.
         </p>
       </div>
@@ -327,11 +327,11 @@ export const OurJourney: React.FC = () => {
                 className="journey-node-bottom text-center px-2"
                 style={{ transitionDelay: `${0.20 + idx * 0.16}s` }}
               >
-                <h3 className="font-heading text-[#0B1730] font-bold text-base sm:text-[17px] m-0 mb-2 leading-snug tracking-tight">
+                <h3 className="font-heading text-stone-900 font-bold text-base sm:text-[17px] m-0 mb-2 leading-snug tracking-tight">
                   {m.title}
                 </h3>
 
-                <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed m-0 font-normal">
+                <p className="text-stone-600 text-xs sm:text-[13px] leading-relaxed m-0 font-normal">
                   {m.description}
                 </p>
               </div>
@@ -383,11 +383,11 @@ export const OurJourney: React.FC = () => {
                     />
                   </div>
 
-                  <h3 className="font-heading text-[#0B1730] font-bold text-sm sm:text-base leading-snug">
+                  <h3 className="font-heading text-stone-900 font-bold text-sm sm:text-base leading-snug">
                     {m.title}
                   </h3>
 
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed font-normal">
                     {m.description}
                   </p>
                 </div>

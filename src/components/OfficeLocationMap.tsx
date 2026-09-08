@@ -34,7 +34,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
           <Navigation className="w-3.5 h-3.5 text-stone-600" />
           <span>Regional Footprint &amp; Map</span>
         </div>
-        <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-[#0B1730] tracking-tight leading-[1.18] m-0">SolarArk Registered Offices</h2>
+        <h2 className="font-heading text-2xl sm:text-[28px] font-bold text-stone-900 tracking-tight leading-[1.18] m-0">SolarArk Registered Offices</h2>
         <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed m-0">Select a regional center to view its address, engineering service desk &amp; live map.</p>
       </div>
 

@@ -109,7 +109,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
   return (
     <section
       aria-label="Built in Maharashtra"
-      className={`w-full bg-[#FAF9F6] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80 ${className}`}
+      className={`w-full bg-[#F4F1EB] py-8 sm:py-10 lg:py-12 border-b border-stone-300/60 ${className}`}
     >
       <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
         {/* ── SINGLE CONTINUOUS HORIZONTAL ROW (lg+) ── */}
@@ -128,7 +128,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
 
             <div className="w-9 h-[1.5px] bg-stone-300 my-3 sm:my-3.5" />
 
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-[#0B1730] tracking-tight leading-[1.08]">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-bold text-stone-900 tracking-tight leading-[1.08]">
               Powering
               <br />
               local progress.
@@ -155,7 +155,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                 <path
                   d="M 46,36 Q 44,70 42,95 T 38,125"
                   fill="none"
-                  stroke="#FAF9F6"
+                  stroke="#F4F1EB"
                   strokeWidth="0.85"
                   strokeLinecap="round"
                   strokeOpacity="0.85"
@@ -163,7 +163,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                 <path
                   d="M 95,32 Q 92,60 100,85 Q 106,105 110,128"
                   fill="none"
-                  stroke="#FAF9F6"
+                  stroke="#F4F1EB"
                   strokeWidth="0.85"
                   strokeLinecap="round"
                   strokeOpacity="0.85"
@@ -171,7 +171,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                 <path
                   d="M 125,26 Q 120,55 130,78 Q 140,95 155,108"
                   fill="none"
-                  stroke="#FAF9F6"
+                  stroke="#F4F1EB"
                   strokeWidth="0.85"
                   strokeLinecap="round"
                   strokeOpacity="0.85"
@@ -179,7 +179,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                 <path
                   d="M 160,34 Q 170,62 178,85"
                   fill="none"
-                  stroke="#FAF9F6"
+                  stroke="#F4F1EB"
                   strokeWidth="0.85"
                   strokeLinecap="round"
                   strokeOpacity="0.85"
@@ -187,7 +187,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                 <path
                   d="M 45,72 Q 85,76 122,70"
                   fill="none"
-                  stroke="#FAF9F6"
+                  stroke="#F4F1EB"
                   strokeWidth="0.85"
                   strokeLinecap="round"
                   strokeOpacity="0.85"

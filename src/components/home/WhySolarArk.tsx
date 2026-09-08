@@ -52,13 +52,13 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
 
   return (
     <>
-      <section className="w-full bg-[#FAF9F6] border-b border-stone-200/80 overflow-hidden">
+      <section className="w-full bg-[#F4F1EB] border-b border-stone-200/80 overflow-hidden">
         
         {/* ── FULL-WIDTH ASYMMETRIC IMAGE + INFORMATION SPLIT (NO Cards) ── */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[500px] lg:min-h-[560px]">
           
           {/* ── LEFT PANEL: EXTENDS DIRECTLY TO LEFT VIEWPORT EDGE (6 COLS) ── */}
-          <div className="lg:col-span-6 relative min-h-[420px] sm:min-h-[480px] lg:min-h-full overflow-hidden flex flex-col justify-end p-8 sm:p-12 lg:p-14 xl:p-16 2xl:pl-24 bg-[#0A1220]">
+          <div className="lg:col-span-6 relative min-h-[420px] sm:min-h-[480px] lg:min-h-full overflow-hidden flex flex-col justify-end p-8 sm:p-12 lg:p-14 xl:p-16 2xl:pl-24 bg-[#0F141C]">
             
             {/* Authentic Rooftop Photo */}
             <img
@@ -101,7 +101,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
           </div>
 
           {/* ── RIGHT PANEL: EXTENDS TO RIGHT VIEWPORT EDGE WITH CLEAN EDITORIAL FIELD (6 COLS) ── */}
-          <div className="lg:col-span-6 bg-[#FAF9F6] p-8 sm:p-12 lg:p-14 xl:p-16 2xl:pr-24 flex flex-col justify-center space-y-8 lg:space-y-10">
+          <div className="lg:col-span-6 bg-[#F4F1EB] p-8 sm:p-12 lg:p-14 xl:p-16 2xl:pr-24 flex flex-col justify-center space-y-8 lg:space-y-10">
             
             {/* Header */}
             <div className="space-y-2">
@@ -112,7 +112,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
                 <span className="w-8 h-px bg-stone-300" />
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-stone-900 tracking-tight leading-[1.08]">
                 A smarter<br />
                 <span className="text-[#8B1E1E]">way to energy.</span>
               </h2>
@@ -135,7 +135,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
 
                     {/* Text beside Icon */}
                     <div className="space-y-1">
-                      <h4 className="font-heading text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug">
+                      <h4 className="font-heading text-sm sm:text-base font-bold text-stone-900 tracking-tight leading-snug">
                         {item.title}
                       </h4>
                       <p className="text-xs text-stone-600 font-normal leading-relaxed max-w-[220px]">

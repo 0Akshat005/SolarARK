@@ -234,7 +234,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#FCFAF7] text-slate-900 selection:bg-[#8B1E2D] selection:text-white">
+    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E2D] selection:text-white">
       
       {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
@@ -245,7 +245,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
               Solutions
             </span>
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-slate-900 tracking-tight leading-[1.08]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-stone-900 tracking-tight leading-[1.08]">
               Energy solutions for{' '}
               <br className="hidden sm:block" />
               every kind of{' '}

@@ -110,6 +110,29 @@
   --font-body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-handwriting: 'Caveat', cursive, sans-serif;
+
+  /* ── Architectural Warm Neutral Palette (60–70% Foundation) ── */
+  --color-warm-ivory: #FAF8F5;
+  --color-warm-cream: #F4F1EB;
+  --color-warm-sand: #EEEAE1;
+  --color-warm-surface: #FFFFFF;
+
+  /* ── Deep Neutral Charcoal & Earth Tones (20–30% Grounding) ── */
+  --color-charcoal-primary: #1C1917;
+  --color-charcoal-heading: #141210;
+  --color-stone-secondary: #57534E;
+  --color-stone-muted: #78716C;
+  --color-stone-divider: #E7E5E4;
+  --color-earth-neutral: #44403C;
+
+  /* ── Restrained Natural Solar Accent ── */
+  --color-solar-amber: #D97706;
+  --color-solar-gold: #B45309;
+
+  /* ── Canonical SolarARK Maroon Signature (5–10% - PRESERVED EXACTLY) ── */
+  --color-brand-maroon: #8B1E1E;
+  --color-brand-maroon-hover: #A82424;
+  --color-brand-maroon-deep: #6E1421;
 }
 
 @layer base {
@@ -156,7 +179,26 @@
     --measure-body: 65ch;
     --measure-hero: 38ch;
 
-    /* ── Canonical Premium Brand Maroon & Crimson Palette ── */
+    /* ── Warm Architectural Canvas & Section Tokens (60–70%) ── */
+    --bg-page: #FAF8F5;             /* Primary page background: warm ivory / soft cream */
+    --bg-section-alt: #F4F1EB;      /* Secondary section: soft sand / warm off-white */
+    --bg-section-muted: #EEEAE1;    /* Understated supporting bands / chips */
+    --bg-surface: #FFFFFF;          /* Elevated card / modal surfaces */
+
+    /* ── Deep Charcoal & Warm Stone Typography Tokens (20–30%) ── */
+    --text-primary: #1C1917;        /* Deep warm charcoal body text */
+    --text-heading: #141210;        /* Deep architectural charcoal headings */
+    --text-secondary: #57534E;      /* Muted warm stone for secondary copy */
+    --text-muted: #78716C;          /* Understated supporting / timestamp text */
+    --border-subtle: #E7E5E4;       /* Subtle warm dividers and borders */
+    --border-medium: #D6D3D1;       /* Medium warm structural borders */
+
+    /* ── Restrained Natural Solar Accent ── */
+    --solar-accent: #D97706;        /* Natural warm sun / solar accent */
+    --solar-accent-subtle: #B45309; /* High-contrast solar gold */
+    --solar-tint: rgba(217, 119, 6, 0.08);
+
+    /* ── Canonical Premium Brand Maroon & Crimson Palette (PRESERVED EXACTLY) ── */
     --brand-primary: #8B1E1E;
     --brand-primary-deep: #540D0D;
     --brand-primary-dark: #450A0A;
@@ -166,11 +208,11 @@
     --brand-maroon-deep: #540D0D;
 
     /* Brand Gold/Amber Tokens */
-    --brand-gold: #E27D16;
-    --brand-gold-light: #FFB020;
-    --color-solar-gold: #FFB020;
-    --color-savings-green: #10B981;
-    --color-solar-navy: #0B1730;
+    --brand-gold: #D97706;
+    --brand-gold-light: #F59E0B;
+    --color-solar-gold: #D97706;
+    --color-savings-green: #15803D;
+    --color-solar-navy: #0F141C;
 
     /* Canonical Brand Gradients with Rich Crimson Specular Sheen */
     --gradient-primary: linear-gradient(180deg, #A82424 0%, #8B1E1E 48%, #540D0D 100%);
@@ -188,8 +230,8 @@
     font-family: var(--font-body);
     font-weight: var(--weight-regular);
     line-height: var(--lh-body);
-    color: #0F172A;
-    background-color: #F8FAFC;
+    color: var(--text-primary, #1C1917);
+    background-color: var(--bg-page, #FAF8F5);
     overflow-x: hidden;
   }
 
@@ -199,6 +241,7 @@
     font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
     line-height: var(--lh-heading);
+    color: var(--text-heading, #141210);
   }
 
   /* H3/H4 stay on Body family (Instrument Sans) at semibold */
@@ -206,6 +249,7 @@
     font-family: var(--font-body);
     font-weight: var(--weight-semibold);
     line-height: var(--lh-heading);
+    color: var(--text-heading, #141210);
   }
 
   /* ── Mobile Paragraph Justification (All over website for mobile viewports) ──
@@ -290,13 +334,13 @@
     color: #F5EDE0;
   }
 
-  /* On light/neutral backgrounds (Warm Golden-Bronze to Champagne Accent Gradient) */
+  /* On light/neutral backgrounds (Warm Architectural Bronze-Charcoal Gradient) */
   .text-accent-light {
-    background: linear-gradient(100deg, #3B2A1A 0%, #8A6132 50%, #B88546 100%);
+    background: linear-gradient(100deg, #1C1917 0%, #44403C 50%, #78716C 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: #4A3C2B;
+    color: #1C1917;
   }
 }
 
@@ -355,18 +399,14 @@ a.bg-\[\#8B1E1E\]:active {
   transform: none !important;
 }
 
-/* Glassmorphism helpers */
+/* Warm architectural surface panels */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: #FAF8F5;
+  border: 1px solid #E7E5E4;
 }
 
 .glass-panel-dark {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #0F141C;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 

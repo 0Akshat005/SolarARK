@@ -209,7 +209,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             {/* Display Headline in Playfair Display Serif */}
             <div>
               <h2
-                className="text-3xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-bold text-[#111827] leading-[1.05] tracking-tight"
+                className="text-3xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-bold text-stone-900 leading-[1.05] tracking-tight"
                 style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
               >
                 See your
@@ -219,7 +219,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             </div>
 
             {/* Subline */}
-            <p className="text-sm sm:text-base text-[#4B5563] font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
               Know your solar savings in 30 seconds.
             </p>
 
@@ -233,7 +233,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="font-bold text-sm font-heading leading-none">₹</span>
                   </div>
                   <div className="leading-tight">
-                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                    <span className="text-xs font-bold text-stone-900 block font-heading">
                       Accurate savings
                     </span>
                     <span className="text-[10px] text-stone-500 font-medium block">
@@ -250,7 +250,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <Shield className="w-3.5 h-3.5" strokeWidth={2.2} />
                   </div>
                   <div className="leading-tight">
-                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                    <span className="text-xs font-bold text-stone-900 block font-heading">
                       Govt. subsidy
                     </span>
                     <span className="text-[10px] text-stone-500 font-medium block">
@@ -267,7 +267,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />
                   </div>
                   <div className="leading-tight">
-                    <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                    <span className="text-xs font-bold text-stone-900 block font-heading">
                       25-year assurance
                     </span>
                     <span className="text-[10px] text-stone-500 font-medium block">
@@ -311,7 +311,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 >
                   {currentStep > 1 ? '✓' : '1'}
                 </span>
-                <span className="text-xs sm:text-[13px] font-semibold text-[#111827] font-heading whitespace-nowrap">
+                <span className="text-xs sm:text-[13px] font-semibold text-stone-900 font-heading whitespace-nowrap">
                   Your Details
                 </span>
               </div>
@@ -325,15 +325,15 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   className="w-6 h-6 rounded-full text-xs font-medium flex items-center justify-center shrink-0 transition-colors"
                   style={{
                     backgroundColor: currentStep >= 2 ? '#7B1818' : 'transparent',
-                    border: currentStep >= 2 ? 'none' : '1px solid #D1D5DB',
-                    color: currentStep >= 2 ? 'white' : '#6B7280',
+                    border: currentStep >= 2 ? 'none' : '1px solid #D6D3D1',
+                    color: currentStep >= 2 ? 'white' : '#78716C',
                   }}
                 >
                   2
                 </span>
                 <span
                   className="text-xs sm:text-[13px] font-medium transition-colors whitespace-nowrap"
-                  style={{ color: currentStep >= 2 ? '#111827' : '#6B7280' }}
+                  style={{ color: currentStep >= 2 ? '#1C1917' : '#78716C' }}
                 >
                   Your Savings
                 </span>
@@ -349,7 +349,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <div className="flex items-center justify-between">
                     <label
                       htmlFor="calc-pincode-input"
-                      className="text-xs sm:text-[12.5px] font-semibold text-[#1F2937]"
+                      className="text-xs sm:text-[12.5px] font-semibold text-stone-900"
                     >
                       Enter your location (Pincode)
                     </label>
@@ -377,7 +377,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
                       placeholder="6-digit pincode (e.g. 444601)"
-                      className="min-w-0 flex-1 bg-transparent text-sm sm:text-base font-semibold text-[#111827] placeholder:text-stone-400 focus:outline-none"
+                      className="min-w-0 flex-1 bg-transparent text-sm sm:text-base font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none"
                     />
 
                     {/* MSEDCL Serviceability compact pill (Responsive width to prevent mobile overflow) */}
@@ -399,7 +399,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 {/* 2. MONTHLY BILL INTERACTION: LARGE AMOUNT, CLEAN SLIDER, COMPACT PRESETS */}
                 <div className="space-y-2 pt-1">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-semibold text-[#1F2937]">
+                    <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-semibold text-stone-900">
                       <span>Average monthly electricity bill</span>
                       <Info
                         className="w-3.5 h-3.5 text-stone-400 cursor-help"
@@ -420,7 +420,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <div className="text-center py-1.5 sm:py-2">
                     <div className="inline-flex items-baseline gap-1.5">
                       <span
-                        className="text-3xl sm:text-4xl sm:text-[46px] font-bold text-[#111827] tracking-tight tabular-nums leading-none font-heading"
+                        className="text-3xl sm:text-4xl sm:text-[46px] font-bold text-stone-900 tracking-tight tabular-nums leading-none font-heading"
                       >
                         {formatINR(monthlyBill)}
                       </span>
@@ -463,7 +463,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           className={`min-h-[42px] sm:min-h-0 py-2 sm:py-1.5 px-1 sm:px-4 rounded-xl text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center ${
                             isActive
                               ? 'bg-[#7B1818] text-white shadow-xs'
-                              : 'bg-stone-200/50 text-[#374151] hover:bg-stone-200/80 border border-transparent'
+                              : 'bg-stone-200/50 text-stone-700 hover:bg-stone-200/80 border border-transparent'
                           }`}
                         >
                           {pill.label}
@@ -505,7 +505,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   </button>
 
                   {/* Micro-Trust Reassurances: Clean Inline Row */}
-                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-[#55504A] pt-1 font-medium select-none">
+                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-stone-600 pt-1 font-medium select-none">
                     <span className="flex items-center gap-1">
                       <Zap className="w-3.5 h-3.5 text-[#801414]" />
                       Takes 30 seconds
@@ -532,7 +532,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           <span className="font-bold text-sm font-heading leading-none">₹</span>
                         </div>
                         <div className="leading-tight">
-                          <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                          <span className="text-xs font-bold text-stone-900 block font-heading">
                             Accurate savings
                           </span>
                           <span className="text-[10px] text-stone-500 font-medium block">
@@ -547,7 +547,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           <Shield className="w-3.5 h-3.5" strokeWidth={2.2} />
                         </div>
                         <div className="leading-tight">
-                          <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                          <span className="text-xs font-bold text-stone-900 block font-heading">
                             Govt. subsidy
                           </span>
                           <span className="text-[10px] text-stone-500 font-medium block">
@@ -562,7 +562,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           <FileText className="w-3.5 h-3.5" strokeWidth={2.2} />
                         </div>
                         <div className="leading-tight">
-                          <span className="text-xs font-bold text-[#1F2937] block font-heading">
+                          <span className="text-xs font-bold text-stone-900 block font-heading">
                             25-year assurance
                           </span>
                           <span className="text-[10px] text-stone-500 font-medium block">
@@ -584,7 +584,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <div className="space-y-4 animate-in fade-in duration-300">
                 <div className="flex items-center justify-between pb-2 border-b border-stone-300/60">
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#111827] font-heading">
+                    <h3 className="text-base sm:text-lg font-bold text-stone-900 font-heading">
                       Your Solar Recommendation
                     </h3>
                     <p className="text-xs text-stone-500">
@@ -607,7 +607,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       System Size
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
                       {calculatedResults.systemSizeKw} kW
                     </div>
                     <span className="text-[10px] sm:text-[10.5px] text-stone-500">Rooftop PV Array</span>
@@ -627,7 +627,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       Annual Savings
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
                       {formatINR(calculatedResults.annualSavings)}
                     </div>
                     <span className="text-[10px] sm:text-[10.5px] text-stone-500">Direct cash retained</span>
@@ -637,7 +637,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
                       Payback Period
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-[#111827] font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
                       {calculatedResults.paybackYears.toFixed(1)} Yrs
                     </div>
                     <span className="text-[10px] sm:text-[10.5px] text-stone-500">With ₹78k subsidy</span>
@@ -671,7 +671,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             {/* Left: Homeowner Trust Proof */}
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-[#801414] shrink-0" />
-              <span className="text-xs font-medium text-[#374151]">
+              <span className="text-xs font-medium text-stone-600">
                 Trusted by 1,000+ homeowners across Maharashtra
               </span>
             </div>
@@ -683,7 +683,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <path d="M14 18 L24 2 L21 11 L28 11 L18 27 L21 18 Z" fill="#CC0000" opacity="0.6" />
               </svg>
               <div className="text-left leading-tight">
-                <span className="text-[11px] sm:text-[11.5px] font-black tracking-wider text-[#1F2937] block font-heading">
+                <span className="text-[11px] sm:text-[11.5px] font-black tracking-wider text-stone-900 block font-heading">
                   MAHAVITARAN
                 </span>
                 <span className="text-[7.5px] text-stone-500 font-medium block">
@@ -762,7 +762,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
             <div className="flex items-center gap-2 text-[#801414]">
               <FileText className="w-5 h-5" />
-              <h4 className="font-bold text-base text-[#111827] font-heading">
+              <h4 className="font-bold text-base text-stone-900 font-heading">
                 Finding Your Bill Amount
               </h4>
             </div>
@@ -774,15 +774,15 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-xs space-y-1.5 text-stone-700">
               <div className="flex justify-between">
                 <span className="font-medium text-stone-500">Typical 1–2 BHK:</span>
-                <span className="font-bold text-[#111827]">₹2,500 – ₹4,500/mo (2–3 kW)</span>
+                <span className="font-bold text-stone-900">₹2,500 – ₹4,500/mo (2–3 kW)</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium text-stone-500">Typical 3–4 BHK:</span>
-                <span className="font-bold text-[#111827]">₹6,000 – ₹10,000/mo (4–6 kW)</span>
+                <span className="font-bold text-stone-900">₹6,000 – ₹10,000/mo (4–6 kW)</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium text-stone-500">Luxury Villa / Bungalow:</span>
-                <span className="font-bold text-[#111827]">₹12,000 – ₹25,000+/mo (8–15 kW)</span>
+                <span className="font-bold text-stone-900">₹12,000 – ₹25,000+/mo (8–15 kW)</span>
               </div>
             </div>
 
@@ -805,7 +805,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <Zap className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
             </div>
             <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
                 Tier-1 Bifacial Solar
               </span>
               <span className="text-[11px] text-stone-500 block">
@@ -819,7 +819,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <Users className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
             </div>
             <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
                 Certified Installers
               </span>
               <span className="text-[11px] text-stone-500 block">
@@ -833,7 +833,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <Award className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
             </div>
             <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-[#111827]">
+              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
                 25-Year Warranty
               </span>
               <span className="text-[11px] text-stone-500 block">

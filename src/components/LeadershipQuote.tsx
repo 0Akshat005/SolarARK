@@ -13,7 +13,7 @@ interface LeadershipQuoteProps {
 export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = '' }) => {
   return (
     <section 
-      className={`w-full bg-[#F7F4ED] py-12 sm:py-16 lg:py-20 overflow-hidden border-y border-stone-200/70 relative ${className}`}
+      className={`w-full bg-[#F4F1EB] py-12 sm:py-16 lg:py-20 overflow-hidden border-y border-stone-300/60 relative ${className}`}
     >
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
@@ -49,7 +49,7 @@ export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = ''
             </div>
 
             {/* Dominant Editorial Quote Message (2–3 lines on desktop) */}
-            <blockquote className="font-heading text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold text-[#0B1730] tracking-tight leading-[1.25] text-left m-0 max-w-2xl">
+            <blockquote className="font-heading text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold text-stone-900 tracking-tight leading-[1.25] text-left m-0 max-w-2xl">
               “ Join us in illuminating Maharashtra with clean solar energy. Together, we empower homes and create lasting entrepreneurial livelihoods.”
             </blockquote>
 
@@ -58,10 +58,10 @@ export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = ''
 
             {/* Credible Attribution Hierarchy */}
             <div className="space-y-1 pt-0.5">
-              <h3 className="font-heading text-lg sm:text-xl font-bold text-[#0B1730] tracking-tight m-0">
+              <h3 className="font-heading text-lg sm:text-xl font-bold text-stone-900 tracking-tight m-0">
                 Shrikant Tikhile
               </h3>
-              <p className="text-xs sm:text-sm font-bold text-slate-800 font-heading m-0">
+              <p className="text-xs sm:text-sm font-bold text-stone-800 font-heading m-0">
                 Director, SolarARK Projects Pvt. Ltd.
               </p>
               <p className="text-xs sm:text-sm text-stone-500 font-normal m-0">
