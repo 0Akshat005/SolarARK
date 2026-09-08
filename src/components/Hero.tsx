@@ -335,26 +335,10 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
         </div>
 
-        {/* ── MOBILE / TABLET VIEW (< lg / 1024px): Intentional 2×2 "Why SolarARK" Composition Matching Mobile Reference ── */}
-        <div className="block lg:hidden px-4 sm:px-6 py-8 sm:py-10 max-w-2xl mx-auto">
-          {/* Header */}
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-[2px] bg-[#8B1E1E]" />
-              <span className="text-[11px] font-bold tracking-[0.16em] text-stone-500 uppercase">
-                WHY SOLARARK
-              </span>
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight">
-              Powering What Matters to You
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed text-left pt-0.5">
-              From homes to businesses, we make solar simple, reliable and worry-free.
-            </p>
-          </div>
-
+        {/* ── MOBILE / TABLET VIEW (< lg / 1024px): Intentional 2×2 Composition Directly Below Hero ── */}
+        <div className="block lg:hidden px-4 sm:px-6 py-6 sm:py-8 max-w-2xl mx-auto">
           {/* 2×2 Cross-Divider Grid Matching Reference */}
-          <div className="grid grid-cols-2 mt-6">
+          <div className="grid grid-cols-2">
             {mobileGridItems.map((item, idx) => {
               const Icon = item.icon;
               return (
