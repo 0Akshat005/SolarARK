@@ -201,62 +201,63 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* ── Bottom Gradient Overlay & Editorial Hero Content ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-8 sm:pb-12 lg:pb-14 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/75 to-transparent pt-28 sm:pt-36">
-          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 pointer-events-auto">
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-6 sm:pb-8 lg:pb-10 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/70 to-transparent pt-24 sm:pt-32">
+          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-5 sm:gap-6 pointer-events-auto">
             
-            {/* Editorial Headline & Eyebrow (Matching media_1788901232783.png) */}
-            <div className="space-y-3 sm:space-y-4 max-w-2xl">
+            {/* Editorial Headline & Eyebrow (Refined Scale Matching Reference Exactly) */}
+            <div className="space-y-2.5 sm:space-y-3 max-w-xl">
               {/* Eyebrow with subtle maroon accent line */}
-              <div className="flex items-start gap-3">
-                <span className="w-8 sm:w-10 h-[2px] bg-[#8B1E1E] mt-2 shrink-0" />
+              <div className="flex items-start gap-2.5">
+                <span className="w-6 sm:w-8 h-[2px] bg-[#8B1E1E] mt-1.5 shrink-0" />
                 <div className="space-y-0.5">
-                  <p className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-white/85 uppercase font-sans">
+                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase font-sans">
                     TRUSTED BY HOMES.
                   </p>
-                  <p className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] text-white/85 uppercase font-sans">
+                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase font-sans">
                     BUSINESSES &amp; A CLEANER TOMORROW
                   </p>
                 </div>
               </div>
 
-              {/* Serif Display Headline */}
+              {/* Serif Display Headline: Proportional, Elegant Editorial Sizing */}
               <h1
-                className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] font-normal text-white tracking-tight leading-[1.12]"
-                style={{ textShadow: '0 2px 20px rgba(0, 0, 0, 0.6)' }}
+                className="font-serif text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-normal text-white tracking-tight leading-[1.18]"
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.6)' }}
               >
                 Reliable Solar Solutions.<br />
                 Real Impact.
               </h1>
             </div>
 
-            {/* Minimalist On-Site Video Controls Dock */}
-            <div className="flex items-center gap-2.5 sm:gap-3 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 sm:px-3.5 py-1.5 shadow-sm self-start md:self-end">
-              <div className="flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-semibold text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                <span className="hidden sm:inline text-amber-300 font-heading">ON-SITE FOOTAGE</span>
-                <span className="hidden sm:inline text-slate-400">•</span>
-                <span>Maharashtra EPC</span>
+            {/* Frameless Editorial Location Stamp & Discreet Controls (Zero AI Capsule Pill) */}
+            <div className="flex items-center gap-3 self-start md:self-end pb-1">
+              <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/70 uppercase font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>Real Project Footage</span>
+                <span className="text-white/30">•</span>
+                <span>Maharashtra</span>
               </div>
 
-              <div className="flex items-center gap-1 pl-2 border-l border-white/20">
+              {/* Frameless, clean controls */}
+              <div className="flex items-center gap-1 sm:pl-3 sm:border-l sm:border-white/20">
                 <button
                   onClick={togglePlayPause}
                   aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                  title={isPlaying ? 'Pause' : 'Play'}
+                  className="w-8 h-8 rounded-lg bg-black/30 hover:bg-black/50 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
+                  title={isPlaying ? 'Pause video' : 'Play video'}
                 >
                   {isPlaying ? (
-                    <Pause className="w-3 h-3 fill-white" />
+                    <Pause className="w-3.5 h-3.5 fill-current" />
                   ) : (
-                    <Play className="w-3 h-3 fill-white ml-0.5" />
+                    <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                   )}
                 </button>
 
                 <button
                   onClick={toggleMute}
                   aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                  title={isMuted ? 'Unmute' : 'Mute'}
+                  className="w-8 h-8 rounded-lg bg-black/30 hover:bg-black/50 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
+                  title={isMuted ? 'Unmute video' : 'Mute video'}
                 >
                   {isMuted ? (
                     <VolumeX className="w-3.5 h-3.5" />
