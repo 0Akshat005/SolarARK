@@ -183,18 +183,51 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           1. HERO BAND — "Let's talk about your space."
+             (Open environmental photography seamlessly blended on the right,
+              pure clean negative space on the left for content, strictly NO card box)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-8 sm:pt-12 pb-12 lg:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Typography & Narrative (5 cols) */}
-          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
+      <section className="relative w-full overflow-hidden bg-[#FAF8F5] pt-12 sm:pt-16 pb-14 lg:pb-24">
+        {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
+        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] pointer-events-none select-none overflow-hidden hidden lg:block z-0">
+          <img
+            src="/images/contact-hero-villa-blended.png"
+            alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
+            className="w-full h-full object-cover object-right"
+          />
+
+          {/* Architectural Top-Right Text Stamp in Sky/Mountain area (Faithful to Reference Mockup) */}
+          <div className="absolute top-10 sm:top-14 right-28 sm:right-36 lg:right-48 xl:right-60 text-left select-none pointer-events-none hidden md:block">
+            <p className="text-[9.5px] xl:text-[10.5px] font-bold tracking-[0.25em] text-[#333333] uppercase font-sans leading-tight m-0">
+              CLEANER<br />
+              BRIGHTER<br />
+              SPACES<br />
+              TOGETHER
+            </p>
+            <span className="inline-block w-6 h-[1.5px] bg-stone-500 mt-2" />
+          </div>
+
+          {/* Architectural Pillar Text Stamp on Concrete Wall (Faithful to Reference Mockup) */}
+          <div className="absolute bottom-20 sm:bottom-24 lg:bottom-28 right-8 sm:right-12 lg:right-14 text-left select-none pointer-events-none hidden sm:block">
+            <p className="text-[9.5px] xl:text-[10.5px] font-bold tracking-[0.25em] text-[#333333] uppercase font-sans leading-relaxed m-0">
+              PEOPLE<br />
+              SPACES<br />
+              SOLAR<br />
+              A CLEANER<br />
+              TOMORROW
+            </p>
+            <span className="inline-block w-6 h-[1.5px] bg-stone-500 mt-2" />
+          </div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="max-w-xl lg:max-w-lg space-y-6 sm:space-y-8">
             <div className="space-y-3 sm:space-y-4">
               <span className="text-[11px] sm:text-xs font-bold tracking-[0.24em] text-stone-500 uppercase font-sans block">
                 CONTACT
               </span>
 
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[58px] xl:text-[64px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
                 Let’s talk <br />
                 about <span className="text-[#8B1E1E] font-medium">your space.</span>
               </h1>
@@ -203,78 +236,29 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             {/* Subhead with Subtle Editorial Hairline */}
             <div className="flex items-start gap-3.5 pt-1">
               <span className="w-6 sm:w-8 h-[1.5px] bg-stone-400 mt-2.5 shrink-0" />
-              <p className="text-sm sm:text-base lg:text-[16.5px] text-stone-600 font-normal leading-relaxed m-0">
+              <p className="text-sm sm:text-base lg:text-[16.5px] text-stone-600 font-normal leading-relaxed m-0 max-w-md">
                 Tell us what you're planning and our team will help you understand the right solar solution.
               </p>
             </div>
-
-            {/* CTAs: Primary Red Button + Secondary Ghost Button */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <button
-                onClick={scrollToEnquiry}
-                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm transition-all shadow-sm cursor-pointer min-h-[44px]"
-              >
-                <span>Request a Solar Assessment</span>
-                <ArrowRight className="w-4 h-4 stroke-[2]" />
-              </button>
-
-              <a
-                href="https://wa.me/917080909590?text=Hi%20SolarArk%20Team%2C%20I%20would%20like%20to%20learn%20more%20about%20rooftop%20solar%20options."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-transparent hover:bg-stone-100 text-stone-700 font-semibold text-sm transition-all border border-stone-300/80 cursor-pointer min-h-[44px]"
-              >
-                <MessageSquare className="w-4 h-4 text-[#8B1E1E]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
           </div>
 
-          {/* Right Column: Architectural Photography with Reference Overlays (7 cols) */}
-          <div className="lg:col-span-7 relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 group">
-            <div className="aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] w-full relative">
-              <img
-                src="/images/contact-hero-villa.jpg"
-                alt="Modern architectural villa with rooftop solar panels catching warm sunlight"
-                className="w-full h-full object-cover object-center transform transition-transform duration-700 group-hover:scale-[1.02]"
-              />
-
-              {/* Gentle Warm Film Grain / Gradient Tone */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-
-              {/* Architectural Top-Right Text Stamp (Faithful to Reference Mockup) */}
-              <div className="absolute top-5 right-5 sm:top-7 sm:right-7 text-right select-none pointer-events-none">
-                <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.24em] text-white uppercase font-sans leading-tight m-0 drop-shadow-md">
-                  CLEANER<br />
-                  BRIGHTER<br />
-                  SPACES<br />
-                  TOGETHER
-                </p>
-                <span className="inline-block w-5 h-[1.5px] bg-white/80 mt-1.5" />
-              </div>
-
-              {/* Architectural Pillar Text Stamp (Faithful to Reference Mockup) */}
-              <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 text-right select-none pointer-events-none hidden sm:block">
-                <p className="text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.22em] text-white/90 uppercase font-sans leading-relaxed m-0 drop-shadow-md">
-                  PEOPLE<br />
-                  SPACES<br />
-                  SOLAR<br />
-                  A CLEANER<br />
-                  TOMORROW
-                </p>
-                <span className="inline-block w-5 h-[1.5px] bg-white/70 mt-1.5" />
-              </div>
-            </div>
+          {/* Mobile Image Display (Clean and Card-Free) */}
+          <div className="lg:hidden mt-8 relative w-full aspect-[16/10] overflow-hidden rounded-2xl">
+            <img
+              src="/images/contact-hero-villa-blended.png"
+              alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
-
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════════
           2. TWO-COLUMN INTERACTION SYSTEM: GET IN TOUCH (LEFT) + ENQUIRY FORM (RIGHT)
+             (Strictly open layout sitting directly on the section — NO card box enclosure)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section id="enquiry-form" className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-10 lg:py-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <section id="enquiry-form" className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-18">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* ── Left Column: "Get in Touch" (~5 cols) ── */}
           <div className="lg:col-span-5 space-y-7">
@@ -381,8 +365,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
           </div>
 
-          {/* ── Right Column: "Send Us an Enquiry" Card (~7 cols) ── */}
-          <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl border border-stone-200/90 p-6 sm:p-8 lg:p-10 shadow-sm">
+          {/* ── Right Column: "Send Us an Enquiry" (Sitting cleanly on the section — NO card enclosure) ── */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2 mb-6">
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight m-0">
                 Send Us an Enquiry
@@ -432,7 +416,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Full Name *"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
                     />
                   </div>
 
@@ -443,7 +427,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Phone Number *"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
                     />
                   </div>
                 </div>
@@ -457,7 +441,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Email Address *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
                     />
                   </div>
 
@@ -468,7 +452,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="City / Location *"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
                     />
                   </div>
                 </div>
@@ -479,7 +463,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <select
                       value={formData.propertyType}
                       onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                      className={`w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white cursor-pointer ${
+                      className={`w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white cursor-pointer ${
                         formData.propertyType === 'Select property type' ? 'text-stone-400' : 'text-stone-900'
                       }`}
                     >
@@ -499,7 +483,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Monthly Electricity Bill / Requirement (e.g. 5000)"
                       value={formData.monthlyBill}
                       onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
                     />
                   </div>
                 </div>
@@ -511,7 +495,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     placeholder="Your Message (Tell us a bit about your requirement...)"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl border border-stone-200 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all resize-none bg-[#FAF8F5]/60 hover:bg-white focus:bg-white"
+                    className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all resize-none bg-white"
                   />
                 </div>
 
@@ -520,7 +504,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75"
+                    className="w-full py-4 px-6 rounded-lg bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75"
                   >
                     <span>{isSubmitting ? 'Submitting Enquiry...' : 'Request a Solar Assessment'}</span>
                     <ArrowRight className="w-4 h-4 stroke-[2]" />
@@ -539,18 +523,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
+             (Clean open band with sunlit architectural corner fading organically — NO cards)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#FAF9F6] border-y border-stone-200/80 py-12 lg:py-16 relative overflow-hidden">
+      <section className="w-full bg-[#FAF9F6] border-y border-stone-200/80 py-14 lg:py-20 relative overflow-hidden">
         {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none select-none overflow-hidden z-0">
+        <div className="hidden lg:block absolute right-0 bottom-0 w-[45%] max-w-[620px] aspect-[16/9] pointer-events-none select-none overflow-hidden z-0">
           <img
-            src="/images/contact-hero-villa.jpg"
+            src="/images/contact-presence-corner.png"
             alt=""
-            className="w-full h-full object-cover object-right opacity-75"
+            className="w-full h-full object-cover object-right-bottom"
           />
-          {/* Subtle multi-stop gradient mask blending the photo seamlessly into the #FAF9F6 background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/80 40% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/50 via-transparent to-[#FAF9F6]/60" />
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
