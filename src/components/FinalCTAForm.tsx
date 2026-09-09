@@ -139,7 +139,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
         {/* ── LEFT COLUMN: VISUAL & TRUST PANEL (~48%) ── */}
-        <div className="lg:col-span-6 flex flex-col justify-between py-2 sm:py-4 space-y-8 lg:space-y-10">
+        <div className="lg:col-span-6 flex flex-col justify-start pt-4 lg:pt-8 space-y-6 sm:space-y-7">
           
           {/* Top Section: Eyebrow, Display Headline, and Subtitle with Proper Spacing */}
           <div className="space-y-4 sm:space-y-5">
@@ -170,63 +170,38 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             </p>
           </div>
 
-          {/* Middle Section: Structured Trust Cards with Proper Gaps and Breathing Space */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          {/* Trust Row: Simple, Classy & Structured (No bulky background cards) */}
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-1">
             {/* 100% Free */}
-            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-[#8B1E1E]/30">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs">
-                <ShieldCheck className="w-4.5 h-4.5 stroke-[1.75]" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[#8B1E1E] flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-4 h-4 stroke-[1.75]" />
               </div>
-              <div>
-                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">100% Free</p>
+              <div className="leading-tight">
+                <p className="text-[13px] font-semibold text-stone-800 m-0">100% Free</p>
                 <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">&amp; No Obligation</p>
               </div>
             </div>
 
             {/* Secure Data */}
-            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-emerald-500/30">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0 shadow-2xs">
-                <Lock className="w-4.5 h-4.5 stroke-[1.75]" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 flex items-center justify-center shrink-0">
+                <Lock className="w-4 h-4 stroke-[1.75]" />
               </div>
-              <div>
-                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">Your Data</p>
+              <div className="leading-tight">
+                <p className="text-[13px] font-semibold text-stone-800 m-0">Your Data</p>
                 <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">is 100% Secure</p>
               </div>
             </div>
 
             {/* Certified Engineers */}
-            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-[#8B1E1E]/30">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs">
-                <Users className="w-4.5 h-4.5 stroke-[1.75]" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/15 text-[#8B1E1E] flex items-center justify-center shrink-0">
+                <Users className="w-4 h-4 stroke-[1.75]" />
               </div>
-              <div>
-                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">Certified</p>
+              <div className="leading-tight">
+                <p className="text-[13px] font-semibold text-stone-800 m-0">Certified</p>
                 <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">Solar Engineers</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section: Architectural Engineering Deliverables Card (Wise Use of Space) */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5]/90 backdrop-blur-sm border border-stone-200/80 space-y-3">
-            <p className="text-[11px] font-bold tracking-[0.14em] text-stone-600 uppercase font-sans m-0">
-              WHAT YOUR PROPOSAL INCLUDES
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-stone-700">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
-                <span>3D shadow &amp; roof analysis</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
-                <span>25-year financial savings model</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
-                <span>Official DISCOM subsidy filing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
-                <span>Tier-1 hardware specifications</span>
               </div>
             </div>
           </div>
