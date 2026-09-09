@@ -499,7 +499,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
              (Clean open band with sunlit architectural corner fading organically — strictly aligned)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#FAF9F6] border-y border-stone-200/70 py-10 sm:py-12 lg:py-14 relative overflow-hidden">
+      <section id="our-presence" className="w-full bg-[#FAF9F6] border-y border-stone-200/70 py-10 sm:py-12 lg:py-14 relative overflow-hidden">
         {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
         <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] max-w-[560px] pointer-events-none select-none overflow-hidden z-0">
           <img

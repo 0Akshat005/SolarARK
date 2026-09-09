@@ -454,3 +454,15 @@ a.bg-\[\#8B1E1E\]:active {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ── Right-Docked Quick Action Tabs (Hovering Buttons) ── */
+.action-dock-tab {
+  transform: translateX(calc(100% - 46px));
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+
+.action-dock-tab:hover,
+.action-dock-tab:focus-visible,
+.action-dock-tab:focus-within {
+  transform: translateX(0);
+}

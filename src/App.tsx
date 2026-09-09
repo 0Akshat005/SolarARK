@@ -18,6 +18,7 @@ import { AppExperience } from './components/AppExperience';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
+import { FloatingActionDock } from './components/FloatingActionDock';
 import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
 import { EarnWithUsPage } from './components/EarnWithUsPage';
@@ -140,6 +141,21 @@ export default function App() {
       }, 150);
     } else {
       const el = document.getElementById('calculator');
+      if (el) {
+        el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
+      }
+    }
+  };
+
+  const scrollToPresence = () => {
+    if (currentPath !== '/contact') {
+      navigateTo('/contact');
+      setTimeout(() => {
+        const el = document.getElementById('our-presence');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    } else {
+      const el = document.getElementById('our-presence');
       if (el) {
         el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
       }
@@ -342,6 +358,12 @@ export default function App() {
 
       {/* Footer */}
       <Footer onCtaClick={scrollToContactForm} onNavigate={navigateTo} />
+
+      {/* Right-Docked Floating Quick Action Dock (Desktop) */}
+      <FloatingActionDock
+        onCalculatorClick={scrollToCalculator}
+        onLocateClick={scrollToPresence}
+      />
 
       {/* Persistent Desktop Top Sticky Bar & Mobile Bottom Sticky Bar */}
       <StickyBars
