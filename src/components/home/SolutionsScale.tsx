@@ -65,7 +65,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-stone-900 tracking-tight leading-[1.03]">
               Solar for<br />
-              <span className="text-[#8B1E1E]">every scale.</span>
+              <span className="text-solar-scale-gradient">every scale.</span>
             </h2>
           </div>
 
