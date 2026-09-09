@@ -208,11 +208,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </p>
             </div>
 
-            {/* CTAs: Primary Red Button + Secondary WhatsApp Action */}
+            {/* CTAs: Primary Red Button + Secondary Ghost Button */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <button
                 onClick={scrollToEnquiry}
-                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm transition-all shadow-sm cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm transition-all shadow-sm cursor-pointer min-h-[44px]"
               >
                 <span>Request a Solar Assessment</span>
                 <ArrowRight className="w-4 h-4 stroke-[2]" />
@@ -222,10 +222,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 href="https://wa.me/917080909590?text=Hi%20SolarArk%20Team%2C%20I%20would%20like%20to%20learn%20more%20about%20rooftop%20solar%20options."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-stone-100 hover:bg-stone-200/80 text-stone-700 font-semibold text-sm transition-all border border-stone-200 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-transparent hover:bg-stone-100 text-stone-700 font-semibold text-sm transition-all border border-stone-300/80 cursor-pointer min-h-[44px]"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
-                <span>Quick WhatsApp</span>
+                <MessageSquare className="w-4 h-4 text-[#8B1E1E]" />
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>
@@ -366,27 +366,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
             </div>
 
-            {/* Chat on WhatsApp Primary Button (Matching Reference Shape & Red Theme) */}
+            {/* Chat on WhatsApp Red Button — Full Width inside Left Panel */}
             <div className="pt-2">
               <a
                 href="https://wa.me/917080909590?text=Hello%20SolarArk%20Team!%20I%20would%20like%20to%20discuss%20solar%20solutions%20for%20my%20property."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm transition-all shadow-sm cursor-pointer w-full sm:w-auto"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm sm:text-base transition-all shadow-sm cursor-pointer min-h-[44px]"
               >
-                <MessageSquare className="w-4 h-4 fill-white/20" />
+                <MessageSquare className="w-4.5 h-4.5 fill-white/20" />
                 <span>Chat on WhatsApp</span>
                 <ArrowRight className="w-4 h-4 stroke-[2]" />
               </a>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="pt-4 border-t border-stone-200/80 flex flex-wrap items-center gap-4 text-xs text-stone-500">
-              <span className="flex items-center gap-1.5 font-medium">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" /> Free 3D Laser Site Survey
-              </span>
-              <span className="text-stone-300">•</span>
-              <span className="font-medium">PM Surya Ghar EPC Partner</span>
             </div>
           </div>
 
@@ -579,113 +570,60 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </p>
               </div>
 
-              {/* Interactive Location List with Inline Details (Replaces detached card) */}
-              <div className="space-y-3 pt-1" role="tablist" aria-label="SolarARK office locations">
+              {/* Simple Vertical List of Locations with Red Pin Icons (Matching Reference Mockup) */}
+              <div className="space-y-3.5 pt-2" role="tablist" aria-label="SolarARK office locations">
                 {OFFICES.map((office) => {
-                  const isActive = office.id === activeOfficeId;
+                  const isSelected = office.id === activeOfficeId;
                   const isHovered = office.id === hoveredOfficeId;
 
                   return (
                     <div
                       key={office.id}
+                      className="transition-all"
                       onMouseEnter={() => setHoveredOfficeId(office.id)}
                       onMouseLeave={() => setHoveredOfficeId(null)}
-                      className={`rounded-2xl transition-all duration-200 border ${
-                        isActive
-                          ? 'bg-white border-stone-300 shadow-sm'
-                          : isHovered
-                          ? 'bg-white/80 border-stone-200 shadow-2xs'
-                          : 'bg-white/40 border-stone-200/60 hover:bg-white/70 hover:border-stone-200'
-                      }`}
                     >
-                      {/* Location Row (Touch target >= 44px) */}
                       <button
                         type="button"
                         role="tab"
-                        aria-selected={isActive}
+                        aria-selected={isSelected}
                         onClick={() => setActiveOfficeId(office.id)}
-                        className="w-full flex items-center justify-between p-3.5 sm:p-4 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 rounded-2xl min-h-[44px]"
+                        className="flex items-center gap-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 rounded-lg py-1.5 px-2 -ml-2 transition-all min-h-[44px]"
                       >
-                        <div className="flex items-center gap-3.5 min-w-0">
-                          <div
-                            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${
-                              isActive
-                                ? 'bg-[#8B1E1E] text-white shadow-xs scale-105'
+                        <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                          <MapPin
+                            className={`w-5 h-5 text-[#8B1E1E] transition-all duration-200 ${
+                              isSelected
+                                ? 'fill-[#8B1E1E] scale-110 drop-shadow-xs'
                                 : isHovered
-                                ? 'bg-red-100 text-[#8B1E1E]'
-                                : 'bg-stone-100 text-stone-500 group-hover:bg-red-50 group-hover:text-[#8B1E1E]'
-                            }`}
-                          >
-                            <MapPin className={`w-4 h-4 ${isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
-                          </div>
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span
-                                className={`text-sm sm:text-base tracking-tight transition-colors ${
-                                  isActive
-                                    ? 'font-bold text-stone-950'
-                                    : 'font-semibold text-stone-800 group-hover:text-stone-950'
-                                }`}
-                              >
-                                {office.name}
-                              </span>
-                              <span
-                                className={`text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-colors ${
-                                  isActive
-                                    ? 'bg-red-50 text-[#8B1E1E] border-red-200/80'
-                                    : 'bg-stone-100/80 text-stone-600 border-stone-200/70'
-                                }`}
-                              >
-                                {office.badge}
-                              </span>
-                            </div>
-                            <p className="text-xs text-stone-500 font-normal m-0 truncate mt-0.5">
-                              {office.type}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="shrink-0 pl-2">
-                          <ChevronDown
-                            className={`w-4 h-4 text-stone-400 transition-transform duration-300 ${
-                              isActive ? 'rotate-180 text-[#8B1E1E]' : 'group-hover:text-stone-600'
+                                ? 'scale-110 fill-[#8B1E1E]/50'
+                                : 'fill-[#8B1E1E]/20'
                             }`}
                           />
                         </div>
+                        <span
+                          className={`text-base sm:text-[16.5px] transition-colors ${
+                            isSelected
+                              ? 'font-bold text-stone-950 underline underline-offset-4 decoration-[#8B1E1E]'
+                              : isHovered
+                              ? 'font-semibold text-stone-950'
+                              : 'font-medium text-stone-800 group-hover:text-stone-950'
+                          }`}
+                        >
+                          {office.name}
+                        </span>
                       </button>
 
-                      {/* Inline Expanded Details on Selection */}
-                      {isActive && (
-                        <div className="px-4 pb-4 pt-1 space-y-3 text-xs border-t border-stone-100 mt-0.5">
-                          <div className="flex items-start gap-2.5 text-stone-600 leading-relaxed pt-1">
-                            <MapPin className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0 mt-0.5" />
-                            <span>{office.address}</span>
-                          </div>
-
-                          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-stone-100">
-                            <div className="flex items-center gap-3 text-stone-600">
-                              <a
-                                href={`tel:${office.phone.replace(/\s+/g, '')}`}
-                                className="font-mono text-stone-800 font-semibold hover:text-[#8B1E1E] transition-colors"
-                              >
-                                {office.phone}
-                              </a>
-                              <span>•</span>
-                              <a
-                                href={`mailto:${office.email}`}
-                                className="text-stone-600 hover:text-[#8B1E1E] transition-colors truncate max-w-[140px] sm:max-w-none"
-                              >
-                                {office.email}
-                              </a>
-                            </div>
-
-                            <a
-                              href={office.mapUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 font-bold text-[#8B1E1E] hover:underline"
-                            >
-                              <span>Get Directions</span>
+                      {/* Clean Inline Address Details on Selection */}
+                      {isSelected && (
+                        <div className="ml-8 mt-1 p-3.5 rounded-xl bg-white/95 border border-stone-200/90 shadow-2xs space-y-1.5 text-xs animate-in fade-in duration-200 max-w-sm">
+                          <p className="text-stone-600 m-0 leading-relaxed font-normal">{office.address}</p>
+                          <div className="flex items-center justify-between pt-1 border-t border-stone-100 text-[11.5px]">
+                            <a href={`tel:${office.phone.replace(/\s+/g, '')}`} className="font-mono text-stone-800 font-semibold hover:text-[#8B1E1E]">
+                              {office.phone}
+                            </a>
+                            <a href={office.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-bold text-[#8B1E1E] hover:underline">
+                              <span>Directions</span>
                               <ExternalLink className="w-3 h-3" />
                             </a>
                           </div>
