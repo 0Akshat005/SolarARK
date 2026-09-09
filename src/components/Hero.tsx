@@ -221,36 +221,31 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* ── Bottom Gradient Overlay & Editorial Hero Content ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-5 sm:pb-6 lg:pb-7 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D] via-[#0A0F1D]/70 to-transparent pt-20 sm:pt-24">
-          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-5 sm:gap-6 pointer-events-auto">
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 lg:pb-7 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/40 to-transparent pt-12 sm:pt-20">
+          <div className="max-w-[1400px] mx-auto flex flex-row items-end justify-between gap-3 sm:gap-6 pointer-events-auto">
             
-            {/* Editorial Headline & Eyebrow (Refined Scale Matching Reference Exactly) */}
-            <div className="space-y-2 sm:space-y-2.5 max-w-xl">
+            {/* Editorial Headline & Eyebrow (Compact, Structured, Video-First) */}
+            <div className="space-y-1 sm:space-y-2 max-w-xl flex-1">
               {/* Eyebrow with subtle maroon accent line */}
-              <div className="flex items-start gap-2.5">
-                <span className="w-6 sm:w-8 h-[2px] bg-[#8B1E1E] mt-1.5 shrink-0" />
-                <div className="space-y-0.5">
-                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase font-sans">
-                    TRUSTED BY HOMES.
-                  </p>
-                  <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase font-sans">
-                    BUSINESSES &amp; A CLEANER TOMORROW
-                  </p>
-                </div>
+              <div className="flex items-center gap-2 sm:gap-2.5">
+                <span className="w-5 sm:w-8 h-[2px] bg-[#8B1E1E] shrink-0" />
+                <p className="text-[9px] sm:text-[11px] font-semibold tracking-[0.16em] text-white/85 uppercase font-sans m-0">
+                  TRUSTED BY HOMES &amp; BUSINESSES
+                </p>
               </div>
 
               {/* Serif Display Headline: Proportional, Elegant Editorial Sizing */}
               <h1
-                className="font-serif text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-normal text-white tracking-tight leading-[1.18]"
-                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.6)' }}
+                className="font-serif text-[21px] sm:text-2xl lg:text-[32px] xl:text-[36px] font-normal text-white tracking-tight leading-[1.18] m-0"
+                style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Reliable Solar Solutions.<br />
                 Real Impact.
               </h1>
             </div>
 
-            {/* Frameless Editorial Location Stamp & Discreet Controls */}
-            <div className="flex items-center gap-3 self-start md:self-end pb-1">
+            {/* Controls on the RIGHT side (Never obstructing video view) */}
+            <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3 shrink-0 pb-0.5">
               <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/70 uppercase font-sans">
                 <span>Real Project Footage</span>
                 <span className="text-white/30 font-light">/</span>
@@ -262,7 +257,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <button
                   onClick={togglePlayPause}
                   aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                  className="w-8 h-8 rounded-lg bg-black/30 hover:bg-black/50 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
+                  className="w-8 h-8 rounded-lg bg-black/40 hover:bg-black/60 text-white/85 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/15 backdrop-blur-xs"
                   title={isPlaying ? 'Pause video' : 'Play video'}
                 >
                   {isPlaying ? (
@@ -275,7 +270,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <button
                   onClick={toggleMute}
                   aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-                  className="w-8 h-8 rounded-lg bg-black/30 hover:bg-black/50 text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
+                  className="w-8 h-8 rounded-lg bg-black/40 hover:bg-black/60 text-white/85 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-white/15 backdrop-blur-xs"
                   title={isMuted ? 'Unmute video' : 'Mute video'}
                 >
                   {isMuted ? (
