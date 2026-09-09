@@ -7,11 +7,13 @@ import React from 'react';
 import { Phone, Calculator, MapPin, ArrowRight } from 'lucide-react';
 
 interface FloatingActionDockProps {
+  onContactClick?: () => void;
   onCalculatorClick: () => void;
   onLocateClick: () => void;
 }
 
 export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
+  onContactClick,
   onCalculatorClick,
   onLocateClick,
 }) => {
@@ -20,10 +22,16 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
       aria-label="Quick Actions Dock"
       className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-0 z-40 flex-col items-end gap-2.5 select-none pointer-events-auto"
     >
-      {/* ── 1. Call Us / Advisor ── */}
+      {/* ── 1. Contact Us ── */}
       <a
-        href="tel:+917080909590"
-        aria-label="Call SolarArk Advisor at +91 7080909590"
+        href="/contact"
+        onClick={(e) => {
+          if (onContactClick) {
+            e.preventDefault();
+            onContactClick();
+          }
+        }}
+        aria-label="Contact SolarArk"
         className="action-dock-tab group flex items-center justify-start bg-[#8B1E1E] hover:bg-[#731616] active:bg-[#5E1212] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_4px_16px_rgba(0,0,0,0.15)] hover:shadow-[-6px_6px_22px_rgba(139,30,30,0.35)] outline-none focus-visible:ring-2 focus-visible:ring-amber-300 h-11 pl-3.5 pr-5 cursor-pointer"
       >
         <div className="w-5 h-5 flex items-center justify-center shrink-0">
@@ -31,12 +39,9 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
         </div>
         <div className="flex items-center gap-2 pl-3 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 whitespace-nowrap">
           <span className="text-xs font-semibold tracking-wide font-sans">
-            Call Us
+            Contact Us
           </span>
-          <span className="text-[11px] text-amber-200/80 font-mono tracking-tight">
-            +91 7080909590
-          </span>
-          <ArrowRight className="w-3.5 h-3.5 text-white/70 stroke-[2] ml-0.5" />
+          <ArrowRight className="w-3.5 h-3.5 text-white/70 stroke-[2]" />
         </div>
       </a>
 

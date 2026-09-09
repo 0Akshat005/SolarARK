@@ -361,6 +361,7 @@ export default function App() {
 
       {/* Right-Docked Floating Quick Action Dock (Desktop) */}
       <FloatingActionDock
+        onContactClick={scrollToContactForm}
         onCalculatorClick={scrollToCalculator}
         onLocateClick={scrollToPresence}
       />
