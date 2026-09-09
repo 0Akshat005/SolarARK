@@ -66,7 +66,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
 
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-stone-900 tracking-tight leading-[1.08]">
                 Real spaces.<br />
-                <span className="text-[#8B1E1E]">Real impact.</span>
+                <span className="word-accent-subtle">Real impact.</span>
               </h2>
             </div>
 

@@ -114,7 +114,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
 
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-stone-900 tracking-tight leading-[1.08]">
                 A smarter<br />
-                <span className="text-[#8B1E1E]">way to energy.</span>
+                <span className="word-accent-subtle">way to energy.</span>
               </h2>
             </div>
 

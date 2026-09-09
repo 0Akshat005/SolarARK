@@ -154,7 +154,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
             {/* Display Headline: Natural Rhythmic Flow */}
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-medium text-stone-900 tracking-tight leading-[1.18] m-0">
               Claim Your Free <br className="hidden sm:inline" />
-              <span className="text-[#8B1E1E]">Solar Savings Estimate</span> <br className="hidden sm:inline" />
+              <span className="word-accent-subtle">Solar Savings Estimate</span> <br className="hidden sm:inline" />
               &amp; 3D Roof Design
             </h2>
 

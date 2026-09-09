@@ -58,7 +58,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             >
               Energy that{' '}
               <br />
-              works for <span className="text-[#8B1E1E] font-heading font-bold">real life.</span>
+              works for <span className="word-accent-subtle font-heading font-bold">real life.</span>
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed max-w-lg mb-6 sm:mb-8">
@@ -217,7 +217,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   >
                     Good solar is not just technology.
                     <br />
-                    It’s <span className="text-[#8B1E1E]">a better tomorrow.</span>
+                    It’s <span className="word-accent-subtle">a better tomorrow.</span>
                   </h2>
                 </div>
                 <div className="md:col-span-5">

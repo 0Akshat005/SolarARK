@@ -204,7 +204,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
               Let’s talk <br />
-              about <span className="text-[#8B1E1E] font-medium">your space.</span>
+              about <span className="word-accent-subtle font-medium">your space.</span>
             </h1>
 
             {/* Subhead with Subtle Editorial Hairline */}

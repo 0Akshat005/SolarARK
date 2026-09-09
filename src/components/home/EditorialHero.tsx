@@ -81,7 +81,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-bold text-slate-900 tracking-tight leading-[1.04]">
                 Powering<br />
                 a brighter<br />
-                <span className="text-[#8B1E1E]">tomorrow.</span>
+                <span className="word-accent-subtle">tomorrow.</span>
               </h1>
 
               {/* Concise Supporting Copy */}

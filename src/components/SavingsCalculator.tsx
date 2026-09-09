@@ -214,7 +214,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               >
                 See your
                 <br />
-                <span className="text-[#801414]">real savings.</span>
+                <span className="word-accent-subtle">real savings.</span>
               </h2>
             </div>
 

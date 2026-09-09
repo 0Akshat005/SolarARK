@@ -364,6 +364,11 @@
       var(--brand-maroon) 100%
     );
   }
+
+  /* Subtle Solar Bronze Inline Word Accent (Headings & Body Emphasis) */
+  .word-accent-subtle {
+    color: var(--solar-accent-subtle);
+  }
 }
 
 /* ── Global Primary CTA Revamp — Premium Maroon System (revampsection.md Benchmark) ── */

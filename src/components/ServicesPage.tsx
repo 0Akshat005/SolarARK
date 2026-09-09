@@ -249,7 +249,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               Energy solutions for{' '}
               <br className="hidden sm:block" />
               every kind of{' '}
-              <span className="text-[#8B1E2D]">space.</span>
+              <span className="word-accent-subtle">space.</span>
             </h1>
           </div>
           <div className="lg:col-span-5 flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6 lg:gap-8">
@@ -442,7 +442,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
               Built around<br />
               the site, not<br />
-              <span className="text-[#8B1E2D]">a template.</span>
+              <span className="word-accent-subtle">a template.</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed max-w-sm">
@@ -509,7 +509,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-slate-900 tracking-tight leading-[1.10]">
               90% of customers recommend{' '}
-              <span className="text-[#8B1E2D]">SolarARK.</span>
+              <span className="word-accent-subtle">SolarARK.</span>
             </h2>
 
             <p className="text-sm sm:text-base font-semibold text-slate-800 tracking-tight">
@@ -594,7 +594,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
               Specialized services built for{' '}
-              <span className="text-[#8B1E2D]">peak yield.</span>
+              <span className="word-accent-subtle">peak yield.</span>
             </h2>
           </div>
           <p className="text-xs sm:text-sm text-stone-500 max-w-md leading-relaxed">

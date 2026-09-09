@@ -55,7 +55,7 @@ export const ProcessFlowStrip: React.FC<ProcessFlowStripProps> = ({ onCtaClick }
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-[1.08]">
               A transparent{' '}
-              <span className="text-[#8B1E1E]">four-step journey.</span>
+              <span className="word-accent-subtle">four-step journey.</span>
             </h2>
           </div>
 
