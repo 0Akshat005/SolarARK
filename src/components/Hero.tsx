@@ -249,12 +249,11 @@ export const Hero: React.FC<HeroProps> = ({
               </h1>
             </div>
 
-            {/* Frameless Editorial Location Stamp & Discreet Controls (Zero AI Capsule Pill) */}
+            {/* Frameless Editorial Location Stamp & Discreet Controls */}
             <div className="flex items-center gap-3 self-start md:self-end pb-1">
               <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/70 uppercase font-sans">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 <span>Real Project Footage</span>
-                <span className="text-white/30">•</span>
+                <span className="text-white/30 font-light">/</span>
                 <span>Maharashtra</span>
               </div>
 
