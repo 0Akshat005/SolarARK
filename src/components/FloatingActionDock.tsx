@@ -18,7 +18,7 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
   return (
     <aside
       aria-label="Quick Actions Dock"
-      className="hidden lg:flex fixed bottom-24 right-0 z-40 flex-col items-end gap-2.5 select-none pointer-events-auto"
+      className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-0 z-40 flex-col items-end gap-2.5 select-none pointer-events-auto"
     >
       {/* ── 1. Call Us / Advisor ── */}
       <a
