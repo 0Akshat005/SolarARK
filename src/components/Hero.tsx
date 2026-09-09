@@ -311,8 +311,8 @@ export const Hero: React.FC<HeroProps> = ({
           <path d="M-50 80 C 5 55, 105 15, 200 35 C 260 55, 270 5, 330 -5" />
         </svg>
 
-        {/* ── DESKTOP VIEW (≥ lg / 1024px): 4 Columns + Right Scenic Vignette Matching Desktop Reference ── */}
-        <div className="hidden lg:grid grid-cols-12 max-w-[1440px] mx-auto min-h-[148px] items-stretch relative z-10">
+        {/* ── DESKTOP VIEW (≥ lg / 1024px): 4 Columns + Full-Bleed Right Scenic Vignette Matching Desktop Reference ── */}
+        <div className="hidden lg:grid grid-cols-12 w-full min-h-[148px] items-stretch relative z-10 pl-4 sm:pl-6 lg:pl-8 xl:pl-12 pr-0">
           {/* Left 4 Columns (9 cols of 12) */}
           <div className="col-span-9 grid grid-cols-4 py-2 xl:py-2.5 px-4 xl:px-6 divide-x divide-[#EAE1D3]">
             {desktopItems.map((item, idx) => {
