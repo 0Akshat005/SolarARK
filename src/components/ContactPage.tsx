@@ -162,7 +162,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div
-      className="pt-20 lg:pt-24 min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="pt-[68px] min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white"
       itemScope
       itemType="https://schema.org/SolarEnergyContractor"
     >
@@ -183,69 +183,43 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           1. HERO BAND — "Let's talk about your space."
-             (Open environmental photography seamlessly blended on the right,
-              pure clean negative space on the left for content, strictly NO card box)
+             (Compact, structured header matching reference crop — NO unnecessary dead space)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-[#FAF8F5] pt-12 sm:pt-16 pb-14 lg:pb-24">
+      <section className="relative w-full overflow-hidden bg-[#FAF8F5] pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9">
         {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[62%] xl:w-[58%] pointer-events-none select-none overflow-hidden hidden lg:block z-0">
+        <div className="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden hidden lg:block z-0">
           <img
-            src="/images/contact-hero-villa-blended.png"
+            src="/images/contact-hero-villa-crop.png"
             alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
-            className="w-full h-full object-cover object-right"
+            className="h-full w-auto object-contain object-[right_top]"
           />
-
-          {/* Architectural Top-Right Text Stamp in Sky/Mountain area (Faithful to Reference Mockup) */}
-          <div className="absolute top-10 sm:top-14 right-28 sm:right-36 lg:right-48 xl:right-60 text-left select-none pointer-events-none hidden md:block">
-            <p className="text-[9.5px] xl:text-[10.5px] font-bold tracking-[0.25em] text-[#333333] uppercase font-sans leading-tight m-0">
-              CLEANER<br />
-              BRIGHTER<br />
-              SPACES<br />
-              TOGETHER
-            </p>
-            <span className="inline-block w-6 h-[1.5px] bg-stone-500 mt-2" />
-          </div>
-
-          {/* Architectural Pillar Text Stamp on Concrete Wall (Faithful to Reference Mockup) */}
-          <div className="absolute bottom-20 sm:bottom-24 lg:bottom-28 right-8 sm:right-12 lg:right-14 text-left select-none pointer-events-none hidden sm:block">
-            <p className="text-[9.5px] xl:text-[10.5px] font-bold tracking-[0.25em] text-[#333333] uppercase font-sans leading-relaxed m-0">
-              PEOPLE<br />
-              SPACES<br />
-              SOLAR<br />
-              A CLEANER<br />
-              TOMORROW
-            </p>
-            <span className="inline-block w-6 h-[1.5px] bg-stone-500 mt-2" />
-          </div>
         </div>
 
         {/* Content Container */}
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-xl lg:max-w-lg space-y-6 sm:space-y-8">
-            <div className="space-y-3 sm:space-y-4">
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.24em] text-stone-500 uppercase font-sans block">
-                CONTACT
-              </span>
+          <div className="max-w-xl lg:max-w-md space-y-3 sm:space-y-3.5">
+            <span className="text-[11px] sm:text-xs font-bold tracking-[0.24em] text-stone-500 uppercase font-sans block">
+              CONTACT
+            </span>
 
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[58px] xl:text-[64px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
-                Let’s talk <br />
-                about <span className="text-[#8B1E1E] font-medium">your space.</span>
-              </h1>
-            </div>
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
+              Let’s talk <br />
+              about <span className="text-[#8B1E1E] font-medium">your space.</span>
+            </h1>
 
             {/* Subhead with Subtle Editorial Hairline */}
-            <div className="flex items-start gap-3.5 pt-1">
-              <span className="w-6 sm:w-8 h-[1.5px] bg-stone-400 mt-2.5 shrink-0" />
-              <p className="text-sm sm:text-base lg:text-[16.5px] text-stone-600 font-normal leading-relaxed m-0 max-w-md">
+            <div className="flex items-start gap-3 pt-1">
+              <span className="w-6 h-[1.5px] bg-stone-400 mt-2 shrink-0" />
+              <p className="text-xs sm:text-sm lg:text-[14.5px] text-stone-600 font-normal leading-relaxed m-0 max-w-[340px]">
                 Tell us what you're planning and our team will help you understand the right solar solution.
               </p>
             </div>
           </div>
 
           {/* Mobile Image Display (Clean and Card-Free) */}
-          <div className="lg:hidden mt-8 relative w-full aspect-[16/10] overflow-hidden rounded-2xl">
+          <div className="lg:hidden mt-6 relative w-full aspect-[16/9] overflow-hidden rounded-xl">
             <img
-              src="/images/contact-hero-villa-blended.png"
+              src="/images/contact-hero-villa-crop.png"
               alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
               className="w-full h-full object-cover object-center"
             />
@@ -257,7 +231,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           2. TWO-COLUMN INTERACTION SYSTEM: GET IN TOUCH (LEFT) + ENQUIRY FORM (RIGHT)
              (Strictly open layout sitting directly on the section — NO card box enclosure)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section id="enquiry-form" className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-18">
+      <section id="enquiry-form" className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-12 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* ── Left Column: "Get in Touch" (~5 cols) ── */}
