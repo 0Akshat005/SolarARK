@@ -362,31 +362,53 @@ export const Hero: React.FC<HeroProps> = ({
             })}
           </div>
 
-          {/* Right Brand Vignette (3 cols of 12) Matching Desktop Reference */}
-          <div className="col-span-3 relative border-l border-[#EAE1D3] overflow-hidden flex flex-col justify-center py-2.5 px-6 xl:px-8">
+          {/* Right Brand Vignette (3 cols of 12) Matching Editorial Reference */}
+          <div className="col-span-3 relative border-l border-[#EAE1D3] overflow-hidden flex flex-col justify-center py-2.5 px-4 xl:px-6 select-none">
             {/* Background scenic photo with soft ivory gradient fade */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
               <img
-                src="/images/calc-sunset-sky.jpg"
-                alt="Clean energy brighter lives sunset backdrop"
-                className="w-full h-full object-cover object-right opacity-85"
+                src="/images/solar-sunrise-editorial.jpg"
+                alt="Clean energy brighter lives sunrise backdrop"
+                className="w-full h-full object-cover object-[78%_center] xl:object-[82%_center] opacity-95"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/85 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/60 38% to-transparent" />
             </div>
 
             {/* Foreground Brand Note */}
             <div className="relative z-10 space-y-1.5">
-              <div className="flex items-center gap-1.5 text-[10px] xl:text-[11px] font-bold tracking-[0.16em] text-stone-600 uppercase font-sans">
-                <Leaf className="w-3.5 h-3.5 text-[#8B1E1E]" />
-                <span>POWERING A BRIGHTER TOMORROW</span>
+              {/* Eyebrow: maroon accent line + leaf + small refined uppercase text */}
+              <div className="flex items-center gap-1.5 whitespace-nowrap">
+                <span className="w-4 h-[1.5px] bg-[#8B1E1E] shrink-0" />
+                <Leaf className="w-3.5 h-3.5 text-[#8B1E1E] stroke-[1.75] shrink-0" />
+                <span className="text-[9.5px] xl:text-[10.5px] font-bold tracking-[0.14em] text-stone-700 uppercase font-sans">
+                  POWERING A BRIGHTER TOMORROW
+                </span>
               </div>
+
+              {/* Script Headline: Visual Focal Point with Elegant Underline Accent */}
               <div className="pt-0.5">
-                <span
-                  className="block text-xl xl:text-2xl text-[#8B1E1E] leading-tight select-none -rotate-2 transform"
+                <div
+                  className="text-[25px] xl:text-[29px] text-[#8B1E1E] leading-[1.08] -rotate-2 transform inline-block"
                   style={{ fontFamily: "var(--font-handwriting, 'Caveat', cursive)" }}
                 >
-                  Clean energy brighter lives
-                </span>
+                  <span className="block">Clean energy,</span>
+                  <span className="relative inline-block mt-0.5">
+                    brighter lives
+                    <svg
+                      className="absolute -bottom-1 left-0 w-full h-2 text-[#8B1E1E] overflow-visible"
+                      viewBox="0 0 120 8"
+                      fill="none"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M2 5C35 2, 85 2, 118 6"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
