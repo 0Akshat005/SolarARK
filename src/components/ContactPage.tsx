@@ -64,7 +64,7 @@ interface OfficeLocation {
   email: string;
   mapUrl: string;
   dot: { cx: number; cy: number };
-  label: { x: number; y: number; anchor: 'start' | 'end' };
+  label: { x: number; y: number; anchor: 'start' | 'end' | 'middle' };
 }
 
 const OFFICES: OfficeLocation[] = [
@@ -77,8 +77,8 @@ const OFFICES: OfficeLocation[] = [
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.916927,77.749208',
-    dot: { cx: 135, cy: 36 },
-    label: { x: 144, y: 39, anchor: 'start' },
+    dot: { cx: 138, cy: 36 },
+    label: { x: 146, y: 39, anchor: 'start' },
   },
   {
     id: 'sambhajinagar',
@@ -89,8 +89,8 @@ const OFFICES: OfficeLocation[] = [
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=19.896246,75.358003',
-    dot: { cx: 82, cy: 94 },
-    label: { x: 74, y: 104, anchor: 'end' },
+    dot: { cx: 74, cy: 75 },
+    label: { x: 74, y: 65, anchor: 'middle' },
   },
   {
     id: 'wardha',
@@ -101,8 +101,8 @@ const OFFICES: OfficeLocation[] = [
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.754335,78.601618',
-    dot: { cx: 138, cy: 68 },
-    label: { x: 147, y: 71, anchor: 'start' },
+    dot: { cx: 140, cy: 64 },
+    label: { x: 148, y: 67, anchor: 'start' },
   },
   {
     id: 'akola',
@@ -113,8 +113,8 @@ const OFFICES: OfficeLocation[] = [
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.705900,77.021900',
-    dot: { cx: 108, cy: 52 },
-    label: { x: 116, y: 55, anchor: 'start' },
+    dot: { cx: 116, cy: 76 },
+    label: { x: 116, y: 88, anchor: 'middle' },
   },
 ];
 
@@ -523,11 +523,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
-             (Clean open band with sunlit architectural corner fading organically — NO cards)
+             (Clean open band with sunlit architectural corner fading organically — strictly aligned)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#FAF9F6] border-y border-stone-200/80 py-14 lg:py-20 relative overflow-hidden">
+      <section className="w-full bg-[#FAF9F6] border-y border-stone-200/70 py-10 sm:py-12 lg:py-14 relative overflow-hidden">
         {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
-        <div className="hidden lg:block absolute right-0 bottom-0 w-[45%] max-w-[620px] aspect-[16/9] pointer-events-none select-none overflow-hidden z-0">
+        <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] max-w-[560px] pointer-events-none select-none overflow-hidden z-0">
           <img
             src="/images/contact-presence-corner.png"
             alt=""
@@ -536,24 +536,24 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
             
-            {/* ── Left Column: Heading & Location List with Inline Expandable Details (lg:col-span-5) ── */}
-            <div className="lg:col-span-5 space-y-6">
-              <div>
-                <div className="flex items-center gap-3">
+            {/* ── Left Column: Heading & Clean Location List (lg:col-span-4) ── */}
+            <div className="lg:col-span-4 space-y-6 sm:space-y-7">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3.5">
                   <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight m-0">
                     Our Presence
                   </h2>
-                  <span className="w-8 h-[2px] bg-[#8B1E1E]" />
+                  <span className="w-9 h-[1.5px] bg-stone-500 mt-1" />
                 </div>
-                <p className="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed m-0 max-w-sm">
+                <p className="text-xs sm:text-[13.5px] text-stone-600 leading-relaxed m-0 max-w-[300px]">
                   We work across Maharashtra to bring solar to more homes, businesses and industries.
                 </p>
               </div>
 
-              {/* Simple Vertical List of Locations with Red Pin Icons (Matching Reference Mockup) */}
-              <div className="space-y-3.5 pt-2" role="tablist" aria-label="SolarARK office locations">
+              {/* Clean Vertical List of 4 Locations (Matching Reference Image) */}
+              <div className="space-y-3 pt-0.5">
                 {OFFICES.map((office) => {
                   const isSelected = office.id === activeOfficeId;
                   const isHovered = office.id === hoveredOfficeId;
@@ -561,76 +561,50 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   return (
                     <div
                       key={office.id}
-                      className="transition-all"
+                      onClick={() => setActiveOfficeId(office.id)}
                       onMouseEnter={() => setHoveredOfficeId(office.id)}
                       onMouseLeave={() => setHoveredOfficeId(null)}
+                      className="flex items-center gap-3 cursor-pointer group select-none py-0.5"
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Select ${office.name}`}
                     >
-                      <button
-                        type="button"
-                        role="tab"
-                        aria-selected={isSelected}
-                        onClick={() => setActiveOfficeId(office.id)}
-                        className="flex items-center gap-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 rounded-lg py-1.5 px-2 -ml-2 transition-all min-h-[44px]"
-                      >
-                        <div className="w-6 h-6 flex items-center justify-center shrink-0">
-                          <MapPin
-                            className={`w-5 h-5 text-[#8B1E1E] transition-all duration-200 ${
-                              isSelected
-                                ? 'fill-[#8B1E1E] scale-110 drop-shadow-xs'
-                                : isHovered
-                                ? 'scale-110 fill-[#8B1E1E]/50'
-                                : 'fill-[#8B1E1E]/20'
-                            }`}
-                          />
-                        </div>
-                        <span
-                          className={`text-base sm:text-[16.5px] transition-colors ${
-                            isSelected
-                              ? 'font-bold text-stone-950 underline underline-offset-4 decoration-[#8B1E1E]'
-                              : isHovered
-                              ? 'font-semibold text-stone-950'
-                              : 'font-medium text-stone-800 group-hover:text-stone-950'
+                      <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                        <MapPin
+                          className={`w-4 h-4 text-[#8B1E1E] fill-[#8B1E1E] transition-transform duration-150 ${
+                            isSelected || isHovered ? 'scale-120' : 'opacity-90'
                           }`}
-                        >
-                          {office.name}
-                        </span>
-                      </button>
-
-                      {/* Clean Inline Address Details on Selection */}
-                      {isSelected && (
-                        <div className="ml-8 mt-1 p-3.5 rounded-xl bg-white/95 border border-stone-200/90 shadow-2xs space-y-1.5 text-xs animate-in fade-in duration-200 max-w-sm">
-                          <p className="text-stone-600 m-0 leading-relaxed font-normal">{office.address}</p>
-                          <div className="flex items-center justify-between pt-1 border-t border-stone-100 text-[11.5px]">
-                            <a href={`tel:${office.phone.replace(/\s+/g, '')}`} className="font-mono text-stone-800 font-semibold hover:text-[#8B1E1E]">
-                              {office.phone}
-                            </a>
-                            <a href={office.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-bold text-[#8B1E1E] hover:underline">
-                              <span>Directions</span>
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
-                          </div>
-                        </div>
-                      )}
+                        />
+                      </div>
+                      <span
+                        className={`text-sm sm:text-[15px] transition-colors ${
+                          isSelected
+                            ? 'font-bold text-stone-950'
+                            : isHovered
+                            ? 'font-semibold text-stone-950'
+                            : 'font-medium text-stone-800 group-hover:text-stone-950'
+                        }`}
+                      >
+                        {office.name}
+                      </span>
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* ── Center Column: Scaled Maharashtra Vector Map Graphic (lg:col-span-4 xl:col-span-4) ── */}
-            <div className="lg:col-span-4 xl:col-span-4 flex flex-col items-center justify-center relative py-4 lg:py-6">
-              <div className="relative w-full max-w-[420px] aspect-[240/145] select-none">
+            {/* ── Center Column: Scaled Maharashtra Vector Map Graphic (lg:col-span-5) ── */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
+              <div className="relative w-full max-w-[380px] aspect-[240/145] select-none">
                 <svg
                   viewBox="0 0 240 145"
-                  className="w-full h-full filter drop-shadow-sm"
-                  aria-label="Interactive Map of Maharashtra showing SolarARK office locations"
+                  className="w-full h-full filter drop-shadow-2xs"
+                  aria-label="Map of Maharashtra showing SolarARK office locations"
                 >
                   {/* Maharashtra State Silhouette Vector */}
                   <path
                     d={MAHARASHTRA_PATH}
-                    className="fill-[#EBE6DF] stroke-[#D5CEBF] transition-colors"
-                    strokeWidth="1.2"
-                    strokeLinejoin="round"
+                    className="fill-[#EBE6DF] transition-colors"
                   />
 
                   {/* City Pins & Labels with Bidirectional Sync */}
@@ -649,59 +623,32 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         role="button"
                         tabIndex={0}
                         aria-label={`Select ${office.name}`}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            setActiveOfficeId(office.id);
-                          }
-                        }}
                       >
-                        {/* Invisible larger hit circle for touch accessibility */}
-                        <circle
-                          cx={office.dot.cx}
-                          cy={office.dot.cy}
-                          r="14"
-                          className="fill-transparent"
-                        />
+                        <circle cx={office.dot.cx} cy={office.dot.cy} r="12" className="fill-transparent" />
 
-                        {/* Selected / Hovered Pulsing Radar Wave */}
                         {isHighlighted && (
                           <circle
                             cx={office.dot.cx}
                             cy={office.dot.cy}
-                            r="9"
+                            r="8"
                             className="fill-[#8B1E1E]/25 animate-ping origin-center"
                           />
                         )}
 
-                        {/* Soft Outer Halo */}
-                        {isHighlighted && (
-                          <circle
-                            cx={office.dot.cx}
-                            cy={office.dot.cy}
-                            r="7"
-                            className="fill-[#8B1E1E]/20"
-                          />
-                        )}
-
-                        {/* Location Dot Marker */}
                         <circle
                           cx={office.dot.cx}
                           cy={office.dot.cy}
-                          r={isHighlighted ? '4.8' : '3.6'}
-                          className={`${
-                            isHighlighted ? 'fill-[#8B1E1E]' : 'fill-[#8B1E1E]/85'
-                          } stroke-white transition-all`}
-                          strokeWidth={isHighlighted ? '1.6' : '1.2'}
+                          r={isHighlighted ? '4.2' : '3.6'}
+                          className="fill-[#8B1E1E] transition-all"
                         />
 
-                        {/* City Label */}
                         <text
                           x={office.label.x}
                           y={office.label.y}
                           textAnchor={office.label.anchor}
                           className={`font-sans transition-all select-none pointer-events-none ${
                             isHighlighted
-                              ? 'font-bold text-[9px] fill-[#8B1E1E]'
+                              ? 'font-bold text-[8.5px] fill-[#8B1E1E]'
                               : 'font-semibold text-[8px] fill-stone-800'
                           }`}
                         >
@@ -711,29 +658,30 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     );
                   })}
 
-                  {/* Decorative State Label at Bottom */}
+                  {/* State Label in Lower Left curve of Maharashtra */}
                   <text
-                    x="48"
-                    y="138"
-                    className="font-sans text-[7.5px] tracking-[0.24em] fill-stone-400 font-bold uppercase select-none pointer-events-none"
+                    x="74"
+                    y="108"
+                    textAnchor="middle"
+                    className="font-sans text-[6.5px] tracking-[0.25em] fill-[#A0988C] font-bold uppercase select-none pointer-events-none"
                   >
-                    MAHARASHTRA
+                    M A H A R A S H T R A
                   </text>
                 </svg>
               </div>
             </div>
 
-            {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3 xl:col-span-3) ── */}
-            <div className="lg:col-span-3 xl:col-span-3 flex justify-start lg:justify-end items-start select-none pt-2 lg:pt-6">
+            {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3) ── */}
+            <div className="lg:col-span-3 flex justify-start lg:justify-end items-start select-none pt-2 lg:pt-0">
               <div className="flex items-start gap-3 text-left">
-                <div className="w-[1.5px] h-12 bg-stone-300 mt-0.5 shrink-0" />
-                <div className="space-y-1">
+                <div className="w-[1.5px] h-14 bg-stone-400 mt-0.5 shrink-0" />
+                <div className="space-y-1.5">
                   <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-stone-700 uppercase font-sans leading-tight m-0">
                     SOLAR<br />
                     FOR A STRONGER<br />
                     MAHARASHTRA
                   </p>
-                  <span className="inline-block w-6 h-[1.5px] bg-[#8B1E1E] mt-1" />
+                  <span className="inline-block w-7 h-[1.5px] bg-stone-400 mt-1" />
                 </div>
               </div>
             </div>
