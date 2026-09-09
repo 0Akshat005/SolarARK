@@ -351,6 +351,19 @@
     -webkit-text-fill-color: transparent;
     color: var(--brand-maroon);
   }
+
+  /* Supporting Accent Rule for Solutions Section Heading */
+  .solutions-heading-accent {
+    width: 72px;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(
+      90deg,
+      var(--brand-gold) 0%,
+      #B45309 50%,
+      var(--brand-maroon) 100%
+    );
+  }
 }
 
 /* ── Global Primary CTA Revamp — Premium Maroon System (revampsection.md Benchmark) ── */
