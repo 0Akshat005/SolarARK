@@ -15,7 +15,8 @@ import {
   MessageSquare,
   Send,
   ShieldCheck,
-  Building2
+  Building2,
+  ChevronDown
 } from 'lucide-react';
 import { PrimaryButton } from './PrimaryButton';
 
@@ -134,6 +135,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeOfficeId, setActiveOfficeId] = useState<string>('amravati');
+  const [hoveredOfficeId, setHoveredOfficeId] = useState<string | null>(null);
 
   const activeOffice = OFFICES.find((o) => o.id === activeOfficeId) || OFFICES[0];
 
@@ -545,25 +547,26 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       </section>
 
       {/* ════════════════════════════════════════════════════════════════════════
-          3. OUR PRESENCE IN MAHARASHTRA STRIP (FAITHFUL TO REFERENCE MOCKUP)
+          3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
       ════════════════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-[#FAF9F6] border-y border-stone-200/80 py-12 lg:py-16 relative overflow-hidden">
-        {/* Right-Side Atmospheric Photographic Scene (Fading into Map) */}
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[42%] pointer-events-none select-none overflow-hidden z-0">
+        {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none select-none overflow-hidden z-0">
           <img
             src="/images/contact-hero-villa.jpg"
             alt=""
-            className="w-full h-full object-cover object-right opacity-80"
+            className="w-full h-full object-cover object-right opacity-75"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/60 30% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/40 via-transparent to-[#FAF9F6]/60" />
+          {/* Subtle multi-stop gradient mask blending the photo seamlessly into the #FAF9F6 background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF9F6] via-[#FAF9F6]/80 40% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F6]/50 via-transparent to-[#FAF9F6]/60" />
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* Left: Heading & Clean Locations List (lg:col-span-4) */}
-            <div className="lg:col-span-4 space-y-6">
+            {/* ── Left Column: Heading & Location List with Inline Expandable Details (lg:col-span-5) ── */}
+            <div className="lg:col-span-5 space-y-6">
               <div>
                 <div className="flex items-center gap-3">
                   <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight m-0">
@@ -576,73 +579,130 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </p>
               </div>
 
-              {/* Minimalist Location Pin List (Matching Reference Design) */}
-              <div className="space-y-3.5 pt-1">
+              {/* Interactive Location List with Inline Details (Replaces detached card) */}
+              <div className="space-y-3 pt-1" role="tablist" aria-label="SolarARK office locations">
                 {OFFICES.map((office) => {
                   const isActive = office.id === activeOfficeId;
+                  const isHovered = office.id === hoveredOfficeId;
+
                   return (
-                    <button
+                    <div
                       key={office.id}
-                      onClick={() => setActiveOfficeId(office.id)}
-                      className="flex items-center gap-3 text-left transition-all cursor-pointer group focus-visible:outline-none"
+                      onMouseEnter={() => setHoveredOfficeId(office.id)}
+                      onMouseLeave={() => setHoveredOfficeId(null)}
+                      className={`rounded-2xl transition-all duration-200 border ${
+                        isActive
+                          ? 'bg-white border-stone-300 shadow-sm'
+                          : isHovered
+                          ? 'bg-white/80 border-stone-200 shadow-2xs'
+                          : 'bg-white/40 border-stone-200/60 hover:bg-white/70 hover:border-stone-200'
+                      }`}
                     >
-                      <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                        <MapPin
-                          className={`w-3.5 h-3.5 text-[#8B1E1E] ${
-                            isActive ? 'fill-[#8B1E1E]' : 'fill-[#8B1E1E]/20'
-                          }`}
-                        />
-                      </div>
-                      <span
-                        className={`text-sm tracking-tight transition-colors ${
-                          isActive
-                            ? 'font-bold text-stone-950 underline underline-offset-4 decoration-[#8B1E1E]'
-                            : 'font-medium text-stone-700 group-hover:text-stone-950'
-                        }`}
+                      {/* Location Row (Touch target >= 44px) */}
+                      <button
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        onClick={() => setActiveOfficeId(office.id)}
+                        className="w-full flex items-center justify-between p-3.5 sm:p-4 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 rounded-2xl min-h-[44px]"
                       >
-                        {office.name}
-                      </span>
-                    </button>
+                        <div className="flex items-center gap-3.5 min-w-0">
+                          <div
+                            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${
+                              isActive
+                                ? 'bg-[#8B1E1E] text-white shadow-xs scale-105'
+                                : isHovered
+                                ? 'bg-red-100 text-[#8B1E1E]'
+                                : 'bg-stone-100 text-stone-500 group-hover:bg-red-50 group-hover:text-[#8B1E1E]'
+                            }`}
+                          >
+                            <MapPin className={`w-4 h-4 ${isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span
+                                className={`text-sm sm:text-base tracking-tight transition-colors ${
+                                  isActive
+                                    ? 'font-bold text-stone-950'
+                                    : 'font-semibold text-stone-800 group-hover:text-stone-950'
+                                }`}
+                              >
+                                {office.name}
+                              </span>
+                              <span
+                                className={`text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-colors ${
+                                  isActive
+                                    ? 'bg-red-50 text-[#8B1E1E] border-red-200/80'
+                                    : 'bg-stone-100/80 text-stone-600 border-stone-200/70'
+                                }`}
+                              >
+                                {office.badge}
+                              </span>
+                            </div>
+                            <p className="text-xs text-stone-500 font-normal m-0 truncate mt-0.5">
+                              {office.type}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="shrink-0 pl-2">
+                          <ChevronDown
+                            className={`w-4 h-4 text-stone-400 transition-transform duration-300 ${
+                              isActive ? 'rotate-180 text-[#8B1E1E]' : 'group-hover:text-stone-600'
+                            }`}
+                          />
+                        </div>
+                      </button>
+
+                      {/* Inline Expanded Details on Selection */}
+                      {isActive && (
+                        <div className="px-4 pb-4 pt-1 space-y-3 text-xs border-t border-stone-100 mt-0.5">
+                          <div className="flex items-start gap-2.5 text-stone-600 leading-relaxed pt-1">
+                            <MapPin className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0 mt-0.5" />
+                            <span>{office.address}</span>
+                          </div>
+
+                          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-stone-100">
+                            <div className="flex items-center gap-3 text-stone-600">
+                              <a
+                                href={`tel:${office.phone.replace(/\s+/g, '')}`}
+                                className="font-mono text-stone-800 font-semibold hover:text-[#8B1E1E] transition-colors"
+                              >
+                                {office.phone}
+                              </a>
+                              <span>•</span>
+                              <a
+                                href={`mailto:${office.email}`}
+                                className="text-stone-600 hover:text-[#8B1E1E] transition-colors truncate max-w-[140px] sm:max-w-none"
+                              >
+                                {office.email}
+                              </a>
+                            </div>
+
+                            <a
+                              href={office.mapUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 font-bold text-[#8B1E1E] hover:underline"
+                            >
+                              <span>Get Directions</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
               </div>
-
-              {/* Active Office Address Details Preview */}
-              <div className="p-4 rounded-xl bg-white/95 backdrop-blur-sm border border-stone-200/90 shadow-2xs space-y-2 max-w-sm">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-stone-900 font-heading">{activeOffice.name}</span>
-                    <span className="text-[9px] font-bold text-[#8B1E1E] uppercase tracking-wider bg-red-50 px-2 py-0.5 rounded-full border border-red-100">
-                      {activeOffice.badge}
-                    </span>
-                  </div>
-                  <a
-                    href={activeOffice.mapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#8B1E1E] hover:underline"
-                  >
-                    <span>Directions</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-                <p className="text-xs text-stone-600 m-0 leading-relaxed">
-                  {activeOffice.address}
-                </p>
-                <div className="flex items-center gap-3 text-xs text-stone-500 pt-1 border-t border-stone-100">
-                  <span className="font-mono text-stone-700 font-semibold">{activeOffice.phone}</span>
-                  <span>•</span>
-                  <span>{activeOffice.email}</span>
-                </div>
-              </div>
             </div>
 
-            {/* Center: Scaled Maharashtra Vector Map Graphic (lg:col-span-5) */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center relative py-2">
-              <div className="relative w-full max-w-[400px] aspect-[240/145] select-none">
+            {/* ── Center Column: Scaled Maharashtra Vector Map Graphic (lg:col-span-4 xl:col-span-4) ── */}
+            <div className="lg:col-span-4 xl:col-span-4 flex flex-col items-center justify-center relative py-4 lg:py-6">
+              <div className="relative w-full max-w-[420px] aspect-[240/145] select-none">
                 <svg
                   viewBox="0 0 240 145"
-                  className="w-full h-full filter drop-shadow-xs"
+                  className="w-full h-full filter drop-shadow-sm"
                   aria-label="Interactive Map of Maharashtra showing SolarARK office locations"
                 >
                   {/* Maharashtra State Silhouette Vector */}
@@ -653,22 +713,53 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     strokeLinejoin="round"
                   />
 
-                  {/* City Pins & Labels */}
+                  {/* City Pins & Labels with Bidirectional Sync */}
                   {OFFICES.map((office) => {
                     const isSelected = office.id === activeOfficeId;
+                    const isHovered = office.id === hoveredOfficeId;
+                    const isHighlighted = isSelected || isHovered;
+
                     return (
                       <g
                         key={office.id}
                         className="cursor-pointer transition-transform"
                         onClick={() => setActiveOfficeId(office.id)}
+                        onMouseEnter={() => setHoveredOfficeId(office.id)}
+                        onMouseLeave={() => setHoveredOfficeId(null)}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Select ${office.name}`}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            setActiveOfficeId(office.id);
+                          }
+                        }}
                       >
-                        {/* Selected Pulsing Radar Ring */}
-                        {isSelected && (
+                        {/* Invisible larger hit circle for touch accessibility */}
+                        <circle
+                          cx={office.dot.cx}
+                          cy={office.dot.cy}
+                          r="14"
+                          className="fill-transparent"
+                        />
+
+                        {/* Selected / Hovered Pulsing Radar Wave */}
+                        {isHighlighted && (
                           <circle
                             cx={office.dot.cx}
                             cy={office.dot.cy}
-                            r="8"
-                            className="fill-[#8B1E1E]/25 animate-ping"
+                            r="9"
+                            className="fill-[#8B1E1E]/25 animate-ping origin-center"
+                          />
+                        )}
+
+                        {/* Soft Outer Halo */}
+                        {isHighlighted && (
+                          <circle
+                            cx={office.dot.cx}
+                            cy={office.dot.cy}
+                            r="7"
+                            className="fill-[#8B1E1E]/20"
                           />
                         )}
 
@@ -676,9 +767,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                         <circle
                           cx={office.dot.cx}
                           cy={office.dot.cy}
-                          r={isSelected ? '4.5' : '3.5'}
-                          className="fill-[#8B1E1E] stroke-white"
-                          strokeWidth="1.4"
+                          r={isHighlighted ? '4.8' : '3.6'}
+                          className={`${
+                            isHighlighted ? 'fill-[#8B1E1E]' : 'fill-[#8B1E1E]/85'
+                          } stroke-white transition-all`}
+                          strokeWidth={isHighlighted ? '1.6' : '1.2'}
                         />
 
                         {/* City Label */}
@@ -686,10 +779,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           x={office.label.x}
                           y={office.label.y}
                           textAnchor={office.label.anchor}
-                          className={`font-sans text-[8.5px] transition-all select-none pointer-events-none ${
-                            isSelected
-                              ? 'font-bold fill-[#8B1E1E]'
-                              : 'font-medium fill-stone-800'
+                          className={`font-sans transition-all select-none pointer-events-none ${
+                            isHighlighted
+                              ? 'font-bold text-[9px] fill-[#8B1E1E]'
+                              : 'font-semibold text-[8px] fill-stone-800'
                           }`}
                         >
                           {office.name.replace(' (HQ)', '')}
@@ -710,12 +803,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
             </div>
 
-            {/* Right: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3) */}
-            <div className="lg:col-span-3 flex justify-start lg:justify-end items-start select-none">
-              <div className="flex items-start gap-3.5 text-left">
-                <div className="w-[1.5px] h-12 bg-stone-300 mt-1 shrink-0" />
+            {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3 xl:col-span-3) ── */}
+            <div className="lg:col-span-3 xl:col-span-3 flex justify-start lg:justify-end items-start select-none pt-2 lg:pt-6">
+              <div className="flex items-start gap-3 text-left">
+                <div className="w-[1.5px] h-12 bg-stone-300 mt-0.5 shrink-0" />
                 <div className="space-y-1">
-                  <p className="text-[10.5px] sm:text-[11px] font-bold tracking-[0.22em] text-stone-700 uppercase font-sans leading-tight m-0">
+                  <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-stone-700 uppercase font-sans leading-tight m-0">
                     SOLAR<br />
                     FOR A STRONGER<br />
                     MAHARASHTRA
