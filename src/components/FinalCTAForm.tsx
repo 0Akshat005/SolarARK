@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  Sparkles,
   ShieldCheck,
   Lock,
   Users,
@@ -140,34 +139,27 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
         {/* ── LEFT COLUMN: VISUAL & TRUST PANEL (~48%) ── */}
-        <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-6 flex flex-col justify-between py-2 sm:py-4 space-y-8 lg:space-y-10">
           
-          <div className="space-y-4">
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-stone-700 text-xs font-semibold font-heading shadow-2xs backdrop-blur-xs">
-              <Sparkles className="w-3.5 h-3.5 text-stone-600" />
-              <span>Zero Upfront Obligation</span>
+          {/* Top Section: Eyebrow, Display Headline, and Subtitle with Proper Spacing */}
+          <div className="space-y-4 sm:space-y-5">
+            {/* Subtle Editorial Eyebrow with Brand Maroon Line */}
+            <div className="flex items-center gap-2">
+              <span className="w-6 h-[2px] bg-[#8B1E1E]" />
+              <span className="text-[11px] font-bold tracking-[0.16em] text-stone-500 uppercase font-sans">
+                ESTIMATE &amp; SUBSIDY
+              </span>
             </div>
 
-            {/* Display Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-stone-900 font-heading tracking-tight leading-[1.15] m-0">
-              Claim Your Free <br />
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: 'linear-gradient(100deg, #2A2118 0%, #6B5842 55%, #8B7355 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  color: '#4A3C2B',
-                }}
-              >
-                Solar Savings Estimate
-              </span> <br />
+            {/* Display Headline: Natural Rhythmic Flow */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-medium text-stone-900 tracking-tight leading-[1.18] m-0">
+              Claim Your Free <br className="hidden sm:inline" />
+              <span className="text-[#8B1E1E]">Solar Savings Estimate</span> <br className="hidden sm:inline" />
               &amp; 3D Roof Design
             </h2>
 
-            {/* Subhead with clean neutral highlights */}
-            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-lg m-0">
+            {/* Subhead with Clean Leading and Balanced Line Measure */}
+            <p className="text-base sm:text-[16.5px] text-stone-600 font-normal leading-relaxed max-w-lg m-0">
               Our certified engineers will prepare an exact{' '}
               <strong className="text-stone-900 font-semibold">3D solar proposal</strong>{' '}
               and{' '}
@@ -176,121 +168,66 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
               </strong>{' '}
               for your roof.
             </p>
-
-            {/* Trust Row (3 Items Horizontal) */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
-              {/* 100% Free */}
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div className="text-xs font-semibold text-stone-800 leading-tight">
-                  100% Free <br />
-                  <span className="text-[11px] font-normal text-stone-500">&amp; No Obligation</span>
-                </div>
-              </div>
-
-              {/* Secure */}
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-600 shadow-2xs backdrop-blur-xs">
-                  <Lock className="w-4 h-4" />
-                </div>
-                <div className="text-xs font-semibold text-stone-800 leading-tight">
-                  Your Data <br />
-                  <span className="text-[11px] font-normal text-stone-500">is Secure</span>
-                </div>
-              </div>
-
-              {/* Certified Engineers */}
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#8B1E1E]/10 border border-[#8B1E1E]/20 flex items-center justify-center text-[#8B1E1E] shadow-2xs backdrop-blur-xs">
-                  <Users className="w-4 h-4" />
-                </div>
-                <div className="text-xs font-semibold text-stone-800 leading-tight">
-                  Certified <br />
-                  <span className="text-[11px] font-normal text-stone-500">Engineers</span>
-                </div>
-              </div>
-            </div>
-
-            {/* ── Mobile 3D Proposal Preview Visual Card (Positioned right before the form on mobile) ── */}
-            <div className="block lg:hidden relative rounded-2xl overflow-hidden shadow-lg border border-stone-200/90 my-3">
-              <img
-                src="/images/solar-villa-sunset.jpg"
-                alt="Solar rooftop proposal preview"
-                className="w-full h-44 object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/40 to-transparent p-3.5 flex flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10.5px] font-bold text-white tracking-wide font-heading border border-white/25">
-                    <Sparkles className="w-3 h-3 text-amber-300" />
-                    <span>3D CAD Engineering</span>
-                  </span>
-                  <span className="text-[10px] font-bold text-amber-300 bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-md border border-white/10 font-heading">
-                    ⚡ 24–48h Turnaround
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 p-1 flex items-center justify-center shrink-0 shadow-sm">
-                    <img
-                      src="/images/thumb-3d-solar-house.png"
-                      alt="3D solar roof layout"
-                      className="w-full h-full object-contain filter drop-shadow-sm"
-                    />
-                  </div>
-                  <div className="text-left text-white leading-tight">
-                    <p className="text-xs font-bold font-heading m-0 text-white">
-                      Free 3D Solar Model &amp; Shadow Analysis
-                    </p>
-                    <p className="text-[10.5px] text-slate-300 m-0 mt-0.5">
-                      Tailored to your roof structure with DISCOM subsidy filing
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          {/* ── Desktop Spacer & Overlaid 3D Estimate Caption Card with Independent Floating Curved Arrow ── */}
-          <div className="hidden lg:block pt-32 relative">
-            <div className="relative inline-flex items-center gap-3.5 bg-slate-950/85 backdrop-blur-md text-white border border-white/15 rounded-2xl p-3 sm:p-3.5 shadow-2xl max-w-md z-10">
-              {/* Clean borderless 3D Model Thumbnail Blend */}
-              <div className="w-11 h-11 shrink-0 overflow-hidden flex items-center justify-center filter drop-shadow-md">
-                <img
-                  src="/images/thumb-3d-solar-house.png"
-                  alt="3D Solar house model"
-                  className="w-full h-full object-contain"
-                />
+          {/* Middle Section: Structured Trust Cards with Proper Gaps and Breathing Space */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            {/* 100% Free */}
+            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-[#8B1E1E]/30">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs">
+                <ShieldCheck className="w-4.5 h-4.5 stroke-[1.75]" />
               </div>
-
-              <div className="text-xs sm:text-[13px] leading-snug flex-1">
-                <span>Get a 3D model, savings estimate &amp; subsidy report in </span>
-                <strong className="text-amber-400 font-bold">24–48 hours</strong>
+              <div>
+                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">100% Free</p>
+                <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">&amp; No Obligation</p>
               </div>
             </div>
 
-            {/* Creative Independent Floating Curved Arrow (Pointing dynamically toward the form) */}
-            <div className="absolute left-[370px] -bottom-2 pointer-events-none z-20">
-              <svg width="110" height="60" viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="filter drop-shadow-xs">
-                {/* Dynamic Arcing Path */}
-                <path
-                  d="M4 46C35 46 65 38 96 10"
-                  stroke="#8B1E1E"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeDasharray="5 3"
-                />
-                {/* Arrowhead Pointing Up-Right into the Form */}
-                <path
-                  d="M80 8L98 9L95 27"
-                  stroke="#8B1E1E"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            {/* Secure Data */}
+            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-emerald-500/30">
+              <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0 shadow-2xs">
+                <Lock className="w-4.5 h-4.5 stroke-[1.75]" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">Your Data</p>
+                <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">is 100% Secure</p>
+              </div>
+            </div>
+
+            {/* Certified Engineers */}
+            <div className="flex items-center sm:flex-col sm:items-start gap-3 p-3.5 rounded-2xl bg-white/80 backdrop-blur-sm border border-stone-200/80 shadow-2xs transition-all hover:border-[#8B1E1E]/30">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF5ED] via-[#F4ECE1] to-[#EAE0D0] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs">
+                <Users className="w-4.5 h-4.5 stroke-[1.75]" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-stone-800 leading-tight m-0">Certified</p>
+                <p className="text-[11.5px] font-normal text-stone-500 m-0 mt-0.5">Solar Engineers</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section: Architectural Engineering Deliverables Card (Wise Use of Space) */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5]/90 backdrop-blur-sm border border-stone-200/80 space-y-3">
+            <p className="text-[11px] font-bold tracking-[0.14em] text-stone-600 uppercase font-sans m-0">
+              WHAT YOUR PROPOSAL INCLUDES
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-stone-700">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+                <span>3D shadow &amp; roof analysis</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+                <span>25-year financial savings model</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+                <span>Official DISCOM subsidy filing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0" />
+                <span>Tier-1 hardware specifications</span>
+              </div>
             </div>
           </div>
 

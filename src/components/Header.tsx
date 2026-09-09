@@ -128,13 +128,6 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   <span>{item.name}</span>
-                  {isActive && (
-                    <span
-                      className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full ${
-                        isDarkHero ? 'bg-amber-400' : 'bg-[#8B1E2D]'
-                      }`}
-                    />
-                  )}
                 </button>
               );
             })}
