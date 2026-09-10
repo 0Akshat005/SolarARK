@@ -9,7 +9,6 @@ import {
   Lock,
   Users,
   MapPin,
-  FileText,
   Building2,
   Warehouse,
   Grid3X3,
@@ -18,12 +17,7 @@ import {
   CheckCircle2,
   ReceiptText,
   Info,
-  IndianRupee,
-  TrendingUp,
-  Wrench,
-  Star,
-  PhoneCall,
-  Calendar
+  PhoneCall
 } from 'lucide-react';
 import { PrimaryButton } from './PrimaryButton';
 
@@ -110,7 +104,7 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
       {/* ── ATMOSPHERIC SOLAR-HOME VISUAL LAYER (DESKTOP ONLY: DISSOLVING TOWARD FORM) ── */}
       <div
         aria-hidden="true"
-        className="hidden lg:block absolute left-0 bottom-[90px] w-[65%] h-[500px] pointer-events-none z-0 select-none overflow-visible"
+        className="hidden lg:block absolute left-0 bottom-0 w-[65%] h-[500px] pointer-events-none z-0 select-none overflow-visible"
       >
         {/* Soft Ambient Golden Atmospheric Glow */}
         <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-amber-200/8 to-transparent rounded-full blur-3xl" />
@@ -624,90 +618,6 @@ export const FinalCTAForm: React.FC<FinalCTAFormProps> = ({
 
         </div>
 
-      </div>
-
-      {/* ── 3. BOTTOM BENEFITS STRIP (4 ITEMS FULL-WIDTH - CLEAN MOBILE CARD & DESKTOP GLASSMORPHISM) ── */}
-      <div className="relative z-20 mt-8 lg:mt-10 bg-white/95 lg:bg-white/45 backdrop-blur-xl border border-stone-200/90 lg:border-white/60 shadow-lg shadow-black/5 rounded-2xl sm:rounded-3xl p-5 sm:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* Benefit 1: Accurate 3D Roof Design */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
-              <FileText className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <h4 className="font-heading text-sm font-bold text-stone-900 leading-tight">
-                Accurate 3D Roof Design
-              </h4>
-              <p className="text-xs text-stone-600 mt-0.5 leading-snug">
-                High precision proposal for your roof
-              </p>
-            </div>
-          </div>
-
-          {/* Benefit 2: Max Subsidy Benefit */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-emerald-600 shrink-0">
-              <IndianRupee className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <h4 className="font-heading text-sm font-bold text-stone-900 leading-tight">
-                Max Subsidy Benefit
-              </h4>
-              <p className="text-xs text-stone-600 mt-0.5 leading-snug">
-                We help you get maximum DISCOM subsidy
-              </p>
-            </div>
-          </div>
-
-          {/* Benefit 3: Save Up to 90% */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-[#8B1E1E] shrink-0">
-              <TrendingUp className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <h4 className="font-heading text-sm font-bold text-stone-900 leading-tight">
-                Save Up to 90%
-              </h4>
-              <p className="text-xs text-stone-600 mt-0.5 leading-snug">
-                Slash your electricity bills for 25+ years
-              </p>
-            </div>
-          </div>
-
-          {/* Benefit 4: End-to-End Support */}
-          <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex items-center justify-center text-amber-600 shrink-0">
-              <Wrench className="w-6 h-6" />
-            </div>
-            <div className="text-left">
-              <h4 className="font-heading text-sm font-bold text-stone-900 leading-tight">
-                End-to-End Support
-              </h4>
-              <p className="text-xs text-stone-600 mt-0.5 leading-snug">
-                From paperwork to installation &amp; beyond
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ── 4. BOTTOM SOCIAL-PROOF LINE ── */}
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-bold text-stone-700 text-center">
-        <span className="text-amber-500 text-base">🌿</span>
-        <span className="text-stone-900 font-bold">5000+ Happy Customers</span>
-        
-        <div className="flex items-center gap-0.5 text-amber-400 px-1">
-          <Star className="w-4 h-4 fill-amber-400" />
-          <Star className="w-4 h-4 fill-amber-400" />
-          <Star className="w-4 h-4 fill-amber-400" />
-          <Star className="w-4 h-4 fill-amber-400" />
-          <Star className="w-4 h-4 fill-amber-400" />
-        </div>
-
-        <span className="text-stone-900 font-bold">4.8/5 (Google Reviews)</span>
-        <span className="text-amber-500 text-base">🌿</span>
       </div>
 
     </section>
