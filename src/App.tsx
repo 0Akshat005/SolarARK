@@ -31,6 +31,7 @@ import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
 export default function App() {
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
   const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname || '/');
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
   const [calculatorState, setCalculatorState] = useState<{ pincode: string; monthlyBill: number }>({
     pincode: '444601',
     monthlyBill: 8500,
@@ -111,6 +112,25 @@ export default function App() {
     }
   }, [isReducedMotion]);
 
+  // Handle calculator modal body scroll lock and escape key dismissal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isCalculatorOpen) {
+        setIsCalculatorOpen(false);
+      }
+    };
+    if (isCalculatorOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isCalculatorOpen]);
+
   const navigateTo = (path: string) => {
     setCurrentPath(path);
     window.history.pushState({}, '', path);
@@ -125,27 +145,21 @@ export default function App() {
     if (currentPath !== '/') {
       navigateTo('/contact');
     } else {
-      const el = document.getElementById('contact-form');
-      if (el) {
-        el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
-      }
+      setTimeout(() => {
+        const el = document.getElementById('contact-form');
+        if (el) {
+          el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
+        }
+      }, 50);
     }
   };
 
-  const scrollToCalculator = () => {
-    if (currentPath !== '/') {
-      navigateTo('/');
-      setTimeout(() => {
-        const el = document.getElementById('calculator');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
-    } else {
-      const el = document.getElementById('calculator');
-      if (el) {
-        el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
-      }
-    }
+  const openCalculator = () => {
+    setIsCalculatorOpen(true);
   };
+
+  // Keep scrollToCalculator as alias to openCalculator for backward compatibility
+  const scrollToCalculator = openCalculator;
 
   const scrollToPresence = () => {
     if (currentPath !== '/contact') {
@@ -164,6 +178,7 @@ export default function App() {
 
   const handleClaimEstimate = (data: { pincode: string; monthlyBill: number }) => {
     setCalculatorState(data);
+    setIsCalculatorOpen(false);
     scrollToContactForm();
   };
 
@@ -233,7 +248,7 @@ export default function App() {
             <Hero
               onCtaClick={scrollToContactForm}
               onClaimEstimate={handleClaimEstimate}
-              onCalculatorClick={scrollToCalculator}
+              onCalculatorClick={openCalculator}
               onNavigate={navigateTo}
             />
 
@@ -252,16 +267,7 @@ export default function App() {
             {/* 7. Pre-Footer Banner: "Your roof could do more." (Directly below Built in Maharashtra per reference mockup) */}
             <PreFooterBanner onCtaClick={scrollToContactForm} />
 
-            {/* 8. Savings & Feasibility Assessment: Interactive Calculator */}
-            <div id="calculator">
-              <SavingsCalculator
-                onClaimEstimate={handleClaimEstimate}
-                initialPincode={calculatorState.pincode}
-                initialBill={calculatorState.monthlyBill}
-              />
-            </div>
-
-            {/* 9. Consultation & 3D Site Survey Request Form */}
+            {/* 8. Consultation & 3D Site Survey Request Form */}
             <div id="contact-form">
               <FinalCTAForm
                 prefilledPincode={calculatorState.pincode}
@@ -362,15 +368,39 @@ export default function App() {
       {/* Right-Docked Floating Quick Action Dock (Desktop) */}
       <FloatingActionDock
         onContactClick={scrollToContactForm}
-        onCalculatorClick={scrollToCalculator}
+        onCalculatorClick={openCalculator}
         onLocateClick={scrollToPresence}
       />
 
       {/* Persistent Desktop Top Sticky Bar & Mobile Bottom Sticky Bar */}
       <StickyBars
         onCtaClick={scrollToContactForm}
-        onCalculatorClick={scrollToCalculator}
+        onCalculatorClick={openCalculator}
       />
+
+      {/* ── Dedicated Interactive Solar Savings Calculator Modal Dialog ── */}
+      {isCalculatorOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Solar Savings Calculator"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-sm p-3 sm:p-5 md:p-8 overflow-y-auto animate-in fade-in duration-200"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setIsCalculatorOpen(false);
+            }
+          }}
+        >
+          <div className="relative w-full max-w-[1540px] max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#FAF8F5] shadow-2xl border border-stone-200/80 my-auto">
+            <SavingsCalculator
+              onClaimEstimate={handleClaimEstimate}
+              initialPincode={calculatorState.pincode}
+              initialBill={calculatorState.monthlyBill}
+              onClose={() => setIsCalculatorOpen(false)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

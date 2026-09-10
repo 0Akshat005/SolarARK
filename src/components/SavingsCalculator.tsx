@@ -41,12 +41,14 @@ interface SavingsCalculatorProps {
   onClaimEstimate: (data: { pincode: string; monthlyBill: number }) => void;
   initialPincode?: string;
   initialBill?: number;
+  onClose?: () => void;
 }
 
 export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
   onClaimEstimate,
   initialPincode = '444601',
   initialBill = 8500,
+  onClose,
 }) => {
   const [pincode, setPincode] = useState<string>(initialPincode);
   const [monthlyBill, setMonthlyBill] = useState<number>(initialBill);
@@ -58,7 +60,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
   const sectionRef = useRef<HTMLElement>(null);
   const calculatorCardRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -138,7 +140,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
       id="calculator"
       className="relative overflow-hidden bg-[#FAF8F5] border-b border-stone-200/80 select-none max-w-full"
     >
-      {/* ── Custom Slider Range Input CSS Styling ── */}
+      {/* Custom Slider Range Input CSS Styling */}
       <style>{`
         input[type=range].calc-slider::-webkit-slider-thumb {
           -webkit-appearance: none;
@@ -167,6 +169,18 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           cursor: pointer;
         }
       `}</style>
+
+      {/* Modal Close Button (when rendered inside a modal dialog) */}
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close Solar Calculator"
+          className="absolute top-3 right-3 sm:top-5 sm:right-5 z-30 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200/80 shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      )}
 
       {/* ══════════════════════════════════════════════════════════════
           MAIN 3-ZONE FULL-WIDTH SPLIT-SCREEN CONTAINER
@@ -749,7 +763,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
       {/* ── SAMPLE ELECTRICITY BILL MODAL ── */}
       {showSampleBillModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-stone-200 relative">
             <button
               type="button"
