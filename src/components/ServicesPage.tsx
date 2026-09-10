@@ -106,14 +106,6 @@ const SPECIALIZED_SERVICES: SpecializedService[] = [
   },
 ];
 
-const BILL_TIERS = [
-  '₹1,000 – ₹2,000',
-  '₹2,000 – ₹3,000',
-  '₹3,000 – ₹4,000',
-  '₹4,000 – ₹5,000',
-  '₹5,000+',
-];
-
 interface FeaturedProject {
   id: string;
   capacity: string;
@@ -157,7 +149,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   const [currentProjectIndex, setCurrentProjectIndex] = useState<number>(0);
   const [activeServiceTab, setActiveServiceTab] = useState<number>(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
-  const [selectedBillTier, setSelectedBillTier] = useState<string>('₹3,000 – ₹4,000');
   const projectsScrollRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const stickyContainerRef = useRef<HTMLDivElement>(null);
@@ -906,57 +897,60 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </section>
 
-      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP (COMPACT ARCHITECTURAL STRIP) ── */}
-      <section className="border-t border-stone-200/80 bg-[#FCFAF7] py-6 sm:py-8 lg:py-9">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 lg:gap-8">
+      {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP ("Tell us about your property.") ── */}
+      <section className="border-t border-b border-stone-200/80 bg-[#FAF8F5] py-8 sm:py-10 lg:py-12">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
             
-            {/* Left: Eyebrow + Headline + Subtext */}
-            <div className="space-y-1.5 shrink-0 max-w-lg">
-              <div className="flex items-center gap-3">
-                <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
-                  Book Free Consultation
+            {/* Left & Center: Eyebrow Stack + Vertical Divider + Headline/Subtext */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 lg:gap-10">
+              
+              {/* 1. Regional Eyebrow Stack: A CLEANER / BRIGHTER / MAHARASHTRA */}
+              <div className="flex flex-col select-none shrink-0">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight">
+                  A CLEANER
                 </span>
-                <div className="w-8 h-[1px] bg-stone-300" />
-                <span className="text-[11px] font-bold text-[#8B1E2D] uppercase tracking-wider">
-                  Up to ₹78,000 Subsidy
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight mt-0.5">
+                  BRIGHTER
                 </span>
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight mt-0.5">
+                  MAHARASHTRA
+                </span>
+                <div className="w-7 h-[1.5px] bg-stone-400 mt-2.5" />
               </div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">
-                Tell us about your property.
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-500 leading-relaxed">
-                Connect with our solar experts for honest advice tailored to your energy needs.
-              </p>
+
+              {/* Vertical Architectural Divider */}
+              <div className="hidden sm:block w-[1px] h-12 lg:h-14 bg-stone-300/80 shrink-0" />
+
+              {/* 2. Headline & Subtext */}
+              <div className="space-y-1 text-left">
+                <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-normal text-stone-900 tracking-tight leading-tight">
+                  Tell us about your property.
+                </h3>
+                <p className="text-xs sm:text-sm lg:text-[15px] text-stone-500 font-normal leading-normal">
+                  We'll help assess the right solar solution for your space.
+                </p>
+              </div>
+
             </div>
 
-            {/* Right: Inline Bill Tier Segmented Bar + Action Button */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 lg:gap-4 shrink-0">
-              {/* Bill tier chips */}
-              <div className="flex items-center gap-1.5 bg-stone-200/60 p-1.5 rounded-xl overflow-x-auto scrollbar-none w-full sm:w-auto">
-                {BILL_TIERS.map((tier) => (
-                  <button
-                    key={tier}
-                    type="button"
-                    onClick={() => setSelectedBillTier(tier)}
-                    className={`px-3.5 py-2.5 min-h-[42px] rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center justify-center shrink-0 ${
-                      selectedBillTier === tier
-                        ? 'bg-[#8B1E2D] text-white shadow-xs'
-                        : 'text-stone-600 hover:text-slate-900 hover:bg-white/70'
-                    }`}
-                  >
-                    {tier}
-                  </button>
-                ))}
-              </div>
-
-              {/* Action Button */}
+            {/* 3. Right Action Button */}
+            <div className="shrink-0 flex items-center">
               <PrimaryButton
+                as="a"
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) {
+                    onNavigate('/contact');
+                  } else if (onCtaClick) {
+                    onCtaClick();
+                  }
+                }}
                 size="md"
-                onClick={onCtaClick}
-                className="px-6 py-3 min-h-[48px] text-xs sm:text-sm whitespace-nowrap w-full sm:w-auto shrink-0 justify-center"
+                className="w-full sm:w-auto justify-center whitespace-nowrap"
               >
-                Get Free Consultation →
+                Get a Solar Assessment
               </PrimaryButton>
             </div>
 
