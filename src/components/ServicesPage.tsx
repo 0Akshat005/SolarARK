@@ -243,16 +243,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <span className="word-accent-subtle">space.</span>
             </h1>
           </div>
-          <div className="lg:col-span-5 flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6 lg:gap-8">
-            <div className="space-y-0.5 border-l-2 border-stone-200 pl-4 sm:pl-6">
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Cleaner</span>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Spaces</span>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block mt-1 sm:mt-1.5">Stronger</span>
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.18em] block">Communities</span>
+          <div className="lg:col-span-5 flex flex-col justify-end">
+            <div className="border-l-2 border-stone-300/80 pl-5 sm:pl-6 lg:pl-7 py-1">
+              <p className="text-base sm:text-lg lg:text-[18px] text-stone-600 leading-relaxed max-w-lg font-normal font-sans">
+                Thoughtful solar solutions for the spaces where life, business and industry move forward.
+              </p>
             </div>
-            <p className="text-sm text-stone-600 leading-relaxed max-w-none sm:max-w-[240px] border-l border-stone-200 pl-4 sm:pl-6">
-              Thoughtful solar solutions for the spaces where life, business and industry move forward.
-            </p>
           </div>
 
           {/* First-Screenful Mobile Primary CTA (revamp.md Focus Area 1 & 4) */}
