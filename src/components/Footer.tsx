@@ -9,7 +9,7 @@ import { SolarArkLogo } from './SolarArkLogo';
 import { PrimaryButton } from './PrimaryButton';
 
 interface FooterProps {
-  onCtaClick: () => void;
+  onCtaClick?: () => void;
   onNavigate?: (path: string) => void;
 }
 
@@ -71,7 +71,9 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
           </div>
 
           <PrimaryButton
-            onClick={onCtaClick}
+            as="a"
+            href="/contact"
+            onClick={(e) => handleLinkClick(e, '/contact')}
             size="sm"
           >
             Get Free Solar Consultation
