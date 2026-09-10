@@ -484,7 +484,7 @@ a.bg-\[\#8B1E1E\]:active {
 
 /* ── Right-Docked Quick Action Tabs (Hovering Buttons) ── */
 .action-dock-tab {
-  transform: translateX(calc(100% - 46px));
+  transform: translateX(calc(100% - 54px));
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease;
 }
 
@@ -492,4 +492,10 @@ a.bg-\[\#8B1E1E\]:active {
 .action-dock-tab:focus-visible,
 .action-dock-tab:focus-within {
   transform: translateX(0);
+}
+
+.action-dock-tab:hover .action-dock-label,
+.action-dock-tab:focus-visible .action-dock-label,
+.action-dock-tab:focus-within .action-dock-label {
+  opacity: 1;
 }
