@@ -189,7 +189,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
         <div className="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden hidden lg:block z-0">
           <img
-            src="/images/contact-hero-villa-crop.png"
+            src="/images/contact-hero-villa-blended.png"
             alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
             className="h-full w-auto object-contain object-[right_top]"
           />
@@ -219,7 +219,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           {/* Mobile Image Display (Clean and Card-Free) */}
           <div className="lg:hidden mt-6 relative w-full aspect-[16/9] overflow-hidden rounded-xl">
             <img
-              src="/images/contact-hero-villa-crop.png"
+              src="/images/contact-hero-villa-blended.png"
               alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
               className="w-full h-full object-cover object-center"
             />

@@ -90,20 +90,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Shrikant Tikhile
               </p>
             </div>
-
-            {/* Architectural Stacked Margin Label (Top Right) */}
-            <div className="hidden xl:flex absolute right-8 xl:right-12 top-24 flex-col items-start gap-1 pointer-events-none z-20">
-              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
-                CLEANER
-              </span>
-              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
-                BRIGHTER
-              </span>
-              <span className="text-[10px] font-heading font-semibold text-stone-600 tracking-[0.24em] uppercase leading-tight">
-                MAHARASHTRA
-              </span>
-              <div className="w-5 h-[1.5px] bg-stone-400 mt-1" />
-            </div>
           </div>
 
         </div>
@@ -162,7 +148,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </div>
 
-          {/* Panel 3: Right (Hidden on lg, 2 cols on xl) — Sunset Visual with Stacked Text */}
+          {/* Panel 3: Right (Hidden on lg, 2 cols on xl) — Clean Sunset Visual */}
           <div className="hidden xl:block xl:col-span-2 relative min-h-[460px]">
             <img
               src="/images/solar-villa-sunset.jpg"
@@ -170,22 +156,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               className="w-full h-full object-cover object-center"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-black/35" />
-            <div className="absolute top-8 right-6 flex flex-col items-start gap-1 pointer-events-none z-10">
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
-                SAME
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
-                SPACES
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
-                NEW
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
-                POSSIBILITIES
-              </span>
-              <div className="w-4 h-[1px] bg-white/70 mt-1" />
-            </div>
+            <div className="absolute inset-0 bg-black/20" />
           </div>
 
         </div>
@@ -404,8 +375,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
             </div>
 
-            {/* Middle 7 cols: 4 Procedural Columns (Vertical stack on mobile, 4-cols on sm+) */}
-            <div className="lg:col-span-6 xl:col-span-7 flex flex-col sm:grid sm:grid-cols-4 gap-3 sm:gap-0 items-stretch">
+            {/* 4 Procedural Columns (Vertical stack on mobile, 4-cols on sm+) */}
+            <div className="lg:col-span-8 xl:col-span-9 flex flex-col sm:grid sm:grid-cols-4 gap-3 sm:gap-0 items-stretch">
               {[
                 { 
                   num: '01', 
@@ -457,22 +428,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <div className="hidden sm:block w-6 h-[2px] bg-stone-300 mt-4" />
                 </div>
               ))}
-            </div>
-
-            {/* Right 2 cols: Stacked Marker */}
-            <div className="hidden xl:flex xl:col-span-2 lg:pl-8 lg:border-l border-stone-300/70 flex-col justify-center items-start gap-1 pointer-events-none">
-              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
-                A SMOOTHER
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
-                CLEANER
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
-                BRIGHTER
-              </span>
-              <span className="text-[9px] font-heading font-semibold text-stone-400 tracking-[0.24em] uppercase leading-tight">
-                TOMORROW
-              </span>
             </div>
 
           </div>
