@@ -2,17 +2,15 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * Band 3: PROJECT ARCHIVE — Asymmetric Mixed-Scale Grid
- * Follows the inspiration layout structure:
- * - Col 1: 2 stacked horizontal cards (Residential · Nagpur, Industrial · Amravati)
- * - Col 2: 1 medium card on top (Commercial · Wardha) + 2 split compact cards below (Residential · Chandrapur, Commercial · Nagpur)
- * - Col 3: 1 tall card spanning the entire height (Industrial · Akola)
- *
- * Adheres to Card Best Practices:
- * 1. One concept per card
- * 2. Short summary text (<100 characters)
- * 3. One primary action (circular arrow button →)
- * 4. Clear hierarchy, sharp architectural corners (rounded-none), entry point into Project In Depth.
+ * Band 3: PROJECT ARCHIVE — Editorial Bento Portfolio Grid
+ * Rebuilt strictly per revamp.md design-system guidelines:
+ * - Card heights are 100% intrinsic, driven by image aspect ratio and content
+ * - Zero empty/stretched dead whitespace (no artificial container stretching)
+ * - Columns align to items-start, decoupled from unrelated sibling heights
+ * - Featured Industrial Akola card is established via an editorial portrait image (4:5)
+ * - Standard cards use 4:3 aspect ratio
+ * - Supporting compact cards use natural proportional 4:3 sizing without stretching
+ * - Clean responsive behavior across Desktop (3-col Bento), Tablet (2-col balanced), and Mobile (1-col)
  */
 
 import React from 'react';
@@ -33,15 +31,15 @@ interface ArchiveCardProps {
   isSelected?: boolean;
   onSelect: () => void;
   aspectClass?: string;
-  tall?: boolean;
+  className?: string;
 }
 
 const ArchiveCard: React.FC<ArchiveCardProps> = ({
   project,
   isSelected,
   onSelect,
-  aspectClass = 'aspect-[16/10]',
-  tall = false,
+  aspectClass = 'aspect-[4/3]',
+  className = '',
 }) => {
   // Category display formatting
   const categoryLabel = project.category === 'Commercial & Industrial'
@@ -51,42 +49,40 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
   return (
     <article
       onClick={onSelect}
-      className={`group bg-white rounded-none border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden shadow-2xs hover:shadow-md ${
+      className={`group bg-white rounded-none border transition-all duration-300 cursor-pointer flex flex-col overflow-hidden shadow-2xs hover:shadow-md ${
         isSelected
           ? 'border-[#7A211D] ring-1 ring-[#7A211D]'
           : 'border-[#E6E3DD] hover:border-[#151817]'
-      } ${tall ? 'h-full' : ''}`}
+      } ${className}`}
     >
-      <div>
-        {/* Photo Container */}
-        <div className={`relative w-full overflow-hidden bg-stone-100 ${aspectClass}`}>
-          <img
-            src={project.image || '/images/projects/project1.jpg'}
-            alt={project.imageAlt || project.title}
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-        </div>
-
-        {/* Content Block */}
-        <div className="p-4 sm:p-5 space-y-1.5">
-          {/* Category · Location tag */}
-          <div className="text-[11px] font-body font-medium uppercase tracking-[0.18em] text-[#6C6C68] flex items-center gap-1.5">
-            <span>{categoryLabel}</span>
-            <span className="text-stone-300">•</span>
-            <span>{project.city}</span>
-          </div>
-
-          {/* Short summary text (<100 chars) */}
-          <p className="text-xs sm:text-sm font-heading font-medium text-[#151817] line-clamp-2 leading-snug m-0">
-            {project.shortDescription || project.outcomeHeadline || project.verdict}
-          </p>
-        </div>
+      {/* Photo Container with Intentional Aspect Ratio */}
+      <div className={`relative w-full overflow-hidden bg-stone-100 ${aspectClass}`}>
+        <img
+          src={project.image || '/images/projects/project1.jpg'}
+          alt={project.imageAlt || project.title}
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
       </div>
 
-      {/* Card Action Footer: Circular Arrow Button */}
-      <div className="p-4 sm:p-5 pt-0 flex items-center justify-between border-t border-[#E6E3DD] mt-2">
+      {/* Content Block — Natural height, collapses tightly to text without dead space */}
+      <div className="p-4 sm:p-5 pb-3 sm:pb-4 space-y-1.5">
+        {/* Category · Location tag */}
+        <div className="text-[11px] font-body font-medium uppercase tracking-[0.18em] text-[#6C6C68] flex items-center gap-1.5">
+          <span>{categoryLabel}</span>
+          <span className="text-stone-300">•</span>
+          <span>{project.city}</span>
+        </div>
+
+        {/* Short summary text (<100 chars) */}
+        <p className="text-xs sm:text-sm font-heading font-medium text-[#151817] line-clamp-2 leading-snug m-0">
+          {project.shortDescription || project.outcomeHeadline || project.verdict}
+        </p>
+      </div>
+
+      {/* Card Action Footer: Anchored naturally right after content with consistent padding */}
+      <div className="px-4 sm:px-5 py-3 sm:py-3.5 flex items-center justify-between border-t border-[#E6E3DD] bg-white">
         <span className="text-[10px] sm:text-[11px] font-body font-medium text-[#6C6C68] uppercase tracking-wider">
           {project.systemSizeKw} kW ARRAY
         </span>
@@ -140,42 +136,42 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
   const commNagpur = projects.find((p) => p.id === 'grid-comm-nagpur') || projects[4] || projects[0];
   const indAkola = projects.find((p) => p.id === 'grid-ind-akola') || projects[5] || projects[0];
 
-  // If we have at least 5 projects and we're looking at the full archive, render the exact inspiration layout
+  // If we have at least 5 projects and we're looking at the full archive, render the editorial Bento layout
   const isDefaultView = projects.length >= 5;
 
   if (isDefaultView) {
     return (
       <div className="w-full">
-        {/* Inspiration 3-Column Asymmetric Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        {/* ── 1. DESKTOP (lg+): 3-Column Asymmetric Editorial Bento ── */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
           
-          {/* ── COLUMN 1: 2 Stacked Horizontal Cards ── */}
+          {/* Column 1 (Left Area): 2 Stacked Cards */}
           <div className="flex flex-col gap-6 lg:gap-8">
             <ArchiveCard
               project={resNagpur}
               isSelected={selectedProjectId === resNagpur.id}
               onSelect={() => onSelectProject(resNagpur)}
-              aspectClass="aspect-[16/11]"
+              aspectClass="aspect-[4/3]"
             />
             <ArchiveCard
               project={indAmravati}
               isSelected={selectedProjectId === indAmravati.id}
               onSelect={() => onSelectProject(indAmravati)}
-              aspectClass="aspect-[16/11]"
+              aspectClass="aspect-[4/3]"
             />
           </div>
 
-          {/* ── COLUMN 2: 1 Medium-Wide Card + 2 Split Cards Below ── */}
+          {/* Column 2 (Center / Lower Area): 1 Medium Card + 2 Proportionate Compact Cards */}
           <div className="flex flex-col gap-6 lg:gap-8">
             <ArchiveCard
               project={commWardha}
               isSelected={selectedProjectId === commWardha.id}
               onSelect={() => onSelectProject(commWardha)}
-              aspectClass="aspect-[16/10]"
+              aspectClass="aspect-[4/3]"
             />
             
-            {/* Split Row with 2 Compact Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4 flex-1">
+            {/* Split Row: 2 Compact Cards (Intrinsic sizing, NO stretching) */}
+            <div className="grid grid-cols-2 gap-4">
               <ArchiveCard
                 project={resChandrapur}
                 isSelected={selectedProjectId === resChandrapur.id}
@@ -191,37 +187,122 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
             </div>
           </div>
 
-          {/* ── COLUMN 3: 1 Tall Portrait Card ── */}
-          <div className="flex flex-col h-full">
+          {/* Column 3 (Right Area): Featured Industrial Akola Card */}
+          <div className="flex flex-col">
             <ArchiveCard
               project={indAkola}
               isSelected={selectedProjectId === indAkola.id}
               onSelect={() => onSelectProject(indAkola)}
-              aspectClass="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] lg:h-[460px]"
-              tall={true}
+              aspectClass="aspect-[4/5]"
             />
           </div>
 
+        </div>
+
+        {/* ── 2. TABLET (md to lg): Balanced 2-Column Grid ── */}
+        <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-6 items-start">
+          {/* Left Column (3 cards) */}
+          <div className="flex flex-col gap-6">
+            <ArchiveCard
+              project={resNagpur}
+              isSelected={selectedProjectId === resNagpur.id}
+              onSelect={() => onSelectProject(resNagpur)}
+              aspectClass="aspect-[4/3]"
+            />
+            <ArchiveCard
+              project={indAmravati}
+              isSelected={selectedProjectId === indAmravati.id}
+              onSelect={() => onSelectProject(indAmravati)}
+              aspectClass="aspect-[4/3]"
+            />
+            <ArchiveCard
+              project={resChandrapur}
+              isSelected={selectedProjectId === resChandrapur.id}
+              onSelect={() => onSelectProject(resChandrapur)}
+              aspectClass="aspect-[4/3]"
+            />
+          </div>
+
+          {/* Right Column (3 cards with Featured Akola Card at top) */}
+          <div className="flex flex-col gap-6">
+            <ArchiveCard
+              project={indAkola}
+              isSelected={selectedProjectId === indAkola.id}
+              onSelect={() => onSelectProject(indAkola)}
+              aspectClass="aspect-[4/5]"
+            />
+            <ArchiveCard
+              project={commWardha}
+              isSelected={selectedProjectId === commWardha.id}
+              onSelect={() => onSelectProject(commWardha)}
+              aspectClass="aspect-[4/3]"
+            />
+            <ArchiveCard
+              project={commNagpur}
+              isSelected={selectedProjectId === commNagpur.id}
+              onSelect={() => onSelectProject(commNagpur)}
+              aspectClass="aspect-[4/3]"
+            />
+          </div>
+        </div>
+
+        {/* ── 3. MOBILE (< md): Clean Single-Column Sequence ── */}
+        <div className="grid md:hidden grid-cols-1 gap-5 items-start">
+          <ArchiveCard
+            project={indAkola}
+            isSelected={selectedProjectId === indAkola.id}
+            onSelect={() => onSelectProject(indAkola)}
+            aspectClass="aspect-[4/5]"
+          />
+          <ArchiveCard
+            project={resNagpur}
+            isSelected={selectedProjectId === resNagpur.id}
+            onSelect={() => onSelectProject(resNagpur)}
+            aspectClass="aspect-[4/3]"
+          />
+          <ArchiveCard
+            project={commWardha}
+            isSelected={selectedProjectId === commWardha.id}
+            onSelect={() => onSelectProject(commWardha)}
+            aspectClass="aspect-[4/3]"
+          />
+          <ArchiveCard
+            project={indAmravati}
+            isSelected={selectedProjectId === indAmravati.id}
+            onSelect={() => onSelectProject(indAmravati)}
+            aspectClass="aspect-[4/3]"
+          />
+          <ArchiveCard
+            project={resChandrapur}
+            isSelected={selectedProjectId === resChandrapur.id}
+            onSelect={() => onSelectProject(resChandrapur)}
+            aspectClass="aspect-[4/3]"
+          />
+          <ArchiveCard
+            project={commNagpur}
+            isSelected={selectedProjectId === commNagpur.id}
+            onSelect={() => onSelectProject(commNagpur)}
+            aspectClass="aspect-[4/3]"
+          />
         </div>
       </div>
     );
   }
 
-  // Filtered Fallback Grid: Clean responsive grid using the same card design
+  // Filtered Fallback Grid: Clean responsive grid using intrinsic sizing
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
         {projects.map((proj) => (
           <ArchiveCard
             key={proj.id}
             project={proj}
             isSelected={selectedProjectId === proj.id}
             onSelect={() => onSelectProject(proj)}
-            aspectClass="aspect-[16/10]"
+            aspectClass="aspect-[4/3]"
           />
         ))}
       </div>
     </div>
   );
 };
-
