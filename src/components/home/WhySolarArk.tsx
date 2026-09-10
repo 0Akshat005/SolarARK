@@ -10,10 +10,9 @@
  *   with 2x2 capability matrix featuring soft outline icons.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Play, 
-  X, 
   Compass, 
   Cpu, 
   Wrench, 
@@ -24,8 +23,7 @@ interface WhySolarArkProps {
   onNavigate?: (path: string) => void;
 }
 
-export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
-  const [approachModalOpen, setApproachModalOpen] = useState(false);
+export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
 
   const pillars = [
     {
@@ -51,8 +49,7 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
   ];
 
   return (
-    <>
-      <section className="w-full bg-[#F4F1EB] border-b border-stone-200/80 overflow-hidden">
+    <section className="w-full bg-[#F4F1EB] border-b border-stone-200/80 overflow-hidden">
         
         {/* ── FULL-WIDTH ASYMMETRIC IMAGE + INFORMATION SPLIT (NO Cards) ── */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[500px] lg:min-h-[560px]">
@@ -84,17 +81,25 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
                 Built for what comes next.
               </p>
 
-              {/* Our Approach Video/Modal Trigger */}
+              {/* Our Approach Link to About Us */}
               <div className="pt-2">
-                <button
-                  onClick={() => setApproachModalOpen(true)}
+                <a
+                  href="/about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) {
+                      onNavigate('/about');
+                    } else {
+                      window.location.href = '/about';
+                    }
+                  }}
                   className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-heading font-semibold transition-all duration-200 cursor-pointer shadow-sm"
                 >
                   <span className="w-5 h-5 rounded-full bg-white text-slate-950 flex items-center justify-center transition-transform group-hover:scale-110">
                     <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                   </span>
                   <span>Our Approach</span>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -151,42 +156,5 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = () => {
 
         </div>
       </section>
-
-      {/* Video Modal */}
-      {approachModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setApproachModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-4xl bg-slate-950 rounded-2xl overflow-hidden border border-white/20 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-900">
-              <span className="font-heading font-bold text-white text-base">
-                SolarARK Engineering Standards & Philosophy
-              </span>
-              <button
-                onClick={() => setApproachModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="relative aspect-video bg-black flex items-center justify-center">
-              <video
-                src="/videos/drone-solar-shot.mp4"
-                controls
-                autoPlay
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
   );
 };
