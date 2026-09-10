@@ -50,12 +50,12 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   return (
     <section className="w-full bg-[#FAF8F5] border-b border-stone-200/80 overflow-hidden">
       
-      {/* ── BALANCED EDITORIAL INTRO ROW (STRUCTURED & PURPOSEFUL) ── */}
-      <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 sm:py-7 lg:py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
+      {/* ── BALANCED 3-PART EDITORIAL INTRO ROW (ALIGNED ACROSS SECTION WIDTH) ── */}
+      <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 sm:py-8 lg:py-9">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-center">
           
-          {/* 1. LEFT (~40%): Eyebrow + Large Dominant Display Heading + Accent Line */}
-          <div className="lg:col-span-5 space-y-1.5 sm:space-y-2">
+          {/* 1. LEFT (~36%): Eyebrow + Large Dominant Display Heading + Accent Line */}
+          <div className="md:col-span-5 lg:col-span-4 space-y-1.5 sm:space-y-2 shrink-0">
             <div className="flex items-center gap-2">
               <span className="font-heading text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-stone-500">
                 OUR SOLUTIONS
@@ -63,7 +63,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
               <span className="w-7 h-px bg-stone-300" />
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-bold text-stone-900 tracking-tight leading-[1.03]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-stone-900 tracking-tight leading-[1.03]">
               Solar for<br />
               <span className="word-accent-subtle">every scale.</span>
             </h2>
@@ -71,53 +71,22 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             <div className="solutions-heading-accent mt-2.5" />
           </div>
 
-          {/* 2. RIGHT (~60%): Supporting Copy + Action CTA + 3-Scale Capability Matrix */}
-          <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <p className="text-stone-600 text-xs sm:text-sm lg:text-[14px] font-normal leading-relaxed max-w-lg">
-                From homes to industries, we design solar solutions that make energy simpler, smarter and more sustainable.
-              </p>
+          {/* 2. CENTER (~42%): Narrative Supporting Copy (Bridges Heading and Action) */}
+          <div className="md:col-span-4 lg:col-span-5">
+            <p className="text-stone-600 text-sm sm:text-[15px] lg:text-[16px] xl:text-[16.5px] font-normal leading-relaxed max-w-md lg:max-w-lg">
+              From homes to industries, we design solar solutions that make energy simpler, smarter and more sustainable.
+            </p>
+          </div>
 
-              <div className="shrink-0">
-                <button
-                  onClick={() => onNavigate('/services')}
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[42px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs sm:text-[13px] font-heading font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
-                >
-                  <span>Explore Solutions</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
-                </button>
-              </div>
-            </div>
-
-            {/* 3 Architectural Scale Capability Chips (Eliminates Empty Void) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-stone-200/80">
-              <div 
-                onClick={() => onNavigate('/services')}
-                className="group/card bg-white/80 hover:bg-white border border-stone-200/80 hover:border-stone-300/90 rounded-xl p-3 transition-all cursor-pointer shadow-2xs"
-              >
-                <span className="text-[10px] font-bold font-heading text-stone-500 uppercase tracking-wider block">01 / Residential</span>
-                <span className="text-xs font-semibold text-stone-900 block mt-0.5">3 kW – 10 kW Rooftops</span>
-                <span className="text-[10px] text-emerald-700 font-medium block mt-0.5">PM Surya Ghar Subsidy</span>
-              </div>
-
-              <div 
-                onClick={() => onNavigate('/services')}
-                className="group/card bg-white/80 hover:bg-white border border-stone-200/80 hover:border-stone-300/90 rounded-xl p-3 transition-all cursor-pointer shadow-2xs"
-              >
-                <span className="text-[10px] font-bold font-heading text-stone-500 uppercase tracking-wider block">02 / Commercial</span>
-                <span className="text-xs font-semibold text-stone-900 block mt-0.5">10 kW – 100 kW Arrays</span>
-                <span className="text-[10px] text-stone-500 font-medium block mt-0.5">Up to 80% Bill Savings</span>
-              </div>
-
-              <div 
-                onClick={() => onNavigate('/services')}
-                className="group/card bg-white/80 hover:bg-white border border-stone-200/80 hover:border-stone-300/90 rounded-xl p-3 transition-all cursor-pointer shadow-2xs"
-              >
-                <span className="text-[10px] font-bold font-heading text-stone-500 uppercase tracking-wider block">03 / Industrial</span>
-                <span className="text-xs font-semibold text-stone-900 block mt-0.5">100 kW – 5 MW+ High Yield</span>
-                <span className="text-[10px] text-stone-500 font-medium block mt-0.5">Turnkey High-Yield EPC</span>
-              </div>
-            </div>
+          {/* 3. RIGHT (~22%): Architectural Outline Pill CTA (Right-Aligned) */}
+          <div className="md:col-span-3 lg:col-span-3 md:flex md:justify-end">
+            <button
+              onClick={() => onNavigate('/services')}
+              className="group inline-flex items-center gap-2.5 px-6 py-3 min-h-[44px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs sm:text-[13.5px] font-heading font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+            >
+              <span>Explore Solutions</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
+            </button>
           </div>
 
         </div>
