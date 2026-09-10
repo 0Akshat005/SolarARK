@@ -260,35 +260,32 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                     onMouseLeave={() => setHoveredCity(null)}
                     onClick={() => onNavigate?.('/contact')}
                   >
-                    {/* Square Image Tile */}
+                    {/* Sharp Boxy Image Tile */}
                     <div
-                      className={`relative aspect-square w-full overflow-hidden rounded-xl bg-stone-200 shadow-xs transition-all duration-300 ${
+                      className={`relative aspect-square w-full overflow-hidden rounded-none bg-stone-200 transition-all duration-300 ${
                         isHovered
-                          ? 'ring-2 ring-[#8B1E1E] shadow-md scale-103'
-                          : 'ring-1 ring-stone-300/80 hover:ring-stone-400'
+                          ? 'scale-[1.02] shadow-sm'
+                          : ''
                       }`}
                     >
                       <img
                         src={city.image}
                         alt={`${city.name} Landmark`}
-                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-108"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                         loading="eager"
                       />
                     </div>
 
-                    {/* Small crisp caption beneath each image */}
-                    <div className="pt-2 flex flex-col items-start">
+                    {/* Clean caption beneath each image */}
+                    <div className="pt-2.5 flex flex-col items-start">
                       <span
-                        className={`text-xs sm:text-sm font-bold font-heading text-left leading-tight transition-colors duration-200 ${
+                        className={`text-xs sm:text-sm font-semibold font-sans text-left leading-tight transition-colors duration-200 ${
                           isHovered
                             ? 'text-[#8B1E1E]'
-                            : 'text-stone-900'
+                            : 'text-stone-800'
                         }`}
                       >
                         {city.name}
-                      </span>
-                      <span className="text-[10px] text-stone-500 font-medium tracking-wide">
-                        Solar Hub
                       </span>
                     </div>
                   </div>

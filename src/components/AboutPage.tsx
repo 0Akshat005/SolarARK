@@ -14,7 +14,6 @@
 
 import React from 'react';
 import { ArrowRight, Compass, Cpu, Wrench, ShieldCheck } from 'lucide-react';
-import { MaharashtraStrip } from './MaharashtraStrip';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -479,11 +478,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
         </div>
       </section>
- 
-      {/* ════════════════════════════════════════════════════════════════
-          BAND 5.5 — MAHARASHTRA LOCATIONS STRIP ("Built in Maharashtra")
-          ════════════════════════════════════════════════════════════════ */}
-      <MaharashtraStrip onNavigate={onNavigate} onCtaClick={onCtaClick} />
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 7 — BOTTOM CTA ("Building a cleaner future, together.")
