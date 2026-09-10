@@ -47,6 +47,14 @@ export interface ProjectCaseStudy {
   annualSavings?: number;
   subsidyReceived?: number;
   generationUnitsPerMonth?: number;
+  title?: string;
+  featured?: boolean;
+  completionYear?: string;
+  shortDescription?: string;
+  requirement?: string;
+  solution?: string;
+  impact?: string;
+  outcomeHeadline?: string;
 }
 
 export interface InstallationVideoReel {
