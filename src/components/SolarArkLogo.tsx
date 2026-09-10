@@ -49,12 +49,8 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   };
 
   const currentSize = sizeStyles[size] || sizeStyles.md;
-  const webpSrc = isDark
-    ? '/images/solarark-brand-logo-dark.webp'
-    : '/images/solarark-brand-logo.webp';
-  const pngSrc = isDark
-    ? '/images/solarark-brand-logo-dark.png'
-    : '/images/solarark-brand-logo.png';
+  const webpSrc = '/images/solarark-brand-logo.webp';
+  const pngSrc = '/images/solarark-brand-logo.png';
 
   if (useImage) {
     return (
@@ -78,32 +74,26 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
 
   return (
     <div className={`inline-flex flex-col select-none leading-none group ${className}`}>
-      {/* ── Exact Official Brand Typography: Solar + ARK in Pure Brand Maroon ── */}
+      {/* ── Exact Official Brand Typography: Solar (#7A211D) + ARK (#B24635) ── */}
       <div className={`font-heading font-medium ${currentSize.brand} leading-none flex items-baseline`}>
         <span
-          className={`transition-colors duration-200 ${
-            isDark ? 'text-white' : 'text-[#7A211D]'
-          }`}
+          className="text-[#7A211D] transition-colors duration-200"
           style={{ fontWeight: 450 }}
         >
           Solar
         </span>
         <span
-          className={`font-bold uppercase tracking-tight transition-colors duration-200 ${
-            isDark ? 'text-[#C53030]' : 'text-[#7A211D]'
-          }`}
+          className="text-[#B24635] font-bold uppercase tracking-tight transition-colors duration-200"
           style={{ fontWeight: 800 }}
         >
           ARK
         </span>
       </div>
 
-      {/* ── Official Brand Tagline: assured renewable komfort ── */}
+      {/* ── Official Brand Tagline: assured renewable komfort (#7A211D) ── */}
       {showTagline && (
         <span
-          className={`font-sans ${currentSize.tagline} leading-none transition-colors duration-200 ${
-            isDark ? 'text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]' : 'text-[#7A211D]/90 font-normal'
-          }`}
+          className={`font-sans ${currentSize.tagline} leading-none text-[#7A211D]/90 font-normal transition-colors duration-200`}
           style={{ letterSpacing: '0.07em' }}
         >
           assured renewable komfort
