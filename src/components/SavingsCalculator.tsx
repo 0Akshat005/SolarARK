@@ -24,7 +24,6 @@ import {
   Users,
   Pencil,
   Leaf,
-  Award,
   Crosshair,
   Info,
   Check,
@@ -138,7 +137,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     <section
       ref={sectionRef}
       id="calculator"
-      className="relative overflow-hidden bg-[#FAF8F5] border-b border-stone-200/80 select-none max-w-full"
+      className="relative overflow-hidden bg-[#FAF8F5] select-none max-w-full"
     >
       {/* Custom Slider Range Input CSS Styling */}
       <style>{`
@@ -714,7 +713,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
             - Stacked editorial typography & 01 / 02 paginator
             - Hidden cleanly on mobile viewports (< lg)
            ══════════════════════════════════════════════════════════════ */}
-        <div className="relative hidden lg:flex lg:w-[14%] xl:w-[14%] shrink-0 flex-col justify-between overflow-visible">
+        <div className="relative hidden lg:flex lg:w-[14%] xl:w-[14%] shrink-0 flex-col justify-start overflow-visible">
           {/* Sunset Horizon Background */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             <img
@@ -740,22 +739,6 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               FOR YOUR HOME.
             </div>
             <div className="w-7 h-[1.5px] bg-[#8B1E1E] mt-2.5" />
-          </div>
-
-          {/* Bottom Paginator & Tagline */}
-          <div className="relative z-10 p-4 xl:p-5 pb-8 text-white space-y-2">
-            <div className="text-[11px] font-bold tracking-[0.2em] text-white/90 font-heading">
-              01 / 02
-            </div>
-            <div className="w-7 h-[1px] bg-white/40" />
-            <div className="text-[9px] xl:text-[9.5px] font-bold tracking-[0.2em] leading-relaxed uppercase text-white/85 font-heading">
-              CLEANER
-              <br />
-              STRONGER
-              <br />
-              MORE INDEPENDENT
-            </div>
-            <div className="w-7 h-[1px] bg-white/40" />
           </div>
         </div>
 
@@ -810,53 +793,6 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           </div>
         </div>
       )}
-
-      {/* ── BASE TRUST RIBBON (Bottom of section) ── */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-5 border-t border-stone-200/80">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-6 text-stone-700">
-          <div className="flex items-center gap-2.5 justify-start">
-            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
-              <Zap className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
-            </div>
-            <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
-                Tier-1 Bifacial Solar
-              </span>
-              <span className="text-[11px] text-stone-500 block">
-                Topcon / Mono PERC Technology
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 justify-start">
-            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
-              <Users className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
-            </div>
-            <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
-                Certified Installers
-              </span>
-              <span className="text-[11px] text-stone-500 block">
-                In-House Maharashtra Engineering Team
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5 justify-start">
-            <div className="w-8 h-8 rounded-full border border-stone-300/80 bg-white flex items-center justify-center shrink-0 shadow-2xs">
-              <Award className="w-3.5 h-3.5 text-[#801414]" strokeWidth={2.2} />
-            </div>
-            <div>
-              <span className="text-xs sm:text-[13px] font-bold block font-heading leading-tight text-stone-900">
-                25-Year Warranty
-              </span>
-              <span className="text-[11px] text-stone-500 block">
-                Linear Performance Guarantee
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
