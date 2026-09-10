@@ -41,7 +41,7 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
   return (
     <div className="w-full space-y-4 mb-8">
       {/* Upper Row: Clean Underline Tabs + "View All Projects →" */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 border-b border-stone-200/90 pb-0">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 border-b border-[#E6E3DD] pb-0">
         
         {/* Category Tabs with Underline */}
         <div className="flex items-center gap-6 sm:gap-8 overflow-x-auto scrollbar-none touch-pan-x w-full sm:w-auto" role="tablist">
@@ -53,20 +53,20 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => onTabChange(tab)}
-                className={`relative pb-3 text-sm sm:text-base font-sans font-medium transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
-                  isActive ? 'text-stone-900 font-semibold' : 'text-stone-500 hover:text-stone-900'
+                className={`relative pb-3 text-sm sm:text-base font-body font-medium transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+                  isActive ? 'text-[#151817] font-semibold' : 'text-[#6C6C68] hover:text-[#151817]'
                 }`}
               >
                 <span>{tab}</span>
                 {counts[tab] !== undefined && (
-                  <span className="text-[11px] text-stone-400 font-normal">
+                  <span className="text-[11px] text-[#6C6C68] font-normal">
                     ({counts[tab]})
                   </span>
                 )}
 
                 {/* Maroon active underline */}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#8B1E1E]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#7A211D]" />
                 )}
               </button>
             );
@@ -83,7 +83,7 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
               placeholder="Search city or kW..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-8 pr-7 py-1 rounded-none bg-stone-50 hover:bg-white focus:bg-white border border-stone-200 text-xs text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-[#8B1E1E] transition-colors"
+              className="w-full pl-8 pr-7 py-1 rounded-none bg-stone-50 hover:bg-white focus:bg-white border border-[#E6E3DD] text-xs text-[#151817] placeholder:text-stone-400 focus:outline-none focus:border-[#7A211D] font-body transition-colors"
             />
             {searchQuery && (
               <button
@@ -103,7 +103,7 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
               onSearchChange('');
               if (onViewAllClick) onViewAllClick();
             }}
-            className="text-xs font-sans font-semibold text-[#8B1E1E] hover:text-[#701818] flex items-center gap-1 whitespace-nowrap cursor-pointer transition-colors"
+            className="text-xs font-body font-medium text-[#7A211D] hover:text-[#962B26] flex items-center gap-1 whitespace-nowrap cursor-pointer transition-colors"
           >
             <span>View All Projects</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -114,7 +114,7 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
 
       {/* District quick filter bar */}
       <div className="flex items-center gap-2 overflow-x-auto scrollbar-none touch-pan-x py-0.5">
-        <span className="text-[10px] uppercase font-bold tracking-wider text-stone-400 font-sans shrink-0">
+        <span className="text-[10px] uppercase font-medium tracking-wider text-[#6C6C68] font-body shrink-0">
           Location:
         </span>
         <div className="flex items-center gap-1.5 shrink-0">
@@ -124,10 +124,10 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
               <button
                 key={city}
                 onClick={() => onCityChange(city)}
-                className={`px-2.5 py-0.5 text-xs font-sans rounded-none transition-colors cursor-pointer whitespace-nowrap border ${
+                className={`px-2.5 py-0.5 text-xs font-body font-medium rounded-none transition-colors cursor-pointer whitespace-nowrap border ${
                   isCityActive
-                    ? 'bg-stone-900 text-white border-stone-900'
-                    : 'bg-white text-stone-600 border-stone-200 hover:border-stone-400'
+                    ? 'bg-[#151817] text-white border-[#151817]'
+                    : 'bg-white text-[#6C6C68] border-[#E6E3DD] hover:border-[#151817]'
                 }`}
               >
                 {city}
@@ -143,7 +143,7 @@ export const ProjectsFilterBar: React.FC<ProjectsFilterBarProps> = ({
               onCityChange('All');
               onSearchChange('');
             }}
-            className="ml-auto text-xs font-medium text-stone-500 hover:text-[#8B1E1E] underline cursor-pointer shrink-0"
+            className="ml-auto text-xs font-body font-normal text-[#6C6C68] hover:text-[#7A211D] underline cursor-pointer shrink-0"
           >
             Reset
           </button>

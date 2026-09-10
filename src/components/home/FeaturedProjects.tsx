@@ -46,7 +46,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
   ];
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-8 sm:py-10 lg:py-12 border-b border-stone-200/80">
+    <section className="w-full bg-[#F7F5F0] py-8 sm:py-10 lg:py-12 border-b border-[#E6E3DD]">
       
       {/* ── EXPANSIVE HORIZONTAL CANVAS (Tight Controlled Margins) ── */}
       <div className="w-full max-w-[1720px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16">
@@ -58,13 +58,13 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
           <div className="md:col-span-3 flex flex-col justify-between space-y-4 py-1">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-stone-500">
+                <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#6C6C68]">
                   FEATURED PROJECTS
                 </span>
-                <span className="w-8 h-px bg-stone-300" />
+                <span className="w-8 h-px bg-[#E6E3DD]" />
               </div>
 
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-bold text-stone-900 tracking-tight leading-[1.08]">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-medium text-[#151817] tracking-tight leading-[1.08]">
                 Real spaces.<br />
                 <span className="word-accent-subtle">Real impact.</span>
               </h2>
@@ -73,7 +73,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
             <div>
               <button
                 onClick={() => onNavigate('/projects')}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-stone-300 hover:border-stone-900 text-stone-800 hover:text-stone-950 text-xs font-heading font-semibold transition-all duration-200 cursor-pointer bg-transparent"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-[#E6E3DD] hover:border-[#151817] text-[#151817] text-xs font-body font-medium transition-all duration-200 cursor-pointer bg-transparent"
               >
                 <span>View All Projects</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -102,16 +102,16 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
               {/* Bottom Information: Capacity + Location/Type on Left, Circular Outline Arrow on Right */}
               <div className="relative z-10 flex items-end justify-between gap-3">
                 <div className="space-y-0.5">
-                  <span className="font-heading font-bold text-2xl sm:text-3xl lg:text-[32px] text-white tracking-tight leading-none block">
+                  <span className="font-heading font-semibold text-2xl sm:text-3xl lg:text-[32px] text-white tracking-tight leading-none block">
                     {item.capacity}
                   </span>
-                  <span className="text-xs sm:text-[13px] text-stone-200 font-medium block pt-1">
+                  <span className="text-xs sm:text-[13px] text-stone-200 font-body font-normal block pt-1">
                     {item.type} | {item.location}
                   </span>
                 </div>
 
                 {/* Circular Outline Arrow Button */}
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/70 group-hover:border-white group-hover:bg-white/20 flex items-center justify-center text-white shrink-0 transition-all duration-300 group-hover:scale-110">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/70 group-hover:border-white group-hover:bg-[#7A211D] flex items-center justify-center text-white shrink-0 transition-all duration-300 group-hover:scale-110">
                   <ArrowRight className="w-4 h-4 text-white" strokeWidth={1.75} />
                 </div>
               </div>

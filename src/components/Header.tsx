@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems: Array<{ name: string; path: string; hash?: string }> = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/services' },
+    { name: 'Solutions', path: '/services' },
     { name: 'Earn with us', path: '/earn-with-us' },
     { name: 'Our Projects', path: '/projects' },
     { name: 'Careers', path: '/careers' },
@@ -117,14 +117,14 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`relative px-4 py-1.5 rounded-full text-[13.5px] xl:text-[14.5px] font-heading font-medium tracking-tight transition-all cursor-pointer ${
+                  className={`relative px-4 py-1.5 rounded-full text-[13.5px] xl:text-[14px] font-body font-medium tracking-normal transition-all cursor-pointer ${
                     isActive
                       ? isDarkHero
-                        ? 'bg-white/15 text-white font-semibold shadow-xs'
-                        : 'bg-[#8B1E2D]/8 text-[#8B1E2D] font-semibold'
+                        ? 'bg-white/15 text-white font-medium shadow-xs'
+                        : 'bg-[#7A211D]/8 text-[#7A211D] font-medium'
                       : isDarkHero
                       ? 'text-white hover:text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]'
-                      : 'text-slate-700 hover:text-[#8B1E2D] hover:bg-stone-100/80'
+                      : 'text-[#151817] hover:text-[#7A211D] hover:bg-[#F7F5F0]'
                   }`}
                 >
                   <span>{item.name}</span>
@@ -135,19 +135,19 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* 3. RIGHT: Symmetrical Action Group (Refined Call Action + High-Conversion CTA) */}
           <div className="hidden lg:flex items-center justify-end gap-2.5 xl:gap-3 shrink-0">
-            {/* Refined Premium Call Button (Directly Matching media_1788508458641.png) */}
+            {/* Refined Premium Call Button */}
             <a
               href="tel:7080909590"
-              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]/40 hover:scale-105 active:scale-95 ${
+              className={`relative flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]/40 hover:scale-105 active:scale-95 ${
                 isDarkHero
                   ? 'bg-white/10 hover:bg-white/20 border border-white/25 text-white backdrop-blur-md shadow-xs'
-                  : 'bg-white hover:bg-stone-50 border border-[#8B1E2D]/22 text-[#8B1E2D] shadow-[0_4px_16px_-2px_rgba(139,30,45,0.18)] hover:shadow-[0_6px_22px_-2px_rgba(139,30,45,0.28)]'
+                  : 'bg-white hover:bg-[#F7F5F0] border border-[#7A211D]/25 text-[#7A211D] shadow-[0_4px_16px_-2px_rgba(122,33,29,0.18)] hover:shadow-[0_6px_22px_-2px_rgba(122,33,29,0.28)]'
               }`}
               title="Instant Helpline: +91 7080909590 (Mon-Sat 9:30 AM - 7:00 PM)"
               aria-label="Direct Phone Helpline"
             >
               <PhoneCall className={`w-[18px] h-[18px] stroke-[1.9] transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-110 ${
-                isDarkHero ? 'text-white' : 'text-[#8B1E2D]'
+                isDarkHero ? 'text-white' : 'text-[#7A211D]'
               }`} />
             </a>
 
@@ -215,10 +215,10 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item)}
-                  className={`text-left px-4 py-3 rounded-2xl text-base font-heading font-medium tracking-tight transition-all flex items-center justify-between cursor-pointer ${
+                  className={`text-left px-4 py-3 rounded-2xl text-base font-body font-medium tracking-normal transition-all flex items-center justify-between cursor-pointer ${
                     isActive
-                      ? 'bg-[#8B1E1E] text-white font-semibold shadow-md shadow-[#8B1E1E]/30 ring-1 ring-white/20'
-                      : 'text-slate-200 hover:text-white hover:bg-white/10 active:bg-white/15'
+                      ? 'bg-[#7A211D] text-white font-medium shadow-md shadow-[#7A211D]/30 ring-1 ring-white/20'
+                      : 'text-stone-200 hover:text-white hover:bg-white/10 active:bg-white/15'
                   }`}
                 >
                   <span>{item.name}</span>
@@ -232,7 +232,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="pt-4 border-t border-white/10 space-y-2.5">
             <a
               href="tel:7080909590"
-              className="flex items-center justify-center gap-2.5 text-sm font-heading font-bold text-white bg-white/10 hover:bg-white/15 border border-white/15 py-3 rounded-2xl transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-2.5 text-sm font-body font-medium text-white bg-white/10 hover:bg-white/15 border border-white/15 py-3 rounded-2xl transition-colors cursor-pointer"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />

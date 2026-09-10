@@ -37,17 +37,17 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
   );
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-10 sm:py-14 border-b border-stone-200/80">
+    <section className="w-full bg-[#F7F5F0] py-10 sm:py-14 border-b border-[#E6E3DD]">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Pre-heading with Pager */}
         <div className="flex items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-2">
-            <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#8B1E1E]">
+            <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#7A211D]">
               FEATURED PROJECT IN DEPTH
             </span>
-            <span className="w-6 sm:w-10 h-px bg-[#8B1E1E]/40" />
-            <span className="text-[11px] text-stone-400 font-medium hidden sm:inline">
+            <span className="w-6 sm:w-10 h-px bg-[#7A211D]/40" />
+            <span className="text-[11px] text-[#6C6C68] font-body font-normal hidden sm:inline">
               Pareto 80/20 Landmark Case Study
             </span>
           </div>
@@ -55,20 +55,20 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
           {/* Tiny Pager: 01 - 03 */}
           {displayList.length > 1 && (
             <div className="flex items-center gap-2">
-              <span className="text-xs font-heading font-bold text-stone-700 tracking-wider">
+              <span className="text-xs font-heading font-semibold text-[#151817] tracking-wider">
                 0{activeIndex + 1} <span className="text-stone-400">/</span> 0{displayList.length}
               </span>
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setActiveIndex((prev) => (prev > 0 ? prev - 1 : displayList.length - 1))}
-                  className="w-7 h-7 rounded-lg border border-stone-300 hover:border-stone-900 bg-white flex items-center justify-center text-stone-700 hover:text-stone-950 transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-lg border border-[#E6E3DD] hover:border-[#151817] bg-white flex items-center justify-center text-[#151817] transition-colors cursor-pointer"
                   aria-label="Previous featured project"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => setActiveIndex((prev) => (prev < displayList.length - 1 ? prev + 1 : 0))}
-                  className="w-7 h-7 rounded-lg border border-stone-300 hover:border-stone-900 bg-white flex items-center justify-center text-stone-700 hover:text-stone-950 transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-lg border border-[#E6E3DD] hover:border-[#151817] bg-white flex items-center justify-center text-[#151817] transition-colors cursor-pointer"
                   aria-label="Next featured project"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -78,12 +78,12 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
           )}
         </div>
 
-        {/* Contrasted Horizontal Card (Dark Slate Theme with Specular Accents) */}
-        <div className="relative bg-[#141210] text-white rounded-3xl overflow-hidden border border-stone-800 shadow-2xl">
+        {/* Contrasted Horizontal Card (Deep Charcoal Theme with Specular Accents) */}
+        <div className="relative bg-[#151817] text-white rounded-3xl overflow-hidden border border-[#232826] shadow-xl">
           
           {/* Subtle Warm Gradient Wash */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#8B1E1E]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#7A211D]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#B24635]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
@@ -95,14 +95,14 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-103"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141210] via-[#141210]/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#141210]/30 lg:to-[#141210]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#151817] via-[#151817]/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#151817]/30 lg:to-[#151817]" />
 
               {/* Inset Top Badge */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="px-3 py-1 rounded-md bg-[#8B1E1E] text-white text-[10px] font-bold font-heading uppercase tracking-wider shadow-md">
+                <span className="px-3 py-1 rounded-md bg-[#7A211D] text-white text-[10px] font-body font-medium uppercase tracking-wider shadow-md">
                   {current.category || 'Commercial EPC'}
                 </span>
-                <span className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-stone-200 text-[10px] font-semibold border border-white/10">
+                <span className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-stone-200 text-[10px] font-body font-medium border border-white/10">
                   {current.city}, {current.state}
                 </span>
               </div>
@@ -115,20 +115,20 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
                 
                 {/* Project Title & Location */}
                 <div className="space-y-1.5">
-                  <div className="flex items-center gap-2 text-xs text-amber-400/90 font-medium">
+                  <div className="flex items-center gap-2 text-xs text-stone-300 font-body font-normal">
                     <Building2 className="w-3.5 h-3.5 text-amber-400" />
                     <span>{current.homeownerName}</span>
                     <span className="text-stone-500">•</span>
                     <span>{current.city}, Maharashtra</span>
                   </div>
 
-                  <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white tracking-tight leading-snug">
                     {current.title || `${current.category} Solar Installation — ${current.city}`}
                   </h3>
                 </div>
 
                 {/* 2-3 Line Short Description on Business / Living Impact */}
-                <p className="text-sm sm:text-base text-stone-300 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-stone-300 leading-relaxed font-body font-normal">
                   {current.shortDescription || current.verdict}
                 </p>
 
@@ -136,46 +136,46 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                   
                   <div className="bg-white/5 border border-white/10 rounded-xl p-3 space-y-0.5">
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-heading block">
+                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-body font-medium block">
                       System Size
                     </span>
-                    <span className="font-heading text-xl sm:text-2xl font-bold text-white flex items-center gap-1">
+                    <span className="font-heading text-xl sm:text-2xl font-semibold text-white flex items-center gap-1">
                       <Zap className="w-4 h-4 text-amber-400" />
                       {current.systemSizeKw} kW
                     </span>
-                    <span className="text-[10px] text-stone-400 block truncate">{current.roofType}</span>
+                    <span className="text-[10px] text-stone-400 font-body block truncate">{current.roofType}</span>
                   </div>
 
                   <div className="bg-white/5 border border-white/10 rounded-xl p-3 space-y-0.5">
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-heading block">
+                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-body font-medium block">
                       Commissioned
                     </span>
-                    <span className="font-heading text-xl sm:text-2xl font-bold text-white flex items-center gap-1">
+                    <span className="font-heading text-xl sm:text-2xl font-semibold text-white flex items-center gap-1">
                       <Calendar className="w-4 h-4 text-sky-400" />
                       {current.completionYear || '2024'}
                     </span>
-                    <span className="text-[10px] text-stone-400 block">{current.installationDays} Days Turnkey</span>
+                    <span className="text-[10px] text-stone-400 font-body block">{current.installationDays} Days Turnkey</span>
                   </div>
 
                   <div className="bg-white/5 border border-white/10 rounded-xl p-3 space-y-0.5">
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-heading block">
+                    <span className="text-[10px] uppercase tracking-wider text-stone-400 font-body font-medium block">
                       Monthly Yield
                     </span>
-                    <span className="font-heading text-xl sm:text-2xl font-bold text-amber-300 block">
+                    <span className="font-heading text-xl sm:text-2xl font-semibold text-amber-300 block">
                       {current.generationUnitsPerMonth ? `${current.generationUnitsPerMonth} Units` : '1,250 Units'}
                     </span>
-                    <span className="text-[10px] text-stone-400 block">Per Month Clean Power</span>
+                    <span className="text-[10px] text-stone-400 font-body block">Per Month Clean Power</span>
                   </div>
 
                   <div className="bg-white/5 border border-white/10 rounded-xl p-3 space-y-0.5">
-                    <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-heading block">
+                    <span className="text-[10px] uppercase tracking-wider text-emerald-400 font-body font-medium block">
                       Bill Slashed
                     </span>
-                    <span className="font-heading text-xl sm:text-2xl font-bold text-emerald-400 flex items-center gap-1">
+                    <span className="font-heading text-xl sm:text-2xl font-semibold text-emerald-400 flex items-center gap-1">
                       <TrendingDown className="w-4 h-4" />
                       -{billReductionPercent}%
                     </span>
-                    <span className="text-[10px] text-emerald-300/80 block font-medium">
+                    <span className="text-[10px] text-emerald-300/80 font-body block font-medium">
                       {formatINR(current.annualSavings || 120000)}/yr
                     </span>
                   </div>
@@ -186,7 +186,7 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
 
               {/* Bottom CTA Row */}
               <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-stone-400">
+                <div className="flex items-center gap-2 text-xs text-stone-400 font-body">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span>Verified Generation Telemetry &amp; DISCOM Sync</span>
                 </div>
@@ -194,7 +194,7 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => onSelectProject(current)}
-                    className="btn-primary-maroon px-5 py-3 rounded-xl font-heading font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg shadow-[#8B1E1E]/40"
+                    className="btn-primary-maroon px-5 py-3 rounded-xl font-body font-medium text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-md shadow-[#7A211D]/30"
                   >
                     <span>View Case Study &amp; Specs</span>
                     <ArrowRight className="w-4 h-4" />
@@ -203,7 +203,7 @@ export const FeaturedProjectStrip: React.FC<FeaturedProjectStripProps> = ({
                   {onCtaClick && (
                     <button
                       onClick={onCtaClick}
-                      className="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-heading font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
+                      className="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-body font-medium text-xs sm:text-sm transition-colors cursor-pointer border border-white/10"
                     >
                       Get Similar Proposal
                     </button>

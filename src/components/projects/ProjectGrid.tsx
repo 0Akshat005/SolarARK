@@ -53,8 +53,8 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
       onClick={onSelect}
       className={`group bg-white rounded-none border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden shadow-2xs hover:shadow-md ${
         isSelected
-          ? 'border-[#8B1E1E] ring-1 ring-[#8B1E1E]'
-          : 'border-stone-200/90 hover:border-stone-400'
+          ? 'border-[#7A211D] ring-1 ring-[#7A211D]'
+          : 'border-[#E6E3DD] hover:border-[#151817]'
       } ${tall ? 'h-full' : ''}`}
     >
       <div>
@@ -72,22 +72,22 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
         {/* Content Block */}
         <div className="p-4 sm:p-5 space-y-1.5">
           {/* Category · Location tag */}
-          <div className="text-[11px] font-sans font-semibold uppercase tracking-wider text-stone-500 flex items-center gap-1.5">
+          <div className="text-[11px] font-body font-medium uppercase tracking-[0.18em] text-[#6C6C68] flex items-center gap-1.5">
             <span>{categoryLabel}</span>
             <span className="text-stone-300">•</span>
             <span>{project.city}</span>
           </div>
 
           {/* Short summary text (<100 chars) */}
-          <p className="text-xs sm:text-sm font-sans font-medium text-stone-800 line-clamp-2 leading-snug m-0">
+          <p className="text-xs sm:text-sm font-heading font-medium text-[#151817] line-clamp-2 leading-snug m-0">
             {project.shortDescription || project.outcomeHeadline || project.verdict}
           </p>
         </div>
       </div>
 
       {/* Card Action Footer: Circular Arrow Button */}
-      <div className="p-4 sm:p-5 pt-0 flex items-center justify-between border-t border-stone-100 mt-2">
-        <span className="text-[10px] sm:text-[11px] font-mono font-medium text-stone-400 uppercase tracking-wider">
+      <div className="p-4 sm:p-5 pt-0 flex items-center justify-between border-t border-[#E6E3DD] mt-2">
+        <span className="text-[10px] sm:text-[11px] font-body font-medium text-[#6C6C68] uppercase tracking-wider">
           {project.systemSizeKw} kW ARRAY
         </span>
 
@@ -97,7 +97,7 @@ const ArchiveCard: React.FC<ArchiveCardProps> = ({
             onSelect();
           }}
           aria-label={`View in-depth case study for ${project.title}`}
-          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-stone-300 group-hover:border-[#8B1E1E] group-hover:bg-[#8B1E1E] text-stone-600 group-hover:text-white flex items-center justify-center transition-all cursor-pointer shrink-0"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#E6E3DD] group-hover:border-[#7A211D] group-hover:bg-[#7A211D] text-[#151817] group-hover:text-white flex items-center justify-center transition-all cursor-pointer shrink-0"
         >
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
@@ -114,17 +114,17 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
 }) => {
   if (projects.length === 0) {
     return (
-      <div className="text-center py-16 bg-white rounded-none border border-stone-200 p-8 space-y-3 max-w-md mx-auto">
+      <div className="text-center py-16 bg-white rounded-none border border-[#E6E3DD] p-8 space-y-3 max-w-md mx-auto">
         <div className="w-10 h-10 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto">
           <Search className="w-5 h-5" />
         </div>
-        <h3 className="font-sans text-base font-bold text-stone-900">No matching projects found</h3>
-        <p className="text-xs text-stone-500 leading-relaxed font-sans">
+        <h3 className="font-heading text-base font-medium text-[#151817]">No matching projects found</h3>
+        <p className="text-xs text-[#6C6C68] leading-relaxed font-body font-normal">
           We couldn't find any installations matching your active filters. Try selecting another filter or reset.
         </p>
         <button
           onClick={onResetFilters}
-          className="px-4 py-2 bg-[#8B1E1E] text-white text-xs font-semibold rounded-none cursor-pointer hover:bg-[#701818] transition-colors"
+          className="px-4 py-2 bg-[#7A211D] text-white text-xs font-body font-medium rounded-none cursor-pointer hover:bg-[#962B26] transition-colors"
         >
           Reset Filters
         </button>

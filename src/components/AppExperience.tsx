@@ -10,21 +10,21 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
   const [activeTab, setActiveTab] = useState<'generation' | 'savings' | 'maintenance'>('generation');
 
   return (
-    <section className="py-20 bg-white border-b border-slate-200">
+    <section className="py-20 bg-[#F7F5F0] border-b border-[#E6E3DD]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#7A211D]/10 text-[#7A211D] text-xs font-medium font-body uppercase tracking-[0.18em]">
             <Smartphone className="w-4 h-4" />
             <span>24/7 Mobile Companion App</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-medium text-[#151817] tracking-tight">
             Track Every Watt & Rupee Saved in Real Time
           </h2>
 
-          <p className="text-base text-slate-600">
+          <p className="text-base text-stone-600 font-body">
             The SolarARK Mobile App connects directly to your rooftop inverter. Monitor daily generation curves, 
             track net-meter grid export units, and request zero-cost panel cleaning.
           </p>
@@ -36,10 +36,10 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
           {/* Left Column: Feature Highlights */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-[#FFB020] uppercase tracking-wider font-heading">
+              <span className="text-xs font-medium text-[#FFB020] uppercase tracking-[0.18em] font-body">
                 Smart Solar Telemetry
               </span>
-              <h3 className="text-2xl font-bold font-heading text-white">
+              <h3 className="text-2xl font-medium font-heading text-white">
                 Total Control from Your Pocket
               </h3>
             </div>
@@ -48,17 +48,17 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
             <div className="space-y-3 pt-2">
               <button
                 onClick={() => setActiveTab('generation')}
-                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
+                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between font-body ${
                   activeTab === 'generation'
-                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
+                    ? 'bg-[#7A211D] border-[#7A211D] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <Zap className="w-5 h-5 text-[#FFB020]" />
                   <div>
-                    <div className="text-sm font-bold font-heading">Live Solar Generation Graphs</div>
-                    <div className="text-xs text-slate-200">Hour-by-hour power output curves</div>
+                    <div className="text-sm font-medium font-heading">Live Solar Generation Graphs</div>
+                    <div className="text-xs text-slate-200 font-body">Hour-by-hour power output curves</div>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4" />
@@ -66,17 +66,17 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
 
               <button
                 onClick={() => setActiveTab('savings')}
-                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
+                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between font-body ${
                   activeTab === 'savings'
-                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
+                    ? 'bg-[#7A211D] border-[#7A211D] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <TrendingUp className="w-5 h-5 text-[#10B981]" />
                   <div>
-                    <div className="text-sm font-bold font-heading">DISCOM Net-Meter Credit Audit</div>
-                    <div className="text-xs text-slate-200">Exported grid units vs bill deductions</div>
+                    <div className="text-sm font-medium font-heading">DISCOM Net-Meter Credit Audit</div>
+                    <div className="text-xs text-slate-200 font-body">Exported grid units vs bill deductions</div>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4" />
@@ -84,17 +84,17 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
 
               <button
                 onClick={() => setActiveTab('maintenance')}
-                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
+                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between font-body ${
                   activeTab === 'maintenance'
-                    ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-lg'
+                    ? 'bg-[#7A211D] border-[#7A211D] text-white shadow-lg'
                     : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-800'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <Bell className="w-5 h-5 text-purple-400" />
                   <div>
-                    <div className="text-sm font-bold font-heading">Proactive Maintenance Alerts</div>
-                    <div className="text-xs text-slate-200">Automatic dust alerts & technician booking</div>
+                    <div className="text-sm font-medium font-heading">Proactive Maintenance Alerts</div>
+                    <div className="text-xs text-slate-200 font-body">Automatic dust alerts & technician booking</div>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4" />
@@ -104,7 +104,7 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
             <div className="pt-2">
               <button
                 onClick={onCtaClick}
-                className="bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm px-6 py-3 rounded-xl transition-all"
+                className="bg-white hover:bg-stone-100 text-[#151817] font-medium font-body text-sm px-6 py-3 rounded-xl transition-all cursor-pointer shadow-xs"
               >
                 Get App Access with Free Survey
               </button>
@@ -175,12 +175,12 @@ export const AppExperience: React.FC<{ onCtaClick: () => void }> = ({ onCtaClick
                 {activeTab === 'maintenance' && (
                   <div className="space-y-4">
                     <div className="bg-slate-800/90 p-3.5 rounded-2xl border border-slate-700 text-center">
-                      <span className="text-[10px] text-slate-400">Panel Cleaning Status</span>
-                      <div className="text-xl font-bold text-white font-heading mt-0.5">98% Cleanliness</div>
-                      <span className="text-[10px] text-amber-400 font-medium">Next Wash: In 8 Days</span>
+                      <span className="text-[10px] text-slate-400 font-body">Panel Cleaning Status</span>
+                      <div className="text-xl font-medium text-white font-heading mt-0.5">98% Cleanliness</div>
+                      <span className="text-[10px] text-amber-400 font-medium font-body">Next Wash: In 8 Days</span>
                     </div>
 
-                    <button className="w-full bg-[#8B1E1E] hover:bg-[#5E1212] text-white text-xs font-bold py-2.5 rounded-xl">
+                    <button className="w-full bg-[#7A211D] hover:bg-[#631B18] text-white text-xs font-medium font-body py-2.5 rounded-xl transition-colors cursor-pointer shadow-xs">
                       Book Free AMC Wash
                     </button>
                   </div>

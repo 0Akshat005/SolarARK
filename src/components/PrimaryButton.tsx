@@ -90,11 +90,11 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   }[size];
 
   const baseClasses = [
-    'group relative inline-flex items-center justify-center font-heading font-semibold',
+    'group relative inline-flex items-center justify-center font-body font-medium',
     radiusClasses,
-    'text-white tracking-[0.025em] antialiased select-none',
+    'text-white tracking-[0.02em] antialiased select-none',
     'transition-all duration-300 ease-out cursor-pointer',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D] focus-visible:ring-offset-2 focus-visible:ring-offset-white',
     'disabled:opacity-85 disabled:cursor-not-allowed disabled:pointer-events-none disabled:transform-none disabled:shadow-none',
     'btn-primary-reference',
     sizeClasses,

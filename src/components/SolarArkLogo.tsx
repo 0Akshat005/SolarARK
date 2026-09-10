@@ -82,7 +82,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
       <div className={`font-heading font-medium ${currentSize.brand} leading-none flex items-baseline`}>
         <span
           className={`transition-colors duration-200 ${
-            isDark ? 'text-white' : 'text-[#741616]'
+            isDark ? 'text-white' : 'text-[#7A211D]'
           }`}
           style={{ fontWeight: 450 }}
         >
@@ -90,7 +90,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
         </span>
         <span
           className={`font-bold uppercase tracking-tight transition-colors duration-200 ${
-            isDark ? 'text-[#C53030]' : 'text-[#8B1E1E]'
+            isDark ? 'text-[#C53030]' : 'text-[#7A211D]'
           }`}
           style={{ fontWeight: 800 }}
         >
@@ -102,7 +102,7 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
       {showTagline && (
         <span
           className={`font-sans ${currentSize.tagline} leading-none transition-colors duration-200 ${
-            isDark ? 'text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]' : 'text-[#8B1E1E]/90 font-normal'
+            isDark ? 'text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]' : 'text-[#7A211D]/90 font-normal'
           }`}
           style={{ letterSpacing: '0.07em' }}
         >

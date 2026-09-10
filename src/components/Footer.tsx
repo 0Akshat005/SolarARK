@@ -51,21 +51,21 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
   ];
 
   return (
-    <footer className="bg-[#0F141C] text-stone-300 text-sm border-t border-stone-800 pb-20 lg:pb-0">
+    <footer className="bg-[#151817] text-[#9E9E99] text-sm border-t border-stone-800/80 pb-20 lg:pb-0">
       
       {/* Compact Closing Trust Echo Banner */}
-      <div className="bg-[#161D27] border-b border-stone-800/80 py-6">
+      <div className="bg-[#1C201F] border-b border-stone-800/60 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-            <div className="flex items-center gap-2 text-amber-500 font-bold text-sm sm:text-base">
+            <div className="flex items-center gap-2 text-[#B24635] font-medium text-sm sm:text-base font-body">
               <Star className="w-4.5 h-4.5 fill-current" />
               <span>5,000+ Happy Customers across Maharashtra</span>
             </div>
 
             <span className="text-stone-600 hidden sm:inline">•</span>
 
-            <div className="flex items-center gap-2 text-stone-200 font-medium text-sm sm:text-base">
-              <ShieldCheck className="w-4.5 h-4.5 text-amber-500" />
+            <div className="flex items-center gap-2 text-stone-200 font-medium text-sm sm:text-base font-body">
+              <ShieldCheck className="w-4.5 h-4.5 text-[#B24635]" />
               <span>Assured Renewable Komfort</span>
             </div>
           </div>
@@ -96,25 +96,25 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
               <SolarArkLogo variant="dark" size="md" />
             </a>
 
-            <p className="text-stone-300 text-xs sm:text-sm leading-relaxed max-w-sm font-normal">
+            <p className="text-[#9E9E99] text-xs sm:text-sm leading-relaxed max-w-sm font-body font-normal">
               India's trusted solar EPC partner delivering Tier-1 rooftop systems, ₹78,000 PM Surya Ghar subsidies, and turnkey net-metering.
             </p>
 
-            <div className="space-y-2.5 pt-1 text-stone-200 text-xs sm:text-sm">
+            <div className="space-y-2.5 pt-1 text-stone-300 text-xs sm:text-sm font-body">
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#8B1E1E] shrink-0" />
-                <a href="tel:+917080909590" className="hover:text-white transition-colors font-semibold">
+                <Phone className="w-4 h-4 text-[#7A211D] shrink-0" />
+                <a href="tel:+917080909590" className="hover:text-white transition-colors font-medium">
                   +91 7080909590
                 </a>
                 <span className="text-stone-600">|</span>
-                <Mail className="w-4 h-4 text-[#8B1E1E] shrink-0" />
-                <a href="mailto:info@thesolarark.com" className="hover:text-white transition-colors font-semibold">
+                <Mail className="w-4 h-4 text-[#7A211D] shrink-0" />
+                <a href="mailto:info@thesolarark.com" className="hover:text-white transition-colors font-medium">
                   info@thesolarark.com
                 </a>
               </div>
 
-              <div className="flex items-start gap-2 text-stone-300 text-xs sm:text-sm">
-                <MapPin className="w-4 h-4 text-[#8B1E1E] shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 text-[#9E9E99] text-xs sm:text-sm font-body">
+                <MapPin className="w-4 h-4 text-[#7A211D] shrink-0 mt-0.5" />
                 <span>Mira Sadan, Krushnarpan Colony, Amravati, Maharashtra 444605</span>
               </div>
             </div>
@@ -143,10 +143,10 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
 
           {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-heading block">
+            <span className="text-xs font-medium text-white uppercase tracking-[0.16em] font-body block">
               Company
             </span>
-            <ul className="space-y-2 text-stone-300 text-xs sm:text-sm font-normal">
+            <ul className="space-y-2 text-[#9E9E99] text-xs sm:text-sm font-body font-normal">
               <li>
                 <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="hover:text-white transition-colors">
                   About Us
@@ -154,7 +154,7 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
               </li>
               <li>
                 <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
-                  Solar Services
+                  Solar Solutions
                 </a>
               </li>
               <li>
@@ -177,10 +177,10 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
 
           {/* Solar Solutions */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-heading block">
+            <span className="text-xs font-medium text-white uppercase tracking-[0.16em] font-body block">
               Solutions
             </span>
-            <ul className="space-y-2 text-stone-300 text-xs sm:text-sm font-normal">
+            <ul className="space-y-2 text-[#9E9E99] text-xs sm:text-sm font-body font-normal">
               <li>
                 <a href="/services" onClick={(e) => handleLinkClick(e, '/services')} className="hover:text-white transition-colors">
                   Residential Rooftop
@@ -211,16 +211,16 @@ export const Footer: React.FC<FooterProps> = ({ onCtaClick, onNavigate }) => {
 
           {/* Regional Hubs */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-heading block">
+            <span className="text-xs font-medium text-white uppercase tracking-[0.16em] font-body block">
               Service Hubs
             </span>
-            <div className="flex flex-wrap gap-1.5 text-xs text-stone-200 font-medium">
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Amravati (HQ)</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Nagpur</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Chh. Sambhajinagar</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Wardha</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Akola</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900 border border-stone-800">Pune</span>
+            <div className="flex flex-wrap gap-1.5 text-xs text-stone-300 font-body font-normal">
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Amravati (HQ)</span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Nagpur</span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Chh. Sambhajinagar</span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Wardha</span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Akola</span>
+              <span className="px-2.5 py-1 rounded-lg bg-[#1C201F] border border-[#2B302E]">Pune</span>
             </div>
             <p className="text-xs text-stone-400 pt-1 leading-relaxed">
               Active EPC &amp; Net-Metering operations across Maharashtra.

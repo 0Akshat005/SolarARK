@@ -14,21 +14,21 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
   const selectedTech = TECH_SPECS[activeTechIndex];
 
   return (
-    <section id="technology" className="py-20 bg-[#FAF8F5] text-stone-900 border-b border-stone-200">
+    <section id="technology" className="py-20 bg-[#F7F5F0] text-[#151817] border-b border-[#E6E3DD]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold font-heading border border-stone-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 text-stone-700 text-xs font-medium font-body uppercase tracking-[0.18em] border border-[#E6E3DD]">
             <Cpu className="w-4 h-4 text-stone-600" />
             <span>Industrial-Grade Hardware &amp; Software</span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-stone-900 tracking-tight">
+          <h2 className="font-heading text-2xl sm:text-4xl font-medium text-[#151817] tracking-tight">
             Tier-1 German &amp; Japanese Solar Engineering
           </h2>
 
-          <p className="text-base text-stone-600">
+          <p className="text-base text-stone-600 font-body">
             We strictly source ALMM-approved, Tier-1 hardware components designed to perform through 
             scorching Indian summers, heavy monsoon rains, and coastal humidity.
           </p>
@@ -45,25 +45,25 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
                 <button
                   key={spec.category}
                   onClick={() => setActiveTechIndex(idx)}
-                  className={`w-full text-left p-5 rounded-2xl border transition-all text-xs font-medium flex items-center justify-between cursor-pointer ${
+                  className={`w-full text-left p-5 rounded-2xl border transition-all text-xs font-medium flex items-center justify-between cursor-pointer font-body ${
                     isActive
-                      ? 'bg-[#8B1E1E] border-[#8B1E1E] text-white shadow-md'
-                      : 'bg-white border-stone-200 text-stone-600 hover:text-stone-900 hover:bg-stone-50'
+                      ? 'bg-[#7A211D] border-[#7A211D] text-white shadow-xs'
+                      : 'bg-white border-[#E6E3DD] text-stone-600 hover:text-[#151817] hover:bg-stone-50'
                   }`}
                 >
                   <div>
-                    <span className={`text-[10px] uppercase font-semibold ${isActive ? 'text-amber-200' : 'text-stone-400'}`}>
+                    <span className={`text-[10px] uppercase font-medium tracking-[0.18em] ${isActive ? 'text-amber-200' : 'text-stone-400'}`}>
                       {spec.category}
                     </span>
-                    <div className={`text-sm font-semibold font-heading mt-0.5 ${isActive ? 'text-white' : 'text-stone-900'}`}>
+                    <div className={`text-sm font-medium font-heading mt-0.5 ${isActive ? 'text-white' : 'text-[#151817]'}`}>
                       {spec.title}
                     </div>
                   </div>
 
-                  <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-lg border ${
+                  <span className={`text-[10px] font-medium px-2.5 py-1 rounded-lg border font-body ${
                     isActive
                       ? 'bg-white/20 text-white border-white/30'
-                      : 'bg-stone-100 text-stone-700 border-stone-200'
+                      : 'bg-stone-100 text-stone-700 border-[#E6E3DD]'
                   }`}>
                     {spec.badge}
                   </span>
@@ -73,36 +73,36 @@ export const TechnologySection: React.FC<{ onCtaClick: () => void }> = ({ onCtaC
           </div>
 
           {/* Tech Detail Panel (Right 8 Cols) */}
-          <div className="lg:col-span-8 bg-white p-8 sm:p-10 rounded-3xl border border-stone-200/90 shadow-sm space-y-8">
-            <div className="space-y-4 border-b border-stone-100 pb-6">
+          <div className="lg:col-span-8 bg-white p-8 sm:p-10 rounded-3xl border border-[#E6E3DD] shadow-sm space-y-8">
+            <div className="space-y-4 border-b border-[#E6E3DD] pb-6">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-[#8B1E1E] uppercase tracking-wider font-heading">
+                <span className="text-xs font-medium text-[#7A211D] uppercase tracking-[0.18em] font-body">
                   {selectedTech.category} Architecture
                 </span>
 
-                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                <span className="text-xs font-medium text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 font-body">
                   {selectedTech.badge}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold font-heading text-stone-900">
+              <h3 className="text-2xl font-medium font-heading text-[#151817]">
                 {selectedTech.title}
               </h3>
 
-              <p className="text-sm text-stone-600 leading-relaxed font-normal">
+              <p className="text-sm text-stone-600 leading-relaxed font-normal font-body">
                 {selectedTech.description}
               </p>
             </div>
 
             {/* Spec Bullet List */}
             <div className="space-y-3">
-              <span className="text-xs font-bold text-stone-800 uppercase tracking-wider font-heading">
+              <span className="text-xs font-medium text-stone-700 uppercase tracking-[0.18em] font-body">
                 Engineering Specifications &amp; Certifications:
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {selectedTech.specifications.map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-xs text-slate-700 font-medium">
+                  <div key={i} className="flex items-start gap-2.5 p-3.5 rounded-xl bg-stone-50 border border-[#E6E3DD] text-xs text-slate-700 font-medium font-body">
                     <Check className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                     <span>{item}</span>
                   </div>

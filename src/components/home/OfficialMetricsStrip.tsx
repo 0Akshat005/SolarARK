@@ -104,7 +104,7 @@ export const OfficialMetricsStrip: React.FC = () => {
       ref={containerRef}
       id="official-metrics"
       aria-label="SolarARK Official Verified Performance Metrics"
-      className="w-full bg-white border-y border-stone-200/80 py-4 sm:py-5 lg:py-6 scroll-mt-20 relative z-10 transition-colors"
+      className="w-full bg-white border-y border-[#E6E3DD] py-4 sm:py-5 lg:py-6 scroll-mt-20 relative z-10 transition-colors"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
         
@@ -112,48 +112,48 @@ export const OfficialMetricsStrip: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-4 gap-x-0 items-center">
           
           {/* Col 1: 100+ Projects Completed */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 first:pl-0 sm:first:pl-2 border-r border-stone-200/80">
-            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-bold text-stone-900 tracking-tight leading-none">
+          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 first:pl-0 sm:first:pl-2 border-r border-[#E6E3DD]">
+            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
               <AnimatedCounter target={100} suffix="+" inView={inView} duration={1600} />
             </div>
-            <div className="font-sans text-[11.5px] sm:text-xs lg:text-[13px] text-stone-600 font-normal leading-tight mt-1.5">
+            <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
               Projects Completed
             </div>
           </div>
 
           {/* Col 2: 10+ MW Clean Energy Installed */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 md:border-r md:border-stone-200/80">
-            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-bold text-stone-900 tracking-tight leading-none">
+          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 md:border-r md:border-[#E6E3DD]">
+            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
               <AnimatedCounter target={10} suffix="+ MW" inView={inView} duration={1400} />
             </div>
-            <div className="font-sans text-[11.5px] sm:text-xs lg:text-[13px] text-stone-600 font-normal leading-tight mt-1.5">
+            <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
               Clean Energy Installed
             </div>
           </div>
 
           {/* Col 3: 4 Cities Across Maharashtra */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-stone-100 md:border-t-transparent border-r border-stone-200/80">
-            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-bold text-stone-900 tracking-tight leading-none">
+          <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent border-r border-[#E6E3DD]">
+            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
               <AnimatedCounter target={4} suffix="" inView={inView} duration={1000} />
             </div>
-            <div className="font-sans text-[11.5px] sm:text-xs lg:text-[13px] text-stone-600 font-normal leading-tight mt-1.5">
+            <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
               Cities Across Maharashtra
             </div>
           </div>
 
           {/* Col 4: 100+ Happy Customers */}
-          <div className="col-span-1 lg:col-span-2 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-stone-100 md:border-t-transparent lg:border-r lg:border-stone-200/80">
-            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-bold text-stone-900 tracking-tight leading-none">
+          <div className="col-span-1 lg:col-span-2 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent lg:border-r lg:border-[#E6E3DD]">
+            <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
               <AnimatedCounter target={100} suffix="+" inView={inView} duration={1600} />
             </div>
-            <div className="font-sans text-[11.5px] sm:text-xs lg:text-[13px] text-stone-600 font-normal leading-tight mt-1.5">
+            <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
               Happy Customers
             </div>
           </div>
 
           {/* Col 5: Right Subtle Accent Line Matching Reference Screenshot */}
           <div className="col-span-1 hidden lg:flex items-center justify-end pl-6 select-none">
-            <span className="w-10 xl:w-14 h-[1.5px] bg-stone-300 rounded-full block" />
+            <span className="w-10 xl:w-14 h-[1.5px] bg-[#E6E3DD] rounded-full block" />
           </div>
 
         </div>

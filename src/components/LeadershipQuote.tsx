@@ -13,7 +13,7 @@ interface LeadershipQuoteProps {
 export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = '' }) => {
   return (
     <section 
-      className={`w-full bg-[#F4F1EB] py-12 sm:py-16 lg:py-20 overflow-hidden border-y border-stone-300/60 relative ${className}`}
+      className={`w-full bg-[#F4F1EB] py-12 sm:py-16 lg:py-20 overflow-hidden border-y border-[#E6E3DD] relative ${className}`}
     >
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
@@ -42,29 +42,29 @@ export const LeadershipQuote: React.FC<LeadershipQuoteProps> = ({ className = ''
             
             {/* Quote Icon Badge with Extending Maroon Horizon Accent Line */}
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#6B1414] text-white flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#7A211D] text-white flex items-center justify-center shrink-0 shadow-md">
                 <Quote className="w-6 h-6 sm:w-7 sm:h-7 fill-white text-white rotate-180" />
               </div>
-              <div className="flex-1 max-w-[140px] sm:max-w-[200px] h-[1.5px] bg-[#8B1E1E]/35" />
+              <div className="flex-1 max-w-[140px] sm:max-w-[200px] h-[1.5px] bg-[#7A211D]/35" />
             </div>
 
             {/* Dominant Editorial Quote Message (2–3 lines on desktop) */}
-            <blockquote className="font-heading text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-bold text-stone-900 tracking-tight leading-[1.25] text-left m-0 max-w-2xl">
+            <blockquote className="font-heading text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-medium text-[#151817] tracking-tight leading-[1.25] text-left m-0 max-w-2xl">
               “ Join us in illuminating Maharashtra with clean solar energy. Together, we empower homes and create lasting entrepreneurial livelihoods.”
             </blockquote>
 
             {/* Small Maroon Accent Divider */}
-            <div className="w-12 h-[2px] bg-[#8B1E1E] rounded-full" />
+            <div className="w-12 h-[2px] bg-[#7A211D] rounded-full" />
 
             {/* Credible Attribution Hierarchy */}
             <div className="space-y-1 pt-0.5">
-              <h3 className="font-heading text-lg sm:text-xl font-bold text-stone-900 tracking-tight m-0">
+              <h3 className="font-heading text-lg sm:text-xl font-medium text-[#151817] tracking-tight m-0">
                 Shrikant Tikhile
               </h3>
-              <p className="text-xs sm:text-sm font-bold text-stone-800 font-heading m-0">
+              <p className="text-xs sm:text-sm font-medium text-stone-700 font-body m-0">
                 Director, SolarARK Projects Pvt. Ltd.
               </p>
-              <p className="text-xs sm:text-sm text-stone-500 font-normal m-0">
+              <p className="text-xs sm:text-sm text-stone-500 font-normal font-body m-0">
                 Amravati &amp; Nagpur Regional Solar Operations
               </p>
             </div>

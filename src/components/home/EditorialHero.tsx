@@ -57,7 +57,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
 
   return (
     <>
-      <section className="relative w-full bg-[#FAF9F6] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 border-b border-stone-200/80 overflow-hidden">
+      <section className="relative w-full bg-[#F7F5F0] pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 border-b border-[#E6E3DD] overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
@@ -67,25 +67,25 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
               
               {/* Eyebrow with editorial dash */}
               <div className="flex items-center gap-3">
-                <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-stone-600">
+                <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-stone-600">
                   Clean Energy
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
-                <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-stone-600">
+                <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-stone-600">
                   Brighter Tomorrows
                 </span>
                 <span className="w-8 sm:w-12 h-px bg-stone-300" />
               </div>
 
               {/* Bold Editorial Headline */}
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-bold text-slate-900 tracking-tight leading-[1.04]">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-semibold text-[#151817] tracking-tight leading-[1.04]">
                 Powering<br />
                 a brighter<br />
                 <span className="word-accent-subtle">tomorrow.</span>
               </h1>
 
               {/* Concise Supporting Copy */}
-              <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-md">
+              <p className="text-base sm:text-lg text-stone-600 font-normal leading-relaxed max-w-md font-body">
                 Smart solar solutions for homes, businesses and industries across Maharashtra.
               </p>
 
@@ -94,7 +94,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
                 {/* Primary Button */}
                 <button
                   onClick={onAssessmentClick}
-                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[14px] bg-[#8B1E1E] hover:bg-[#741616] text-white text-sm sm:text-base font-heading font-semibold tracking-wide shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[14px] bg-[#7A211D] hover:bg-[#631B18] text-white text-sm sm:text-base font-body font-medium tracking-wide shadow-xs transition-all duration-300 cursor-pointer"
                 >
                   <span>Get a Solar Assessment</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -103,7 +103,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
                 {/* Secondary Button: Watch Story */}
                 <button
                   onClick={() => setVideoModalOpen(true)}
-                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-[14px] border border-stone-300 hover:border-stone-400 bg-white/70 hover:bg-white text-slate-800 text-sm sm:text-base font-heading font-semibold transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-xs"
+                  className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-[14px] border border-[#E6E3DD] hover:border-stone-400 bg-white/70 hover:bg-white text-[#151817] text-sm sm:text-base font-body font-medium transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-xs"
                 >
                   <span className="w-6 h-6 rounded-full bg-stone-100 flex items-center justify-center text-slate-700">
                     <Play className="w-3 h-3 fill-current ml-0.5" />
@@ -113,7 +113,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
               </div>
 
               {/* Micro Proof Badge */}
-              <div className="pt-2 flex items-center gap-4 text-xs text-stone-500 font-medium">
+              <div className="pt-2 flex items-center gap-4 text-xs text-stone-500 font-medium font-body">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                   PM Surya Ghar Authorized EPC
@@ -142,14 +142,14 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
 
                 {/* Top Right Tagline */}
                 <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-right">
-                  <div className="inline-flex flex-col items-end backdrop-blur-md bg-black/40 border border-white/20 px-3.5 py-2 rounded-lg text-white">
-                    <span className="text-[10px] sm:text-xs font-heading font-bold uppercase tracking-wider text-amber-300">
+                  <div className="inline-flex flex-col items-end backdrop-blur-md bg-black/40 border border-white/20 px-3.5 py-2 rounded-lg text-white font-body">
+                    <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.18em] text-amber-300">
                       Sustainable
                     </span>
-                    <span className="text-[10px] sm:text-xs font-heading font-medium tracking-wide text-white/90">
+                    <span className="text-[10px] sm:text-xs font-medium tracking-wide text-white/90">
                       Reliable
                     </span>
-                    <span className="text-[10px] sm:text-xs font-heading font-normal tracking-wide text-white/70">
+                    <span className="text-[10px] sm:text-xs font-normal tracking-wide text-white/70">
                       Future-Ready
                     </span>
                   </div>
@@ -158,10 +158,10 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({
                 {/* Center / Subtle Watermark Branding */}
                 <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 z-10">
                   <div className="space-y-1">
-                    <div className="font-heading font-bold text-2xl sm:text-3xl text-white/90 tracking-tight drop-shadow-md">
-                      Solar<span className="text-[#E74C3C]">ARK</span>
+                    <div className="font-heading font-semibold text-2xl sm:text-3xl text-white/90 tracking-tight drop-shadow-md">
+                      Solar<span className="text-[#B24635]">ARK</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-stone-200 font-medium">
+                    <p className="text-xs sm:text-sm text-stone-200 font-medium font-body">
                       {currentItem.title} <span className="text-white/50">•</span> {currentItem.location}
                     </p>
                   </div>

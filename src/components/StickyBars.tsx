@@ -16,16 +16,16 @@ export const StickyBars: React.FC<StickyBarsProps> = ({ onCtaClick }) => {
   return (
     <>
       {/* ── Ergonomic Mobile Thumb-Zone Action Bar (Psychological Conversion Hub) ── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-stone-200/90 shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-3.5 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-2.5">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-[#E6E3DD] shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-3.5 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-2.5">
         
         {/* 1. Direct Instant Dial (Clean & Premium Call Action) */}
         <a
           href="tel:7080909590"
-          className="flex-1 bg-white hover:bg-stone-50 active:scale-[0.98] border border-stone-200 text-[#8B1E1E] font-heading font-bold text-xs py-2.5 px-2 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+          className="flex-1 bg-white hover:bg-[#F7F5F0] active:scale-[0.98] border border-[#E6E3DD] text-[#7A211D] font-body font-medium text-xs py-2.5 px-2 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
           title="Call Helpline: 7080909590"
           aria-label="Call SolarARK Advisor"
         >
-          <PhoneCall className="w-3.5 h-3.5 text-[#8B1E1E]" />
+          <PhoneCall className="w-3.5 h-3.5 text-[#7A211D]" />
           <span>Call Advisor</span>
         </a>
 

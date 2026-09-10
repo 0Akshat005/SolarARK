@@ -32,13 +32,13 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
           }
         }}
         aria-label="Contact SolarArk"
-        className="action-dock-tab group flex items-center justify-start bg-[#8B1E1E] hover:bg-[#731616] active:bg-[#5E1212] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(139,30,30,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-amber-300 h-[52px] pl-4 pr-6 cursor-pointer"
+        className="action-dock-tab group flex items-center justify-start bg-[#7A211D] hover:bg-[#8B2621] active:bg-[#5E1815] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(122,33,29,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-white/60 h-[52px] pl-4 pr-6 cursor-pointer"
       >
         <div className="w-6 h-6 flex items-center justify-center shrink-0">
           <Phone className="w-5 h-5 fill-white stroke-white stroke-[1.5]" />
         </div>
         <div className="action-dock-label flex items-center gap-2.5 pl-3.5 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-          <span className="text-sm font-semibold tracking-wide font-sans">
+          <span className="text-sm font-medium tracking-normal font-body">
             Contact Us
           </span>
           <ArrowRight className="w-4 h-4 text-white/80 stroke-[2]" />
@@ -51,7 +51,7 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with SolarArk on WhatsApp"
-        className="action-dock-tab group flex items-center justify-start bg-[#8B1E1E] hover:bg-[#731616] active:bg-[#5E1212] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(139,30,30,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-amber-300 h-[52px] pl-4 pr-6 cursor-pointer"
+        className="action-dock-tab group flex items-center justify-start bg-[#7A211D] hover:bg-[#8B2621] active:bg-[#5E1815] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(122,33,29,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-white/60 h-[52px] pl-4 pr-6 cursor-pointer"
       >
         <div className="w-6 h-6 flex items-center justify-center shrink-0">
           <svg
@@ -64,7 +64,7 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
           </svg>
         </div>
         <div className="action-dock-label flex items-center gap-2.5 pl-3.5 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-          <span className="text-sm font-semibold tracking-wide font-sans">
+          <span className="text-sm font-medium tracking-normal font-body">
             WhatsApp Us
           </span>
           <ArrowRight className="w-4 h-4 text-white/80 stroke-[2]" />
@@ -76,13 +76,13 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
         type="button"
         onClick={onCalculatorClick}
         aria-label="Calculate your solar savings"
-        className="action-dock-tab group flex items-center justify-start bg-[#8B1E1E] hover:bg-[#731616] active:bg-[#5E1212] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(139,30,30,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-amber-300 h-[52px] pl-4 pr-6 cursor-pointer"
+        className="action-dock-tab group flex items-center justify-start bg-[#7A211D] hover:bg-[#8B2621] active:bg-[#5E1815] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(122,33,29,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-white/60 h-[52px] pl-4 pr-6 cursor-pointer"
       >
         <div className="w-6 h-6 flex items-center justify-center shrink-0">
           <Calculator className="w-5 h-5 stroke-white stroke-[1.75]" />
         </div>
         <div className="action-dock-label flex items-center gap-2.5 pl-3.5 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-          <span className="text-sm font-semibold tracking-wide font-sans">
+          <span className="text-sm font-medium tracking-normal font-body">
             Solar Calculator
           </span>
           <ArrowRight className="w-4 h-4 text-white/80 stroke-[2]" />
@@ -94,13 +94,13 @@ export const FloatingActionDock: React.FC<FloatingActionDockProps> = ({
         type="button"
         onClick={onLocateClick}
         aria-label="Locate SolarArk offices in Maharashtra"
-        className="action-dock-tab group flex items-center justify-start bg-[#8B1E1E] hover:bg-[#731616] active:bg-[#5E1212] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(139,30,30,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-amber-300 h-[52px] pl-4 pr-6 cursor-pointer"
+        className="action-dock-tab group flex items-center justify-start bg-[#7A211D] hover:bg-[#8B2621] active:bg-[#5E1815] text-white rounded-l-full border-l border-t border-b border-white/20 shadow-[-4px_5px_18px_rgba(0,0,0,0.18)] hover:shadow-[-6px_8px_24px_rgba(122,33,29,0.38)] outline-none focus-visible:ring-2 focus-visible:ring-white/60 h-[52px] pl-4 pr-6 cursor-pointer"
       >
         <div className="w-6 h-6 flex items-center justify-center shrink-0">
           <MapPin className="w-5 h-5 stroke-white stroke-[1.75]" />
         </div>
         <div className="action-dock-label flex items-center gap-2.5 pl-3.5 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-          <span className="text-sm font-semibold tracking-wide font-sans">
+          <span className="text-sm font-medium tracking-normal font-body">
             Locate Us
           </span>
           <ArrowRight className="w-4 h-4 text-white/80 stroke-[2]" />

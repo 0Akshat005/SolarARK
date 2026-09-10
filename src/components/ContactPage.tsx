@@ -162,7 +162,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div
-      className="pt-[68px] min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white"
+      className="pt-[68px] min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body"
       itemScope
       itemType="https://schema.org/SolarEnergyContractor"
     >
@@ -185,7 +185,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           1. HERO BAND — "Let's talk about your space."
              (Compact, structured header matching reference crop — NO unnecessary dead space)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-[#FAF8F5] pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9">
+      <section className="relative w-full overflow-hidden bg-[#F7F5F0] pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9">
         {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
         <div className="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden hidden lg:block z-0">
           <img
@@ -198,19 +198,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         {/* Content Container */}
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-xl lg:max-w-md space-y-3 sm:space-y-3.5">
-            <span className="text-[11px] sm:text-xs font-bold tracking-[0.24em] text-stone-500 uppercase font-sans block">
+            <span className="text-[11px] sm:text-xs font-medium tracking-[0.18em] text-[#6C6C68] uppercase font-body block">
               CONTACT
             </span>
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-normal text-stone-900 tracking-tight leading-[1.08] m-0">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-medium text-[#151817] tracking-tight leading-[1.08] m-0">
               Let’s talk <br />
               about <span className="word-accent-subtle font-medium">your space.</span>
             </h1>
 
             {/* Subhead with Subtle Editorial Hairline */}
             <div className="flex items-start gap-3 pt-1">
-              <span className="w-6 h-[1.5px] bg-stone-400 mt-2 shrink-0" />
-              <p className="text-xs sm:text-sm lg:text-[14.5px] text-stone-600 font-normal leading-relaxed m-0 max-w-[340px]">
+              <span className="w-6 h-[1.5px] bg-[#E6E3DD] mt-2 shrink-0" />
+              <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#6C6C68] font-normal leading-relaxed m-0 max-w-[340px] font-body">
                 Tell us what you're planning and our team will help you understand the right solar solution.
               </p>
             </div>
@@ -237,10 +237,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           {/* ── Left Column: "Get in Touch" (~5 cols) ── */}
           <div className="lg:col-span-5 space-y-7">
             <div className="space-y-2">
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+              <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight leading-tight m-0">
                 Get in Touch
               </h2>
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed m-0">
+              <p className="text-sm sm:text-base text-[#6C6C68] leading-relaxed m-0 font-body">
                 We're here to answer your questions and discuss your solar needs.
               </p>
             </div>
@@ -250,17 +250,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               
               {/* Call Us */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF5ED] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <Phone className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-wider text-stone-500 uppercase font-sans m-0">
+                  <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Call Us
                   </p>
                   <a
                     href="tel:+917080909590"
                     itemProp="telephone"
-                    className="text-base sm:text-[17px] font-semibold text-stone-900 hover:text-[#8B1E1E] transition-colors tabular-nums mt-0.5 block"
+                    className="text-base sm:text-[17px] font-medium text-[#151817] hover:text-[#7A211D] transition-colors tabular-nums mt-0.5 block font-body"
                   >
                     +91 7080909590
                   </a>
@@ -269,17 +269,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF5ED] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <Mail className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-wider text-stone-500 uppercase font-sans m-0">
+                  <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Email
                   </p>
                   <a
                     href="mailto:info@thesolarark.com"
                     itemProp="email"
-                    className="text-base sm:text-[17px] font-semibold text-stone-900 hover:text-[#8B1E1E] transition-colors mt-0.5 block"
+                    className="text-base sm:text-[17px] font-medium text-[#151817] hover:text-[#7A211D] transition-colors mt-0.5 block font-body"
                   >
                     info@thesolarark.com
                   </a>
@@ -288,17 +288,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
               {/* Visit Us */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF5ED] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <MapPin className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-wider text-stone-500 uppercase font-sans m-0">
+                  <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Visit Us
                   </p>
-                  <p className="text-base sm:text-[17px] font-semibold text-stone-900 mt-0.5 m-0">
+                  <p className="text-base sm:text-[17px] font-medium text-[#151817] mt-0.5 m-0 font-body">
                     Amravati (HQ)
                   </p>
-                  <p className="text-xs sm:text-sm text-stone-500 font-normal m-0 mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#6C6C68] font-normal m-0 mt-0.5 font-body">
                     Maharashtra, India
                   </p>
                 </div>
@@ -306,17 +306,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
               {/* Business Hours */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF5ED] border border-[#E2D5C3] text-[#8B1E1E] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <Clock className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold tracking-wider text-stone-500 uppercase font-sans m-0">
+                  <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Business Hours
                   </p>
-                  <p className="text-base sm:text-[17px] font-semibold text-stone-900 mt-0.5 m-0">
+                  <p className="text-base sm:text-[17px] font-medium text-[#151817] mt-0.5 m-0 font-body">
                     Mon – Sat
                   </p>
-                  <p className="text-xs sm:text-sm text-stone-500 font-normal m-0 mt-0.5">
+                  <p className="text-xs sm:text-sm text-[#6C6C68] font-normal m-0 mt-0.5 font-body">
                     10:00 AM – 6:00 PM
                   </p>
                 </div>
@@ -330,7 +330,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 href="https://wa.me/917080909590?text=Hello%20SolarArk%20Team!%20I%20would%20like%20to%20discuss%20solar%20solutions%20for%20my%20property."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-sm sm:text-base transition-all shadow-sm cursor-pointer min-h-[44px]"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-sm sm:text-base transition-all shadow-sm cursor-pointer min-h-[44px]"
               >
                 <MessageSquare className="w-4.5 h-4.5 fill-white/20" />
                 <span>Chat on WhatsApp</span>
@@ -342,23 +342,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           {/* ── Right Column: "Send Us an Enquiry" (Sitting cleanly on the section — NO card enclosure) ── */}
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-2 mb-6">
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight leading-tight m-0">
                 Send Us an Enquiry
               </h3>
-              <p className="text-sm text-stone-600 leading-relaxed m-0">
+              <p className="text-sm text-[#6C6C68] leading-relaxed m-0 font-body">
                 Fill in a few details and our team will get in touch with you.
               </p>
             </div>
 
             {submitted ? (
               <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 my-6" aria-live="polite">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center font-bold">
+                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center font-medium">
                   <CheckCircle2 className="w-7 h-7 stroke-[2]" />
                 </div>
-                <h4 className="font-heading text-2xl font-bold text-emerald-900 m-0">
+                <h4 className="font-heading text-2xl font-medium text-emerald-900 m-0">
                   Enquiry Received!
                 </h4>
-                <p className="text-sm text-emerald-800 leading-relaxed max-w-md mx-auto m-0">
+                <p className="text-sm text-emerald-800 leading-relaxed max-w-md mx-auto m-0 font-body">
                   Thank you, <strong>{formData.name}</strong>. A certified SolarArk engineer is reviewing your details and will connect with you at <strong>{formData.phone}</strong>.
                 </p>
                 <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -366,14 +366,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk Team! ☀️\n\nI just submitted an enquiry for a solar assessment.\n• *Name:* ${formData.name}\n• *Phone:* ${formData.phone}\n• *City:* ${formData.city || 'Maharashtra'}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-3 rounded-xl cursor-pointer transition-colors shadow-xs"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-3 rounded-xl cursor-pointer transition-colors shadow-xs font-body"
                   >
                     <span>Open in WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-semibold text-emerald-800 underline cursor-pointer hover:text-emerald-950 p-2"
+                    className="text-xs font-medium text-emerald-800 underline cursor-pointer hover:text-emerald-950 p-2 font-body"
                   >
                     Submit another enquiry
                   </button>
@@ -390,7 +390,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Full Name *"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
                     />
                   </div>
 
@@ -401,7 +401,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Phone Number *"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
                     />
                   </div>
                 </div>
@@ -415,7 +415,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Email Address *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
                     />
                   </div>
 
@@ -426,7 +426,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="City / Location *"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
                     />
                   </div>
                 </div>
@@ -437,8 +437,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     <select
                       value={formData.propertyType}
                       onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                      className={`w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white cursor-pointer ${
-                        formData.propertyType === 'Select property type' ? 'text-stone-400' : 'text-stone-900'
+                      className={`w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white cursor-pointer font-body ${
+                        formData.propertyType === 'Select property type' ? 'text-[#6C6C68]/60' : 'text-[#151817]'
                       }`}
                     >
                       <option value="Select property type" disabled>
@@ -457,7 +457,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       placeholder="Monthly Electricity Bill / Requirement (e.g. 5000)"
                       value={formData.monthlyBill}
                       onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all bg-white"
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
                     />
                   </div>
                 </div>
@@ -469,7 +469,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     placeholder="Your Message (Tell us a bit about your requirement...)"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg border border-stone-200/90 text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#8B1E1E]/20 focus:border-[#8B1E1E] transition-all resize-none bg-white"
+                    className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all resize-none bg-white font-body"
                   />
                 </div>
 
@@ -478,13 +478,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-lg bg-[#8B1E1E] hover:bg-[#701818] text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75"
+                    className="w-full py-4 px-6 rounded-lg bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75"
                   >
                     <span>{isSubmitting ? 'Submitting Enquiry...' : 'Request a Solar Assessment'}</span>
                     <ArrowRight className="w-4 h-4 stroke-[2]" />
                   </button>
 
-                  <p className="text-[11.5px] sm:text-xs text-stone-500 text-left pt-2.5 m-0 leading-normal">
+                  <p className="text-[11.5px] sm:text-xs text-[#6C6C68] text-left pt-2.5 m-0 leading-normal font-body">
                     * By submitting this form, you agree to be contacted by the Solar Ark team.
                   </p>
                 </div>
@@ -499,7 +499,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
              (Clean open band with sunlit architectural corner fading organically — strictly aligned)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section id="our-presence" className="w-full bg-[#FAF9F6] border-y border-stone-200/70 py-10 sm:py-12 lg:py-14 relative overflow-hidden">
+      <section id="our-presence" className="w-full bg-[#F7F5F0] border-y border-[#E6E3DD] py-10 sm:py-12 lg:py-14 relative overflow-hidden">
         {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
         <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] max-w-[560px] pointer-events-none select-none overflow-hidden z-0">
           <img
@@ -516,77 +516,119 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             <div className="lg:col-span-4 space-y-6 sm:space-y-7">
               <div className="space-y-2">
                 <div className="flex items-center gap-3.5">
-                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight m-0">
+                  <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight m-0">
                     Our Presence
                   </h2>
-                  <span className="w-9 h-[1.5px] bg-stone-500 mt-1" />
+                  <span className="w-7 h-[1.5px] bg-[#E6E3DD] mt-1 shrink-0" />
                 </div>
-                <p className="text-xs sm:text-[13.5px] text-stone-600 leading-relaxed m-0 max-w-[300px]">
-                  We work across Maharashtra to bring solar to more homes, businesses and industries.
+                <p className="text-xs sm:text-sm text-[#6C6C68] font-normal leading-relaxed m-0 font-body">
+                  Click on an office location below or pinpoint on the map to view complete regional contact details.
                 </p>
               </div>
 
-              {/* Clean Vertical List of 4 Locations (Matching Reference Image) */}
-              <div className="space-y-3 pt-0.5">
+              {/* Minimal Clean Accordion List */}
+              <div className="space-y-2 max-w-sm">
                 {OFFICES.map((office) => {
-                  const isSelected = office.id === activeOfficeId;
-                  const isHovered = office.id === hoveredOfficeId;
-
+                  const isActive = activeOfficeId === office.id;
+                  const isHovered = hoveredOfficeId === office.id;
                   return (
                     <div
                       key={office.id}
-                      onClick={() => setActiveOfficeId(office.id)}
-                      onMouseEnter={() => setHoveredOfficeId(office.id)}
-                      onMouseLeave={() => setHoveredOfficeId(null)}
-                      className="flex items-center gap-3 cursor-pointer group select-none py-0.5"
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`Select ${office.name}`}
+                      className={`rounded-xl transition-all duration-200 border ${
+                        isActive
+                          ? 'bg-white border-[#E6E3DD] shadow-sm'
+                          : isHovered
+                          ? 'bg-white/80 border-[#E6E3DD]'
+                          : 'border-transparent hover:border-[#E6E3DD]/70'
+                      }`}
                     >
-                      <div className="w-5 h-5 flex items-center justify-center shrink-0">
-                        <MapPin
-                          className={`w-4 h-4 text-[#8B1E1E] fill-[#8B1E1E] transition-transform duration-150 ${
-                            isSelected || isHovered ? 'scale-120' : 'opacity-90'
+                      <button
+                        type="button"
+                        onClick={() => setActiveOfficeId(isActive ? '' : office.id)}
+                        onMouseEnter={() => setHoveredOfficeId(office.id)}
+                        onMouseLeave={() => setHoveredOfficeId(null)}
+                        className="w-full flex items-center justify-between p-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]/30 rounded-xl min-h-[44px]"
+                        aria-expanded={isActive}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span
+                            className={`w-2 h-2 rounded-full transition-all ${
+                              isActive
+                                ? 'bg-[#7A211D] scale-125 ring-4 ring-[#7A211D]/15'
+                                : 'bg-[#6C6C68]/40 group-hover:bg-[#7A211D]'
+                            }`}
+                          />
+                          <span
+                            className={`text-sm sm:text-[14.5px] transition-colors font-body ${
+                              isActive
+                                ? 'font-medium text-[#151817]'
+                                : 'font-normal text-[#151817] group-hover:text-[#7A211D]'
+                            }`}
+                          >
+                            {office.name}
+                          </span>
+                        </div>
+                        <ChevronDown
+                          className={`w-4 h-4 text-[#7A211D] fill-[#7A211D] transition-transform duration-150 ${
+                            isActive ? 'rotate-180 text-[#7A211D]' : 'text-[#6C6C68]'
                           }`}
                         />
-                      </div>
-                      <span
-                        className={`text-sm sm:text-[15px] transition-colors ${
-                          isSelected
-                            ? 'font-bold text-stone-950'
-                            : isHovered
-                            ? 'font-semibold text-stone-950'
-                            : 'font-medium text-stone-800 group-hover:text-stone-950'
-                        }`}
-                      >
-                        {office.name}
-                      </span>
+                      </button>
+
+                      {/* Dropdown Content */}
+                      {isActive && (
+                        <div className="px-3.5 pb-4 pt-1 text-xs sm:text-[12.5px] text-[#6C6C68] space-y-2 border-t border-[#E6E3DD] font-body">
+                          <div className="flex items-start gap-2 pt-2">
+                            <MapPin className="w-3.5 h-3.5 text-[#7A211D] shrink-0 mt-0.5" />
+                            <p className="m-0 leading-relaxed font-normal">{office.address}</p>
+                          </div>
+                          <div className="flex items-center justify-between pt-1">
+                            <a
+                              href={`tel:${office.phone}`}
+                              className="font-medium text-[#151817] hover:text-[#7A211D] transition-colors font-body"
+                            >
+                              {office.phone}
+                            </a>
+                            <a
+                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1 font-body"
+                            >
+                              <span>Directions</span>
+                              <ArrowRight className="w-3 h-3 stroke-[2]" />
+                            </a>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* ── Center Column: Scaled Maharashtra Vector Map Graphic (lg:col-span-5) ── */}
-            <div className="lg:col-span-5 flex items-center justify-center relative">
-              <div className="relative w-full max-w-[380px] aspect-[240/145] select-none">
+            {/* ── Middle Column: Stylized Vector Maharashtra Map (lg:col-span-5) ── */}
+            <div className="lg:col-span-5 flex justify-center items-center py-2 lg:py-0">
+              <div className="w-full max-w-[390px] relative aspect-[4/3] flex items-center justify-center">
                 <svg
-                  viewBox="0 0 240 145"
-                  className="w-full h-full filter drop-shadow-2xs"
-                  aria-label="Map of Maharashtra showing SolarARK office locations"
+                  viewBox="0 0 400 320"
+                  className="w-full h-full drop-shadow-sm select-none"
+                  aria-label="Map of Maharashtra highlighting SolarArk office locations"
                 >
-                  {/* Maharashtra State Silhouette Vector */}
                   <path
-                    d={MAHARASHTRA_PATH}
-                    className="fill-[#EBE6DF] transition-colors"
+                    d="M 50 115 C 65 105, 95 100, 125 102 C 150 96, 175 90, 205 85 C 240 80, 275 80, 310 90 C 340 100, 360 125, 365 145 C 370 170, 360 195, 340 215 C 315 240, 280 250, 245 255 C 210 260, 180 265, 150 255 C 120 245, 95 235, 75 210 C 60 190, 48 160, 45 135 Z"
+                    className="fill-[#EBE5DB] stroke-[#D5CBBF] stroke-[1.5]"
                   />
 
-                  {/* City Pins & Labels with Bidirectional Sync */}
-                  {OFFICES.map((office) => {
-                    const isSelected = office.id === activeOfficeId;
-                    const isHovered = office.id === hoveredOfficeId;
-                    const isHighlighted = isSelected || isHovered;
+                  {/* Connecting Network Lines */}
+                  <path
+                    d="M 235 110 L 140 170 M 235 110 L 260 135 M 235 110 L 205 130"
+                    className="stroke-[#C4B7A5] stroke-[1] stroke-dasharray-[3,3] fill-none opacity-80"
+                  />
 
+                  {/* Office Markers */}
+                  {OFFICES.map((office) => {
+                    const isHighlighted = activeOfficeId === office.id || hoveredOfficeId === office.id;
                     return (
                       <g
                         key={office.id}
@@ -605,7 +647,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                             cx={office.dot.cx}
                             cy={office.dot.cy}
                             r="8"
-                            className="fill-[#8B1E1E]/25 animate-ping origin-center"
+                            className="fill-[#7A211D]/25 animate-ping origin-center"
                           />
                         )}
 
@@ -613,17 +655,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           cx={office.dot.cx}
                           cy={office.dot.cy}
                           r={isHighlighted ? '4.2' : '3.6'}
-                          className="fill-[#8B1E1E] transition-all"
+                          className="fill-[#7A211D] transition-all"
                         />
 
                         <text
                           x={office.label.x}
                           y={office.label.y}
                           textAnchor={office.label.anchor}
-                          className={`font-sans transition-all select-none pointer-events-none ${
+                          className={`font-body transition-all select-none pointer-events-none ${
                             isHighlighted
-                              ? 'font-bold text-[8.5px] fill-[#8B1E1E]'
-                              : 'font-semibold text-[8px] fill-stone-800'
+                              ? 'font-medium text-[8.5px] fill-[#7A211D]'
+                              : 'font-normal text-[8px] fill-[#151817]'
                           }`}
                         >
                           {office.name.replace(' (HQ)', '')}
@@ -637,7 +679,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     x="74"
                     y="108"
                     textAnchor="middle"
-                    className="font-sans text-[6.5px] tracking-[0.25em] fill-[#A0988C] font-bold uppercase select-none pointer-events-none"
+                    className="font-body text-[6.5px] tracking-[0.25em] fill-[#A0988C] font-medium uppercase select-none pointer-events-none"
                   >
                     M A H A R A S H T R A
                   </text>
@@ -648,14 +690,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3) ── */}
             <div className="lg:col-span-3 flex justify-start lg:justify-end items-start select-none pt-2 lg:pt-0">
               <div className="flex items-start gap-3 text-left">
-                <div className="w-[1.5px] h-14 bg-stone-400 mt-0.5 shrink-0" />
+                <div className="w-[1.5px] h-14 bg-[#E6E3DD] mt-0.5 shrink-0" />
                 <div className="space-y-1.5">
-                  <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-stone-700 uppercase font-sans leading-tight m-0">
+                  <p className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] text-[#6C6C68] uppercase font-body leading-tight m-0">
                     SOLAR<br />
                     FOR A STRONGER<br />
                     MAHARASHTRA
                   </p>
-                  <span className="inline-block w-7 h-[1.5px] bg-stone-400 mt-1" />
+                  <span className="inline-block w-7 h-[1.5px] bg-[#E6E3DD] mt-1" />
                 </div>
               </div>
             </div>
@@ -667,7 +709,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       {/* ════════════════════════════════════════════════════════════════════════
           4. CLOSING PRE-FOOTER CTA BAND — "Ready to explore solar for your property?"
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-stone-900 select-none">
+      <section className="relative w-full overflow-hidden bg-[#151817] select-none">
         {/* Full-Bleed Golden Sunset Rooftop Panoramic Photography */}
         <div className="absolute inset-0 w-full h-full">
           <img
@@ -676,15 +718,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             className="w-full h-full object-cover object-center opacity-75"
           />
           {/* Deep Linear Gradient Ensuring WCAG AAA Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/75 to-stone-950/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151817]/95 via-[#151817]/80 to-[#151817]/55" />
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-14 sm:py-18 lg:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
           <div className="space-y-2 max-w-xl">
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-[38px] font-bold text-white tracking-tight leading-tight m-0 drop-shadow-sm">
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-[38px] font-medium text-white tracking-tight leading-tight m-0 drop-shadow-sm">
               Ready to explore solar <br className="hidden sm:inline" />for your property?
             </h3>
-            <p className="text-sm sm:text-base text-stone-200 font-normal leading-relaxed m-0">
+            <p className="text-sm sm:text-base text-stone-200 font-normal leading-relaxed m-0 font-body">
               Our team is here to help you take the next step.
             </p>
           </div>
@@ -699,7 +741,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   onCtaClick();
                 }
               }}
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-[#8B1E1E] hover:bg-[#A82424] text-white font-semibold text-base transition-all shadow-lg hover:shadow-xl hover:translate-x-0.5 cursor-pointer border border-red-500/20"
+              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base transition-all shadow-lg hover:shadow-xl hover:translate-x-0.5 cursor-pointer border border-white/10"
             >
               <span>Talk to Our Team</span>
               <ArrowRight className="w-4 h-4 stroke-[2]" />

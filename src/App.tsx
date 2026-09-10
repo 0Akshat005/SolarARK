@@ -189,25 +189,25 @@ export default function App() {
     subtitle: string,
     component: React.ReactNode
   ) => (
-    <div className="pt-28 lg:pt-32 pb-20 min-h-screen bg-[#FCFAF7]">
+    <div className="pt-28 lg:pt-32 pb-20 min-h-screen bg-[#F7F5F0]">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Navigation Breadcrumb & Back button */}
-        <div className="flex items-center justify-between gap-4 pb-4 border-b border-stone-200 mb-8">
-          <div className="flex items-center gap-2 text-xs text-stone-500 font-medium">
+        <div className="flex items-center justify-between gap-4 pb-4 border-b border-[#E6E3DD] mb-8">
+          <div className="flex items-center gap-2 text-xs text-[#6C6C68] font-medium font-body">
             <button
               onClick={() => navigateTo('/')}
-              className="flex items-center gap-1 hover:text-[#8B1E1E] transition-colors"
+              className="flex items-center gap-1 hover:text-[#7A211D] transition-colors"
             >
               <HomeIcon className="w-3.5 h-3.5" />
               <span>Home</span>
             </button>
             <span>/</span>
-            <span className="text-stone-900 font-semibold">{title}</span>
+            <span className="text-[#151817] font-medium">{title}</span>
           </div>
 
           <button
             onClick={() => navigateTo('/')}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-600 hover:text-[#8B1E1E] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#6C6C68] hover:text-[#7A211D] transition-colors cursor-pointer font-body"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Home</span>
@@ -216,10 +216,10 @@ export default function App() {
 
         {/* Page Title & Subtitle */}
         <div className="max-w-3xl mb-12 space-y-2">
-          <h1 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+          <h1 className="font-heading text-3xl sm:text-4xl font-medium text-[#151817] tracking-tight">
             {title}
           </h1>
-          <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-[#6C6C68] font-normal leading-relaxed font-body">
             {subtitle}
           </p>
         </div>
@@ -231,7 +231,7 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-stone-900 font-sans selection:bg-[#8B1E1E] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#F7F5F0] text-[#151817] font-body selection:bg-[#7A211D] selection:text-white">
       {/* Universal Header */}
       <Header
         onCtaClick={scrollToContactForm}
@@ -395,7 +395,7 @@ export default function App() {
             }
           }}
         >
-          <div className="relative w-full max-w-[1540px] max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#FAF8F5] shadow-2xl border border-stone-200/80 my-auto">
+          <div className="relative w-full max-w-[1540px] max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#F7F5F0] shadow-2xl border border-[#E6E3DD] my-auto">
             <SavingsCalculator
               onClaimEstimate={handleClaimEstimate}
               initialPincode={calculatorState.pincode}

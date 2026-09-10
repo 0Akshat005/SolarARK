@@ -151,16 +151,16 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => setActiveIndex(idx)}
-                  className="w-full flex items-center justify-between p-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]/30 rounded-2xl min-h-[44px]"
+                  className="w-full flex items-center justify-between p-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]/30 rounded-2xl min-h-[44px]"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div
                       className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                         isActive
-                          ? 'bg-[#8B1E1E] text-white shadow-xs'
+                          ? 'bg-[#7A211D] text-white shadow-xs'
                           : isHovered
-                          ? 'bg-red-100 text-[#8B1E1E]'
-                          : 'bg-stone-100 text-stone-500 group-hover:text-[#8B1E1E]'
+                          ? 'bg-red-100 text-[#7A211D]'
+                          : 'bg-stone-100 text-stone-500 group-hover:text-[#7A211D]'
                       }`}
                     >
                       <MapPin className="w-3.5 h-3.5 stroke-[2]" />
@@ -177,17 +177,17 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                           {office.city}
                         </span>
                         <span
-                          className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border transition-colors ${
+                          className={`text-[9px] font-medium uppercase tracking-[0.18em] px-2 py-0.5 rounded-full border transition-colors font-body ${
                             isActive
-                              ? 'bg-red-50 text-[#8B1E1E] border-red-200/80'
-                              : 'bg-stone-100 text-stone-600 border-stone-200'
+                              ? 'bg-red-50 text-[#7A211D] border-red-200/80'
+                              : 'bg-stone-100 text-stone-600 border-[#E6E3DD]'
                           }`}
                         >
                           {office.badge}
                         </span>
                       </div>
                       {office.type && (
-                        <p className="text-[11px] text-stone-500 font-normal m-0 truncate mt-0.5">
+                        <p className="text-[11px] text-stone-500 font-normal m-0 truncate mt-0.5 font-body">
                           {office.type}
                         </p>
                       )}
@@ -197,7 +197,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                   <div className="shrink-0 pl-2">
                     <ChevronDown
                       className={`w-4 h-4 text-stone-400 transition-transform duration-300 ${
-                        isActive ? 'rotate-180 text-[#8B1E1E]' : 'group-hover:text-stone-600'
+                        isActive ? 'rotate-180 text-[#7A211D]' : 'group-hover:text-stone-600'
                       }`}
                     />
                   </div>
@@ -205,17 +205,17 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
 
                 {/* Inline Expanded Address & Contact Details */}
                 {isActive && (
-                  <div className="px-4 pb-3.5 pt-1 space-y-2.5 text-xs border-t border-stone-200/70 mt-0.5">
+                  <div className="px-4 pb-3.5 pt-1 space-y-2.5 text-xs border-t border-[#E6E3DD] mt-0.5 font-body">
                     <div className="flex items-start gap-2 text-stone-600 leading-relaxed pt-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#8B1E1E] shrink-0 mt-0.5" />
+                      <MapPin className="w-3.5 h-3.5 text-[#7A211D] shrink-0 mt-0.5" />
                       <span>{office.address}</span>
                     </div>
 
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-1.5 border-t border-stone-200/50">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-1.5 border-t border-[#E6E3DD]/70">
                       <div className="flex items-center gap-3 text-stone-600 font-mono text-[11px]">
                         <a
                           href={`tel:${office.phone.replace(/\s+/g, '')}`}
-                          className="font-semibold text-stone-800 hover:text-[#8B1E1E] transition-colors"
+                          className="font-medium text-stone-800 hover:text-[#7A211D] transition-colors"
                         >
                           {office.phone}
                         </a>
@@ -225,7 +225,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                         href={office.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-bold text-[#8B1E1E] hover:underline"
+                        className="inline-flex items-center gap-1 font-medium text-[#7A211D] hover:underline"
                       >
                         <span>Get Directions</span>
                         <ExternalLink className="w-3 h-3" />
@@ -279,7 +279,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                         cx={office.dot.cx}
                         cy={office.dot.cy}
                         r="9"
-                        className="fill-[#8B1E1E]/25 animate-ping origin-center"
+                        className="fill-[#7A211D]/25 animate-ping origin-center"
                       />
                     )}
 
@@ -288,7 +288,7 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                       cy={office.dot.cy}
                       r={isHighlighted ? '4.8' : '3.6'}
                       className={`${
-                        isHighlighted ? 'fill-[#8B1E1E]' : 'fill-[#8B1E1E]/85'
+                        isHighlighted ? 'fill-[#7A211D]' : 'fill-[#7A211D]/85'
                       } stroke-white transition-all`}
                       strokeWidth={isHighlighted ? '1.6' : '1.2'}
                     />
@@ -300,8 +300,8 @@ export const OfficeLocationMap: React.FC<OfficeLocationMapProps> = ({
                         textAnchor={office.label.anchor}
                         className={`font-sans transition-all select-none pointer-events-none ${
                           isHighlighted
-                            ? 'font-bold text-[9px] fill-[#8B1E1E]'
-                            : 'font-semibold text-[8px] fill-stone-800'
+                            ? 'font-medium text-[9px] fill-[#7A211D]'
+                            : 'font-normal text-[8px] fill-stone-800'
                         }`}
                       >
                         {office.city.replace(' (HQ)', '')}

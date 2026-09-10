@@ -96,7 +96,7 @@ export const SavingsResults: React.FC<SavingsResultsProps> = ({
     <section
       id="savings-results"
       aria-label="Solar savings results"
-      className="py-12 sm:py-16 bg-[#FAF8F5] border-b border-stone-200/80 animate-in fade-in slide-in-from-bottom-4 duration-500"
+      className="py-12 sm:py-16 bg-[#F7F5F0] border-b border-[#E6E3DD] animate-in fade-in slide-in-from-bottom-4 duration-500 font-body"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
         {/* Header with subtle context and trust badge */}

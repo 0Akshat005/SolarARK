@@ -137,7 +137,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
     <section
       ref={sectionRef}
       id="calculator"
-      className="relative overflow-hidden bg-[#FAF8F5] select-none max-w-full"
+      className="relative overflow-hidden bg-[#F7F5F0] select-none max-w-full font-body"
     >
       {/* Custom Slider Range Input CSS Styling */}
       <style>{`
@@ -147,24 +147,24 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: #7B1818;
+          background: #7A211D;
           border: 2.5px solid #FFFFFF;
-          box-shadow: 0 2px 6px rgba(123, 24, 24, 0.4);
+          box-shadow: 0 2px 6px rgba(122, 33, 29, 0.4);
           cursor: pointer;
           transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
         input[type=range].calc-slider::-webkit-slider-thumb:hover,
         input[type=range].calc-slider::-webkit-slider-thumb:active {
           transform: scale(1.15);
-          box-shadow: 0 3px 10px rgba(123, 24, 24, 0.55);
+          box-shadow: 0 3px 10px rgba(122, 33, 29, 0.55);
         }
         input[type=range].calc-slider::-moz-range-thumb {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: #7B1818;
+          background: #7A211D;
           border: 2.5px solid #FFFFFF;
-          box-shadow: 0 2px 6px rgba(123, 24, 24, 0.4);
+          box-shadow: 0 2px 6px rgba(122, 33, 29, 0.4);
           cursor: pointer;
         }
       `}</style>
@@ -175,7 +175,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close Solar Calculator"
-          className="absolute top-3 right-3 sm:top-5 sm:right-5 z-30 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200/80 shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+          className="absolute top-3 right-3 sm:top-5 sm:right-5 z-30 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-[#E6E3DD] shadow-md hover:shadow-lg flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
         >
           <X className="w-5 h-5" />
         </button>
@@ -189,7 +189,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         {/* ══════════════════════════════════════════════════════════════
             ZONE 1: LEFT HERO PANEL (~45% DESKTOP WIDTH)
             - Warm off-white sky fading down to sunset villa photo
-            - Editorial Playfair Display headline & 3 circular trust badges
+            - Editorial Geist headline & 3 circular trust badges
             - Mobile-first: Compact vertical padding, badges move under CTA on mobile
            ══════════════════════════════════════════════════════════════ */}
         <div
@@ -206,33 +206,30 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               loading="eager"
             />
             {/* Top subtle fade to guarantee text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/92 via-[#FAF8F5]/60 to-transparent lg:h-[45%]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5F0]/92 via-[#F7F5F0]/60 to-transparent lg:h-[45%]" />
           </div>
 
           {/* Top Editorial Storytelling Block */}
           <div className="relative z-10 space-y-3.5 sm:space-y-5 max-w-xl">
             {/* Eyebrow with hairline accent */}
             <div className="flex items-center gap-3">
-              <span className="text-[10.5px] sm:text-[11px] font-bold tracking-[0.22em] text-[#55504A] uppercase font-heading">
+              <span className="text-[10.5px] sm:text-[11px] font-medium tracking-[0.18em] text-[#6C6C68] uppercase font-body">
                 Clean energy. Brighter tomorrows
               </span>
-              <span className="h-[1.5px] w-14 sm:w-16 bg-[#8B1E1E]" />
+              <span className="h-[1.5px] w-14 sm:w-16 bg-[#7A211D]" />
             </div>
 
-            {/* Display Headline in Playfair Display Serif */}
+            {/* Display Headline in Geist */}
             <div>
-              <h2
-                className="text-3xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-bold text-stone-900 leading-[1.05] tracking-tight"
-                style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
-              >
+              <h2 className="text-3xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-medium text-[#151817] leading-[1.05] tracking-tight font-heading">
                 See your
                 <br />
-                <span className="word-accent-subtle">real savings.</span>
+                <span className="word-accent-subtle font-medium">real savings.</span>
               </h2>
             </div>
 
             {/* Subline */}
-            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-[#6C6C68] font-normal leading-relaxed font-body">
               Know your solar savings in 30 seconds.
             </p>
 
@@ -370,17 +367,17 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       type="button"
                       onClick={handleDetectLocation}
                       disabled={isLocating}
-                      className="inline-flex items-center gap-1 py-1.5 px-1 min-h-[36px] text-xs font-semibold text-[#8B1E1E] hover:underline transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 py-1.5 px-1 min-h-[36px] text-xs font-medium text-[#7A211D] hover:underline transition-colors cursor-pointer font-body"
                     >
                       <Crosshair
-                        className={`w-3.5 h-3.5 text-[#8B1E1E] ${isLocating ? 'animate-spin' : ''}`}
+                        className={`w-3.5 h-3.5 text-[#7A211D] ${isLocating ? 'animate-spin' : ''}`}
                       />
                       <span>{isLocating ? 'Detecting…' : 'Detect my location'}</span>
                     </button>
                   </div>
 
-                  <div className="relative flex items-center rounded-xl border border-stone-300/80 bg-white/80 hover:bg-white focus-within:bg-white px-3 sm:px-3.5 py-2.5 transition-all focus-within:border-[#8B1E1E] focus-within:ring-1 focus-within:ring-[#8B1E1E]/20">
-                    <MapPin className="w-4 h-4 text-[#8B1E1E] shrink-0 mr-2 sm:mr-2.5" strokeWidth={2} />
+                  <div className="relative flex items-center rounded-xl border border-[#E6E3DD] bg-white/80 hover:bg-white focus-within:bg-white px-3 sm:px-3.5 py-2.5 transition-all focus-within:border-[#7A211D] focus-within:ring-1 focus-within:ring-[#7A211D]/20">
+                    <MapPin className="w-4 h-4 text-[#7A211D] shrink-0 mr-2 sm:mr-2.5" strokeWidth={2} />
                     <input
                       id="calc-pincode-input"
                       type="tel"
@@ -390,7 +387,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                       value={pincode}
                       onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
                       placeholder="6-digit pincode (e.g. 444601)"
-                      className="min-w-0 flex-1 bg-transparent text-sm sm:text-base font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none"
+                      className="min-w-0 flex-1 bg-transparent text-sm sm:text-base font-medium text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none font-body"
                     />
 
                     {/* MSEDCL Serviceability compact pill (Responsive width to prevent mobile overflow) */}
@@ -412,7 +409,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 {/* 2. MONTHLY BILL INTERACTION: LARGE AMOUNT, CLEAN SLIDER, COMPACT PRESETS */}
                 <div className="space-y-2 pt-1">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-semibold text-stone-900">
+                    <div className="flex items-center gap-1.5 text-xs sm:text-[12.5px] font-medium text-[#151817] font-body">
                       <span>Average monthly electricity bill</span>
                       <Info
                         className="w-3.5 h-3.5 text-stone-400 cursor-help"
@@ -422,7 +419,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     <button
                       type="button"
                       onClick={() => setShowSampleBillModal(true)}
-                      className="text-xs font-semibold text-[#8B1E1E] hover:underline cursor-pointer inline-flex items-center gap-0.5 py-1 min-h-[36px]"
+                      className="text-xs font-medium text-[#7A211D] hover:underline cursor-pointer inline-flex items-center gap-0.5 py-1 min-h-[36px] font-body"
                     >
                       <span>Sample bill</span>
                       <span className="text-sm leading-none">→</span>
@@ -433,11 +430,11 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <div className="text-center py-1.5 sm:py-2">
                     <div className="inline-flex items-baseline gap-1.5">
                       <span
-                        className="text-3xl sm:text-4xl sm:text-[46px] font-bold text-stone-900 tracking-tight tabular-nums leading-none font-heading"
+                        className="text-3xl sm:text-4xl sm:text-[46px] font-medium text-[#151817] tracking-tight tabular-nums leading-none font-heading"
                       >
                         {formatINR(monthlyBill)}
                       </span>
-                      <span className="text-xs sm:text-sm font-normal text-stone-500">
+                      <span className="text-xs sm:text-sm font-normal text-[#6C6C68] font-body">
                         / month
                       </span>
                     </div>
@@ -445,7 +442,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                   {/* Clean Slider Track with Smooth Maroon Gradient */}
                   <div className="flex items-center gap-3 px-1 pt-1 pb-2">
-                    <span className="text-xs font-semibold text-stone-400 shrink-0">₹1k</span>
+                    <span className="text-xs font-medium text-[#6C6C68] shrink-0 font-mono">₹1k</span>
                     <div className="relative flex-1 flex items-center">
                       <input
                         type="range"
@@ -457,11 +454,11 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                         aria-label="Monthly electricity bill"
                         className="calc-slider w-full h-2 rounded-full appearance-none cursor-pointer"
                         style={{
-                          background: `linear-gradient(to right, #801414 0%, #B91C1C ${sliderPercentage}%, #E5E7EB ${sliderPercentage}%, #E5E7EB 100%)`,
+                          background: `linear-gradient(to right, #7A211D 0%, #7A211D ${sliderPercentage}%, #E6E3DD ${sliderPercentage}%, #E6E3DD 100%)`,
                         }}
                       />
                     </div>
-                    <span className="text-xs font-semibold text-stone-400 shrink-0">₹25k+</span>
+                    <span className="text-xs font-medium text-[#6C6C68] shrink-0 font-mono">₹25k+</span>
                   </div>
 
                   {/* 5 Thumb-Friendly Preset Chips (Evenly distributed) */}
@@ -473,10 +470,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                           key={pill.label}
                           type="button"
                           onClick={() => setMonthlyBill(pill.value)}
-                          className={`min-h-[42px] sm:min-h-0 py-2 sm:py-1.5 px-1 sm:px-4 rounded-xl text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center ${
+                          className={`min-h-[42px] sm:min-h-0 py-2 sm:py-1.5 px-1 sm:px-4 rounded-xl text-xs font-medium font-body transition-colors cursor-pointer flex items-center justify-center ${
                             isActive
-                              ? 'bg-[#7B1818] text-white shadow-xs'
-                              : 'bg-stone-200/50 text-stone-700 hover:bg-stone-200/80 border border-transparent'
+                              ? 'bg-[#7A211D] text-white shadow-xs'
+                              : 'bg-stone-200/50 text-[#151817] hover:bg-stone-200/80 border border-transparent'
                           }`}
                         >
                           {pill.label}
@@ -492,7 +489,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     type="button"
                     onClick={handleCalculate}
                     disabled={!isFormValid || isCalculating}
-                    className="w-full h-13 sm:h-13.5 rounded-2xl bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_14px_-2px_rgba(123,24,24,0.3)] flex items-center justify-between px-3.5 sm:px-4.5 transition-all cursor-pointer group"
+                    className="w-full h-13 sm:h-13.5 rounded-2xl bg-[#7A211D] hover:bg-[#631B18] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_4px_14px_-2px_rgba(122,33,29,0.3)] flex items-center justify-between px-3.5 sm:px-4.5 transition-all cursor-pointer group font-body"
                   >
                     {/* Left Glowing Line Sun Icon */}
                     <div className="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0">
@@ -501,8 +498,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                     {/* Button Text */}
                     <span
-                      className="text-white font-medium text-sm sm:text-base tracking-wide"
-                      style={{ fontFamily: 'var(--font-serif, "Playfair Display", Georgia, serif)' }}
+                      className="text-white font-medium text-sm sm:text-base tracking-wide font-body"
                     >
                       {isCalculating ? 'Calculating your savings…' : 'Show My Solar Savings'}
                     </span>
@@ -510,27 +506,27 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                     {/* Right Circular Rose Badge with Maroon Arrow */}
                     <div className="w-8 h-8 rounded-full bg-[#FCE7E7] group-hover:bg-white flex items-center justify-center shrink-0 shadow-2xs group-hover:translate-x-0.5 transition-transform">
                       {isCalculating ? (
-                        <div className="w-3.5 h-3.5 border-2 border-[#7B1818]/30 border-t-[#7B1818] rounded-full animate-spin" />
+                        <div className="w-3.5 h-3.5 border-2 border-[#7A211D]/30 border-t-[#7A211D] rounded-full animate-spin" />
                       ) : (
-                        <ArrowRight className="w-4 h-4 text-[#7B1818]" />
+                        <ArrowRight className="w-4 h-4 text-[#7A211D]" />
                       )}
                     </div>
                   </button>
 
                   {/* Micro-Trust Reassurances: Clean Inline Row */}
-                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-stone-600 pt-1 font-medium select-none">
+                  <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-[#6C6C68] pt-1 font-medium font-body select-none">
                     <span className="flex items-center gap-1">
-                      <Zap className="w-3.5 h-3.5 text-[#801414]" />
+                      <Zap className="w-3.5 h-3.5 text-[#7A211D]" />
                       Takes 30 seconds
                     </span>
                     <span className="hidden sm:inline text-stone-300">·</span>
                     <span className="flex items-center gap-1">
-                      <Lock className="w-3.5 h-3.5 text-[#801414]" />
+                      <Lock className="w-3.5 h-3.5 text-[#7A211D]" />
                       No spam
                     </span>
                     <span className="hidden sm:inline text-stone-300">·</span>
                     <span className="flex items-center gap-1">
-                      <Shield className="w-3.5 h-3.5 text-[#801414]" />
+                      <Shield className="w-3.5 h-3.5 text-[#7A211D]" />
                       100% confidential
                     </span>
                   </div>
@@ -607,7 +603,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                   <button
                     type="button"
                     onClick={handleEditDetails}
-                    className="flex items-center gap-1 py-1 px-2 min-h-[36px] text-xs font-semibold text-[#8B1E1E] hover:underline cursor-pointer"
+                    className="flex items-center gap-1 py-1 px-2 min-h-[36px] text-xs font-medium text-[#7A211D] hover:underline cursor-pointer font-body"
                   >
                     <Pencil className="w-3 h-3" />
                     <span>Edit details</span>
@@ -616,49 +612,49 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
                 {/* 4 Clean Metric Blocks */}
                 <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
-                  <div className="p-2.5 sm:p-3 rounded-xl border border-stone-300/70 bg-white/60">
-                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                  <div className="p-2.5 sm:p-3 rounded-xl border border-[#E6E3DD] bg-white/60">
+                    <span className="text-[10px] font-medium text-[#6C6C68] uppercase tracking-wider block font-body">
                       System Size
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-medium text-[#151817] font-heading mt-0.5">
                       {calculatedResults.systemSizeKw} kW
                     </div>
-                    <span className="text-[10px] sm:text-[10.5px] text-stone-500">Rooftop PV Array</span>
+                    <span className="text-[10px] sm:text-[10.5px] text-[#6C6C68] font-body">Rooftop PV Array</span>
                   </div>
 
                   <div className="p-2.5 sm:p-3 rounded-xl border border-emerald-200/80 bg-emerald-50/50">
-                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block font-heading">
+                    <span className="text-[10px] font-medium text-emerald-700 uppercase tracking-wider block font-body">
                       Monthly Savings
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-emerald-700 font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-medium text-emerald-700 font-heading mt-0.5">
                       {formatINR(calculatedResults.monthlySavings)}
                     </div>
-                    <span className="text-[10px] sm:text-[10.5px] text-emerald-600 font-medium">Up to 90% reduction</span>
+                    <span className="text-[10px] sm:text-[10.5px] text-emerald-600 font-medium font-body">Up to 90% reduction</span>
                   </div>
 
-                  <div className="p-2.5 sm:p-3 rounded-xl border border-stone-300/70 bg-white/60">
-                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                  <div className="p-2.5 sm:p-3 rounded-xl border border-[#E6E3DD] bg-white/60">
+                    <span className="text-[10px] font-medium text-[#6C6C68] uppercase tracking-wider block font-body">
                       Annual Savings
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-medium text-[#151817] font-heading mt-0.5">
                       {formatINR(calculatedResults.annualSavings)}
                     </div>
-                    <span className="text-[10px] sm:text-[10.5px] text-stone-500">Direct cash retained</span>
+                    <span className="text-[10px] sm:text-[10.5px] text-[#6C6C68] font-body">Direct cash retained</span>
                   </div>
 
-                  <div className="p-2.5 sm:p-3 rounded-xl border border-stone-300/70 bg-white/60">
-                    <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block font-heading">
+                  <div className="p-2.5 sm:p-3 rounded-xl border border-[#E6E3DD] bg-white/60">
+                    <span className="text-[10px] font-medium text-[#6C6C68] uppercase tracking-wider block font-body">
                       Payback Period
                     </span>
-                    <div className="text-lg sm:text-2xl font-bold text-stone-900 font-heading mt-0.5">
+                    <div className="text-lg sm:text-2xl font-medium text-[#151817] font-heading mt-0.5">
                       {calculatedResults.paybackYears.toFixed(1)} Yrs
                     </div>
-                    <span className="text-[10px] sm:text-[10.5px] text-stone-500">With ₹78k subsidy</span>
+                    <span className="text-[10px] sm:text-[10.5px] text-[#6C6C68] font-body">With ₹78k subsidy</span>
                   </div>
                 </div>
 
                 {/* Environmental Impact Strip */}
-                <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50/70 border border-emerald-200/70 text-emerald-800 text-xs font-medium">
+                <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-emerald-50/70 border border-emerald-200/70 text-emerald-800 text-xs font-medium font-body">
                   <span className="flex items-center gap-1.5">
                     <Leaf className="w-3.5 h-3.5 text-emerald-600" />
                     {calculatedResults.co2OffsetTonnes}t CO₂/yr offset
@@ -670,7 +666,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <button
                   type="button"
                   onClick={handleContactExpert}
-                  className="w-full h-12 sm:h-13 rounded-[14px] bg-[#7B1818] hover:bg-[#681414] active:scale-[0.99] text-white font-semibold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full h-12 sm:h-13 rounded-[14px] bg-[#7A211D] hover:bg-[#631B18] active:scale-[0.99] text-white font-medium font-body text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
                   <span>Claim Your ₹78,000 Subsidy Estimate</span>
                   <ArrowRight className="w-4 h-4" />
@@ -680,11 +676,11 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
           </div>
 
           {/* ── HOMEOWNER CREDIBILITY & MAHAVITARAN AUTHORITY FOOTER ── */}
-          <div className="mt-5 sm:mt-6 pt-4 border-t border-stone-300/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+          <div className="mt-5 sm:mt-6 pt-4 border-t border-[#E6E3DD] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
             {/* Left: Homeowner Trust Proof */}
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-[#801414] shrink-0" />
-              <span className="text-xs font-medium text-stone-600">
+              <Users className="w-4 h-4 text-[#7A211D] shrink-0" />
+              <span className="text-xs font-medium text-[#6C6C68] font-body">
                 Trusted by 1,000+ homeowners across Maharashtra
               </span>
             </div>
@@ -696,10 +692,10 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
                 <path d="M14 18 L24 2 L21 11 L28 11 L18 27 L21 18 Z" fill="#CC0000" opacity="0.6" />
               </svg>
               <div className="text-left leading-tight">
-                <span className="text-[11px] sm:text-[11.5px] font-black tracking-wider text-stone-900 block font-heading">
+                <span className="text-[11px] sm:text-[11.5px] font-black tracking-wider text-[#151817] block font-heading">
                   MAHAVITARAN
                 </span>
-                <span className="text-[7.5px] text-stone-500 font-medium block">
+                <span className="text-[7.5px] text-[#6C6C68] font-medium block font-body">
                   Maharashtra State Electricity Distribution Co. Ltd.
                 </span>
               </div>
@@ -727,7 +723,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
 
           {/* Top Stacked Editorial Typography */}
           <div className="relative z-10 p-4 xl:p-5 pt-8 text-white">
-            <div className="text-[10px] xl:text-[10.5px] font-bold tracking-[0.18em] leading-relaxed uppercase text-white/95 drop-shadow-sm font-heading">
+            <div className="text-[10px] xl:text-[10.5px] font-medium tracking-[0.18em] leading-relaxed uppercase text-white/95 drop-shadow-sm font-heading">
               TODAY'S
               <br />
               SUNLIGHT.
@@ -738,7 +734,7 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               <br />
               FOR YOUR HOME.
             </div>
-            <div className="w-7 h-[1.5px] bg-[#8B1E1E] mt-2.5" />
+            <div className="w-7 h-[1.5px] bg-[#7A211D] mt-2.5" />
           </div>
         </div>
 

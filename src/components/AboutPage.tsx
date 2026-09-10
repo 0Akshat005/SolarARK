@@ -29,7 +29,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
   return (
     <div
-      className="min-h-screen bg-[#FAF8F5] text-stone-900 overflow-x-hidden selection:bg-[#8B1E1E] selection:text-white"
+      className="min-h-screen bg-[#F7F5F0] text-[#151817] overflow-x-hidden selection:bg-[#7A211D] selection:text-white font-body"
       itemScope
       itemType="https://schema.org/Organization"
     >
@@ -42,32 +42,32 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Right: Integrated executive founder portrait with seamless right bleed
           Mobile: Stacked single column with clean margins and breathable padding
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#FAF8F5] border-b border-stone-300/60 overflow-hidden">
+      <section className="relative bg-[#F7F5F0] border-b border-[#E6E3DD] overflow-hidden">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-0 lg:min-h-[560px]">
 
           {/* Left Column (5 cols on xl, 6 on lg) — Editorial Copy */}
           <div className="lg:col-span-6 xl:col-span-5 px-5 sm:px-10 lg:px-14 py-8 sm:py-16 lg:py-18 flex flex-col justify-center">
-            <p className="eyebrow text-xs text-stone-500 mb-4 sm:mb-6 tracking-[0.22em] uppercase">
+            <p className="eyebrow text-xs text-[#6C6C68] mb-4 sm:mb-6 tracking-[0.18em] uppercase font-medium">
               ABOUT SOLAR ARK
             </p>
 
             <h1
-              className="hero-display text-stone-900 tracking-tight leading-[1.05] mb-4 sm:mb-6"
+              className="hero-display font-heading font-medium text-[#151817] tracking-tight leading-[1.05] mb-4 sm:mb-6"
               style={{ fontSize: 'clamp(2.1rem, 1.6rem + 2.4vw, 4.5rem)' }}
             >
               Energy that{' '}
               <br />
-              works for <span className="word-accent-subtle font-heading font-bold">real life.</span>
+              works for <span className="word-accent-subtle font-heading font-medium">real life.</span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-stone-600 leading-relaxed max-w-lg mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-[#6C6C68] font-normal leading-relaxed max-w-lg mb-6 sm:mb-8 font-body">
               We design and deliver solar solutions that make clean energy practical,
               reliable and truly beneficial for the spaces people live, work and grow in.
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="w-8 h-[1.5px] bg-stone-300" />
-              <span className="text-[10.5px] sm:text-[11px] font-heading font-semibold text-stone-500 tracking-[0.2em] uppercase">
+              <div className="w-8 h-[1.5px] bg-[#E6E3DD]" />
+              <span className="text-[10.5px] sm:text-[11px] font-heading font-medium text-[#6C6C68] tracking-[0.18em] uppercase">
                 ASSURED RENEWABLE KOMFORT
               </span>
             </div>
@@ -83,10 +83,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             />
             {/* Elegant Founder Attribution Badge */}
             <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 bg-black/70 backdrop-blur-md px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-white border border-white/10 shadow-lg">
-              <p className="text-[10px] font-heading font-semibold text-[#FFB020] uppercase tracking-wider">
+              <p className="text-[10px] font-heading font-medium text-[#FFB020] uppercase tracking-wider">
                 Founder & Managing Director
               </p>
-              <p className="text-sm sm:text-base font-heading font-bold text-white mt-0.5">
+              <p className="text-sm sm:text-base font-heading font-semibold text-white mt-0.5">
                 Shrikant Tikhile
               </p>
             </div>
@@ -102,7 +102,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Center (30%): White story panel with "View Our Projects →"
           Mobile: Clean vertical stack with zero overlapping cards
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#0F141C] text-white overflow-hidden">
+      <section className="relative bg-[#151817] text-white overflow-hidden">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
           {/* Panel 1: Left (7 cols on lg, 6 on xl) — Rooftop Photo with Quote */}
@@ -114,7 +114,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-transparent lg:to-black/30" />
-            <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-12 max-w-md border-l-2 border-[#8B1E1E] pl-4 sm:pl-5">
+            <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-12 max-w-md border-l-2 border-[#7A211D] pl-4 sm:pl-5">
               <blockquote className="font-heading font-medium text-white text-lg sm:text-2xl lg:text-3xl leading-snug tracking-tight">
                 “From Maharashtra,
                 <br />
@@ -124,23 +124,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
 
           {/* Panel 2: Center (5 cols on lg, 4 on xl) — Warm Ivory Story Block */}
-          <div className="lg:col-span-5 xl:col-span-4 bg-[#FAF8F5] text-stone-900 px-5 sm:px-12 py-8 sm:py-16 lg:py-20 flex flex-col justify-center">
-            <p className="eyebrow text-xs text-stone-500 mb-2 sm:mb-3 tracking-[0.2em] uppercase">
+          <div className="lg:col-span-5 xl:col-span-4 bg-[#F7F5F0] text-[#151817] px-5 sm:px-12 py-8 sm:py-16 lg:py-20 flex flex-col justify-center">
+            <p className="eyebrow text-xs text-[#6C6C68] mb-2 sm:mb-3 tracking-[0.18em] uppercase font-medium">
               OUR STORY
             </p>
-            <h2 className="font-heading font-bold text-stone-900 text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12] mb-3 sm:mb-4">
+            <h2 className="font-heading font-medium text-[#151817] text-2xl sm:text-3xl lg:text-[32px] tracking-tight leading-[1.12] mb-3 sm:mb-4">
               Where it all began.
             </h2>
-            <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed mb-5 sm:mb-6">
+            <p className="text-sm sm:text-[15px] text-[#6C6C68] font-normal leading-relaxed mb-5 sm:mb-6 font-body">
               Solar Ark was founded with a clear purpose — to make renewable energy accessible,
               reliable and relevant for homes, businesses and industries. What began as a small team
               with a big vision has grown into a trusted solar partner for clients across Maharashtra.
             </p>
-            <div className="w-8 h-[1.5px] bg-stone-300 mb-5 sm:mb-6" />
+            <div className="w-8 h-[1.5px] bg-[#E6E3DD] mb-5 sm:mb-6" />
             <div>
               <button
                 onClick={() => onNavigate('/projects')}
-                className="inline-flex items-center gap-2 min-h-[44px] py-2 px-1 text-sm font-heading font-semibold text-[#8B1E1E] hover:text-[#A82424] transition-colors cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                className="inline-flex items-center gap-2 min-h-[44px] py-2 px-1 text-sm font-body font-medium text-[#7A211D] hover:text-[#9A2D28] transition-colors cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]"
               >
                 <span>View Our Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -168,7 +168,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Mobile: Vertical list with subtle dividers between pillars
           Right: Sunlit angled solar module visual
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative bg-[#F4F1EB] border-b border-stone-300/60 overflow-hidden">
+      <section className="relative bg-[#F7F5F0] border-b border-[#E6E3DD] overflow-hidden">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-stretch">
 
           {/* Left Column (8 cols) — Editorial Content & Procedural Pillars */}
@@ -176,22 +176,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             {/* Top Row: Eyebrow + Headline + Paragraph */}
             <div className="mb-6 sm:mb-8 lg:mb-10">
-              <p className="eyebrow text-xs text-stone-500 mb-2 sm:mb-3 tracking-[0.2em] uppercase">
+              <p className="eyebrow text-xs text-[#6C6C68] mb-2 sm:mb-3 tracking-[0.18em] uppercase font-medium">
                 WHAT WE BELIEVE
               </p>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-start">
                 <div className="md:col-span-7">
                   <h2
-                    className="font-heading font-bold text-stone-900 tracking-tight leading-[1.08]"
+                    className="font-heading font-medium text-[#151817] tracking-tight leading-[1.08]"
                     style={{ fontSize: 'clamp(1.75rem, 1.4rem + 1.8vw, 3rem)' }}
                   >
                     Good solar is not just technology.
                     <br />
-                    It’s <span className="word-accent-subtle">a better tomorrow.</span>
+                    It’s <span className="word-accent-subtle font-medium">a better tomorrow.</span>
                   </h2>
                 </div>
                 <div className="md:col-span-5">
-                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#6C6C68] font-normal leading-relaxed font-body">
                     Every space is different. Every energy need is unique. We believe in thoughtful
                     design, reliable execution and long-term support — because real progress comes
                     from solutions that truly fit your world.
@@ -201,33 +201,33 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
 
             {/* Bottom Row: 3 Numbered Minimal Pillars (Vertical list on mobile, 3-col on sm+) */}
-            <div className="flex flex-col sm:grid sm:grid-cols-3 divide-y sm:divide-y-0 divide-stone-200/80 pt-6 sm:pt-8 border-t border-stone-300/70">
-              <div className="pb-5 sm:pb-0 sm:pr-6 sm:border-r border-stone-300/70">
-                <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">01</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
+            <div className="flex flex-col sm:grid sm:grid-cols-3 divide-y sm:divide-y-0 divide-[#E6E3DD] pt-6 sm:pt-8 border-t border-[#E6E3DD]">
+              <div className="pb-5 sm:pb-0 sm:pr-6 sm:border-r border-[#E6E3DD]">
+                <span className="text-xs font-heading font-medium text-[#7A211D] sm:text-[#6C6C68] block mb-1 sm:mb-2">01</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium text-[#151817] tracking-tight mb-1 sm:mb-2">
                   Thoughtful Design
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6C6C68] leading-relaxed font-body">
                   Solutions designed around real spaces and unique energy patterns.
                 </p>
               </div>
 
-              <div className="py-5 sm:py-0 sm:px-6 sm:border-r border-stone-300/70">
-                <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">02</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
+              <div className="py-5 sm:py-0 sm:px-6 sm:border-r border-[#E6E3DD]">
+                <span className="text-xs font-heading font-medium text-[#7A211D] sm:text-[#6C6C68] block mb-1 sm:mb-2">02</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium text-[#151817] tracking-tight mb-1 sm:mb-2">
                   Reliable Execution
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6C6C68] leading-relaxed font-body">
                   In-house Maharashtra engineering with zero compromise on safety.
                 </p>
               </div>
 
               <div className="pt-5 sm:pt-0 sm:pl-6">
-                <span className="text-xs font-heading font-bold text-[#8B1E1E] sm:text-stone-400 block mb-1 sm:mb-2">03</span>
-                <h3 className="font-heading text-base sm:text-lg font-bold text-stone-900 tracking-tight mb-1 sm:mb-2">
+                <span className="text-xs font-heading font-medium text-[#7A211D] sm:text-[#6C6C68] block mb-1 sm:mb-2">03</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium text-[#151817] tracking-tight mb-1 sm:mb-2">
                   Long-term Support
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-600 sm:text-stone-500 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#6C6C68] leading-relaxed font-body">
                   We stay with you through net-metering and 25-year performance.
                 </p>
               </div>
@@ -236,7 +236,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </div>
 
           {/* Right Column (4 cols) — Sunlit Angled Solar Panel Visual */}
-          <div className="lg:col-span-5 xl:col-span-4 relative h-[220px] sm:h-[300px] lg:h-auto min-h-[220px] sm:min-h-[300px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-stone-300/60">
+          <div className="lg:col-span-5 xl:col-span-4 relative h-[220px] sm:h-[300px] lg:h-auto min-h-[220px] sm:min-h-[300px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-[#E6E3DD]">
             <img
               src="/images/technology-solar-module.jpg"
               alt="High efficiency monocrystalline solar panels basking in sun flare"
@@ -245,16 +245,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             />
             {/* Stacked Margin Label (Bottom Right) */}
             <div className="hidden sm:flex absolute right-6 bottom-8 flex-col items-start gap-1 pointer-events-none z-10">
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+              <span className="text-[9px] font-heading font-medium text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
                 DIFFERENT
               </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+              <span className="text-[9px] font-heading font-medium text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
                 SPACES
               </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+              <span className="text-[9px] font-heading font-medium text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
                 SAME
               </span>
-              <span className="text-[9px] font-heading font-semibold text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
+              <span className="text-[9px] font-heading font-medium text-white/90 tracking-[0.25em] uppercase leading-tight drop-shadow">
                 PURPOSE
               </span>
               <div className="w-4 h-[1px] bg-white/70 mt-1" />
@@ -266,11 +266,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════
           BAND 4 — TEAM BAND ("A team that builds what matters")
-          Dark full-width band (#0F141C):
+          Dark full-width band (#151817):
           Mobile: Text above team photo, full-width thumb-friendly button
           Desktop: 65% photo width with left gradient blend
           ════════════════════════════════════════════════════════════════ */}
-      <section className="relative w-full bg-[#0F141C] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
+      <section className="relative w-full bg-[#151817] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
         {/* Full-bleed team photo on desktop with seamless left gradient blend */}
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[65%] h-full">
           <img
@@ -279,7 +279,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F141C] via-[#0F141C]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#151817] via-[#151817]/75 to-transparent" />
         </div>
 
         {/* Content Layer */}
@@ -288,11 +288,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             {/* Left 5 cols: Text & Dark Pill CTA */}
             <div className="lg:col-span-5 space-y-4 sm:space-y-6 max-w-md">
-              <p className="eyebrow text-xs text-[#FFB020] tracking-[0.2em] uppercase font-bold">
+              <p className="eyebrow text-xs text-[#FFB020] tracking-[0.18em] uppercase font-medium">
                 THE PEOPLE BEHIND SOLAR ARK
               </p>
               <h2
-                className="font-heading font-bold text-white tracking-tight leading-[1.08]"
+                className="font-heading font-medium text-white tracking-tight leading-[1.08]"
                 style={{ fontSize: 'clamp(2rem, 1.6rem + 2vw, 3.5rem)' }}
               >
                 A team that
@@ -310,11 +310,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F141C]/90 via-[#0F141C]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151817]/90 via-[#151817]/30 to-transparent" />
                 <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 max-w-[240px] text-right">
                   <p className="font-heading italic text-stone-200 text-xs sm:text-sm leading-snug">
                     “Different perspectives.{' '}
-                    <span className="text-white font-semibold not-italic">A shared purpose.</span>”
+                    <span className="text-white font-medium not-italic">A shared purpose.</span>”
                   </p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/gallery')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-heading font-semibold text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F141C] group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-body font-medium text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#151817] group"
                 >
                   <span>Meet Our Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -335,7 +335,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="max-w-[260px] text-right z-20">
                 <p className="font-heading italic text-stone-200 text-sm leading-snug drop-shadow-md">
                   “Different perspectives.{' '}
-                  <span className="text-white font-semibold not-italic">A shared purpose.</span>”
+                  <span className="text-white font-medium not-italic">A shared purpose.</span>”
                 </p>
                 <div className="w-6 h-[1.5px] bg-white/40 ml-auto mt-3" />
               </div>
@@ -350,27 +350,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           Mobile: Clean vertical stack with numbered badges & 1-line descriptions
           Desktop: 4 columns separated by 1px vertical hairline dividers
           ════════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#FAF8F5] border-b border-stone-300/60 py-8 sm:py-10 lg:py-11">
+      <section className="bg-[#F7F5F0] border-b border-[#E6E3DD] py-8 sm:py-10 lg:py-11">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-0 items-stretch">
 
             {/* Left 3 cols: Intro + Inline Circle Button */}
             <div className="lg:col-span-4 xl:col-span-3 lg:pr-8 flex flex-col justify-center mb-2 lg:mb-0">
-              <p className="eyebrow text-xs text-stone-500 mb-2 tracking-[0.2em] uppercase">
+              <p className="eyebrow text-xs text-[#6C6C68] mb-2 tracking-[0.18em] uppercase font-medium">
                 HOW WE WORK
               </p>
               <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-4">
-                <h2 className="font-heading font-bold text-stone-900 text-2xl sm:text-[26px] lg:text-[28px] tracking-tight leading-[1.12]">
+                <h2 className="font-heading font-medium text-[#151817] text-2xl sm:text-[26px] lg:text-[28px] tracking-tight leading-[1.12]">
                   From understanding
                   <br />
                   to lasting impact.
                 </h2>
                 <button
                   onClick={onCtaClick}
-                  className="shrink-0 w-11 h-11 sm:w-9 sm:h-9 rounded-full border border-stone-400 hover:border-[#8B1E1E] hover:bg-[#8B1E1E] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+                  className="shrink-0 w-11 h-11 sm:w-9 sm:h-9 rounded-full border border-[#6C6C68]/40 hover:border-[#7A211D] hover:bg-[#7A211D] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]"
                   aria-label="Get Started"
                 >
-                  <ArrowRight className="w-4 h-4 text-stone-700 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-[#151817] group-hover:text-white group-hover:translate-x-0.5 transition-all" />
                 </button>
               </div>
             </div>
@@ -405,27 +405,27 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               ].map((step, idx) => (
                 <div
                   key={step.num}
-                  className={`flex items-start sm:flex-col justify-between p-3.5 sm:p-0 sm:px-5 lg:px-6 py-1 bg-white sm:bg-transparent rounded-xl sm:rounded-none border border-stone-200/80 sm:border-0 shadow-2xs sm:shadow-none ${
-                    idx !== 0 ? 'sm:border-l sm:border-stone-300/70' : ''
+                  className={`flex items-start sm:flex-col justify-between p-3.5 sm:p-0 sm:px-5 lg:px-6 py-1 bg-white sm:bg-transparent rounded-xl sm:rounded-none border border-[#E6E3DD] sm:border-0 shadow-2xs sm:shadow-none ${
+                    idx !== 0 ? 'sm:border-l sm:border-[#E6E3DD]' : ''
                   }`}
                 >
                   <div className="flex items-start gap-3 sm:block">
-                    <div className="w-8 h-8 rounded-full bg-[#8B1E1E]/10 text-[#8B1E1E] flex items-center justify-center shrink-0 font-heading font-bold text-xs sm:hidden">
+                    <div className="w-8 h-8 rounded-full bg-[#7A211D]/10 text-[#7A211D] flex items-center justify-center shrink-0 font-heading font-medium text-xs sm:hidden">
                       {step.num}
                     </div>
                     <div>
-                      <span className="hidden sm:block text-xs font-heading font-bold text-stone-400 mb-2">
+                      <span className="hidden sm:block text-xs font-heading font-medium text-[#6C6C68] mb-2">
                         {step.num}
                       </span>
-                      <h3 className="font-heading text-sm sm:text-[15px] lg:text-base font-bold text-stone-900 tracking-tight leading-snug">
+                      <h3 className="font-heading text-sm sm:text-[15px] lg:text-base font-medium text-[#151817] tracking-tight leading-snug">
                         {step.title}
                       </h3>
-                      <p className="text-xs text-stone-500 mt-1 leading-relaxed sm:hidden">
+                      <p className="text-xs text-[#6C6C68] mt-1 leading-relaxed sm:hidden font-body">
                         {step.desc}
                       </p>
                     </div>
                   </div>
-                  <div className="hidden sm:block w-6 h-[2px] bg-stone-300 mt-4" />
+                  <div className="hidden sm:block w-6 h-[2px] bg-[#E6E3DD] mt-4" />
                 </div>
               ))}
             </div>
@@ -458,7 +458,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 md:gap-12">
             <div className="w-full md:w-7/12">
               <h2
-                className="font-heading font-bold text-white tracking-tight leading-[1.08]"
+                className="font-heading font-medium text-white tracking-tight leading-[1.08]"
                 style={{ fontSize: 'clamp(1.85rem, 1.5rem + 2vw, 3.5rem)' }}
               >
                 Building a cleaner future,
@@ -469,14 +469,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <div className="w-full md:w-5/12 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-end">
               <button
                 onClick={() => onNavigate('/projects')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E1E] hover:bg-[#A82424] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-body font-medium text-white bg-[#7A211D] hover:bg-[#631B18] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>Explore Our Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
               <button
                 onClick={onCtaClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-[#1F1914] bg-[#E8DCCB]/90 hover:bg-[#F2E8DA] border border-[#D5C6B1] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-body font-medium text-[#151817] bg-[#E8DCCB]/90 hover:bg-[#F2E8DA] border border-[#D5C6B1] rounded-[14px] px-8 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Talk to Our Team
               </button>

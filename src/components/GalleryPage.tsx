@@ -92,9 +92,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
     if (!activeAlbum) return;
     setActivePhotoIndex((prev) => (prev - 1 + activeAlbum.images.length) % activeAlbum.images.length);
   };
-
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-24 pb-6">
+    <div className="min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white pt-24 pb-6">
       
 
 
@@ -102,18 +101,18 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-8">
         <div className="space-y-6">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-stone-200/80 shadow-2xs text-[11px] font-bold text-stone-700 tracking-wider uppercase font-heading">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-[#E6E3DD] shadow-2xs text-[11px] font-medium text-stone-700 tracking-[0.18em] uppercase font-body">
             <Sparkles className="w-3.5 h-3.5 text-stone-600" />
             <span>SOLARARK IN ACTION • COMMUNITY &amp; EXPOS</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-8 space-y-3">
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold text-stone-900 font-heading tracking-tight leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold text-[#151817] font-heading tracking-tight leading-[1.14]">
                 SolarArk Gallery &amp; <br className="hidden sm:inline" />
                 <span className="text-accent-light">Community Moments</span>
               </h1>
-              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-2xl font-body">
                 Explore highlights from our presence at CREDAI property expos, Bharatcon exhibitions, annual Surya Mitra partner meets, festive celebrations, and customer appreciation events across Maharashtra.
               </p>
             </div>
@@ -136,16 +135,16 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
       {/* ── 3. EVENT HIGHLIGHT VIDEO REELS ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16">
-        <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-stone-900 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md border border-stone-200/90 relative overflow-hidden space-y-6">
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-[#151817] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md border border-[#E6E3DD] relative overflow-hidden space-y-6">
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#7A211D]/5 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 flex items-center justify-between border-b border-stone-200/80 pb-4">
+          <div className="relative z-10 flex items-center justify-between border-b border-[#E6E3DD] pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#8B1E1E]/10 text-[#8B1E1E] border border-[#8B1E1E]/20 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-[#7A211D]/10 text-[#7A211D] border border-[#7A211D]/20 flex items-center justify-center">
                 <Film className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-stone-900">
+                <h3 className="font-heading text-lg sm:text-xl font-medium text-[#151817]">
                   Event Highlights &amp; Video Moments
                 </h3>
                 <p className="text-xs text-stone-600 font-normal">
@@ -153,7 +152,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 </p>
               </div>
             </div>
-            <span className="text-xs text-[#8B1E1E] font-bold font-heading bg-white border border-stone-200 px-3 py-1 rounded-xl shadow-2xs hidden sm:inline">
+            <span className="text-xs text-[#7A211D] font-medium font-body bg-white border border-[#E6E3DD] px-3 py-1 rounded-xl shadow-2xs hidden sm:inline">
               3 Featured Reels
             </span>
           </div>
@@ -162,7 +161,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             {galleryVideos.map((vid) => (
               <div
                 key={vid.id}
-                className="bg-white border border-stone-200/90 rounded-2xl p-4 flex flex-col justify-between shadow-2xs hover:border-[#8B1E1E]/40 hover:shadow-md transition-all space-y-3"
+                className="bg-white border border-[#E6E3DD] rounded-2xl p-4 flex flex-col justify-between shadow-2xs hover:border-[#7A211D]/40 hover:shadow-md transition-all space-y-3"
               >
                 <div className="space-y-3">
                   <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900 border border-stone-200 shadow-inner flex items-center justify-center">
@@ -186,13 +185,13 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-[#8B1E1E] font-bold uppercase tracking-wider font-heading flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#8B1E1E]" /> {vid.location}
+                    <span className="text-[10px] text-[#7A211D] font-medium uppercase tracking-[0.18em] font-body flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#7A211D]" /> {vid.location}
                     </span>
-                    <h4 className="font-heading text-sm font-bold text-slate-900 mt-1 leading-snug">
+                    <h4 className="font-heading text-sm font-medium text-[#151817] mt-1 leading-snug">
                       {vid.title}
                     </h4>
-                    <p className="text-xs text-stone-600 mt-1 leading-relaxed line-clamp-2">
+                    <p className="text-xs text-stone-600 mt-1 leading-relaxed line-clamp-2 font-body">
                       {vid.description}
                     </p>
                   </div>
@@ -205,19 +204,19 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       </section>
 
       {/* ── 4. CATEGORY FILTER CHIPS ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 sticky top-[72px] z-30 bg-[#FAF9F6]/95 backdrop-blur-md py-3">
-        <div className="flex flex-wrap items-center gap-2 border-b border-stone-200 pb-3">
-          <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider font-heading mr-1">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 sticky top-[72px] z-30 bg-[#F7F5F0]/95 backdrop-blur-md py-3">
+        <div className="flex flex-wrap items-center gap-2 border-b border-[#E6E3DD] pb-3">
+          <span className="text-[11px] font-medium text-stone-500 uppercase tracking-[0.18em] font-body mr-1">
             Category:
           </span>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold font-heading transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-medium font-body transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#8B1E1E] text-white shadow-sm shadow-[#8B1E1E]/25'
-                  : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-200'
+                  ? 'bg-[#7A211D] text-white shadow-xs'
+                  : 'bg-white text-stone-700 hover:bg-stone-100 border border-[#E6E3DD]'
               }`}
             >
               {cat}
@@ -233,7 +232,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
             <div
               key={album.id}
               onClick={() => handleOpenAlbum(album)}
-              className="bg-white border border-stone-200/90 rounded-3xl overflow-hidden shadow-2xs hover:shadow-lg hover:border-[#8B1E1E]/40 transition-all duration-300 cursor-pointer group flex flex-col justify-between"
+              className="bg-white border border-[#E6E3DD] rounded-3xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#7A211D]/40 transition-all duration-300 cursor-pointer group flex flex-col justify-between"
             >
               <div>
                 {/* Album Cover Photo */}
@@ -246,16 +245,16 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                  <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-xs text-white text-[10px] font-medium px-2 py-0.5 rounded-full flex items-center gap-1 font-body">
                     <ImageIcon className="w-3 h-3 text-amber-300" />
                     <span>{album.images.length} Photos</span>
                   </div>
 
                   <div className="absolute bottom-3 left-3.5 right-3.5 text-white flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-[#8B1E1E] px-2 py-0.5 rounded text-white font-heading">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] bg-[#7A211D] px-2 py-0.5 rounded text-white font-body">
                       {album.category}
                     </span>
-                    <span className="text-xs font-bold font-heading flex items-center gap-1">
+                    <span className="text-xs font-medium font-body flex items-center gap-1">
                       <MapPin className="w-3 h-3 text-amber-300" />
                       <span>{album.location}</span>
                     </span>
@@ -263,17 +262,17 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 </div>
 
                 <div className="p-5 space-y-2">
-                  <h3 className="font-heading text-base font-bold text-slate-900 group-hover:text-[#8B1E1E] transition-colors leading-snug">
+                  <h3 className="font-heading text-base font-medium text-[#151817] group-hover:text-[#7A211D] transition-colors leading-snug">
                     {album.name}
                   </h3>
-                  <p className="text-xs text-stone-600 leading-relaxed font-normal line-clamp-2">
+                  <p className="text-xs text-stone-600 leading-relaxed font-normal line-clamp-2 font-body">
                     {album.description}
                   </p>
                 </div>
               </div>
 
               <div className="p-5 pt-0">
-                <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-[#8B1E1E]">
+                <div className="pt-3 border-t border-[#E6E3DD] flex items-center justify-between text-xs font-medium text-[#7A211D] font-body">
                   <span>Open Photo Album</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -289,12 +288,12 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
           <div className="bg-white rounded-3xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl flex flex-col">
             
             {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+            <div className="px-6 py-4 border-b border-[#E6E3DD] flex items-center justify-between bg-stone-50">
               <div>
-                <span className="text-[10px] font-bold text-[#8B1E1E] uppercase tracking-wider font-heading block">
+                <span className="text-[10px] font-medium text-[#7A211D] uppercase tracking-[0.18em] font-body block">
                   {activeAlbum.category} • {activeAlbum.location}
                 </span>
-                <h3 className="text-base sm:text-xl font-bold font-heading text-slate-900">
+                <h3 className="text-base sm:text-xl font-medium font-heading text-[#151817]">
                   {activeAlbum.name}
                 </h3>
               </div>
@@ -336,7 +335,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 )}
 
                 {/* Photo Index Counter */}
-                <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-xs text-white text-xs px-3 py-1 rounded-full font-heading font-medium">
+                <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-xs text-white text-xs px-3 py-1 rounded-full font-body font-medium">
                   {activePhotoIndex + 1} of {activeAlbum.images.length}
                 </div>
               </div>
@@ -350,7 +349,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                       onClick={() => setActivePhotoIndex(idx)}
                       className={`relative w-20 h-14 rounded-xl overflow-hidden shrink-0 border-2 cursor-pointer transition-all ${
                         activePhotoIndex === idx
-                          ? 'border-[#8B1E1E] scale-105 shadow-sm'
+                          ? 'border-[#7A211D] scale-105 shadow-sm'
                           : 'border-stone-200 opacity-60 hover:opacity-100'
                       }`}
                     >
@@ -365,14 +364,14 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
               )}
 
               {/* Context Description */}
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed bg-[#FAF8F5] p-4 rounded-2xl border border-stone-200/80">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed bg-[#F7F5F0] p-4 rounded-2xl border border-[#E6E3DD] font-body">
                 {activeAlbum.description}
               </p>
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-stone-200 bg-stone-50 flex items-center justify-between">
-              <span className="text-xs text-stone-500 font-medium">
+            <div className="px-6 py-4 border-t border-[#E6E3DD] bg-stone-50 flex items-center justify-between">
+              <span className="text-xs text-stone-500 font-medium font-body">
                 High-Resolution Photographs from SolarArk Archives
               </span>
               <PrimaryButton

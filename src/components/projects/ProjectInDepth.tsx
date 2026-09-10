@@ -37,27 +37,27 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
   );
 
   return (
-    <section id="project-in-depth" className="w-full bg-[#FAF8F5] py-12 sm:py-16 border-b border-stone-200/80 scroll-mt-20">
+    <section id="project-in-depth" className="w-full bg-[#F7F5F0] py-12 sm:py-16 border-b border-[#E6E3DD] scroll-mt-20">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Header */}
         <div className="space-y-2 mb-8">
           <div className="flex items-center gap-2">
-            <span className="font-sans text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
+            <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#7A211D]">
               PROJECT IN DEPTH
             </span>
-            <span className="w-8 h-px bg-stone-300" />
-            <span className="text-xs text-stone-400 font-sans hidden sm:inline">
+            <span className="w-8 h-px bg-[#E6E3DD]" />
+            <span className="text-xs text-[#6C6C68] font-body hidden sm:inline">
               Engineering Case Study &amp; Technical Breakdown
             </span>
           </div>
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#151817] tracking-tight leading-tight m-0">
             {project.title || 'Featured Engineering Case Study'}
           </h2>
         </div>
 
         {/* 50/50 Split Architectural Box */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 bg-white rounded-none border border-stone-200/90 overflow-hidden shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 bg-white rounded-none border border-[#E6E3DD] overflow-hidden shadow-sm">
           
           {/* ── LEFT 50% (6 Cols): Large Photographic Showcase ── */}
           <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] bg-stone-900 overflow-hidden">
@@ -75,7 +75,7 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
               <span className="text-sm sm:text-base font-mono font-bold tracking-wider text-amber-300">
                 01 —
               </span>
-              <span className="text-xs sm:text-sm font-sans font-semibold uppercase tracking-wider text-white/90">
+              <span className="text-xs sm:text-sm font-body font-medium uppercase tracking-wider text-white/90">
                 {categoryLabel} | {project.city}
               </span>
             </div>
@@ -83,18 +83,18 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
             {/* Inset Metric Card at Bottom */}
             <div className="absolute bottom-6 left-6 right-6 z-10 bg-black/60 backdrop-blur-md p-4 border border-white/20 text-white flex items-center justify-between">
               <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider text-stone-300 block">
+                <span className="text-[10px] uppercase font-body tracking-wider text-stone-300 block">
                   Capacity Installed
                 </span>
-                <span className="font-heading text-lg sm:text-xl font-bold text-white">
+                <span className="font-heading text-lg sm:text-xl font-semibold text-white">
                   {project.systemSizeKw} kW Array
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-[10px] uppercase font-mono tracking-wider text-stone-300 block">
+                <span className="text-[10px] uppercase font-body tracking-wider text-stone-300 block">
                   Annual Impact
                 </span>
-                <span className="font-heading text-lg sm:text-xl font-bold text-emerald-400">
+                <span className="font-heading text-lg sm:text-xl font-semibold text-emerald-400">
                   Save {formatINR(project.annualSavings || 100000)}/yr
                 </span>
               </div>
@@ -106,30 +106,30 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
             
             {/* Narrative & Headline */}
             <div className="space-y-3">
-              <span className="text-[11px] font-sans font-bold uppercase tracking-[0.2em] text-[#8B1E1E]">
+              <span className="text-[11px] font-body font-medium uppercase tracking-[0.18em] text-[#7A211D]">
                 SOLUTION OVERVIEW
               </span>
-              <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-stone-900 leading-tight m-0">
+              <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-medium text-[#151817] leading-tight m-0">
                 {project.outcomeHeadline || 'Engineered for relentless yield and long-term savings.'}
               </h3>
-              <p className="text-xs sm:text-sm font-sans text-stone-600 leading-relaxed m-0">
+              <p className="text-xs sm:text-sm font-body font-normal text-[#6C6C68] leading-relaxed m-0">
                 {project.shortDescription || project.verdict}
               </p>
             </div>
 
             {/* 3 Structured Pillars (Inspiration Requirement / Solution / Impact) */}
-            <div className="space-y-4 pt-2 border-t border-stone-100">
+            <div className="space-y-4 pt-2 border-t border-[#E6E3DD]">
               
               {/* Pillar 1: Requirement */}
               <div className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-none bg-stone-100 border border-stone-200 text-stone-700 flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-none bg-stone-100 border border-[#E6E3DD] text-stone-700 flex items-center justify-center shrink-0 mt-0.5">
                   <Target className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-stone-900 m-0">
+                  <h4 className="text-xs font-heading font-medium uppercase tracking-wider text-[#151817] m-0">
                     Requirement
                   </h4>
-                  <p className="text-xs font-sans text-stone-600 leading-relaxed m-0">
+                  <p className="text-xs font-body font-normal text-[#6C6C68] leading-relaxed m-0">
                     {project.requirement || 'Eliminate escalating grid electricity tariffs while preserving 100% usable rooftop utility.'}
                   </p>
                 </div>
@@ -137,14 +137,14 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
 
               {/* Pillar 2: Our Solution */}
               <div className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-none bg-amber-50 border border-amber-200 text-[#8B1E1E] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-none bg-stone-100 border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 mt-0.5">
                   <Cpu className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-stone-900 m-0">
+                  <h4 className="text-xs font-heading font-medium uppercase tracking-wider text-[#151817] m-0">
                     Our Solution
                   </h4>
-                  <p className="text-xs font-sans text-stone-600 leading-relaxed m-0">
+                  <p className="text-xs font-body font-normal text-[#6C6C68] leading-relaxed m-0">
                     {project.solution || `Custom ${project.systemSizeKw} kW rooftop installation built with hot-dip galvanized mounting and bi-directional net-metering.`}
                   </p>
                 </div>
@@ -156,10 +156,10 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
                   <TrendingDown className="w-4 h-4" />
                 </div>
                 <div className="space-y-0.5">
-                  <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-stone-900 m-0">
+                  <h4 className="text-xs font-heading font-medium uppercase tracking-wider text-[#151817] m-0">
                     The Impact
                   </h4>
-                  <p className="text-xs font-sans text-stone-600 leading-relaxed m-0">
+                  <p className="text-xs font-body font-normal text-[#6C6C68] leading-relaxed m-0">
                     {project.impact || `~${((project.generationUnitsPerMonth || 1000) * 12).toLocaleString('en-IN')} units/year (est.) · -${billCutPercent}% electricity bills · Lower carbon footprint`}
                   </p>
                 </div>
@@ -168,7 +168,7 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-4 border-t border-stone-100 flex flex-wrap items-center gap-3">
+            <div className="pt-4 border-t border-[#E6E3DD] flex flex-wrap items-center gap-3">
               <button
                 onClick={() => {
                   if (onOpenSpecsModal) {
@@ -177,7 +177,7 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
                     onCtaClick();
                   }
                 }}
-                className="px-6 py-3 bg-[#8B1E1E] hover:bg-[#701818] text-white font-sans font-semibold text-xs sm:text-sm rounded-none inline-flex items-center gap-2 cursor-pointer transition-colors"
+                className="px-6 py-3 bg-[#7A211D] hover:bg-[#962B26] text-white font-body font-medium text-xs sm:text-sm rounded-none inline-flex items-center gap-2 cursor-pointer transition-colors"
               >
                 <span>View Full Project</span>
                 <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
               {onCtaClick && (
                 <button
                   onClick={onCtaClick}
-                  className="px-5 py-3 border border-stone-300 hover:border-stone-900 text-stone-800 font-sans font-medium text-xs sm:text-sm rounded-none transition-colors cursor-pointer bg-white"
+                  className="px-5 py-3 border border-[#E6E3DD] hover:border-[#151817] text-[#151817] font-body font-medium text-xs sm:text-sm rounded-none transition-colors cursor-pointer bg-white"
                 >
                   Get Similar Estimate
                 </button>

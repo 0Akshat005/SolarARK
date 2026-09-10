@@ -148,7 +148,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-20 pb-16">
+    <div className="min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white pt-20 pb-16">
       
       {/* ── 1. HERO BAND: "Real spaces. Real impact." ── */}
       <ProjectsHeroBand
@@ -169,20 +169,20 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       {/* ── 3. STRUCTURED PROJECTS ARCHIVE: Filter Row + Mixed-Scale Grid ── */}
       <section
         id="projects-grid"
-        className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 border-b border-stone-200/80 scroll-mt-20"
+        className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 border-b border-[#E6E3DD] scroll-mt-20"
       >
         <div className="space-y-3 mb-6">
           <div className="flex items-center gap-2">
-            <span className="font-sans text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
+            <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#7A211D]">
               CURATED ARCHIVE
             </span>
-            <span className="w-8 h-px bg-stone-300" />
-            <span className="text-xs text-stone-400 font-sans hidden sm:inline">
+            <span className="w-8 h-px bg-[#E6E3DD]" />
+            <span className="text-xs text-[#6C6C68] font-body hidden sm:inline">
               Verified Installations Across Maharashtra
             </span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#151817] tracking-tight leading-tight m-0">
             Browse Completed Solar Projects
           </h2>
         </div>
@@ -240,7 +240,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       {/* ── 7. INTERACTIVE PROJECT TECHNICAL SPEC MODAL ── */}
       {selectedProjectModal && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-white rounded-none max-w-2xl w-full overflow-hidden shadow-2xl border border-stone-200 animate-in fade-in zoom-in duration-200">
+          <div className="bg-white rounded-none max-w-2xl w-full overflow-hidden shadow-2xl border border-[#E6E3DD] animate-in fade-in zoom-in duration-200">
             
             {/* Modal Header with Image */}
             <div className="relative aspect-[16/9] bg-stone-900">
@@ -261,36 +261,36 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-[#8B1E1E] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-none font-sans uppercase tracking-wider">
+                  <span className="bg-[#7A211D] text-white text-[11px] font-body font-medium px-2.5 py-0.5 rounded-none uppercase tracking-wider">
                     {selectedProjectModal.systemSizeKw} kW Array
                   </span>
-                  <span className="text-xs text-amber-300 font-sans">
+                  <span className="text-xs text-amber-300 font-body">
                     {selectedProjectModal.city}, {selectedProjectModal.state}
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold font-heading text-white m-0">
+                <h3 className="text-lg sm:text-xl font-heading font-medium text-white m-0">
                   {selectedProjectModal.title || selectedProjectModal.homeownerName}
                 </h3>
               </div>
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 space-y-4 font-sans">
+            <div className="p-6 space-y-4 font-body">
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-stone-50 p-4 border border-stone-200">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F7F5F0] p-4 border border-[#E6E3DD]">
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
+                  <div className="text-[10px] text-[#6C6C68] font-medium uppercase tracking-wider">
                     Monthly Yield
                   </div>
-                  <div className="text-base font-bold text-stone-900">
+                  <div className="text-base font-semibold text-[#151817]">
                     {selectedProjectModal.generationUnitsPerMonth || Math.round(selectedProjectModal.systemSizeKw * 120)} kWh
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
+                  <div className="text-[10px] text-[#6C6C68] font-medium uppercase tracking-wider">
                     Bill Cut
                   </div>
-                  <div className="text-base font-bold text-emerald-600">
+                  <div className="text-base font-semibold text-emerald-600">
                     {Math.round(
                       ((selectedProjectModal.monthlyBillBefore - selectedProjectModal.monthlyBillAfter) /
                         selectedProjectModal.monthlyBillBefore) *
@@ -299,18 +299,18 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
+                  <div className="text-[10px] text-[#6C6C68] font-medium uppercase tracking-wider">
                     Annual Savings
                   </div>
-                  <div className="text-base font-bold text-stone-900">
+                  <div className="text-base font-semibold text-[#151817]">
                     {formatINR(selectedProjectModal.annualSavings || 96000)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
+                  <div className="text-[10px] text-[#6C6C68] font-medium uppercase tracking-wider">
                     Subsidy Status
                   </div>
-                  <div className="text-base font-bold text-amber-800">
+                  <div className="text-base font-semibold text-amber-800">
                     {selectedProjectModal.subsidyReceived
                       ? `₹${selectedProjectModal.subsidyReceived.toLocaleString('en-IN')}`
                       : 'Commercial ROI'}
@@ -319,11 +319,11 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               </div>
 
               {/* Specifications */}
-              <div className="space-y-2 text-xs text-stone-600">
-                <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider m-0">
+              <div className="space-y-2 text-xs text-[#6C6C68]">
+                <h4 className="text-xs font-heading font-medium text-[#151817] uppercase tracking-wider m-0">
                   Mounting &amp; Engineering Specifications
                 </h4>
-                <div className="space-y-1.5">
+                <div className="space-y-1.5 font-body">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span><strong>Structure:</strong> {selectedProjectModal.roofType}</span>
@@ -340,7 +340,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               </div>
 
               {/* Customer Quote / Impact */}
-              <div className="bg-amber-50/60 p-4 border border-amber-200/80 text-xs text-stone-700 italic">
+              <div className="bg-stone-50 p-4 border border-[#E6E3DD] text-xs text-[#151817] italic font-body">
                 "{selectedProjectModal.verdict}"
               </div>
 
@@ -358,7 +358,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                 </PrimaryButton>
                 <button
                   onClick={() => setSelectedProjectModal(null)}
-                  className="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs rounded-none transition-colors cursor-pointer"
+                  className="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-[#151817] font-body font-medium text-xs rounded-none transition-colors cursor-pointer"
                 >
                   Close
                 </button>

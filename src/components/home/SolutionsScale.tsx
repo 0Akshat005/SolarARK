@@ -48,7 +48,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   ];
 
   return (
-    <section className="w-full bg-[#FAF8F5] border-b border-stone-200/80 overflow-hidden">
+    <section className="w-full bg-[#F7F5F0] border-b border-[#E6E3DD] overflow-hidden">
       
       {/* ── BALANCED 3-PART EDITORIAL INTRO ROW (ALIGNED ACROSS SECTION WIDTH) ── */}
       <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 sm:py-8 lg:py-9">
@@ -57,13 +57,13 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
           {/* 1. LEFT (~36%): Eyebrow + Large Dominant Display Heading + Accent Line */}
           <div className="md:col-span-5 lg:col-span-4 space-y-1.5 sm:space-y-2 shrink-0">
             <div className="flex items-center gap-2">
-              <span className="font-heading text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-stone-500">
+              <span className="font-body text-[10.5px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68]">
                 OUR SOLUTIONS
               </span>
-              <span className="w-7 h-px bg-stone-300" />
+              <span className="w-7 h-px bg-[#E6E3DD]" />
             </div>
 
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-bold text-stone-900 tracking-tight leading-[1.03]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-medium text-[#151817] tracking-tight leading-[1.03]">
               Solar for<br />
               <span className="word-accent-subtle">every scale.</span>
             </h2>
@@ -73,7 +73,7 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
 
           {/* 2. CENTER (~42%): Narrative Supporting Copy (Bridges Heading and Action) */}
           <div className="md:col-span-4 lg:col-span-5">
-            <p className="text-stone-600 text-sm sm:text-[15px] lg:text-[16px] xl:text-[16.5px] font-normal leading-relaxed max-w-md lg:max-w-lg">
+            <p className="text-[#6C6C68] text-sm sm:text-[15px] lg:text-[16px] xl:text-[16.5px] font-body font-normal leading-relaxed max-w-md lg:max-w-lg">
               From homes to industries, we design solar solutions that make energy simpler, smarter and more sustainable.
             </p>
           </div>
@@ -82,10 +82,10 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
           <div className="md:col-span-3 lg:col-span-3 md:flex md:justify-end">
             <button
               onClick={() => onNavigate('/services')}
-              className="group inline-flex items-center gap-2.5 px-6 py-3 min-h-[44px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs sm:text-[13.5px] font-heading font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
+              className="group inline-flex items-center gap-2.5 px-6 py-3 min-h-[44px] rounded-xl border border-[#7A211D]/40 hover:border-[#7A211D] bg-transparent hover:bg-[#7A211D]/8 text-[#7A211D] text-xs sm:text-[13.5px] font-body font-medium transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]"
             >
               <span>Explore Solutions</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#7A211D]" strokeWidth={2} />
             </button>
           </div>
 
@@ -93,12 +93,12 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
       </div>
 
       {/* ── SEAMLESS TRANSITION INTO THE MONUMENTAL FULL-WIDTH 3-PART IMAGE BAND ── */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 border-t border-stone-200/90">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 border-t border-[#E6E3DD]">
         {solutions.map((item, idx) => (
           <div
             key={item.id}
             onClick={() => onNavigate(item.path)}
-            className={`group relative h-[260px] sm:h-[360px] md:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-end p-5 sm:p-8 lg:p-10 bg-stone-950 ${
+            className={`group relative h-[260px] sm:h-[360px] md:h-[480px] lg:h-[540px] xl:h-[580px] overflow-hidden cursor-pointer flex flex-col justify-end p-5 sm:p-8 lg:p-10 bg-[#151817] ${
               idx !== 0 ? 'border-t md:border-t-0 md:border-l border-white/15' : ''
             }`}
           >
@@ -116,16 +116,16 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             {/* Direct Information Overlay (Title + Subtitle + Circular Outline Arrow) */}
             <div className="relative z-10 flex items-end justify-between gap-4">
               <div className="space-y-1.5">
-                <h3 className="font-heading font-bold text-2xl sm:text-[26px] lg:text-[30px] text-white tracking-tight leading-snug">
+                <h3 className="font-heading font-medium text-2xl sm:text-[26px] lg:text-[30px] text-white tracking-tight leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-300 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-300 font-body font-normal leading-relaxed">
                   {item.subtitle}
                 </p>
               </div>
 
               {/* Circular Outline Arrow Button */}
-              <div className="w-11 h-11 rounded-full border border-white/60 group-hover:border-white group-hover:bg-white text-white group-hover:text-stone-950 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-108">
+              <div className="w-11 h-11 rounded-full border border-white/60 group-hover:border-white group-hover:bg-white text-white group-hover:text-[#151817] flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-108">
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={1.75} />
               </div>
             </div>

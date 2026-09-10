@@ -21,7 +21,7 @@ const MILESTONES: JourneyMilestone[] = [
   {
     year: '2020',
     badgeColor: '#A82424',
-    inkColor: '#8B1E1E',
+    inkColor: '#7A211D',
     glowColor: 'rgba(168, 36, 36, 0.45)',
     icon: Rocket,
     title: 'SolarARK Projects',
@@ -29,9 +29,9 @@ const MILESTONES: JourneyMilestone[] = [
   },
   {
     year: '2021',
-    badgeColor: '#8B1E1E',
-    inkColor: '#8B1E1E',
-    glowColor: 'rgba(139, 30, 30, 0.45)',
+    badgeColor: '#7A211D',
+    inkColor: '#7A211D',
+    glowColor: 'rgba(122, 33, 29, 0.45)',
     icon: HomeIcon,
     title: '575 Homes',
     description: 'Our residential footprint expanded across cities in Maharashtra.',
@@ -115,7 +115,7 @@ export const OurJourney: React.FC = () => {
       </svg>
 
       <svg
-        className="absolute -top-24 -right-24 w-[500px] h-[500px] text-[#8B1E1E]/10 pointer-events-none z-0"
+        className="absolute -top-24 -right-24 w-[500px] h-[500px] text-[#7A211D]/10 pointer-events-none z-0"
         viewBox="0 0 500 500"
         fill="none"
       >
@@ -213,7 +213,7 @@ export const OurJourney: React.FC = () => {
         </div>
 
         {/* Display Headline */}
-        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-bold text-stone-900 font-heading tracking-tight leading-[1.12] m-0">
+        <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-medium text-[#151817] font-heading tracking-tight leading-[1.12] m-0">
           How SolarARK grew, year by year
         </h2>
 
@@ -221,12 +221,12 @@ export const OurJourney: React.FC = () => {
         <div
           className="w-44 h-[2.5px] rounded-full mx-auto my-2.5"
           style={{
-            background: 'linear-gradient(90deg, transparent, #8B1E1E 30%, #A82424 50%, #10B981 75%, transparent)',
+            background: 'linear-gradient(90deg, transparent, #7A211D 30%, #A82424 50%, #10B981 75%, transparent)',
           }}
         />
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1">
+        <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-xl mx-auto m-0 pt-1 font-body">
           From a small beginning in Nagpur to thousands of happy customers and new horizons across Maharashtra.
         </p>
       </div>
@@ -250,7 +250,7 @@ export const OurJourney: React.FC = () => {
                 >
                   {/* Year Number in exact era color */}
                   <span
-                    className="text-2xl xl:text-[28px] font-bold font-heading mb-4 select-none tracking-tight"
+                    className="text-2xl xl:text-[28px] font-medium font-heading mb-4 select-none tracking-tight"
                     style={{ color: m.inkColor }}
                   >
                     {m.year}
@@ -297,7 +297,7 @@ export const OurJourney: React.FC = () => {
             <div
               className="journey-timeline-line absolute left-6 right-8 bottom-[28px] h-[2px] z-0"
               style={{
-                background: 'linear-gradient(90deg, #A82424, #8B1E1E, #C53030, #10B981, #8B5CF6)',
+                background: 'linear-gradient(90deg, #A82424, #7A211D, #C53030, #10B981, #8B5CF6)',
               }}
             />
 

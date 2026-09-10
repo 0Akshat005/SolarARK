@@ -50,11 +50,11 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
     : '~9,50,000';
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-6 sm:py-8 border-b border-stone-200/80">
+    <section className="w-full bg-[#F7F5F0] py-6 sm:py-8 border-b border-[#E6E3DD]">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Panoramic Showcase Container */}
-        <div className="relative w-full rounded-none overflow-hidden bg-[#120F0D] border border-stone-800 text-white min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] flex flex-col justify-between shadow-xl group">
+        <div className="relative w-full rounded-none overflow-hidden bg-[#151817] border border-[#232826] text-white min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] flex flex-col justify-between shadow-xl group">
           
           {/* Panoramic Solar Array Background */}
           <div className="absolute inset-0 z-0">
@@ -66,8 +66,8 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
               loading="eager"
             />
             {/* Deep Contrast Scrim Gradient on Left for Text Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#120F0D] via-[#120F0D]/85 sm:via-[#120F0D]/75 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#120F0D] via-transparent to-black/30 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#151817] via-[#151817]/85 sm:via-[#151817]/75 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#151817] via-transparent to-black/30 pointer-events-none" />
           </div>
 
           {/* ── UPPER CONTENT AREA (Left Column Overlay) ── */}
@@ -75,7 +75,7 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
             
             {/* Eyebrow */}
             <div className="flex items-center gap-2">
-              <span className="text-[11px] sm:text-xs font-sans font-bold uppercase tracking-[0.24em] text-stone-300">
+              <span className="text-[11px] sm:text-xs font-body font-medium uppercase tracking-[0.18em] text-stone-300">
                 FEATURED PROJECT
               </span>
               <span className="w-8 h-px bg-stone-500" />
@@ -83,10 +83,10 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
 
             {/* Title & Location */}
             <div className="space-y-1.5">
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight m-0">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-white tracking-tight leading-tight m-0">
                 {current.title || 'Commercial Solar Installation'}
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-stone-300 m-0">
+              <p className="text-xs sm:text-sm font-body font-normal text-stone-300 m-0">
                 {current.city}, {current.state}
               </p>
             </div>
@@ -94,35 +94,35 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
             {/* 3 Metrics Row */}
             <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-2 max-w-lg">
               <div className="space-y-1">
-                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-white block leading-tight">
+                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-semibold text-white block leading-tight">
                   {systemSizeDisplay}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-stone-400 block font-medium">
+                <span className="text-[10px] sm:text-[11px] font-body uppercase tracking-wider text-stone-400 block font-medium">
                   SYSTEM SIZE
                 </span>
               </div>
 
               <div className="space-y-1">
-                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-white block leading-tight">
+                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-semibold text-white block leading-tight">
                   {completionYear}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-stone-400 block font-medium">
+                <span className="text-[10px] sm:text-[11px] font-body uppercase tracking-wider text-stone-400 block font-medium">
                   COMPLETED
                 </span>
               </div>
 
               <div className="space-y-1">
-                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-white block leading-tight">
+                <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-semibold text-white block leading-tight">
                   {unitsPerYear}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-stone-400 block font-medium">
+                <span className="text-[10px] sm:text-[11px] font-body uppercase tracking-wider text-stone-400 block font-medium">
                   UNITS/YEAR (EST.)
                 </span>
               </div>
             </div>
 
             {/* Concise Summary Paragraph (<100 chars / 2 lines) */}
-            <p className="text-xs sm:text-sm text-stone-300 font-sans leading-relaxed max-w-lg m-0 pt-1">
+            <p className="text-xs sm:text-sm text-stone-300 font-body font-normal leading-relaxed max-w-lg m-0 pt-1">
               {current.shortDescription || 'A large-scale rooftop installation designed to reduce operational costs and support a cleaner future for the business.'}
             </p>
 
@@ -130,7 +130,7 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
             <div className="pt-2">
               <button
                 onClick={() => onSelectProject(current)}
-                className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 bg-black/40 hover:bg-black/60 border border-white/30 hover:border-white text-white font-sans text-xs sm:text-sm font-semibold rounded-none transition-all cursor-pointer shadow-lg backdrop-blur-xs group/btn"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 bg-[#7A211D] hover:bg-[#962B26] text-white font-body text-xs sm:text-sm font-medium rounded-none transition-all cursor-pointer shadow-md group/btn"
               >
                 <span>View Case Study</span>
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

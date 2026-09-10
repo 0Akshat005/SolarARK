@@ -20,25 +20,25 @@ interface DeepDiveTeaserProps {
 
 export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) => {
   return (
-    <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-slate-200/60 relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#F7F5F0] border-b border-[#E6E3DD] relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 space-y-10 sm:space-y-12">
         
         {/* ── SECTION HEADER ── */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-8">
           <div className="max-w-2xl space-y-3">
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-xs font-bold font-heading text-stone-700 shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 border border-[#E6E3DD] text-xs font-medium font-body uppercase tracking-[0.18em] text-stone-700 shadow-2xs">
               <Info className="w-3.5 h-3.5 text-stone-600" />
               <span>Discover SolarARK</span>
             </div>
 
             {/* Headline */}
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-bold text-slate-900 tracking-tight leading-[1.12]">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-medium text-[#151817] tracking-tight leading-[1.12]">
               See what powers <span className="text-accent-light">SolarARK.</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-xl font-body">
               Explore our technology, real installations, homeowner experiences, and smart monitoring — all in one place.
             </p>
           </div>
@@ -46,9 +46,9 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
           {/* Services Redirect — Right-aligned editorial anchor */}
           <button
             onClick={() => onNavigate('/services')}
-            className="group shrink-0 inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-stone-300 bg-white hover:border-[#8B1E1E]/40 hover:bg-[#8B1E1E]/[0.04] text-stone-700 hover:text-[#8B1E1E] transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md self-start sm:self-end"
+            className="group shrink-0 inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-[#E6E3DD] bg-white hover:border-[#7A211D]/40 hover:bg-[#7A211D]/[0.04] text-[#151817] hover:text-[#7A211D] transition-all duration-300 cursor-pointer shadow-xs hover:shadow-md self-start sm:self-end font-body"
           >
-            <span className="font-heading font-semibold text-sm tracking-wide">
+            <span className="font-body font-medium text-sm tracking-wide">
               Explore our services
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -80,7 +80,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
             {/* Top-Left Badge Pill: 01 */}
             <div className="relative z-10 p-5 sm:p-6 flex justify-start">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7A211D] text-white text-xs font-medium shadow-md font-body">
                 <Layers className="w-3.5 h-3.5" />
                 <span>01</span>
               </div>
@@ -88,15 +88,15 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
             {/* Bottom Overlay Content */}
             <div className="relative z-10 p-6 sm:p-8 space-y-2">
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white tracking-tight leading-snug">
                 Technology <br />
                 &amp; Hardware
               </h3>
-              <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed max-w-sm">
+              <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed max-w-sm font-body">
                 Tier-1 modules, advanced inverters, and durable structures built for 25+ years of reliable performance.
               </p>
               <div className="pt-2">
-                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium font-body text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
                   <span>Explore Technology</span>
                   <ArrowRight className="w-4 h-4" />
                 </span>
@@ -129,7 +129,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
               {/* Top-Left Badge Pill: 02 */}
               <div className="relative z-10 p-5 sm:p-6 flex justify-start">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7A211D] text-white text-xs font-medium shadow-md font-body">
                   <Building2 className="w-3.5 h-3.5" />
                   <span>02</span>
                 </div>
@@ -137,14 +137,14 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
               {/* Bottom Overlay Content */}
               <div className="relative z-10 p-5 sm:p-6 space-y-1">
-                <h3 className="font-heading text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium text-white tracking-tight">
                   Completed Projects
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-200 font-normal leading-snug max-w-md">
+                <p className="text-xs sm:text-sm text-slate-200 font-normal leading-snug max-w-md font-body">
                   15+ cities. Hundreds of rooftop installations. Verified bill savings.
                 </p>
                 <div className="pt-1.5">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all drop-shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium font-body text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all drop-shadow-xs">
                     <span>View Case Studies</span>
                     <ArrowRight className="w-4 h-4" />
                   </span>
@@ -177,7 +177,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Top-Left Badge Pill: 03 */}
                 <div className="relative z-10 p-5 flex justify-start">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7A211D] text-white text-xs font-medium shadow-md font-body">
                     <Star className="w-3.5 h-3.5" />
                     <span>03</span>
                   </div>
@@ -185,14 +185,14 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Bottom Overlay Content */}
                 <div className="relative z-10 p-5 space-y-1">
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white tracking-tight">
                     Homeowner Stories
                   </h3>
-                  <p className="text-xs text-slate-200 font-normal leading-snug">
+                  <p className="text-xs text-slate-200 font-normal leading-snug font-body">
                     Real families. Real savings. Real experiences.
                   </p>
                   <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium font-body text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
                       <span>Read Reviews</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
@@ -222,7 +222,7 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Top-Left Badge Pill: 04 */}
                 <div className="relative z-10 p-5 flex justify-start">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B1E1E] text-white text-xs font-bold shadow-md">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#7A211D] text-white text-xs font-medium shadow-md font-body">
                     <Smartphone className="w-3.5 h-3.5" />
                     <span>04</span>
                   </div>
@@ -230,14 +230,14 @@ export const DeepDiveTeaser: React.FC<DeepDiveTeaserProps> = ({ onNavigate }) =>
 
                 {/* Bottom Overlay Content */}
                 <div className="relative z-10 p-5 space-y-1">
-                  <h3 className="font-heading text-lg sm:text-xl font-bold text-white tracking-tight">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white tracking-tight">
                     App Experience
                   </h3>
-                  <p className="text-xs text-slate-200 font-normal leading-snug">
+                  <p className="text-xs text-slate-200 font-normal leading-snug font-body">
                     Track generation, savings, and system health in real time.
                   </p>
                   <div className="pt-1">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium font-body text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all">
                       <span>Explore Monitoring</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>

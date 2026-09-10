@@ -111,55 +111,55 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
   const activeCity = CITY_PINS.find((c) => c.id === activeCityId) || CITY_PINS[0];
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-12 sm:py-16 border-b border-stone-200/80">
+    <section className="w-full bg-[#F7F5F0] py-12 sm:py-16 border-b border-[#E6E3DD]">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Footprint Container — 3-Column Architectural Band */}
-        <div className="bg-white rounded-none border border-stone-200/90 shadow-2xs overflow-hidden">
+        <div className="bg-white rounded-none border border-[#E6E3DD] shadow-2xs overflow-hidden">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-stone-200/90">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-[#E6E3DD]">
             
             {/* ── COL 1 (4 cols): Narrative & Authority ── */}
             <div className="lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <span className="font-sans text-[11px] font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
+                  <span className="font-body text-[11px] font-medium uppercase tracking-[0.18em] text-[#7A211D]">
                     OUR FOOTPRINT
                   </span>
-                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+                  <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight leading-tight m-0">
                     More clean energy. <br className="hidden sm:inline" />
-                    <span className="text-[#8B1E1E]">A brighter Maharashtra.</span>
+                    <span className="text-[#151817]">A brighter Maharashtra.</span>
                   </h2>
                 </div>
 
-                <p className="text-xs sm:text-sm font-sans text-stone-600 leading-relaxed m-0">
+                <p className="text-xs sm:text-sm font-body font-normal text-[#6C6C68] leading-relaxed m-0">
                   Headquartered in Amravati with specialized engineering hubs in Nagpur, Wardha, Akola, Pune, and Chh. Sambhajinagar. Over 5,000+ certified solar systems delivering reliable power across Maharashtra.
                 </p>
               </div>
 
               {/* Active District Quick Card */}
-              <div className="bg-[#FAF8F5] p-4 rounded-none border border-stone-200 space-y-2">
+              <div className="bg-[#F7F5F0] p-4 rounded-none border border-[#E6E3DD] space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-sans font-bold text-stone-900 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#8B1E1E]" />
+                  <span className="font-body font-medium text-[#151817] flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#7A211D]" />
                     {activeCity.name}
                   </span>
-                  <span className="text-[11px] text-stone-500 font-sans">Active Hub</span>
+                  <span className="text-[11px] text-[#6C6C68] font-body">Active Hub</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-stone-200">
+                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#E6E3DD]">
                   <div>
-                    <span className="text-[10px] uppercase font-mono font-medium text-stone-400 block">
+                    <span className="text-[10px] uppercase font-body font-medium text-[#6C6C68] block">
                       Installations
                     </span>
-                    <span className="font-heading text-base font-bold text-stone-900">
+                    <span className="font-heading text-base font-semibold text-[#151817]">
                       {activeCity.count}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-mono font-medium text-stone-400 block">
+                    <span className="text-[10px] uppercase font-body font-medium text-[#6C6C68] block">
                       Capacity
                     </span>
-                    <span className="font-heading text-base font-bold text-[#8B1E1E]">
+                    <span className="font-heading text-base font-semibold text-[#7A211D]">
                       {activeCity.capacity}
                     </span>
                   </div>
@@ -168,7 +168,7 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
             </div>
 
             {/* ── COL 2 (4 cols): Vector Maharashtra Map ── */}
-            <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col items-center justify-center bg-[#FCFAF8] relative min-h-[300px]">
+            <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col items-center justify-center bg-[#F7F5F0] relative min-h-[300px]">
               <div className="w-full max-w-[340px] aspect-[4/3] relative flex items-center justify-center">
                 <svg
                   viewBox="0 0 240 140"
@@ -196,7 +196,7 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                             cx={city.dot.cx}
                             cy={city.dot.cy}
                             r="6"
-                            className="fill-[#8B1E1E]/20 stroke-[#8B1E1E] stroke-[0.75] animate-pulse"
+                            className="fill-[#7A211D]/20 stroke-[#7A211D] stroke-[0.75] animate-pulse"
                           />
                         )}
 
@@ -205,7 +205,7 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                           cx={city.dot.cx}
                           cy={city.dot.cy}
                           r={isSelected ? '3.5' : '2.5'}
-                          className={isSelected ? 'fill-[#8B1E1E] stroke-white stroke-[1]' : 'fill-stone-600 hover:fill-[#8B1E1E]'}
+                          className={isSelected ? 'fill-[#7A211D] stroke-white stroke-[1]' : 'fill-stone-600 hover:fill-[#7A211D]'}
                         />
 
                         {/* Label */}
@@ -213,8 +213,8 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                           x={city.label.x}
                           y={city.label.y}
                           textAnchor={city.label.anchor}
-                          className={`text-[5.5px] font-sans select-none ${
-                            isSelected ? 'fill-stone-900 font-bold' : 'fill-stone-500 hover:fill-stone-900'
+                          className={`text-[5.5px] font-body select-none ${
+                            isSelected ? 'fill-[#151817] font-semibold' : 'fill-[#6C6C68] hover:fill-[#151817]'
                           }`}
                         >
                           {city.name}
@@ -225,7 +225,7 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                 </svg>
               </div>
 
-              <div className="text-[10px] font-mono text-stone-400 mt-2 text-center">
+              <div className="text-[10px] font-body text-[#6C6C68] mt-2 text-center">
                 Tap city pin to view local capacity
               </div>
             </div>

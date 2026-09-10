@@ -109,7 +109,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
   return (
     <section
       aria-label="Built in Maharashtra"
-      className={`w-full bg-[#F4F1EB] py-10 sm:py-14 lg:py-16 xl:py-20 border-b border-stone-300/60 ${className}`}
+      className={`w-full bg-[#F7F5F0] py-10 sm:py-14 lg:py-16 xl:py-20 border-b border-[#E6E3DD] ${className}`}
     >
       <div className="w-full max-w-[1640px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* ── SINGLE CONTINUOUS HORIZONTAL ROW (lg+) ── */}
@@ -118,17 +118,17 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
           {/* 1. LEFT TEXT BLOCK */}
           <div className="w-full lg:w-auto lg:shrink-0 lg:max-w-[240px] xl:max-w-[260px] flex flex-col justify-center">
             <div className="space-y-0.5">
-              <span className="block font-heading text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#8B1E1E]">
+              <span className="block font-body text-xs sm:text-[13px] font-medium uppercase tracking-[0.18em] text-[#7A211D]">
                 BUILT IN
               </span>
-              <span className="block font-heading text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-[#8B1E1E]">
+              <span className="block font-body text-xs sm:text-[13px] font-medium uppercase tracking-[0.18em] text-[#7A211D]">
                 MAHARASHTRA
               </span>
             </div>
 
-            <div className="w-10 h-[2px] bg-[#8B1E1E] my-3" />
+            <div className="w-10 h-[2px] bg-[#7A211D] my-3" />
 
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-bold text-stone-900 tracking-tight leading-[1.08]">
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-medium text-[#151817] tracking-tight leading-[1.08]">
               Powering
               <br />
               <span className="word-accent-subtle">local progress.</span>
@@ -210,7 +210,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                           cx={city.dot.cx}
                           cy={city.dot.cy}
                           r="8"
-                          fill="#8B1E1E"
+                          fill="#7A211D"
                           fillOpacity="0.25"
                           className="animate-ping"
                         />
@@ -221,7 +221,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                         cx={city.dot.cx}
                         cy={city.dot.cy}
                         r={isHovered ? 5.5 : 4}
-                        fill="#8B1E1E"
+                        fill="#7A211D"
                         stroke="#FFFFFF"
                         strokeWidth="1.25"
                         className="transition-all duration-200"
@@ -232,9 +232,9 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                         x={city.label.x}
                         y={city.label.y}
                         textAnchor={city.label.anchor}
-                        className={`text-[11px] font-sans transition-colors duration-200 ${
+                        className={`text-[11px] font-body transition-colors duration-200 ${
                           isHovered
-                            ? 'font-bold fill-[#8B1E1E]'
+                            ? 'font-bold fill-[#7A211D]'
                             : 'font-semibold fill-stone-800'
                         }`}
                       >
@@ -279,10 +279,10 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                     {/* Clean caption beneath each image */}
                     <div className="pt-2.5 flex flex-col items-start">
                       <span
-                        className={`text-xs sm:text-sm font-semibold font-sans text-left leading-tight transition-colors duration-200 ${
+                        className={`text-xs sm:text-sm font-body font-medium text-left leading-tight transition-colors duration-200 ${
                           isHovered
-                            ? 'text-[#8B1E1E]'
-                            : 'text-stone-800'
+                            ? 'text-[#7A211D]'
+                            : 'text-[#151817]'
                         }`}
                       >
                         {city.name}
@@ -295,19 +295,19 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
           </div>
 
           {/* 4. FAR-RIGHT CTA (Vertical Divider + Stacked Text + Circular Maroon Button) */}
-          <div className="w-full lg:w-auto shrink-0 flex items-center justify-between lg:justify-start gap-3.5 xl:gap-4 lg:pl-4 xl:pl-6 lg:border-l lg:border-stone-300/80">
+          <div className="w-full lg:w-auto shrink-0 flex items-center justify-between lg:justify-start gap-3.5 xl:gap-4 lg:pl-4 xl:pl-6 lg:border-l lg:border-[#E6E3DD]">
             {/* Stacked Vertical Text */}
             <div className="space-y-0.5 text-left select-none">
-              <span className="block font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600">
+              <span className="block font-body text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-[#6C6C68]">
                 CLEANER
               </span>
-              <span className="block font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600">
+              <span className="block font-body text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-[#6C6C68]">
                 STRONGER
               </span>
-              <span className="block font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600">
+              <span className="block font-body text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-[#6C6C68]">
                 BRIGHTER
               </span>
-              <span className="block font-heading text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#8B1E1E]">
+              <span className="block font-body text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-[#7A211D]">
                 MAHARASHTRA
               </span>
             </div>
@@ -315,7 +315,7 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
             {/* Circular Maroon Arrow Button */}
             <button
               onClick={handleCta}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#8B1E1E] text-[#8B1E1E] hover:bg-[#8B1E1E] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-2xs shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E] hover:scale-105 active:scale-95"
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#7A211D] text-[#7A211D] hover:bg-[#7A211D] hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-2xs shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D] hover:scale-105 active:scale-95"
               aria-label="Connect with SolarARK in Maharashtra"
             >
               <ArrowRight

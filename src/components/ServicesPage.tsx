@@ -225,7 +225,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E2D] selection:text-white">
+    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body">
       
       {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
@@ -233,19 +233,19 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         {/* Editorial Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
           <div className="lg:col-span-7 space-y-3 sm:space-y-4">
-            <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+            <span className="text-[11px] font-medium text-[#6C6C68] uppercase tracking-[0.18em] font-body block">
               Solutions
             </span>
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-bold text-stone-900 tracking-tight leading-[1.08]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[52px] font-medium text-[#151817] tracking-tight leading-[1.08]">
               Energy solutions for{' '}
               <br className="hidden sm:block" />
               every kind of{' '}
-              <span className="word-accent-subtle">space.</span>
+              <span className="word-accent-subtle font-medium">space.</span>
             </h1>
           </div>
           <div className="lg:col-span-5 flex flex-col justify-end">
-            <div className="border-l-2 border-stone-300/80 pl-5 sm:pl-6 lg:pl-7 py-1">
-              <p className="text-base sm:text-lg lg:text-[18px] text-stone-600 leading-relaxed max-w-lg font-normal font-sans">
+            <div className="border-l-2 border-[#E6E3DD] pl-5 sm:pl-6 lg:pl-7 py-1">
+              <p className="text-base sm:text-lg lg:text-[18px] text-[#6C6C68] leading-relaxed max-w-lg font-normal font-body">
                 Thoughtful solar solutions for the spaces where life, business and industry move forward.
               </p>
             </div>
@@ -255,7 +255,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           <div className="lg:col-span-12 block lg:hidden -mt-2">
             <button
               onClick={onCtaClick}
-              className="w-full inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-white bg-[#8B1E2D] hover:bg-[#A82424] rounded-[14px] px-6 py-3.5 min-h-[48px] shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
+              className="w-full inline-flex items-center justify-center gap-2 text-sm font-body font-medium text-white bg-[#7A211D] hover:bg-[#631B18] rounded-[14px] px-6 py-3.5 min-h-[48px] shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]"
             >
               <span>Request Free 3D Site Survey</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -268,7 +268,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           
           {/* Card 01: Residential */}
           <div 
-            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            className="group relative overflow-hidden rounded-[4px] cursor-pointer"
             onClick={scrollToApproach}
             role="link"
             tabIndex={0}
@@ -316,7 +316,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
           {/* Card 02: Commercial */}
           <div 
-            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            className="group relative overflow-hidden rounded-[4px] cursor-pointer"
             onClick={scrollToApproach}
             role="link"
             tabIndex={0}
@@ -364,7 +364,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
           {/* Card 03: Industrial */}
           <div 
-            className="group relative overflow-hidden rounded-2xl cursor-pointer"
+            className="group relative overflow-hidden rounded-[4px] cursor-pointer"
             onClick={scrollToApproach}
             role="link"
             tabIndex={0}
@@ -439,9 +439,9 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div className="pt-1">
               <button
                 onClick={onCtaClick}
-                className="min-h-[44px] text-xs sm:text-sm font-semibold text-[#8B1E2D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E2D]"
+                className="min-h-[44px] text-xs sm:text-sm font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1.5 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D] font-body"
               >
-                <span className="underline underline-offset-4 decoration-[#8B1E2D]">Our Process</span>
+                <span className="underline underline-offset-4 decoration-[#7A211D]">Our Process</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
@@ -467,13 +467,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               { num: '03', title: 'Precision Execution', desc: 'In-house execution with Tier-1 bifacial panels & certified safety standards.' },
               { num: '04', title: 'Ongoing Support', desc: 'Turnkey DISCOM net metering liaison & 25-year performance warranty.' },
             ].map((step) => (
-              <div key={step.num} className="p-3.5 bg-white border border-stone-200/80 rounded-xl flex items-start gap-3 shadow-2xs">
-                <span className="w-7 h-7 rounded-full bg-[#8B1E2D]/10 text-[#8B1E2D] flex items-center justify-center shrink-0 font-heading font-bold text-xs">
+              <div key={step.num} className="p-3.5 bg-white border border-[#E6E3DD] rounded-[4px] flex items-start gap-3 shadow-2xs">
+                <span className="w-7 h-7 rounded-full bg-[#7A211D]/10 text-[#7A211D] flex items-center justify-center shrink-0 font-heading font-medium text-xs">
                   {step.num}
                 </span>
                 <div>
-                  <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900 leading-snug">{step.title}</h4>
-                  <p className="text-[11px] sm:text-xs text-stone-500 mt-0.5 leading-relaxed">{step.desc}</p>
+                  <h4 className="font-heading font-medium text-xs sm:text-sm text-[#151817] leading-snug">{step.title}</h4>
+                  <p className="text-[11px] sm:text-xs text-[#6C6C68] mt-0.5 leading-relaxed font-body">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -532,7 +532,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
           {/* Right Video Player Frame */}
           <div className="lg:col-span-7">
-            <div className="relative rounded-2xl overflow-hidden shadow-md border border-stone-200/80 bg-slate-950 aspect-[16/9] group">
+            <div className="relative rounded-[4px] overflow-hidden shadow-md border border-stone-200/80 bg-slate-950 aspect-[16/9] group">
               <video
                 ref={videoRef}
                 src="/videos/client-testimonial-web.mp4"
@@ -550,12 +550,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   onClick={toggleVideoPlay}
                   className="absolute inset-0 bg-black/25 hover:bg-black/15 transition-all duration-300 flex items-center justify-center cursor-pointer"
                 >
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#8B1E2D]/90 text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-white/20">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#7A211D]/90 text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-white/20">
                     <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-white translate-x-0.5" />
                   </div>
                   <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[11px] sm:text-xs font-medium text-white tracking-wide">
+                    <span className="text-[11px] sm:text-xs font-medium text-white tracking-wide font-body">
                       Real Customer Rooftop Installation
                     </span>
                   </div>
@@ -574,17 +574,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
           <div className="space-y-2">
             <div className="flex items-center gap-3">
-              <span className="text-[11px] font-bold text-stone-500 uppercase tracking-[0.2em] font-heading block">
+              <span className="text-[11px] font-medium text-[#6C6C68] uppercase tracking-[0.18em] font-body block">
                 Lifecycle & Support
               </span>
-              <div className="w-8 h-[1px] bg-stone-300" />
+              <div className="w-8 h-[1px] bg-[#E6E3DD]" />
             </div>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-bold text-slate-900 tracking-tight leading-tight">
-              Specialized services built for{' '}
-              <span className="word-accent-subtle">peak yield.</span>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-[36px] font-medium text-[#151817] tracking-tight leading-tight">
+              Specialized solutions built for{' '}
+              <span className="word-accent-subtle font-medium">peak yield.</span>
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-stone-500 max-w-md leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#6C6C68] max-w-md leading-relaxed font-body">
             From automated monitoring to preventive maintenance and subsidy financing, we support your installation across its entire 25-year lifecycle.
           </p>
         </div>
@@ -595,10 +595,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <button
               key={srv.id}
               onClick={() => handleTabClick(idx)}
-              className={`px-4 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer border shrink-0 flex items-center ${
+              className={`px-4 py-2.5 min-h-[44px] rounded-full text-xs sm:text-sm font-medium font-body whitespace-nowrap transition-all duration-200 cursor-pointer border shrink-0 flex items-center ${
                 activeServiceTab === idx
-                  ? 'bg-[#8B1E2D] text-white border-[#8B1E2D] shadow-xs'
-                  : 'bg-white text-stone-600 border-stone-200 hover:border-stone-300 hover:text-slate-900'
+                  ? 'bg-[#7A211D] text-white border-[#7A211D] shadow-xs'
+                  : 'bg-white text-[#6C6C68] border-[#E6E3DD] hover:border-[#6C6C68] hover:text-[#151817]'
               }`}
             >
               <span className="text-[10px] opacity-60 mr-1.5">{srv.number}</span>
@@ -608,13 +608,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Desktop Sticky Scroll Reveal Showcase (Exact Aceternity sticky-scroll pattern art-directed for SolarARK) */}
-        <div className="hidden lg:block bg-white border border-stone-200/80 rounded-3xl p-8 lg:p-10 shadow-xs relative overflow-hidden">
+        <div className="hidden lg:block bg-white border border-[#E6E3DD] rounded-[4px] p-8 lg:p-10 shadow-xs relative overflow-hidden">
           <div className="grid grid-cols-12 gap-10 items-start">
             
             {/* Left Scrollable Stream */}
             <div
               ref={stickyContainerRef}
-              className="col-span-6 h-[32rem] overflow-y-auto pr-6 scrollbar-thin scrollbar-thumb-stone-200/80 scrollbar-track-transparent space-y-24 py-4"
+              className="col-span-6 h-[32rem] overflow-y-auto pr-6 scrollbar-thin scrollbar-thumb-[#E6E3DD] scrollbar-track-transparent space-y-24 py-4"
             >
               {SPECIALIZED_SERVICES.map((srv, idx) => (
                 <motion.div
@@ -629,20 +629,20 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   className="space-y-4"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-[#8B1E2D] font-heading">
+                    <span className="text-xs font-medium text-[#7A211D] font-heading">
                       {srv.number} / 05
                     </span>
-                    <div className="w-6 h-[1px] bg-[#8B1E2D]/40" />
-                    <span className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider">
+                    <div className="w-6 h-[1px] bg-[#7A211D]/40" />
+                    <span className="text-[11px] font-medium text-[#6C6C68] uppercase tracking-wider font-body">
                       SolarARK Official Service
                     </span>
                   </div>
 
-                  <h3 className="font-heading text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight">
+                  <h3 className="font-heading text-2xl lg:text-3xl font-medium text-[#151817] tracking-tight">
                     {srv.title}
                   </h3>
 
-                  <p className="text-sm text-stone-600 leading-relaxed">
+                  <p className="text-sm text-[#6C6C68] leading-relaxed font-body">
                     {srv.shortDesc}
                   </p>
 
@@ -650,8 +650,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <div className="space-y-2.5 pt-2 border-t border-stone-100">
                     {srv.deliverables.map((item, dIdx) => (
                       <div key={dIdx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-[#8B1E2D] shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
+                        <CheckCircle2 className="w-4 h-4 text-[#7A211D] shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-[#151817] font-medium leading-relaxed font-body">
                           {item}
                         </span>
                       </div>
@@ -664,7 +664,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                     </PrimaryButton>
                     <button
                       onClick={onCtaClick}
-                      className="text-xs font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
+                      className="text-xs font-medium text-[#6C6C68] hover:text-[#151817] underline underline-offset-4 decoration-stone-300 hover:decoration-[#151817] transition-all cursor-pointer font-body"
                     >
                       Speak with an Engineer →
                     </button>
@@ -676,7 +676,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             {/* Right Sticky Visual Display */}
             <div className="col-span-6 sticky top-4 self-start">
-              <div className="relative rounded-2xl overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 shadow-sm group">
+              <div className="relative rounded-[4px] overflow-hidden border border-[#E6E3DD] aspect-[16/10] bg-[#F7F5F0] shadow-sm group">
                 <motion.img
                   key={SPECIALIZED_SERVICES[activeServiceTab].id}
                   src={SPECIALIZED_SERVICES[activeServiceTab].image}
@@ -698,26 +698,26 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Mobile Interactive Single-Card Showcase */}
-        <div className="block lg:hidden bg-white border border-stone-200/80 rounded-2xl p-5 sm:p-8 shadow-xs">
+        <div className="block lg:hidden bg-white border border-[#E6E3DD] rounded-[4px] p-5 sm:p-8 shadow-xs">
           <div className="grid grid-cols-1 gap-6 items-center">
             
             {/* Left Narrative Details */}
             <div className="space-y-3.5 sm:space-y-4">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold text-[#8B1E2D] font-heading">
+                <span className="text-xs font-medium text-[#7A211D] font-heading">
                   {SPECIALIZED_SERVICES[activeServiceTab].number} / 05
                 </span>
-                <div className="w-6 h-[1px] bg-[#8B1E2D]/40" />
-                <span className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider">
+                <div className="w-6 h-[1px] bg-[#7A211D]/40" />
+                <span className="text-[11px] font-medium text-[#6C6C68] uppercase tracking-wider font-body">
                   SolarARK Official Service
                 </span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight">
                 {SPECIALIZED_SERVICES[activeServiceTab].title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#6C6C68] leading-relaxed font-body">
                 {SPECIALIZED_SERVICES[activeServiceTab].shortDesc}
               </p>
 
@@ -725,8 +725,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="space-y-2.5 pt-2 border-t border-stone-100">
                 {SPECIALIZED_SERVICES[activeServiceTab].deliverables.map((item, dIdx) => (
                   <div key={dIdx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#8B1E2D] shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-stone-700 font-medium leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-[#7A211D] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-[#151817] font-medium leading-relaxed font-body">
                       {item}
                     </span>
                   </div>
@@ -739,7 +739,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 </PrimaryButton>
                 <button
                   onClick={onCtaClick}
-                  className="inline-flex items-center justify-center min-h-[44px] text-xs sm:text-sm font-semibold text-stone-600 hover:text-slate-900 underline underline-offset-4 decoration-stone-300 hover:decoration-slate-900 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center min-h-[44px] text-xs sm:text-sm font-medium text-[#6C6C68] hover:text-[#151817] underline underline-offset-4 decoration-stone-300 hover:decoration-[#151817] transition-all cursor-pointer font-body"
                 >
                   Speak with an Engineer →
                 </button>
@@ -748,7 +748,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             {/* Right Photo */}
             <div>
-              <div className="relative rounded-xl overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 group">
+              <div className="relative rounded-[4px] overflow-hidden border border-stone-200 aspect-[16/10] bg-stone-100 group">
                 <img
                   src={SPECIALIZED_SERVICES[activeServiceTab].image}
                   alt={SPECIALIZED_SERVICES[activeServiceTab].alt}
@@ -828,7 +828,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <button
                   onClick={handleNextProject}
                   aria-label="Next project"
-                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#8B1E2D]/60 hover:border-white flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border border-[#7A211D]/60 hover:border-white flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -843,7 +843,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <div
                     key={project.id}
                     onClick={() => onNavigate('/projects')}
-                    className={`group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 border ${
+                    className={`group relative rounded-[4px] overflow-hidden cursor-pointer transition-all duration-300 border ${
                       currentProjectIndex === idx ? 'border-white/40 ring-1 ring-white/20' : 'border-white/15 hover:border-white/30'
                     }`}
                   >
@@ -894,7 +894,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP ("Tell us about your property.") ── */}
-      <section className="border-t border-b border-stone-200/80 bg-[#FAF8F5] py-8 sm:py-10 lg:py-12">
+      <section className="border-t border-b border-[#E6E3DD] bg-[#F7F5F0] py-8 sm:py-10 lg:py-12">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
             
@@ -903,27 +903,27 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               
               {/* 1. Regional Eyebrow Stack: A CLEANER / BRIGHTER / MAHARASHTRA */}
               <div className="flex flex-col select-none shrink-0">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight">
+                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight">
                   A CLEANER
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight mt-0.5">
+                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight mt-0.5">
                   BRIGHTER
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.24em] text-stone-500 font-heading leading-tight mt-0.5">
+                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight mt-0.5">
                   MAHARASHTRA
                 </span>
-                <div className="w-7 h-[1.5px] bg-stone-400 mt-2.5" />
+                <div className="w-7 h-[1.5px] bg-[#E6E3DD] mt-2.5" />
               </div>
 
               {/* Vertical Architectural Divider */}
-              <div className="hidden sm:block w-[1px] h-12 lg:h-14 bg-stone-300/80 shrink-0" />
+              <div className="hidden sm:block w-[1px] h-12 lg:h-14 bg-[#E6E3DD] shrink-0" />
 
               {/* 2. Headline & Subtext */}
               <div className="space-y-1 text-left">
-                <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-normal text-stone-900 tracking-tight leading-tight">
+                <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-medium text-[#151817] tracking-tight leading-tight">
                   Tell us about your property.
                 </h3>
-                <p className="text-xs sm:text-sm lg:text-[15px] text-stone-500 font-normal leading-normal">
+                <p className="text-xs sm:text-sm lg:text-[15px] text-[#6C6C68] font-normal leading-normal font-body">
                   We'll help assess the right solar solution for your space.
                 </p>
               </div>

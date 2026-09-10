@@ -120,22 +120,22 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 z-[1] bg-black/20 pointer-events-none" />
 
         {/* ── Bottom Gradient Overlay & Editorial Hero Content ── */}
-        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 lg:pb-7 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#0A0F1D]/90 via-[#0A0F1D]/40 to-transparent pt-12 sm:pt-20">
+        <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none pb-4 sm:pb-6 lg:pb-7 px-4 sm:px-8 lg:px-12 bg-gradient-to-t from-[#151817]/90 via-[#151817]/40 to-transparent pt-12 sm:pt-20">
           <div className="max-w-[1400px] mx-auto flex flex-row items-end justify-between gap-3 sm:gap-6 pointer-events-auto">
             
-            {/* Editorial Headline & Eyebrow (Compact, Structured, Video-First) */}
+            {/* Editorial Headline & Eyebrow (Geist + Inter Locked System) */}
             <div className="space-y-1 sm:space-y-2 max-w-xl flex-1">
-              {/* Eyebrow with subtle maroon accent line */}
+              {/* Eyebrow with subtle Solar Ark maroon accent line */}
               <div className="flex items-center gap-2 sm:gap-2.5">
-                <span className="w-5 sm:w-8 h-[2px] bg-[#8B1E1E] shrink-0" />
-                <p className="text-[9px] sm:text-[11px] font-semibold tracking-[0.16em] text-white/85 uppercase font-sans m-0">
+                <span className="w-5 sm:w-8 h-[2px] bg-[#7A211D] shrink-0" />
+                <p className="text-[9px] sm:text-[11px] font-medium tracking-[0.18em] text-white/90 uppercase font-body m-0">
                   TRUSTED BY HOMES &amp; BUSINESSES
                 </p>
               </div>
 
-              {/* Serif Display Headline: Proportional, Elegant Editorial Sizing */}
+              {/* Display Headline: Geist 500, retaining exact previous compact scale */}
               <h1
-                className="font-serif text-[21px] sm:text-2xl lg:text-[32px] xl:text-[36px] font-normal text-white tracking-tight leading-[1.18] m-0"
+                className="font-heading text-[21px] sm:text-2xl lg:text-[32px] xl:text-[36px] font-medium text-white tracking-tight leading-[1.18] m-0"
                 style={{ textShadow: '0 2px 18px rgba(0, 0, 0, 0.7)' }}
               >
                 Reliable Solar Solutions.<br />
@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Controls on the RIGHT side (Never obstructing video view) */}
             <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3 shrink-0 pb-0.5">
-              <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/70 uppercase font-sans">
+              <div className="hidden sm:flex items-center gap-2 text-[11px] font-medium tracking-wider text-white/70 uppercase font-body">
                 <span>Real Project Footage</span>
                 <span className="text-white/30 font-light">/</span>
                 <span>Maharashtra</span>
