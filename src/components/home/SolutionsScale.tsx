@@ -50,12 +50,12 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
   return (
     <section className="w-full bg-[#FAF8F5] border-b border-stone-200/80 overflow-hidden">
       
-      {/* ── 3-ZONE EDITORIAL INTRO ROW (LEFT PADDED, RIGHT FLUSH TO VIEWPORT EDGE) ── */}
-      <div className="w-full pl-5 sm:pl-8 lg:pl-12 xl:pl-16 2xl:pl-20 pr-0 pt-5 sm:pt-6 lg:pt-7 pb-5 sm:pb-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 lg:gap-8 xl:gap-12">
+      {/* ── BALANCED EDITORIAL INTRO ROW ── */}
+      <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 sm:py-8 lg:py-9">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 lg:gap-10 xl:gap-16">
           
-          {/* 1. LEFT (~30%): Eyebrow + Large Dominant Display Heading */}
-          <div className="md:w-[32%] lg:w-[28%] shrink-0 space-y-1.5 sm:space-y-2">
+          {/* 1. LEFT: Eyebrow + Large Dominant Display Heading + Accent Line */}
+          <div className="space-y-1.5 sm:space-y-2 shrink-0">
             <div className="flex items-center gap-2">
               <span className="font-heading text-[10.5px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-stone-500">
                 OUR SOLUTIONS
@@ -71,48 +71,20 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
             <div className="solutions-heading-accent mt-2.5" />
           </div>
 
-          {/* 2. CENTER (~38–40%): Supporting Copy + Architectural Outline Pill CTA */}
-          <div className="md:w-[40%] lg:w-[36%] space-y-3 max-w-[420px]">
-            <p className="text-stone-600 text-xs sm:text-[13.5px] font-normal leading-relaxed">
+          {/* 2. RIGHT: Supporting Copy + Architectural Outline Pill CTA (Takes the place of the removed image) */}
+          <div className="space-y-3.5 sm:space-y-4 max-w-[460px] lg:max-w-[500px]">
+            <p className="text-stone-600 text-xs sm:text-sm lg:text-[14.5px] font-normal leading-relaxed">
               From homes to industries, we design solar solutions that make energy simpler, smarter and more sustainable.
             </p>
 
             <div>
               <button
                 onClick={() => onNavigate('/services')}
-                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[40px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs font-heading font-semibold transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 min-h-[42px] rounded-xl border border-[#8B1E1E]/45 hover:border-[#8B1E1E] bg-transparent hover:bg-[#8B1E1E]/8 text-[#8B1E1E] text-xs sm:text-[13px] font-heading font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B1E1E]"
               >
                 <span>Explore Solutions</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-[#8B1E1E]" strokeWidth={2} />
               </button>
-            </div>
-          </div>
-
-          {/* 3. RIGHT: Full-Fledge Landscape Image Flush to the Right Viewport Edge (STRICTLY NO RIGHT GAP) */}
-          <div className="hidden md:flex justify-end md:w-[32%] lg:w-[34%] xl:w-[33%] shrink-0">
-            <div 
-              onClick={() => onNavigate('/services')}
-              className="relative w-full h-[120px] sm:h-[130px] lg:h-[138px] xl:h-[144px] rounded-l-[3px] rounded-r-none overflow-hidden bg-stone-900 select-none group cursor-pointer"
-            >
-              {/* Full-Fledge Landscape Image with Pavilion & Golden Sunlight */}
-              <img
-                src="/images/revamp/sun-landscape-tomorrow.jpg"
-                alt="Architectural pavilion with golden sunlight"
-                className="absolute inset-0 w-full h-full object-cover object-right-top transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              
-              {/* Left Dark Gradient Scrim for Legibility */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
-              
-              {/* Typography Overlay + White Hairline Underline (Matching reference media_1788634585840.png) */}
-              <div className="relative z-10 pl-5 sm:pl-6 pr-2 py-3 h-full flex flex-col justify-center">
-                <span className="font-heading font-bold text-xs sm:text-[13px] lg:text-[13.5px] text-white leading-[1.22] tracking-tight">
-                  Same sun.<br />
-                  A brighter<br />
-                  tomorrow.
-                </span>
-                <div className="w-8 sm:w-10 h-[1.5px] bg-white/95 mt-2 transition-all duration-300 group-hover:w-14" />
-              </div>
             </div>
           </div>
 
