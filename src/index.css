@@ -275,44 +275,35 @@
 /* ── Global Primary CTA — Solar Ark Maroon (#7A211D) ── */
 .btn-primary-reference,
 .btn-primary-cta,
-.btn-primary-maroon,
-button.bg-\[\#8B1E1E\],
-button.bg-\[\#7A211D\],
-a.bg-\[\#8B1E1E\],
-a.bg-\[\#7A211D\] {
+.btn-primary-maroon {
   font-family: var(--font-body) !important;
   font-weight: 500 !important;
-  background: radial-gradient(120% 120% at 50% 10%, #8B2621 0%, #7A211D 50%, #5E1815 100%) !important;
+  background-color: #7A211D !important;
+  background-image: none !important;
   color: #FFFFFF !important;
-  border: 1px solid rgba(210, 75, 70, 0.3) !important;
-  border-radius: var(--btn-radius, 14px) !important;
-  box-shadow: 0 2px 8px -1px rgba(122, 33, 29, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--btn-radius, 14px);
+  box-shadow: 0 2px 8px -1px rgba(122, 33, 29, 0.25), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-primary-reference:hover,
 .btn-primary-cta:hover,
-.btn-primary-maroon:hover,
-button.bg-\[\#8B1E1E\]:hover,
-button.bg-\[\#7A211D\]:hover,
-a.bg-\[\#8B1E1E\]:hover,
-a.bg-\[\#7A211D\]:hover {
-  background: radial-gradient(120% 120% at 50% 10%, #9E302A 0%, #8B2621 50%, #6E1A16 100%) !important;
-  border-color: rgba(230, 95, 90, 0.5) !important;
-  box-shadow: 0 4px 14px -2px rgba(122, 33, 29, 0.4), 0 2px 6px 0 rgba(122, 33, 29, 0.2) !important;
+.btn-primary-maroon:hover {
+  background-color: #631B18 !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px -2px rgba(122, 33, 29, 0.35), 0 2px 6px 0 rgba(122, 33, 29, 0.15) !important;
   transform: translateY(-1px) !important;
 }
 
 .btn-primary-reference:active,
 .btn-primary-cta:active,
-.btn-primary-maroon:active,
-button.bg-\[\#8B1E1E\]:active,
-button.bg-\[\#7A211D\]:active,
-a.bg-\[\#8B1E1E\]:active,
-a.bg-\[\#7A211D\]:active {
-  background: linear-gradient(180deg, #6E1A16 0%, #5E1815 55%, #4A1210 100%) !important;
-  border-color: rgba(180, 60, 55, 0.4) !important;
-  box-shadow: 0 1px 3px 0 rgba(94, 24, 21, 0.3) !important;
+.btn-primary-maroon:active {
+  background-color: #521613 !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  box-shadow: 0 1px 3px 0 rgba(82, 22, 19, 0.3) !important;
   transform: translateY(0px) scale(0.99) !important;
 }
 
@@ -320,15 +311,16 @@ a.bg-\[\#7A211D\]:active {
 .btn-primary-cta:focus-visible,
 .btn-primary-maroon:focus-visible {
   outline: none !important;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.95), 0 0 0 5.5px #7A211D, 0 6px 20px -2px rgba(122, 33, 29, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.95), 0 0 0 5px #7A211D !important;
 }
 
 .btn-primary-reference:disabled,
 .btn-primary-cta:disabled,
 .btn-primary-maroon:disabled {
-  background: #A3706D !important;
+  background-color: #A3706D !important;
+  background-image: none !important;
   color: rgba(255, 255, 255, 0.75) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: transparent !important;
   box-shadow: none !important;
   cursor: not-allowed !important;
   opacity: 0.85 !important;
@@ -395,12 +387,24 @@ a.bg-\[\#7A211D\]:active {
 .action-dock-tab {
   transform: translateX(calc(100% - 54px));
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+  background-color: #7A211D !important;
+  background-image: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: none !important;
 }
 
 .action-dock-tab:hover,
 .action-dock-tab:focus-visible,
 .action-dock-tab:focus-within {
   transform: translateX(0);
+  background-color: #631B18 !important;
+  background-image: none !important;
+}
+
+.action-dock-tab:active {
+  background-color: #521613 !important;
+  background-image: none !important;
 }
 
 .action-dock-tab:hover .action-dock-label,
