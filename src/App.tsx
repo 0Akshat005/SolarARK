@@ -10,6 +10,7 @@ import { SolutionsScale } from './components/home/SolutionsScale';
 import { WhySolarArk } from './components/home/WhySolarArk';
 import { FeaturedProjects } from './components/home/FeaturedProjects';
 import { BuiltInMaharashtra } from './components/home/BuiltInMaharashtra';
+import { LandingTestimonials } from './components/home/LandingTestimonials';
 import { PreFooterBanner } from './components/home/PreFooterBanner';
 import { SavingsCalculator } from './components/SavingsCalculator';
 import { FinalCTAForm } from './components/FinalCTAForm';
@@ -264,7 +265,10 @@ export default function App() {
             {/* 6. Regional Authority: Built in Maharashtra */}
             <BuiltInMaharashtra onNavigate={navigateTo} />
 
-            {/* 7. Pre-Footer Banner: "Your roof could do more." (Directly below Built in Maharashtra per reference mockup) */}
+            {/* 7. Homeowner Experiences & Video Testimonials (Placed directly below Built in Maharashtra) */}
+            <LandingTestimonials onNavigate={navigateTo} onCtaClick={scrollToContactForm} />
+
+            {/* 8. Pre-Footer Banner: "Your roof could do more." */}
             <PreFooterBanner onCtaClick={scrollToContactForm} />
 
             {/* 8. Consultation & 3D Site Survey Request Form */}
