@@ -2,14 +2,17 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * Band 4 (Lower): OUR FOOTPRINT STRIP
- * Pareto 80/20 Note: Establishes regional authority and verifiable social proof across Maharashtra.
- * Features an interactive vector map of Maharashtra with city nodes and an atmospheric
- * landscape backdrop faded into the warm neutral background.
+ * Band 5: OUR FOOTPRINT — Statewide Presence & Authority
+ * Directly mirrors the inspiration layout:
+ * - 3-Part Architecture:
+ *   1. Left: Headline ("More clean energy. A brighter Maharashtra.") & narrative.
+ *   2. Center: Clean vector map of Maharashtra with interactive city pins.
+ *   3. Right: Atmospheric landscape photograph (Maharashtra sunset hills).
+ * - Sharp architectural borders (rounded-none), on-brand warm neutrals and hairline borders.
  */
 
 import React, { useState } from 'react';
-import { MapPin, Navigation, ArrowRight, ShieldCheck, Sun, Building2 } from 'lucide-react';
+import { MapPin, Navigation, ArrowRight } from 'lucide-react';
 
 interface CityPin {
   id: string;
@@ -108,109 +111,83 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
   const activeCity = CITY_PINS.find((c) => c.id === activeCityId) || CITY_PINS[0];
 
   return (
-    <section className="w-full bg-[#FAF8F5] py-12 sm:py-16 overflow-hidden">
+    <section className="w-full bg-[#FAF8F5] py-12 sm:py-16 border-b border-stone-200/80">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
         
-        {/* Footprint Container with Integrated Landscape Underlay */}
-        <div className="relative bg-white rounded-3xl border border-stone-200/90 shadow-sm overflow-hidden p-6 sm:p-10 lg:p-12">
+        {/* Footprint Container — 3-Column Architectural Band */}
+        <div className="bg-white rounded-none border border-stone-200/90 shadow-2xs overflow-hidden">
           
-          {/* Faded Secondary Landscape Image on Far Right (Architectural/Solar Horizon) */}
-          <div className="absolute top-0 right-0 bottom-0 w-full lg:w-1/2 overflow-hidden pointer-events-none opacity-20 lg:opacity-25 mix-blend-multiply">
-            <img
-              src="/images/revamp/sun-landscape-tomorrow.jpg"
-              alt="Maharashtra landscape solar horizon"
-              className="w-full h-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent" />
-          </div>
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-stone-200/90">
             
-            {/* Left Narrative Block (5 cols) */}
-            <div className="lg:col-span-5 space-y-5">
-              
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 border border-stone-200/80 text-[11px] font-heading font-bold text-stone-700 tracking-wider uppercase">
-                  <Navigation className="w-3.5 h-3.5 text-[#8B1E1E]" />
-                  <span>Statewide Engineering Reach</span>
+            {/* ── COL 1 (4 cols): Narrative & Authority ── */}
+            <div className="lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <span className="font-sans text-[11px] font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
+                    OUR FOOTPRINT
+                  </span>
+                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight leading-tight m-0">
+                    More clean energy. <br className="hidden sm:inline" />
+                    <span className="text-[#8B1E1E]">A brighter Maharashtra.</span>
+                  </h2>
                 </div>
 
-                <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 tracking-tight leading-tight">
-                  Powering Maharashtra, <br />
-                  <span className="text-[#8B1E1E]">one project at a time.</span>
-                </h2>
+                <p className="text-xs sm:text-sm font-sans text-stone-600 leading-relaxed m-0">
+                  Headquartered in Amravati with specialized engineering hubs in Nagpur, Wardha, Akola, Pune, and Chh. Sambhajinagar. Over 5,000+ certified solar systems delivering reliable power across Maharashtra.
+                </p>
               </div>
 
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-normal">
-                With centralized headquarters in Amravati and dedicated regional field desks in Nagpur, Pune, Chh. Sambhajinagar, Wardha, and Akola, SolarARK has commissioned over 5,000+ certified rooftop installations across Maharashtra’s commercial and residential heartlands.
-              </p>
-
-              {/* Active City Card */}
-              <div className="bg-[#FAF8F5] p-4 rounded-2xl border border-stone-200/80 space-y-2 max-w-sm">
+              {/* Active District Quick Card */}
+              <div className="bg-[#FAF8F5] p-4 rounded-none border border-stone-200 space-y-2">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-heading font-bold text-stone-900 flex items-center gap-1.5">
+                  <span className="font-sans font-bold text-stone-900 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-[#8B1E1E]" />
                     {activeCity.name}
                   </span>
-                  <span className="text-[11px] text-stone-500 font-medium">District Hub</span>
+                  <span className="text-[11px] text-stone-500 font-sans">Active Hub</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-stone-200/70">
+                <div className="grid grid-cols-2 gap-2 pt-1 border-t border-stone-200">
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-stone-400 block font-heading">
-                      Completed Projects
+                    <span className="text-[10px] uppercase font-mono font-medium text-stone-400 block">
+                      Installations
                     </span>
-                    <span className="font-heading text-lg font-bold text-stone-900">
+                    <span className="font-heading text-base font-bold text-stone-900">
                       {activeCity.count}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-stone-400 block font-heading">
-                      Clean Capacity
+                    <span className="text-[10px] uppercase font-mono font-medium text-stone-400 block">
+                      Capacity
                     </span>
-                    <span className="font-heading text-lg font-bold text-[#8B1E1E]">
+                    <span className="font-heading text-base font-bold text-[#8B1E1E]">
                       {activeCity.capacity}
                     </span>
                   </div>
                 </div>
               </div>
-
-              {/* Action Button */}
-              {onCtaClick && (
-                <div className="pt-1">
-                  <button
-                    onClick={onCtaClick}
-                    className="btn-primary-maroon px-5 py-3 rounded-xl font-heading font-bold text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-md shadow-[#8B1E1E]/20"
-                  >
-                    <span>Request Local Site Survey</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
-
             </div>
 
-            {/* Right Map Block (7 cols): Vector Silhouette with Pins */}
-            <div className="lg:col-span-7 relative flex items-center justify-center">
-              
-              <div className="w-full max-w-[540px] aspect-[4/3] relative flex items-center justify-center p-2">
+            {/* ── COL 2 (4 cols): Vector Maharashtra Map ── */}
+            <div className="lg:col-span-4 p-6 sm:p-8 flex flex-col items-center justify-center bg-[#FCFAF8] relative min-h-[300px]">
+              <div className="w-full max-w-[340px] aspect-[4/3] relative flex items-center justify-center">
                 <svg
                   viewBox="0 0 240 140"
-                  className="w-full h-full drop-shadow-md select-none"
-                  aria-label="Vector Map of Maharashtra SolarARK Projects Footprint"
+                  className="w-full h-full select-none"
+                  aria-label="Vector Map of Maharashtra SolarARK Footprint"
                 >
-                  {/* Maharashtra State Base Silhouette */}
+                  {/* Maharashtra State Outline */}
                   <path
                     d={MAHARASHTRA_PATH}
-                    className="fill-stone-100 stroke-stone-300 stroke-[1.2] transition-colors"
+                    className="fill-stone-100 stroke-stone-300 stroke-[1.2]"
                   />
 
-                  {/* Dynamic Interactive City Nodes */}
+                  {/* Interactive City Pins */}
                   {CITY_PINS.map((city) => {
                     const isSelected = city.id === activeCityId;
                     return (
                       <g
                         key={city.id}
-                        className="cursor-pointer group"
+                        className="cursor-pointer"
                         onClick={() => setActiveCityId(city.id)}
                       >
                         {/* Outer Glow Ring */}
@@ -218,32 +195,26 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                           <circle
                             cx={city.dot.cx}
                             cy={city.dot.cy}
-                            r="6.5"
+                            r="6"
                             className="fill-[#8B1E1E]/20 stroke-[#8B1E1E] stroke-[0.75] animate-pulse"
                           />
                         )}
 
-                        {/* Center Pin Node */}
+                        {/* Center Dot */}
                         <circle
                           cx={city.dot.cx}
                           cy={city.dot.cy}
                           r={isSelected ? '3.5' : '2.5'}
-                          className={`transition-all duration-200 ${
-                            isSelected
-                              ? 'fill-[#8B1E1E] stroke-white stroke-[1]'
-                              : 'fill-stone-600 group-hover:fill-[#8B1E1E]'
-                          }`}
+                          className={isSelected ? 'fill-[#8B1E1E] stroke-white stroke-[1]' : 'fill-stone-600 hover:fill-[#8B1E1E]'}
                         />
 
-                        {/* City Label */}
+                        {/* Label */}
                         <text
                           x={city.label.x}
                           y={city.label.y}
                           textAnchor={city.label.anchor}
-                          className={`text-[5.5px] font-sans font-bold transition-colors select-none ${
-                            isSelected
-                              ? 'fill-stone-900 font-semibold'
-                              : 'fill-stone-500 group-hover:fill-stone-900'
+                          className={`text-[5.5px] font-sans select-none ${
+                            isSelected ? 'fill-stone-900 font-bold' : 'fill-stone-500 hover:fill-stone-900'
                           }`}
                         >
                           {city.name}
@@ -252,15 +223,31 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                     );
                   })}
                 </svg>
-
-                {/* Legend Overlay at Bottom Left of Map */}
-                <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm border border-stone-200/80 px-2.5 py-1 rounded-md text-[10px] text-stone-500 font-medium shadow-2xs flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#8B1E1E]" />
-                  <span>Click pin to view regional project volume</span>
-                </div>
-
               </div>
 
+              <div className="text-[10px] font-mono text-stone-400 mt-2 text-center">
+                Tap city pin to view local capacity
+              </div>
+            </div>
+
+            {/* ── COL 3 (4 cols): Scenic Maharashtra Sunset Hills Photo ── */}
+            <div className="lg:col-span-4 relative min-h-[280px] lg:min-h-full overflow-hidden bg-stone-900">
+              <img
+                src="/images/projects/maharashtra-sunset-hills.jpg"
+                alt="Western Ghats and Maharashtra sunset over solar landscape"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
+
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1 z-10">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-amber-300 block">
+                  REGIONAL IMPACT
+                </span>
+                <p className="text-sm font-sans font-semibold text-white leading-snug m-0">
+                  Powering Vidarbha and Maharashtra’s solar future with engineering precision.
+                </p>
+              </div>
             </div>
 
           </div>

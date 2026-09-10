@@ -2,38 +2,31 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
- * SolarARK Projects Experience — 4-Band Case-Study Hub
+ * SolarARK Projects Experience — 6-Band Architectural Redesign
  *
- * Designed in strict adherence to revamp.md and the Pareto (80/20) Principle:
- * - Highlights the vital 20% of project content that delivers 80% of decision value:
- *   1. Band 1: HERO BAND (“Real spaces. Real impact.”) — Architectural authority & outcome introduction.
- *   2. Band 2: FEATURED PROJECT STRIP — Contrasted horizontal card surfacing the primary flagship project.
- *   3. Band 3: PROJECT GRID WITH UNDERLINE FILTERS — Asymmetric editorial cards without card fatigue.
- *   4. Band 4: PROJECT IN FOCUS + FOOTPRINT BAND — Split Requirement/Solution/Impact case study & Maharashtra map footprint.
- * - Deep technical modal and verified field video walkthroughs preserved as high-value depth layers.
+ * Implements the inspiration structure directly:
+ * 1. Hero Band: "Real spaces. Real impact." + architectural metrics + vertical solar pergola visual
+ * 2. Featured Project Hero: Panoramic flagship showcase (650 kW Amravati installation, 3 metrics, slide controls)
+ * 3. Structured Archive Filter Bar: Clean underline tabs (All, Residential, Commercial, Industrial) + "View All Projects →"
+ * 4. Structured Archive Grid: 3-column asymmetric mixed-scale cards with card best practices (entry points)
+ * 5. Project In Depth: 50/50 split band (photo with index tag on left; Requirement, Solution, Impact pillars on right)
+ * 6. Our Footprint: 3-column band (narrative, interactive Maharashtra vector map, sunset hills photo)
+ * 7. Pre-Footer CTA: "Planning your own solar project?" consultation strip with category links
  */
 
 import React, { useState, useMemo } from 'react';
-import {
-  X,
-  CheckCircle2,
-  PhoneCall,
-  ArrowRight,
-  Film,
-  MapPin,
-  Sparkles,
-  Zap,
-} from 'lucide-react';
+import { X, CheckCircle2, ArrowRight } from 'lucide-react';
 import { PrimaryButton } from './PrimaryButton';
-import { PROJECT_CASE_STUDIES, INSTALLATION_VIDEO_REELS } from '../data/solarData';
+import { PROJECT_CASE_STUDIES } from '../data/solarData';
 import { formatINR } from '../utils/calculator';
 import { ProjectCaseStudy } from '../types';
 import { ProjectsHeroBand } from './projects/ProjectsHeroBand';
-import { FeaturedProjectStrip } from './projects/FeaturedProjectStrip';
+import { FeaturedProjectHero } from './projects/FeaturedProjectHero';
 import { ProjectsFilterBar, ProjectCategoryTab } from './projects/ProjectsFilterBar';
 import { ProjectGrid } from './projects/ProjectGrid';
-import { ProjectInFocus } from './projects/ProjectInFocus';
+import { ProjectInDepth } from './projects/ProjectInDepth';
 import { ProjectsFootprint } from './projects/ProjectsFootprint';
+import { ProjectPreFooterCta } from './projects/ProjectPreFooterCta';
 
 interface OurProjectsPageProps {
   onNavigate: (path: string) => void;
@@ -44,22 +37,22 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
   onNavigate,
   onCtaClick,
 }) => {
-  // ── PARETO FILTER STATE (Core 4 categories) ──
+  // ── FILTER STATE ──
   const [activeTab, setActiveTab] = useState<ProjectCategoryTab>('All');
   const [selectedCity, setSelectedCity] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // ── PARETO CASE STUDY FOCUS STATE (Defaults to primary flagship project) ──
+  // ── PROJECT IN DEPTH STATE (Defaults to flagship 650 kW Amravati project) ──
   const [selectedProject, setSelectedProject] = useState<ProjectCaseStudy>(
-    () => PROJECT_CASE_STUDIES.find((p) => p.featured) || PROJECT_CASE_STUDIES[0]
+    () => PROJECT_CASE_STUDIES.find((p) => p.id === 'proj-flagship-amravati') || PROJECT_CASE_STUDIES[0]
   );
 
   // Technical Specs Modal State
   const [selectedProjectModal, setSelectedProjectModal] = useState<ProjectCaseStudy | null>(null);
 
-  const filterCities = ['All', 'Nagpur', 'Pune', 'Amravati', 'Chh. Sambhajinagar', 'Wardha', 'Akola'];
+  const filterCities = ['All', 'Amravati', 'Nagpur', 'Wardha', 'Akola', 'Chandrapur', 'Pune'];
 
-  // Smooth scroll helper
+  // Smooth scroll helpers
   const scrollToGrid = () => {
     const el = document.getElementById('projects-grid');
     if (el) {
@@ -67,8 +60,8 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
     }
   };
 
-  const scrollToFocus = () => {
-    const el = document.getElementById('project-in-focus');
+  const scrollToInDepth = () => {
+    const el = document.getElementById('project-in-depth');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -83,22 +76,29 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
         proj.city.toLowerCase().includes(selectedCity.toLowerCase()) ||
         selectedCity.toLowerCase().includes(proj.city.toLowerCase());
 
-      // 2. Category Tab Matching (Pareto 4 Core Categories)
+      // 2. Category Tab Matching
       let matchesTab = true;
       if (activeTab === 'Residential') {
         matchesTab = proj.category === 'Residential';
       } else if (activeTab === 'Commercial') {
         matchesTab =
-          proj.category === 'Commercial & Industrial' ||
-          proj.category === 'Housing Society';
+          (proj.category === 'Commercial & Industrial' || proj.category === 'Housing Society') &&
+          !proj.roofType.toLowerCase().includes('industrial') &&
+          !proj.title?.toLowerCase().includes('industrial') &&
+          !proj.homeownerName.toLowerCase().includes('industries') &&
+          !proj.homeownerName.toLowerCase().includes('polyfab') &&
+          !proj.homeownerName.toLowerCase().includes('textile');
       } else if (activeTab === 'Industrial') {
         matchesTab =
           proj.category === 'Commercial & Industrial' &&
           (proj.roofType.toLowerCase().includes('industrial') ||
             proj.roofType.toLowerCase().includes('shed') ||
+            proj.roofType.toLowerCase().includes('truss') ||
             proj.title?.toLowerCase().includes('industrial') ||
-            proj.homeownerName.toLowerCase().includes('engineering') ||
-            proj.homeownerName.toLowerCase().includes('processing'));
+            proj.homeownerName.toLowerCase().includes('industries') ||
+            proj.homeownerName.toLowerCase().includes('polyfab') ||
+            proj.homeownerName.toLowerCase().includes('textile') ||
+            proj.homeownerName.toLowerCase().includes('engineering'));
       }
 
       // 3. Search Query Matching
@@ -124,64 +124,70 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
       All: PROJECT_CASE_STUDIES.length,
       Residential: PROJECT_CASE_STUDIES.filter((p) => p.category === 'Residential').length,
       Commercial: PROJECT_CASE_STUDIES.filter(
-        (p) => p.category === 'Commercial & Industrial' || p.category === 'Housing Society'
+        (p) =>
+          (p.category === 'Commercial & Industrial' || p.category === 'Housing Society') &&
+          !p.roofType.toLowerCase().includes('industrial') &&
+          !p.title?.toLowerCase().includes('industrial') &&
+          !p.homeownerName.toLowerCase().includes('industries') &&
+          !p.homeownerName.toLowerCase().includes('polyfab') &&
+          !p.homeownerName.toLowerCase().includes('textile')
       ).length,
       Industrial: PROJECT_CASE_STUDIES.filter(
         (p) =>
           p.category === 'Commercial & Industrial' &&
           (p.roofType.toLowerCase().includes('industrial') ||
             p.roofType.toLowerCase().includes('shed') ||
+            p.roofType.toLowerCase().includes('truss') ||
             p.title?.toLowerCase().includes('industrial') ||
-            p.homeownerName.toLowerCase().includes('engineering') ||
-            p.homeownerName.toLowerCase().includes('processing'))
+            p.homeownerName.toLowerCase().includes('industries') ||
+            p.homeownerName.toLowerCase().includes('polyfab') ||
+            p.homeownerName.toLowerCase().includes('textile') ||
+            p.homeownerName.toLowerCase().includes('engineering'))
       ).length,
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-20 pb-20">
+    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 selection:bg-[#8B1E1E] selection:text-white pt-20 pb-16">
       
-      {/* ── 1. BAND 1: HERO BAND (“Real spaces. Real impact.”) ──
-          Pareto 80/20: Anchors architectural leadership and primary value proposition. */}
+      {/* ── 1. HERO BAND: "Real spaces. Real impact." ── */}
       <ProjectsHeroBand
         onCtaClick={onCtaClick}
         onExploreClick={scrollToGrid}
       />
 
-      {/* ── 2. BAND 2: FEATURED PROJECT STRIP (80/20 FOCUS) ──
-          Pareto 80/20: Surfaces ONE flagship project carrying 80% of perceived enterprise value. */}
-      <FeaturedProjectStrip
+      {/* ── 2. FEATURED PROJECT HERO: Panoramic Flagship Showcase ── */}
+      <FeaturedProjectHero
         projects={PROJECT_CASE_STUDIES}
         onSelectProject={(project) => {
           setSelectedProject(project);
-          scrollToFocus();
+          scrollToInDepth();
         }}
         onCtaClick={onCtaClick}
       />
 
-      {/* ── 3. BAND 3: PROJECT GRID WITH UNDERLINE FILTERS (NON-REPETITIVE CARDS) ──
-          Pareto 80/20: Underline tabs for the 4 vital categories; asymmetric card rhythm breaks card fatigue. */}
+      {/* ── 3. STRUCTURED PROJECTS ARCHIVE: Filter Row + Mixed-Scale Grid ── */}
       <section
         id="projects-grid"
-        className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 border-b border-stone-200/80 scroll-mt-24"
+        className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 border-b border-stone-200/80 scroll-mt-20"
       >
-        <div className="space-y-4 mb-8">
+        <div className="space-y-3 mb-6">
           <div className="flex items-center gap-2">
-            <span className="font-heading text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#8B1E1E]">
-              CURATED INSTALLATIONS
+            <span className="font-sans text-[11px] sm:text-xs font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
+              CURATED ARCHIVE
             </span>
             <span className="w-8 h-px bg-stone-300" />
-            <span className="text-xs text-stone-400 font-medium hidden sm:inline">
-              Verified Rooftop Solar Systems Across Maharashtra
+            <span className="text-xs text-stone-400 font-sans hidden sm:inline">
+              Verified Installations Across Maharashtra
             </span>
           </div>
 
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 tracking-tight leading-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 tracking-tight leading-tight m-0">
             Browse Completed Solar Projects
           </h2>
         </div>
 
-        {/* Minimalist Underline Filter Bar */}
+        {/* Filter Row with Underline Tabs + "View All Projects →" */}
         <ProjectsFilterBar
           activeTab={activeTab}
           onTabChange={setActiveTab}
@@ -191,15 +197,20 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
           onSearchChange={setSearchQuery}
           cities={filterCities}
           counts={categoryCounts}
+          onViewAllClick={() => {
+            setActiveTab('All');
+            setSelectedCity('All');
+            setSearchQuery('');
+          }}
         />
 
-        {/* Asymmetric Editorial Cards Grid */}
+        {/* Asymmetric Mixed-Scale Grid (Entry Points to In-Depth) */}
         <ProjectGrid
           projects={filteredProjects}
           selectedProjectId={selectedProject.id}
           onSelectProject={(proj) => {
             setSelectedProject(proj);
-            scrollToFocus();
+            scrollToInDepth();
           }}
           onOpenSpecsModal={(proj) => setSelectedProjectModal(proj)}
           onResetFilters={() => {
@@ -210,162 +221,26 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
         />
       </section>
 
-      {/* ── 4. BAND 4: PROJECT IN FOCUS + FOOTPRINT BAND ──
-          Pareto 80/20: Detailed Requirement/Solution/Impact breakdown for the focused project,
-          paired with the regional Maharashtra authority map. */}
-      <div id="project-in-focus" className="scroll-mt-24">
-        <ProjectInFocus
-          project={selectedProject}
-          onOpenSpecsModal={(proj) => setSelectedProjectModal(proj)}
-          onCtaClick={onCtaClick}
-        />
+      {/* ── 4. PROJECT IN DEPTH: 50/50 Split Architectural Band ── */}
+      <ProjectInDepth
+        project={selectedProject}
+        onOpenSpecsModal={(proj) => setSelectedProjectModal(proj)}
+        onCtaClick={onCtaClick}
+      />
 
-        <ProjectsFootprint onCtaClick={onCtaClick} />
-      </div>
+      {/* ── 5. OUR FOOTPRINT: 3-Part Regional Authority Band ── */}
+      <ProjectsFootprint onCtaClick={onCtaClick} />
 
-      {/* ── 5. CINEMATIC VIDEO PROOF REELS (SECONDARY DEPTH SECTION) ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-14 sm:py-20 border-b border-stone-200/80">
-        <div className="bg-gradient-to-br from-[#120E0E] via-[#1A1414] to-[#251A1A] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border border-stone-800 relative overflow-hidden space-y-8">
-          
-          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold font-heading border border-amber-400/30">
-                <Film className="w-3.5 h-3.5" />
-                <span>On-Site Video Proof</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-white">
-                Watch SolarArk Installations Across Maharashtra
-              </h2>
-              <p className="text-xs sm:text-sm text-stone-300 max-w-2xl">
-                Actual site walkthroughs, aerial drone inspections, structural mounting tests, and net-metering commissioning recordings.
-              </p>
-            </div>
-
-            <div className="text-xs text-amber-300 font-bold font-heading bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-xl shrink-0">
-              {INSTALLATION_VIDEO_REELS.length} Verified Walkthroughs
-            </div>
-          </div>
-
-          {/* Video Reels Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
-            {INSTALLATION_VIDEO_REELS.slice(0, 3).map((reel) => (
-              <div
-                key={reel.id}
-                className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between backdrop-blur-sm space-y-3 hover:border-[#8B1E1E]/60 transition-colors group"
-              >
-                <div className="space-y-3">
-                  <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-black shadow-inner flex items-center justify-center">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-full object-cover"
-                    >
-                      <source src={reel.videoUrl} type="video/mp4" />
-                      <source src={reel.videoUrl} type="video/quicktime" />
-                      Your browser does not support video playback.
-                    </video>
-
-                    <div className="absolute top-2.5 left-2.5 pointer-events-none">
-                      <span className="text-[10px] font-bold bg-[#8B1E1E] text-white px-2 py-0.5 rounded shadow-sm">
-                        {reel.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between text-[10px] text-stone-400">
-                      <span className="font-heading font-bold text-amber-300 uppercase tracking-wider">
-                        {reel.id.toUpperCase()}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#8B1E1E]" /> {reel.location}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading text-sm font-bold text-white leading-snug">
-                      {reel.title}
-                    </h3>
-                    <p className="text-xs text-stone-300 line-clamp-2 leading-relaxed">
-                      {reel.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-white/10">
-                  <button
-                    onClick={onCtaClick}
-                    className="w-full py-2 bg-white/10 hover:bg-[#8B1E1E] text-white text-[11px] font-bold font-heading rounded-lg transition-colors flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    <span>Request Site Visit For This System</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 6. BOTTOM PINCODE CONSULTATION BANNER ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-14">
-        <div className="bg-gradient-to-br from-[#8B1E1E] via-[#741616] to-[#5E1212] text-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3.5">
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-amber-300 font-heading">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>Local Maharashtra Installation Network</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading tracking-tight text-white leading-tight">
-                Want to see solar installations near your locality?
-              </h2>
-              <p className="text-xs sm:text-sm text-stone-200 max-w-2xl leading-relaxed">
-                Our local field engineers can arrange a neighbor site visit in your exact pin code or share an engineered generation report customized for your rooftop area.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-1">
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Free 3D Shadow Analysis
-                </span>
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> DISCOM Net Meter Support
-                </span>
-                <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> ₹78k Subsidy Paperwork
-                </span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col gap-3">
-              <button
-                onClick={onCtaClick}
-                className="w-full bg-white hover:bg-amber-50 text-[#8B1E1E] font-heading font-bold text-sm py-4 rounded-xl shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
-              >
-                <span>Request Local Installation Report</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <a
-                href="tel:7080909590"
-                className="text-center text-xs text-amber-200 hover:text-white font-medium flex items-center justify-center gap-1.5 py-1"
-              >
-                <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Direct Field Desk: <strong className="text-white">+91 7080909590</strong></span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      {/* ── 6. PRE-FOOTER CTA STRIP: Planning your own solar project? ── */}
+      <ProjectPreFooterCta
+        onCtaClick={onCtaClick}
+        onNavigate={onNavigate}
+      />
 
       {/* ── 7. INTERACTIVE PROJECT TECHNICAL SPEC MODAL ── */}
       {selectedProjectModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-stone-200 animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <div className="bg-white rounded-none max-w-2xl w-full overflow-hidden shadow-2xl border border-stone-200 animate-in fade-in zoom-in duration-200">
             
             {/* Modal Header with Image */}
             <div className="relative aspect-[16/9] bg-stone-900">
@@ -374,7 +249,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                 alt={selectedProjectModal.imageAlt || selectedProjectModal.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
 
               <button
                 onClick={() => setSelectedProjectModal(null)}
@@ -386,36 +261,36 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
 
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-[#8B1E1E] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-md font-heading">
+                  <span className="bg-[#8B1E1E] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-none font-sans uppercase tracking-wider">
                     {selectedProjectModal.systemSizeKw} kW Array
                   </span>
-                  <span className="text-xs text-amber-300 font-medium">
+                  <span className="text-xs text-amber-300 font-sans">
                     {selectedProjectModal.city}, {selectedProjectModal.state}
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold font-heading text-white">
+                <h3 className="text-lg sm:text-xl font-bold font-heading text-white m-0">
                   {selectedProjectModal.title || selectedProjectModal.homeownerName}
                 </h3>
               </div>
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-4 font-sans">
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-stone-50 p-4 rounded-2xl border border-stone-200/80">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-stone-50 p-4 border border-stone-200">
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium font-heading uppercase tracking-wider">
+                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
                     Monthly Yield
                   </div>
-                  <div className="text-base font-bold text-stone-900 font-heading">
+                  <div className="text-base font-bold text-stone-900">
                     {selectedProjectModal.generationUnitsPerMonth || Math.round(selectedProjectModal.systemSizeKw * 120)} kWh
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium font-heading uppercase tracking-wider">
+                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
                     Bill Cut
                   </div>
-                  <div className="text-base font-bold text-emerald-600 font-heading">
+                  <div className="text-base font-bold text-emerald-600">
                     {Math.round(
                       ((selectedProjectModal.monthlyBillBefore - selectedProjectModal.monthlyBillAfter) /
                         selectedProjectModal.monthlyBillBefore) *
@@ -424,18 +299,18 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium font-heading uppercase tracking-wider">
+                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
                     Annual Savings
                   </div>
-                  <div className="text-base font-bold text-stone-900 font-heading">
+                  <div className="text-base font-bold text-stone-900">
                     {formatINR(selectedProjectModal.annualSavings || 96000)}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] text-stone-500 font-medium font-heading uppercase tracking-wider">
+                  <div className="text-[10px] text-stone-500 font-medium uppercase tracking-wider">
                     Subsidy Status
                   </div>
-                  <div className="text-base font-bold text-amber-700 font-heading">
+                  <div className="text-base font-bold text-amber-800">
                     {selectedProjectModal.subsidyReceived
                       ? `₹${selectedProjectModal.subsidyReceived.toLocaleString('en-IN')}`
                       : 'Commercial ROI'}
@@ -443,9 +318,9 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                 </div>
               </div>
 
-              {/* Requirement, Solution & Impact in Modal */}
+              {/* Specifications */}
               <div className="space-y-2 text-xs text-stone-600">
-                <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider font-heading">
+                <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider m-0">
                   Mounting &amp; Engineering Specifications
                 </h4>
                 <div className="space-y-1.5">
@@ -465,7 +340,7 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
               </div>
 
               {/* Customer Quote / Impact */}
-              <div className="bg-amber-50/50 p-4 rounded-xl border border-amber-100 text-xs text-stone-700 italic">
+              <div className="bg-amber-50/60 p-4 border border-amber-200/80 text-xs text-stone-700 italic">
                 "{selectedProjectModal.verdict}"
               </div>
 
@@ -477,13 +352,13 @@ export const OurProjectsPage: React.FC<OurProjectsPageProps> = ({
                     onCtaClick();
                   }}
                   size="sm"
-                  className="flex-1"
+                  className="flex-1 rounded-none"
                 >
                   Get Similar Estimate for My Rooftop
                 </PrimaryButton>
                 <button
                   onClick={() => setSelectedProjectModal(null)}
-                  className="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs rounded-xl transition-colors cursor-pointer"
+                  className="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-semibold text-xs rounded-none transition-colors cursor-pointer"
                 >
                   Close
                 </button>
