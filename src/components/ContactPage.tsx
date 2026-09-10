@@ -71,50 +71,50 @@ const OFFICES: OfficeLocation[] = [
   {
     id: 'amravati',
     name: 'Amravati (HQ)',
-    type: 'Head Office',
+    type: 'Head Office & Engineering Center',
     badge: 'Central HQ',
     address: 'Mira Sadan, House No. 27 A, Krushnarpan Colony, Amravati, Maharashtra 444605',
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.916927,77.749208',
-    dot: { cx: 138, cy: 36 },
-    label: { x: 146, y: 39, anchor: 'start' },
-  },
-  {
-    id: 'sambhajinagar',
-    name: 'Sambhajinagar',
-    type: 'Branch Office',
-    badge: 'Marathwada Hub',
-    address: 'Near Saptapadi Mangal Karyalaya Road, H.No. 49R.-29, Baliram Patil School Road, Chh. Sambhajinagar',
-    phone: '+91 7080909590',
-    email: 'info@thesolarark.com',
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=19.896246,75.358003',
-    dot: { cx: 74, cy: 75 },
-    label: { x: 74, y: 65, anchor: 'middle' },
-  },
-  {
-    id: 'wardha',
-    name: 'Wardha',
-    type: 'Branch Office',
-    badge: 'Vidarbha Hub',
-    address: 'C/o Kishore Surkar, Infront Of Amit Tailors, Near Dr. Mehre Clinic, Arts College Road, Arvi Naka, Wardha',
-    phone: '+91 7080909590',
-    email: 'info@thesolarark.com',
-    mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.754335,78.601618',
-    dot: { cx: 140, cy: 64 },
-    label: { x: 148, y: 67, anchor: 'start' },
+    dot: { cx: 135, cy: 36 },
+    label: { x: 144, y: 38, anchor: 'start' },
   },
   {
     id: 'akola',
     name: 'Akola',
-    type: 'Regional Center',
+    type: 'Regional Operations Center',
     badge: 'Operations Hub',
     address: 'Regional Operations & Engineering Service Desk, Akola, Maharashtra',
     phone: '+91 7080909590',
     email: 'info@thesolarark.com',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.705900,77.021900',
-    dot: { cx: 116, cy: 76 },
-    label: { x: 116, y: 88, anchor: 'middle' },
+    dot: { cx: 108, cy: 52 },
+    label: { x: 99, y: 54, anchor: 'end' },
+  },
+  {
+    id: 'wardha',
+    name: 'Wardha',
+    type: 'Vidarbha Regional Branch',
+    badge: 'Vidarbha Hub',
+    address: 'C/o Kishore Surkar, Infront Of Amit Tailors, Near Dr. Mehre Clinic, Arts College Road, Arvi Naka, Wardha',
+    phone: '+91 7080909590',
+    email: 'info@thesolarark.com',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=20.754335,78.601618',
+    dot: { cx: 148, cy: 62 },
+    label: { x: 157, y: 64, anchor: 'start' },
+  },
+  {
+    id: 'sambhajinagar',
+    name: 'Sambhajinagar',
+    type: 'Marathwada Regional Office',
+    badge: 'Marathwada Hub',
+    address: 'Near Saptapadi Mangal Karyalaya Road, H.No. 49R.-29, Baliram Patil School Road, Chh. Sambhajinagar',
+    phone: '+91 7080909590',
+    email: 'info@thesolarark.com',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=19.896246,75.358003',
+    dot: { cx: 82, cy: 92 },
+    label: { x: 73, y: 94, anchor: 'end' },
   },
 ];
 
@@ -497,212 +497,312 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           3. OUR PRESENCE IN MAHARASHTRA STRIP (STRUCTURED MAP + LIST PATTERN)
-             (Clean open band with sunlit architectural corner fading organically — strictly aligned)
+             (Unified 2-Column Architectural Panel — Proper Maharashtra Vector Map & Zero Dead Space)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section id="our-presence" className="w-full bg-[#F7F5F0] border-y border-[#E6E3DD] py-10 sm:py-12 lg:py-14 relative overflow-hidden">
-        {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
-        <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[42%] max-w-[560px] pointer-events-none select-none overflow-hidden z-0">
-          <img
-            src="/images/contact-presence-corner.png"
-            alt=""
-            className="w-full h-full object-cover object-right-bottom"
-          />
-        </div>
-
-        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
-            
-            {/* ── Left Column: Heading & Clean Location List (lg:col-span-4) ── */}
-            <div className="lg:col-span-4 space-y-6 sm:space-y-7">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3.5">
-                  <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight m-0">
-                    Our Presence
+      <section id="our-presence" className="w-full bg-[#F7F5F0] border-y border-[#E6E3DD] py-10 sm:py-12 lg:py-14">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
+          
+          {/* Unified Architectural Shell — Zero Dead Space, Sharp Corners */}
+          <div className="bg-white border border-[#E6E3DD] rounded-[4px] shadow-2xs overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch divide-y lg:divide-y-0 lg:divide-x divide-[#E6E3DD]">
+              
+              {/* ── LEFT PANEL (5 cols): Section Header & Office Directory ── */}
+              <div className="lg:col-span-5 p-6 sm:p-7 lg:p-8 flex flex-col justify-between space-y-6">
+                
+                {/* Header Text */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-[#7A211D]" />
+                    <span className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-[#7A211D]">
+                      REGIONAL FOOTPRINT
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-2xl sm:text-[28px] font-medium text-[#151817] tracking-tight leading-tight m-0">
+                    Our Presence in Maharashtra
                   </h2>
-                  <span className="w-7 h-[1.5px] bg-[#E6E3DD] mt-1 shrink-0" />
+                  <p className="text-xs sm:text-[13.5px] text-[#6C6C68] font-normal leading-relaxed m-0 font-body">
+                    Click an office below or tap a map marker to inspect local engineering support, direct contacts, and directions.
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm text-[#6C6C68] font-normal leading-relaxed m-0 font-body">
-                  Click on an office location below or pinpoint on the map to view complete regional contact details.
-                </p>
-              </div>
 
-              {/* Minimal Clean Accordion List */}
-              <div className="space-y-2 max-w-sm">
-                {OFFICES.map((office) => {
-                  const isActive = activeOfficeId === office.id;
-                  const isHovered = hoveredOfficeId === office.id;
-                  return (
-                    <div
-                      key={office.id}
-                      className={`rounded-xl transition-all duration-200 border ${
-                        isActive
-                          ? 'bg-white border-[#E6E3DD] shadow-sm'
-                          : isHovered
-                          ? 'bg-white/80 border-[#E6E3DD]'
-                          : 'border-transparent hover:border-[#E6E3DD]/70'
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setActiveOfficeId(isActive ? '' : office.id)}
-                        onMouseEnter={() => setHoveredOfficeId(office.id)}
-                        onMouseLeave={() => setHoveredOfficeId(null)}
-                        className="w-full flex items-center justify-between p-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7A211D]/30 rounded-xl min-h-[44px]"
-                        aria-expanded={isActive}
-                      >
-                        <div className="flex items-center gap-2.5">
-                          <span
-                            className={`w-2 h-2 rounded-full transition-all ${
-                              isActive
-                                ? 'bg-[#7A211D] scale-125 ring-4 ring-[#7A211D]/15'
-                                : 'bg-[#6C6C68]/40 group-hover:bg-[#7A211D]'
-                            }`}
-                          />
-                          <span
-                            className={`text-sm sm:text-[14.5px] transition-colors font-body ${
-                              isActive
-                                ? 'font-medium text-[#151817]'
-                                : 'font-normal text-[#151817] group-hover:text-[#7A211D]'
-                            }`}
-                          >
-                            {office.name}
-                          </span>
-                        </div>
-                        <ChevronDown
-                          className={`w-4 h-4 text-[#7A211D] fill-[#7A211D] transition-transform duration-150 ${
-                            isActive ? 'rotate-180 text-[#7A211D]' : 'text-[#6C6C68]'
-                          }`}
-                        />
-                      </button>
-
-                      {/* Dropdown Content */}
-                      {isActive && (
-                        <div className="px-3.5 pb-4 pt-1 text-xs sm:text-[12.5px] text-[#6C6C68] space-y-2 border-t border-[#E6E3DD] font-body">
-                          <div className="flex items-start gap-2 pt-2">
-                            <MapPin className="w-3.5 h-3.5 text-[#7A211D] shrink-0 mt-0.5" />
-                            <p className="m-0 leading-relaxed font-normal">{office.address}</p>
-                          </div>
-                          <div className="flex items-center justify-between pt-1">
-                            <a
-                              href={`tel:${office.phone}`}
-                              className="font-medium text-[#151817] hover:text-[#7A211D] transition-colors font-body"
-                            >
-                              {office.phone}
-                            </a>
-                            <a
-                              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[11px] font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1 font-body"
-                            >
-                              <span>Directions</span>
-                              <ArrowRight className="w-3 h-3 stroke-[2]" />
-                            </a>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* ── Middle Column: Stylized Vector Maharashtra Map (lg:col-span-5) ── */}
-            <div className="lg:col-span-5 flex justify-center items-center py-2 lg:py-0">
-              <div className="w-full max-w-[390px] relative aspect-[4/3] flex items-center justify-center">
-                <svg
-                  viewBox="0 0 400 320"
-                  className="w-full h-full drop-shadow-sm select-none"
-                  aria-label="Map of Maharashtra highlighting SolarArk office locations"
-                >
-                  <path
-                    d="M 50 115 C 65 105, 95 100, 125 102 C 150 96, 175 90, 205 85 C 240 80, 275 80, 310 90 C 340 100, 360 125, 365 145 C 370 170, 360 195, 340 215 C 315 240, 280 250, 245 255 C 210 260, 180 265, 150 255 C 120 245, 95 235, 75 210 C 60 190, 48 160, 45 135 Z"
-                    className="fill-[#EBE5DB] stroke-[#D5CBBF] stroke-[1.5]"
-                  />
-
-                  {/* Connecting Network Lines */}
-                  <path
-                    d="M 235 110 L 140 170 M 235 110 L 260 135 M 235 110 L 205 130"
-                    className="stroke-[#C4B7A5] stroke-[1] stroke-dasharray-[3,3] fill-none opacity-80"
-                  />
-
-                  {/* Office Markers */}
+                {/* Office Cards Directory (Sharp rounded-[4px] corners) */}
+                <div className="space-y-2.5" role="tablist" aria-label="Office locations">
                   {OFFICES.map((office) => {
-                    const isHighlighted = activeOfficeId === office.id || hoveredOfficeId === office.id;
+                    const isActive = activeOfficeId === office.id;
+                    const isHovered = hoveredOfficeId === office.id;
                     return (
-                      <g
+                      <div
                         key={office.id}
-                        className="cursor-pointer transition-transform"
-                        onClick={() => setActiveOfficeId(office.id)}
                         onMouseEnter={() => setHoveredOfficeId(office.id)}
                         onMouseLeave={() => setHoveredOfficeId(null)}
-                        role="button"
-                        tabIndex={0}
-                        aria-label={`Select ${office.name}`}
+                        className={`rounded-[4px] transition-all duration-200 border ${
+                          isActive
+                            ? 'bg-[#FAF9F6] border-[#7A211D]/40 border-l-[3px] border-l-[#7A211D] shadow-2xs'
+                            : isHovered
+                            ? 'bg-stone-50/80 border-[#E6E3DD]'
+                            : 'bg-white border-[#E6E3DD]/80 hover:border-[#E6E3DD]'
+                        }`}
                       >
-                        <circle cx={office.dot.cx} cy={office.dot.cy} r="12" className="fill-transparent" />
-
-                        {isHighlighted && (
-                          <circle
-                            cx={office.dot.cx}
-                            cy={office.dot.cy}
-                            r="8"
-                            className="fill-[#7A211D]/25 animate-ping origin-center"
-                          />
-                        )}
-
-                        <circle
-                          cx={office.dot.cx}
-                          cy={office.dot.cy}
-                          r={isHighlighted ? '4.2' : '3.6'}
-                          className="fill-[#7A211D] transition-all"
-                        />
-
-                        <text
-                          x={office.label.x}
-                          y={office.label.y}
-                          textAnchor={office.label.anchor}
-                          className={`font-body transition-all select-none pointer-events-none ${
-                            isHighlighted
-                              ? 'font-medium text-[8.5px] fill-[#7A211D]'
-                              : 'font-normal text-[8px] fill-[#151817]'
-                          }`}
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={isActive}
+                          onClick={() => setActiveOfficeId(office.id)}
+                          className="w-full flex items-center justify-between p-3.5 text-left cursor-pointer group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#7A211D] rounded-[4px]"
                         >
-                          {office.name.replace(' (HQ)', '')}
-                        </text>
-                      </g>
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <span
+                              className={`w-2 h-2 rounded-full transition-all shrink-0 ${
+                                isActive
+                                  ? 'bg-[#7A211D] ring-4 ring-[#7A211D]/20'
+                                  : 'bg-[#6C6C68]/30 group-hover:bg-[#7A211D]'
+                              }`}
+                            />
+                            <div className="min-w-0">
+                              <span
+                                className={`text-sm sm:text-[14.5px] transition-colors block truncate font-body ${
+                                  isActive
+                                    ? 'font-semibold text-[#151817]'
+                                    : 'font-medium text-[#151817] group-hover:text-[#7A211D]'
+                                }`}
+                              >
+                                {office.name}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 shrink-0 pl-2">
+                            <span
+                              className={`text-[9px] font-medium uppercase tracking-[0.14em] px-2 py-0.5 rounded-[3px] border transition-colors font-body ${
+                                isActive
+                                  ? 'bg-red-50 text-[#7A211D] border-red-200'
+                                  : 'bg-[#F7F5F0] text-[#6C6C68] border-[#E6E3DD]'
+                              }`}
+                            >
+                              {office.badge}
+                            </span>
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform duration-200 ${
+                                isActive ? 'rotate-180 text-[#7A211D]' : 'text-stone-400 group-hover:text-stone-600'
+                              }`}
+                            />
+                          </div>
+                        </button>
+
+                        {/* Expanded Details on Active */}
+                        {isActive && (
+                          <div className="px-4 pb-4 pt-1 text-xs text-[#6C6C68] space-y-3 border-t border-[#E6E3DD]/70 font-body">
+                            <div className="flex items-start gap-2 pt-2">
+                              <MapPin className="w-3.5 h-3.5 text-[#7A211D] shrink-0 mt-0.5" />
+                              <p className="m-0 leading-relaxed font-normal text-stone-700">{office.address}</p>
+                            </div>
+
+                            <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#E6E3DD]/60">
+                              <a
+                                href={`tel:${office.phone.replace(/\s+/g, '')}`}
+                                className="font-medium text-[#151817] hover:text-[#7A211D] transition-colors font-body flex items-center gap-1.5"
+                              >
+                                <Phone className="w-3 h-3 text-[#7A211D]" />
+                                <span>{office.phone}</span>
+                              </a>
+
+                              <a
+                                href={office.mapUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[11.5px] font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1 font-body"
+                              >
+                                <span>Directions</span>
+                                <ArrowRight className="w-3 h-3 stroke-[2]" />
+                              </a>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     );
                   })}
-
-                  {/* State Label in Lower Left curve of Maharashtra */}
-                  <text
-                    x="74"
-                    y="108"
-                    textAnchor="middle"
-                    className="font-body text-[6.5px] tracking-[0.25em] fill-[#A0988C] font-medium uppercase select-none pointer-events-none"
-                  >
-                    M A H A R A S H T R A
-                  </text>
-                </svg>
-              </div>
-            </div>
-
-            {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3) ── */}
-            <div className="lg:col-span-3 flex justify-start lg:justify-end items-start select-none pt-2 lg:pt-0">
-              <div className="flex items-start gap-3 text-left">
-                <div className="w-[1.5px] h-14 bg-[#E6E3DD] mt-0.5 shrink-0" />
-                <div className="space-y-1.5">
-                  <p className="text-[10px] sm:text-[11px] font-medium tracking-[0.18em] text-[#6C6C68] uppercase font-body leading-tight m-0">
-                    SOLAR<br />
-                    FOR A STRONGER<br />
-                    MAHARASHTRA
-                  </p>
-                  <span className="inline-block w-7 h-[1.5px] bg-[#E6E3DD] mt-1" />
                 </div>
-              </div>
-            </div>
 
+                {/* Bottom Quick Contact Strip inside Left Panel */}
+                <div className="pt-2 border-t border-[#E6E3DD] flex items-center justify-between text-xs text-[#6C6C68]">
+                  <span>Direct Customer Care:</span>
+                  <a href="tel:+917080909590" className="font-medium text-[#7A211D] hover:underline font-body">
+                    +91 7080909590
+                  </a>
+                </div>
+
+              </div>
+
+              {/* ── RIGHT PANEL (7 cols): Generous, Proper Maharashtra Map ── */}
+              <div className="lg:col-span-7 bg-[#FAF9F6] p-6 sm:p-8 flex flex-col justify-between relative min-h-[380px] lg:min-h-[460px]">
+                
+                {/* Top Status Header */}
+                <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#E6E3DD]/60 select-none">
+                  <div className="flex items-center gap-2 text-xs font-medium text-[#151817] font-body">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Active Hub: <strong className="text-[#7A211D]">{activeOffice.name}</strong></span>
+                  </div>
+                  <span className="text-[11px] font-body text-[#6C6C68]">
+                    Tap marker on map to switch
+                  </span>
+                </div>
+
+                {/* Generously Scaled SVG Maharashtra Canvas */}
+                <div className="w-full flex-1 flex items-center justify-center py-4 sm:py-6">
+                  <div className="w-full max-w-[500px] aspect-[240/150] relative select-none">
+                    <svg
+                      viewBox="0 0 240 150"
+                      className="w-full h-full drop-shadow-xs"
+                      aria-label="Proper Map of Maharashtra with SolarARK office locations"
+                    >
+                      {/* Authentic Maharashtra State Outline */}
+                      <path
+                        d={MAHARASHTRA_PATH}
+                        className="fill-[#E5E5E2] stroke-[#D0CCC3] stroke-[1] transition-colors"
+                      />
+
+                      {/* Cartographic District Internal Traces */}
+                      <path
+                        d="M 46,36 Q 44,70 42,95 T 38,125"
+                        fill="none"
+                        stroke="#F4F1EB"
+                        strokeWidth="0.85"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                      />
+                      <path
+                        d="M 95,32 Q 92,60 100,85 Q 106,105 110,128"
+                        fill="none"
+                        stroke="#F4F1EB"
+                        strokeWidth="0.85"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                      />
+                      <path
+                        d="M 125,26 Q 120,55 130,78 Q 140,95 155,108"
+                        fill="none"
+                        stroke="#F4F1EB"
+                        strokeWidth="0.85"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                      />
+                      <path
+                        d="M 160,34 Q 170,62 178,85"
+                        fill="none"
+                        stroke="#F4F1EB"
+                        strokeWidth="0.85"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                      />
+                      <path
+                        d="M 45,72 Q 85,76 122,70"
+                        fill="none"
+                        stroke="#F4F1EB"
+                        strokeWidth="0.85"
+                        strokeLinecap="round"
+                        strokeOpacity="0.85"
+                      />
+
+                      {/* Connected Statewide Network Lines from Amravati HQ */}
+                      <path
+                        d="M 135,36 L 108,52 M 135,36 L 148,62 M 108,52 L 82,92"
+                        className="stroke-[#7A211D]/30 stroke-[0.85] stroke-dasharray-[2.5,2.5] fill-none"
+                      />
+
+                      {/* State Watermark */}
+                      <text
+                        x="50"
+                        y="112"
+                        className="font-body text-[7px] tracking-[0.24em] fill-stone-400 font-bold uppercase select-none pointer-events-none"
+                      >
+                        MAHARASHTRA
+                      </text>
+
+                      {/* Accurate Office Markers & Labels */}
+                      {OFFICES.map((office) => {
+                        const isSelected = activeOfficeId === office.id;
+                        const isHovered = hoveredOfficeId === office.id;
+                        const isHighlighted = isSelected || isHovered;
+
+                        return (
+                          <g
+                            key={office.id}
+                            className="cursor-pointer transition-all duration-200"
+                            onClick={() => setActiveOfficeId(office.id)}
+                            onMouseEnter={() => setHoveredOfficeId(office.id)}
+                            onMouseLeave={() => setHoveredOfficeId(null)}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`Select ${office.name}`}
+                          >
+                            {/* Broad touch/click hit area */}
+                            <circle cx={office.dot.cx} cy={office.dot.cy} r="14" className="fill-transparent" />
+
+                            {/* Outer Ping Glow on Active/Hover */}
+                            {isHighlighted && (
+                              <circle
+                                cx={office.dot.cx}
+                                cy={office.dot.cy}
+                                r="8.5"
+                                className="fill-[#7A211D]/25 animate-ping origin-center"
+                              />
+                            )}
+
+                            {/* Outer Marker Ring */}
+                            <circle
+                              cx={office.dot.cx}
+                              cy={office.dot.cy}
+                              r={isHighlighted ? '5.5' : '4'}
+                              className={`${
+                                isHighlighted ? 'fill-[#7A211D]' : 'fill-[#7A211D]/90'
+                              } stroke-white stroke-[1.5] transition-all`}
+                            />
+
+                            {/* Inner Dot for HQ */}
+                            {office.id === 'amravati' && (
+                              <circle
+                                cx={office.dot.cx}
+                                cy={office.dot.cy}
+                                r="1.8"
+                                className="fill-white pointer-events-none"
+                              />
+                            )}
+
+                            {/* City Typography Label */}
+                            <text
+                              x={office.label.x}
+                              y={office.label.y}
+                              textAnchor={office.label.anchor}
+                              className={`font-body transition-all select-none pointer-events-none ${
+                                isHighlighted
+                                  ? 'font-bold text-[9px] fill-[#7A211D]'
+                                  : 'font-semibold text-[8px] fill-[#151817]'
+                              }`}
+                            >
+                              {office.name.replace(' (HQ)', '')}
+                            </text>
+                          </g>
+                        );
+                      })}
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Bottom Trust & Operational Coverage Bar */}
+                <div className="pt-3 border-t border-[#E6E3DD]/60 flex flex-wrap items-center justify-between gap-3 text-[11.5px] text-[#6C6C68] font-body select-none">
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#7A211D]" />
+                    <span>Statewide MSEDCL Net-Metering Liaison</span>
+                  </div>
+                  <span className="hidden sm:inline text-stone-300">•</span>
+                  <span>Turnkey EPC &amp; 25-Year Performance Guarantee</span>
+                </div>
+
+              </div>
+
+            </div>
           </div>
+
         </div>
       </section>
 
