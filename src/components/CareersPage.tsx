@@ -8,13 +8,9 @@ import {
   ArrowRight,
   CheckCircle2,
   Send,
-  Zap,
-  TrendingUp,
   Mail,
   PhoneCall,
-  Sparkles,
   Award,
-  Users,
   Link as LinkIcon,
   UserCheck,
   FileText,
@@ -119,9 +115,11 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             <div className="lg:col-span-7 space-y-6">
               
               {/* Program Eyebrow Tag */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] bg-stone-100 border border-[#E6E3DD] text-stone-700 text-[11px] font-medium tracking-[0.18em] uppercase font-body">
-                <Sparkles className="w-3.5 h-3.5 text-stone-600" />
-                <span>JOIN INDIA’S CLEAN ENERGY REVOLUTION</span>
+              <div className="flex items-center gap-2">
+                <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#7A211D]">
+                  JOIN INDIA’S CLEAN ENERGY REVOLUTION
+                </span>
+                <span className="w-8 h-px bg-[#E6E3DD]" />
               </div>
 
               {/* Main Headline */}
@@ -242,49 +240,54 @@ export const CareersPage: React.FC<CareersPageProps> = ({
         </div>
       </section>
 
-      {/* ── 3. ARCHITECTURAL PROOF STRIP ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-14">
-        <div className="bg-white rounded-[4px] border border-[#E6E3DD] shadow-xs p-6 sm:p-7">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-[#E6E3DD] items-center">
+      {/* ── 3. ARCHITECTURAL PROOF STRIP (Aligned with OfficialMetricsStrip design principle) ── */}
+      <section className="w-full bg-white border-y border-[#E6E3DD] py-4 sm:py-5 lg:py-6 mb-16 sm:mb-20 relative z-10 transition-colors">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-4 gap-x-0 items-center">
             
-            <div className="flex items-center gap-3.5 lg:px-6">
-              <div className="w-10 h-10 rounded-[4px] bg-[#7A211D]/8 text-[#7A211D] flex items-center justify-center shrink-0">
-                <Award className="w-5 h-5" />
+            {/* Col 1: #1 Solar EPC */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 first:pl-0 sm:first:pl-2 border-r border-[#E6E3DD]">
+              <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
+                #1 Solar EPC
               </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-semibold text-[#151817] font-heading tracking-tight">#1 Solar EPC</div>
-                <div className="text-xs text-[#6C6C68] font-normal font-body">Central India Leader</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3.5 lg:px-6">
-              <div className="w-10 h-10 rounded-[4px] bg-[#7A211D]/8 text-[#7A211D] flex items-center justify-center shrink-0">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-semibold text-[#151817] font-heading tracking-tight">35+ MW</div>
-                <div className="text-xs text-[#6C6C68] font-normal font-body">Capacity Commissioned</div>
+              <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
+                Central India Leader
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 lg:px-6">
-              <div className="w-10 h-10 rounded-[4px] bg-[#7A211D]/8 text-[#7A211D] flex items-center justify-center shrink-0">
-                <Zap className="w-5 h-5" />
+            {/* Col 2: 35+ MW */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 md:border-r md:border-[#E6E3DD]">
+              <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
+                35+ MW
               </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-semibold text-[#151817] font-heading tracking-tight">100% Growth</div>
-                <div className="text-xs text-[#6C6C68] font-normal font-body">Year-on-Year Expansion</div>
+              <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
+                Capacity Commissioned
               </div>
             </div>
 
-            <div className="flex items-center gap-3.5 lg:px-6">
-              <div className="w-10 h-10 rounded-[4px] bg-[#7A211D]/8 text-[#7A211D] flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5" />
+            {/* Col 3: 100% Growth */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent border-r border-[#E6E3DD]">
+              <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
+                100% Growth
               </div>
-              <div>
-                <div className="text-xl sm:text-2xl font-semibold text-[#151817] font-heading tracking-tight">4.8 / 5.0</div>
-                <div className="text-xs text-[#6C6C68] font-normal font-body">Team Culture Rating</div>
+              <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
+                Year-on-Year Expansion
               </div>
+            </div>
+
+            {/* Col 4: 4.8 / 5.0 */}
+            <div className="col-span-1 lg:col-span-2 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent lg:border-r lg:border-[#E6E3DD]">
+              <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
+                4.8 / 5.0
+              </div>
+              <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
+                Team Culture Rating
+              </div>
+            </div>
+
+            {/* Col 5: Right Subtle Accent Line Matching OfficialMetricsStrip */}
+            <div className="col-span-1 hidden lg:flex items-center justify-end pl-6 select-none">
+              <span className="w-10 xl:w-14 h-[1.5px] bg-[#E6E3DD] rounded-full block" />
             </div>
 
           </div>
@@ -302,9 +305,10 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             {/* Left Prompt Column */}
             <div className="lg:col-span-4 space-y-5">
               
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[4px] bg-white/10 border border-white/20 text-xs font-medium text-white/90 font-body uppercase tracking-[0.18em]">
+              <div className="flex items-center gap-2 text-white/80 text-xs font-medium font-body uppercase tracking-[0.18em]">
                 <Send className="w-3.5 h-3.5 text-[#B24635]" />
                 <span>Direct HR Application</span>
+                <span className="w-6 h-px bg-white/20" />
               </div>
 
               <div className="space-y-2">
