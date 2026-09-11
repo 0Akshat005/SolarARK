@@ -231,12 +231,12 @@ export const CareersPage: React.FC<CareersPageProps> = ({
       </section>
 
       {/* ── 3. ARCHITECTURAL PROOF STRIP (Aligned with OfficialMetricsStrip design principle) ── */}
-      <section className="w-full bg-white border-y border-[#E6E3DD] py-4 sm:py-5 lg:py-6 mb-16 sm:mb-20 relative z-10 transition-colors">
+      <section className="w-full bg-white border-y border-[#E6E3DD] py-5 sm:py-6 lg:py-7 mb-16 sm:mb-20 relative z-10 transition-colors">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-y-4 gap-x-0 items-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-6 lg:gap-y-0 items-center">
             
             {/* Col 1: #1 Solar EPC */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 first:pl-0 sm:first:pl-2 border-r border-[#E6E3DD]">
+            <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-8 border-r border-[#E6E3DD]">
               <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
                 #1 Solar EPC
               </div>
@@ -246,7 +246,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             {/* Col 2: 35+ MW */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 md:border-r md:border-[#E6E3DD]">
+            <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-8 lg:border-r border-[#E6E3DD]">
               <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
                 35+ MW
               </div>
@@ -256,7 +256,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             {/* Col 3: 100% Growth */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent border-r border-[#E6E3DD]">
+            <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-8 border-r border-[#E6E3DD]">
               <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
                 100% Growth
               </div>
@@ -266,18 +266,13 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             </div>
 
             {/* Col 4: 4.8 / 5.0 */}
-            <div className="col-span-1 lg:col-span-2 flex flex-col justify-center px-3 sm:px-5 lg:px-6 pt-3 md:pt-0 border-t md:border-t-0 border-[#E6E3DD]/60 md:border-t-transparent lg:border-r lg:border-[#E6E3DD]">
+            <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-8">
               <div className="font-heading text-xl sm:text-2xl lg:text-[26px] font-semibold text-[#151817] tracking-tight leading-none">
                 4.8 / 5.0
               </div>
               <div className="font-body text-[11.5px] sm:text-xs lg:text-[13px] text-[#6C6C68] font-normal leading-tight mt-1.5">
                 Team Culture Rating
               </div>
-            </div>
-
-            {/* Col 5: Right Subtle Accent Line Matching OfficialMetricsStrip */}
-            <div className="col-span-1 hidden lg:flex items-center justify-end pl-6 select-none">
-              <span className="w-10 xl:w-14 h-[1.5px] bg-[#E6E3DD] rounded-full block" />
             </div>
 
           </div>
