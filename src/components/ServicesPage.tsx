@@ -553,12 +553,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#7A211D]/90 text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-105 border border-white/20">
                     <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-white translate-x-0.5" />
                   </div>
-                  <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[11px] sm:text-xs font-medium text-white tracking-wide font-body">
-                      Real Customer Rooftop Installation
-                    </span>
-                  </div>
                 </div>
               )}
             </div>
@@ -686,11 +680,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   transition={{ duration: 0.35 }}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3.5 left-3.5 bg-black/65 backdrop-blur-md px-3.5 py-1.5 rounded-lg text-xs font-medium text-white shadow-sm flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  {SPECIALIZED_SERVICES[activeServiceTab].title}
-                </div>
               </div>
             </div>
 
@@ -754,10 +743,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   alt={SPECIALIZED_SERVICES[activeServiceTab].alt}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-medium text-white">
-                  {SPECIALIZED_SERVICES[activeServiceTab].title}
-                </div>
               </div>
             </div>
 
