@@ -44,7 +44,7 @@ export const PreFooterBanner: React.FC<PreFooterBannerProps> = ({ onCtaClick }) 
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 w-full lg:w-auto">
             <button
               onClick={onCtaClick}
-              className="w-full sm:w-auto justify-center group inline-flex items-center gap-3 px-7 py-3.5 min-h-[48px] rounded-[14px] bg-[#7A211D] hover:bg-[#962B26] text-white font-body font-medium text-sm sm:text-base tracking-wide transition-all duration-200 cursor-pointer shadow-lg hover:shadow-xl"
+              className="w-full sm:w-auto justify-center group inline-flex items-center gap-3 px-7 py-3.5 min-h-[44px] rounded-[4px] bg-[#7A211D] hover:bg-[#631B18] text-white font-body font-medium text-sm sm:text-base tracking-wide transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md"
             >
               <span>Get Started</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

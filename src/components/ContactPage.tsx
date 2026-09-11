@@ -23,6 +23,8 @@ import { PrimaryButton } from './PrimaryButton';
 interface ContactPageProps {
   onNavigate: (path: string) => void;
   onCtaClick?: () => void;
+  prefilledPincode?: string;
+  prefilledBill?: number;
 }
 
 // Vector silhouette path extracted and smoothed from authentic Maharashtra geometry
@@ -121,6 +123,8 @@ const OFFICES: OfficeLocation[] = [
 export const ContactPage: React.FC<ContactPageProps> = ({
   onNavigate,
   onCtaClick,
+  prefilledPincode,
+  prefilledBill,
 }) => {
   // Form State
   const [formData, setFormData] = useState({
@@ -129,9 +133,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     email: '',
     city: '',
     propertyType: 'Select property type',
-    monthlyBill: '',
-    message: '',
+    monthlyBill: prefilledBill ? `₹${prefilledBill.toLocaleString('en-IN')}` : '',
+    message: prefilledPincode ? `Pincode: ${prefilledPincode}` : '',
   });
+
+  React.useEffect(() => {
+    if (prefilledBill || prefilledPincode) {
+      setFormData((prev) => ({
+        ...prev,
+        monthlyBill: prefilledBill ? `₹${prefilledBill.toLocaleString('en-IN')}` : prev.monthlyBill,
+        message: prefilledPincode
+          ? prev.message && !prev.message.includes(prefilledPincode)
+            ? `${prev.message} | Pincode: ${prefilledPincode}`
+            : `Pincode: ${prefilledPincode}`
+          : prev.message,
+      }));
+    }
+  }, [prefilledBill, prefilledPincode]);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeOfficeId, setActiveOfficeId] = useState<string>('amravati');
@@ -231,7 +249,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           2. TWO-COLUMN INTERACTION SYSTEM: GET IN TOUCH (LEFT) + ENQUIRY FORM (RIGHT)
              (Strictly open layout sitting directly on the section — NO card box enclosure)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section id="enquiry-form" className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-12 lg:pb-16">
+      <section id="enquiry-form" className="scroll-mt-24 sm:scroll-mt-28 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-12 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* ── Left Column: "Get in Touch" (~5 cols) ── */}

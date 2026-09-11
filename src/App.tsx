@@ -13,7 +13,6 @@ import { BuiltInMaharashtra } from './components/home/BuiltInMaharashtra';
 import { LandingTestimonials } from './components/home/LandingTestimonials';
 import { PreFooterBanner } from './components/home/PreFooterBanner';
 import { SavingsCalculator } from './components/SavingsCalculator';
-import { FinalCTAForm } from './components/FinalCTAForm';
 import { TechnologySection } from './components/TechnologySection';
 import { AppExperience } from './components/AppExperience';
 import { Testimonials } from './components/Testimonials';
@@ -143,15 +142,19 @@ export default function App() {
   };
 
   const scrollToContactForm = () => {
-    if (currentPath !== '/') {
+    if (currentPath !== '/contact') {
       navigateTo('/contact');
-    } else {
       setTimeout(() => {
-        const el = document.getElementById('contact-form');
+        const el = document.getElementById('enquiry-form');
         if (el) {
           el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
         }
-      }, 50);
+      }, 150);
+    } else {
+      const el = document.getElementById('enquiry-form');
+      if (el) {
+        el.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
+      }
     }
   };
 
@@ -270,14 +273,6 @@ export default function App() {
 
             {/* 8. Pre-Footer Banner: "Your roof could do more." */}
             <PreFooterBanner onCtaClick={scrollToContactForm} />
-
-            {/* 8. Consultation & 3D Site Survey Request Form */}
-            <div id="contact-form">
-              <FinalCTAForm
-                prefilledPincode={calculatorState.pincode}
-                prefilledBill={calculatorState.monthlyBill}
-              />
-            </div>
           </>
         )}
 
@@ -338,6 +333,8 @@ export default function App() {
           <ContactPage
             onNavigate={navigateTo}
             onCtaClick={scrollToContactForm}
+            prefilledPincode={calculatorState.pincode}
+            prefilledBill={calculatorState.monthlyBill}
           />
         )}
 
