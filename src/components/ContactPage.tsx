@@ -640,15 +640,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       >
                         <circle cx={office.dot.cx} cy={office.dot.cy} r="14" className="fill-transparent" />
 
-                        {isHighlighted && (
-                          <circle
-                            cx={office.dot.cx}
-                            cy={office.dot.cy}
-                            r="8.5"
-                            className="fill-[#7A211D]/25 animate-ping origin-center"
-                          />
-                        )}
-
                         <circle
                           cx={office.dot.cx}
                           cy={office.dot.cy}
@@ -692,21 +683,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     M A H A R A S H T R A
                   </text>
                 </svg>
-              </div>
-            </div>
-
-            {/* ── Right Column: Architectural Text Stamp Matching Reference Mockup (lg:col-span-3 xl:col-span-3) ── */}
-            <div className="lg:col-span-3 xl:col-span-3 flex justify-start lg:justify-end items-center select-none pt-2 lg:pt-0">
-              <div className="flex items-start gap-3 text-left bg-[#F7F5F0]/80 lg:bg-transparent backdrop-blur-xs lg:backdrop-blur-none p-3 lg:p-0 rounded-[4px]">
-                <div className="w-[1px] h-12 bg-[#8C827A]/50 mt-0.5 shrink-0" />
-                <div className="space-y-1.5">
-                  <p className="text-[10.5px] sm:text-[11px] font-medium tracking-[0.20em] text-[#5A524C] uppercase font-body leading-[1.35] m-0">
-                    SOLAR<br />
-                    FOR A STRONGER<br />
-                    MAHARASHTRA
-                  </p>
-                  <span className="inline-block w-8 h-[1px] bg-[#8C827A]/40 mt-1" />
-                </div>
               </div>
             </div>
 
