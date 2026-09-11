@@ -98,12 +98,10 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
   return (
     <div className="min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white pt-24 pb-6">
-      
-
 
       {/* ── 2. HERO SHOWCASE: TWO-COLUMN LUXURY STUDIO LAYOUT ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-[4px] p-6 sm:p-10 lg:p-12 text-[#151817] shadow-sm overflow-hidden border border-[#E6E3DD]">
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-10 sm:mb-12">
+        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-[4px] p-6 sm:p-8 lg:p-10 text-[#151817] shadow-sm overflow-hidden border border-[#E6E3DD]">
           
           {/* Subtle Warmth Accents */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#7A211D]/5 rounded-full blur-3xl pointer-events-none" />
@@ -113,14 +111,6 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              
-              {/* Program Eyebrow Tag */}
-              <div className="flex items-center gap-2">
-                <span className="font-body text-[11px] sm:text-xs font-medium uppercase tracking-[0.18em] text-[#7A211D]">
-                  JOIN INDIA’S CLEAN ENERGY REVOLUTION
-                </span>
-                <span className="w-8 h-px bg-[#E6E3DD]" />
-              </div>
 
               {/* Main Headline */}
               <div className="space-y-2">
@@ -146,7 +136,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               </div>
 
               {/* Quick Action CTA Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="pt-1 flex flex-wrap items-center gap-3">
                 <a
                   href="#application-studio"
                   className="bg-[#7A211D] hover:bg-[#631B18] text-white font-body font-medium text-xs sm:text-sm px-6 py-3.5 rounded-[4px] transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
@@ -166,7 +156,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-[11px] text-stone-500 border-t border-[#E6E3DD] font-body">
+              <div className="flex flex-wrap items-center gap-4 pt-3 text-[11px] text-stone-500 border-t border-[#E6E3DD] font-body">
                 <span className="flex items-center gap-1.5 font-medium">
                   <UserCheck className="w-3.5 h-3.5 text-[#7A211D]" /> Merit-Based Growth
                 </span>
@@ -187,7 +177,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <div className="relative rounded-[4px] overflow-hidden bg-stone-50 border border-[#E6E3DD] p-3.5 sm:p-4 shadow-xs space-y-3">
                 
                 {/* Orientation Video */}
-                <div className="relative rounded-[4px] overflow-hidden aspect-[16/9] sm:aspect-[4/3] bg-black border border-[#E6E3DD]">
+                <div className="relative rounded-[4px] overflow-hidden aspect-[16/9] bg-black border border-[#E6E3DD]">
                   <video
                     controls
                     playsInline
