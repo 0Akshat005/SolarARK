@@ -124,7 +124,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
       {/* ── 2. HERO SHOWCASE: TWO-COLUMN LUXURY STUDIO LAYOUT ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-12">
-        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-3xl p-6 sm:p-10 lg:p-12 text-[#151817] shadow-md overflow-hidden border border-[#E6E3DD]">
+        <div className="relative bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/30 rounded-[4px] p-6 sm:p-10 lg:p-12 text-[#151817] shadow-sm overflow-hidden border border-[#E6E3DD]">
           
           {/* Subtle Warmth Accents */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#7A211D]/5 rounded-full blur-3xl pointer-events-none" />
@@ -136,11 +136,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
             <div className="lg:col-span-7 space-y-6">
               
               {/* Program Eyebrow Tag */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-[#E6E3DD] text-stone-700 shadow-2xs text-[11px] font-medium tracking-[0.18em] uppercase font-body">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] bg-stone-100 border border-[#E6E3DD] text-stone-700 text-[11px] font-medium tracking-[0.18em] uppercase font-body">
                 <Sparkles className="w-3.5 h-3.5 text-stone-600" />
                 <span>JOIN INDIA’S CLEAN ENERGY REVOLUTION</span>
               </div>
@@ -172,7 +168,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <a
                   href="#application-studio"
-                  className="bg-[#7A211D] hover:bg-[#631B18] text-white font-body font-medium text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-xs transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+                  className="bg-[#7A211D] hover:bg-[#631B18] text-white font-body font-medium text-xs sm:text-sm px-6 py-3.5 rounded-[4px] transition-all inline-flex items-center gap-2 cursor-pointer active:scale-[0.98]"
                 >
                   <FileText className="w-4 h-4 text-amber-300" />
                   <span>Apply Now · Instant Application Form</span>
@@ -181,7 +177,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
                 <a
                   href="mailto:hr@thesolarark.com"
-                  className="bg-white hover:bg-stone-50 border border-[#E6E3DD] text-[#151817] font-body font-medium px-5 py-3.5 rounded-xl transition-all inline-flex items-center gap-2 text-xs sm:text-sm cursor-pointer shadow-xs"
+                  className="bg-white hover:bg-stone-50 border border-[#E6E3DD] text-[#151817] font-body font-medium px-5 py-3.5 rounded-[4px] transition-all inline-flex items-center gap-2 text-xs sm:text-sm cursor-pointer shadow-2xs"
                 >
                   <Mail className="w-4 h-4 text-[#7A211D]" />
                   <span>Email CV Directly</span>
@@ -205,47 +201,51 @@ export const CareersPage: React.FC<CareersPageProps> = ({
 
             </div>
 
-            {/* Right Visual Culture Spotlight Showcase */}
+            {/* Right Visual Culture & Video Spotlight Showcase */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden bg-stone-50 border border-[#E6E3DD] p-4 shadow-sm space-y-3.5">
+              <div className="relative rounded-[4px] overflow-hidden bg-stone-50 border border-[#E6E3DD] p-3.5 sm:p-4 shadow-xs space-y-3">
                 
-                {/* Visual Image */}
-                <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900">
-                  <img
-                    src="/images/gallery/office.jpg"
-                    alt="SolarArk Engineering & Collaboration Office"
+                {/* Orientation Video */}
+                <div className="relative rounded-[4px] overflow-hidden aspect-[16/9] sm:aspect-[4/3] bg-black border border-[#E6E3DD]">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/images/gallery/office.jpg"
                     className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                  
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <div className="flex items-center gap-1.5 text-[10px] text-amber-300 font-medium uppercase tracking-[0.18em] font-body">
-                      <Users className="w-3 h-3" /> Life at SolarArk
-                    </div>
-                    <div className="text-sm font-medium font-heading mt-0.5">
-                      Empowering 100+ Clean Energy Professionals
-                    </div>
-                  </div>
+                  >
+                    <source
+                      src="https://www.thesolarark.com/static/media/earnwithus1.78f2135bd59c7e4125ab.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support video playback.
+                  </video>
                 </div>
 
-                {/* Culture Pill Grid */}
+                {/* Editorial Caption */}
+                <div className="flex items-center justify-between text-xs text-stone-600 px-0.5 font-body">
+                  <span className="font-medium text-[#151817]">Team Orientation · Operations Overview</span>
+                  <span className="text-[#7A211D] font-medium text-[11px] uppercase tracking-wider">Amravati HQ</span>
+                </div>
+
+                {/* Culture Stat Grid */}
                 <div className="grid grid-cols-2 gap-2 text-xs font-body">
-                  <div className="bg-white border border-[#E6E3DD] rounded-xl p-2.5 space-y-0.5 shadow-2xs">
+                  <div className="bg-white border border-[#E6E3DD] rounded-[4px] p-2.5 space-y-0.5 shadow-2xs">
                     <div className="text-[10px] text-stone-500 font-medium uppercase tracking-[0.18em]">HQ &amp; Hubs</div>
                     <div className="font-medium text-[#151817] text-xs">7 Regional Branches</div>
                   </div>
 
-                  <div className="bg-white border border-[#E6E3DD] rounded-xl p-2.5 space-y-0.5 shadow-2xs">
-                    <div className="text-[10px] text-emerald-700 font-medium uppercase tracking-[0.18em]">Culture Score</div>
+                  <div className="bg-white border border-[#E6E3DD] rounded-[4px] p-2.5 space-y-0.5 shadow-2xs">
+                    <div className="text-[10px] text-[#7A211D] font-medium uppercase tracking-[0.18em]">Culture Score</div>
                     <div className="font-medium text-[#151817] text-xs">4.8★ Team Rating</div>
                   </div>
 
-                  <div className="bg-white border border-[#E6E3DD] rounded-xl p-2.5 space-y-0.5 shadow-2xs">
+                  <div className="bg-white border border-[#E6E3DD] rounded-[4px] p-2.5 space-y-0.5 shadow-2xs">
                     <div className="text-[10px] text-stone-500 font-medium uppercase tracking-[0.18em]">Incentives</div>
                     <div className="font-medium text-[#151817] text-xs">Project Bonus &amp; CTC</div>
                   </div>
 
-                  <div className="bg-white border border-[#E6E3DD] rounded-xl p-2.5 space-y-0.5 shadow-2xs">
+                  <div className="bg-white border border-[#E6E3DD] rounded-[4px] p-2.5 space-y-0.5 shadow-2xs">
                     <div className="text-[10px] text-stone-500 font-medium uppercase tracking-[0.18em]">Mastery</div>
                     <div className="font-medium text-[#151817] text-xs">Internal Solar Academies</div>
                   </div>

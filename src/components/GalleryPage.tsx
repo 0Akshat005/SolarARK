@@ -44,7 +44,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
   const categories = [
     'All',
     'Expos & Trade Fairs',
-    'Partner Community',
+    'Team & Community',
     'Festive Events',
     'Customer Rewards',
     'Team & Culture',
@@ -70,7 +70,14 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       title: 'Festive & Partner Felicitation Celebrations',
       location: 'SolarArk Head Office',
       videoUrl: 'https://www.thesolarark.com/static/media/s3.3164ee25f7ac0c1862c9.MOV',
-      description: 'Celebrating high-performing Surya Mitra partners, customer rewards, and cultural festivities.',
+      description: 'Celebrating team milestones, partner felicitation, customer rewards, and cultural festivities.',
+    },
+    {
+      id: 'g-video-4',
+      title: 'Operations & Team Orientation',
+      location: 'Amravati Headquarters',
+      videoUrl: 'https://www.thesolarark.com/static/media/earnwithus1.78f2135bd59c7e4125ab.mp4',
+      description: 'Headquarters team orientation, operational excellence, and clean energy EPC mission overview.',
     },
   ];
 
@@ -101,7 +108,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-8">
         <div className="space-y-6">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100 border border-[#E6E3DD] shadow-2xs text-[11px] font-medium text-stone-700 tracking-[0.18em] uppercase font-body">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] bg-stone-100 border border-[#E6E3DD] text-[11px] font-medium text-stone-700 tracking-[0.18em] uppercase font-body">
             <Sparkles className="w-3.5 h-3.5 text-stone-600" />
             <span>SOLARARK IN ACTION • COMMUNITY &amp; EXPOS</span>
           </div>
@@ -113,7 +120,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 <span className="text-accent-light">Community Moments</span>
               </h1>
               <p className="text-sm sm:text-base text-stone-600 font-normal leading-relaxed max-w-2xl font-body">
-                Explore highlights from our presence at CREDAI property expos, Bharatcon exhibitions, annual Surya Mitra partner meets, festive celebrations, and customer appreciation events across Maharashtra.
+                Explore highlights from our presence at CREDAI property expos, Bharatcon exhibitions, team celebrations, festive events, and customer appreciation moments across Maharashtra.
               </p>
             </div>
 
@@ -122,7 +129,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                 onClick={onCtaClick}
                 size="md"
               >
-                Join Our Partner Network
+                Book an Expert Site Survey
               </PrimaryButton>
               <span className="text-[11px] text-stone-500 font-medium">
                 Over 10,000+ attendees engaged across our events
@@ -135,12 +142,10 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
 
       {/* ── 3. EVENT HIGHLIGHT VIDEO REELS ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16">
-        <div className="bg-gradient-to-br from-white via-[#FCFAF7] to-amber-50/40 text-[#151817] rounded-3xl p-6 sm:p-8 lg:p-10 shadow-md border border-[#E6E3DD] relative overflow-hidden space-y-6">
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#7A211D]/5 rounded-full blur-3xl pointer-events-none" />
-
+        <div className="bg-white text-[#151817] rounded-[4px] p-5 sm:p-6 lg:p-8 shadow-xs border border-[#E6E3DD] relative overflow-hidden space-y-5">
           <div className="relative z-10 flex items-center justify-between border-b border-[#E6E3DD] pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#7A211D]/10 text-[#7A211D] border border-[#7A211D]/20 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-[4px] bg-[#7A211D]/10 text-[#7A211D] border border-[#7A211D]/20 flex items-center justify-center">
                 <Film className="w-4 h-4" />
               </div>
               <div>
@@ -148,34 +153,27 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                   Event Highlights &amp; Video Moments
                 </h3>
                 <p className="text-xs text-stone-600 font-normal">
-                  Live atmosphere from our exhibition pavilions and celebrations
+                  Atmosphere from our exhibition pavilions, operations, and celebrations
                 </p>
               </div>
             </div>
-            <span className="text-xs text-[#7A211D] font-medium font-body bg-white border border-[#E6E3DD] px-3 py-1 rounded-xl shadow-2xs hidden sm:inline">
-              3 Featured Reels
+            <span className="text-xs text-[#7A211D] font-medium font-body bg-[#FAF8F5] border border-[#E6E3DD] px-2.5 py-1 rounded-[4px] hidden sm:inline">
+              4 Featured Reels
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
             {galleryVideos.map((vid) => (
               <div
                 key={vid.id}
-                className="bg-white border border-[#E6E3DD] rounded-2xl p-4 flex flex-col justify-between shadow-2xs hover:border-[#7A211D]/40 hover:shadow-md transition-all space-y-3"
+                className="bg-[#FAF8F5] border border-[#E6E3DD] rounded-[4px] p-3 flex flex-col justify-between hover:border-[#7A211D]/40 transition-all space-y-3"
               >
-                <div className="space-y-3">
-                  <div className="relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-900 border border-stone-200 shadow-inner flex items-center justify-center">
+                <div className="space-y-2.5">
+                  <div className="relative rounded-[4px] overflow-hidden aspect-[4/3] bg-black border border-stone-200 flex items-center justify-center">
                     <video
                       controls
-                      autoPlay
-                      muted
-                      loop
                       playsInline
-                      preload="auto"
-                      onLoadedMetadata={(e) => {
-                        e.currentTarget.muted = true;
-                        e.currentTarget.play().catch(() => {});
-                      }}
+                      preload="metadata"
                       className="w-full h-full object-cover"
                     >
                       <source src={vid.videoUrl} type="video/mp4" />
@@ -188,10 +186,10 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({
                     <span className="text-[10px] text-[#7A211D] font-medium uppercase tracking-[0.18em] font-body flex items-center gap-1">
                       <MapPin className="w-3 h-3 text-[#7A211D]" /> {vid.location}
                     </span>
-                    <h4 className="font-heading text-sm font-medium text-[#151817] mt-1 leading-snug">
+                    <h4 className="font-heading text-xs sm:text-sm font-medium text-[#151817] mt-1 leading-snug">
                       {vid.title}
                     </h4>
-                    <p className="text-xs text-stone-600 mt-1 leading-relaxed line-clamp-2 font-body">
+                    <p className="text-[11px] text-stone-600 mt-1 leading-relaxed line-clamp-2 font-body">
                       {vid.description}
                     </p>
                   </div>

@@ -21,7 +21,6 @@ import { StickyBars } from './components/StickyBars';
 import { FloatingActionDock } from './components/FloatingActionDock';
 import { AboutPage } from './components/AboutPage';
 import { ServicesPage } from './components/ServicesPage';
-import { EarnWithUsPage } from './components/EarnWithUsPage';
 import { OurProjectsPage } from './components/OurProjectsPage';
 import { GalleryPage } from './components/GalleryPage';
 import { CareersPage } from './components/CareersPage';
@@ -30,7 +29,14 @@ import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
 
 export default function App() {
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
-  const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname || '/');
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    const path = window.location.pathname || '/';
+    if (path === '/earn-with-us') {
+      window.history.replaceState({}, '', '/');
+      return '/';
+    }
+    return path;
+  });
   const [isCalculatorOpen, setIsCalculatorOpen] = useState<boolean>(false);
   const [calculatorState, setCalculatorState] = useState<{ pincode: string; monthlyBill: number }>({
     pincode: '444601',
@@ -39,9 +45,19 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
+      const path = window.location.pathname || '/';
+      if (path === '/earn-with-us') {
+        window.history.replaceState({}, '', '/');
+        setCurrentPath('/');
+      } else {
+        setCurrentPath(path);
+      }
     };
     window.addEventListener('popstate', handlePopState);
+    if (window.location.pathname === '/earn-with-us') {
+      window.history.replaceState({}, '', '/');
+      setCurrentPath('/');
+    }
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
@@ -67,10 +83,6 @@ export default function App() {
       '/projects': {
         title: "Verified Solar Rooftop Installations & Video Walkthroughs | SolarArk",
         description: "View 5,000+ completed solar rooftop projects across Maharashtra. Customer video proof reels, before-and-after bill comparisons & system performance data."
-      },
-      '/earn-with-us': {
-        title: "Surya Mitra Referral Partner Program - Earn ₹15,000+ | SolarArk",
-        description: "Join SolarArk's Surya Mitra Partner Program. Earn high referral payouts for every rooftop solar installation in Maharashtra. Free onboarding kit included."
       },
       '/careers': {
         title: "Careers & Job Openings | SolarArk Projects Pvt. Ltd.",
@@ -293,14 +305,6 @@ export default function App() {
             onCtaClick={scrollToContactForm}
             prefilledPincode={calculatorState.pincode}
             prefilledBill={calculatorState.monthlyBill}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Earn with us (Surya Mitra) */}
-        {currentPath === '/earn-with-us' && (
-          <EarnWithUsPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
           />
         )}
 
