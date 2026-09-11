@@ -3,39 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import {
-  ArrowLeft,
   ArrowRight,
-  Home as HomeIcon,
-  Briefcase,
-  MapPin,
-  Clock,
   CheckCircle2,
   Send,
   Zap,
   TrendingUp,
-  HeartHandshake,
   Mail,
   PhoneCall,
   Sparkles,
   Award,
   Users,
-  ChevronDown,
-  ChevronUp,
-  Search,
-  Check,
-  Compass,
-  HelpCircle,
   Link as LinkIcon,
   UserCheck,
   FileText,
-  DollarSign,
-  Sun,
   ShieldCheck,
-  Star,
-  Layers,
-  X
 } from 'lucide-react';
 import { PrimaryButton } from './PrimaryButton';
 
@@ -75,57 +58,6 @@ export const CareersPage: React.FC<CareersPageProps> = ({
     'Quality & Safety Assurance',
     'General Open Application / Other',
   ];
-
-  const openPositions = [
-    {
-      id: 'cad-engineer',
-      title: 'Solar Systems & 3D CAD Design Engineer',
-      track: '3D CAD & Shadow Analysis Design',
-      department: 'Engineering & Technical',
-      location: 'Amravati HQ / Nagpur',
-      type: 'Full-time · On-site',
-      description: 'Design custom rooftop arrays, single-line diagrams (SLD), structural layouts, and comprehensive PVsyst generation simulations for residential and C&I rooftops.',
-      tags: ['AutoCAD', 'PVsyst', 'BOS Design', 'Tier-1 TOPCon'],
-    },
-    {
-      id: 'epc-supervisor',
-      title: 'Solar EPC Site Supervisor & Commissioning Lead',
-      track: 'Solar Electrical Engineering & EPC',
-      department: 'Project Operations',
-      location: 'Vidarbha & Marathwada',
-      type: 'Full-time · Field Engineering',
-      description: 'Supervise on-site rooftop mounting, AC/DC cabling, solar inverter synchronization, earthing, lightning arrestor setups, and strict safety protocols.',
-      tags: ['Site Execution', 'Inverter Sync', 'DISCOM Standards', 'QA/QC'],
-    },
-    {
-      id: 'solar-consultant',
-      title: 'Commercial & Residential Solar Consultant',
-      track: 'Solar Sales & Business Development',
-      department: 'Business Development',
-      location: 'Pune / Sambhajinagar / Nagpur',
-      type: 'Full-time · Client Advisory',
-      description: 'Guide homeowners, industrial complexes, and societies on solar payback, OPEX/CAPEX economics, net-metering benefits, and PM Surya Ghar subsidy navigation.',
-      tags: ['Client Advisory', 'Energy Auditing', 'Proposal Engineering', 'B2B/B2C'],
-    },
-    {
-      id: 'discom-officer',
-      title: 'DISCOM Liaison & Grid Integration Officer',
-      track: 'DISCOM Documentation & Net-Metering',
-      department: 'Regulatory & Utility Affairs',
-      location: 'Maharashtra Regional Hubs',
-      type: 'Full-time · Regulatory Operations',
-      description: 'Handle end-to-end DISCOM (MSEDCL) net-metering sanctions, transformer capacity feasibility, meter testing, CEIG approvals, and subsidy disbursements.',
-      tags: ['MSEDCL Liaison', 'Net-Metering', 'CEIG Approvals', 'Govt Subsidy'],
-    },
-  ];
-
-  const handleSelectRoleAndApply = (roleTrack: string) => {
-    setSelectedRoleForForm(roleTrack);
-    const formElement = document.getElementById('application-studio');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -359,85 +291,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
         </div>
       </section>
 
-      {/* ── 4. OPEN OPPORTUNITIES & CAREER TRACKS ── */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 sm:mb-20">
-        <div className="space-y-6">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E6E3DD] pb-5">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] bg-stone-100 border border-[#E6E3DD] text-stone-700 text-[11px] font-medium tracking-[0.18em] uppercase font-body">
-                <Briefcase className="w-3.5 h-3.5 text-[#7A211D]" />
-                <span>ACTIVE OPPORTUNITIES</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold font-heading text-[#151817] tracking-tight">
-                Join Our Engineering &amp; Operations Teams
-              </h2>
-              <p className="text-xs sm:text-sm text-[#6C6C68] font-body max-w-2xl font-normal">
-                Open roles across our Maharashtra headquarters and regional hubs. Build a long-term career with Central India&apos;s leading solar EPC.
-              </p>
-            </div>
-            
-            <div className="text-xs font-body text-stone-500">
-              <span className="font-semibold text-[#151817]">4 Functional Tracks</span> Active for Immediate Hiring
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {openPositions.map((job) => (
-              <div
-                key={job.id}
-                className="bg-white border border-[#E6E3DD] rounded-[4px] p-6 shadow-2xs hover:border-[#7A211D]/40 transition-all flex flex-col justify-between space-y-4 group"
-              >
-                <div className="space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-[10px] text-[#7A211D] font-medium uppercase tracking-[0.16em] font-body bg-[#7A211D]/6 px-2.5 py-1 rounded-[4px] border border-[#7A211D]/15">
-                      {job.department}
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-stone-500 font-body">
-                      <MapPin className="w-3.5 h-3.5 text-stone-400" />
-                      <span>{job.location}</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <h3 className="font-heading text-base sm:text-lg font-semibold text-[#151817] tracking-tight group-hover:text-[#7A211D] transition-colors">
-                      {job.title}
-                    </h3>
-                    <p className="text-xs text-[#6C6C68] font-body font-normal leading-relaxed">
-                      {job.description}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {job.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10.5px] font-medium font-body text-stone-600 bg-[#FAF8F5] border border-[#E6E3DD] px-2 py-0.5 rounded-[4px]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-[#E6E3DD] flex items-center justify-between">
-                  <span className="text-[11px] text-stone-400 font-body">{job.type}</span>
-                  <button
-                    onClick={() => handleSelectRoleAndApply(job.track)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold font-body text-[#7A211D] hover:text-[#631B18] transition-colors cursor-pointer group-hover:translate-x-0.5 duration-150"
-                  >
-                    <span>Apply for Position</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 5. DEDICATED APPLICATION STUDIO ── */}
+      {/* ── 4. DEDICATED APPLICATION STUDIO ── */}
       <section id="application-studio" className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-16 sm:mb-20 scroll-mt-24">
         <div className="bg-[#151817] border border-stone-800 text-white rounded-[4px] p-6 sm:p-10 lg:p-12 shadow-sm relative overflow-hidden">
           
