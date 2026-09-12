@@ -47,6 +47,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     message: prefilledPincode ? `Pincode: ${prefilledPincode}` : '',
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   React.useEffect(() => {
     if (prefilledBill || prefilledPincode) {
       setFormData((prev) => ({
@@ -60,6 +62,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       }));
     }
   }, [prefilledBill, prefilledPincode]);
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeOfficeId, setActiveOfficeId] = useState<string>('amravati');
@@ -67,8 +70,37 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   const activeOffice = OFFICES.find((o) => o.id === activeOfficeId) || OFFICES[0];
 
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: '' }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      newErrors.name = 'Please enter your full name.';
+    }
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    const isValidPhone =
+      cleanPhone.length === 10 ||
+      (cleanPhone.length === 11 && cleanPhone.startsWith('0')) ||
+      (cleanPhone.length === 12 && cleanPhone.startsWith('91'));
+    if (!isValidPhone) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number.';
+    }
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = 'Please enter a valid email address.';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     setIsSubmitting(true);
 
     const message = `Hello SolarArk Team! ☀️\n\nI would like to request a Free Solar Assessment.\n\n📌 *Enquiry Details:*\n• *Name:* ${formData.name}\n• *Phone:* ${formData.phone}\n• *Email:* ${formData.email || 'N/A'}\n• *City / Location:* ${formData.city || 'Maharashtra'}\n• *Property Type:* ${formData.propertyType !== 'Select property type' ? formData.propertyType : 'Not Specified'}\n• *Monthly Bill:* ${formData.monthlyBill || 'Not Specified'}\n• *Message:* ${formData.message || 'None'}`;
@@ -90,7 +122,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
   return (
     <div
-      className="pt-[68px] min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body"
+      className="pt-[68px] min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body overflow-x-hidden"
       itemScope
       itemType="https://schema.org/SolarEnergyContractor"
     >
@@ -111,7 +143,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           1. HERO BAND — "Let's talk about your space."
-             (Compact, structured header matching reference crop — NO unnecessary dead space)
+             (Mobile-first, single-column stack on phones with lightweight integrated image)
       ════════════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden bg-[#F7F5F0] pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9">
         {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
@@ -130,8 +162,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               CONTACT
             </span>
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-medium text-[#151817] tracking-tight leading-[1.08] m-0">
-              Let’s talk <br />
+            <h1 className="font-heading text-2xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-medium text-[#151817] tracking-tight leading-[1.12] sm:leading-[1.08] m-0">
+              Let’s talk <br className="hidden sm:inline" />
               about <span className="word-accent-subtle font-medium">your space.</span>
             </h1>
 
@@ -142,10 +174,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 Tell us what you're planning and our team will help you understand the right solar solution.
               </p>
             </div>
+
+            {/* Obvious Call-to-Scroll for Mobile Thumbs */}
+            <div className="pt-2 lg:hidden">
+              <button
+                type="button"
+                onClick={scrollToEnquiry}
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#7A211D] hover:text-[#631B18] font-body transition-colors cursor-pointer py-1.5 min-h-[44px]"
+              >
+                <span>Jump directly to Enquiry Form</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
-          {/* Mobile Image Display (Clean and Card-Free) */}
-          <div className="lg:hidden mt-6 relative w-full aspect-[16/9] overflow-hidden rounded-xl">
+          {/* Mobile Image Display (Integrated, lightweight, full-width with subtle border) */}
+          <div className="lg:hidden mt-5 sm:mt-6 relative w-full aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E3DD]">
             <img
               src="/images/contact-hero-villa-crop.png"
               alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
@@ -157,13 +201,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           2. TWO-COLUMN INTERACTION SYSTEM: GET IN TOUCH (LEFT) + ENQUIRY FORM (RIGHT)
-             (Strictly open layout sitting directly on the section — NO card box enclosure)
+             (Single-column stack on phones: Get in Touch first, Enquiry Form next)
       ════════════════════════════════════════════════════════════════════════ */}
       <section id="enquiry-form" className="scroll-mt-24 sm:scroll-mt-28 w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-8 sm:pt-10 lg:pt-12 pb-12 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
-          {/* ── Left Column: "Get in Touch" (~5 cols) ── */}
-          <div className="lg:col-span-5 space-y-7">
+          {/* ── Left Column: "Get in Touch" (~5 cols on desktop, full-width first on mobile) ── */}
+          <div className="lg:col-span-5 space-y-6 sm:space-y-7">
             <div className="space-y-2">
               <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight leading-tight m-0">
                 Get in Touch
@@ -173,49 +217,49 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </p>
             </div>
 
-            {/* 4 Clean Contact Method Rows */}
-            <div className="space-y-6 pt-1">
+            {/* 4 Clean Contact Method Rows (Touch-friendly tap targets on mobile) */}
+            <div className="space-y-4 sm:space-y-6 pt-1">
               
               {/* Call Us */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+              <a
+                href="tel:+917080909590"
+                itemProp="telephone"
+                className="group flex items-start gap-4 min-h-[44px] py-1 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5 group-hover:border-[#7A211D]/40 transition-colors">
                   <Phone className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
                   <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Call Us
                   </p>
-                  <a
-                    href="tel:+917080909590"
-                    itemProp="telephone"
-                    className="text-base sm:text-[17px] font-medium text-[#151817] hover:text-[#7A211D] transition-colors tabular-nums mt-0.5 block font-body"
-                  >
+                  <span className="text-base sm:text-[17px] font-medium text-[#151817] group-hover:text-[#7A211D] transition-colors tabular-nums mt-0.5 block font-body">
                     +91 7080909590
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
+              <a
+                href="mailto:info@thesolarark.com"
+                itemProp="email"
+                className="group flex items-start gap-4 min-h-[44px] py-1 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5 group-hover:border-[#7A211D]/40 transition-colors">
                   <Mail className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
                 <div>
                   <p className="text-xs font-medium tracking-wider text-[#6C6C68] uppercase font-body m-0">
                     Email
                   </p>
-                  <a
-                    href="mailto:info@thesolarark.com"
-                    itemProp="email"
-                    className="text-base sm:text-[17px] font-medium text-[#151817] hover:text-[#7A211D] transition-colors mt-0.5 block font-body"
-                  >
+                  <span className="text-base sm:text-[17px] font-medium text-[#151817] group-hover:text-[#7A211D] transition-colors mt-0.5 block font-body">
                     info@thesolarark.com
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* Visit Us */}
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 min-h-[44px] py-1">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <MapPin className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
@@ -233,7 +277,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
 
               {/* Business Hours */}
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 min-h-[44px] py-1">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E6E3DD] text-[#7A211D] flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                   <Clock className="w-4.5 h-4.5 stroke-[1.75]" />
                 </div>
@@ -253,23 +297,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
 
             {/* Chat on WhatsApp Red Button — Full Width inside Left Panel */}
-            <div className="pt-2">
+            <div className="pt-1 sm:pt-2">
               <a
                 href="https://wa.me/917080909590?text=Hello%20SolarArk%20Team!%20I%20would%20like%20to%20discuss%20solar%20solutions%20for%20my%20property."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-sm sm:text-base transition-all shadow-sm cursor-pointer min-h-[44px]"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-sm sm:text-base transition-all shadow-sm cursor-pointer min-h-[48px] active:scale-[0.99]"
               >
-                <MessageSquare className="w-4.5 h-4.5 fill-white/20" />
+                <MessageSquare className="w-4.5 h-4.5 fill-white/20 shrink-0" />
                 <span>Chat on WhatsApp</span>
-                <ArrowRight className="w-4 h-4 stroke-[2]" />
+                <ArrowRight className="w-4 h-4 stroke-[2] shrink-0" />
               </a>
             </div>
           </div>
 
-          {/* ── Right Column: "Send Us an Enquiry" (Sitting cleanly on the section — NO card enclosure) ── */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="space-y-2 mb-6">
+          {/* ── Right Column: "Send Us an Enquiry" (Full-width on mobile, 7 cols on desktop) ── */}
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6 w-full">
+            <div className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
               <h3 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight leading-tight m-0">
                 Send Us an Enquiry
               </h3>
@@ -279,98 +323,135 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
 
             {submitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 my-6" aria-live="polite">
+              <div className="p-6 sm:p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 my-4 sm:my-6" aria-live="polite">
                 <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center font-medium">
                   <CheckCircle2 className="w-7 h-7 stroke-[2]" />
                 </div>
-                <h4 className="font-heading text-2xl font-medium text-emerald-900 m-0">
+                <h4 className="font-heading text-xl sm:text-2xl font-medium text-emerald-900 m-0">
                   Enquiry Received!
                 </h4>
                 <p className="text-sm text-emerald-800 leading-relaxed max-w-md mx-auto m-0 font-body">
                   Thank you, <strong>{formData.name}</strong>. A certified SolarArk engineer is reviewing your details and will connect with you at <strong>{formData.phone}</strong>.
                 </p>
-                <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
                   <a
                     href={`https://wa.me/917080909590?text=${encodeURIComponent(`Hello SolarArk Team! ☀️\n\nI just submitted an enquiry for a solar assessment.\n• *Name:* ${formData.name}\n• *Phone:* ${formData.phone}\n• *City:* ${formData.city || 'Maharashtra'}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-3 rounded-xl cursor-pointer transition-colors shadow-xs font-body"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 px-6 py-3.5 rounded-xl cursor-pointer transition-colors shadow-xs font-body min-h-[44px]"
                   >
                     <span>Open in WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-medium text-emerald-800 underline cursor-pointer hover:text-emerald-950 p-2 font-body"
+                    className="w-full sm:w-auto inline-flex items-center justify-center text-xs sm:text-sm font-medium text-emerald-800 underline cursor-pointer hover:text-emerald-950 p-2 font-body min-h-[44px]"
                   >
                     Submit another enquiry
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Row 1: Full Name & Phone */}
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                {/* Row 1: Full Name & Phone (Single-column on mobile, 2-column on sm+) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactName" className="text-xs font-medium text-slate-700 font-body block">
+                      Full Name *
+                    </label>
                     <input
+                      id="contactName"
+                      name="name"
                       type="text"
+                      autoComplete="name"
                       required
-                      placeholder="Full Name *"
+                      placeholder="e.g. Rahul Sharma"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      className={`w-full px-4 py-3.5 rounded-lg border text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body min-h-[44px] ${
+                        errors.name ? 'border-red-400 focus:ring-red-200' : 'border-[#E6E3DD]'
+                      }`}
                     />
+                    {errors.name && <p className="text-xs text-red-600 font-medium font-body pt-0.5">{errors.name}</p>}
                   </div>
 
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactPhone" className="text-xs font-medium text-slate-700 font-body block">
+                      Phone Number *
+                    </label>
                     <input
+                      id="contactPhone"
+                      name="phone"
                       type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel"
                       required
-                      placeholder="Phone Number *"
+                      placeholder="10-digit mobile number"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className={`w-full px-4 py-3.5 rounded-lg border text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body min-h-[44px] ${
+                        errors.phone ? 'border-red-400 focus:ring-red-200' : 'border-[#E6E3DD]'
+                      }`}
                     />
+                    {errors.phone && <p className="text-xs text-red-600 font-medium font-body pt-0.5">{errors.phone}</p>}
                   </div>
                 </div>
 
-                {/* Row 2: Email & City / Location */}
+                {/* Row 2: Email & City / Location (Single-column on mobile, 2-column on sm+) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactEmail" className="text-xs font-medium text-slate-700 font-body block">
+                      Email Address <span className="text-stone-400 font-normal">(Optional)</span>
+                    </label>
                     <input
+                      id="contactEmail"
+                      name="email"
                       type="email"
-                      required
-                      placeholder="Email Address *"
+                      autoComplete="email"
+                      placeholder="e.g. rahul@example.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      className={`w-full px-4 py-3.5 rounded-lg border text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body min-h-[44px] ${
+                        errors.email ? 'border-red-400 focus:ring-red-200' : 'border-[#E6E3DD]'
+                      }`}
                     />
+                    {errors.email && <p className="text-xs text-red-600 font-medium font-body pt-0.5">{errors.email}</p>}
                   </div>
 
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactCity" className="text-xs font-medium text-slate-700 font-body block">
+                      City / Location
+                    </label>
                     <input
+                      id="contactCity"
+                      name="city"
                       type="text"
-                      required
-                      placeholder="City / Location *"
+                      autoComplete="address-level2"
+                      placeholder="e.g. Amravati, Nagpur, Pune"
                       value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
+                      onChange={(e) => handleInputChange('city', e.target.value)}
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body min-h-[44px]"
                     />
                   </div>
                 </div>
 
-                {/* Row 3: Property Type & Monthly Bill */}
+                {/* Row 3: Property Type & Monthly Bill (Single-column on mobile, 2-column on sm+) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactPropertyType" className="text-xs font-medium text-slate-700 font-body block">
+                      Property Type
+                    </label>
                     <select
+                      id="contactPropertyType"
+                      name="propertyType"
                       value={formData.propertyType}
-                      onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                      className={`w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white cursor-pointer font-body ${
+                      onChange={(e) => handleInputChange('propertyType', e.target.value)}
+                      className={`w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white cursor-pointer font-body min-h-[44px] ${
                         formData.propertyType === 'Select property type' ? 'text-[#6C6C68]/60' : 'text-[#151817]'
                       }`}
                     >
                       <option value="Select property type" disabled>
-                        Select property type *
+                        Select property type
                       </option>
                       <option value="Individual Home / Villa">Individual Home / Villa</option>
                       <option value="Housing Society / Apartment">Housing Society / Apartment</option>
@@ -379,25 +460,36 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                     </select>
                   </div>
 
-                  <div>
+                  <div className="space-y-1.5">
+                    <label htmlFor="contactMonthlyBill" className="text-xs font-medium text-slate-700 font-body block">
+                      Monthly Electricity Bill
+                    </label>
                     <input
+                      id="contactMonthlyBill"
+                      name="monthlyBill"
                       type="text"
-                      placeholder="Monthly Electricity Bill / Requirement (e.g. 5000)"
+                      inputMode="numeric"
+                      placeholder="e.g. ₹5,000 / month"
                       value={formData.monthlyBill}
-                      onChange={(e) => setFormData({ ...formData, monthlyBill: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body"
+                      onChange={(e) => handleInputChange('monthlyBill', e.target.value)}
+                      className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all bg-white font-body min-h-[44px]"
                     />
                   </div>
                 </div>
 
                 {/* Row 4: Your Message */}
-                <div>
+                <div className="space-y-1.5">
+                  <label htmlFor="contactMessage" className="text-xs font-medium text-slate-700 font-body block">
+                    Message / Special Requirement
+                  </label>
                   <textarea
-                    rows={4}
-                    placeholder="Your Message (Tell us a bit about your requirement...)"
+                    id="contactMessage"
+                    name="message"
+                    rows={3}
+                    placeholder="Tell us a bit about your requirement or roof type..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all resize-none bg-white font-body"
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="w-full px-4 py-3.5 rounded-lg border border-[#E6E3DD] text-base sm:text-sm text-[#151817] placeholder:text-[#6C6C68]/60 focus:outline-none focus:ring-2 focus:ring-[#7A211D]/20 focus:border-[#7A211D] transition-all resize-none bg-white font-body min-h-[72px]"
                   />
                 </div>
 
@@ -406,7 +498,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 px-6 rounded-lg bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75"
+                    className="w-full py-4 px-6 rounded-lg bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base flex items-center justify-center gap-2.5 transition-all shadow-sm cursor-pointer disabled:opacity-75 min-h-[48px] active:scale-[0.99]"
                   >
                     <span>{isSubmitting ? 'Submitting Enquiry...' : 'Request a Solar Assessment'}</span>
                     <ArrowRight className="w-4 h-4 stroke-[2]" />
@@ -426,7 +518,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       {/* ════════════════════════════════════════════════════════════════════════
           2.5. REAL RECTANGULAR GOOGLE MAP (ABOVE OUR PRESENCE)
       ════════════════════════════════════════════════════════════════════════ */}
-      <section className="w-full bg-[#F7F5F0] border-t border-[#E6E3DD] pt-10 sm:pt-12 pb-2">
+      <section className="w-full bg-[#F7F5F0] border-t border-[#E6E3DD] pt-8 sm:pt-10 lg:pt-12 pb-2">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
           <OfficeLocationInteractiveMap
             selectedOfficeId={activeOfficeId}
@@ -437,10 +529,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           3. OUR PRESENCE IN MAHARASHTRA STRIP (ACCORDION + VECTOR MAP + SCENE)
-             (Exact previous design, isolated height, and authentic corner scene)
+             (Clean single-column sequence on mobile: Title & List -> Map Graphic)
       ════════════════════════════════════════════════════════════════════════ */}
       <section id="our-presence" className="w-full bg-[#F7F5F0] border-y border-[#E6E3DD] py-10 sm:py-12 lg:py-14 relative overflow-hidden">
-        {/* Right-Side Atmospheric Photographic Scene (Fading smoothly into section background) */}
+        {/* Right-Side Atmospheric Photographic Scene (Desktop only) */}
         <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[45%] max-w-[620px] pointer-events-none select-none overflow-hidden z-0">
           <img
             src="/images/contact-presence-corner.png"
@@ -453,8 +545,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
             
             {/* ── Left Column: Heading & Clean Location List (lg:col-span-5) ── */}
-            <div className="lg:col-span-5 space-y-5">
-              <div className="space-y-2">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+              <div className="space-y-1.5 sm:space-y-2">
                 <div className="flex items-center gap-3">
                   <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#151817] tracking-tight m-0">
                     Our Presence
@@ -467,7 +559,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
 
               {/* Minimal Clean Accordion List with Sharp rounded-[4px] Corners */}
-              <div className="space-y-2 max-w-md" role="tablist" aria-label="Office locations list">
+              <div className="space-y-2 max-w-md w-full" role="tablist" aria-label="Office locations list">
                 {OFFICES.map((office) => {
                   const isActive = activeOfficeId === office.id;
                   const isHovered = hoveredOfficeId === office.id;
@@ -538,7 +630,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                           <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-[#E6E3DD]/60">
                             <a
                               href={`tel:${office.phone.replace(/\s+/g, '')}`}
-                              className="font-medium text-[#151817] hover:text-[#7A211D] transition-colors font-body flex items-center gap-1.5"
+                              className="font-medium text-[#151817] hover:text-[#7A211D] transition-colors font-body flex items-center gap-1.5 py-1 min-h-[36px]"
                             >
                               <Phone className="w-3 h-3 text-[#7A211D]" />
                               <span>{office.phone}</span>
@@ -547,7 +639,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                               href={office.directionsUrl || office.mapUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[11px] font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1 font-body"
+                              className="text-[11px] font-medium text-[#7A211D] hover:underline inline-flex items-center gap-1 font-body py-1 min-h-[36px]"
                             >
                               <span>Directions</span>
                               <ArrowRight className="w-3 h-3 stroke-[2]" />
@@ -561,9 +653,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               </div>
             </div>
 
-            {/* ── Middle Column: Vector Maharashtra Map (lg:col-span-4 xl:col-span-4) ── */}
-            <div className="lg:col-span-4 xl:col-span-4 flex justify-center items-center py-2 lg:py-0">
-              <div className="w-full max-w-[440px] xl:max-w-[460px] relative aspect-[240/150] flex items-center justify-center select-none">
+            {/* ── Middle Column: Vector Maharashtra Map (Full-width responsive SVG on mobile) ── */}
+            <div className="lg:col-span-4 xl:col-span-4 flex justify-center items-center py-2 lg:py-0 w-full">
+              <div className="w-full max-w-[420px] lg:max-w-[440px] xl:max-w-[460px] relative aspect-[240/150] flex items-center justify-center select-none">
                 <svg
                   viewBox="0 0 240 150"
                   className="w-full h-full drop-shadow-xs select-none"
@@ -692,6 +784,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
       {/* ════════════════════════════════════════════════════════════════════════
           4. CLOSING PRE-FOOTER CTA BAND — "Ready to explore solar for your property?"
+             (Full-width band on mobile, stacked button with min 48px touch target)
       ════════════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden bg-[#151817] select-none">
         {/* Full-Bleed Golden Sunset Rooftop Panoramic Photography */}
@@ -705,7 +798,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-r from-[#151817]/95 via-[#151817]/80 to-[#151817]/55" />
         </div>
 
-        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-14 sm:py-18 lg:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
+        <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
           <div className="space-y-2 max-w-xl">
             <h3 className="font-heading text-2xl sm:text-3xl lg:text-[38px] font-medium text-white tracking-tight leading-tight m-0 drop-shadow-sm">
               Ready to explore solar <br className="hidden sm:inline" />for your property?
@@ -715,8 +808,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </p>
           </div>
 
-          <div className="shrink-0">
+          <div className="w-full sm:w-auto shrink-0">
             <button
+              type="button"
               onClick={() => {
                 const el = document.getElementById('enquiry-form');
                 if (el) {
@@ -725,7 +819,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   onCtaClick();
                 }
               }}
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base transition-all shadow-lg hover:shadow-xl hover:translate-x-0.5 cursor-pointer border border-white/10"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#7A211D] hover:bg-[#631B18] text-white font-medium font-body text-base transition-all shadow-lg hover:shadow-xl hover:translate-x-0.5 cursor-pointer border border-white/10 min-h-[48px] active:scale-[0.99]"
             >
               <span>Talk to Our Team</span>
               <ArrowRight className="w-4 h-4 stroke-[2]" />
@@ -737,3 +831,5 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     </div>
   );
 };
+
+export default ContactPage;
