@@ -268,18 +268,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           BAND 4 — TEAM BAND ("A team that builds what matters")
           Dark full-width band (#151817):
           Mobile: Text above team photo, full-width thumb-friendly button
-          Desktop: 65% photo width with left gradient blend
+          Desktop: 75% photo width with smooth left gradient blend
           ════════════════════════════════════════════════════════════════ */}
       <section className="relative w-full bg-[#151817] text-white overflow-hidden min-h-[400px] lg:min-h-[440px] flex items-center">
         {/* Full-bleed team photo on desktop with seamless left gradient blend */}
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[65%] h-full">
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[75%] h-full">
           <img
             src="/images/gallery/office.jpg"
             alt="SolarARK team members celebrating customer milestone at headquarters"
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#151817] via-[#151817]/75 to-transparent" />
+          <div 
+            className="absolute inset-0" 
+            style={{
+              background: 'linear-gradient(to right, #151817 0%, rgba(21, 24, 23, 0.85) 18%, rgba(21, 24, 23, 0.40) 38%, rgba(21, 24, 23, 0.08) 62%, transparent 100%)'
+            }}
+          />
         </div>
 
         {/* Content Layer */}
@@ -303,7 +308,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </h2>
               
               {/* Mobile only: Team image stacked cleanly between text & CTA */}
-              <div className="lg:hidden relative h-[220px] sm:h-[320px] w-full rounded-xl overflow-hidden shadow-lg my-2">
+              <div className="lg:hidden relative h-[220px] sm:h-[320px] w-full rounded-[4px] overflow-hidden shadow-lg my-2">
                 <img
                   src="/images/gallery/office.jpg"
                   alt="SolarARK team members celebrating customer milestone at headquarters"
@@ -322,7 +327,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/gallery')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-body font-medium text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[14px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#151817] group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 text-sm font-body font-medium text-white border border-white/40 hover:border-white hover:bg-white/10 rounded-[4px] px-7 py-3.5 min-h-[48px] transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#151817] group"
                 >
                   <span>Meet Our Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
