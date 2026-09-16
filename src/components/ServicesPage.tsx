@@ -225,7 +225,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="pt-20 sm:pt-24 lg:pt-32 pb-12 min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body">
+    <div className="pt-20 sm:pt-24 lg:pt-32 pb-0 min-h-screen bg-[#F7F5F0] text-[#151817] selection:bg-[#7A211D] selection:text-white font-body">
       
       {/* ── SECTION 01: EDITORIAL SOLUTIONS SHOWCASE (PRESERVED INTACT) ── */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 mb-6 lg:mb-8">
@@ -879,7 +879,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       </section>
 
       {/* ── SECTION 04: ASSESSMENT PRE-FOOTER CTA STRIP ("Tell us about your property.") ── */}
-      <section className="border-t border-b border-[#E6E3DD] bg-[#F7F5F0] py-8 sm:py-10 lg:py-12">
+      <section className="border-t border-[#E6E3DD] bg-[#F7F5F0] py-8 sm:py-10 lg:py-12">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
             
