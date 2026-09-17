@@ -47,11 +47,16 @@ export const Hero: React.FC<HeroProps> = ({
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setIsReducedMotion(mq.matches);
 
-    if (mq.matches && videoRef.current) {
+    const isSaveData = Boolean((navigator as any).connection?.saveData);
+
+    if ((mq.matches || isSaveData) && videoRef.current) {
       videoRef.current.pause();
       setIsPlaying(false);
       setIsVideoLoaded(false);
-    } else if (videoRef.current) {
+      return;
+    }
+
+    if (videoRef.current) {
       videoRef.current.muted = true;
       videoRef.current.play().then(() => {
         setIsPlaying(true);
@@ -60,6 +65,33 @@ export const Hero: React.FC<HeroProps> = ({
         setIsVideoLoaded(false);
       });
     }
+
+    // Performance & Battery Optimization: Pause video when hero is scrolled out of viewport
+    const heroSection = document.getElementById('hero');
+    if (!heroSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!videoRef.current || mq.matches || isSaveData) return;
+        if (entry.isIntersecting) {
+          if (videoRef.current.paused) {
+            videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+          }
+        } else {
+          if (!videoRef.current.paused) {
+            videoRef.current.pause();
+            setIsPlaying(false);
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(heroSection);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const togglePlayPause = () => {
@@ -123,6 +155,7 @@ export const Hero: React.FC<HeroProps> = ({
             loop
             playsInline
             preload="auto"
+            poster="/images/hero-video-poster.webp"
             onCanPlay={() => setIsVideoLoaded(true)}
             onPlaying={() => setIsVideoLoaded(true)}
             onLoadedData={() => {
@@ -134,21 +167,21 @@ export const Hero: React.FC<HeroProps> = ({
               isVideoLoaded && !isReducedMotion ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Mobile-optimized stream for constrained mobile networks */}
+            {/* High-Definition 1080p Stream for Mobile Devices with Faststart */}
             <source
               src="/videos/hero-drone-installation-mobile.mp4"
-              type="video/mp4"
+              type='video/mp4; codecs="avc1.640028"'
               media="(max-width: 768px)"
             />
-            {/* Full HD 1080p Stream with Faststart header for instant hardware-accelerated playback */}
-            <source
-              src="/videos/hero-drone-installation.mp4"
-              type="video/mp4"
-            />
-            {/* Modern WebM VP9 fallback stream */}
+            {/* Modern WebM VP9 Full HD 1080p Stream for Advanced Modern Browsers */}
             <source
               src="/videos/hero-drone-installation.webm"
-              type="video/webm"
+              type='video/webm; codecs="vp9"'
+            />
+            {/* Full HD 1080p Stream with Faststart header for Desktop */}
+            <source
+              src="/videos/hero-drone-installation.mp4"
+              type='video/mp4; codecs="avc1.640028"'
             />
           </video>
         </div>
