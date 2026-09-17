@@ -7,7 +7,6 @@
  * - Headline: "Planning your own solar project?"
  * - Subtitle: "Let's build a solution that works for your space."
  * - Primary Action: Maroon button "Request Consultation →"
- * - Category Links: Residential Solar · Commercial Rooftops · Industrial Microgrids · Housing Societies
  * - Sharp architectural corners (rounded-none), on-brand warm neutrals and hairline borders.
  */
 
@@ -21,15 +20,7 @@ interface ProjectPreFooterCtaProps {
 
 export const ProjectPreFooterCta: React.FC<ProjectPreFooterCtaProps> = ({
   onCtaClick,
-  onNavigate,
 }) => {
-  const categories = [
-    { label: 'Residential Solar', path: '/services' },
-    { label: 'Commercial Rooftops', path: '/services' },
-    { label: 'Industrial Microgrids', path: '/services' },
-    { label: 'Housing Societies', path: '/services' },
-  ];
-
   return (
     <section className="w-full bg-[#F7F5F0] py-16 sm:py-20">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -37,7 +28,7 @@ export const ProjectPreFooterCta: React.FC<ProjectPreFooterCtaProps> = ({
         {/* Architectural Card Strip */}
         <div className="bg-white rounded-none border border-[#E6E3DD] p-8 sm:p-12 lg:p-14 shadow-2xs">
           
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-10 border-b border-[#E6E3DD]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             
             {/* Left Copy */}
             <div className="space-y-2 max-w-2xl">
@@ -71,26 +62,6 @@ export const ProjectPreFooterCta: React.FC<ProjectPreFooterCtaProps> = ({
               </a>
             </div>
 
-          </div>
-
-          {/* Bottom Quick Category Strip */}
-          <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-xs font-body">
-            <span className="text-[#6C6C68] font-medium uppercase tracking-wider text-[11px]">
-              SOLAR INSTALLATION SEGMENTS:
-            </span>
-
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              {categories.map((cat) => (
-                <button
-                  key={cat.label}
-                  onClick={() => onNavigate && onNavigate(cat.path)}
-                  className="text-[#6C6C68] hover:text-[#7A211D] transition-colors cursor-pointer flex items-center gap-2 font-body font-medium"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7A211D]/40" />
-                  <span>{cat.label}</span>
-                </button>
-              ))}
-            </div>
           </div>
 
         </div>
