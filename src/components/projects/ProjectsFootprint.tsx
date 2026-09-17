@@ -236,7 +236,8 @@ export const ProjectsFootprint: React.FC<ProjectsFootprintProps> = ({ onCtaClick
                 src="/images/projects/maharashtra-sunset-hills.jpg"
                 alt="Western Ghats and Maharashtra sunset over solar landscape"
                 className="absolute inset-0 w-full h-full object-cover object-center"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
 

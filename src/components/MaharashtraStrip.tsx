@@ -272,7 +272,8 @@ export const MaharashtraStrip: React.FC<MaharashtraStripProps> = ({
                         src={city.image}
                         alt={`${city.name} Landmark`}
                         className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                        loading="eager"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 

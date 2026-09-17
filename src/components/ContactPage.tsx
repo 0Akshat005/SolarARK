@@ -148,11 +148,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       <section className="relative w-full overflow-hidden bg-[#F7F5F0] pt-6 sm:pt-8 lg:pt-9 pb-6 sm:pb-8 lg:pb-9">
         {/* Right-Side Environmental Photographic Scene — Seamless PNG Blend (Desktop) */}
         <div className="absolute right-0 top-0 bottom-0 pointer-events-none select-none overflow-hidden hidden lg:block z-0">
-          <img
-            src="/images/contact-hero-villa-crop.png"
-            alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
-            className="h-full w-auto object-contain object-[right_top]"
-          />
+          <picture className="h-full w-auto">
+            <source srcSet="/images/contact-hero-villa-crop.webp" type="image/webp" />
+            <img
+              src="/images/contact-hero-villa-crop.png"
+              alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
+              className="h-full w-auto object-contain object-[right_top]"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         {/* Content Container */}
@@ -190,11 +195,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
 
           {/* Mobile Image Display (Integrated, lightweight, full-width with subtle border) */}
           <div className="lg:hidden mt-5 sm:mt-6 relative w-full aspect-[16/9] overflow-hidden rounded-[4px] border border-[#E6E3DD]">
-            <img
-              src="/images/contact-hero-villa-crop.png"
-              alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
-              className="w-full h-full object-cover object-center"
-            />
+            <picture>
+              <source srcSet="/images/contact-hero-villa-crop.webp" type="image/webp" />
+              <img
+                src="/images/contact-hero-villa-crop.png"
+                alt="Modern architectural villa with rooftop solar canopy catching warm sunlight"
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -534,11 +544,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({
       <section id="our-presence" className="w-full bg-[#F7F5F0] border-y border-[#E6E3DD] py-10 sm:py-12 lg:py-14 relative overflow-hidden">
         {/* Right-Side Atmospheric Photographic Scene (Desktop only) */}
         <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[45%] max-w-[620px] pointer-events-none select-none overflow-hidden z-0">
-          <img
-            src="/images/contact-presence-corner.png"
-            alt="Architectural villa and greenery in Maharashtra"
-            className="w-full h-full object-cover object-right-bottom"
-          />
+          <picture>
+            <source srcSet="/images/contact-presence-corner.webp" type="image/webp" />
+            <img
+              src="/images/contact-presence-corner.png"
+              alt="Architectural villa and greenery in Maharashtra"
+              className="w-full h-full object-cover object-right-bottom"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -793,6 +808,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             src="/images/contact-bottom-cta-bg.jpg"
             alt="Panoramic solar rooftop installation catching golden sunset rays"
             className="w-full h-full object-cover object-center opacity-75"
+            loading="lazy"
+            decoding="async"
           />
           {/* Deep Linear Gradient Ensuring WCAG AAA Contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#151817]/95 via-[#151817]/80 to-[#151817]/55" />

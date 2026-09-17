@@ -41,6 +41,8 @@ export const Hero: React.FC<HeroProps> = ({
   const [isMuted, setIsMuted] = useState<boolean>(true);
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
 
+  const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
+
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setIsReducedMotion(mq.matches);
@@ -48,10 +50,14 @@ export const Hero: React.FC<HeroProps> = ({
     if (mq.matches && videoRef.current) {
       videoRef.current.pause();
       setIsPlaying(false);
+      setIsVideoLoaded(false);
     } else if (videoRef.current) {
       videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
         setIsPlaying(false);
+        setIsVideoLoaded(false);
       });
     }
   }, []);
@@ -83,8 +89,6 @@ export const Hero: React.FC<HeroProps> = ({
     }
   };
 
-
-
   return (
     <>
       {/* ── 1. FULL-PAGE IMMERSIVE BACKGROUND-VIDEO HERO ── */}
@@ -92,26 +96,59 @@ export const Hero: React.FC<HeroProps> = ({
         id="hero"
         className="relative w-full overflow-hidden bg-[#0A0F1D] h-screen min-h-[640px] flex items-center justify-center"
       >
+        {/* Instant High-Quality Static Poster Layer (Immediate Visual Anchor & Zero Layout Shift) */}
+        <picture
+          className={`absolute inset-0 z-0 w-full h-full pointer-events-none transition-opacity duration-700 ease-out ${
+            isVideoLoaded && !isReducedMotion ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <source
+            type="image/webp"
+            srcSet="/images/hero-video-poster.webp"
+          />
+          <img
+            src="/images/hero-video-poster.jpg"
+            alt="SolarArk rooftop solar installation aerial view"
+            fetchPriority="high"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
+
         {/* Full-bleed real project hero video */}
-        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-[#0A0F1D] transform-gpu">
+        <div className="absolute inset-0 z-0 w-full h-full overflow-hidden bg-transparent transform-gpu pointer-events-none">
           <video
             ref={videoRef}
             autoPlay={!isReducedMotion}
             muted={isMuted}
-            defaultMuted
             loop
             playsInline
             preload="auto"
-            poster="/images/hero-video-poster.jpg"
-            className="w-full h-full object-cover object-center will-change-transform transform-gpu"
+            onCanPlay={() => setIsVideoLoaded(true)}
+            onPlaying={() => setIsVideoLoaded(true)}
+            onLoadedData={() => {
+              if (videoRef.current && videoRef.current.currentTime > 0) {
+                setIsVideoLoaded(true);
+              }
+            }}
+            className={`w-full h-full object-cover object-center will-change-transform transform-gpu transition-opacity duration-700 ease-out ${
+              isVideoLoaded && !isReducedMotion ? 'opacity-100' : 'opacity-0'
+            }`}
           >
+            {/* Mobile-optimized stream for constrained mobile networks */}
+            <source
+              src="/videos/hero-drone-installation-mobile.mp4"
+              type="video/mp4"
+              media="(max-width: 768px)"
+            />
+            {/* Full HD 1080p Stream with Faststart header for instant hardware-accelerated playback */}
             <source
               src="/videos/hero-drone-installation.mp4"
               type="video/mp4"
             />
+            {/* Modern WebM VP9 fallback stream */}
             <source
-              src="https://www.thesolarark.com/static/media/homepage1.064e908497b52c839705.mp4"
-              type="video/mp4"
+              src="/videos/hero-drone-installation.webm"
+              type="video/webm"
             />
           </video>
         </div>

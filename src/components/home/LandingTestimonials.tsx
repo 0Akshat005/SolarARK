@@ -184,6 +184,7 @@ export const LandingTestimonials: React.FC<LandingTestimonialsProps> = () => {
                 poster={current.posterSrc}
                 className="w-full h-full object-cover"
                 controls={isPlaying}
+                preload="none"
                 playsInline
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
@@ -263,6 +264,8 @@ export const LandingTestimonials: React.FC<LandingTestimonialsProps> = () => {
                       src={item.posterSrc}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className={`absolute inset-0 transition-colors flex items-center justify-center ${
                       isActive ? 'bg-[#7A211D]/30' : 'bg-black/30 group-hover:bg-black/10'

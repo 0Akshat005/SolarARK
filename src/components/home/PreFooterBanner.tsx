@@ -19,6 +19,8 @@ export const PreFooterBanner: React.FC<PreFooterBannerProps> = ({ onCtaClick }) 
         src="/images/solar-villa-sunset.jpg"
         alt="Solar rooftop dusk"
         className="absolute inset-0 w-full h-full object-cover object-center opacity-25"
+        loading="lazy"
+        decoding="async"
       />
       
       {/* Gradient Vignette */}

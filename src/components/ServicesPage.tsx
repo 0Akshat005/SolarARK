@@ -284,6 +284,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 src="/images/services/homes.jpg"
                 alt="Residential rooftop solar installation on Indian home"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
@@ -332,6 +334,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 src="/images/services/commercial.png"
                 alt="Commercial building with rooftop solar array"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
@@ -380,6 +384,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 src="/images/services/industrials.jpg"
                 alt="Industrial solar plant installation on factory roof"
                 className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
@@ -449,11 +455,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
           {/* Right Open Full-Bleed Image (No box, no card, extends to top, bottom, and right edges) */}
           <div className="w-full lg:w-[62%] xl:w-[66%] relative flex items-center justify-end">
-            <img
-              src="/images/approach-artwork.png"
-              alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
-              className="w-full h-auto object-cover object-right block lg:[mask-image:linear-gradient(to_right,transparent_0%,black_24px,black_100%)] lg:[WebkitMaskImage:linear-gradient(to_right,transparent_0%,black_24px,black_100%)]"
-            />
+            <picture className="w-full">
+              <source srcSet="/images/approach-artwork.webp" type="image/webp" />
+              <img
+                src="/images/approach-artwork.png"
+                alt="SolarArk site-first solar engineering process: Site Assessment, System Design, Installation, and Ongoing Support"
+                className="w-full h-auto object-cover object-right block lg:[mask-image:linear-gradient(to_right,transparent_0%,black_24px,black_100%)] lg:[WebkitMaskImage:linear-gradient(to_right,transparent_0%,black_24px,black_100%)]"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
 
         </div>
@@ -742,6 +753,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   src={SPECIALIZED_SERVICES[activeServiceTab].image}
                   alt={SPECIALIZED_SERVICES[activeServiceTab].alt}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -838,6 +851,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                         src={project.image}
                         alt={project.alt}
                         className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 

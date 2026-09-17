@@ -65,7 +65,8 @@ export const ProjectInDepth: React.FC<ProjectInDepthProps> = ({
               src={project.image || '/images/projects/panoramic-featured-solar.jpg'}
               alt={project.imageAlt || project.title}
               className="absolute inset-0 w-full h-full object-cover object-center"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
             {/* Scrim Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />

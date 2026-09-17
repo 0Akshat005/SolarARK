@@ -49,8 +49,8 @@ export const SolarArkLogo: React.FC<SolarArkLogoProps> = ({
   };
 
   const currentSize = sizeStyles[size] || sizeStyles.md;
-  const webpSrc = '/images/solarark-brand-logo.webp';
-  const pngSrc = '/images/solarark-brand-logo.png';
+  const webpSrc = isDark ? '/images/solarark-brand-logo-dark.webp' : '/images/solarark-brand-logo.webp';
+  const pngSrc = isDark ? '/images/solarark-brand-logo-dark.png' : '/images/solarark-brand-logo.png';
 
   if (useImage) {
     return (

@@ -12,20 +12,22 @@ import { FeaturedProjects } from './components/home/FeaturedProjects';
 import { BuiltInMaharashtra } from './components/home/BuiltInMaharashtra';
 import { LandingTestimonials } from './components/home/LandingTestimonials';
 import { PreFooterBanner } from './components/home/PreFooterBanner';
-import { SavingsCalculator } from './components/SavingsCalculator';
-import { TechnologySection } from './components/TechnologySection';
-import { AppExperience } from './components/AppExperience';
-import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
 import { StickyBars } from './components/StickyBars';
 import { FloatingActionDock } from './components/FloatingActionDock';
-import { AboutPage } from './components/AboutPage';
-import { ServicesPage } from './components/ServicesPage';
-import { OurProjectsPage } from './components/OurProjectsPage';
-import { GalleryPage } from './components/GalleryPage';
-import { CareersPage } from './components/CareersPage';
-import { ContactPage } from './components/ContactPage';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
+
+// Code-split non-homepage routes & heavy modals to minimize initial bundle size and speed up FCP/LCP
+const AboutPage = React.lazy(() => import('./components/AboutPage').then(m => ({ default: m.AboutPage })));
+const ServicesPage = React.lazy(() => import('./components/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const OurProjectsPage = React.lazy(() => import('./components/OurProjectsPage').then(m => ({ default: m.OurProjectsPage })));
+const GalleryPage = React.lazy(() => import('./components/GalleryPage').then(m => ({ default: m.GalleryPage })));
+const CareersPage = React.lazy(() => import('./components/CareersPage').then(m => ({ default: m.CareersPage })));
+const ContactPage = React.lazy(() => import('./components/ContactPage').then(m => ({ default: m.ContactPage })));
+const SavingsCalculator = React.lazy(() => import('./components/SavingsCalculator').then(m => ({ default: m.SavingsCalculator })));
+const TechnologySection = React.lazy(() => import('./components/TechnologySection').then(m => ({ default: m.TechnologySection })));
+const AppExperience = React.lazy(() => import('./components/AppExperience').then(m => ({ default: m.AppExperience })));
+const Testimonials = React.lazy(() => import('./components/Testimonials').then(m => ({ default: m.Testimonials })));
 
 export default function App() {
   const [isReducedMotion, setIsReducedMotion] = useState<boolean>(false);
@@ -289,82 +291,84 @@ export default function App() {
         )}
 
         {/* DEDICATED PAGE: About Us */}
-        {currentPath === '/about' && (
-          <AboutPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-            prefilledPincode={calculatorState.pincode}
-            prefilledBill={calculatorState.monthlyBill}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Services */}
-        {currentPath === '/services' && (
-          <ServicesPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-            prefilledPincode={calculatorState.pincode}
-            prefilledBill={calculatorState.monthlyBill}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Our Projects & Case Studies */}
-        {(currentPath === '/projects' || currentPath === '/our-projects') && (
-          <OurProjectsPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Community & Expos Gallery */}
-        {currentPath === '/gallery' && (
-          <GalleryPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Careers */}
-        {currentPath === '/careers' && (
-          <CareersPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Contact Us */}
-        {currentPath === '/contact' && (
-          <ContactPage
-            onNavigate={navigateTo}
-            onCtaClick={scrollToContactForm}
-            prefilledPincode={calculatorState.pincode}
-            prefilledBill={calculatorState.monthlyBill}
-          />
-        )}
-
-        {/* DEDICATED PAGE: Technology */}
-        {currentPath === '/technology' &&
-          renderDedicatedPage(
-            'SolarArk Technology Standards',
-            'Explore our Tier-1 N-Type TOPCon panels, smart hybrid inverters, and 25-year performance warranties.',
-            <TechnologySection onCtaClick={scrollToContactForm} />
+        <React.Suspense fallback={<div className="min-h-[60vh] bg-[#F7F5F0]" />}>
+          {currentPath === '/about' && (
+            <AboutPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+              prefilledPincode={calculatorState.pincode}
+              prefilledBill={calculatorState.monthlyBill}
+            />
           )}
 
-        {/* DEDICATED PAGE: App Experience */}
-        {currentPath === '/app' &&
-          renderDedicatedPage(
-            'Smart SolarArk Telemetry App',
-            'Track real-time power generation, grid net-metering exports, battery state of charge, and lifetime savings.',
-            <AppExperience onCtaClick={scrollToContactForm} />
+          {/* DEDICATED PAGE: Services */}
+          {currentPath === '/services' && (
+            <ServicesPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+              prefilledPincode={calculatorState.pincode}
+              prefilledBill={calculatorState.monthlyBill}
+            />
           )}
 
-        {/* DEDICATED PAGE: Reviews */}
-        {currentPath === '/reviews' &&
-          renderDedicatedPage(
-            'Homeowner Testimonials & Reviews',
-            'Read verified stories from Indian homeowners who switched to SolarArk rooftop solar.',
-            <Testimonials />
+          {/* DEDICATED PAGE: Our Projects & Case Studies */}
+          {(currentPath === '/projects' || currentPath === '/our-projects') && (
+            <OurProjectsPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+            />
           )}
+
+          {/* DEDICATED PAGE: Community & Expos Gallery */}
+          {currentPath === '/gallery' && (
+            <GalleryPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+            />
+          )}
+
+          {/* DEDICATED PAGE: Careers */}
+          {currentPath === '/careers' && (
+            <CareersPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+            />
+          )}
+
+          {/* DEDICATED PAGE: Contact Us */}
+          {currentPath === '/contact' && (
+            <ContactPage
+              onNavigate={navigateTo}
+              onCtaClick={scrollToContactForm}
+              prefilledPincode={calculatorState.pincode}
+              prefilledBill={calculatorState.monthlyBill}
+            />
+          )}
+
+          {/* DEDICATED PAGE: Technology */}
+          {currentPath === '/technology' &&
+            renderDedicatedPage(
+              'SolarArk Technology Standards',
+              'Explore our Tier-1 N-Type TOPCon panels, smart hybrid inverters, and 25-year performance warranties.',
+              <TechnologySection onCtaClick={scrollToContactForm} />
+            )}
+
+          {/* DEDICATED PAGE: App Experience */}
+          {currentPath === '/app' &&
+            renderDedicatedPage(
+              'Smart SolarArk Telemetry App',
+              'Track real-time power generation, grid net-metering exports, battery state of charge, and lifetime savings.',
+              <AppExperience onCtaClick={scrollToContactForm} />
+            )}
+
+          {/* DEDICATED PAGE: Reviews */}
+          {currentPath === '/reviews' &&
+            renderDedicatedPage(
+              'Homeowner Testimonials & Reviews',
+              'Read verified stories from Indian homeowners who switched to SolarArk rooftop solar.',
+              <Testimonials />
+            )}
+        </React.Suspense>
       </main>
 
       {/* Footer */}
@@ -397,12 +401,14 @@ export default function App() {
           }}
         >
           <div className="relative w-full max-w-[1540px] max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-[#F7F5F0] shadow-2xl border border-[#E6E3DD] my-auto">
-            <SavingsCalculator
-              onClaimEstimate={handleClaimEstimate}
-              initialPincode={calculatorState.pincode}
-              initialBill={calculatorState.monthlyBill}
-              onClose={() => setIsCalculatorOpen(false)}
-            />
+            <React.Suspense fallback={<div className="p-12 text-center text-[#6C6C68]">Loading Solar Calculator...</div>}>
+              <SavingsCalculator
+                onClaimEstimate={handleClaimEstimate}
+                initialPincode={calculatorState.pincode}
+                initialBill={calculatorState.monthlyBill}
+                onClose={() => setIsCalculatorOpen(false)}
+              />
+            </React.Suspense>
           </div>
         </div>
       )}

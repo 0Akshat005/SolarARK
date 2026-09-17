@@ -80,6 +80,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               alt="SolarArk Founder & Managing Director Shrikant Tikhile"
               className="w-full h-full object-cover object-top sm:object-center"
               loading="eager"
+              decoding="async"
             />
             {/* Elegant Founder Attribution Badge */}
             <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 bg-black/70 backdrop-blur-md px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl text-white border border-white/10 shadow-lg">
@@ -111,7 +112,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               src="/images/earnwithus/earnwithus-hero-rooftop.jpg"
               alt="SolarArk rooftop solar array overlooking Maharashtra skyline"
               className="w-full h-full object-cover object-center"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/60 lg:via-transparent lg:to-black/30" />
             <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-12 max-w-md border-l-2 border-[#7A211D] pl-4 sm:pl-5">
@@ -154,7 +156,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               src="/images/solar-villa-sunset.jpg"
               alt="Solar panels reflecting sunset glow"
               className="w-full h-full object-cover object-center"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-black/20" />
           </div>
@@ -241,7 +244,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               src="/images/technology-solar-module.jpg"
               alt="High efficiency monocrystalline solar panels basking in sun flare"
               className="w-full h-full object-cover object-center"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
             {/* Stacked Margin Label (Bottom Right) */}
             <div className="hidden sm:flex absolute right-6 bottom-8 flex-col items-start gap-1 pointer-events-none z-10">
@@ -277,7 +281,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             src="/images/gallery/office.jpg"
             alt="SolarARK team members celebrating customer milestone at headquarters"
             className="w-full h-full object-cover object-center"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
           />
           <div 
             className="absolute inset-0" 
@@ -313,7 +318,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   src="/images/gallery/office.jpg"
                   alt="SolarARK team members celebrating customer milestone at headquarters"
                   className="w-full h-full object-cover object-center"
-                  loading="eager"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151817]/90 via-[#151817]/30 to-transparent" />
                 <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6 max-w-[240px] text-right">
@@ -453,7 +459,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             src="/images/solar-villa-sunset.jpg"
             alt="Maharashtra solar landscape at sunset"
             className="w-full h-full object-cover object-center"
-            loading="eager"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-[#D4AF37]/25 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-r from-stone-900/95 via-stone-900/85 to-stone-900/75" />

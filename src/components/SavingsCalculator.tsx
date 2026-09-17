@@ -199,12 +199,16 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
         >
           {/* Architectural Villa Photo at bottom with natural sky blending */}
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <img
-              src="/images/calc-left-clean@2x.png"
-              alt="Modern architectural villa with SolarARK rooftop solar panels at dusk"
-              className="w-full h-full object-cover object-left-bottom"
-              loading="eager"
-            />
+            <picture>
+              <source srcSet="/images/calc-left-clean@2x.webp" type="image/webp" />
+              <img
+                src="/images/calc-left-clean@2x.png"
+                alt="Modern architectural villa with SolarARK rooftop solar panels at dusk"
+                className="w-full h-full object-cover object-left-bottom"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             {/* Top subtle fade to guarantee text legibility */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5F0]/92 via-[#F7F5F0]/60 to-transparent lg:h-[45%]" />
           </div>
@@ -716,7 +720,8 @@ export const SavingsCalculator: React.FC<SavingsCalculatorProps> = ({
               src="/images/calc-sunset-sky.jpg"
               alt="Golden sunset horizon"
               className="w-full h-full object-cover object-center"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
           </div>

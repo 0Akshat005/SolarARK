@@ -93,7 +93,8 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onNavigate }
                 src={item.image}
                 alt={`${item.capacity} ${item.type} in ${item.location}`}
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-104"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
 
               {/* Scrim Overlay */}

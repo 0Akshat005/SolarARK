@@ -62,7 +62,8 @@ export const WhySolarArk: React.FC<WhySolarArkProps> = ({ onNavigate }) => {
               src="/images/revamp/engineer-solar-sunset.jpg"
               alt="SolarARK certified engineer inspecting rooftop solar array at golden hour"
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-103"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Editorial Gradient Scrim */}

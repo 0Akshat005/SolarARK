@@ -107,7 +107,8 @@ export const SolutionsScale: React.FC<SolutionsScaleProps> = ({ onNavigate }) =>
               src={item.image}
               alt={`${item.title} rooftop solar installation`}
               className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Cinematic Scrim */}

@@ -58,13 +58,14 @@ export const FeaturedProjectHero: React.FC<FeaturedProjectHeroProps> = ({
           
           {/* Panoramic Solar Array Background */}
           <div className="absolute inset-0 z-0">
-            <img
-              key={current.id}
-              src={current.image || '/images/projects/panoramic-featured-solar.jpg'}
-              alt={current.imageAlt || current.title}
-              className="w-full h-full object-cover object-center transition-all duration-700 ease-out brightness-[0.88] contrast-[1.05]"
-              loading="eager"
-            />
+              <img
+                key={current.id}
+                src={current.image || '/images/projects/panoramic-featured-solar.jpg'}
+                alt={current.imageAlt || current.title}
+                className="w-full h-full object-cover object-center transition-all duration-700 ease-out brightness-[0.88] contrast-[1.05]"
+                loading="lazy"
+                decoding="async"
+              />
             {/* Deep Contrast Scrim Gradient on Left for Text Legibility */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#151817] via-[#151817]/85 sm:via-[#151817]/75 to-transparent pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#151817] via-transparent to-black/30 pointer-events-none" />
