@@ -32,9 +32,9 @@ export const ProjectPreFooterCta: React.FC<ProjectPreFooterCtaProps> = ({
   };
 
   return (
-    <section className="border-t border-[#E6E3DD] bg-[#F7F5F0] py-8 sm:py-10 lg:py-12">
+    <section className="bg-white py-6 sm:py-7 lg:py-8">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 lg:gap-8">
           
           {/* Left & Center: Eyebrow Stack + Vertical Divider + Headline/Subtext */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 lg:gap-10">
