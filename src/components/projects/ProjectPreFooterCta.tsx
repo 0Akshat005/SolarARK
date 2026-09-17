@@ -11,7 +11,7 @@
  */
 
 import React from 'react';
-import { ArrowRight, PhoneCall } from 'lucide-react';
+import { PrimaryButton } from '../PrimaryButton';
 
 interface ProjectPreFooterCtaProps {
   onCtaClick?: () => void;
@@ -20,52 +20,68 @@ interface ProjectPreFooterCtaProps {
 
 export const ProjectPreFooterCta: React.FC<ProjectPreFooterCtaProps> = ({
   onCtaClick,
+  onNavigate,
 }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('/contact');
+    } else if (onCtaClick) {
+      onCtaClick();
+    }
+  };
+
   return (
-    <section className="w-full bg-[#F7F5F0] py-16 sm:py-20">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12">
-        
-        {/* Architectural Card Strip */}
-        <div className="bg-white rounded-none border border-[#E6E3DD] p-8 sm:p-12 lg:p-14 shadow-2xs">
+    <section className="border-t border-[#E6E3DD] bg-[#F7F5F0] py-8 sm:py-10 lg:py-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-10">
           
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          {/* Left & Center: Eyebrow Stack + Vertical Divider + Headline/Subtext */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 lg:gap-10">
             
-            {/* Left Copy */}
-            <div className="space-y-2 max-w-2xl">
-              <span className="font-body text-[11px] font-medium uppercase tracking-[0.18em] text-[#7A211D]">
-                START YOUR TRANSITION
+            {/* 1. Regional Eyebrow Stack: A CLEANER / BRIGHTER / MAHARASHTRA */}
+            <div className="flex flex-col select-none shrink-0">
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight">
+                A CLEANER
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-[#151817] tracking-tight leading-tight m-0">
-                Planning your own solar project?
-              </h2>
-              <p className="font-body text-sm sm:text-base text-[#6C6C68] leading-relaxed m-0">
-                Let’s build an engineered solution that works specifically for your space, load requirements, and utility tariff.
-              </p>
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight mt-0.5">
+                BRIGHTER
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.18em] text-[#6C6C68] font-body leading-tight mt-0.5">
+                MAHARASHTRA
+              </span>
+              <div className="w-7 h-[1.5px] bg-[#E6E3DD] mt-2.5" />
             </div>
 
-            {/* Right Action Button & Direct Desk */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto shrink-0">
-              <button
-                onClick={onCtaClick}
-                className="px-7 py-3.5 bg-[#7A211D] hover:bg-[#962B26] text-white font-body font-medium text-xs sm:text-sm rounded-none inline-flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-colors group"
-              >
-                <span>Request Consultation</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+            {/* Vertical Architectural Divider */}
+            <div className="hidden sm:block w-[1px] h-12 lg:h-14 bg-[#E6E3DD] shrink-0" />
 
-              <a
-                href="tel:7080909590"
-                className="px-5 py-3.5 border border-[#E6E3DD] hover:border-[#151817] text-[#151817] font-body font-medium text-xs sm:text-sm rounded-none inline-flex items-center justify-center gap-2 transition-colors"
-              >
-                <PhoneCall className="w-4 h-4 text-[#7A211D]" />
-                <span>+91 7080909590</span>
-              </a>
+            {/* 2. Headline & Subtext */}
+            <div className="space-y-1 text-left">
+              <h3 className="font-heading text-2xl sm:text-3xl lg:text-[34px] xl:text-[36px] font-medium text-[#151817] tracking-tight leading-tight">
+                Tell us about your property.
+              </h3>
+              <p className="text-xs sm:text-sm lg:text-[15px] text-[#6C6C68] font-normal leading-normal font-body">
+                We'll help assess the right solar solution for your space.
+              </p>
             </div>
 
           </div>
 
-        </div>
+          {/* 3. Right Action Button */}
+          <div className="shrink-0 flex items-center">
+            <PrimaryButton
+              as="a"
+              href="/contact"
+              onClick={handleClick}
+              size="md"
+              className="w-full sm:w-auto justify-center whitespace-nowrap"
+            >
+              Get a Solar Assessment
+            </PrimaryButton>
+          </div>
 
+        </div>
       </div>
     </section>
   );
